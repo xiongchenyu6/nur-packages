@@ -15,6 +15,9 @@
   overlays = import ./overlays; # nixpkgs overlays
 
   example-package = pkgs.callPackage ./pkgs/example-package { };
+  bttc = pkgs.callPackage ./pkgs/bttc { };
+  delivery = pkgs.callPackage ./pkgs/delivery { };
+  my_cookies = pkgs.callPackage ./pkgs/python3/my_cookies { };
   # some-qt5-package = pkgs.libsForQt5.callPackage ./pkgs/some-qt5-package { };
   # ...
 }
