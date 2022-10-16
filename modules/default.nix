@@ -1,5 +1,7 @@
 {
   # Add your NixOS modules here
   #
-  # my-module = ./my-module;
+  bttc = import ./bttc;
+  unit-status-telegram = import ./unit-status-telegram;
+  tat-agent = import ./tat-agent;
 }

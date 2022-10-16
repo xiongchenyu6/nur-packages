@@ -1,21 +1,109 @@
 {
   description = "My personal NUR repository";
-  inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
-  outputs = { self, nixpkgs }:
+    inputs = {
+    nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+    flake-utils.url = "github:numtide/flake-utils";
+  };
+  outputs = { self, nixpkgs, flake-utils, ... }@inputs:
     let
-      systems = [
-        "x86_64-linux"
-        "i686-linux"
-        "x86_64-darwin"
-        "aarch64-linux"
-        "armv6l-linux"
-        "armv7l-linux"
-      ];
-      forAllSystems = f: nixpkgs.lib.genAttrs systems (system: f system);
+      lib = nixpkgs.lib;
+      eachSystem = flake-utils.lib.eachSystemMap flake-utils.lib.allSystems;
     in
-    {
-      packages = forAllSystems (system: import ./default.nix {
-        pkgs = import nixpkgs { inherit system; };
+      {
+     inherit eachSystem lib;
+        
+     packages = eachSystem (system: import ./. {
+       inherit lib;
+        pkgs = import nixpkgs {
+          inherit system;
+          config.allowUnfree = true;
+        };
+        ci = false;
+        inherit inputs;
       });
+
+      ciPackages = eachSystem (system: import ./. {
+       inherit lib;
+        pkgs = import nixpkgs {
+          inherit system;
+          config.allowUnfree = true;
+        };
+        ci = true;
+        inherit inputs;
+      });
+
+      # Following line doesn't work for infinite recursion
+      # overlay = self: super: packages."${super.system}";
+      overlay = self: super: import ./overlay.nix {
+        pkgs = import nixpkgs {
+          inherit (super) system;
+          config.allowUnfree = true;
+        };
+        inherit inputs;
+      };
+
+      apps = eachSystem (system:
+        let
+          pkgs = import nixpkgs { inherit system; };
+        in
+        {
+          ci = {
+            type = "app";
+            program = builtins.toString (pkgs.writeShellScript "ci" ''
+              if [ "$1" == "" ]; then
+                echo "Usage: ci <system>";
+                exit 1;
+              fi
+              exec ${pkgs.nix-build-uncached}/bin/nix-build-uncached ci.nix -A $1 --show-trace
+            '');
+          };
+
+          update = {
+            type = "app";
+            program = builtins.toString (pkgs.writeShellScript "update" ''
+              nix flake update
+              ${pkgs.nvfetcher}/bin/nvfetcher -c nvfetcher.toml -o _sources
+            '');
+          };
+        });
+
+      nixosModules = import ./modules;
+      
+      hydraJobs = eachSystem (system:
+        let 
+        pkgs = import nixpkgs {
+          inherit system;
+          config.allowUnfree = true;
+        };
+
+            in
+            {
+              tester = self.packages.${system}.default.overrideAttrs (prev: {
+                doCheck = true;
+                keepBuildDirectory = true;
+                #succeedOnFailure = true;
+                TESTSUITEFLAGS =
+                  "NIX_DONT_SET_RPATH_x86_64_unknown_linux_gnu=1 -x -d";
+                checkPhase = ''
+                  echo hello
+                '';
+                postInstall = ''
+                  echo hello
+                  echo world
+                '';
+                failureHook = ''
+                  test -f tests/testsuite.log && cp tests/testsuite.log $out/
+                  test -d tests/testsuite.dir && cp -r tests/testsuite.dir $out/
+                '';
+              });
+              tester-readme = pkgs.runCommand "readme"
+                { } ''
+                echo hello worl
+                mkdir -p $out/nix-support
+                echo "# A readme" > $out/readme.md
+                echo "doc readme $out/readme.md" >> $out/nix-support/hydra-build-products
+              '';
+            });
+
     };
 }

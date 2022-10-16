@@ -1,0 +1,54 @@
+[bttc]
+src.github = "bttcprotocol/bttc"
+fetch.github = "bttcprotocol/bttc"
+git.fetchSubmodules = true
+
+[delivery]
+src.github = "bttcprotocol/delivery"
+fetch.github = "bttcprotocol/delivery"
+git.fetchSubmodules = true
+
+[launch]
+src.git = "https://github.com/bttcprotocol/launch.git"
+#src.manual = "f71388e3a8091a1c6bc10aa03d7edf8e7b638f23"
+fetch.git = "https://github.com/bttcprotocol/launch.git"
+
+
+#zsh plugins
+[alias-tips]
+src.git = "https://github.com/djui/alias-tips.git"
+fetch.git = "https://github.com/djui/alias-tips.git"
+
+[wakatime-zsh-plugin]
+src.git = "https://github.com/sobolevn/wakatime-zsh-plugin.git"
+fetch.git = "https://github.com/sobolevn/wakatime-zsh-plugin.git"
+
+# python
+[my_cookies]
+src.pypi="my_cookies"
+fetch.pypi="my_cookies"
+
+[epc]
+src.pypi="epc"
+fetch.pypi="epc"
+
+#emacs
+[lsp-bridge]
+src.git = "https://github.com/manateelazycat/lsp-bridge.git"
+fetch.git = "https://github.com/manateelazycat/lsp-bridge.git"
+
+[ligature.el]
+src.git = "https://github.com/mickeynp/ligature.el.git"
+fetch.git = "https://github.com/mickeynp/ligature.el.git"
+
+[copilot.el]
+src.git = "https://github.com/zerolfx/copilot.el.git"
+fetch.git = "https://github.com/zerolfx/copilot.el.git"
+
+[org-cv]
+src.git = "https://gitlab.com/Titan-C/org-cv.git"
+fetch.git = "https://gitlab.com/Titan-C/org-cv.git"
+
+[oci-arm-host-capacity]
+src.git = "https://github.com/hitrov/oci-arm-host-capacity.git"
+fetch.git = "https://github.com/hitrov/oci-arm-host-capacity.git"

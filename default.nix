@@ -5,19 +5,95 @@
 # Having pkgs default to <nixpkgs> is fine though, and it lets you use short
 # commands such as:
 #     nix-build -A mypackage
+{ pkgs ? import <nixpkgs> { }
+, lib
+, inputs ? null
+, ci ? false
+, ...
+}:
+with pkgs;
+with builtins;
+let
+  source = callPackage ./_sources/generated.nix {
+    inherit fetchFromGitHub fetchurl fetchgit;
+  };
+  allPkgs = my-pkgs // pkgs // { inherit source; };
+  callPackage = lib.callPackageWith allPkgs;
+  my-pkgs = rec {
+    # example-docker =
+    #   pkgs.dockerTools.buildImage {
+    #     name = "hello-docker";
+    #     tag = "latest";
+    #     created = "now";
+    #     runAsRoot = ''
+    #       mkdir /data
+    #     '';
+    #     copyToRoot = pkgs.buildEnv {
+    #       name = "image-root";
+    #       paths = [
+    #         pkgs.coreutils
+    #         pkgs.bash
+    #         pkgs.vim
+    #       ];
+    #       pathsToLink = [ "/bin" ];
+    #     };
 
-{ pkgs ? import <nixpkgs> { } }:
+    #     config = {
+    #       WorkingDir = "/data";
+    #       Env = [ "PATH=${pkgs.coreutils}/bin/" ];
+    #       Cmd = [ "${pkgs.coreutils}/bin/cat" "${my-pkgs.example-package}" ];
+    #     };
+    #   };
 
-{
-  # The `lib`, `modules`, and `overlay` names are special
-  lib = import ./lib { inherit pkgs; }; # functions
-  modules = import ./modules; # NixOS modules
-  overlays = import ./overlays; # nixpkgs overlays
+    launch = stdenv.mkDerivation (source.launch // {
+      installPhase = ''
+        mkdir -p $out;
+        cp -r . $out;
+      '';
+    });
+    
+    bttc = callPackage ./pkgs/bttc { };
+    delivery = callPackage ./pkgs/delivery { };
 
-  example-package = pkgs.callPackage ./pkgs/example-package { };
-  bttc = pkgs.callPackage ./pkgs/bttc { };
-  delivery = pkgs.callPackage ./pkgs/delivery { };
-  my_cookies = pkgs.callPackage ./pkgs/python3/my_cookies { };
-  # some-qt5-package = pkgs.libsForQt5.callPackage ./pkgs/some-qt5-package { };
-  # ...
-}
+    # oci-arm-host-capacity = callPackage ./pkgs/oci-arm-host-capacity { };
+    
+    my_cookies = callPackage ./pkgs/python3/my_cookies { };
+    epc = callPackage ./pkgs/python3/epc { };
+    #lsp-bridge = callPackage ./emacs/lsp-bridge { };
+    copilot-el = callPackage ./pkgs/emacs/copilot { };
+    
+    ligature = callPackage ./pkgs/emacs/ligature { };
+    
+    org-cv = callPackage ./pkgs/emacs/org-cv { };
+    
+    inherit (callPackage ./pkgs/npm/tronbox {
+      nodejs = pkgs.nodejs-14_x;
+    }) tronbox;
+
+    # vbox = nixos-generators.nixosGenerate {
+    #   inherit system;
+    #   format = "virtualbox";
+    # };
+    # amazon = nixos-generators.nixosGenerate {
+    #   system = "x86_64-linux";
+    #   format = "amazon";
+    # };
+
+    # tat = callPackage ./tat { };
+
+    # dotfiles = with pkgs;
+    #   stdenv.mkDerivation {
+    #     pname = "dotfiles";
+    #     version = "0.1.0";
+    #     src = ./.;
+    #     installPhase = ''
+    #       mkdir -p $out/etc;
+    #       cp -r . $out/etc;
+    #     '';
+    #   };
+    ldap-passthrough-conf = callPackage ./pkgs/ldap-passthrough-conf { };
+    default = bttc;
+    # };
+  };
+in
+my-pkgs
