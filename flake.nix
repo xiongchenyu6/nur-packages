@@ -34,13 +34,7 @@
 
       # Following line doesn't work for infinite recursion
       # overlay = self: super: packages."${super.system}";
-      overlay = self: super: import ./overlay.nix {
-        pkgs = import nixpkgs {
-          inherit (super) system;
-          config.allowUnfree = true;
-        };
-        inherit inputs;
-      };
+      overlay = import ./overlay.nix { inherit lib;};
 
       apps = eachSystem (system:
         let
@@ -68,6 +62,8 @@
         });
 
       nixosModules = import ./modules;
+      
+      templates = import ./templates;
       
       hydraJobs = eachSystem (system:
         let 
