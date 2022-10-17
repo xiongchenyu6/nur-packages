@@ -1,9 +1,7 @@
 { config, lib, pkgs, ... }:
 with lib;
-let
-  cfg = config.services.unit-status-telegram;
-in
-{
+let cfg = config.services.unit-status-telegram;
+in {
   options.services.unit-status-telegram = {
     enable = mkEnableOption "Enables unit-status-telegram service";
 
@@ -30,15 +28,12 @@ in
           MESSAGE="$ALERT Unit failed $UNIT $ALERT
           Status:
           $UNITSTATUS"
-          curl -s -X POST https://api.telegram.org/bot${cfg.telegramKey}/sendMessage -d chat_id=${toString cfg.chatId} -d text=$MESSAGE
+          curl -s -X POST https://api.telegram.org/bot${cfg.telegramKey}/sendMessage -d chat_id=${
+            toString cfg.chatId
+          } -d text=$MESSAGE
         '';
         scriptArgs = "%I";
       };
     };
   };
 }
-
-
-
-
-

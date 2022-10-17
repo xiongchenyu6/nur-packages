@@ -5,7 +5,7 @@
 # Having pkgs default to <nixpkgs> is fine though, and it lets you use short
 # commands such as:
 #     nix-build -A mypackage
-{ pkgs ? import <nixpkgs> { }, lib, dream2nix, inputs, ci ? false
+{ pkgs ? import <nixpkgs> { }, lib, inputs, ci ? false
 
 , ... }:
 with pkgs;
@@ -52,8 +52,8 @@ let
     bttc = callPackage ./pkgs/bttc { };
     delivery = callPackage ./pkgs/delivery { };
 
-    oci-arm-host-capacity = (dream2nix.lib.makeFlakeOutputs {
-      pkgs = dream2nix.inputs.nixpkgs.legacyPackages."x86_64-linux";
+    oci-arm-host-capacity = (inputs.dream2nix.lib.makeFlakeOutputs {
+      pkgs = inputs.dream2nix.inputs.nixpkgs.legacyPackages."x86_64-linux";
       source = inputs.oci-arm-host-capacity-src;
       config.projectRoot = ./.;
     }).packages."x86_64-linux"."hitrov/oci-arm-host-capacity";

@@ -44,7 +44,7 @@
 
       # Following line doesn't work for infinite recursion
       # overlay = self: super: packages."${super.system}";
-      overlay = import ./overlay.nix { inherit lib; };
+      overlay = import ./overlay.nix { inherit lib inputs; };
 
       apps = eachSystem (system:
         let pkgs = import nixpkgs { inherit system; };
