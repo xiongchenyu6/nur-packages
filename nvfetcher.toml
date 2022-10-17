@@ -38,7 +38,3 @@ fetch.git = "https://github.com/zerolfx/copilot.el.git"
 [org-cv]
 src.git = "https://gitlab.com/Titan-C/org-cv.git"
 fetch.git = "https://gitlab.com/Titan-C/org-cv.git"
-
-[oci-arm-host-capacity]
-src.git = "https://github.com/hitrov/oci-arm-host-capacity.git"
-fetch.git = "https://github.com/hitrov/oci-arm-host-capacity.git"

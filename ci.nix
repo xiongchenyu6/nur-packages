@@ -13,25 +13,26 @@ let
   flake = getFlake (toString ./.);
   inherit (flake) eachSystem;
   inherit (flake.lib) concatMap nameValuePair;
-in
-eachSystem (system:
+in eachSystem (system:
   let
     isDerivation = p: isAttrs p && p ? type && p.type == "derivation";
     isTargetPlatform = p: elem system (p.meta.platforms or [ system ]);
     isBuildable = p: !(p.meta.broken or false) && p.meta.license.free or true;
-    shouldRecurseForDerivations = p: isAttrs p && p.recurseForDerivations or false;
+    shouldRecurseForDerivations = p:
+      isAttrs p && p.recurseForDerivations or false;
 
     flattenPkgs = s:
       let
         f = p:
-          if shouldRecurseForDerivations p then flattenPkgs p
-          else if isDerivation p && isTargetPlatform p && isBuildable p then [ p ]
-          else [ ];
-      in
-      concatMap f (attrValues s);
+          if shouldRecurseForDerivations p then
+            flattenPkgs p
+          else if isDerivation p && isTargetPlatform p && isBuildable p then
+            [ p ]
+          else
+            [ ];
+      in concatMap f (attrValues s);
 
     outputsOf = p: map (o: p.${o}) p.outputs;
 
     nurPkgs = flattenPkgs flake.ciPackages."${system}";
-  in
-  concatMap outputsOf nurPkgs)
+  in concatMap outputsOf nurPkgs)

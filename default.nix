@@ -5,12 +5,9 @@
 # Having pkgs default to <nixpkgs> is fine though, and it lets you use short
 # commands such as:
 #     nix-build -A mypackage
-{ pkgs ? import <nixpkgs> { }
-, lib
-, inputs ? null
-, ci ? false
-, ...
-}:
+{ pkgs ? import <nixpkgs> { }, lib, dream2nix, inputs, ci ? false
+
+, ... }:
 with pkgs;
 with builtins;
 let
@@ -51,24 +48,27 @@ let
         cp -r . $out;
       '';
     });
-    
+
     bttc = callPackage ./pkgs/bttc { };
     delivery = callPackage ./pkgs/delivery { };
 
-    # oci-arm-host-capacity = callPackage ./pkgs/oci-arm-host-capacity { };
-    
+    oci-arm-host-capacity = (dream2nix.lib.makeFlakeOutputs {
+      pkgs = dream2nix.inputs.nixpkgs.legacyPackages."x86_64-linux";
+      source = inputs.oci-arm-host-capacity-src;
+      config.projectRoot = ./.;
+    }).packages."x86_64-linux"."hitrov/oci-arm-host-capacity";
+
     my_cookies = callPackage ./pkgs/python3/my_cookies { };
     epc = callPackage ./pkgs/python3/epc { };
     #lsp-bridge = callPackage ./emacs/lsp-bridge { };
     copilot-el = callPackage ./pkgs/emacs/copilot { };
-    
+
     ligature = callPackage ./pkgs/emacs/ligature { };
-    
+
     org-cv = callPackage ./pkgs/emacs/org-cv { };
-    
-    inherit (callPackage ./pkgs/npm/tronbox {
-      nodejs = pkgs.nodejs-14_x;
-    }) tronbox;
+
+    inherit (callPackage ./pkgs/npm/tronbox { nodejs = pkgs.nodejs-14_x; })
+      tronbox;
 
     # vbox = nixos-generators.nixosGenerate {
     #   inherit system;
@@ -95,5 +95,4 @@ let
     default = bttc;
     # };
   };
-in
-my-pkgs
+in my-pkgs
