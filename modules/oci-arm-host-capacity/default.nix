@@ -35,7 +35,7 @@ in {
 
           timerConfig = {
             OnBootSec = "5m";
-            OnUnitInactiveSec = "1h";
+            OnUnitInactiveSec = "5m";
             Unit = "oci-arm-host-capacity.service";
           };
           wantedBy = [ "timers.target" ];
