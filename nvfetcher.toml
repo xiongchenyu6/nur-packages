@@ -38,3 +38,7 @@ fetch.git = "https://github.com/zerolfx/copilot.el.git"
 [org-cv]
 src.git = "https://gitlab.com/Titan-C/org-cv.git"
 fetch.git = "https://gitlab.com/Titan-C/org-cv.git"
+
+[Flask-SimpleLDAP]
+src.pypi="Flask-SimpleLDAP"
+fetch.pypi="Flask-SimpleLDAP"

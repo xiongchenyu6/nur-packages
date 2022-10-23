@@ -1,4 +1,18 @@
 {
+    "Flask-SimpleLDAP": {
+        "cargoLocks": null,
+        "extract": null,
+        "name": "Flask-SimpleLDAP",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-gS96R2MX4+SmZUnXc9RwYX5BU/ICT7lWhyuPCZh2UnU=",
+            "type": "url",
+            "url": "https://pypi.io/packages/source/F/Flask-SimpleLDAP/Flask-SimpleLDAP-1.4.0.tar.gz"
+        },
+        "version": "1.4.0"
+    },
     "bttc": {
         "cargoLocks": null,
         "extract": null,
@@ -80,12 +94,12 @@
             "fetchSubmodules": false,
             "leaveDotGit": false,
             "name": null,
-            "rev": "f71388e3a8091a1c6bc10aa03d7edf8e7b638f23",
-            "sha256": "sha256-5iUjWxjTmMxkfo+WZnjCKmHNTeaKkv5jdiDawMmvbQw=",
+            "rev": "bb18fcf5d33a08b7d64bc65bc7bbca80d5bca750",
+            "sha256": "sha256-7JJNRo4Mfcq9zDtHEsPaLoNQXLbkVrYyeFluRgUzdHE=",
             "type": "git",
             "url": "https://github.com/bttcprotocol/launch.git"
         },
-        "version": "f71388e3a8091a1c6bc10aa03d7edf8e7b638f23"
+        "version": "bb18fcf5d33a08b7d64bc65bc7bbca80d5bca750"
     },
     "ligature": {
         "cargoLocks": null,
@@ -116,12 +130,12 @@
             "fetchSubmodules": false,
             "leaveDotGit": false,
             "name": null,
-            "rev": "3c1751785154050c488dd6115c41a335dff3ef06",
-            "sha256": "sha256-EUSPjHMjfNXmurkIEvgo/aQgDG1oTHFNY81lC6bggTo=",
+            "rev": "4c71e5c7d95ca9a8a49c98eeaee4a9a435fd0be7",
+            "sha256": "sha256-JuFKT61244oSpwLurGgKZgB/vNqTNByc3UnV7iGR0Ek=",
             "type": "git",
             "url": "https://github.com/manateelazycat/lsp-bridge.git"
         },
-        "version": "3c1751785154050c488dd6115c41a335dff3ef06"
+        "version": "4c71e5c7d95ca9a8a49c98eeaee4a9a435fd0be7"
     },
     "my_cookies": {
         "cargoLocks": null,

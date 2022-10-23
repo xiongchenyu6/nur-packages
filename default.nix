@@ -60,6 +60,7 @@ let
 
     my_cookies = callPackage ./pkgs/python3/my_cookies { };
     epc = callPackage ./pkgs/python3/epc { };
+    Flask-SimpleLDAP = callPackage ./pkgs/python3/Flask-SimpleLDAP { };
     #lsp-bridge = callPackage ./emacs/lsp-bridge { };
     copilot-el = callPackage ./pkgs/emacs/copilot { };
 
