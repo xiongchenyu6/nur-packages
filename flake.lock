@@ -72,31 +72,6 @@
         "type": "github"
       }
     },
-    "devshell_2": {
-      "inputs": {
-        "flake-utils": [
-          "winklink",
-          "flake-utils"
-        ],
-        "nixpkgs": [
-          "winklink",
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1666548262,
-        "narHash": "sha256-4DyN4KXqQQsCw0vCXkMThw4b5Q4/q87ZZgRb4st8COc=",
-        "owner": "numtide",
-        "repo": "devshell",
-        "rev": "c8ce8ed81726079c398f5f29c4b68a7d6a3c2fa2",
-        "type": "github"
-      },
-      "original": {
-        "owner": "numtide",
-        "repo": "devshell",
-        "type": "github"
-      }
-    },
     "dream2nix": {
       "inputs": {
         "alejandra": "alejandra",
@@ -318,8 +293,7 @@
         "dream2nix": "dream2nix",
         "flake-utils": "flake-utils",
         "nixpkgs": "nixpkgs_2",
-        "oci-arm-host-capacity-src": "oci-arm-host-capacity-src",
-        "winklink": "winklink"
+        "oci-arm-host-capacity-src": "oci-arm-host-capacity-src"
       }
     },
     "rust-analyzer-src": {
@@ -336,30 +310,6 @@
         "owner": "rust-lang",
         "ref": "nightly",
         "repo": "rust-analyzer",
-        "type": "github"
-      }
-    },
-    "winklink": {
-      "inputs": {
-        "devshell": "devshell_2",
-        "flake-utils": [
-          "flake-utils"
-        ],
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1666815419,
-        "narHash": "sha256-HXgtthMtn2bUn5vA+mb/bWuuZLfJBp/2FJkuH6ppc8U=",
-        "owner": "xiongchenyu6",
-        "repo": "winklink",
-        "rev": "6766341a32ee4e5118711a3e64bb607dfa74e439",
-        "type": "github"
-      },
-      "original": {
-        "owner": "xiongchenyu6",
-        "repo": "winklink",
         "type": "github"
       }
     }

@@ -4,13 +4,6 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     flake-utils.url = "github:numtide/flake-utils";
     dream2nix.url = "github:nix-community/dream2nix";
-    winklink = {
-      url = "github:xiongchenyu6/winklink/";
-      inputs = {
-        nixpkgs.follows = "nixpkgs";
-        flake-utils.follows = "flake-utils";
-      };
-    };
     oci-arm-host-capacity-src = {
       url = "github:hitrov/oci-arm-host-capacity";
       flake = false;
@@ -18,15 +11,15 @@
 
   };
   outputs = { self, nixpkgs, flake-utils, dream2nix, oci-arm-host-capacity-src
-    , winklink, ... }@inputs:
+    , ... }@inputs:
     let
       lib = nixpkgs.lib;
-      eachSystem = flake-utils.lib.eachSystemMap [ "x86_64-linux" ];
+      eachSystem = flake-utils.lib.eachSystemMap flake-utils.lib.allSystems;
     in {
       inherit eachSystem lib;
 
       packages = eachSystem (system:
-        (import ./. {
+        import ./. {
           inherit lib;
           pkgs = import nixpkgs {
             inherit system;
@@ -35,12 +28,10 @@
           ci = false;
           inherit inputs;
           inherit dream2nix;
-        }) // {
-          winklink = winklink.packages.${system}.default;
         });
 
       ciPackages = eachSystem (system:
-        (import ./. {
+        import ./. {
           inherit lib;
           pkgs = import nixpkgs {
             inherit system;
@@ -49,8 +40,6 @@
           ci = true;
           inherit inputs;
           inherit dream2nix;
-        }) // {
-          winklink = winklink.packages.${system}.default;
         });
 
       # Following line doesn't work for infinite recursion
