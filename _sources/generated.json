@@ -1,6 +1,7 @@
 {
     "Flask-SimpleLDAP": {
         "cargoLocks": null,
+        "date": null,
         "extract": null,
         "name": "Flask-SimpleLDAP",
         "passthru": null,
@@ -15,6 +16,7 @@
     },
     "bttc": {
         "cargoLocks": null,
+        "date": null,
         "extract": null,
         "name": "bttc",
         "passthru": null,
@@ -26,14 +28,15 @@
             "name": null,
             "owner": "bttcprotocol",
             "repo": "bttc",
-            "rev": "v1.0.2",
-            "sha256": "sha256-qptNGs6NmbIEzmosASAvdZSIUhw5RVcgEF55/RhgR3I=",
+            "rev": "v1.0.3",
+            "sha256": "sha256-qRXTPNzW2wvIs4Fq5kkp/QBRtmG0MTCq8W7APYlHkHM=",
             "type": "github"
         },
-        "version": "v1.0.2"
+        "version": "v1.0.3"
     },
     "copilot": {
         "cargoLocks": null,
+        "date": "2022-10-15",
         "extract": null,
         "name": "copilot",
         "passthru": null,
@@ -52,6 +55,7 @@
     },
     "delivery": {
         "cargoLocks": null,
+        "date": null,
         "extract": null,
         "name": "delivery",
         "passthru": null,
@@ -71,6 +75,7 @@
     },
     "epc": {
         "cargoLocks": null,
+        "date": null,
         "extract": null,
         "name": "epc",
         "passthru": null,
@@ -85,6 +90,7 @@
     },
     "launch": {
         "cargoLocks": null,
+        "date": "2022-10-21",
         "extract": null,
         "name": "launch",
         "passthru": null,
@@ -103,6 +109,7 @@
     },
     "ligature": {
         "cargoLocks": null,
+        "date": "2022-11-03",
         "extract": null,
         "name": "ligature",
         "passthru": null,
@@ -112,15 +119,16 @@
             "fetchSubmodules": false,
             "leaveDotGit": false,
             "name": null,
-            "rev": "5eb950ada991705fdda4456970b0321241ee2bfa",
-            "sha256": "sha256-o6iL4mwTzfD7JOlWP4Mv27+nRGplcseGjam7WIlHZTc=",
+            "rev": "3d1460470736777fd8329e4bb4ac359bf4f1460a",
+            "sha256": "sha256-jaSu5MUvJyqjfzFlUop4DQ31qVHE1RzdtvAGj24V3eY=",
             "type": "git",
             "url": "https://github.com/mickeynp/ligature.el.git"
         },
-        "version": "5eb950ada991705fdda4456970b0321241ee2bfa"
+        "version": "3d1460470736777fd8329e4bb4ac359bf4f1460a"
     },
     "lsp-bridge": {
         "cargoLocks": null,
+        "date": "2022-11-05",
         "extract": null,
         "name": "lsp-bridge",
         "passthru": null,
@@ -130,15 +138,16 @@
             "fetchSubmodules": false,
             "leaveDotGit": false,
             "name": null,
-            "rev": "4c71e5c7d95ca9a8a49c98eeaee4a9a435fd0be7",
-            "sha256": "sha256-JuFKT61244oSpwLurGgKZgB/vNqTNByc3UnV7iGR0Ek=",
+            "rev": "40779915933a5a0d1d4fc790389354127cfe8262",
+            "sha256": "sha256-Av9xRcA7mXV7bLreOwtByqcgJMO6TWAeBsppcMzUEoc=",
             "type": "git",
             "url": "https://github.com/manateelazycat/lsp-bridge.git"
         },
-        "version": "4c71e5c7d95ca9a8a49c98eeaee4a9a435fd0be7"
+        "version": "40779915933a5a0d1d4fc790389354127cfe8262"
     },
     "my_cookies": {
         "cargoLocks": null,
+        "date": null,
         "extract": null,
         "name": "my_cookies",
         "passthru": null,
@@ -153,6 +162,7 @@
     },
     "org-cv": {
         "cargoLocks": null,
+        "date": "2022-08-22",
         "extract": null,
         "name": "org-cv",
         "passthru": null,
