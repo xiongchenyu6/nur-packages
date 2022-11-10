@@ -14,7 +14,11 @@ let
   source = callPackage ./_sources/generated.nix {
     inherit fetchFromGitHub fetchurl fetchgit;
   };
-  allPkgs = my-pkgs // pkgs // { inherit source; };
+  sourcee = callPackage ./_sources/generated.nix {
+    inherit fetchFromGitHub fetchurl fetchgit;
+  };
+
+  allPkgs = my-pkgs // pkgs // { inherit source sourcee; };
   callPackage = lib.callPackageWith allPkgs;
   my-pkgs = rec {
     # example-docker =
@@ -93,6 +97,10 @@ let
     #     '';
     #   };
     ldap-passthrough-conf = callPackage ./pkgs/ldap-passthrough-conf { };
+
+    ldap-extra-schemas = callPackage ./pkgs/ldap-extra-schemas { };
+
+    # aws-codedeploy-agent = callPackage ./pkgs/ruby/aws-codedeploy-agent { };
     default = bttc;
     # };
   };

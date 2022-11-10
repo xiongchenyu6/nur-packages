@@ -42,3 +42,10 @@ fetch.git = "https://gitlab.com/Titan-C/org-cv.git"
 [Flask-SimpleLDAP]
 src.pypi="Flask-SimpleLDAP"
 fetch.pypi="Flask-SimpleLDAP"
+
+#ruby
+[aws-codedeploy-agent]
+src.git = "https://github.com/aws/aws-codedeploy-agent.git"
+fetch.git = "https://github.com/aws/aws-codedeploy-agent.git"
+
+# python
