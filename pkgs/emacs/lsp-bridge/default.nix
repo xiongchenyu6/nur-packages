@@ -1,7 +1,7 @@
-{ emacsPackagesFor, emacsGitNativeComp, lib, source, ... }:
+{ emacsPackagesFor, emacs, lib, source, ... }:
 
 let
-  epkgs = emacsPackagesFor emacsGitNativeComp;
+  epkgs = emacsPackagesFor emacs;
   # cleanBrokenFileFilter = name: type: !(((baseNameOf name) == "acm-backend-telega.el") || ((baseNamef name) == "acm-backend-tempel.el"));
   acm = epkgs.trivialBuild {
     pname = "acm";
@@ -13,8 +13,7 @@ let
     packageRequires = with epkgs; [ yasnippet ];
 
   };
-in
-epkgs.trivialBuild (source.lsp-bridge // rec {
+in epkgs.trivialBuild (source.lsp-bridge // rec {
   propagatedBuildInputs = with epkgs; [ posframe markdown-mode yasnippet acm ];
   subPackages = [ "acm" ];
 

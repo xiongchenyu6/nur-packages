@@ -65,7 +65,7 @@ let
     my_cookies = callPackage ./pkgs/python3/my_cookies { };
     epc = callPackage ./pkgs/python3/epc { };
     Flask-SimpleLDAP = callPackage ./pkgs/python3/Flask-SimpleLDAP { };
-    #lsp-bridge = callPackage ./emacs/lsp-bridge { };
+    # lsp-bridge = callPackage ./pkgs/emacs/lsp-bridge { };
     copilot-el = callPackage ./pkgs/emacs/copilot { };
 
     ligature = callPackage ./pkgs/emacs/ligature { };
@@ -100,7 +100,7 @@ let
 
     ldap-extra-schemas = callPackage ./pkgs/ldap-extra-schemas { };
 
-    # aws-codedeploy-agent = callPackage ./pkgs/ruby/aws-codedeploy-agent { };
+    codedeploy-agent = callPackage ./pkgs/ruby/codedeploy-agent { };
     default = bttc;
     # };
   };

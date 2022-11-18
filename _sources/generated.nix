@@ -11,14 +11,14 @@
   };
   aws-codedeploy-agent = {
     pname = "aws-codedeploy-agent";
-    version = "1a53e8f1f0e2e72d9c254b7bca86d2665f638e38";
+    version = "ba4fd833e427eee73ec9011cc16896c1dee24785";
     src = fetchgit {
-      url = "https://github.com/aws/aws-codedeploy-agent.git";
-      rev = "1a53e8f1f0e2e72d9c254b7bca86d2665f638e38";
+      url = "https://github.com/xiongchenyu6/aws-codedeploy-agent.git";
+      rev = "ba4fd833e427eee73ec9011cc16896c1dee24785";
       fetchSubmodules = false;
       deepClone = false;
       leaveDotGit = false;
-      sha256 = "sha256-Dxnpw+sIe7LfTh0aj7AvUUXzeOhSGWBnpo9Nqm4JB4Q=";
+      sha256 = "sha256-O/SCGHRAuEfo5sRwxjwEbO3W2k4VdzJY0ccXN40cn08=";
     };
   };
   bttc = {
@@ -34,14 +34,14 @@
   };
   copilot = {
     pname = "copilot";
-    version = "3b78e9b6fd7b7e78180a795affdfbbe89af2ccec";
+    version = "1be31d962e212fb60e0a5972b4be60cb29341559";
     src = fetchgit {
       url = "https://github.com/zerolfx/copilot.el.git";
-      rev = "3b78e9b6fd7b7e78180a795affdfbbe89af2ccec";
+      rev = "1be31d962e212fb60e0a5972b4be60cb29341559";
       fetchSubmodules = false;
       deepClone = false;
       leaveDotGit = false;
-      sha256 = "sha256-x4o6TJfa32DN6Eb+t+9e6iQ+byK4KA06qijMUgUMsZg=";
+      sha256 = "sha256-hma5nFmYzMf0bAXcfrZlFZ9u9k7qBiQkLlMKEp4Ae/I=";
     };
   };
   delivery = {
@@ -89,14 +89,14 @@
   };
   lsp-bridge = {
     pname = "lsp-bridge";
-    version = "c92722256fd6d1a41f33fa23cd9f7e84d4b2a8b4";
+    version = "4bde737b37c4f7c6adf6e5d19d55cb8331161a71";
     src = fetchgit {
       url = "https://github.com/manateelazycat/lsp-bridge.git";
-      rev = "c92722256fd6d1a41f33fa23cd9f7e84d4b2a8b4";
+      rev = "4bde737b37c4f7c6adf6e5d19d55cb8331161a71";
       fetchSubmodules = false;
       deepClone = false;
       leaveDotGit = false;
-      sha256 = "sha256-s2swJA3lJqIQVjiWwtKeNei0x53Zc+DwX8mszb15i2Y=";
+      sha256 = "sha256-3xd5p2muUsNOLEAkYzMVNz8tJBCM79+6Unui0bOEZSg=";
     };
   };
   my_cookies = {

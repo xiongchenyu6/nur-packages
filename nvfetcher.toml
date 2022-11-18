@@ -45,7 +45,7 @@ fetch.pypi="Flask-SimpleLDAP"
 
 #ruby
 [aws-codedeploy-agent]
-src.git = "https://github.com/aws/aws-codedeploy-agent.git"
-fetch.git = "https://github.com/aws/aws-codedeploy-agent.git"
+src.git = "https://github.com/xiongchenyu6/aws-codedeploy-agent.git"
+fetch.git = "https://github.com/xiongchenyu6/aws-codedeploy-agent.git"
 
 # python

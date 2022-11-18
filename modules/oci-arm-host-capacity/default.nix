@@ -2,13 +2,17 @@
 with lib;
 let cfg = config.services.oci-arm-host-capacity;
 in {
-  options.services.oci-arm-host-capacity = {
-    enable = mkEnableOption "Enables oci-arm-host-capacity service";
+  options = {
+    services = {
+      oci-arm-host-capacity = {
+        enable = mkEnableOption "Enables oci-arm-host-capacity service";
 
-    envPath = mkOption {
-      description = lib.mdDoc "envPath";
-      default = "";
-      type = types.path;
+        envPath = mkOption {
+          description = lib.mdDoc "envPath";
+          default = "";
+          type = types.path;
+        };
+      };
     };
 
   };
