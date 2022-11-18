@@ -75,6 +75,8 @@ let
     inherit (callPackage ./pkgs/npm/tronbox { nodejs = pkgs.nodejs-14_x; })
       tronbox;
 
+    amazon-cloudwatch-agent = callPackage ./pkgs/amazon-cloudwatch-agent { };
+
     # vbox = nixos-generators.nixosGenerate {
     #   inherit system;
     #   format = "virtualbox";

@@ -9,6 +9,17 @@
       sha256 = "sha256-gS96R2MX4+SmZUnXc9RwYX5BU/ICT7lWhyuPCZh2UnU=";
     };
   };
+  amazon-cloudwatch-agent = {
+    pname = "amazon-cloudwatch-agent";
+    version = "v1.247355.0";
+    src = fetchFromGitHub ({
+      owner = "aws";
+      repo = "amazon-cloudwatch-agent";
+      rev = "v1.247355.0";
+      fetchSubmodules = false;
+      sha256 = "sha256-Ojx0bvIr+whHYN+DxhMPxGNsvxfigz5+rVhxHJVmYak=";
+    });
+  };
   aws-codedeploy-agent = {
     pname = "aws-codedeploy-agent";
     version = "ba4fd833e427eee73ec9011cc16896c1dee24785";

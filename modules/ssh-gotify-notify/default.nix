@@ -23,6 +23,11 @@ in {
           description = lib.mdDoc "token";
           type = types.str;
         };
+        check-break-seconds = mkOption {
+          description = lib.mdDoc "check-break-seconds";
+          default = 5;
+          type = types.int;
+        };
       };
     };
   };
@@ -30,6 +35,7 @@ in {
     systemd = {
       services = mkIf cfg.enable {
         "${serviceName}" = {
+          path = with pkgs; [ gawk curl inetutils ];
           script = ''
             #!/usr/bin/env bash
 
@@ -43,16 +49,16 @@ in {
 
                             if [ $SSHdate -ge $now ]; then
 
-                                    title="SSH Login for $(/bin/hostname -f)"
-                                    message="$(/usr/bin/who | grep pts)"
+                                    title="SSH Login for $(hostname -f)"
+                                    message="$(who | grep pts)"
 
-                                    /usr/bin/curl -X POST -s \
+                                    curl -X POST -s \
                                             -F "title=''${title}" \
                                             -F "message=''${message}" \
                                             -F "priority=5" \
                                             "${cfg.url}/message?token=${cfg.token}"
-                                    break
-                            fi
+                             fi
+                             sleep ${toString cfg.check-break-seconds}
                     done
             }
 

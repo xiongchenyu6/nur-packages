@@ -13,6 +13,25 @@
         },
         "version": "1.4.0"
     },
+    "amazon-cloudwatch-agent": {
+        "cargoLocks": null,
+        "extract": null,
+        "name": "amazon-cloudwatch-agent",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "aws",
+            "repo": "amazon-cloudwatch-agent",
+            "rev": "v1.247355.0",
+            "sha256": "sha256-Ojx0bvIr+whHYN+DxhMPxGNsvxfigz5+rVhxHJVmYak=",
+            "type": "github"
+        },
+        "version": "v1.247355.0"
+    },
     "aws-codedeploy-agent": {
         "cargoLocks": null,
         "extract": null,

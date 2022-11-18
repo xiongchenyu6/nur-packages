@@ -1,3 +1,4 @@
+#go
 [bttc]
 src.github = "bttcprotocol/bttc"
 fetch.github = "bttcprotocol/bttc"
@@ -13,11 +14,16 @@ src.git = "https://github.com/bttcprotocol/launch.git"
 #src.manual = "f71388e3a8091a1c6bc10aa03d7edf8e7b638f23"
 fetch.git = "https://github.com/bttcprotocol/launch.git"
 
+[amazon-cloudwatch-agent]
+src.github = "aws/amazon-cloudwatch-agent"
+fetch.github = "aws/amazon-cloudwatch-agent"
+
 # python
 [my_cookies]
 src.pypi="my_cookies"
 fetch.pypi="my_cookies"
 
+# python
 [epc]
 src.pypi="epc"
 fetch.pypi="epc"
@@ -48,4 +54,3 @@ fetch.pypi="Flask-SimpleLDAP"
 src.git = "https://github.com/xiongchenyu6/aws-codedeploy-agent.git"
 fetch.git = "https://github.com/xiongchenyu6/aws-codedeploy-agent.git"
 
-# python
