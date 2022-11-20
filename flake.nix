@@ -14,7 +14,10 @@
     , ... }@inputs:
     let
       lib = nixpkgs.lib;
-      eachSystem = flake-utils.lib.eachSystemMap flake-utils.lib.allSystems;
+      supportedSystems =
+        [ "x86_64-linux" "aarch64-linux" "aarch64-darwin" "x86_64-darwin" ];
+
+      eachSystem = flake-utils.lib.eachSystemMap supportedSystems;
     in {
       inherit eachSystem lib;
 
