@@ -34,13 +34,13 @@
   };
   bttc = {
     pname = "bttc";
-    version = "v1.0.3";
+    version = "v1.0.4";
     src = fetchFromGitHub ({
       owner = "bttcprotocol";
       repo = "bttc";
-      rev = "v1.0.3";
+      rev = "v1.0.4";
       fetchSubmodules = true;
-      sha256 = "sha256-qRXTPNzW2wvIs4Fq5kkp/QBRtmG0MTCq8W7APYlHkHM=";
+      sha256 = "sha256-ry5IGO9utbfyckKbJXh6GBCFpeonWbXNaAV+u+VS3eE=";
     });
   };
   copilot = {
@@ -100,14 +100,14 @@
   };
   lsp-bridge = {
     pname = "lsp-bridge";
-    version = "4bde737b37c4f7c6adf6e5d19d55cb8331161a71";
+    version = "69e1020ab99a5d83a6cc1274a8ace850e7cedd68";
     src = fetchgit {
       url = "https://github.com/manateelazycat/lsp-bridge.git";
-      rev = "4bde737b37c4f7c6adf6e5d19d55cb8331161a71";
+      rev = "69e1020ab99a5d83a6cc1274a8ace850e7cedd68";
       fetchSubmodules = false;
       deepClone = false;
       leaveDotGit = false;
-      sha256 = "sha256-3xd5p2muUsNOLEAkYzMVNz8tJBCM79+6Unui0bOEZSg=";
+      sha256 = "sha256-UbGLuWcravmJ+xOyomvF3K5RaeCbMXXwc4Xt8QQKQBU=";
     };
   };
   my_cookies = {
@@ -116,6 +116,14 @@
     src = fetchurl {
       url = "https://pypi.io/packages/source/m/my_cookies/my_cookies-0.1.3.tar.gz";
       sha256 = "sha256-3e5j0HFOXUyUo6YVUKQnbaxvAUtDoRTzGqW8HUfzrQ8=";
+    };
+  };
+  newsapi-python = {
+    pname = "newsapi-python";
+    version = "0.2.6";
+    src = fetchurl {
+      url = "https://pypi.io/packages/source/n/newsapi-python/newsapi-python-0.2.6.tar.gz";
+      sha256 = "sha256-cwiWbGQ6Y29whYPTWKLMxIGyGhD9xtMesFEwBhr9TXc=";
     };
   };
   org-cv = {
