@@ -1,7 +1,9 @@
-{ stdenv
-, pkgs
-, ...
-}: stdenv.mkDerivation rec {
+{
+  stdenv,
+  pkgs,
+  ...
+}:
+stdenv.mkDerivation rec {
   name = "ldap-passthrough-conf";
 
   src = ./.;
@@ -21,5 +23,4 @@
     cp ${slapd} $out/slapd.conf;
     cp ${smtpd} $out/smtpd.conf;
   '';
-
 }

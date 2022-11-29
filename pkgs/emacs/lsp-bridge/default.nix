@@ -1,6 +1,9 @@
-{ emacsPackagesFor, emacs, lib, source, ... }:
-
-let
+{
+  emacsPackagesFor,
+  emacs,
+  source,
+  ...
+}: let
   epkgs = emacsPackagesFor emacs;
   # cleanBrokenFileFilter = name: type: !(((baseNameOf name) == "acm-backend-telega.el") || ((baseNamef name) == "acm-backend-tempel.el"));
   acm = epkgs.trivialBuild {
@@ -10,12 +13,13 @@ let
     #     filter = cleanBrokenFileFilter;
     src = source.lsp-bridge.src + "/acm";
     # };
-    packageRequires = with epkgs; [ yasnippet ];
-
+    packageRequires = with epkgs; [yasnippet];
   };
-in epkgs.trivialBuild (source.lsp-bridge // rec {
-  propagatedBuildInputs = with epkgs; [ posframe markdown-mode yasnippet acm ];
-  subPackages = [ "acm" ];
+in
+  epkgs.trivialBuild (source.lsp-bridge
+    // rec {
+      propagatedBuildInputs = with epkgs; [posframe markdown-mode yasnippet acm];
+      subPackages = ["acm"];
 
-  doCheck = false;
-})
+      doCheck = false;
+    })

@@ -12,19 +12,22 @@
         flake-utils.follows = "flake-utils";
       };
     };
-
   };
 
-  outputs = { self, nixpkgs, flake-utils, devshell, ... }:
-    flake-utils.lib.eachDefaultSystem (system:
-      let
-        pkgs = import nixpkgs {
-          inherit system;
-          overlays = [ devshell.overlay ];
-          config.allowUnfree = true;
-        };
-      in {
-        devShell =
-          pkgs.devshell.mkShell { commands = [{ package = pkgs.python2; }]; };
-      });
+  outputs = {
+    nixpkgs,
+    flake-utils,
+    devshell,
+    ...
+  }:
+    flake-utils.lib.eachDefaultSystem (system: let
+      pkgs = import nixpkgs {
+        inherit system;
+        overlays = [devshell.overlay];
+        config.allowUnfree = true;
+      };
+    in {
+      devShell =
+        pkgs.devshell.mkShell {commands = [{package = pkgs.python2;}];};
+    });
 }

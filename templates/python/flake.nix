@@ -12,51 +12,40 @@
         flake-utils.follows = "flake-utils";
       };
     };
-
+    mach-nix = {
+      url = "github:DavHau/mach-nix";
+      inputs = {
+        nixpkgs.follows = "nixpkgs";
+        flake-utils.follows = "flake-utils";
+      };
+    };
   };
 
-  outputs = { self, nixpkgs, flake-utils, devshell, ... }:
-    flake-utils.lib.eachDefaultSystem (system:
-      let
-        pkgs = import nixpkgs {
-          inherit system;
-          overlays = [ devshell.overlay ];
-          config.allowUnfree = true;
-        };
-      in {
-        packages.default = pkgs.callPackage ./default.nix { };
-        devShell = pkgs.devshell.mkShell {
-          env = [{
-            name = "JAVA_HOME";
-            value = "${pkgs.openjdk11}";
-          }];
-          commands = [
-            {
-              category = "Programming language support";
-              package = pkgs.openjdk11;
-              help = ''
-                1. use gradle assemble to install dependency first
-                              2. use gradle build -x test for dev build 
-                              3. go to node/build/lib to find jars 
-              '';
-            }
-            {
-              category = "Java package manager";
-              package = pkgs.gradle.override { java = pkgs.openjdk11; };
-              name = "gradle";
-              help = ''
-                1. use gradle assemble to install dependency first
-                              2. use gradle build -x test for dev build 
-                              3. go to node/build/lib to find jars 
-              '';
-            }
-            {
-              category = "Java package manager";
-              package = pkgs.nodejs-14_x;
-              name = "nodejs";
-            }
-            { package = pkgs.python2; }
-          ];
-        };
-      });
+  outputs = {
+    nixpkgs,
+    flake-utils,
+    devshell,
+    mach-nix,
+    ...
+  }:
+    flake-utils.lib.eachDefaultSystem (system: let
+      pkgs = import nixpkgs {
+        inherit system;
+        overlays = [devshell.overlay];
+        config.allowUnfree = true;
+      };
+      python = mach-nix.mkPython {
+        requirements = builtins.readFile ./requirements.txt;
+      };
+    in {
+      packages.default = pkgs.callPackage ./default.nix {};
+      devShell = pkgs.devshell.mkShell {
+        commands = [
+          {
+            category = "Programming language support";
+            package = python;
+          }
+        ];
+      };
+    });
 }

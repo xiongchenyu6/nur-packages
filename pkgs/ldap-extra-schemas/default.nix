@@ -1,4 +1,8 @@
-{ stdenv, pkgs, ... }:
+{
+  stdenv,
+  pkgs,
+  ...
+}:
 stdenv.mkDerivation rec {
   name = "ldap-extra-schemas";
 
@@ -81,7 +85,7 @@ stdenv.mkDerivation rec {
       SYNTAX 1.3.6.1.4.1.1466.115.121.1.24
       SINGLE-VALUE)
     ##### The krbTicketFlags attribute holds information about the kerberos flags for a principal
-    ##### The values (0x00000001 - 0x00800000) are reserved for standards and 
+    ##### The values (0x00000001 - 0x00800000) are reserved for standards and
     ##### values (0x01000000 - 0x80000000) can be used for proprietary extensions.
     ##### The flags and values as per RFC 4120 and MIT implementation are,
     ##### DISALLOW_POSTDATED        0x00000001
@@ -144,7 +148,7 @@ stdenv.mkDerivation rec {
       NAME 'krbPwdServers'
       EQUALITY distinguishedNameMatch
       SYNTAX 1.3.6.1.4.1.1466.115.121.1.12)
-    ##### This attribute holds the Host Name or the ip address, 
+    ##### This attribute holds the Host Name or the ip address,
     ##### transport protocol and ports of the kerberos service host
     ##### The format is host_name-or-ip_address#protocol#port
     ##### Protocol can be 0 or 1. 0 is for UDP. 1 is for TCP.
@@ -165,7 +169,7 @@ stdenv.mkDerivation rec {
       NAME 'krbPrincipalReferences'
       EQUALITY distinguishedNameMatch
       SYNTAX 1.3.6.1.4.1.1466.115.121.1.12)
-    ##### This attribute specifies which attribute of the user objects  
+    ##### This attribute specifies which attribute of the user objects
     ##### be used as the principal name component for Kerberos.
     ##### The allowed values are cn, sn, uid, givenname, fullname.
     olcAttributeTypes: ( 2.16.840.1.113719.1.301.4.28.1
@@ -184,47 +188,47 @@ stdenv.mkDerivation rec {
     olcAttributeTypes: ( 2.16.840.1.113719.1.301.4.30.1
       NAME 'krbMaxPwdLife'
       EQUALITY integerMatch
-      SYNTAX 1.3.6.1.4.1.1466.115.121.1.27 
+      SYNTAX 1.3.6.1.4.1.1466.115.121.1.27
       SINGLE-VALUE)
     ##### Minimum lifetime of a principal's password
     olcAttributeTypes: ( 2.16.840.1.113719.1.301.4.31.1
       NAME 'krbMinPwdLife'
       EQUALITY integerMatch
-      SYNTAX 1.3.6.1.4.1.1466.115.121.1.27 
+      SYNTAX 1.3.6.1.4.1.1466.115.121.1.27
       SINGLE-VALUE)
     ##### Minimum number of character clases allowed in a password
     olcAttributeTypes: ( 2.16.840.1.113719.1.301.4.32.1
-      NAME 'krbPwdMinDiffChars' 
+      NAME 'krbPwdMinDiffChars'
       EQUALITY integerMatch
-      SYNTAX 1.3.6.1.4.1.1466.115.121.1.27 
+      SYNTAX 1.3.6.1.4.1.1466.115.121.1.27
       SINGLE-VALUE)
     ##### Minimum length of the password
     olcAttributeTypes: ( 2.16.840.1.113719.1.301.4.33.1
-      NAME 'krbPwdMinLength' 
+      NAME 'krbPwdMinLength'
       EQUALITY integerMatch
-      SYNTAX 1.3.6.1.4.1.1466.115.121.1.27 
+      SYNTAX 1.3.6.1.4.1.1466.115.121.1.27
       SINGLE-VALUE)
     ##### Number of previous versions of passwords that are stored
     olcAttributeTypes: ( 2.16.840.1.113719.1.301.4.34.1
-      NAME 'krbPwdHistoryLength' 
+      NAME 'krbPwdHistoryLength'
       EQUALITY integerMatch
-      SYNTAX 1.3.6.1.4.1.1466.115.121.1.27 
+      SYNTAX 1.3.6.1.4.1.1466.115.121.1.27
       SINGLE-VALUE)
     ##### Number of consecutive pre-authentication failures before lockout
     olcAttributeTypes: ( 1.3.6.1.4.1.5322.21.2.1
-      NAME 'krbPwdMaxFailure' 
+      NAME 'krbPwdMaxFailure'
       EQUALITY integerMatch
       SYNTAX 1.3.6.1.4.1.1466.115.121.1.27
       SINGLE-VALUE)
     ##### Period after which bad preauthentication count will be reset
     olcAttributeTypes: ( 1.3.6.1.4.1.5322.21.2.2
-      NAME 'krbPwdFailureCountInterval' 
+      NAME 'krbPwdFailureCountInterval'
       EQUALITY integerMatch
       SYNTAX 1.3.6.1.4.1.1466.115.121.1.27
       SINGLE-VALUE)
     ##### Period in which lockout is enforced
     olcAttributeTypes: ( 1.3.6.1.4.1.5322.21.2.3
-      NAME 'krbPwdLockoutDuration' 
+      NAME 'krbPwdLockoutDuration'
       EQUALITY integerMatch
       SYNTAX 1.3.6.1.4.1.1466.115.121.1.27
       SINGLE-VALUE)
@@ -265,7 +269,7 @@ stdenv.mkDerivation rec {
       SYNTAX 1.3.6.1.4.1.1466.115.121.1.24
       SINGLE-VALUE)
     ##### This attribute holds the principal's key (krbPrincipalKey) that is encrypted with
-    ##### the master key (krbMKey). 
+    ##### the master key (krbMKey).
     ##### The attribute is ASN.1 encoded.
     #####
     ##### The format of the value for this attribute is explained below,
@@ -323,12 +327,12 @@ stdenv.mkDerivation rec {
     ##### the Realm. Stores in the form of key:salt strings.
     ##### The supported encryption types are mentioned in RFC 3961
     ##### The supported salt types are,
-    ##### NORMAL          
-    ##### V4              
-    ##### NOREALM         
-    ##### ONLYREALM       
-    ##### SPECIAL         
-    ##### AFS3            
+    ##### NORMAL
+    ##### V4
+    ##### NOREALM
+    ##### ONLYREALM
+    ##### SPECIAL
+    ##### AFS3
     ##### Example: aes256-cts-hmac-sha384-192:normal
     olcAttributeTypes: ( 2.16.840.1.113719.1.301.4.43.1
       NAME 'krbSupportedEncSaltTypes'
@@ -381,7 +385,7 @@ stdenv.mkDerivation rec {
       SYNTAX 1.3.6.1.4.1.1466.115.121.1.24
       SINGLE-VALUE)
     ##### This attribute holds the kerberos master key.
-    ##### This can be used to encrypt principal keys. 
+    ##### This can be used to encrypt principal keys.
     ##### This attribute has to be secured in directory.
     #####
     ##### This attribute is ASN.1 encoded.
@@ -419,9 +423,9 @@ stdenv.mkDerivation rec {
     ##### This attribute stores the number of failed authentication attempts
     ##### happened for the principal since the last successful authentication.
     olcAttributeTypes: ( 2.16.840.1.113719.1.301.4.50.1
-      NAME 'krbLoginFailedCount' 
+      NAME 'krbLoginFailedCount'
       EQUALITY integerMatch
-      SYNTAX 1.3.6.1.4.1.1466.115.121.1.27 
+      SYNTAX 1.3.6.1.4.1.1466.115.121.1.27
       SINGLE-VALUE)
     ##### This attribute holds the application specific data.
     olcAttributeTypes: ( 2.16.840.1.113719.1.301.4.51.1
@@ -429,14 +433,14 @@ stdenv.mkDerivation rec {
       EQUALITY octetStringMatch
       SYNTAX 1.3.6.1.4.1.1466.115.121.1.40)
     ##### This attributes holds references to the set of directory objects.
-    ##### This stores the DNs of the directory objects to which the 
+    ##### This stores the DNs of the directory objects to which the
     ##### principal object belongs to.
     olcAttributeTypes: ( 2.16.840.1.113719.1.301.4.52.1
       NAME 'krbObjectReferences'
       EQUALITY distinguishedNameMatch
       SYNTAX 1.3.6.1.4.1.1466.115.121.1.12)
-    ##### This attribute holds references to a Container object where 
-    ##### the additional principal objects and stand alone principal 
+    ##### This attribute holds references to a Container object where
+    ##### the additional principal objects and stand alone principal
     ##### objects (krbPrincipal) can be created.
     olcAttributeTypes: ( 2.16.840.1.113719.1.301.4.53.1
       NAME 'krbPrincContainerRef'
@@ -490,7 +494,7 @@ stdenv.mkDerivation rec {
       MUST ( cn )
       MAY ( krbHostServer $ krbRealmReferences ) )
     ##### Representative object for the KDC server to bind into a LDAP directory
-    ##### and have a connection to access Kerberos data with the required 
+    ##### and have a connection to access Kerberos data with the required
     ##### access rights.
     olcObjectClasses: ( 2.16.840.1.113719.1.301.6.4.1
       NAME 'krbKdcService'
@@ -527,14 +531,14 @@ stdenv.mkDerivation rec {
     ##### and have a connection Id to access Kerberos data with the required access rights.
     olcObjectClasses: ( 2.16.840.1.113719.1.301.6.13.1
       NAME 'krbAdmService'
-      SUP krbService 
+      SUP krbService
       STRUCTURAL )
-    ##### The krbPwdPolicy object is a template password policy that 
-    ##### can be applied to principals when they are created. 
+    ##### The krbPwdPolicy object is a template password policy that
+    ##### can be applied to principals when they are created.
     ##### These policy attributes will be in effect, when the Kerberos
     ##### passwords are different from users' passwords (UP).
     olcObjectClasses: ( 2.16.840.1.113719.1.301.6.14.1
-      NAME 'krbPwdPolicy' 
+      NAME 'krbPwdPolicy'
       SUP top
       MUST ( cn )
       MAY ( krbMaxPwdLife $ krbMinPwdLife $ krbPwdMinDiffChars $ krbPwdMinLength $ krbPwdHistoryLength $ krbPwdMaxFailure $ krbPwdFailureCountInterval $ krbPwdLockoutDuration $ krbPwdAttributes $ krbPwdMaxLife $ krbPwdMaxRenewableLife $ krbPwdAllowedKeysalts ) )
@@ -588,7 +592,7 @@ stdenv.mkDerivation rec {
     olcAttributeTypes: {9}( 1.3.6.1.4.1.15953.9.1.10 NAME 'sudoOrder' DESC 'an i
      nteger to order the sudoRole entries' EQUALITY integerMatch ORDERING intege
      rOrderingMatch SYNTAX 1.3.6.1.4.1.1466.115.121.1.27 )
-    olcObjectClasses: {0}( 1.3.6.1.4.1.15953.9.2.1 NAME 'sudoRole' DESC 'Sudoer 
+    olcObjectClasses: {0}( 1.3.6.1.4.1.15953.9.2.1 NAME 'sudoRole' DESC 'Sudoer
      Entries' SUP top STRUCTURAL MUST cn MAY ( sudoUser $ sudoHost $ sudoCommand
       $ sudoRunAs $ sudoRunAsUser $ sudoRunAsGroup $ sudoOption $ sudoOrder $ su
      doNotBefore $ sudoNotAfter $ description ) )
@@ -600,5 +604,4 @@ stdenv.mkDerivation rec {
     cp ${kerberos} $out/kerberos.ldif;
     cp ${sudoers} $out/sudoers.ldif;
   '';
-
 }

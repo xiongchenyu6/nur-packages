@@ -1,4 +1,8 @@
-{ stdenv, lib, source, unzip, steam, writeShellScript, ... }:
+{
+  stdenv,
+  unzip,
+  ...
+}:
 stdenv.mkDerivation rec {
   name = "tat";
   doCheck = false;

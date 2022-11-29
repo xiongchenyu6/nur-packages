@@ -1,9 +1,12 @@
-{ config, lib, pkgs, ... }:
-with lib;
-let
-  cfg = config.services.tat-agent;
-in
 {
+  config,
+  lib,
+  pkgs,
+  ...
+}:
+with lib; let
+  cfg = config.services.tat-agent;
+in {
   options.services.tat-agent = {
     enable = mkEnableOption "Enables unit-status-telegram service";
   };
@@ -11,9 +14,9 @@ in
     systemd.services = mkIf cfg.enable {
       tat-agent = {
         description = "Bttc Service Daemon";
-        path = [ pkgs.curl ];
-        wantedBy = [ "multi-user.target" ];
-        after = [ "networking.target" ];
+        path = [pkgs.curl];
+        wantedBy = ["multi-user.target"];
+        after = ["networking.target"];
         script = ''
           ${pkgs.tat}/bin/tat_agent
         '';

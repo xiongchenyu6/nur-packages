@@ -1,8 +1,12 @@
-{ emacsPackagesFor, emacsNativeComp, lib, source, ... }:
-
-let
+{
+  emacsPackagesFor,
+  emacsNativeComp,
+  source,
+  ...
+}: let
   epkgs = emacsPackagesFor emacsNativeComp;
 in
-epkgs.trivialBuild (source.ligature // rec {
-  doCheck = false;
-})
+  epkgs.trivialBuild (source.ligature
+    // rec {
+      doCheck = false;
+    })
