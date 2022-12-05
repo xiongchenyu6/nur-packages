@@ -58,6 +58,7 @@ with builtins; let
 
     bttc = callPackage ./pkgs/bttc {};
     delivery = callPackage ./pkgs/delivery {};
+    marksman = callPackage ./pkgs/marksman {};
 
     oci-arm-host-capacity =
       (inputs.dream2nix.lib.makeFlakeOutputs {
@@ -71,7 +72,12 @@ with builtins; let
 
     my_cookies = callPackage ./pkgs/python3/my_cookies {};
     epc = callPackage ./pkgs/python3/epc {};
+    pem = callPackage ./pkgs/python3/pem {};
     newsapi-python = callPackage ./pkgs/python3/newsapi-python {};
+
+    django-ordered-model = callPackage ./pkgs/python3/django-ordered-model {};
+    django-sns-view = callPackage ./pkgs/python3/django-sns-view {};
+
     Flask-SimpleLDAP = callPackage ./pkgs/python3/Flask-SimpleLDAP {};
     # lsp-bridge = callPackage ./pkgs/emacs/lsp-bridge { };
 

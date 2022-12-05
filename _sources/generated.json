@@ -13,6 +13,20 @@
         },
         "version": "1.4.0"
     },
+    "PyMySQL": {
+        "cargoLocks": null,
+        "extract": null,
+        "name": "PyMySQL",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-gWkno1DzjVYHKuyl37ECIf4dxlN0WFPTCiFmN/XXrTY=",
+            "type": "url",
+            "url": "https://pypi.io/packages/source/P/PyMySQL/PyMySQL-1.0.2.tar.gz"
+        },
+        "version": "1.0.2"
+    },
     "amazon-cloudwatch-agent": {
         "cargoLocks": null,
         "extract": null,
@@ -31,6 +45,20 @@
             "type": "github"
         },
         "version": "v1.247355.0"
+    },
+    "apns2": {
+        "cargoLocks": null,
+        "extract": null,
+        "name": "apns2",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-Ty2ujGCJYdF2j3NKyx0ICaYKxxoM3Mpg9GUptz8g+zQ=",
+            "type": "url",
+            "url": "https://pypi.io/packages/source/a/apns2/apns2-0.7.2.tar.gz"
+        },
+        "version": "0.7.2"
     },
     "aws-codedeploy-agent": {
         "cargoLocks": null,
@@ -106,6 +134,136 @@
         },
         "version": "v1.0.2"
     },
+    "django-log-request-id": {
+        "cargoLocks": null,
+        "extract": null,
+        "name": "django-log-request-id",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-vM2rzfU2NF565AVi1LD83CMODr4ai2WrSh7Z0wg8+HA=",
+            "type": "url",
+            "url": "https://pypi.io/packages/source/d/django-log-request-id/django-log-request-id-2.0.0.tar.gz"
+        },
+        "version": "2.0.0"
+    },
+    "django-mirage-field": {
+        "cargoLocks": null,
+        "extract": null,
+        "name": "django-mirage-field",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-52jINT+dj9NJM+j9pgI39JxLNFbmjx/qKw9J4zgfM4Y=",
+            "type": "url",
+            "url": "https://pypi.io/packages/source/d/django-mirage-field/django-mirage-field-1.4.0.tar.gz"
+        },
+        "version": "1.4.0"
+    },
+    "django-mysql": {
+        "cargoLocks": null,
+        "extract": null,
+        "name": "django-mysql",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-9msC+r1I+Fi5/XDlf01m8cbIBwR6LuyLfc4rCqHc1ME=",
+            "type": "url",
+            "url": "https://pypi.io/packages/source/d/django-mysql/django-mysql-4.7.1.tar.gz"
+        },
+        "version": "4.7.1"
+    },
+    "django-ordered-model": {
+        "cargoLocks": null,
+        "extract": null,
+        "name": "django-ordered-model",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-YhYaa8Udi0AmRIVLJXYF17UYPQH9NJgmaCqH6SJ8BbU=",
+            "type": "url",
+            "url": "https://pypi.io/packages/source/d/django-ordered-model/django-ordered-model-3.6.tar.gz"
+        },
+        "version": "3.6"
+    },
+    "django-push-notifications": {
+        "cargoLocks": null,
+        "extract": null,
+        "name": "django-push-notifications",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "rev": "31299c0b8953305795094571d7b0c53f4d73410c",
+            "sha256": "sha256-qOcj3ak0FSt5BHplmpHHC9xhQOvHfnzt/AS/ydFjHMA=",
+            "type": "git",
+            "url": "https://github.com/iskhakov/django-push-notifications.git"
+        },
+        "version": "31299c0b8953305795094571d7b0c53f4d73410c"
+    },
+    "django-ratelimit": {
+        "cargoLocks": null,
+        "extract": null,
+        "name": "django-ratelimit",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-cyI9hgq9XF17moB/q7OaYiAGgSm1FL6NeARLUmB6sVQ=",
+            "type": "url",
+            "url": "https://pypi.io/packages/source/d/django-ratelimit/django-ratelimit-3.0.1.tar.gz"
+        },
+        "version": "3.0.1"
+    },
+    "django-redis-cache": {
+        "cargoLocks": null,
+        "extract": null,
+        "name": "django-redis-cache",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-p/vvEBoFPS5DC9O+/mqH5ucw+Y4zW1FvJfMLF9n+ZuM=",
+            "type": "url",
+            "url": "https://pypi.io/packages/source/d/django-redis-cache/django-redis-cache-3.0.1.tar.gz"
+        },
+        "version": "3.0.1"
+    },
+    "django-silk": {
+        "cargoLocks": null,
+        "extract": null,
+        "name": "django-silk",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-JSDVg+9HWl0vcKHMW0yRFJNwnWVKsGWmlDTj4FCkQBQ=",
+            "type": "url",
+            "url": "https://pypi.io/packages/source/d/django-silk/django-silk-5.0.2.tar.gz"
+        },
+        "version": "5.0.2"
+    },
+    "django-sns-view": {
+        "cargoLocks": null,
+        "extract": null,
+        "name": "django-sns-view",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-AZJTUwNh23Oa0Kg/E7meOA/i6tdmmVJj/W9RroU8zTA=",
+            "type": "url",
+            "url": "https://pypi.io/packages/source/d/django-sns-view/django-sns-view-0.1.2.tar.gz"
+        },
+        "version": "0.1.2"
+    },
     "epc": {
         "cargoLocks": null,
         "extract": null,
@@ -167,12 +325,12 @@
             "fetchSubmodules": false,
             "leaveDotGit": false,
             "name": null,
-            "rev": "69e1020ab99a5d83a6cc1274a8ace850e7cedd68",
-            "sha256": "sha256-UbGLuWcravmJ+xOyomvF3K5RaeCbMXXwc4Xt8QQKQBU=",
+            "rev": "7c477b1adf63090ae748ce2e35c05ce713817b42",
+            "sha256": "sha256-qW4smWacn2cAJ2x/n5LbkN5h3UR3NfIhfhlCVJQH35M=",
             "type": "git",
             "url": "https://github.com/manateelazycat/lsp-bridge.git"
         },
-        "version": "69e1020ab99a5d83a6cc1274a8ace850e7cedd68"
+        "version": "7c477b1adf63090ae748ce2e35c05ce713817b42"
     },
     "my_cookies": {
         "cargoLocks": null,
@@ -219,5 +377,47 @@
             "url": "https://gitlab.com/Titan-C/org-cv.git"
         },
         "version": "332c72880df2ed8f25d3693907cedfe53b07f49e"
+    },
+    "pem": {
+        "cargoLocks": null,
+        "extract": null,
+        "name": "pem",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-xJGDOwkmYmJv1YqHN11FBjfU7pSZatm7vUJZNCjpPlo=",
+            "type": "url",
+            "url": "https://pypi.io/packages/source/p/pem/pem-21.2.0.tar.gz"
+        },
+        "version": "21.2.0"
+    },
+    "psycopg2-binary": {
+        "cargoLocks": null,
+        "extract": null,
+        "name": "psycopg2-binary",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-M+Yy0Ihblai5cWWJkAbEDp7NxjSlKdynuZHrfeTs5Bw=",
+            "type": "url",
+            "url": "https://pypi.io/packages/source/p/psycopg2-binary/psycopg2-binary-2.9.5.tar.gz"
+        },
+        "version": "2.9.5"
+    },
+    "slack-export-viewer": {
+        "cargoLocks": null,
+        "extract": null,
+        "name": "slack-export-viewer",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-W8i+W8aW1lKG3EvnTBe1wViJ1FmgJLhQgY5msaTSho4=",
+            "type": "url",
+            "url": "https://pypi.io/packages/source/s/slack-export-viewer/slack-export-viewer-1.1.4.tar.gz"
+        },
+        "version": "1.1.4"
     }
 }
