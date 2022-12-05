@@ -61,14 +61,14 @@
   };
   copilot = {
     pname = "copilot";
-    version = "1be31d962e212fb60e0a5972b4be60cb29341559";
+    version = "2ecfb36a32353fdc76fd212c6607c3bbe7ab9f27";
     src = fetchgit {
       url = "https://github.com/zerolfx/copilot.el.git";
-      rev = "1be31d962e212fb60e0a5972b4be60cb29341559";
+      rev = "2ecfb36a32353fdc76fd212c6607c3bbe7ab9f27";
       fetchSubmodules = false;
       deepClone = false;
       leaveDotGit = false;
-      sha256 = "sha256-hma5nFmYzMf0bAXcfrZlFZ9u9k7qBiQkLlMKEp4Ae/I=";
+      sha256 = "sha256-Ia24hAyf7Bz5Ynu5OsuzEDo9CxnKeXQP89K2DL2kvX0=";
     };
   };
   delivery = {
@@ -100,10 +100,10 @@
   };
   django-mysql = {
     pname = "django-mysql";
-    version = "4.7.1";
+    version = "4.8.0";
     src = fetchurl {
-      url = "https://pypi.io/packages/source/d/django-mysql/django-mysql-4.7.1.tar.gz";
-      sha256 = "sha256-9msC+r1I+Fi5/XDlf01m8cbIBwR6LuyLfc4rCqHc1ME=";
+      url = "https://pypi.io/packages/source/d/django-mysql/django-mysql-4.8.0.tar.gz";
+      sha256 = "sha256-k71kYlNjKAkz0HnbKdBiE4d1m6FYO2TKOMKB6kjmLbE=";
     };
   };
   django-ordered-model = {
@@ -128,10 +128,10 @@
   };
   django-ratelimit = {
     pname = "django-ratelimit";
-    version = "3.0.1";
+    version = "4.0.0";
     src = fetchurl {
-      url = "https://pypi.io/packages/source/d/django-ratelimit/django-ratelimit-3.0.1.tar.gz";
-      sha256 = "sha256-cyI9hgq9XF17moB/q7OaYiAGgSm1FL6NeARLUmB6sVQ=";
+      url = "https://pypi.io/packages/source/d/django-ratelimit/django-ratelimit-4.0.0.tar.gz";
+      sha256 = "sha256-Gcup6BASd/KMepdMVMmXBnNBqzAXVDHTc56P+2PN0rI=";
     };
   };
   django-redis-cache = {
@@ -192,14 +192,14 @@
   };
   lsp-bridge = {
     pname = "lsp-bridge";
-    version = "7c477b1adf63090ae748ce2e35c05ce713817b42";
+    version = "e4552d45cc5284b1a1c4c59fba854d21cc028193";
     src = fetchgit {
       url = "https://github.com/manateelazycat/lsp-bridge.git";
-      rev = "7c477b1adf63090ae748ce2e35c05ce713817b42";
+      rev = "e4552d45cc5284b1a1c4c59fba854d21cc028193";
       fetchSubmodules = false;
       deepClone = false;
       leaveDotGit = false;
-      sha256 = "sha256-qW4smWacn2cAJ2x/n5LbkN5h3UR3NfIhfhlCVJQH35M=";
+      sha256 = "sha256-pKqBXZ+IYRh4tjRfvvlTNJ6K9yFmc/jLs6szHrte5Ic=";
     };
   };
   my_cookies = {

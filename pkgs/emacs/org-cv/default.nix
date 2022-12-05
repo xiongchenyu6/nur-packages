@@ -1,10 +1,10 @@
 {
   emacsPackagesFor,
-  emacsNativeComp,
+  emacsUnstable,
   source,
   ...
 }: let
-  epkgs = emacsPackagesFor emacsNativeComp;
+  epkgs = emacsPackagesFor emacsUnstable;
 in
   epkgs.trivialBuild (source.org-cv
     // rec {

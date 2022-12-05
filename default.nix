@@ -88,8 +88,13 @@ with builtins; let
     org-cv = callPackage ./pkgs/emacs/org-cv {};
 
     inherit
-      (callPackage ./pkgs/npm/tronbox {nodejs = pkgs.nodejs-14_x;})
+      (callPackage ./pkgs/npm/tronbox {})
       tronbox
+      ;
+
+    inherit
+      (callPackage ./pkgs/npm/solium {})
+      solium
       ;
 
     amazon-cloudwatch-agent = callPackage ./pkgs/amazon-cloudwatch-agent {};
