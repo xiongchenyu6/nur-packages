@@ -1,11 +1,11 @@
 {
   emacsPackagesFor,
-  emacsUnstable,
+  emacs,
   nodejs-16_x,
   source,
   ...
 }: let
-  epkgs = emacsPackagesFor emacsUnstable;
+  epkgs = emacsPackagesFor emacs;
 in
   epkgs.trivialBuild (source.copilot
     // rec {

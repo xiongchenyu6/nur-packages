@@ -1,10 +1,10 @@
 {
   emacsPackagesFor,
-  emacsUnstable,
+  emacs,
   source,
   ...
 }: let
-  epkgs = emacsPackagesFor emacsUnstable;
+  epkgs = emacsPackagesFor emacs;
 in
   epkgs.trivialBuild (source.ligature
     // rec {

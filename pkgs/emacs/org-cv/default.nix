@@ -1,13 +1,13 @@
 {
   emacsPackagesFor,
-  emacsUnstable,
+  emacs,
   source,
   ...
 }: let
-  epkgs = emacsPackagesFor emacsUnstable;
+  epkgs = emacsPackagesFor emacs;
 in
   epkgs.trivialBuild (source.org-cv
-    // rec {
+    // {
       propagatedBuildInputs = with epkgs; [ox-hugo];
 
       doCheck = false;
