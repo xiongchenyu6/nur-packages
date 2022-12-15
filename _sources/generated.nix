@@ -61,14 +61,14 @@
   };
   copilot = {
     pname = "copilot";
-    version = "2ecfb36a32353fdc76fd212c6607c3bbe7ab9f27";
+    version = "264a7fefa6436f02ad5fe5d54b4c790050f317c4";
     src = fetchgit {
       url = "https://github.com/zerolfx/copilot.el.git";
-      rev = "2ecfb36a32353fdc76fd212c6607c3bbe7ab9f27";
+      rev = "264a7fefa6436f02ad5fe5d54b4c790050f317c4";
       fetchSubmodules = false;
       deepClone = false;
       leaveDotGit = false;
-      sha256 = "sha256-Ia24hAyf7Bz5Ynu5OsuzEDo9CxnKeXQP89K2DL2kvX0=";
+      sha256 = "sha256-xcLcPsvcPwMJ3OMowW1SBrF8Ul1DN6u0o47fx4ZOIzM=";
     };
   };
   delivery = {
@@ -192,14 +192,14 @@
   };
   lsp-bridge = {
     pname = "lsp-bridge";
-    version = "e4552d45cc5284b1a1c4c59fba854d21cc028193";
+    version = "cac985d0b32f851ce281e47610f61b22facc3e28";
     src = fetchgit {
       url = "https://github.com/manateelazycat/lsp-bridge.git";
-      rev = "e4552d45cc5284b1a1c4c59fba854d21cc028193";
+      rev = "cac985d0b32f851ce281e47610f61b22facc3e28";
       fetchSubmodules = false;
       deepClone = false;
       leaveDotGit = false;
-      sha256 = "sha256-pKqBXZ+IYRh4tjRfvvlTNJ6K9yFmc/jLs6szHrte5Ic=";
+      sha256 = "sha256-nnW3zY1A0V9ytrwrr0L9B6Q0woU5HuyCRnllnQnnuSc=";
     };
   };
   my_cookies = {

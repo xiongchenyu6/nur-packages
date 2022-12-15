@@ -8,7 +8,7 @@
   epkgs = emacsPackagesFor emacs;
 in
   epkgs.trivialBuild (source.copilot
-    // rec {
+    // {
       packageRequires = with epkgs; [s dash editorconfig nodejs-16_x];
 
       postInstall = ''
