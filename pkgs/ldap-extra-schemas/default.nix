@@ -649,11 +649,25 @@ stdenv.mkDerivation rec {
     olcobjectClasses: ( 1.3.6.1.1.1.2.17 NAME 'automount' SUP top STRUCTURAL DESC 'Automount information' MUST ( automountKey $ automountInformation ) MAY description )
     olcobjectClasses: ( 1.3.6.1.1.1.2.18 NAME 'groupOfMembers' SUP top STRUCTURAL DESC 'A group with members (DNs)' MUST cn MAY ( businessCategory $ seeAlso $ owner $ ou $ o $ description $ member ) )
   '';
+  openssh-lpk = pkgs.writeText "openssh-lpk" ''
+    dn: cn=openssh-lpk,cn=schema,cn=config
+    objectClass: olcSchemaConfig
+    cn: openssh-lpk
+    olcAttributeTypes: ( 1.3.6.1.4.1.24552.500.1.1.1.13 NAME 'sshPublicKey'
+        DESC 'MANDATORY: OpenSSH Public key'
+        EQUALITY octetStringMatch
+        SYNTAX 1.3.6.1.4.1.1466.115.121.1.40 )
+    olcObjectClasses: ( 1.3.6.1.4.1.24552.500.1.1.2.0 NAME 'ldapPublicKey' SUP top AUXILIARY
+        DESC 'MANDATORY: OpenSSH LPK objectclass'
+        MAY ( sshPublicKey $ uid )
+        )
+  '';
 
   installPhase = ''
     mkdir -p $out;
     cp ${kerberos} $out/kerberos.ldif;
     cp ${sudoers} $out/sudoers.ldif;
     cp ${rfc2307bis} $out/rfc2307bis.ldif;
+    cp ${openssh-lpk} $out/openssh-lpk.ldif;
   '';
 }

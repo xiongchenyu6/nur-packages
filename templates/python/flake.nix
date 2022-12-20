@@ -21,31 +21,24 @@
     };
   };
 
-  outputs = {
-    nixpkgs,
-    flake-utils,
-    devshell,
-    mach-nix,
-    ...
-  }:
-    flake-utils.lib.eachDefaultSystem (system: let
-      pkgs = import nixpkgs {
-        inherit system;
-        overlays = [devshell.overlay];
-        config.allowUnfree = true;
-      };
-      python = mach-nix.mkPython {
-        requirements = builtins.readFile ./requirements.txt;
-      };
-    in {
-      packages.default = pkgs.callPackage ./default.nix {};
-      devShell = pkgs.devshell.mkShell {
-        commands = [
-          {
+  outputs = { nixpkgs, flake-utils, devshell, mach-nix, ... }:
+    flake-utils.lib.eachDefaultSystem (system:
+      let
+        pkgs = import nixpkgs {
+          inherit system;
+          overlays = [ devshell.overlay ];
+          config.allowUnfree = true;
+        };
+        python = mach-nix.mkPython {
+          requirements = builtins.readFile ./requirements.txt;
+        };
+      in {
+        packages.default = pkgs.callPackage ./default.nix { };
+        devShell = pkgs.devshell.mkShell {
+          commands = [{
             category = "Programming language support";
             package = python;
-          }
-        ];
-      };
-    });
+          }];
+        };
+      });
 }

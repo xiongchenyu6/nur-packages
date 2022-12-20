@@ -1,11 +1,6 @@
-{
-  config,
-  lib,
-  pkgs,
-  ...
-}:
-with lib; let
-  cfg = config.services.unit-status-telegram;
+{ config, lib, pkgs, ... }:
+with lib;
+let cfg = config.services.unit-status-telegram;
 in {
   options.services.unit-status-telegram = {
     enable = mkEnableOption "Enables unit-status-telegram service";
@@ -23,9 +18,9 @@ in {
     systemd.services = mkIf cfg.enable {
       "unit-status.telegram@" = {
         description = "Bttc Service Daemon";
-        path = [pkgs.curl];
-        wantedBy = ["multi-user.target"];
-        after = ["networking.target"];
+        path = [ pkgs.curl ];
+        wantedBy = [ "multi-user.target" ];
+        after = [ "networking.target" ];
         script = ''
           UNIT=$1
           UNITSTATUS=$(systemctl status $UNIT)

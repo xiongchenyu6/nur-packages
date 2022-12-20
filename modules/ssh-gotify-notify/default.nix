@@ -1,13 +1,9 @@
 # Edit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
-{
-  pkgs,
-  config,
-  lib,
-  ...
-}:
-with lib; let
+{ pkgs, config, lib, ... }:
+with lib;
+let
   file-path = builtins.split "/" (toString ./.);
   serviceName = lib.last file-path;
   cfg = config.services.ssh-gotify-notify;
@@ -37,7 +33,7 @@ in {
     systemd = {
       services = mkIf cfg.enable {
         "${serviceName}" = {
-          path = with pkgs; [gawk curl inetutils];
+          path = with pkgs; [ gawk curl inetutils ];
           script = ''
             #!/usr/bin/env bash
 

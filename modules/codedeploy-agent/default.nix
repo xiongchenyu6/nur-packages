@@ -1,13 +1,9 @@
 # Edit this configuration file to define what should be installed on
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
-{
-  pkgs,
-  config,
-  lib,
-  ...
-}:
-with lib; let
+{ pkgs, config, lib, ... }:
+with lib;
+let
   file-path = builtins.split "/" (toString ./.);
   serviceName = lib.last file-path;
   cfg = config.services.${serviceName};
@@ -35,16 +31,17 @@ in {
     systemd = {
       services = mkIf cfg.enable {
         "${serviceName}" = {
-          wantedBy = ["multi-user.target"];
-          after = ["networking.target"];
+          wantedBy = [ "multi-user.target" ];
+          after = [ "networking.target" ];
           startLimitIntervalSec = 500;
           startLimitBurst = 5;
-          environment = {};
+          environment = { };
           preStart = "";
-          script = "${pkgs.codedeploy-agent}/bin/codedeploy-agent --config_file=${configFile} start";
+          script =
+            "${pkgs.codedeploy-agent}/bin/codedeploy-agent --config_file=${configFile} start";
           postStart = "";
-          onSuccess = [];
-          onFailure = [];
+          onSuccess = [ ];
+          onFailure = [ ];
           serviceConfig = {
             User = serviceName;
             Restart = "on-failure";
@@ -68,6 +65,6 @@ in {
       createHome = true;
       home = "/var/lib/${serviceName}";
     };
-    users.groups."${serviceName}" = {};
+    users.groups."${serviceName}" = { };
   };
 }

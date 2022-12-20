@@ -1,8 +1,4 @@
-{
-  stdenv,
-  pkgs,
-  ...
-}:
+{ stdenv, pkgs, ... }:
 stdenv.mkDerivation rec {
   name = "ldap-passthrough-conf";
 
