@@ -45,7 +45,10 @@
 
       # Following line doesn't work for infinite recursion
       # overlay = self: super: packages."${super.system}";
-      overlay = import ./overlay.nix { inherit lib inputs; };
+      overlays = {
+        default = import ./overlay.nix { inherit lib inputs; };
+        nixops-fix = ./pkgs/nixops-fixed/poetry-git-overlay.nix;
+      };
 
       apps = eachSystem (system:
         let pkgs = import nixpkgs { inherit system; };

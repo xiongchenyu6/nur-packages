@@ -1,0 +1,13 @@
+[tool.poetry]
+name = "nixopsenv"
+version = "2.0.0"
+description = "NixOps 2.0"
+authors = ["Adam Hoese <adam.hose@tweag.io>"]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+nixops-aws = { git = "https://github.com/mvnetbiz/nixops-aws.git",branch = "remove-hvm-option" }
+
+[build-system]
+requires = ["poetry>=0.12"]
+build-backend = "poetry.masonry.api"
