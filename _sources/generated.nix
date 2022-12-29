@@ -192,14 +192,14 @@
   };
   lsp-bridge = {
     pname = "lsp-bridge";
-    version = "0c6782999b888e8b2c5c40f2aaa31a71f145cf6f";
+    version = "d9457d33a089699c8c5ba750b65afcb926bd3b9a";
     src = fetchgit {
       url = "https://github.com/manateelazycat/lsp-bridge.git";
-      rev = "0c6782999b888e8b2c5c40f2aaa31a71f145cf6f";
+      rev = "d9457d33a089699c8c5ba750b65afcb926bd3b9a";
       fetchSubmodules = false;
       deepClone = false;
       leaveDotGit = false;
-      sha256 = "sha256-dLU/7XnEeaMXiD1WK8i5uDdOPtoGVOp/ICplO9MxEXo=";
+      sha256 = "sha256-riL4d9kao+1TRapuDxq8g8BKVgEi2rs2OYIuIL+aqeQ=";
     };
   };
   my_cookies = {

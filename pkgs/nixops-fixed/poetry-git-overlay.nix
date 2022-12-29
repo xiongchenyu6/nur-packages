@@ -14,9 +14,29 @@ self: super: {
   nixops-aws = super.nixops-aws.overridePythonAttrs (
     _: {
       src = pkgs.fetchgit {
-        url = "https://github.com/mvnetbiz/nixops-aws.git";
-        rev = "17d3bdac06a70a2ee7d76892d37bf07b0efbb30b";
-        sha256 = "156dhbb0ivw605aaylib8pwz4pb11vgpjgkhp67iwcgqvq6if4cr";
+        url = "https://github.com/xiongchenyu6/nixops-aws.git";
+        rev = "efe1905509380e3ab5c3aba6d06dde693129a496";
+        sha256 = "1dn5isq13bbmffm620gwbkalf151rrfm084wbr5apclggd7kyyiy";
+      };
+    }
+  );
+
+  nixops-gcp = super.nixops-gcp.overridePythonAttrs (
+    _: {
+      src = pkgs.fetchgit {
+        url = "https://github.com/xiongchenyu6/nixops-gce.git";
+        rev = "9242e568d57a2929d29d3d4c9e474af454685691";
+        sha256 = "0gbgwi5zwrxyl41ywbdnnxgvlcs3a0r1gl90jl9bdwmswn2jvww9";
+      };
+    }
+  );
+
+  nixops-hetznercloud = super.nixops-hetznercloud.overridePythonAttrs (
+    _: {
+      src = pkgs.fetchgit {
+        url = "https://github.com/xiongchenyu6/nixops-hetznercloud.git";
+        rev = "48a8b908276543f1999c36df1982a30675963828";
+        sha256 = "0ffd3m7z67i4fzm4d98zgl65d06j7qcqqzhr394gnkv7s95gnl0x";
       };
     }
   );
