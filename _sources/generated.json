@@ -1,6 +1,7 @@
 {
     "Flask-SimpleLDAP": {
         "cargoLocks": null,
+        "date": null,
         "extract": null,
         "name": "Flask-SimpleLDAP",
         "passthru": null,
@@ -15,6 +16,7 @@
     },
     "PyMySQL": {
         "cargoLocks": null,
+        "date": null,
         "extract": null,
         "name": "PyMySQL",
         "passthru": null,
@@ -29,6 +31,7 @@
     },
     "amazon-cloudwatch-agent": {
         "cargoLocks": null,
+        "date": null,
         "extract": null,
         "name": "amazon-cloudwatch-agent",
         "passthru": null,
@@ -48,6 +51,7 @@
     },
     "apns2": {
         "cargoLocks": null,
+        "date": null,
         "extract": null,
         "name": "apns2",
         "passthru": null,
@@ -62,6 +66,7 @@
     },
     "aws-codedeploy-agent": {
         "cargoLocks": null,
+        "date": "2022-11-17",
         "extract": null,
         "name": "aws-codedeploy-agent",
         "passthru": null,
@@ -80,6 +85,7 @@
     },
     "bttc": {
         "cargoLocks": null,
+        "date": null,
         "extract": null,
         "name": "bttc",
         "passthru": null,
@@ -99,6 +105,7 @@
     },
     "copilot": {
         "cargoLocks": null,
+        "date": "2023-01-18",
         "extract": null,
         "name": "copilot",
         "passthru": null,
@@ -108,15 +115,16 @@
             "fetchSubmodules": false,
             "leaveDotGit": false,
             "name": null,
-            "rev": "43726d3447120062156878108879f207a9778fc8",
-            "sha256": "sha256-KkUNvOppKxXXbugglgfHqDD7V9nSb0IjYr9D3gzTJHc=",
+            "rev": "45014a9b61e83464c2fc1c65f417391b723a9246",
+            "sha256": "sha256-mJ7mW/2+e32oIFJWdHmnZjxTiJq4pU0ZvdA4RxR8wjI=",
             "type": "git",
             "url": "https://github.com/zerolfx/copilot.el.git"
         },
-        "version": "43726d3447120062156878108879f207a9778fc8"
+        "version": "45014a9b61e83464c2fc1c65f417391b723a9246"
     },
     "delivery": {
         "cargoLocks": null,
+        "date": null,
         "extract": null,
         "name": "delivery",
         "passthru": null,
@@ -136,20 +144,22 @@
     },
     "django-log-request-id": {
         "cargoLocks": null,
+        "date": null,
         "extract": null,
         "name": "django-log-request-id",
         "passthru": null,
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-vM2rzfU2NF565AVi1LD83CMODr4ai2WrSh7Z0wg8+HA=",
+            "sha256": "sha256-sR/IIXdLVLgg7y5zLbqlIwRxHejVxPkDHKSFePYSGrY=",
             "type": "url",
-            "url": "https://pypi.io/packages/source/d/django-log-request-id/django-log-request-id-2.0.0.tar.gz"
+            "url": "https://pypi.io/packages/source/d/django-log-request-id/django-log-request-id-2.1.0.tar.gz"
         },
-        "version": "2.0.0"
+        "version": "2.1.0"
     },
     "django-mirage-field": {
         "cargoLocks": null,
+        "date": null,
         "extract": null,
         "name": "django-mirage-field",
         "passthru": null,
@@ -164,6 +174,7 @@
     },
     "django-mysql": {
         "cargoLocks": null,
+        "date": null,
         "extract": null,
         "name": "django-mysql",
         "passthru": null,
@@ -178,6 +189,7 @@
     },
     "django-ordered-model": {
         "cargoLocks": null,
+        "date": null,
         "extract": null,
         "name": "django-ordered-model",
         "passthru": null,
@@ -192,6 +204,7 @@
     },
     "django-push-notifications": {
         "cargoLocks": null,
+        "date": "2022-07-22",
         "extract": null,
         "name": "django-push-notifications",
         "passthru": null,
@@ -210,6 +223,7 @@
     },
     "django-ratelimit": {
         "cargoLocks": null,
+        "date": null,
         "extract": null,
         "name": "django-ratelimit",
         "passthru": null,
@@ -224,6 +238,7 @@
     },
     "django-redis-cache": {
         "cargoLocks": null,
+        "date": null,
         "extract": null,
         "name": "django-redis-cache",
         "passthru": null,
@@ -238,20 +253,22 @@
     },
     "django-silk": {
         "cargoLocks": null,
+        "date": null,
         "extract": null,
         "name": "django-silk",
         "passthru": null,
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-JSDVg+9HWl0vcKHMW0yRFJNwnWVKsGWmlDTj4FCkQBQ=",
+            "sha256": "sha256-Lx/KryEZIBEUdTf+HKctyfVS8y1wQ+vYKu7aNw8ZRGk=",
             "type": "url",
-            "url": "https://pypi.io/packages/source/d/django-silk/django-silk-5.0.2.tar.gz"
+            "url": "https://pypi.io/packages/source/d/django-silk/django-silk-5.0.3.tar.gz"
         },
-        "version": "5.0.2"
+        "version": "5.0.3"
     },
     "django-sns-view": {
         "cargoLocks": null,
+        "date": null,
         "extract": null,
         "name": "django-sns-view",
         "passthru": null,
@@ -266,6 +283,7 @@
     },
     "epc": {
         "cargoLocks": null,
+        "date": null,
         "extract": null,
         "name": "epc",
         "passthru": null,
@@ -280,6 +298,7 @@
     },
     "launch": {
         "cargoLocks": null,
+        "date": "2022-10-21",
         "extract": null,
         "name": "launch",
         "passthru": null,
@@ -298,6 +317,7 @@
     },
     "ligature": {
         "cargoLocks": null,
+        "date": "2022-11-03",
         "extract": null,
         "name": "ligature",
         "passthru": null,
@@ -316,6 +336,7 @@
     },
     "lsp-bridge": {
         "cargoLocks": null,
+        "date": "2023-01-25",
         "extract": null,
         "name": "lsp-bridge",
         "passthru": null,
@@ -325,15 +346,16 @@
             "fetchSubmodules": false,
             "leaveDotGit": false,
             "name": null,
-            "rev": "d9457d33a089699c8c5ba750b65afcb926bd3b9a",
-            "sha256": "sha256-riL4d9kao+1TRapuDxq8g8BKVgEi2rs2OYIuIL+aqeQ=",
+            "rev": "a153832df6a2c2d6de1fd2441c485f33efed70cc",
+            "sha256": "sha256-8XAqQPh4vq48M18glpomRkH+uyDpsZ30ZUMkcIncMCs=",
             "type": "git",
             "url": "https://github.com/manateelazycat/lsp-bridge.git"
         },
-        "version": "d9457d33a089699c8c5ba750b65afcb926bd3b9a"
+        "version": "a153832df6a2c2d6de1fd2441c485f33efed70cc"
     },
     "my_cookies": {
         "cargoLocks": null,
+        "date": null,
         "extract": null,
         "name": "my_cookies",
         "passthru": null,
@@ -348,6 +370,7 @@
     },
     "newsapi-python": {
         "cargoLocks": null,
+        "date": null,
         "extract": null,
         "name": "newsapi-python",
         "passthru": null,
@@ -362,6 +385,7 @@
     },
     "org-cv": {
         "cargoLocks": null,
+        "date": "2022-08-22",
         "extract": null,
         "name": "org-cv",
         "passthru": null,
@@ -380,6 +404,7 @@
     },
     "pem": {
         "cargoLocks": null,
+        "date": null,
         "extract": null,
         "name": "pem",
         "passthru": null,
@@ -394,6 +419,7 @@
     },
     "psycopg2-binary": {
         "cargoLocks": null,
+        "date": null,
         "extract": null,
         "name": "psycopg2-binary",
         "passthru": null,
@@ -408,6 +434,7 @@
     },
     "slack-export-viewer": {
         "cargoLocks": null,
+        "date": null,
         "extract": null,
         "name": "slack-export-viewer",
         "passthru": null,
