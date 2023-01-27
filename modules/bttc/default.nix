@@ -68,27 +68,27 @@ in {
 
     deiliveryPrivateKeyPath = mkOption {
       description = lib.mdDoc
-        "encrypted password file for bttc node to decrypt private key";
+      "encrypted password file for bttc node to decrypt private key";
       type = types.nullOr types.path;
     };
 
     bttcKeyStorePath = mkOption {
       description = lib.mdDoc
-        "encrypted password file for bttc node to decrypt private key";
+      "encrypted password file for bttc node to decrypt private key";
       type = types.path;
     };
 
     passwordFilePath = mkOption {
       description = lib.mdDoc
-        "encrypted password file for bttc node to decrypt private key";
+      "encrypted password file for bttc node to decrypt private key";
       type = types.path;
     };
   };
 
   config = let
     conf-base = "${pkgs.launch}/${
-        if cfg.mainnet then "mainnet" else "testnet-1029"
-      }/without-sentry";
+      if cfg.mainnet then "mainnet" else "testnet-1029"
+    }/without-sentry";
     bttc-gensis = "${conf-base}/bttc/genesis.json";
     bttc-static-nodes = "${conf-base}/bttc/static-nodes.json";
     delivery-genesis = "${conf-base}/delivery/config/genesis.json";
@@ -96,41 +96,41 @@ in {
 
     DELIVERY_BTTC_RPC_URL = "http://bttc0:8545";
     DELIVERY_ETH_RPC_URL = if cfg.mainnet then
-      "https://mainnet.infura.io/v3/${cfg.infuraKey}"
+    "https://mainnet.infura.io/v3/${cfg.infuraKey}"
     else
-      "https://goerli.infura.io/v3/${cfg.infuraKey}";
+    "https://goerli.infura.io/v3/${cfg.infuraKey}";
     BSC_RPC_URL = if cfg.mainnet then
-      "https://bsc-dataseed.binance.org/"
+    "https://bsc-dataseed.binance.org/"
     else
-      "https://data-seed-prebsc-1-s1.binance.org:8545/";
+    "https://data-seed-prebsc-1-s1.binance.org:8545/";
     TRON_RPC_URL =
       if cfg.mainnet then "grpc.trongrid.io:50051" else "47.252.19.181:50051";
-    TRON_GRID_URL = if cfg.mainnet then
+      TRON_GRID_URL = if cfg.mainnet then
       "https://tronevent.bt.io/"
-    else
+      else
       "https://test-tronevent.bt.io";
 
-    update_toml = k: v: file: "sed -i '/${k} =/c${k} = ${v}' ${file}";
+      update_toml = k: v: file: "sed -i '/${k} =/c${k} = ${v}' ${file}";
 
-    serviceConfig = {
-      User = "bttc";
-      Restart = "on-failure";
-      RestartSec = "5s";
-      WorkingDirectory = "/var/lib/bttc";
-      DynamicUser = if cfg.dynamicUser then "yes" else "no";
-      RuntimeDirectory = "bttc";
-      RuntimeDirectoryMode = "0755";
-      StateDirectory = "bttc";
-      StateDirectoryMode = "0700";
-      LogsDirectory = "bttc";
-      CacheDirectory = "bttc";
-      CacheDirectoryMode = "0750";
-      SystemCallArchitectures = "native";
-      Type = "simple";
-      KillSignal = "SIGINT";
-      TimeoutStopSec = 120;
-      RemoveIPC = "no";
-    };
+      serviceConfig = {
+        User = "bttc";
+        Restart = "on-failure";
+        RestartSec = "5s";
+        WorkingDirectory = "/var/lib/bttc";
+        DynamicUser = if cfg.dynamicUser then "yes" else "no";
+        RuntimeDirectory = "bttc";
+        RuntimeDirectoryMode = "0755";
+        StateDirectory = "bttc";
+        StateDirectoryMode = "0700";
+        LogsDirectory = "bttc";
+        CacheDirectory = "bttc";
+        CacheDirectoryMode = "0750";
+        SystemCallArchitectures = "native";
+        Type = "simple";
+        KillSignal = "SIGINT";
+        TimeoutStopSec = 120;
+        RemoveIPC = "no";
+      };
   in mkIf cfg.enable {
     services.rabbitmq.enable = true;
 
@@ -162,14 +162,14 @@ in {
 
           # copy peers file
           if [ ! -f $DATA_DIR/bor/static-nodes.json ]; then
-            cp ${bttc-static-nodes} $DATA_DIR/bor/static-nodes.json
+          cp ${bttc-static-nodes} $DATA_DIR/bor/static-nodes.json
           fi
 
           # if node key not present, create nodekey
           if [ ! -f $NODE_KEY ]; then
-            ${pkgs.bttc}/bin/bootnode -genkey $NODE_KEY
+          ${pkgs.bttc}/bin/bootnode -genkey $NODE_KEY
           #   # copy node key file
-            cp $NODE_KEY $BTTC_DIR/
+          cp $NODE_KEY $BTTC_DIR/
           fi
           ln -sf ${cfg.bttcKeyStorePath} $BTTC_DIR/keystore/
         '' + (if cfg.bttcSnapShot != null then ''
@@ -180,34 +180,34 @@ in {
         '');
         script = ''
           ${pkgs.bttc}/bin/bttc --datadir $DATA_DIR \
-                        --port 30303 \
-                        --bor.heimdall "http://localhost:1317" \
-                        --http --http.addr '127.0.0.1' \
-                        --http.vhosts '*' \
-                        --http.corsdomain '*' \
-                        --http.port 8545 \
-                        --ipcpath $DATA_DIR/bor.ipc \
-                        --http.api 'eth,net,web3,txpool,bor' \
-                        --syncmode 'full' \
-                        --networkid 1029 \
-                        --miner.gaslimit '20000000' \
-                        --miner.gasprice '300000000000000' \
-                        --miner.gastarget '20000000' \
-                        --gpo.maxprice '500000000000000' \
-                        --rpc.allow-unprotected-txs \
-                        --txpool.nolocals \
-                        --txpool.accountslots 16 \
-                        --txpool.globalslots 131072 \
-                        --txpool.accountqueue 64 \
-                        --txpool.globalqueue 131072 \
-                        --txpool.lifetime '1h30m0s' \
-                        --maxpeers 20 \
-                        --metrics \
-                        --pprof --pprof.port 7071 --pprof.addr '0.0.0.0' \
-                        --keystore $BTTC_DIR/keystore \
-                        --password ${cfg.passwordFilePath} \
-                        --allow-insecure-unlock \
-                        --rpc.txfeecap 0
+          --port 30303 \
+          --bor.heimdall "http://localhost:1317" \
+          --http --http.addr '127.0.0.1' \
+          --http.vhosts '*' \
+          --http.corsdomain '*' \
+          --http.port 8545 \
+          --ipcpath $DATA_DIR/bor.ipc \
+          --http.api 'eth,net,web3,txpool,bor' \
+          --syncmode 'full' \
+          --networkid 1029 \
+          --miner.gaslimit '20000000' \
+          --miner.gasprice '300000000000000' \
+          --miner.gastarget '20000000' \
+          --gpo.maxprice '500000000000000' \
+          --rpc.allow-unprotected-txs \
+          --txpool.nolocals \
+          --txpool.accountslots 16 \
+          --txpool.globalslots 131072 \
+          --txpool.accountqueue 64 \
+          --txpool.globalqueue 131072 \
+          --txpool.lifetime '1h30m0s' \
+          --maxpeers 20 \
+          --metrics \
+          --pprof --pprof.port 7071 --pprof.addr '0.0.0.0' \
+          --keystore $BTTC_DIR/keystore \
+          --password ${cfg.passwordFilePath} \
+          --allow-insecure-unlock \
+          --rpc.txfeecap 0
         '';
       };
       deliveryd = {
@@ -244,10 +244,10 @@ in {
           mkdir -p $DELIVERY_HOME_DIR/data/
           # ${pkgs.gnutar}/bin/tar -xzvf "${cfg.deliverySnapShot}" -C "/var/lib/bttc/deliveryd/data/"
         '' else
-          "") + (if cfg.deiliveryPrivateKeyPath != null then ''
-            cp ${cfg.deiliveryPrivateKeyPath} $DELIVERY_HOME_DIR/config/priv_validator_key.json
-          '' else
-            "");
+        "") + (if cfg.deiliveryPrivateKeyPath != null then ''
+          cp ${cfg.deiliveryPrivateKeyPath} $DELIVERY_HOME_DIR/config/priv_validator_key.json
+        '' else
+        "");
         script =
           "${pkgs.delivery}/bin/deliveryd start --home $DELIVERY_HOME_DIR";
       };

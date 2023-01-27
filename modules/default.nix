@@ -7,4 +7,5 @@
   oci-arm-host-capacity = import ./oci-arm-host-capacity;
   ssh-gotify-notify = import ./ssh-gotify-notify;
   codedeploy-agent = import ./codedeploy-agent;
+  phabricator = import ./phabricator;
 }
