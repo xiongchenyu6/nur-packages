@@ -1,3 +1,8 @@
+[java-tron]
+
+src.github = "tronprotocol/java-tron"
+fetch.url = "https://github.com/tronprotocol/java-tron/releases/download/$ver/FullNode.jar"
+
 #go
 [bttc]
 src.github = "bttcprotocol/bttc"
@@ -27,76 +32,6 @@ fetch.pypi="my_cookies"
 src.pypi="epc"
 fetch.pypi="epc"
 
-[pem]
-src.pypi="pem"
-fetch.pypi="pem"
-
-[django-ordered-model]
-src.pypi="django-ordered-model"
-fetch.pypi="django-ordered-model"
-
-[django-sns-view]
-src.pypi="django-sns-view"
-fetch.pypi="django-sns-view"
-
-[django-silk]
-src.pypi="django-silk"
-fetch.pypi="django-silk"
-
-[django-redis-cache]
-src.pypi="django-redis-cache"
-fetch.pypi="django-redis-cache"
-
-[django-ratelimit]
-src.pypi="django-ratelimit"
-fetch.pypi="django-ratelimit"
-
-[slack-export-viewer]
-src.pypi="slack-export-viewer"
-fetch.pypi="slack-export-viewer"
-
-# [pytest_factoryboy]
-# src.pypi="pytest_factoryboy"
-# fetch.pypi="pytest_factoryboy"
-
-# [factory-boy]
-# src.pypi="factory-boy"
-# fetch.pypi="factory-boy"
-
-[django-log-request-id]
-src.pypi="django-log-request-id"
-fetch.pypi="django-log-request-id"
-
-[django-mirage-field]
-src.pypi="django-mirage-field"
-fetch.pypi="django-mirage-field"
-
-[django-mysql]
-src.pypi="django-mysql"
-fetch.pypi="django-mysql"
-
-[PyMySQL]
-src.pypi="PyMySQL"
-fetch.pypi="PyMySQL"
-
-[psycopg2-binary]
-src.pypi="psycopg2-binary"
-fetch.pypi="psycopg2-binary"
-
-[apns2]
-src.pypi="apns2"
-fetch.pypi="apns2"
-
-[django-push-notifications]
-src.git="https://github.com/iskhakov/django-push-notifications.git"
-src.branch = "ildar-support-custom-user-model-in-migration"
-fetch.git="https://github.com/iskhakov/django-push-notifications.git"
-fetch.branch = "ildar-support-custom-user-model-in-migration"
-
-[newsapi-python]
-src.pypi="newsapi-python"
-fetch.pypi="newsapi-python"
-
 #emacs
 [lsp-bridge]
 src.git = "https://github.com/manateelazycat/lsp-bridge.git"
@@ -122,4 +57,3 @@ fetch.pypi="Flask-SimpleLDAP"
 [aws-codedeploy-agent]
 src.git = "https://github.com/xiongchenyu6/aws-codedeploy-agent.git"
 fetch.git = "https://github.com/xiongchenyu6/aws-codedeploy-agent.git"
-

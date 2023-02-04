@@ -3,7 +3,10 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     flake-utils.url = "github:numtide/flake-utils";
-    dream2nix.url = "github:nix-community/dream2nix";
+    dream2nix = {
+      url = "github:nix-community/dream2nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
     oci-arm-host-capacity-src = {
       url = "github:hitrov/oci-arm-host-capacity";
       flake = false;
@@ -11,7 +14,7 @@
   };
   outputs = { self, nixpkgs, flake-utils, dream2nix, ... }@inputs:
     let
-      lib = nixpkgs.lib;
+      inherit (nixpkgs) lib;
       supportedSystems =
         [ "x86_64-linux" "aarch64-linux" "aarch64-darwin" "x86_64-darwin" ];
 
@@ -57,8 +60,8 @@
             type = "app";
             program = builtins.toString (pkgs.writeShellScript "ci" ''
               if [ "$1" == "" ]; then
-                echo "Usage: ci <system>";
-                exit 1;
+              echo "Usage: ci <system>";
+              exit 1;
               fi
               exec ${pkgs.nix-build-uncached}/bin/nix-build-uncached ci.nix -A $1 --show-trace
             '');

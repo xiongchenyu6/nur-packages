@@ -1,4 +1,4 @@
-{ source, buildGoModule, lib, pkgs, }:
+{ source, buildGoModule, lib, }:
 let
   bins = {
     heimdalld = "deliveryd";

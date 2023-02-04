@@ -84,16 +84,18 @@
         "gomod2nix": "gomod2nix",
         "mach-nix": "mach-nix",
         "nix-pypi-fetcher": "nix-pypi-fetcher",
-        "nixpkgs": "nixpkgs",
+        "nixpkgs": [
+          "nixpkgs"
+        ],
         "poetry2nix": "poetry2nix",
         "pre-commit-hooks": "pre-commit-hooks"
       },
       "locked": {
-        "lastModified": 1674572627,
-        "narHash": "sha256-PpySmULdSrQ+NpVXmbMU6a7qo6apih99IMVyLH4qh2E=",
+        "lastModified": 1674848374,
+        "narHash": "sha256-1+xlsmUWzpptK8mLjznwqOLogeicLkxB8tV6XUZbobc=",
         "owner": "nix-community",
         "repo": "dream2nix",
-        "rev": "029dcc6358840143d5b63978c603f374d5a19583",
+        "rev": "d91e7381fa303be02f70e472207e05b26ce35b41",
         "type": "github"
       },
       "original": {
@@ -254,17 +256,18 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1665580254,
-        "narHash": "sha256-hO61XPkp1Hphl4HGNzj1VvDH5URt7LI6LaY/385Eul4=",
+        "lastModified": 1674990008,
+        "narHash": "sha256-4zOyp+hFW2Y7imxIpZqZGT8CEqKmDjwgfD6BzRUE0mQ=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "f634d427b0224a5f531ea5aa10c3960ba6ec5f0f",
+        "rev": "d2bbcbe6c626d339b25a4995711f07625b508214",
         "type": "github"
       },
       "original": {
-        "id": "nixpkgs",
-        "ref": "nixos-unstable",
-        "type": "indirect"
+        "owner": "NixOS",
+        "ref": "nixpkgs-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
       }
     },
     "nixpkgs-lib": {
@@ -281,22 +284,6 @@
         "dir": "lib",
         "owner": "NixOS",
         "ref": "nixos-unstable",
-        "repo": "nixpkgs",
-        "type": "github"
-      }
-    },
-    "nixpkgs_2": {
-      "locked": {
-        "lastModified": 1674746945,
-        "narHash": "sha256-xJ5XrXWPHDArSAJtJVBGRQzHu3ESI13zMNjXbnRaAjY=",
-        "owner": "NixOS",
-        "repo": "nixpkgs",
-        "rev": "e39a949aaa9e4fc652b1619b56e59584e1fc305b",
-        "type": "github"
-      },
-      "original": {
-        "owner": "NixOS",
-        "ref": "nixpkgs-unstable",
         "repo": "nixpkgs",
         "type": "github"
       }
@@ -363,7 +350,7 @@
       "inputs": {
         "dream2nix": "dream2nix",
         "flake-utils": "flake-utils",
-        "nixpkgs": "nixpkgs_2",
+        "nixpkgs": "nixpkgs",
         "oci-arm-host-capacity-src": "oci-arm-host-capacity-src"
       }
     },

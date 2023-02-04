@@ -1,4 +1,4 @@
-{ source, buildGoModule, pkgs, }:
+{ source, buildGoModule, }:
 buildGoModule (source.amazon-cloudwatch-agent // {
   enableParallelBuilding = true;
   proxyVendor = true;

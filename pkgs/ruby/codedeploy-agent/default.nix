@@ -1,4 +1,4 @@
-{ ruby, makeWrapper, bundlerEnv, bundler, rubyPackages, lib, stdenv, source, ...
+{ ruby, makeWrapper, bundlerEnv, stdenv, source, ...
 }:
 let
   # the magic which will include gemset.nix
@@ -14,7 +14,7 @@ let
 in stdenv.mkDerivation {
   name = "aws-codedeployment-agent";
   propagatedBuildInputs = [ gems gems.wrappedRuby makeWrapper ];
-  src = aws-source.src;
+  inherit (aws-source) src;
   installPhase = ''
     mkdir -p $out/bin
     cp -r * $out/
