@@ -1,5 +1,8 @@
-[java-tron]
+[tron-deployment]
+src.git="https://github.com/tronprotocol/tron-deployment.git"
+fetch.git="https://github.com/tronprotocol/tron-deployment.git"
 
+[java-tron]
 src.github = "tronprotocol/java-tron"
 fetch.url = "https://github.com/tronprotocol/java-tron/releases/download/$ver/FullNode.jar"
 

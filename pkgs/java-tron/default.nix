@@ -10,7 +10,10 @@ stdenv.mkDerivation {
   installPhase = ''
     mkdir -p $out/bin/
     mkdir -p $out/lib/
+    mkdir -p $out/conf/
     cp ${source.java-tron.src} $out/lib/FullNode.jar
+    cp ${source.tron-deployment.src}/*.conf $out/conf/
+    cp ${source.tron-deployment.src}/*.sh $out/bin/
     makeWrapper ${openjdk8}/bin/java $out/bin/java-tron --add-flags "-jar $out/lib/FullNode.jar "
   '';
 }

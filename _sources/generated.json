@@ -232,5 +232,24 @@
             "url": "https://gitlab.com/Titan-C/org-cv.git"
         },
         "version": "332c72880df2ed8f25d3693907cedfe53b07f49e"
+    },
+    "tron-deployment": {
+        "cargoLocks": null,
+        "date": "2022-03-28",
+        "extract": null,
+        "name": "tron-deployment",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "rev": "7289a9e63a20c41dcea508dd85f00611d89d747b",
+            "sha256": "sha256-MxtpqoYaxljmatDNJo7hZHD9k8FG/6uTTaESBQwRdIg=",
+            "type": "git",
+            "url": "https://github.com/tronprotocol/tron-deployment.git"
+        },
+        "version": "7289a9e63a20c41dcea508dd85f00611d89d747b"
     }
 }
