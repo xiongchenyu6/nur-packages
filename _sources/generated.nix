@@ -112,16 +112,16 @@
   };
   lsp-bridge = {
     pname = "lsp-bridge";
-    version = "f0e9965fa0f7d91d130d49714b987e2001d260fa";
+    version = "f200fe1eadf00c93652ca9ae246e56a2363bb5d8";
     src = fetchgit {
       url = "https://github.com/manateelazycat/lsp-bridge.git";
-      rev = "f0e9965fa0f7d91d130d49714b987e2001d260fa";
+      rev = "f200fe1eadf00c93652ca9ae246e56a2363bb5d8";
       fetchSubmodules = false;
       deepClone = false;
       leaveDotGit = false;
-      sha256 = "sha256-Z15qZttFxSQ/L2PnVD1GPES3dlmSKzifyxs8US4dq/M=";
+      sha256 = "sha256-m+YRC9LO+CjSjE5U7pO0ZEWXifeWKSttPx+MpZ1spkI=";
     };
-    date = "2023-01-31";
+    date = "2023-02-04";
   };
   my_cookies = {
     pname = "my_cookies";
@@ -129,6 +129,14 @@
     src = fetchurl {
       url = "https://pypi.io/packages/source/m/my_cookies/my_cookies-0.1.3.tar.gz";
       sha256 = "sha256-3e5j0HFOXUyUo6YVUKQnbaxvAUtDoRTzGqW8HUfzrQ8=";
+    };
+  };
+  newsapi-python = {
+    pname = "newsapi-python";
+    version = "0.2.6";
+    src = fetchurl {
+      url = "https://pypi.io/packages/source/n/newsapi-python/newsapi-python-0.2.6.tar.gz";
+      sha256 = "sha256-cwiWbGQ6Y29whYPTWKLMxIGyGhD9xtMesFEwBhr9TXc=";
     };
   };
   org-cv = {

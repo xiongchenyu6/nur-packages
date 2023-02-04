@@ -51,6 +51,8 @@ let
       '';
     });
 
+    my-mongodb = pkgs.mongodb;
+
     bttc = callPackage ./pkgs/bttc { };
     delivery = callPackage ./pkgs/delivery { };
 
@@ -63,9 +65,10 @@ let
 
     my_cookies = callPackage ./pkgs/python3/my_cookies { };
     epc = callPackage ./pkgs/python3/epc { };
-    pem = callPackage ./pkgs/python3/pem { };
 
     Flask-SimpleLDAP = callPackage ./pkgs/python3/Flask-SimpleLDAP { };
+
+    newsapi-python = callPackage ./pkgs/python3/newsapi-python { };
 
     copilot-el = callPackage ./pkgs/emacs/copilot { };
 
@@ -73,9 +76,7 @@ let
 
     org-cv = callPackage ./pkgs/emacs/org-cv { };
 
-    inherit (callPackage ./pkgs/npm/tronbox { }) tronbox;
-
-    inherit (callPackage ./pkgs/npm/solium { }) solium;
+    inherit (callPackage ./pkgs/npm { }) tronbox solium;
 
     amazon-cloudwatch-agent = callPackage ./pkgs/amazon-cloudwatch-agent { };
 
@@ -84,6 +85,8 @@ let
     java-tron = callPackage ./pkgs/java-tron { };
 
     tron-eventquery = callPackage ./pkgs/tron-eventquery { };
+
+    my-ferretdb = callPackage ./pkgs/ferretdb { };
 
     # vbox = nixos-generators.nixosGenerate {
 

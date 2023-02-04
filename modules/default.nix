@@ -8,4 +8,5 @@
   ssh-gotify-notify = import ./ssh-gotify-notify;
   codedeploy-agent = import ./codedeploy-agent;
   phabricator = import ./phabricator;
+  java-tron = import ./java-tron;
 }

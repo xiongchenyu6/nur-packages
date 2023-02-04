@@ -35,6 +35,10 @@ fetch.pypi="my_cookies"
 src.pypi="epc"
 fetch.pypi="epc"
 
+[newsapi-python]
+src.pypi="newsapi-python"
+fetch.pypi="newsapi-python"
+
 #emacs
 [lsp-bridge]
 src.git = "https://github.com/manateelazycat/lsp-bridge.git"
