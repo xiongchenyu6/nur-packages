@@ -46,16 +46,16 @@
   };
   copilot = {
     pname = "copilot";
-    version = "45014a9b61e83464c2fc1c65f417391b723a9246";
+    version = "f9ce747a52567f8310b6afb49a811c99f6ec72fb";
     src = fetchgit {
       url = "https://github.com/zerolfx/copilot.el.git";
-      rev = "45014a9b61e83464c2fc1c65f417391b723a9246";
+      rev = "f9ce747a52567f8310b6afb49a811c99f6ec72fb";
       fetchSubmodules = false;
       deepClone = false;
       leaveDotGit = false;
-      sha256 = "sha256-mJ7mW/2+e32oIFJWdHmnZjxTiJq4pU0ZvdA4RxR8wjI=";
+      sha256 = "sha256-fDjpWU0kMiM7lb1sm845bWYKe/W+tGdalQa35fSzJW4=";
     };
-    date = "2023-01-18";
+    date = "2023-02-04";
   };
   delivery = {
     pname = "delivery";
@@ -76,12 +76,20 @@
       sha256 = "sha256-oU0up0gXlVog6wCBLjpGMKEyiX602XZCAkDxFSwNfSU=";
     };
   };
-  java-tron = {
-    pname = "java-tron";
+  java-tron-full-node = {
+    pname = "java-tron-full-node";
     version = "GreatVoyage-v4.7.0.1";
     src = fetchurl {
       url = "https://github.com/tronprotocol/java-tron/releases/download/GreatVoyage-v4.7.0.1/FullNode.jar";
       sha256 = "sha256-FeKbJ/puhvWyvqWEDrtwvWMWew0J5qUHx5M1UKrGa54=";
+    };
+  };
+  java-tron-solidity-node = {
+    pname = "java-tron-solidity-node";
+    version = "GreatVoyage-v4.7.0.1";
+    src = fetchurl {
+      url = "https://github.com/tronprotocol/java-tron/releases/download/GreatVoyage-v4.7.0.1/SolidityNode.jar";
+      sha256 = "sha256-QZukRiQSrAEHz7o7tvZ8pjSTiNsf2yR4/Gxi4HwXEpo=";
     };
   };
   launch = {
@@ -112,16 +120,16 @@
   };
   lsp-bridge = {
     pname = "lsp-bridge";
-    version = "f200fe1eadf00c93652ca9ae246e56a2363bb5d8";
+    version = "b74620039d5d5c3731196254ce909fc8b1672b04";
     src = fetchgit {
       url = "https://github.com/manateelazycat/lsp-bridge.git";
-      rev = "f200fe1eadf00c93652ca9ae246e56a2363bb5d8";
+      rev = "b74620039d5d5c3731196254ce909fc8b1672b04";
       fetchSubmodules = false;
       deepClone = false;
       leaveDotGit = false;
-      sha256 = "sha256-m+YRC9LO+CjSjE5U7pO0ZEWXifeWKSttPx+MpZ1spkI=";
+      sha256 = "sha256-kyuBdNMdZeDCxzJGYhv5zSZAWL6az0gNN7pwy4wAz/o=";
     };
-    date = "2023-02-04";
+    date = "2023-02-05";
   };
   my_cookies = {
     pname = "my_cookies";

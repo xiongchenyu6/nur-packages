@@ -75,7 +75,7 @@
     },
     "copilot": {
         "cargoLocks": null,
-        "date": "2023-01-18",
+        "date": "2023-02-04",
         "extract": null,
         "name": "copilot",
         "passthru": null,
@@ -85,12 +85,12 @@
             "fetchSubmodules": false,
             "leaveDotGit": false,
             "name": null,
-            "rev": "45014a9b61e83464c2fc1c65f417391b723a9246",
-            "sha256": "sha256-mJ7mW/2+e32oIFJWdHmnZjxTiJq4pU0ZvdA4RxR8wjI=",
+            "rev": "f9ce747a52567f8310b6afb49a811c99f6ec72fb",
+            "sha256": "sha256-fDjpWU0kMiM7lb1sm845bWYKe/W+tGdalQa35fSzJW4=",
             "type": "git",
             "url": "https://github.com/zerolfx/copilot.el.git"
         },
-        "version": "45014a9b61e83464c2fc1c65f417391b723a9246"
+        "version": "f9ce747a52567f8310b6afb49a811c99f6ec72fb"
     },
     "delivery": {
         "cargoLocks": null,
@@ -127,11 +127,11 @@
         },
         "version": "0.0.5"
     },
-    "java-tron": {
+    "java-tron-full-node": {
         "cargoLocks": null,
         "date": null,
         "extract": null,
-        "name": "java-tron",
+        "name": "java-tron-full-node",
         "passthru": null,
         "pinned": false,
         "src": {
@@ -139,6 +139,21 @@
             "sha256": "sha256-FeKbJ/puhvWyvqWEDrtwvWMWew0J5qUHx5M1UKrGa54=",
             "type": "url",
             "url": "https://github.com/tronprotocol/java-tron/releases/download/GreatVoyage-v4.7.0.1/FullNode.jar"
+        },
+        "version": "GreatVoyage-v4.7.0.1"
+    },
+    "java-tron-solidity-node": {
+        "cargoLocks": null,
+        "date": null,
+        "extract": null,
+        "name": "java-tron-solidity-node",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-QZukRiQSrAEHz7o7tvZ8pjSTiNsf2yR4/Gxi4HwXEpo=",
+            "type": "url",
+            "url": "https://github.com/tronprotocol/java-tron/releases/download/GreatVoyage-v4.7.0.1/SolidityNode.jar"
         },
         "version": "GreatVoyage-v4.7.0.1"
     },
@@ -182,7 +197,7 @@
     },
     "lsp-bridge": {
         "cargoLocks": null,
-        "date": "2023-02-04",
+        "date": "2023-02-05",
         "extract": null,
         "name": "lsp-bridge",
         "passthru": null,
@@ -192,12 +207,12 @@
             "fetchSubmodules": false,
             "leaveDotGit": false,
             "name": null,
-            "rev": "f200fe1eadf00c93652ca9ae246e56a2363bb5d8",
-            "sha256": "sha256-m+YRC9LO+CjSjE5U7pO0ZEWXifeWKSttPx+MpZ1spkI=",
+            "rev": "b74620039d5d5c3731196254ce909fc8b1672b04",
+            "sha256": "sha256-kyuBdNMdZeDCxzJGYhv5zSZAWL6az0gNN7pwy4wAz/o=",
             "type": "git",
             "url": "https://github.com/manateelazycat/lsp-bridge.git"
         },
-        "version": "f200fe1eadf00c93652ca9ae246e56a2363bb5d8"
+        "version": "b74620039d5d5c3731196254ce909fc8b1672b04"
     },
     "my_cookies": {
         "cargoLocks": null,

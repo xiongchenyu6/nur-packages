@@ -2,9 +2,13 @@
 src.git="https://github.com/tronprotocol/tron-deployment.git"
 fetch.git="https://github.com/tronprotocol/tron-deployment.git"
 
-[java-tron]
+[java-tron-full-node]
 src.github = "tronprotocol/java-tron"
 fetch.url = "https://github.com/tronprotocol/java-tron/releases/download/$ver/FullNode.jar"
+
+[java-tron-solidity-node]
+src.github = "tronprotocol/java-tron"
+fetch.url = "https://github.com/tronprotocol/java-tron/releases/download/$ver/SolidityNode.jar"
 
 #go
 [bttc]
