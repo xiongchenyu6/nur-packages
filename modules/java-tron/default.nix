@@ -885,6 +885,18 @@ in {
         description = "Enables witness service";
       };
 
+      enableSolidityNode = mkOption {
+        type = types.bool;
+        default = false;
+        description = "Enables solidity node service";
+      };
+
+      enableEventQuery = mkOption {
+        type = types.bool;
+        default = false;
+        description = "Enables event query service";
+      };
+
       privateKey = mkOption {
         type = types.str;
         default = "";
@@ -914,6 +926,7 @@ in {
         default = "127.0.0.1";
         description = "Database host for ${serviceName}";
       };
+
       db-port = mkOption {
         type = types.int;
         default = 27017;
@@ -987,7 +1000,7 @@ in {
             }
           '';
         };
-        "${serviceName}-solidity-node" = {
+        "${serviceName}-solidity-node" = mkIf cfg.enableSolidityNode {
           inherit serviceConfig;
           wantedBy = [ "multi-user.target" ];
           after = [ "networking.target" ];
@@ -1019,7 +1032,7 @@ in {
           '';
         };
 
-        tron-eventquery = mkIf (cfg.event-plugin == "mongodb") {
+        tron-eventquery = mkIf cfg.enableEventQuery {
           inherit serviceConfig;
           bindsTo = [ "${serviceName}-full-node.service" ];
           script = ''
