@@ -75,7 +75,7 @@
     },
     "copilot": {
         "cargoLocks": null,
-        "date": "2023-02-04",
+        "date": "2023-02-06",
         "extract": null,
         "name": "copilot",
         "passthru": null,
@@ -85,12 +85,12 @@
             "fetchSubmodules": false,
             "leaveDotGit": false,
             "name": null,
-            "rev": "f9ce747a52567f8310b6afb49a811c99f6ec72fb",
-            "sha256": "sha256-fDjpWU0kMiM7lb1sm845bWYKe/W+tGdalQa35fSzJW4=",
+            "rev": "b91a7f3d48f3ef7d752f60db562be99f1a85f68b",
+            "sha256": "sha256-/f9b4y/oOX4D8Oeb0ge2pPY3MpASAVf0Rb/cTJHjlQw=",
             "type": "git",
             "url": "https://github.com/zerolfx/copilot.el.git"
         },
-        "version": "f9ce747a52567f8310b6afb49a811c99f6ec72fb"
+        "version": "b91a7f3d48f3ef7d752f60db562be99f1a85f68b"
     },
     "delivery": {
         "cargoLocks": null,
@@ -197,7 +197,7 @@
     },
     "lsp-bridge": {
         "cargoLocks": null,
-        "date": "2023-02-05",
+        "date": "2023-02-08",
         "extract": null,
         "name": "lsp-bridge",
         "passthru": null,
@@ -207,12 +207,31 @@
             "fetchSubmodules": false,
             "leaveDotGit": false,
             "name": null,
-            "rev": "b74620039d5d5c3731196254ce909fc8b1672b04",
-            "sha256": "sha256-kyuBdNMdZeDCxzJGYhv5zSZAWL6az0gNN7pwy4wAz/o=",
+            "rev": "2259ba55a2c1fca63a62e24c8fd0aa23c1cdb73e",
+            "sha256": "sha256-Q7I10DEHkr4HOquHU0A8D1/16XHyh/0flkPpGbD9TKg=",
             "type": "git",
             "url": "https://github.com/manateelazycat/lsp-bridge.git"
         },
-        "version": "b74620039d5d5c3731196254ce909fc8b1672b04"
+        "version": "2259ba55a2c1fca63a62e24c8fd0aa23c1cdb73e"
+    },
+    "magit-gitflow": {
+        "cargoLocks": null,
+        "date": "2017-09-29",
+        "extract": null,
+        "name": "magit-gitflow",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "rev": "cc41b561ec6eea947fe9a176349fb4f771ed865b",
+            "sha256": "sha256-LqBvn+Ev8GsZG6zmQ5eGt+5vDQk5ywqvagrvnzNP5ks=",
+            "type": "git",
+            "url": "https://github.com/jtatarik/magit-gitflow.git"
+        },
+        "version": "cc41b561ec6eea947fe9a176349fb4f771ed865b"
     },
     "my_cookies": {
         "cargoLocks": null,

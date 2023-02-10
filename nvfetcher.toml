@@ -60,6 +60,10 @@ fetch.git = "https://github.com/zerolfx/copilot.el.git"
 src.git = "https://gitlab.com/Titan-C/org-cv.git"
 fetch.git = "https://gitlab.com/Titan-C/org-cv.git"
 
+[magit-gitflow]
+src.git = "https://github.com/jtatarik/magit-gitflow.git"
+fetch.git = "https://github.com/jtatarik/magit-gitflow.git"
+
 [Flask-SimpleLDAP]
 src.pypi="Flask-SimpleLDAP"
 fetch.pypi="Flask-SimpleLDAP"

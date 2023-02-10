@@ -46,16 +46,16 @@
   };
   copilot = {
     pname = "copilot";
-    version = "f9ce747a52567f8310b6afb49a811c99f6ec72fb";
+    version = "b91a7f3d48f3ef7d752f60db562be99f1a85f68b";
     src = fetchgit {
       url = "https://github.com/zerolfx/copilot.el.git";
-      rev = "f9ce747a52567f8310b6afb49a811c99f6ec72fb";
+      rev = "b91a7f3d48f3ef7d752f60db562be99f1a85f68b";
       fetchSubmodules = false;
       deepClone = false;
       leaveDotGit = false;
-      sha256 = "sha256-fDjpWU0kMiM7lb1sm845bWYKe/W+tGdalQa35fSzJW4=";
+      sha256 = "sha256-/f9b4y/oOX4D8Oeb0ge2pPY3MpASAVf0Rb/cTJHjlQw=";
     };
-    date = "2023-02-04";
+    date = "2023-02-06";
   };
   delivery = {
     pname = "delivery";
@@ -120,16 +120,29 @@
   };
   lsp-bridge = {
     pname = "lsp-bridge";
-    version = "b74620039d5d5c3731196254ce909fc8b1672b04";
+    version = "2259ba55a2c1fca63a62e24c8fd0aa23c1cdb73e";
     src = fetchgit {
       url = "https://github.com/manateelazycat/lsp-bridge.git";
-      rev = "b74620039d5d5c3731196254ce909fc8b1672b04";
+      rev = "2259ba55a2c1fca63a62e24c8fd0aa23c1cdb73e";
       fetchSubmodules = false;
       deepClone = false;
       leaveDotGit = false;
-      sha256 = "sha256-kyuBdNMdZeDCxzJGYhv5zSZAWL6az0gNN7pwy4wAz/o=";
+      sha256 = "sha256-Q7I10DEHkr4HOquHU0A8D1/16XHyh/0flkPpGbD9TKg=";
     };
-    date = "2023-02-05";
+    date = "2023-02-08";
+  };
+  magit-gitflow = {
+    pname = "magit-gitflow";
+    version = "cc41b561ec6eea947fe9a176349fb4f771ed865b";
+    src = fetchgit {
+      url = "https://github.com/jtatarik/magit-gitflow.git";
+      rev = "cc41b561ec6eea947fe9a176349fb4f771ed865b";
+      fetchSubmodules = false;
+      deepClone = false;
+      leaveDotGit = false;
+      sha256 = "sha256-LqBvn+Ev8GsZG6zmQ5eGt+5vDQk5ywqvagrvnzNP5ks=";
+    };
+    date = "2017-09-29";
   };
   my_cookies = {
     pname = "my_cookies";

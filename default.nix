@@ -76,6 +76,8 @@ let
 
     org-cv = callPackage ./pkgs/emacs/org-cv { };
 
+    magit-gitflow = callPackage ./pkgs/emacs/magit-gitflow { };
+
     inherit (callPackage ./pkgs/npm { }) tronbox solium;
 
     amazon-cloudwatch-agent = callPackage ./pkgs/amazon-cloudwatch-agent { };
