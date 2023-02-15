@@ -21,6 +21,14 @@ src.github = "bttcprotocol/delivery"
 fetch.github = "bttcprotocol/delivery"
 git.fetchSubmodules = true
 
+[chainlink]
+src.github = "smartcontractkit/chainlink"
+fetch.github = "smartcontractkit/chainlink"
+
+[operator-ui]
+src.github = "smartcontractkit/operator-ui"
+fetch.url = "https://github.com/smartcontractkit/operator-ui/releases/download/v0.8.0-059b169/smartcontractkit-operator-ui-0.8.0-059b169.tgz"
+
 [launch]
 src.git = "https://github.com/bttcprotocol/launch.git"
 #src.manual = "f71388e3a8091a1c6bc10aa03d7edf8e7b638f23"
@@ -72,3 +80,8 @@ fetch.pypi="Flask-SimpleLDAP"
 [aws-codedeploy-agent]
 src.git = "https://github.com/xiongchenyu6/aws-codedeploy-agent.git"
 fetch.git = "https://github.com/xiongchenyu6/aws-codedeploy-agent.git"
+
+#rust
+[wasmvm]
+src.github="CosmWasm/wasmvm"
+fetch.github="CosmWasm/wasmvm"

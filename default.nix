@@ -55,6 +55,8 @@ let
 
     bttc = callPackage ./pkgs/bttc { };
     delivery = callPackage ./pkgs/delivery { };
+    chainlink = callPackage ./pkgs/chainlink { };
+    wasmvm = callPackage ./pkgs/wasmvm { };
 
     oci-arm-host-capacity = (inputs.dream2nix.lib.makeFlakeOutputs {
       pkgs = inputs.dream2nix.inputs.nixpkgs.legacyPackages."x86_64-linux";

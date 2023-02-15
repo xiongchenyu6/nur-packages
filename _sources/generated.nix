@@ -35,13 +35,24 @@
   };
   bttc = {
     pname = "bttc";
-    version = "v1.0.4";
+    version = "v1.0.5";
     src = fetchFromGitHub ({
       owner = "bttcprotocol";
       repo = "bttc";
-      rev = "v1.0.4";
+      rev = "v1.0.5";
       fetchSubmodules = true;
-      sha256 = "sha256-ry5IGO9utbfyckKbJXh6GBCFpeonWbXNaAV+u+VS3eE=";
+      sha256 = "sha256-lPbF36mxYq2DsV2NTpWzH9dKVnqA5FvaU8axtbQPZSg=";
+    });
+  };
+  chainlink = {
+    pname = "chainlink";
+    version = "v1.12.0";
+    src = fetchFromGitHub ({
+      owner = "smartcontractkit";
+      repo = "chainlink";
+      rev = "v1.12.0";
+      fetchSubmodules = false;
+      sha256 = "sha256-zwGM9zcfIMVtUjP4R3+ORg/b0ju340mq8HcP6bIyiqk=";
     });
   };
   copilot = {
@@ -59,13 +70,13 @@
   };
   delivery = {
     pname = "delivery";
-    version = "v1.0.2";
+    version = "v1.0.3";
     src = fetchFromGitHub ({
       owner = "bttcprotocol";
       repo = "delivery";
-      rev = "v1.0.2";
+      rev = "v1.0.3";
       fetchSubmodules = true;
-      sha256 = "sha256-HItF37qlIm6IT8WSomTulkX7524UZwpwMbqyjckXFxA=";
+      sha256 = "sha256-/DLZ6YmLY1Jo4eo1kHG4nyV0gSRk3zQ/qOgFJXcUNBM=";
     });
   };
   epc = {
@@ -120,16 +131,16 @@
   };
   lsp-bridge = {
     pname = "lsp-bridge";
-    version = "2259ba55a2c1fca63a62e24c8fd0aa23c1cdb73e";
+    version = "52c7d7e7a671454cc1c063a9ed3abd91d0908a36";
     src = fetchgit {
       url = "https://github.com/manateelazycat/lsp-bridge.git";
-      rev = "2259ba55a2c1fca63a62e24c8fd0aa23c1cdb73e";
+      rev = "52c7d7e7a671454cc1c063a9ed3abd91d0908a36";
       fetchSubmodules = false;
       deepClone = false;
       leaveDotGit = false;
-      sha256 = "sha256-Q7I10DEHkr4HOquHU0A8D1/16XHyh/0flkPpGbD9TKg=";
+      sha256 = "sha256-kicZByZyjPzVZX2RIUbxSW4OG47RPeomDlzNOCxvP1g=";
     };
-    date = "2023-02-08";
+    date = "2023-02-15";
   };
   magit-gitflow = {
     pname = "magit-gitflow";
@@ -160,6 +171,14 @@
       sha256 = "sha256-cwiWbGQ6Y29whYPTWKLMxIGyGhD9xtMesFEwBhr9TXc=";
     };
   };
+  operator-ui = {
+    pname = "operator-ui";
+    version = "v0.8.0-059b169";
+    src = fetchurl {
+      url = "https://github.com/smartcontractkit/operator-ui/releases/download/v0.8.0-059b169/smartcontractkit-operator-ui-0.8.0-059b169.tgz";
+      sha256 = "sha256-Udnm2bCx2rXcXLPpfGs8/mCW3tDR/IHLp4+VSni5z0s=";
+    };
+  };
   org-cv = {
     pname = "org-cv";
     version = "332c72880df2ed8f25d3693907cedfe53b07f49e";
@@ -185,5 +204,16 @@
       sha256 = "sha256-MxtpqoYaxljmatDNJo7hZHD9k8FG/6uTTaESBQwRdIg=";
     };
     date = "2022-03-28";
+  };
+  wasmvm = {
+    pname = "wasmvm";
+    version = "v1.2.0";
+    src = fetchFromGitHub ({
+      owner = "CosmWasm";
+      repo = "wasmvm";
+      rev = "v1.2.0";
+      fetchSubmodules = false;
+      sha256 = "sha256-uvZD9zq4GVeqBKwphf+noi3F//aXfRR7dI2KhThL+t0=";
+    });
   };
 }
