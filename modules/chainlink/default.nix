@@ -8,21 +8,21 @@ in {
   options.services = {
     "${serviceName}" = {
       enable = mkEnableOption "Enables ${serviceName} service";
-    };
-    apicredentialsFilePath = mkOption {
-      description = lib.mdDoc
-        "encrypted password file for bttc node to decrypt private key";
-      type = types.path;
-    };
-    configFilePath = mkOption {
-      description = lib.mdDoc
-        "encrypted password file for bttc node to decrypt private key";
-      type = types.path;
-    };
-    secretsFilePath = mkOption {
-      description = lib.mdDoc
-        "encrypted password file for bttc node to decrypt private key";
-      type = types.path;
+      apicredentialsFilePath = mkOption {
+        description = lib.mdDoc
+          "encrypted password file for bttc node to decrypt private key";
+        type = types.path;
+      };
+      configFilePath = mkOption {
+        description = lib.mdDoc
+          "encrypted password file for bttc node to decrypt private key";
+        type = types.path;
+      };
+      secretsFilePath = mkOption {
+        description = lib.mdDoc
+          "encrypted password file for bttc node to decrypt private key";
+        type = types.path;
+      };
     };
   };
   config = mkIf cfg.enable {
@@ -46,7 +46,7 @@ in {
             Type = "simple";
           };
           script =
-            "${pkgs.serviceName}/bin/chainlink -c ${cfg.configFilePath} -s ${cfg.secretsFilePath} node n -a ${cfg.apicredentialsFilePath}";
+            "${pkgs.chainlink}/bin/chainlink -c ${cfg.configFilePath} -s ${cfg.secretsFilePath} node n -a ${cfg.apicredentialsFilePath}";
           postStart = "";
         };
       };
@@ -55,7 +55,6 @@ in {
       description = "${serviceName} user";
       isSystemUser = true;
       group = serviceName;
-      createHome = true;
     };
     users.groups."${serviceName}" = { };
   };
