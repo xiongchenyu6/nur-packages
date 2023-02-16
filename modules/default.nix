@@ -9,4 +9,5 @@
   codedeploy-agent = import ./codedeploy-agent;
   phabricator = import ./phabricator;
   java-tron = import ./java-tron;
+  chainlink = import ./chainlink;
 }

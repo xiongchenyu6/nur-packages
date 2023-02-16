@@ -1,6 +1,5 @@
 { buildGoModule, lib, source, wasmvm, pkg-config, patchelf, ... }:
-let bin = "bttc";
-in buildGoModule (source.chainlink // rec {
+buildGoModule (source.chainlink // {
   buildInputs = [ wasmvm ];
   nativeBuildInputs = [ pkg-config patchelf ];
   enableParallelBuilding = true;
