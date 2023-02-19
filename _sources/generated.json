@@ -95,7 +95,7 @@
     },
     "copilot": {
         "cargoLocks": null,
-        "date": "2023-02-06",
+        "date": "2023-02-19",
         "extract": null,
         "name": "copilot",
         "passthru": null,
@@ -105,12 +105,12 @@
             "fetchSubmodules": false,
             "leaveDotGit": false,
             "name": null,
-            "rev": "b91a7f3d48f3ef7d752f60db562be99f1a85f68b",
-            "sha256": "sha256-/f9b4y/oOX4D8Oeb0ge2pPY3MpASAVf0Rb/cTJHjlQw=",
+            "rev": "1ce3e1665248b866aaa713b3028e7f047d70db94",
+            "sha256": "sha256-h7Ci2xOAPE0LHkHsuk3Ckhqyl/SnhOxyOeE2drOTjQM=",
             "type": "git",
             "url": "https://github.com/zerolfx/copilot.el.git"
         },
-        "version": "b91a7f3d48f3ef7d752f60db562be99f1a85f68b"
+        "version": "1ce3e1665248b866aaa713b3028e7f047d70db94"
     },
     "delivery": {
         "cargoLocks": null,
@@ -146,6 +146,26 @@
             "url": "https://pypi.io/packages/source/e/epc/epc-0.0.5.tar.gz"
         },
         "version": "0.0.5"
+    },
+    "gotron-sdk": {
+        "cargoLocks": null,
+        "date": null,
+        "extract": null,
+        "name": "gotron-sdk",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "fbsobreira",
+            "repo": "gotron-sdk",
+            "rev": "v2.3.0",
+            "sha256": "sha256-8n+xkvcyWpcOSzOcnIJncC7svZ5LJccXi1XTx0S3RmU=",
+            "type": "github"
+        },
+        "version": "v2.3.0"
     },
     "java-tron-full-node": {
         "cargoLocks": null,
@@ -217,7 +237,7 @@
     },
     "lsp-bridge": {
         "cargoLocks": null,
-        "date": "2023-02-15",
+        "date": "2023-02-18",
         "extract": null,
         "name": "lsp-bridge",
         "passthru": null,
@@ -227,12 +247,12 @@
             "fetchSubmodules": false,
             "leaveDotGit": false,
             "name": null,
-            "rev": "52c7d7e7a671454cc1c063a9ed3abd91d0908a36",
-            "sha256": "sha256-kicZByZyjPzVZX2RIUbxSW4OG47RPeomDlzNOCxvP1g=",
+            "rev": "d448a7bd929d7b170ddf362c1ca353286a136211",
+            "sha256": "sha256-LLJG22+np/TGg7IAk5ti87qpP1d/UoxivzmIWYK85Rs=",
             "type": "git",
             "url": "https://github.com/manateelazycat/lsp-bridge.git"
         },
-        "version": "52c7d7e7a671454cc1c063a9ed3abd91d0908a36"
+        "version": "d448a7bd929d7b170ddf362c1ca353286a136211"
     },
     "magit-gitflow": {
         "cargoLocks": null,

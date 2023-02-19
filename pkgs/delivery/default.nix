@@ -7,7 +7,7 @@ let
 in buildGoModule (source.delivery // rec {
   enableParallelBuilding = true;
   proxyVendor = true;
-  vendorSha256 = "sha256-U+25U1cq4mZHHgNAaSRoV49JaFuPARUGxrcmeDuxOfA=";
+  vendorSha256 = "sha256-HjFU2r9l9SQ/OKOzF4ZHHMg/TO79yqBEfe78c80eumo=";
 
   ldflags = [
     "-X github.com/bttcprotocol/delivery/version.Name=delivery"

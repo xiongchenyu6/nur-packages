@@ -57,7 +57,7 @@ let
     delivery = callPackage ./pkgs/delivery { };
     chainlink = callPackage ./pkgs/chainlink { };
     wasmvm = callPackage ./pkgs/wasmvm { };
-
+    gotron-sdk = callPackage ./pkgs/gotron-sdk { };
     oci-arm-host-capacity = (inputs.dream2nix.lib.makeFlakeOutputs {
       pkgs = inputs.dream2nix.inputs.nixpkgs.legacyPackages."x86_64-linux";
       source = inputs.oci-arm-host-capacity-src;

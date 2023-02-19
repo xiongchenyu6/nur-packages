@@ -57,16 +57,16 @@
   };
   copilot = {
     pname = "copilot";
-    version = "b91a7f3d48f3ef7d752f60db562be99f1a85f68b";
+    version = "1ce3e1665248b866aaa713b3028e7f047d70db94";
     src = fetchgit {
       url = "https://github.com/zerolfx/copilot.el.git";
-      rev = "b91a7f3d48f3ef7d752f60db562be99f1a85f68b";
+      rev = "1ce3e1665248b866aaa713b3028e7f047d70db94";
       fetchSubmodules = false;
       deepClone = false;
       leaveDotGit = false;
-      sha256 = "sha256-/f9b4y/oOX4D8Oeb0ge2pPY3MpASAVf0Rb/cTJHjlQw=";
+      sha256 = "sha256-h7Ci2xOAPE0LHkHsuk3Ckhqyl/SnhOxyOeE2drOTjQM=";
     };
-    date = "2023-02-06";
+    date = "2023-02-19";
   };
   delivery = {
     pname = "delivery";
@@ -86,6 +86,17 @@
       url = "https://pypi.io/packages/source/e/epc/epc-0.0.5.tar.gz";
       sha256 = "sha256-oU0up0gXlVog6wCBLjpGMKEyiX602XZCAkDxFSwNfSU=";
     };
+  };
+  gotron-sdk = {
+    pname = "gotron-sdk";
+    version = "v2.3.0";
+    src = fetchFromGitHub ({
+      owner = "fbsobreira";
+      repo = "gotron-sdk";
+      rev = "v2.3.0";
+      fetchSubmodules = false;
+      sha256 = "sha256-8n+xkvcyWpcOSzOcnIJncC7svZ5LJccXi1XTx0S3RmU=";
+    });
   };
   java-tron-full-node = {
     pname = "java-tron-full-node";
@@ -131,16 +142,16 @@
   };
   lsp-bridge = {
     pname = "lsp-bridge";
-    version = "52c7d7e7a671454cc1c063a9ed3abd91d0908a36";
+    version = "d448a7bd929d7b170ddf362c1ca353286a136211";
     src = fetchgit {
       url = "https://github.com/manateelazycat/lsp-bridge.git";
-      rev = "52c7d7e7a671454cc1c063a9ed3abd91d0908a36";
+      rev = "d448a7bd929d7b170ddf362c1ca353286a136211";
       fetchSubmodules = false;
       deepClone = false;
       leaveDotGit = false;
-      sha256 = "sha256-kicZByZyjPzVZX2RIUbxSW4OG47RPeomDlzNOCxvP1g=";
+      sha256 = "sha256-LLJG22+np/TGg7IAk5ti87qpP1d/UoxivzmIWYK85Rs=";
     };
-    date = "2023-02-15";
+    date = "2023-02-18";
   };
   magit-gitflow = {
     pname = "magit-gitflow";

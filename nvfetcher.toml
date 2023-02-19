@@ -34,6 +34,10 @@ src.git = "https://github.com/bttcprotocol/launch.git"
 #src.manual = "f71388e3a8091a1c6bc10aa03d7edf8e7b638f23"
 fetch.git = "https://github.com/bttcprotocol/launch.git"
 
+[gotron-sdk]
+src.github = "fbsobreira/gotron-sdk"
+fetch.github = "fbsobreira/gotron-sdk"
+
 [amazon-cloudwatch-agent]
 src.github = "aws/amazon-cloudwatch-agent"
 fetch.github = "aws/amazon-cloudwatch-agent"
