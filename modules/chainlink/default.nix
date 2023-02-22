@@ -8,8 +8,13 @@ in {
   options.services = {
     "${serviceName}" = {
       enable = mkEnableOption "Enables ${serviceName} service";
+      package = mkEnableOption {
+        default = pkgs.chainlink;
+        type = types.package;
+        description = "Package to use for ${serviceName}";
+      };
       apicredentialsFilePath = mkOption {
-        description = lib.mdDoc
+        description = lib.mdDocl
           "encrypted password file for bttc node to decrypt private key";
         type = types.path;
       };
@@ -46,7 +51,7 @@ in {
             Type = "simple";
           };
           script =
-            "${pkgs.chainlink}/bin/chainlink -c ${cfg.configFilePath} -s ${cfg.secretsFilePath} node n -a ${cfg.apicredentialsFilePath}";
+            "${cfg.package}/bin/chainlink -c ${cfg.configFilePath} -s ${cfg.secretsFilePath} node n -a ${cfg.apicredentialsFilePath}";
           postStart = "";
         };
       };

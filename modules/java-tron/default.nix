@@ -92,6 +92,13 @@ let
       receiveTcpMinDataLength = 2048
       isOpenFullTcpDisconnect = true
 
+      metrics{
+        prometheus{
+         enable=true
+         port=9527
+        }
+      }
+
       p2p {
         version = ${if (cfg.network == "mainnet") then "11111" else "201910292"}
       }
