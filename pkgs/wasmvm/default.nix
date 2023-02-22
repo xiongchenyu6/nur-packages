@@ -1,6 +1,5 @@
 { rustPlatform, lib, source, ... }:
-let bin = "bttc";
-in rustPlatform.buildRustPackage ({
+rustPlatform.buildRustPackage ({
   pname = source.wasmvm.pname;
   version = source.wasmvm.version;
   src = "${source.wasmvm.src}/libwasmvm";

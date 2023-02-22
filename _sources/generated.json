@@ -95,7 +95,7 @@
     },
     "copilot": {
         "cargoLocks": null,
-        "date": "2023-02-19",
+        "date": "2023-02-20",
         "extract": null,
         "name": "copilot",
         "passthru": null,
@@ -105,12 +105,12 @@
             "fetchSubmodules": false,
             "leaveDotGit": false,
             "name": null,
-            "rev": "1ce3e1665248b866aaa713b3028e7f047d70db94",
-            "sha256": "sha256-h7Ci2xOAPE0LHkHsuk3Ckhqyl/SnhOxyOeE2drOTjQM=",
+            "rev": "20ce5cfb74ec17f822cecb0708b7acf31a93d010",
+            "sha256": "sha256-arWkDOx95Tg42mHQGwyzsoTOVVgvrCex8sKOIyvAWZc=",
             "type": "git",
             "url": "https://github.com/zerolfx/copilot.el.git"
         },
-        "version": "1ce3e1665248b866aaa713b3028e7f047d70db94"
+        "version": "20ce5cfb74ec17f822cecb0708b7acf31a93d010"
     },
     "delivery": {
         "cargoLocks": null,
@@ -176,11 +176,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-FeKbJ/puhvWyvqWEDrtwvWMWew0J5qUHx5M1UKrGa54=",
+            "sha256": "sha256-FktRHZmny7vJ6sOfPkNWLRTmMcRtuH/ayi6GX6eU3aI=",
             "type": "url",
-            "url": "https://github.com/tronprotocol/java-tron/releases/download/GreatVoyage-v4.7.0.1/FullNode.jar"
+            "url": "https://github.com/tronprotocol/java-tron/releases/download/GreatVoyage-v4.7.1/FullNode.jar"
         },
-        "version": "GreatVoyage-v4.7.0.1"
+        "version": "GreatVoyage-v4.7.1"
     },
     "java-tron-solidity-node": {
         "cargoLocks": null,
@@ -191,11 +191,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-QZukRiQSrAEHz7o7tvZ8pjSTiNsf2yR4/Gxi4HwXEpo=",
+            "sha256": "sha256-IaXTJv9ZCkmLzZIh2jBTBI6GiWYd3+2qo6Ypve7iFLo=",
             "type": "url",
-            "url": "https://github.com/tronprotocol/java-tron/releases/download/GreatVoyage-v4.7.0.1/SolidityNode.jar"
+            "url": "https://github.com/tronprotocol/java-tron/releases/download/GreatVoyage-v4.7.1/SolidityNode.jar"
         },
-        "version": "GreatVoyage-v4.7.0.1"
+        "version": "GreatVoyage-v4.7.1"
     },
     "launch": {
         "cargoLocks": null,
@@ -237,7 +237,7 @@
     },
     "lsp-bridge": {
         "cargoLocks": null,
-        "date": "2023-02-18",
+        "date": "2023-02-28",
         "extract": null,
         "name": "lsp-bridge",
         "passthru": null,
@@ -247,12 +247,12 @@
             "fetchSubmodules": false,
             "leaveDotGit": false,
             "name": null,
-            "rev": "d448a7bd929d7b170ddf362c1ca353286a136211",
-            "sha256": "sha256-LLJG22+np/TGg7IAk5ti87qpP1d/UoxivzmIWYK85Rs=",
+            "rev": "e2d9ffe50e30f588f2b2519e012f03c86000e67e",
+            "sha256": "sha256-vnhaKr258ls+BqpackVpjVpcCSmaPnvXyeRRvjS3Z+k=",
             "type": "git",
             "url": "https://github.com/manateelazycat/lsp-bridge.git"
         },
-        "version": "d448a7bd929d7b170ddf362c1ca353286a136211"
+        "version": "e2d9ffe50e30f588f2b2519e012f03c86000e67e"
     },
     "magit-gitflow": {
         "cargoLocks": null,
@@ -316,7 +316,7 @@
             "type": "url",
             "url": "https://github.com/smartcontractkit/operator-ui/releases/download/v0.8.0-059b169/smartcontractkit-operator-ui-0.8.0-059b169.tgz"
         },
-        "version": "v0.8.0-059b169"
+        "version": "v0.8.0-ffd9ff4"
     },
     "org-cv": {
         "cargoLocks": null,
