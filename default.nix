@@ -121,6 +121,34 @@ let
 
     codedeploy-agent = callPackage ./pkgs/ruby/codedeploy-agent { };
     default = bttc;
-    # };
+
+    cyrus_sasl_with_ldap =
+      (pkgs.cyrus_sasl.override { enableLdap = true; }).overrideAttrs (_: {
+        postInstall = ''
+          ln -sf ${ldap-passthrough-conf}/slapd.conf $out/lib/sasl2/
+          ln -sf ${ldap-passthrough-conf}/smtpd.conf $out/lib/sasl2/
+        '';
+      });
+
+    openldap_with_cyrus_sasl = (pkgs.openldap.overrideAttrs (old: {
+      configureFlags = old.configureFlags
+        ++ [ "--enable-spasswd" "--with-cyrus-sasl" ];
+      doCheck = false;
+    })).override { cyrus_sasl = cyrus_sasl_with_ldap; };
+
+    postfix = pkgs.postfix.override { cyrus_sasl = cyrus_sasl_with_ldap; };
+
+    sssd = pkgs.sssd.override { withSudo = true; };
+
+    krb5 = pkgs.krb5.overrideAttrs (old: {
+      configureFlags = old.configureFlags
+        ++ (if (old.pname == "libkrb5") then [ ] else [ "--with-ldap" ]);
+    });
+
+    sudo_with_sssd = pkgs.sudo.override {
+      sssd = sssd;
+      withInsults = true;
+      withSssd = true;
+    };
   };
 in my-pkgs

@@ -95,7 +95,7 @@
     },
     "copilot": {
         "cargoLocks": null,
-        "date": "2023-02-20",
+        "date": "2023-03-03",
         "extract": null,
         "name": "copilot",
         "passthru": null,
@@ -105,12 +105,12 @@
             "fetchSubmodules": false,
             "leaveDotGit": false,
             "name": null,
-            "rev": "20ce5cfb74ec17f822cecb0708b7acf31a93d010",
-            "sha256": "sha256-arWkDOx95Tg42mHQGwyzsoTOVVgvrCex8sKOIyvAWZc=",
+            "rev": "0cd76c8272901a9bdc525ffab75503354ba1a29a",
+            "sha256": "sha256-iwB2vFtfkKGWyWXPhW08vylzWZVvUJ3NRJTX+pl1g8Y=",
             "type": "git",
             "url": "https://github.com/zerolfx/copilot.el.git"
         },
-        "version": "20ce5cfb74ec17f822cecb0708b7acf31a93d010"
+        "version": "0cd76c8272901a9bdc525ffab75503354ba1a29a"
     },
     "delivery": {
         "cargoLocks": null,
@@ -237,7 +237,7 @@
     },
     "lsp-bridge": {
         "cargoLocks": null,
-        "date": "2023-02-28",
+        "date": "2023-03-03",
         "extract": null,
         "name": "lsp-bridge",
         "passthru": null,
@@ -247,12 +247,12 @@
             "fetchSubmodules": false,
             "leaveDotGit": false,
             "name": null,
-            "rev": "e2d9ffe50e30f588f2b2519e012f03c86000e67e",
-            "sha256": "sha256-vnhaKr258ls+BqpackVpjVpcCSmaPnvXyeRRvjS3Z+k=",
+            "rev": "6096e31bc1f7e10c81e7c1223c6dc254f48cb8aa",
+            "sha256": "sha256-UMdj/0x9QytmAOK/OpZYwSUFqGyV2y6rLVsuRfoNTZk=",
             "type": "git",
             "url": "https://github.com/manateelazycat/lsp-bridge.git"
         },
-        "version": "e2d9ffe50e30f588f2b2519e012f03c86000e67e"
+        "version": "6096e31bc1f7e10c81e7c1223c6dc254f48cb8aa"
     },
     "magit-gitflow": {
         "cargoLocks": null,
@@ -297,11 +297,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-cwiWbGQ6Y29whYPTWKLMxIGyGhD9xtMesFEwBhr9TXc=",
+            "sha256": "sha256-pLZtXdmJIZjNqkdvdULyYlzdIY5eMSHI+ICyrOcXo8I=",
             "type": "url",
-            "url": "https://pypi.io/packages/source/n/newsapi-python/newsapi-python-0.2.6.tar.gz"
+            "url": "https://pypi.io/packages/source/n/newsapi-python/newsapi-python-0.2.7.tar.gz"
         },
-        "version": "0.2.6"
+        "version": "0.2.7"
     },
     "operator-ui": {
         "cargoLocks": null,
