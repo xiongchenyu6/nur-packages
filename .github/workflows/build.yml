@@ -21,8 +21,8 @@ jobs:
         # The repo name as used in
         # https://github.com/nix-community/NUR/blob/master/repos.json
         system:
-          # - x86_64-linux
           - aarch64-linux
+          # - x86_64-linux
 
         nurRepo:
           - <YOUR_REPO_NAME>
@@ -39,7 +39,6 @@ jobs:
         cachixName:
           - xiongchenyu6
         nixPath:
-          # - nixpkgs=channel:nixos-unstable
           - nixpkgs=channel:nixpkgs-unstable
           # - nixpkgs=channel:nixos-21.11
     runs-on: ubuntu-latest
@@ -55,7 +54,7 @@ jobs:
           image: tonistiigi/binfmt:latest
           platforms: all
       - name: Install nix
-        uses: cachix/install-nix-action@v18
+        uses: cachix/install-nix-action@v20
         with:
           nix_path: "${{ matrix.nixPath }}"
           # nix 2.6 breaks restrict-eval, when using the NIX_PATH
