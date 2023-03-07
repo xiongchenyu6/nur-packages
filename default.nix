@@ -72,6 +72,8 @@ let
 
     newsapi-python = callPackage ./pkgs/python3/newsapi-python { };
 
+    chatgpt-wrapper = callPackage ./pkgs/python3/chatgpt-wrapper { };
+
     copilot-el = callPackage ./pkgs/emacs/copilot { };
 
     ligature = callPackage ./pkgs/emacs/ligature { };
@@ -79,6 +81,8 @@ let
     org-cv = callPackage ./pkgs/emacs/org-cv { };
 
     magit-gitflow = callPackage ./pkgs/emacs/magit-gitflow { };
+
+    chatgpt = callPackage ./pkgs/emacs/chatgpt { };
 
     inherit (callPackage ./pkgs/npm { }) tronbox solium;
 

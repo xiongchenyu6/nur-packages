@@ -76,6 +76,14 @@ fetch.git = "https://gitlab.com/Titan-C/org-cv.git"
 src.git = "https://github.com/jtatarik/magit-gitflow.git"
 fetch.git = "https://github.com/jtatarik/magit-gitflow.git"
 
+[chatgpt]
+src.git = "https://github.com/joshcho/ChatGPT.el.git"
+fetch.git = "https://github.com/joshcho/ChatGPT.el.git"
+
+[chatgpt-wrapper]
+src.git = "https://github.com/mmabrouk/chatgpt-wrapper.git"
+fetch.git = "https://github.com/mmabrouk/chatgpt-wrapper.git"
+
 [Flask-SimpleLDAP]
 src.pypi="Flask-SimpleLDAP"
 fetch.pypi="Flask-SimpleLDAP"

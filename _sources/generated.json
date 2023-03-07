@@ -93,9 +93,47 @@
         },
         "version": "v1.12.0"
     },
+    "chatgpt": {
+        "cargoLocks": null,
+        "date": "2023-03-05",
+        "extract": null,
+        "name": "chatgpt",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "rev": "b9c6be6d6a8dd0417d9ffd496cc098fc493b9428",
+            "sha256": "sha256-tODPUuIUA8CQV5FMT6UtQ2vQzlmExq4doYOGrWnT3Zw=",
+            "type": "git",
+            "url": "https://github.com/joshcho/ChatGPT.el.git"
+        },
+        "version": "b9c6be6d6a8dd0417d9ffd496cc098fc493b9428"
+    },
+    "chatgpt-wrapper": {
+        "cargoLocks": null,
+        "date": "2023-03-07",
+        "extract": null,
+        "name": "chatgpt-wrapper",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "rev": "0cd8aa1e58e66bd2167aff8349859810308c61ed",
+            "sha256": "sha256-yXH2zmdPz3i5mkSB5dGpJMzLtytpQbvRbNZCB8bzVzA=",
+            "type": "git",
+            "url": "https://github.com/mmabrouk/chatgpt-wrapper.git"
+        },
+        "version": "0cd8aa1e58e66bd2167aff8349859810308c61ed"
+    },
     "copilot": {
         "cargoLocks": null,
-        "date": "2023-03-03",
+        "date": "2023-03-06",
         "extract": null,
         "name": "copilot",
         "passthru": null,
@@ -105,12 +143,12 @@
             "fetchSubmodules": false,
             "leaveDotGit": false,
             "name": null,
-            "rev": "0cd76c8272901a9bdc525ffab75503354ba1a29a",
-            "sha256": "sha256-iwB2vFtfkKGWyWXPhW08vylzWZVvUJ3NRJTX+pl1g8Y=",
+            "rev": "bc91709ff2402b4e4c370b262af67ea199c297f3",
+            "sha256": "sha256-MFiKIFyvu7Z7VbJI9c+P2RdJ14e+7Eu91cERclQftMg=",
             "type": "git",
             "url": "https://github.com/zerolfx/copilot.el.git"
         },
-        "version": "0cd76c8272901a9bdc525ffab75503354ba1a29a"
+        "version": "bc91709ff2402b4e4c370b262af67ea199c297f3"
     },
     "delivery": {
         "cargoLocks": null,
@@ -237,7 +275,7 @@
     },
     "lsp-bridge": {
         "cargoLocks": null,
-        "date": "2023-03-03",
+        "date": "2023-03-07",
         "extract": null,
         "name": "lsp-bridge",
         "passthru": null,
@@ -247,12 +285,12 @@
             "fetchSubmodules": false,
             "leaveDotGit": false,
             "name": null,
-            "rev": "6096e31bc1f7e10c81e7c1223c6dc254f48cb8aa",
-            "sha256": "sha256-UMdj/0x9QytmAOK/OpZYwSUFqGyV2y6rLVsuRfoNTZk=",
+            "rev": "b8dcb59790f390767fb5ceb2f8b11c6938456738",
+            "sha256": "sha256-6KyvRwwIMVolc8ufl0sqMR35d2MLLDpeDf86690LP+U=",
             "type": "git",
             "url": "https://github.com/manateelazycat/lsp-bridge.git"
         },
-        "version": "6096e31bc1f7e10c81e7c1223c6dc254f48cb8aa"
+        "version": "b8dcb59790f390767fb5ceb2f8b11c6938456738"
     },
     "magit-gitflow": {
         "cargoLocks": null,

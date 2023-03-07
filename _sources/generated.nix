@@ -55,18 +55,44 @@
       sha256 = "sha256-zwGM9zcfIMVtUjP4R3+ORg/b0ju340mq8HcP6bIyiqk=";
     });
   };
-  copilot = {
-    pname = "copilot";
-    version = "0cd76c8272901a9bdc525ffab75503354ba1a29a";
+  chatgpt = {
+    pname = "chatgpt";
+    version = "b9c6be6d6a8dd0417d9ffd496cc098fc493b9428";
     src = fetchgit {
-      url = "https://github.com/zerolfx/copilot.el.git";
-      rev = "0cd76c8272901a9bdc525ffab75503354ba1a29a";
+      url = "https://github.com/joshcho/ChatGPT.el.git";
+      rev = "b9c6be6d6a8dd0417d9ffd496cc098fc493b9428";
       fetchSubmodules = false;
       deepClone = false;
       leaveDotGit = false;
-      sha256 = "sha256-iwB2vFtfkKGWyWXPhW08vylzWZVvUJ3NRJTX+pl1g8Y=";
+      sha256 = "sha256-tODPUuIUA8CQV5FMT6UtQ2vQzlmExq4doYOGrWnT3Zw=";
     };
-    date = "2023-03-03";
+    date = "2023-03-05";
+  };
+  chatgpt-wrapper = {
+    pname = "chatgpt-wrapper";
+    version = "0cd8aa1e58e66bd2167aff8349859810308c61ed";
+    src = fetchgit {
+      url = "https://github.com/mmabrouk/chatgpt-wrapper.git";
+      rev = "0cd8aa1e58e66bd2167aff8349859810308c61ed";
+      fetchSubmodules = false;
+      deepClone = false;
+      leaveDotGit = false;
+      sha256 = "sha256-yXH2zmdPz3i5mkSB5dGpJMzLtytpQbvRbNZCB8bzVzA=";
+    };
+    date = "2023-03-07";
+  };
+  copilot = {
+    pname = "copilot";
+    version = "bc91709ff2402b4e4c370b262af67ea199c297f3";
+    src = fetchgit {
+      url = "https://github.com/zerolfx/copilot.el.git";
+      rev = "bc91709ff2402b4e4c370b262af67ea199c297f3";
+      fetchSubmodules = false;
+      deepClone = false;
+      leaveDotGit = false;
+      sha256 = "sha256-MFiKIFyvu7Z7VbJI9c+P2RdJ14e+7Eu91cERclQftMg=";
+    };
+    date = "2023-03-06";
   };
   delivery = {
     pname = "delivery";
@@ -142,16 +168,16 @@
   };
   lsp-bridge = {
     pname = "lsp-bridge";
-    version = "6096e31bc1f7e10c81e7c1223c6dc254f48cb8aa";
+    version = "b8dcb59790f390767fb5ceb2f8b11c6938456738";
     src = fetchgit {
       url = "https://github.com/manateelazycat/lsp-bridge.git";
-      rev = "6096e31bc1f7e10c81e7c1223c6dc254f48cb8aa";
+      rev = "b8dcb59790f390767fb5ceb2f8b11c6938456738";
       fetchSubmodules = false;
       deepClone = false;
       leaveDotGit = false;
-      sha256 = "sha256-UMdj/0x9QytmAOK/OpZYwSUFqGyV2y6rLVsuRfoNTZk=";
+      sha256 = "sha256-6KyvRwwIMVolc8ufl0sqMR35d2MLLDpeDf86690LP+U=";
     };
-    date = "2023-03-03";
+    date = "2023-03-07";
   };
   magit-gitflow = {
     pname = "magit-gitflow";
@@ -199,7 +225,7 @@
       fetchSubmodules = false;
       deepClone = false;
       leaveDotGit = false;
-      sha256 = "sha256-VxkfZq3KWx+UpG6c/MqJR7hRZjO4AvG6L5ilp+lT91k=";
+      sha256 = "sha256-AtCjoezjQecqIbHelxSAupqA0AdXKSLR/30TshcSt6s=";
     };
     date = "2022-08-22";
   };
