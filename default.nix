@@ -84,6 +84,14 @@ let
 
     chatgpt = callPackage ./pkgs/emacs/chatgpt { };
 
+    chatgpt-arcana = callPackage ./pkgs/emacs/chatgpt-arcana { };
+
+    org-ai = callPackage ./pkgs/emacs/org-ai { };
+
+    tiktoken = callPackage ./pkgs/python3/tiktoken { };
+
+    magit-town = callPackage ./pkgs/emacs/magit-town { };
+
     inherit (callPackage ./pkgs/npm { }) tronbox solium;
 
     amazon-cloudwatch-agent = callPackage ./pkgs/amazon-cloudwatch-agent { };
@@ -95,6 +103,8 @@ let
     tron-eventquery = callPackage ./pkgs/tron-eventquery { };
 
     my-ferretdb = callPackage ./pkgs/ferretdb { };
+
+    gptcommit = callPackage ./pkgs/gptcommit { };
 
     # vbox = nixos-generators.nixosGenerate {
 

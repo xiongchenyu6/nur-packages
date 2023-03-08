@@ -5,7 +5,7 @@ rustPlatform.buildRustPackage ({
   src = "${source.wasmvm.src}/libwasmvm";
   enableParallelBuilding = true;
   proxyVendor = true;
-  cargoSha256 = "sha256-N2LBLp5rFgX8GqHkYqGcgcMsa+VPfLfl31ILesCwkG4=";
+  cargoSha256 = "sha256-FsmXYubWTmR6iL7w1T0DfDv2UMtm2pYB0ujPUA1Ljd0=";
   doCheck = false;
 
   postInstall = "mv $out/lib/libwasmvm.so $out/lib/libwasmvm.x86_64.so";

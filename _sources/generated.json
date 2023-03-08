@@ -112,9 +112,28 @@
         },
         "version": "b9c6be6d6a8dd0417d9ffd496cc098fc493b9428"
     },
+    "chatgpt-arcana": {
+        "cargoLocks": null,
+        "date": "2023-03-09",
+        "extract": null,
+        "name": "chatgpt-arcana",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "rev": "b2b8ea295caaa2df5e4bcfdce6c9c6597878f79a",
+            "sha256": "sha256-clIoH86y8RWg/3KVjwwfVTFU3V+6xTqLxtU9/994WI4=",
+            "type": "git",
+            "url": "https://github.com/CarlQLange/chatgpt-arcana.el.git"
+        },
+        "version": "b2b8ea295caaa2df5e4bcfdce6c9c6597878f79a"
+    },
     "chatgpt-wrapper": {
         "cargoLocks": null,
-        "date": "2023-03-07",
+        "date": "2023-03-09",
         "extract": null,
         "name": "chatgpt-wrapper",
         "passthru": null,
@@ -124,12 +143,12 @@
             "fetchSubmodules": false,
             "leaveDotGit": false,
             "name": null,
-            "rev": "0cd8aa1e58e66bd2167aff8349859810308c61ed",
-            "sha256": "sha256-yXH2zmdPz3i5mkSB5dGpJMzLtytpQbvRbNZCB8bzVzA=",
+            "rev": "f99ff4761e3e6b7dbaf4c8e4a843820196601432",
+            "sha256": "sha256-5Xr6y4p5YJl8qlqveTngkh2sDpNvzgBaI5GCdVBjBI8=",
             "type": "git",
             "url": "https://github.com/mmabrouk/chatgpt-wrapper.git"
         },
-        "version": "0cd8aa1e58e66bd2167aff8349859810308c61ed"
+        "version": "f99ff4761e3e6b7dbaf4c8e4a843820196601432"
     },
     "copilot": {
         "cargoLocks": null,
@@ -205,6 +224,25 @@
         },
         "version": "v2.3.0"
     },
+    "gptcommit": {
+        "cargoLocks": null,
+        "date": "2023-03-06",
+        "extract": null,
+        "name": "gptcommit",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "rev": "be21c0e8929abcf2879d4dc8b50fc808e2461f16",
+            "sha256": "sha256-4zXAOEFWL0J6nnztUsrEerSqjds9C8hL9+1eOPJdpUU=",
+            "type": "git",
+            "url": "https://github.com/zurawiki/gptcommit.git"
+        },
+        "version": "be21c0e8929abcf2879d4dc8b50fc808e2461f16"
+    },
     "java-tron-full-node": {
         "cargoLocks": null,
         "date": null,
@@ -275,7 +313,7 @@
     },
     "lsp-bridge": {
         "cargoLocks": null,
-        "date": "2023-03-07",
+        "date": "2023-03-09",
         "extract": null,
         "name": "lsp-bridge",
         "passthru": null,
@@ -285,12 +323,12 @@
             "fetchSubmodules": false,
             "leaveDotGit": false,
             "name": null,
-            "rev": "b8dcb59790f390767fb5ceb2f8b11c6938456738",
-            "sha256": "sha256-6KyvRwwIMVolc8ufl0sqMR35d2MLLDpeDf86690LP+U=",
+            "rev": "59fe5cf379fe278c3470530edb1ffce547332935",
+            "sha256": "sha256-6MOvI8XCH6G+K23X4NTzCqmP4gF5owKBxb7z2mFQc+I=",
             "type": "git",
             "url": "https://github.com/manateelazycat/lsp-bridge.git"
         },
-        "version": "b8dcb59790f390767fb5ceb2f8b11c6938456738"
+        "version": "59fe5cf379fe278c3470530edb1ffce547332935"
     },
     "magit-gitflow": {
         "cargoLocks": null,
@@ -310,6 +348,25 @@
             "url": "https://github.com/jtatarik/magit-gitflow.git"
         },
         "version": "cc41b561ec6eea947fe9a176349fb4f771ed865b"
+    },
+    "magit-town": {
+        "cargoLocks": null,
+        "date": "2019-04-02",
+        "extract": null,
+        "name": "magit-town",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "rev": "4ce962e6e2d8249d3a5aa4c40e9924a424b50ebf",
+            "sha256": "sha256-dcLarzN9miAxzW9IP3IECxjRuShR/D3m5eU7vV6YE+A=",
+            "type": "git",
+            "url": "https://github.com/natecox/magit-town.git"
+        },
+        "version": "4ce962e6e2d8249d3a5aa4c40e9924a424b50ebf"
     },
     "my_cookies": {
         "cargoLocks": null,
@@ -356,6 +413,25 @@
         },
         "version": "v0.8.0-ffd9ff4"
     },
+    "org-ai": {
+        "cargoLocks": null,
+        "date": "2023-03-08",
+        "extract": null,
+        "name": "org-ai",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "rev": "48775bf1a2dd31e81f0a275c5106395282e32ed9",
+            "sha256": "sha256-tQFukKTvpSXxDlu2tUOQ5IdKDLRs26GpfIQd4Ej14PM=",
+            "type": "git",
+            "url": "https://github.com/rksm/org-ai.git"
+        },
+        "version": "48775bf1a2dd31e81f0a275c5106395282e32ed9"
+    },
     "org-cv": {
         "cargoLocks": null,
         "date": "2022-08-22",
@@ -374,6 +450,25 @@
             "url": "https://gitlab.com/Titan-C/org-cv.git"
         },
         "version": "332c72880df2ed8f25d3693907cedfe53b07f49e"
+    },
+    "tiktoken": {
+        "cargoLocks": null,
+        "date": "2023-03-02",
+        "extract": null,
+        "name": "tiktoken",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "rev": "ec7c121e385bf1675312c6c33734de6b392890c4",
+            "sha256": "sha256-lv1mMSYlFbgsSSuBpwTfWHyRmmgeh8M+Do2WWS5j+Lg=",
+            "type": "git",
+            "url": "https://github.com/openai/tiktoken.git"
+        },
+        "version": "ec7c121e385bf1675312c6c33734de6b392890c4"
     },
     "tron-deployment": {
         "cargoLocks": null,
@@ -408,10 +503,10 @@
             "name": null,
             "owner": "CosmWasm",
             "repo": "wasmvm",
-            "rev": "v1.2.0",
-            "sha256": "sha256-uvZD9zq4GVeqBKwphf+noi3F//aXfRR7dI2KhThL+t0=",
+            "rev": "v1.2.1",
+            "sha256": "sha256-zR47q8Z2znPigecPDmw5L4ef20/TXv8cPxaXTdJGxg0=",
             "type": "github"
         },
-        "version": "v1.2.0"
+        "version": "v1.2.1"
     }
 }

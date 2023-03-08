@@ -76,6 +76,18 @@ fetch.git = "https://gitlab.com/Titan-C/org-cv.git"
 src.git = "https://github.com/jtatarik/magit-gitflow.git"
 fetch.git = "https://github.com/jtatarik/magit-gitflow.git"
 
+[magit-town]
+src.git = "https://github.com/natecox/magit-town.git"
+fetch.git = "https://github.com/natecox/magit-town.git"
+
+[chatgpt-arcana]
+src.git = "https://github.com/CarlQLange/chatgpt-arcana.el.git"
+fetch.git = "https://github.com/CarlQLange/chatgpt-arcana.el.git"
+
+[org-ai]
+src.git = "https://github.com/rksm/org-ai.git"
+fetch.git = "https://github.com/rksm/org-ai.git"
+
 [chatgpt]
 src.git = "https://github.com/joshcho/ChatGPT.el.git"
 fetch.git = "https://github.com/joshcho/ChatGPT.el.git"
@@ -83,6 +95,10 @@ fetch.git = "https://github.com/joshcho/ChatGPT.el.git"
 [chatgpt-wrapper]
 src.git = "https://github.com/mmabrouk/chatgpt-wrapper.git"
 fetch.git = "https://github.com/mmabrouk/chatgpt-wrapper.git"
+
+[tiktoken]
+src.git = "https://github.com/openai/tiktoken.git"
+fetch.git = "https://github.com/openai/tiktoken.git"
 
 [Flask-SimpleLDAP]
 src.pypi="Flask-SimpleLDAP"
@@ -97,3 +113,7 @@ fetch.git = "https://github.com/xiongchenyu6/aws-codedeploy-agent.git"
 [wasmvm]
 src.github="CosmWasm/wasmvm"
 fetch.github="CosmWasm/wasmvm"
+
+[gptcommit]
+src.git = "https://github.com/zurawiki/gptcommit.git"
+fetch.git = "https://github.com/zurawiki/gptcommit.git"
