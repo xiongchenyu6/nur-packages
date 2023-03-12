@@ -72,7 +72,7 @@ let
 
     newsapi-python = callPackage ./pkgs/python3/newsapi-python { };
 
-    chatgpt-wrapper = callPackage ./pkgs/python3/chatgpt-wrapper { };
+    # chatgpt-wrapper = callPackage ./pkgs/python3/chatgpt-wrapper { };
 
     copilot-el = callPackage ./pkgs/emacs/copilot { };
 
@@ -88,9 +88,11 @@ let
 
     org-ai = callPackage ./pkgs/emacs/org-ai { };
 
-    tiktoken = callPackage ./pkgs/python3/tiktoken { };
+    corfu-english-helper = callPackage ./pkgs/emacs/corfu-english-helper { };
 
-    magit-town = callPackage ./pkgs/emacs/magit-town { };
+    # tiktoken = callPackage ./pkgs/python3/tiktoken { };
+
+    # magit-town = callPackage ./pkgs/emacs/magit-town { };
 
     inherit (callPackage ./pkgs/npm { }) tronbox solium;
 

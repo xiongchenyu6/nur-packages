@@ -88,6 +88,10 @@ fetch.git = "https://github.com/CarlQLange/chatgpt-arcana.el.git"
 src.git = "https://github.com/rksm/org-ai.git"
 fetch.git = "https://github.com/rksm/org-ai.git"
 
+[corfu-english-helper]
+src.git = "https://github.com/manateelazycat/corfu-english-helper.git"
+fetch.git = "https://github.com/manateelazycat/corfu-english-helper.git"
+
 [chatgpt]
 src.git = "https://github.com/joshcho/ChatGPT.el.git"
 fetch.git = "https://github.com/joshcho/ChatGPT.el.git"
