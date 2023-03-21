@@ -1,7 +1,7 @@
 { stdenv, lib, rustPlatform, pkg-config, nix-update-script, openssl, source }:
 
 rustPlatform.buildRustPackage (source.gptcommit // {
-  cargoSha256 = "sha256-vTl2iSTFZHs4NRi8NAmM/ymnHw0NK+JIlsfIIa0Rpys=";
+  cargoSha256 = "sha256-kgcrJQYnwK34aROUkchAnITS305QgpttJ2giKrE5S0Y=";
 
   nativeBuildInputs = [ pkg-config ];
 

@@ -9,6 +9,17 @@
       sha256 = "sha256-gS96R2MX4+SmZUnXc9RwYX5BU/ICT7lWhyuPCZh2UnU=";
     };
   };
+  aiac = {
+    pname = "aiac";
+    version = "v2.1.0";
+    src = fetchFromGitHub ({
+      owner = "gofireflyio";
+      repo = "aiac";
+      rev = "v2.1.0";
+      fetchSubmodules = false;
+      sha256 = "sha256-YiHK4dUIXoDUp4kLTOQNo2pLY/Wbw1uIijrhIh33vd0=";
+    });
+  };
   amazon-cloudwatch-agent = {
     pname = "amazon-cloudwatch-agent";
     version = "v1.247357.0";
@@ -46,13 +57,13 @@
   };
   chainlink = {
     pname = "chainlink";
-    version = "v1.12.0";
+    version = "v1.13.0";
     src = fetchFromGitHub ({
       owner = "smartcontractkit";
       repo = "chainlink";
-      rev = "v1.12.0";
+      rev = "v1.13.0";
       fetchSubmodules = false;
-      sha256 = "sha256-zwGM9zcfIMVtUjP4R3+ORg/b0ju340mq8HcP6bIyiqk=";
+      sha256 = "sha256-tUUtF5J98RhRs1QudEkL0AetGyMfx2kJZj3LqYJvGFY=";
     });
   };
   chatgpt = {
@@ -70,29 +81,29 @@
   };
   chatgpt-arcana = {
     pname = "chatgpt-arcana";
-    version = "11b9db2e023c63d12065f4cc6320d5e943734bda";
+    version = "2fa8ee33996270811ebb72cc38b739469406da3a";
     src = fetchgit {
       url = "https://github.com/CarlQLange/chatgpt-arcana.el.git";
-      rev = "11b9db2e023c63d12065f4cc6320d5e943734bda";
+      rev = "2fa8ee33996270811ebb72cc38b739469406da3a";
       fetchSubmodules = false;
       deepClone = false;
       leaveDotGit = false;
-      sha256 = "sha256-w7/WcNvJFdwngTHKiKstD1u9+yJFeSV1WYBrI4oRePg=";
+      sha256 = "sha256-ahVs3Dw2eoaoMl1NxSXC1wyxKxFdzB2g1h2UyKk2ANc=";
     };
-    date = "2023-03-09";
+    date = "2023-03-18";
   };
   chatgpt-wrapper = {
     pname = "chatgpt-wrapper";
-    version = "06d0bdc43c25bb3fcc51232a7cc4c3c2d4768c2c";
+    version = "317216ef323840a02f8551dc222657a88baa3320";
     src = fetchgit {
       url = "https://github.com/mmabrouk/chatgpt-wrapper.git";
-      rev = "06d0bdc43c25bb3fcc51232a7cc4c3c2d4768c2c";
+      rev = "317216ef323840a02f8551dc222657a88baa3320";
       fetchSubmodules = false;
       deepClone = false;
       leaveDotGit = false;
-      sha256 = "sha256-8wBi2Xe7yRn3O/9soBdrZ+KIcPKAA/ca+nHhbDs5fH8=";
+      sha256 = "sha256-NcX9UwjPxVB2wd+baOEXX/SeEB1r2AeIgzZ49y0qGZs=";
     };
-    date = "2023-03-13";
+    date = "2023-03-20";
   };
   copilot = {
     pname = "copilot";
@@ -152,16 +163,16 @@
   };
   gptcommit = {
     pname = "gptcommit";
-    version = "3ae428d7082f0706c0e71a7c891f67d0d37fd3de";
+    version = "67bd2d7a1e556ba475ff10e7cbf50a94e5b568e0";
     src = fetchgit {
       url = "https://github.com/zurawiki/gptcommit.git";
-      rev = "3ae428d7082f0706c0e71a7c891f67d0d37fd3de";
+      rev = "67bd2d7a1e556ba475ff10e7cbf50a94e5b568e0";
       fetchSubmodules = false;
       deepClone = false;
       leaveDotGit = false;
-      sha256 = "sha256-BhJNcFY/O4BIn9JdHW87qj4SKC1c9Ah88oZbSdW8Kts=";
+      sha256 = "sha256-spkyFWll/CRfsIhrZ58KK77peiB9w2hAdTuIdrewJlg=";
     };
-    date = "2023-03-11";
+    date = "2023-03-19";
   };
   java-tron-full-node = {
     pname = "java-tron-full-node";
@@ -207,16 +218,16 @@
   };
   lsp-bridge = {
     pname = "lsp-bridge";
-    version = "c5dc02f6bd47039c320083b3befac0e569c0efa4";
+    version = "32bd062c4b41892e29a1f7bfebf07d778181540c";
     src = fetchgit {
       url = "https://github.com/manateelazycat/lsp-bridge.git";
-      rev = "c5dc02f6bd47039c320083b3befac0e569c0efa4";
+      rev = "32bd062c4b41892e29a1f7bfebf07d778181540c";
       fetchSubmodules = false;
       deepClone = false;
       leaveDotGit = false;
-      sha256 = "sha256-vbSVGPFBjAp4VRbJc6a2W0d2IqOusNa+rk4X6jRcjRI=";
+      sha256 = "sha256-f6NLq3kYSK9EdxqyKbCAA27/bN/wB2zHtvJaxEliOL8=";
     };
-    date = "2023-03-12";
+    date = "2023-03-21";
   };
   magit-gitflow = {
     pname = "magit-gitflow";
@@ -262,7 +273,7 @@
   };
   operator-ui = {
     pname = "operator-ui";
-    version = "v0.8.0-782ef0a";
+    version = "v0.8.0-67c1a28";
     src = fetchurl {
       url = "https://github.com/smartcontractkit/operator-ui/releases/download/v0.8.0-059b169/smartcontractkit-operator-ui-0.8.0-059b169.tgz";
       sha256 = "sha256-Udnm2bCx2rXcXLPpfGs8/mCW3tDR/IHLp4+VSni5z0s=";
@@ -270,16 +281,16 @@
   };
   org-ai = {
     pname = "org-ai";
-    version = "b549d961f8ef06f32517324ee825214b9ef8bb2b";
+    version = "31e9c7a95aafb7bf190f92ca12ff71e96804fc30";
     src = fetchgit {
       url = "https://github.com/rksm/org-ai.git";
-      rev = "b549d961f8ef06f32517324ee825214b9ef8bb2b";
+      rev = "31e9c7a95aafb7bf190f92ca12ff71e96804fc30";
       fetchSubmodules = false;
       deepClone = false;
       leaveDotGit = false;
-      sha256 = "sha256-VzUz2f4Wbp3Aj6TNayTeBb4Vp9qa6PDka83QNM0rMsQ=";
+      sha256 = "sha256-Ho9/1/utHqMgRqL4TzSvKe7J0UFKIEsXQVFbl3nvBJs=";
     };
-    date = "2023-03-13";
+    date = "2023-03-20";
   };
   org-cv = {
     pname = "org-cv";
@@ -296,16 +307,16 @@
   };
   tiktoken = {
     pname = "tiktoken";
-    version = "3e8620030c68d2fd6d4ec6d38426e7a1983661f5";
+    version = "82facf911fe41f39f13565be73899eab1e1761ef";
     src = fetchgit {
       url = "https://github.com/openai/tiktoken.git";
-      rev = "3e8620030c68d2fd6d4ec6d38426e7a1983661f5";
+      rev = "82facf911fe41f39f13565be73899eab1e1761ef";
       fetchSubmodules = false;
       deepClone = false;
       leaveDotGit = false;
-      sha256 = "sha256-ea+Ek6Bl0wUT2ysOjB71fmekf/gT1uGKCvNsaqTph6g=";
+      sha256 = "sha256-DZvV5mtj5IpHiypAanGmPDpPWqEbLlorIPwFlfE/EHE=";
     };
-    date = "2023-03-12";
+    date = "2023-03-17";
   };
   tron-deployment = {
     pname = "tron-deployment";

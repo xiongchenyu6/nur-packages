@@ -88,6 +88,8 @@ let
 
     org-ai = callPackage ./pkgs/emacs/org-ai { };
 
+    aiac = callPackage ./pkgs/aiac { };
+
     corfu-english-helper = callPackage ./pkgs/emacs/corfu-english-helper { };
 
     # tiktoken = callPackage ./pkgs/python3/tiktoken { };

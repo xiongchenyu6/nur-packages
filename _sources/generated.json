@@ -14,6 +14,26 @@
         },
         "version": "1.4.0"
     },
+    "aiac": {
+        "cargoLocks": null,
+        "date": null,
+        "extract": null,
+        "name": "aiac",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "gofireflyio",
+            "repo": "aiac",
+            "rev": "v2.1.0",
+            "sha256": "sha256-YiHK4dUIXoDUp4kLTOQNo2pLY/Wbw1uIijrhIh33vd0=",
+            "type": "github"
+        },
+        "version": "v2.1.0"
+    },
     "amazon-cloudwatch-agent": {
         "cargoLocks": null,
         "date": null,
@@ -87,11 +107,11 @@
             "name": null,
             "owner": "smartcontractkit",
             "repo": "chainlink",
-            "rev": "v1.12.0",
-            "sha256": "sha256-zwGM9zcfIMVtUjP4R3+ORg/b0ju340mq8HcP6bIyiqk=",
+            "rev": "v1.13.0",
+            "sha256": "sha256-tUUtF5J98RhRs1QudEkL0AetGyMfx2kJZj3LqYJvGFY=",
             "type": "github"
         },
-        "version": "v1.12.0"
+        "version": "v1.13.0"
     },
     "chatgpt": {
         "cargoLocks": null,
@@ -114,7 +134,7 @@
     },
     "chatgpt-arcana": {
         "cargoLocks": null,
-        "date": "2023-03-09",
+        "date": "2023-03-18",
         "extract": null,
         "name": "chatgpt-arcana",
         "passthru": null,
@@ -124,16 +144,16 @@
             "fetchSubmodules": false,
             "leaveDotGit": false,
             "name": null,
-            "rev": "11b9db2e023c63d12065f4cc6320d5e943734bda",
-            "sha256": "sha256-w7/WcNvJFdwngTHKiKstD1u9+yJFeSV1WYBrI4oRePg=",
+            "rev": "2fa8ee33996270811ebb72cc38b739469406da3a",
+            "sha256": "sha256-ahVs3Dw2eoaoMl1NxSXC1wyxKxFdzB2g1h2UyKk2ANc=",
             "type": "git",
             "url": "https://github.com/CarlQLange/chatgpt-arcana.el.git"
         },
-        "version": "11b9db2e023c63d12065f4cc6320d5e943734bda"
+        "version": "2fa8ee33996270811ebb72cc38b739469406da3a"
     },
     "chatgpt-wrapper": {
         "cargoLocks": null,
-        "date": "2023-03-13",
+        "date": "2023-03-20",
         "extract": null,
         "name": "chatgpt-wrapper",
         "passthru": null,
@@ -143,12 +163,12 @@
             "fetchSubmodules": false,
             "leaveDotGit": false,
             "name": null,
-            "rev": "06d0bdc43c25bb3fcc51232a7cc4c3c2d4768c2c",
-            "sha256": "sha256-8wBi2Xe7yRn3O/9soBdrZ+KIcPKAA/ca+nHhbDs5fH8=",
+            "rev": "317216ef323840a02f8551dc222657a88baa3320",
+            "sha256": "sha256-NcX9UwjPxVB2wd+baOEXX/SeEB1r2AeIgzZ49y0qGZs=",
             "type": "git",
             "url": "https://github.com/mmabrouk/chatgpt-wrapper.git"
         },
-        "version": "06d0bdc43c25bb3fcc51232a7cc4c3c2d4768c2c"
+        "version": "317216ef323840a02f8551dc222657a88baa3320"
     },
     "copilot": {
         "cargoLocks": null,
@@ -245,7 +265,7 @@
     },
     "gptcommit": {
         "cargoLocks": null,
-        "date": "2023-03-11",
+        "date": "2023-03-19",
         "extract": null,
         "name": "gptcommit",
         "passthru": null,
@@ -255,12 +275,12 @@
             "fetchSubmodules": false,
             "leaveDotGit": false,
             "name": null,
-            "rev": "3ae428d7082f0706c0e71a7c891f67d0d37fd3de",
-            "sha256": "sha256-BhJNcFY/O4BIn9JdHW87qj4SKC1c9Ah88oZbSdW8Kts=",
+            "rev": "67bd2d7a1e556ba475ff10e7cbf50a94e5b568e0",
+            "sha256": "sha256-spkyFWll/CRfsIhrZ58KK77peiB9w2hAdTuIdrewJlg=",
             "type": "git",
             "url": "https://github.com/zurawiki/gptcommit.git"
         },
-        "version": "3ae428d7082f0706c0e71a7c891f67d0d37fd3de"
+        "version": "67bd2d7a1e556ba475ff10e7cbf50a94e5b568e0"
     },
     "java-tron-full-node": {
         "cargoLocks": null,
@@ -332,7 +352,7 @@
     },
     "lsp-bridge": {
         "cargoLocks": null,
-        "date": "2023-03-12",
+        "date": "2023-03-21",
         "extract": null,
         "name": "lsp-bridge",
         "passthru": null,
@@ -342,12 +362,12 @@
             "fetchSubmodules": false,
             "leaveDotGit": false,
             "name": null,
-            "rev": "c5dc02f6bd47039c320083b3befac0e569c0efa4",
-            "sha256": "sha256-vbSVGPFBjAp4VRbJc6a2W0d2IqOusNa+rk4X6jRcjRI=",
+            "rev": "32bd062c4b41892e29a1f7bfebf07d778181540c",
+            "sha256": "sha256-f6NLq3kYSK9EdxqyKbCAA27/bN/wB2zHtvJaxEliOL8=",
             "type": "git",
             "url": "https://github.com/manateelazycat/lsp-bridge.git"
         },
-        "version": "c5dc02f6bd47039c320083b3befac0e569c0efa4"
+        "version": "32bd062c4b41892e29a1f7bfebf07d778181540c"
     },
     "magit-gitflow": {
         "cargoLocks": null,
@@ -430,11 +450,11 @@
             "type": "url",
             "url": "https://github.com/smartcontractkit/operator-ui/releases/download/v0.8.0-059b169/smartcontractkit-operator-ui-0.8.0-059b169.tgz"
         },
-        "version": "v0.8.0-782ef0a"
+        "version": "v0.8.0-67c1a28"
     },
     "org-ai": {
         "cargoLocks": null,
-        "date": "2023-03-13",
+        "date": "2023-03-20",
         "extract": null,
         "name": "org-ai",
         "passthru": null,
@@ -444,12 +464,12 @@
             "fetchSubmodules": false,
             "leaveDotGit": false,
             "name": null,
-            "rev": "b549d961f8ef06f32517324ee825214b9ef8bb2b",
-            "sha256": "sha256-VzUz2f4Wbp3Aj6TNayTeBb4Vp9qa6PDka83QNM0rMsQ=",
+            "rev": "31e9c7a95aafb7bf190f92ca12ff71e96804fc30",
+            "sha256": "sha256-Ho9/1/utHqMgRqL4TzSvKe7J0UFKIEsXQVFbl3nvBJs=",
             "type": "git",
             "url": "https://github.com/rksm/org-ai.git"
         },
-        "version": "b549d961f8ef06f32517324ee825214b9ef8bb2b"
+        "version": "31e9c7a95aafb7bf190f92ca12ff71e96804fc30"
     },
     "org-cv": {
         "cargoLocks": null,
@@ -472,7 +492,7 @@
     },
     "tiktoken": {
         "cargoLocks": null,
-        "date": "2023-03-12",
+        "date": "2023-03-17",
         "extract": null,
         "name": "tiktoken",
         "passthru": null,
@@ -482,12 +502,12 @@
             "fetchSubmodules": false,
             "leaveDotGit": false,
             "name": null,
-            "rev": "3e8620030c68d2fd6d4ec6d38426e7a1983661f5",
-            "sha256": "sha256-ea+Ek6Bl0wUT2ysOjB71fmekf/gT1uGKCvNsaqTph6g=",
+            "rev": "82facf911fe41f39f13565be73899eab1e1761ef",
+            "sha256": "sha256-DZvV5mtj5IpHiypAanGmPDpPWqEbLlorIPwFlfE/EHE=",
             "type": "git",
             "url": "https://github.com/openai/tiktoken.git"
         },
-        "version": "3e8620030c68d2fd6d4ec6d38426e7a1983661f5"
+        "version": "82facf911fe41f39f13565be73899eab1e1761ef"
     },
     "tron-deployment": {
         "cargoLocks": null,

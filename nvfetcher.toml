@@ -42,6 +42,10 @@ fetch.github = "fbsobreira/gotron-sdk"
 src.github = "aws/amazon-cloudwatch-agent"
 fetch.github = "aws/amazon-cloudwatch-agent"
 
+[aiac]
+src.github = "gofireflyio/aiac"
+fetch.github = "gofireflyio/aiac"
+
 # python
 [my_cookies]
 src.pypi="my_cookies"
