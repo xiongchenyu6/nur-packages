@@ -54,9 +54,9 @@ let
     my-mongodb = pkgs.mongodb;
 
     bttc = callPackage ./pkgs/bttc { };
-    delivery = callPackage ./pkgs/delivery { };
-    chainlink = callPackage ./pkgs/chainlink { };
-    wasmvm = callPackage ./pkgs/wasmvm { };
+    # delivery = callPackage ./pkgs/delivery { };
+    # chainlink = callPackage ./pkgs/chainlink { };
+    # wasmvm = callPackage ./pkgs/wasmvm { };
     gotron-sdk = callPackage ./pkgs/gotron-sdk { };
     oci-arm-host-capacity = (inputs.dream2nix.lib.makeFlakeOutputs {
       pkgs = inputs.dream2nix.inputs.nixpkgs.legacyPackages."x86_64-linux";
@@ -88,8 +88,6 @@ let
 
     org-ai = callPackage ./pkgs/emacs/org-ai { };
 
-    aiac = callPackage ./pkgs/aiac { };
-
     corfu-english-helper = callPackage ./pkgs/emacs/corfu-english-helper { };
 
     # tiktoken = callPackage ./pkgs/python3/tiktoken { };
@@ -98,7 +96,7 @@ let
 
     inherit (callPackage ./pkgs/npm { }) tronbox solium;
 
-    amazon-cloudwatch-agent = callPackage ./pkgs/amazon-cloudwatch-agent { };
+    # amazon-cloudwatch-agent = callPackage ./pkgs/amazon-cloudwatch-agent { };
 
     nixops-fixed = callPackage ./pkgs/nixops-fixed { };
 
@@ -106,9 +104,9 @@ let
 
     tron-eventquery = callPackage ./pkgs/tron-eventquery { };
 
-    my-ferretdb = callPackage ./pkgs/ferretdb { };
+    # my-ferretdb = callPackage ./pkgs/ferretdb { };
 
-    gptcommit = callPackage ./pkgs/gptcommit { };
+    # gptcommit = callPackage ./pkgs/gptcommit { };
 
     # vbox = nixos-generators.nixosGenerate {
 

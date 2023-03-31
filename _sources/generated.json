@@ -28,11 +28,11 @@
             "name": null,
             "owner": "gofireflyio",
             "repo": "aiac",
-            "rev": "v2.1.0",
-            "sha256": "sha256-YiHK4dUIXoDUp4kLTOQNo2pLY/Wbw1uIijrhIh33vd0=",
+            "rev": "v2.2.0",
+            "sha256": "sha256-Ju2LoCDY4lQaiJ3OSkt01SaOqVLrDGiTAwxxRnbnz/0=",
             "type": "github"
         },
-        "version": "v2.1.0"
+        "version": "v2.2.0"
     },
     "amazon-cloudwatch-agent": {
         "cargoLocks": null,
@@ -48,11 +48,11 @@
             "name": null,
             "owner": "aws",
             "repo": "amazon-cloudwatch-agent",
-            "rev": "v1.247357.0",
-            "sha256": "sha256-BzUU/WaIGNAnPJ6PFEOVTPVHm9k3rJuAzKiJSXkc76M=",
+            "rev": "v1.247358.0",
+            "sha256": "sha256-Y678L7C0dvCBXN27x3wUXHFSGzjtprsRAh/SvYuj8s4=",
             "type": "github"
         },
-        "version": "v1.247357.0"
+        "version": "v1.247358.0"
     },
     "aws-codedeploy-agent": {
         "cargoLocks": null,
@@ -87,11 +87,11 @@
             "name": null,
             "owner": "bttcprotocol",
             "repo": "bttc",
-            "rev": "v1.0.5",
-            "sha256": "sha256-lPbF36mxYq2DsV2NTpWzH9dKVnqA5FvaU8axtbQPZSg=",
+            "rev": "v1.0.6",
+            "sha256": "sha256-ZApBpn/jM2xDUplMUZVySOtu4s3zn6GgIvWtO9JfSV4=",
             "type": "github"
         },
-        "version": "v1.0.5"
+        "version": "v1.0.6"
     },
     "chainlink": {
         "cargoLocks": null,
@@ -115,7 +115,7 @@
     },
     "chatgpt": {
         "cargoLocks": null,
-        "date": "2023-03-05",
+        "date": "2023-03-22",
         "extract": null,
         "name": "chatgpt",
         "passthru": null,
@@ -125,16 +125,16 @@
             "fetchSubmodules": false,
             "leaveDotGit": false,
             "name": null,
-            "rev": "b9c6be6d6a8dd0417d9ffd496cc098fc493b9428",
-            "sha256": "sha256-tODPUuIUA8CQV5FMT6UtQ2vQzlmExq4doYOGrWnT3Zw=",
+            "rev": "14aaad60cc4970477f8e7d1486cf84d5b2f6470e",
+            "sha256": "sha256-kH5CBlYP6OVf/QSRdjg1gBIFXu/DtkQswYzjeRdrP0g=",
             "type": "git",
             "url": "https://github.com/joshcho/ChatGPT.el.git"
         },
-        "version": "b9c6be6d6a8dd0417d9ffd496cc098fc493b9428"
+        "version": "14aaad60cc4970477f8e7d1486cf84d5b2f6470e"
     },
     "chatgpt-arcana": {
         "cargoLocks": null,
-        "date": "2023-03-18",
+        "date": "2023-04-11",
         "extract": null,
         "name": "chatgpt-arcana",
         "passthru": null,
@@ -144,16 +144,16 @@
             "fetchSubmodules": false,
             "leaveDotGit": false,
             "name": null,
-            "rev": "2fa8ee33996270811ebb72cc38b739469406da3a",
-            "sha256": "sha256-ahVs3Dw2eoaoMl1NxSXC1wyxKxFdzB2g1h2UyKk2ANc=",
+            "rev": "9800e29fa0f8730d4dbb6fed054b41c48c0c6890",
+            "sha256": "sha256-N5vMbBHN5pdoSBviqo7GDn+NtGgoDfoYpI4s93loAzM=",
             "type": "git",
             "url": "https://github.com/CarlQLange/chatgpt-arcana.el.git"
         },
-        "version": "2fa8ee33996270811ebb72cc38b739469406da3a"
+        "version": "9800e29fa0f8730d4dbb6fed054b41c48c0c6890"
     },
     "chatgpt-wrapper": {
         "cargoLocks": null,
-        "date": "2023-03-20",
+        "date": "2023-04-13",
         "extract": null,
         "name": "chatgpt-wrapper",
         "passthru": null,
@@ -163,16 +163,16 @@
             "fetchSubmodules": false,
             "leaveDotGit": false,
             "name": null,
-            "rev": "317216ef323840a02f8551dc222657a88baa3320",
-            "sha256": "sha256-NcX9UwjPxVB2wd+baOEXX/SeEB1r2AeIgzZ49y0qGZs=",
+            "rev": "b094ff5a1e94e508d3dd410047a99185dc32f017",
+            "sha256": "sha256-VHNova4oW5vlwxwMibq5pLIRNSypG0lsCO76qDPBQf4=",
             "type": "git",
             "url": "https://github.com/mmabrouk/chatgpt-wrapper.git"
         },
-        "version": "317216ef323840a02f8551dc222657a88baa3320"
+        "version": "b094ff5a1e94e508d3dd410047a99185dc32f017"
     },
     "copilot": {
         "cargoLocks": null,
-        "date": "2023-03-06",
+        "date": "2023-04-17",
         "extract": null,
         "name": "copilot",
         "passthru": null,
@@ -182,12 +182,12 @@
             "fetchSubmodules": false,
             "leaveDotGit": false,
             "name": null,
-            "rev": "bc91709ff2402b4e4c370b262af67ea199c297f3",
-            "sha256": "sha256-MFiKIFyvu7Z7VbJI9c+P2RdJ14e+7Eu91cERclQftMg=",
+            "rev": "b98c07007b48fcbf8a146b012b2317f09891a3fd",
+            "sha256": "sha256-/lY0FTYXgEcoNCM9H+5Djmi1O0EPaWy+qN+ml+/yBUY=",
             "type": "git",
             "url": "https://github.com/zerolfx/copilot.el.git"
         },
-        "version": "bc91709ff2402b4e4c370b262af67ea199c297f3"
+        "version": "b98c07007b48fcbf8a146b012b2317f09891a3fd"
     },
     "corfu-english-helper": {
         "cargoLocks": null,
@@ -222,11 +222,11 @@
             "name": null,
             "owner": "bttcprotocol",
             "repo": "delivery",
-            "rev": "v1.0.3",
-            "sha256": "sha256-/DLZ6YmLY1Jo4eo1kHG4nyV0gSRk3zQ/qOgFJXcUNBM=",
+            "rev": "v1.0.4",
+            "sha256": "sha256-5PBneo4yL+FLiu/dn4HTZkFR3IFVBtBrFYEPV6rap8s=",
             "type": "github"
         },
-        "version": "v1.0.3"
+        "version": "v1.0.4"
     },
     "epc": {
         "cargoLocks": null,
@@ -265,7 +265,7 @@
     },
     "gptcommit": {
         "cargoLocks": null,
-        "date": "2023-03-19",
+        "date": "2023-04-13",
         "extract": null,
         "name": "gptcommit",
         "passthru": null,
@@ -275,12 +275,12 @@
             "fetchSubmodules": false,
             "leaveDotGit": false,
             "name": null,
-            "rev": "67bd2d7a1e556ba475ff10e7cbf50a94e5b568e0",
-            "sha256": "sha256-spkyFWll/CRfsIhrZ58KK77peiB9w2hAdTuIdrewJlg=",
+            "rev": "aa723c7330e0b11326e8e7b97f361300a3c9b09e",
+            "sha256": "sha256-rHfSR6Qh8vv2xniCwGAoTw+bmr3XZpaRjQ9fstQNld0=",
             "type": "git",
             "url": "https://github.com/zurawiki/gptcommit.git"
         },
-        "version": "67bd2d7a1e556ba475ff10e7cbf50a94e5b568e0"
+        "version": "aa723c7330e0b11326e8e7b97f361300a3c9b09e"
     },
     "java-tron-full-node": {
         "cargoLocks": null,
@@ -314,7 +314,7 @@
     },
     "launch": {
         "cargoLocks": null,
-        "date": "2022-10-21",
+        "date": "2023-04-13",
         "extract": null,
         "name": "launch",
         "passthru": null,
@@ -324,12 +324,12 @@
             "fetchSubmodules": false,
             "leaveDotGit": false,
             "name": null,
-            "rev": "bb18fcf5d33a08b7d64bc65bc7bbca80d5bca750",
-            "sha256": "sha256-7JJNRo4Mfcq9zDtHEsPaLoNQXLbkVrYyeFluRgUzdHE=",
+            "rev": "03b0ae39df1ed44c58f403030fa7a49927837c46",
+            "sha256": "sha256-u3OGkahP2/eXy2EiLJ9Xu0TbOk/hYreTmIeGfOJznBU=",
             "type": "git",
             "url": "https://github.com/bttcprotocol/launch.git"
         },
-        "version": "bb18fcf5d33a08b7d64bc65bc7bbca80d5bca750"
+        "version": "03b0ae39df1ed44c58f403030fa7a49927837c46"
     },
     "ligature": {
         "cargoLocks": null,
@@ -352,7 +352,7 @@
     },
     "lsp-bridge": {
         "cargoLocks": null,
-        "date": "2023-03-21",
+        "date": "2023-04-16",
         "extract": null,
         "name": "lsp-bridge",
         "passthru": null,
@@ -362,12 +362,12 @@
             "fetchSubmodules": false,
             "leaveDotGit": false,
             "name": null,
-            "rev": "32bd062c4b41892e29a1f7bfebf07d778181540c",
-            "sha256": "sha256-f6NLq3kYSK9EdxqyKbCAA27/bN/wB2zHtvJaxEliOL8=",
+            "rev": "d986c013c8a32b9e218887c88fa57c5b374f0c51",
+            "sha256": "sha256-yBWXK10mB2+9AAvyDrS0hQMdT6KP/X1AyKdGLQ65NR8=",
             "type": "git",
             "url": "https://github.com/manateelazycat/lsp-bridge.git"
         },
-        "version": "32bd062c4b41892e29a1f7bfebf07d778181540c"
+        "version": "d986c013c8a32b9e218887c88fa57c5b374f0c51"
     },
     "magit-gitflow": {
         "cargoLocks": null,
@@ -450,11 +450,11 @@
             "type": "url",
             "url": "https://github.com/smartcontractkit/operator-ui/releases/download/v0.8.0-059b169/smartcontractkit-operator-ui-0.8.0-059b169.tgz"
         },
-        "version": "v0.8.0-67c1a28"
+        "version": "v0.8.0-2c669a2"
     },
     "org-ai": {
         "cargoLocks": null,
-        "date": "2023-03-20",
+        "date": "2023-04-17",
         "extract": null,
         "name": "org-ai",
         "passthru": null,
@@ -464,12 +464,12 @@
             "fetchSubmodules": false,
             "leaveDotGit": false,
             "name": null,
-            "rev": "31e9c7a95aafb7bf190f92ca12ff71e96804fc30",
-            "sha256": "sha256-Ho9/1/utHqMgRqL4TzSvKe7J0UFKIEsXQVFbl3nvBJs=",
+            "rev": "d2a6d1db028408d9cc1036f2104a3e49d48eb27b",
+            "sha256": "sha256-7xi/RqAbaEvIQ0i0v+5NAgAuj3NuPUCNEczcyKbuYkM=",
             "type": "git",
             "url": "https://github.com/rksm/org-ai.git"
         },
-        "version": "31e9c7a95aafb7bf190f92ca12ff71e96804fc30"
+        "version": "d2a6d1db028408d9cc1036f2104a3e49d48eb27b"
     },
     "org-cv": {
         "cargoLocks": null,
@@ -492,7 +492,7 @@
     },
     "tiktoken": {
         "cargoLocks": null,
-        "date": "2023-03-17",
+        "date": "2023-04-02",
         "extract": null,
         "name": "tiktoken",
         "passthru": null,
@@ -502,12 +502,12 @@
             "fetchSubmodules": false,
             "leaveDotGit": false,
             "name": null,
-            "rev": "82facf911fe41f39f13565be73899eab1e1761ef",
-            "sha256": "sha256-DZvV5mtj5IpHiypAanGmPDpPWqEbLlorIPwFlfE/EHE=",
+            "rev": "46287bfa493f8ccca4d927386d7ea9cc20487525",
+            "sha256": "sha256-QSWb8SNoL3/7DOIYlr7J5m6wViTvzHoOn+yiDun1G+Q=",
             "type": "git",
             "url": "https://github.com/openai/tiktoken.git"
         },
-        "version": "82facf911fe41f39f13565be73899eab1e1761ef"
+        "version": "46287bfa493f8ccca4d927386d7ea9cc20487525"
     },
     "tron-deployment": {
         "cargoLocks": null,
@@ -542,10 +542,10 @@
             "name": null,
             "owner": "CosmWasm",
             "repo": "wasmvm",
-            "rev": "v1.2.1",
-            "sha256": "sha256-zR47q8Z2znPigecPDmw5L4ef20/TXv8cPxaXTdJGxg0=",
+            "rev": "v1.2.2",
+            "sha256": "sha256-3kU9ZsLoWm18PTX9oYW5dP85chkf4hFZV+F4T9YvYS8=",
             "type": "github"
         },
-        "version": "v1.2.1"
+        "version": "v1.2.2"
     }
 }
