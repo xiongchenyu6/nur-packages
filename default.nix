@@ -54,6 +54,11 @@ let
     my-mongodb = pkgs.mongodb;
 
     bttc = callPackage ./pkgs/bttc { };
+
+    kots = callPackage ./pkgs/kots { };
+
+    gitops = callPackage ./pkgs/gitops { };
+    fluxcd = callPackage ./pkgs/fluxcd { };
     # delivery = callPackage ./pkgs/delivery { };
     # chainlink = callPackage ./pkgs/chainlink { };
     # wasmvm = callPackage ./pkgs/wasmvm { };
@@ -78,7 +83,7 @@ let
 
     ligature = callPackage ./pkgs/emacs/ligature { };
 
-    org-cv = callPackage ./pkgs/emacs/org-cv { };
+    # org-cv = callPackage ./pkgs/emacs/org-cv { };
 
     magit-gitflow = callPackage ./pkgs/emacs/magit-gitflow { };
 

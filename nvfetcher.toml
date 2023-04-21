@@ -10,6 +10,10 @@ fetch.url = "https://github.com/tronprotocol/java-tron/releases/download/$ver/Fu
 src.github = "tronprotocol/java-tron"
 fetch.url = "https://github.com/tronprotocol/java-tron/releases/download/$ver/SolidityNode.jar"
 
+[kots]
+src.github = "replicatedhq/kots"
+fetch.url = "https://github.com/replicatedhq/kots/releases/download/$ver/kots_linux_amd64.tar.gz"
+
 #go
 [bttc]
 src.github = "bttcprotocol/bttc"
@@ -45,6 +49,19 @@ fetch.github = "aws/amazon-cloudwatch-agent"
 [aiac]
 src.github = "gofireflyio/aiac"
 fetch.github = "gofireflyio/aiac"
+
+[gitops]
+src.github = "weaveworks/weave-gitops"
+fetch.github = "weaveworks/weave-gitops"
+
+[fluxcd]
+src.github = "fluxcd/flux2"
+fetch.github = "fluxcd/flux2"
+
+[fluxcd-manifest]
+src.github = "fluxcd/flux2"
+fetch.url = "https://github.com/fluxcd/flux2/releases/download/$ver/manifests.tar.gz"
+
 
 # python
 [my_cookies]

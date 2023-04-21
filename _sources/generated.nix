@@ -22,13 +22,13 @@
   };
   amazon-cloudwatch-agent = {
     pname = "amazon-cloudwatch-agent";
-    version = "v1.247358.0";
+    version = "v1.247359.0";
     src = fetchFromGitHub ({
       owner = "aws";
       repo = "amazon-cloudwatch-agent";
-      rev = "v1.247358.0";
+      rev = "v1.247359.0";
       fetchSubmodules = false;
-      sha256 = "sha256-Y678L7C0dvCBXN27x3wUXHFSGzjtprsRAh/SvYuj8s4=";
+      sha256 = "sha256-yTL281IJIXaf3o/eLq8YuVJW11pqwGQxbZDj4vGaKCI=";
     });
   };
   aws-codedeploy-agent = {
@@ -94,29 +94,29 @@
   };
   chatgpt-wrapper = {
     pname = "chatgpt-wrapper";
-    version = "b094ff5a1e94e508d3dd410047a99185dc32f017";
+    version = "44755fff95f939d06ad4961d0b1409bdca114729";
     src = fetchgit {
       url = "https://github.com/mmabrouk/chatgpt-wrapper.git";
-      rev = "b094ff5a1e94e508d3dd410047a99185dc32f017";
+      rev = "44755fff95f939d06ad4961d0b1409bdca114729";
       fetchSubmodules = false;
       deepClone = false;
       leaveDotGit = false;
-      sha256 = "sha256-VHNova4oW5vlwxwMibq5pLIRNSypG0lsCO76qDPBQf4=";
+      sha256 = "sha256-Zf1BqQoHcPchv67TiJbbLJ5k2Cf4WAhVGkQXVDYa4yM=";
     };
-    date = "2023-04-13";
+    date = "2023-04-23";
   };
   copilot = {
     pname = "copilot";
-    version = "b98c07007b48fcbf8a146b012b2317f09891a3fd";
+    version = "7986e38726879350c2d2a13e4751e99f1a89daed";
     src = fetchgit {
       url = "https://github.com/zerolfx/copilot.el.git";
-      rev = "b98c07007b48fcbf8a146b012b2317f09891a3fd";
+      rev = "7986e38726879350c2d2a13e4751e99f1a89daed";
       fetchSubmodules = false;
       deepClone = false;
       leaveDotGit = false;
-      sha256 = "sha256-/lY0FTYXgEcoNCM9H+5Djmi1O0EPaWy+qN+ml+/yBUY=";
+      sha256 = "sha256-k+WBsEk4urs6ulTXoXFLYhcYah3++mMSxNeMqdZwJwM=";
     };
-    date = "2023-04-17";
+    date = "2023-04-23";
   };
   corfu-english-helper = {
     pname = "corfu-english-helper";
@@ -150,6 +150,36 @@
       sha256 = "sha256-oU0up0gXlVog6wCBLjpGMKEyiX602XZCAkDxFSwNfSU=";
     };
   };
+  fluxcd = {
+    pname = "fluxcd";
+    version = "v2.0.0-rc.1";
+    src = fetchFromGitHub ({
+      owner = "fluxcd";
+      repo = "flux2";
+      rev = "v2.0.0-rc.1";
+      fetchSubmodules = false;
+      sha256 = "sha256-L70d1/n0u0BnmugiMHUubKTPpaj/SesiJqJds+CVyEM=";
+    });
+  };
+  fluxcd-manifest = {
+    pname = "fluxcd-manifest";
+    version = "v2.0.0-rc.1";
+    src = fetchurl {
+      url = "https://github.com/fluxcd/flux2/releases/download/v2.0.0-rc.1/manifests.tar.gz";
+      sha256 = "sha256-ysH+B1tml4Miv7tdSPdDjXLz2eKo+4WVa/ssUkLydWM=";
+    };
+  };
+  gitops = {
+    pname = "gitops";
+    version = "v0.21.2";
+    src = fetchFromGitHub ({
+      owner = "weaveworks";
+      repo = "weave-gitops";
+      rev = "v0.21.2";
+      fetchSubmodules = false;
+      sha256 = "sha256-HndmPzlk+duMprIBOA79b3xIC/rjhEQuQ12jihgnMkg=";
+    });
+  };
   gotron-sdk = {
     pname = "gotron-sdk";
     version = "v2.3.0";
@@ -163,31 +193,39 @@
   };
   gptcommit = {
     pname = "gptcommit";
-    version = "aa723c7330e0b11326e8e7b97f361300a3c9b09e";
+    version = "308576fff146b475f498c049005858d14f97258b";
     src = fetchgit {
       url = "https://github.com/zurawiki/gptcommit.git";
-      rev = "aa723c7330e0b11326e8e7b97f361300a3c9b09e";
+      rev = "308576fff146b475f498c049005858d14f97258b";
       fetchSubmodules = false;
       deepClone = false;
       leaveDotGit = false;
-      sha256 = "sha256-rHfSR6Qh8vv2xniCwGAoTw+bmr3XZpaRjQ9fstQNld0=";
+      sha256 = "sha256-K4A0np8+gpFpSU4jBv6PAw4RyUWmIB7dTgWvpy36CYY=";
     };
-    date = "2023-04-13";
+    date = "2023-04-24";
   };
   java-tron-full-node = {
     pname = "java-tron-full-node";
-    version = "GreatVoyage-v4.7.1";
+    version = "GreatVoyage-v4.7.1.1";
     src = fetchurl {
-      url = "https://github.com/tronprotocol/java-tron/releases/download/GreatVoyage-v4.7.1/FullNode.jar";
-      sha256 = "sha256-FktRHZmny7vJ6sOfPkNWLRTmMcRtuH/ayi6GX6eU3aI=";
+      url = "https://github.com/tronprotocol/java-tron/releases/download/GreatVoyage-v4.7.1.1/FullNode.jar";
+      sha256 = "sha256-X7zeKLl3AMsHS5HOHJnjCQVG8B0RKfJyQN54+qK1O+w=";
     };
   };
   java-tron-solidity-node = {
     pname = "java-tron-solidity-node";
-    version = "GreatVoyage-v4.7.1";
+    version = "GreatVoyage-v4.7.1.1";
     src = fetchurl {
-      url = "https://github.com/tronprotocol/java-tron/releases/download/GreatVoyage-v4.7.1/SolidityNode.jar";
-      sha256 = "sha256-IaXTJv9ZCkmLzZIh2jBTBI6GiWYd3+2qo6Ypve7iFLo=";
+      url = "https://github.com/tronprotocol/java-tron/releases/download/GreatVoyage-v4.7.1.1/SolidityNode.jar";
+      sha256 = "sha256-Rl5nTwPWDcuVL6jJQTEV4w0ByMv1W3g4DsJPfH6pcOU=";
+    };
+  };
+  kots = {
+    pname = "kots";
+    version = "v1.98.1";
+    src = fetchurl {
+      url = "https://github.com/replicatedhq/kots/releases/download/v1.98.1/kots_linux_amd64.tar.gz";
+      sha256 = "sha256-xI5zZSRfiGTT3W6iDFjiMu8AhFIePizA0FAVjOZyzkY=";
     };
   };
   launch = {
@@ -218,16 +256,16 @@
   };
   lsp-bridge = {
     pname = "lsp-bridge";
-    version = "d986c013c8a32b9e218887c88fa57c5b374f0c51";
+    version = "c44b9e5e39f0696c2d15e6ec9c93f1dabb163c19";
     src = fetchgit {
       url = "https://github.com/manateelazycat/lsp-bridge.git";
-      rev = "d986c013c8a32b9e218887c88fa57c5b374f0c51";
+      rev = "c44b9e5e39f0696c2d15e6ec9c93f1dabb163c19";
       fetchSubmodules = false;
       deepClone = false;
       leaveDotGit = false;
-      sha256 = "sha256-yBWXK10mB2+9AAvyDrS0hQMdT6KP/X1AyKdGLQ65NR8=";
+      sha256 = "sha256-AdHQwa/zdNifjMUCp1oGS2RhHdydlUDBzlsJ2K5aLI4=";
     };
-    date = "2023-04-16";
+    date = "2023-04-25";
   };
   magit-gitflow = {
     pname = "magit-gitflow";
@@ -281,16 +319,16 @@
   };
   org-ai = {
     pname = "org-ai";
-    version = "d2a6d1db028408d9cc1036f2104a3e49d48eb27b";
+    version = "7b293279300278275779b6479f75a71a1d09e6cc";
     src = fetchgit {
       url = "https://github.com/rksm/org-ai.git";
-      rev = "d2a6d1db028408d9cc1036f2104a3e49d48eb27b";
+      rev = "7b293279300278275779b6479f75a71a1d09e6cc";
       fetchSubmodules = false;
       deepClone = false;
       leaveDotGit = false;
-      sha256 = "sha256-7xi/RqAbaEvIQ0i0v+5NAgAuj3NuPUCNEczcyKbuYkM=";
+      sha256 = "sha256-WJBrJoh/t+BVpg6K6p8Hi1SgbNWepPjoSnZxdz5wLxA=";
     };
-    date = "2023-04-17";
+    date = "2023-04-18";
   };
   org-cv = {
     pname = "org-cv";
@@ -307,16 +345,16 @@
   };
   tiktoken = {
     pname = "tiktoken";
-    version = "46287bfa493f8ccca4d927386d7ea9cc20487525";
+    version = "f19feecd071e22e02bf567ed12ccf161ce6db661";
     src = fetchgit {
       url = "https://github.com/openai/tiktoken.git";
-      rev = "46287bfa493f8ccca4d927386d7ea9cc20487525";
+      rev = "f19feecd071e22e02bf567ed12ccf161ce6db661";
       fetchSubmodules = false;
       deepClone = false;
       leaveDotGit = false;
-      sha256 = "sha256-QSWb8SNoL3/7DOIYlr7J5m6wViTvzHoOn+yiDun1G+Q=";
+      sha256 = "sha256-GZ7s3IvhPf0yvQkmG8zbbGn34kSG3GSV+ObRKZbnWAk=";
     };
-    date = "2023-04-02";
+    date = "2023-04-23";
   };
   tron-deployment = {
     pname = "tron-deployment";
@@ -333,13 +371,13 @@
   };
   wasmvm = {
     pname = "wasmvm";
-    version = "v1.2.2";
+    version = "v1.2.3";
     src = fetchFromGitHub ({
       owner = "CosmWasm";
       repo = "wasmvm";
-      rev = "v1.2.2";
+      rev = "v1.2.3";
       fetchSubmodules = false;
-      sha256 = "sha256-3kU9ZsLoWm18PTX9oYW5dP85chkf4hFZV+F4T9YvYS8=";
+      sha256 = "sha256-GscUMJ0Tkg77S9IYA9komyKKoa1AyVXSSaU8hw3ZNwk=";
     });
   };
 }
