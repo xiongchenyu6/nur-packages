@@ -57,12 +57,15 @@ let
 
     kots = callPackage ./pkgs/kots { };
 
+    discourse = callPackage ./pkgs/discourse { };
+
     gitops = callPackage ./pkgs/gitops { };
-    fluxcd = callPackage ./pkgs/fluxcd { };
+
     # delivery = callPackage ./pkgs/delivery { };
     # chainlink = callPackage ./pkgs/chainlink { };
     # wasmvm = callPackage ./pkgs/wasmvm { };
     gotron-sdk = callPackage ./pkgs/gotron-sdk { };
+
     oci-arm-host-capacity = (inputs.dream2nix.lib.makeFlakeOutputs {
       pkgs = inputs.dream2nix.inputs.nixpkgs.legacyPackages."x86_64-linux";
       source = inputs.oci-arm-host-capacity-src;
@@ -71,6 +74,7 @@ let
     }).packages."x86_64-linux"."hitrov/oci-arm-host-capacity";
 
     my_cookies = callPackage ./pkgs/python3/my_cookies { };
+
     epc = callPackage ./pkgs/python3/epc { };
 
     Flask-SimpleLDAP = callPackage ./pkgs/python3/Flask-SimpleLDAP { };
@@ -102,8 +106,6 @@ let
     inherit (callPackage ./pkgs/npm { }) tronbox solium;
 
     # amazon-cloudwatch-agent = callPackage ./pkgs/amazon-cloudwatch-agent { };
-
-    nixops-fixed = callPackage ./pkgs/nixops-fixed { };
 
     java-tron = callPackage ./pkgs/java-tron { };
 

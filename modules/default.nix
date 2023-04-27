@@ -10,4 +10,5 @@
   phabricator = import ./phabricator;
   java-tron = import ./java-tron;
   chainlink = import ./chainlink;
+  binbash = import ./binbash;
 }

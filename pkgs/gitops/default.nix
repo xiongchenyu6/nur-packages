@@ -13,7 +13,7 @@ buildGoModule (source.gitops // (let
   src = gops.src;
 in {
 
-  vendorSha256 = "sha256-oW3T25jZTUhtAyDhntPR/z842d/XUHedAfEVLOOqee0=";
+  vendorSha256 = "sha256-3CgR9F3Bz4k1MVOufaF/E2GD6+bTOnnUqOXkNO9ZFrc=";
 
   subPackages = [ "cmd/gitops" ];
 

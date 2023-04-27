@@ -46,22 +46,9 @@ fetch.github = "fbsobreira/gotron-sdk"
 src.github = "aws/amazon-cloudwatch-agent"
 fetch.github = "aws/amazon-cloudwatch-agent"
 
-[aiac]
-src.github = "gofireflyio/aiac"
-fetch.github = "gofireflyio/aiac"
-
 [gitops]
 src.github = "weaveworks/weave-gitops"
 fetch.github = "weaveworks/weave-gitops"
-
-[fluxcd]
-src.github = "fluxcd/flux2"
-fetch.github = "fluxcd/flux2"
-
-[fluxcd-manifest]
-src.github = "fluxcd/flux2"
-fetch.url = "https://github.com/fluxcd/flux2/releases/download/$ver/manifests.tar.gz"
-
 
 # python
 [my_cookies]
@@ -139,6 +126,9 @@ fetch.git = "https://github.com/xiongchenyu6/aws-codedeploy-agent.git"
 src.github="CosmWasm/wasmvm"
 fetch.github="CosmWasm/wasmvm"
 
-[gptcommit]
-src.git = "https://github.com/zurawiki/gptcommit.git"
-fetch.git = "https://github.com/zurawiki/gptcommit.git"
+# tronlink-discourse
+[discourse]
+src.git = "https://github.com/trontech-link/discourse.git"
+src.branch = "feat/add-itoken-footer"
+fetch.git = "https://github.com/trontech-link/discourse.git"
+fetch.branch = "feat/add-itoken-footer"
