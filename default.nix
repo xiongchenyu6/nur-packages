@@ -51,6 +51,8 @@ let
       '';
     });
 
+    helmify = callPackage ./pkgs/helmify { };
+
     my-mongodb = pkgs.mongodb;
 
     bttc = callPackage ./pkgs/bttc { };

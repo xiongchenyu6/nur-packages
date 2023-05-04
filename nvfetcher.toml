@@ -50,6 +50,10 @@ fetch.github = "aws/amazon-cloudwatch-agent"
 src.github = "weaveworks/weave-gitops"
 fetch.github = "weaveworks/weave-gitops"
 
+[helmify]
+src.github = "arttor/helmify"
+fetch.github = "arttor/helmify"
+
 # python
 [my_cookies]
 src.pypi="my_cookies"

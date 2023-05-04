@@ -83,16 +83,16 @@
   };
   chatgpt-wrapper = {
     pname = "chatgpt-wrapper";
-    version = "44755fff95f939d06ad4961d0b1409bdca114729";
+    version = "0999a3a825f303e979ec9d1b7a01192f6ff119f9";
     src = fetchgit {
       url = "https://github.com/mmabrouk/chatgpt-wrapper.git";
-      rev = "44755fff95f939d06ad4961d0b1409bdca114729";
+      rev = "0999a3a825f303e979ec9d1b7a01192f6ff119f9";
       fetchSubmodules = false;
       deepClone = false;
       leaveDotGit = false;
-      sha256 = "sha256-Zf1BqQoHcPchv67TiJbbLJ5k2Cf4WAhVGkQXVDYa4yM=";
+      sha256 = "sha256-1CG1lPwLrDePIcZ+VXZMVan3aFY6m0owJgigsZeM31I=";
     };
-    date = "2023-04-23";
+    date = "2023-05-03";
   };
   copilot = {
     pname = "copilot";
@@ -174,6 +174,17 @@
       sha256 = "sha256-8n+xkvcyWpcOSzOcnIJncC7svZ5LJccXi1XTx0S3RmU=";
     });
   };
+  helmify = {
+    pname = "helmify";
+    version = "v0.4.3";
+    src = fetchFromGitHub ({
+      owner = "arttor";
+      repo = "helmify";
+      rev = "v0.4.3";
+      fetchSubmodules = false;
+      sha256 = "sha256-JdRkqGhyBjrVK93QlbTR4Q7I+NsqAulZdrJIljJubCU=";
+    });
+  };
   java-tron-full-node = {
     pname = "java-tron-full-node";
     version = "GreatVoyage-v4.7.1.1";
@@ -192,10 +203,10 @@
   };
   kots = {
     pname = "kots";
-    version = "v1.98.2";
+    version = "v1.98.3";
     src = fetchurl {
-      url = "https://github.com/replicatedhq/kots/releases/download/v1.98.2/kots_linux_amd64.tar.gz";
-      sha256 = "sha256-nGVdzr1Iy0gisJ8pOU7WApO/PkEF6hgf01mYKS3ku4g=";
+      url = "https://github.com/replicatedhq/kots/releases/download/v1.98.3/kots_linux_amd64.tar.gz";
+      sha256 = "sha256-vjHn2xQecinYw84ZGH3ky21r6tF76MuWqDCLfl41No0=";
     };
   };
   launch = {
@@ -226,16 +237,16 @@
   };
   lsp-bridge = {
     pname = "lsp-bridge";
-    version = "46dc8170567362ec93310033b54ff1699436caa3";
+    version = "8e7103e50bb04290d40e1d70e2bfeaa5dd48b594";
     src = fetchgit {
       url = "https://github.com/manateelazycat/lsp-bridge.git";
-      rev = "46dc8170567362ec93310033b54ff1699436caa3";
+      rev = "8e7103e50bb04290d40e1d70e2bfeaa5dd48b594";
       fetchSubmodules = false;
       deepClone = false;
       leaveDotGit = false;
-      sha256 = "sha256-RjeYMeKdhWCqj5Ql0WQIS8YolJ8Ojpjl6q0C6KkJXkE=";
+      sha256 = "sha256-kDGwRwcvNSaBUr7AX/bDWQ+4haa+PKYJAaUFemdrUOc=";
     };
-    date = "2023-05-03";
+    date = "2023-05-06";
   };
   magit-gitflow = {
     pname = "magit-gitflow";
