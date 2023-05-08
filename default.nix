@@ -51,6 +51,8 @@ let
       '';
     });
 
+    pg-ldap-sync = callPackage ./pkgs/pg-ldap-sync { };
+
     helmify = callPackage ./pkgs/helmify { };
 
     my-mongodb = pkgs.mongodb;
