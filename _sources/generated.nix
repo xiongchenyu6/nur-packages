@@ -83,29 +83,29 @@
   };
   chatgpt-wrapper = {
     pname = "chatgpt-wrapper";
-    version = "0999a3a825f303e979ec9d1b7a01192f6ff119f9";
+    version = "a15848c11c9252a62efdc34e349868e98d48d811";
     src = fetchgit {
       url = "https://github.com/mmabrouk/chatgpt-wrapper.git";
-      rev = "0999a3a825f303e979ec9d1b7a01192f6ff119f9";
+      rev = "a15848c11c9252a62efdc34e349868e98d48d811";
       fetchSubmodules = false;
       deepClone = false;
       leaveDotGit = false;
-      sha256 = "sha256-1CG1lPwLrDePIcZ+VXZMVan3aFY6m0owJgigsZeM31I=";
+      sha256 = "sha256-dej/ogbFT/fkM97ZzQ+SwZ5VGOTWuYzbPWxBR4UfPU4=";
     };
-    date = "2023-05-03";
+    date = "2023-05-09";
   };
   copilot = {
     pname = "copilot";
-    version = "7cb7beda89145ccb86a4324860584545ec016552";
+    version = "1ab40d80b2005d14bffe25d6e7b439607eb79742";
     src = fetchgit {
       url = "https://github.com/zerolfx/copilot.el.git";
-      rev = "7cb7beda89145ccb86a4324860584545ec016552";
+      rev = "1ab40d80b2005d14bffe25d6e7b439607eb79742";
       fetchSubmodules = false;
       deepClone = false;
       leaveDotGit = false;
-      sha256 = "sha256-57ACMikRzHSwRkFdEn9tx87NlJsWDYEfmg2n2JH8Ig0=";
+      sha256 = "sha256-zR8wUw+B2muutgVoNPRaLQtNDA1YWA4dyc+FoKPBhEs=";
     };
-    date = "2023-04-27";
+    date = "2023-05-07";
   };
   corfu-english-helper = {
     pname = "corfu-english-helper";
@@ -237,16 +237,16 @@
   };
   lsp-bridge = {
     pname = "lsp-bridge";
-    version = "8e7103e50bb04290d40e1d70e2bfeaa5dd48b594";
+    version = "e526846f697d35973714267bf289aeca2fecf176";
     src = fetchgit {
       url = "https://github.com/manateelazycat/lsp-bridge.git";
-      rev = "8e7103e50bb04290d40e1d70e2bfeaa5dd48b594";
+      rev = "e526846f697d35973714267bf289aeca2fecf176";
       fetchSubmodules = false;
       deepClone = false;
       leaveDotGit = false;
-      sha256 = "sha256-kDGwRwcvNSaBUr7AX/bDWQ+4haa+PKYJAaUFemdrUOc=";
+      sha256 = "sha256-J5qqyg2O+5JpNzriCx8e9k07HrcaXwU+I6dEZslMn7w=";
     };
-    date = "2023-05-06";
+    date = "2023-05-09";
   };
   magit-gitflow = {
     pname = "magit-gitflow";
@@ -326,16 +326,16 @@
   };
   tiktoken = {
     pname = "tiktoken";
-    version = "f19feecd071e22e02bf567ed12ccf161ce6db661";
+    version = "095924e02c85617df6889698d94515f91666c7ea";
     src = fetchgit {
       url = "https://github.com/openai/tiktoken.git";
-      rev = "f19feecd071e22e02bf567ed12ccf161ce6db661";
+      rev = "095924e02c85617df6889698d94515f91666c7ea";
       fetchSubmodules = false;
       deepClone = false;
       leaveDotGit = false;
-      sha256 = "sha256-GZ7s3IvhPf0yvQkmG8zbbGn34kSG3GSV+ObRKZbnWAk=";
+      sha256 = "sha256-c4Hr9Lt8akH30DCN/KYNrmBLVBMyXlyNjDBYr8Gr9G8=";
     };
-    date = "2023-04-23";
+    date = "2023-05-07";
   };
   tron-deployment = {
     pname = "tron-deployment";

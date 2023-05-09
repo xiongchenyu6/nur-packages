@@ -133,7 +133,7 @@
     },
     "chatgpt-wrapper": {
         "cargoLocks": null,
-        "date": "2023-05-03",
+        "date": "2023-05-09",
         "extract": null,
         "name": "chatgpt-wrapper",
         "passthru": null,
@@ -143,16 +143,16 @@
             "fetchSubmodules": false,
             "leaveDotGit": false,
             "name": null,
-            "rev": "0999a3a825f303e979ec9d1b7a01192f6ff119f9",
-            "sha256": "sha256-1CG1lPwLrDePIcZ+VXZMVan3aFY6m0owJgigsZeM31I=",
+            "rev": "a15848c11c9252a62efdc34e349868e98d48d811",
+            "sha256": "sha256-dej/ogbFT/fkM97ZzQ+SwZ5VGOTWuYzbPWxBR4UfPU4=",
             "type": "git",
             "url": "https://github.com/mmabrouk/chatgpt-wrapper.git"
         },
-        "version": "0999a3a825f303e979ec9d1b7a01192f6ff119f9"
+        "version": "a15848c11c9252a62efdc34e349868e98d48d811"
     },
     "copilot": {
         "cargoLocks": null,
-        "date": "2023-04-27",
+        "date": "2023-05-07",
         "extract": null,
         "name": "copilot",
         "passthru": null,
@@ -162,12 +162,12 @@
             "fetchSubmodules": false,
             "leaveDotGit": false,
             "name": null,
-            "rev": "7cb7beda89145ccb86a4324860584545ec016552",
-            "sha256": "sha256-57ACMikRzHSwRkFdEn9tx87NlJsWDYEfmg2n2JH8Ig0=",
+            "rev": "1ab40d80b2005d14bffe25d6e7b439607eb79742",
+            "sha256": "sha256-zR8wUw+B2muutgVoNPRaLQtNDA1YWA4dyc+FoKPBhEs=",
             "type": "git",
             "url": "https://github.com/zerolfx/copilot.el.git"
         },
-        "version": "7cb7beda89145ccb86a4324860584545ec016552"
+        "version": "1ab40d80b2005d14bffe25d6e7b439607eb79742"
     },
     "corfu-english-helper": {
         "cargoLocks": null,
@@ -387,7 +387,7 @@
     },
     "lsp-bridge": {
         "cargoLocks": null,
-        "date": "2023-05-06",
+        "date": "2023-05-09",
         "extract": null,
         "name": "lsp-bridge",
         "passthru": null,
@@ -397,12 +397,12 @@
             "fetchSubmodules": false,
             "leaveDotGit": false,
             "name": null,
-            "rev": "8e7103e50bb04290d40e1d70e2bfeaa5dd48b594",
-            "sha256": "sha256-kDGwRwcvNSaBUr7AX/bDWQ+4haa+PKYJAaUFemdrUOc=",
+            "rev": "e526846f697d35973714267bf289aeca2fecf176",
+            "sha256": "sha256-J5qqyg2O+5JpNzriCx8e9k07HrcaXwU+I6dEZslMn7w=",
             "type": "git",
             "url": "https://github.com/manateelazycat/lsp-bridge.git"
         },
-        "version": "8e7103e50bb04290d40e1d70e2bfeaa5dd48b594"
+        "version": "e526846f697d35973714267bf289aeca2fecf176"
     },
     "magit-gitflow": {
         "cargoLocks": null,
@@ -527,7 +527,7 @@
     },
     "tiktoken": {
         "cargoLocks": null,
-        "date": "2023-04-23",
+        "date": "2023-05-07",
         "extract": null,
         "name": "tiktoken",
         "passthru": null,
@@ -537,12 +537,12 @@
             "fetchSubmodules": false,
             "leaveDotGit": false,
             "name": null,
-            "rev": "f19feecd071e22e02bf567ed12ccf161ce6db661",
-            "sha256": "sha256-GZ7s3IvhPf0yvQkmG8zbbGn34kSG3GSV+ObRKZbnWAk=",
+            "rev": "095924e02c85617df6889698d94515f91666c7ea",
+            "sha256": "sha256-c4Hr9Lt8akH30DCN/KYNrmBLVBMyXlyNjDBYr8Gr9G8=",
             "type": "git",
             "url": "https://github.com/openai/tiktoken.git"
         },
-        "version": "f19feecd071e22e02bf567ed12ccf161ce6db661"
+        "version": "095924e02c85617df6889698d94515f91666c7ea"
     },
     "tron-deployment": {
         "cargoLocks": null,
