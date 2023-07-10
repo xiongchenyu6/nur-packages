@@ -61,7 +61,7 @@ let
 
     kots = callPackage ./pkgs/kots { };
 
-    discourse = callPackage ./pkgs/discourse { };
+    discourse-hb = callPackage ./pkgs/discourse { };
 
     gitops = callPackage ./pkgs/gitops { };
 

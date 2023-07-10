@@ -5,20 +5,20 @@
     pname = "Flask-SimpleLDAP";
     version = "1.4.0";
     src = fetchurl {
-      url = "https://pypi.io/packages/source/F/Flask-SimpleLDAP/Flask-SimpleLDAP-1.4.0.tar.gz";
+      url = "https://pypi.org/packages/source/F/Flask-SimpleLDAP/Flask-SimpleLDAP-1.4.0.tar.gz";
       sha256 = "sha256-gS96R2MX4+SmZUnXc9RwYX5BU/ICT7lWhyuPCZh2UnU=";
     };
   };
   amazon-cloudwatch-agent = {
     pname = "amazon-cloudwatch-agent";
-    version = "v1.247359.0";
-    src = fetchFromGitHub ({
+    version = "v1.247360.0";
+    src = fetchFromGitHub {
       owner = "aws";
       repo = "amazon-cloudwatch-agent";
-      rev = "v1.247359.0";
+      rev = "v1.247360.0";
       fetchSubmodules = false;
-      sha256 = "sha256-yTL281IJIXaf3o/eLq8YuVJW11pqwGQxbZDj4vGaKCI=";
-    });
+      sha256 = "sha256-iA0PX3cpnRXwNnZkUxyHu4/q8ALIUOPOboqeW6E5s4k=";
+    };
   };
   aws-codedeploy-agent = {
     pname = "aws-codedeploy-agent";
@@ -35,38 +35,38 @@
   };
   bttc = {
     pname = "bttc";
-    version = "v1.0.7";
-    src = fetchFromGitHub ({
+    version = "v1.0.8";
+    src = fetchFromGitHub {
       owner = "bttcprotocol";
       repo = "bttc";
-      rev = "v1.0.7";
+      rev = "v1.0.8";
       fetchSubmodules = true;
-      sha256 = "sha256-tsMZe3nqgCLj1QhCT5//49nAJ1Sd73OSO328x/C5S24=";
-    });
+      sha256 = "sha256-qMAeIyfQnlUxXZkyMOFz81pbAEnTN5lr5rS+h2q0KBQ=";
+    };
   };
   chainlink = {
     pname = "chainlink";
-    version = "v2.0.0";
-    src = fetchFromGitHub ({
+    version = "v2.2.0";
+    src = fetchFromGitHub {
       owner = "smartcontractkit";
       repo = "chainlink";
-      rev = "v2.0.0";
+      rev = "v2.2.0";
       fetchSubmodules = false;
-      sha256 = "sha256-6Nh7aXWZ95QtNeblG5ZykoypV+I6WWL2X2p0LYDtGaM=";
-    });
+      sha256 = "sha256-YI0chh+KUiGFuXEJsScJOSQ5M/i8UQ8h9A/di4Nkir4=";
+    };
   };
   chatgpt = {
     pname = "chatgpt";
-    version = "14aaad60cc4970477f8e7d1486cf84d5b2f6470e";
+    version = "246b3506004f9a873720a4757d5e8bb3e819f2bf";
     src = fetchgit {
       url = "https://github.com/joshcho/ChatGPT.el.git";
-      rev = "14aaad60cc4970477f8e7d1486cf84d5b2f6470e";
+      rev = "246b3506004f9a873720a4757d5e8bb3e819f2bf";
       fetchSubmodules = false;
       deepClone = false;
       leaveDotGit = false;
-      sha256 = "sha256-kH5CBlYP6OVf/QSRdjg1gBIFXu/DtkQswYzjeRdrP0g=";
+      sha256 = "sha256-iu8ce9jDrAEafnoE+M7RM7ZIwLBXol8zg15/vgUYHnE=";
     };
-    date = "2023-03-22";
+    date = "2023-07-08";
   };
   chatgpt-arcana = {
     pname = "chatgpt-arcana";
@@ -83,29 +83,29 @@
   };
   chatgpt-wrapper = {
     pname = "chatgpt-wrapper";
-    version = "a15848c11c9252a62efdc34e349868e98d48d811";
+    version = "d956c3f914312a6c8da57da5b8db99b379065e13";
     src = fetchgit {
       url = "https://github.com/mmabrouk/chatgpt-wrapper.git";
-      rev = "a15848c11c9252a62efdc34e349868e98d48d811";
+      rev = "d956c3f914312a6c8da57da5b8db99b379065e13";
       fetchSubmodules = false;
       deepClone = false;
       leaveDotGit = false;
-      sha256 = "sha256-dej/ogbFT/fkM97ZzQ+SwZ5VGOTWuYzbPWxBR4UfPU4=";
+      sha256 = "sha256-bgJQ69734063QBz5c5F1PlpUIiI6yDbOuTED+b6fIWs=";
     };
-    date = "2023-05-09";
+    date = "2023-07-09";
   };
   copilot = {
     pname = "copilot";
-    version = "1ab40d80b2005d14bffe25d6e7b439607eb79742";
+    version = "9694981880b9fed7ced4ccff4e60fc072290c9a4";
     src = fetchgit {
       url = "https://github.com/zerolfx/copilot.el.git";
-      rev = "1ab40d80b2005d14bffe25d6e7b439607eb79742";
+      rev = "9694981880b9fed7ced4ccff4e60fc072290c9a4";
       fetchSubmodules = false;
       deepClone = false;
       leaveDotGit = false;
-      sha256 = "sha256-zR8wUw+B2muutgVoNPRaLQtNDA1YWA4dyc+FoKPBhEs=";
+      sha256 = "sha256-9/xoe/oefZFIKQnbbBKqrJ2fQwgcG1EhHpDLLRiE5B8=";
     };
-    date = "2023-05-07";
+    date = "2023-07-02";
   };
   corfu-english-helper = {
     pname = "corfu-english-helper";
@@ -122,14 +122,14 @@
   };
   delivery = {
     pname = "delivery";
-    version = "v1.0.4";
-    src = fetchFromGitHub ({
+    version = "v1.0.5";
+    src = fetchFromGitHub {
       owner = "bttcprotocol";
       repo = "delivery";
-      rev = "v1.0.4";
+      rev = "v1.0.5";
       fetchSubmodules = true;
-      sha256 = "sha256-5PBneo4yL+FLiu/dn4HTZkFR3IFVBtBrFYEPV6rap8s=";
-    });
+      sha256 = "sha256-jDMGEADIynfvLbqIU4NyT+FyuX3zE/u8jlh/S/Fl/yI=";
+    };
   };
   discourse = {
     pname = "discourse";
@@ -148,65 +148,65 @@
     pname = "epc";
     version = "0.0.5";
     src = fetchurl {
-      url = "https://pypi.io/packages/source/e/epc/epc-0.0.5.tar.gz";
+      url = "https://pypi.org/packages/source/e/epc/epc-0.0.5.tar.gz";
       sha256 = "sha256-oU0up0gXlVog6wCBLjpGMKEyiX602XZCAkDxFSwNfSU=";
     };
   };
   gitops = {
     pname = "gitops";
-    version = "v0.22.0";
-    src = fetchFromGitHub ({
+    version = "v0.27.0";
+    src = fetchFromGitHub {
       owner = "weaveworks";
       repo = "weave-gitops";
-      rev = "v0.22.0";
+      rev = "v0.27.0";
       fetchSubmodules = false;
-      sha256 = "sha256-7UC+na6o6F8OEFQew419Xlr2o0n5xirGzdBu0QYPhQk=";
-    });
+      sha256 = "sha256-q19oKawv7hLHMaPAIIdGLl+4N+HiXuIow8f3k9bTt3A=";
+    };
   };
   gotron-sdk = {
     pname = "gotron-sdk";
     version = "v2.3.0";
-    src = fetchFromGitHub ({
+    src = fetchFromGitHub {
       owner = "fbsobreira";
       repo = "gotron-sdk";
       rev = "v2.3.0";
       fetchSubmodules = false;
       sha256 = "sha256-8n+xkvcyWpcOSzOcnIJncC7svZ5LJccXi1XTx0S3RmU=";
-    });
+    };
   };
   helmify = {
     pname = "helmify";
-    version = "v0.4.3";
-    src = fetchFromGitHub ({
+    version = "v0.4.5";
+    src = fetchFromGitHub {
       owner = "arttor";
       repo = "helmify";
-      rev = "v0.4.3";
+      rev = "v0.4.5";
       fetchSubmodules = false;
-      sha256 = "sha256-JdRkqGhyBjrVK93QlbTR4Q7I+NsqAulZdrJIljJubCU=";
-    });
+      sha256 = "sha256-SmFRiOaqTBT1/pgjXvTPE9kFROyEGnR/5ohjF5Zrrz8=";
+    };
   };
   java-tron-full-node = {
     pname = "java-tron-full-node";
-    version = "GreatVoyage-v4.7.1.1";
+    version = "GreatVoyage-v4.7.2";
     src = fetchurl {
-      url = "https://github.com/tronprotocol/java-tron/releases/download/GreatVoyage-v4.7.1.1/FullNode.jar";
-      sha256 = "sha256-X7zeKLl3AMsHS5HOHJnjCQVG8B0RKfJyQN54+qK1O+w=";
+      url = "https://github.com/tronprotocol/java-tron/releases/download/GreatVoyage-v4.7.2/FullNode.jar";
+      sha256 = "sha256-7zvflGJxXYAt209m/EexgKeS04GzUwAGvp96jvqNUV8=";
     };
   };
   java-tron-solidity-node = {
     pname = "java-tron-solidity-node";
-    version = "GreatVoyage-v4.7.1.1";
+    version = "GreatVoyage-v4.7.2";
     src = fetchurl {
-      url = "https://github.com/tronprotocol/java-tron/releases/download/GreatVoyage-v4.7.1.1/SolidityNode.jar";
-      sha256 = "sha256-Rl5nTwPWDcuVL6jJQTEV4w0ByMv1W3g4DsJPfH6pcOU=";
+      url = "https://github.com/tronprotocol/java-tron/releases/download/GreatVoyage-v4.7.2/SolidityNode.jar";
+      sha256 = "sha256-TF7ohnYyJ5wmQTfpmIajvQ/ijTLEOJSniNqw9Hk9gtA=";
     };
   };
   kots = {
     pname = "kots";
-    version = "v1.98.3";
+    version = "v1.100.3";
     src = fetchurl {
-      url = "https://github.com/replicatedhq/kots/releases/download/v1.98.3/kots_linux_amd64.tar.gz";
-      sha256 = "sha256-vjHn2xQecinYw84ZGH3ky21r6tF76MuWqDCLfl41No0=";
+      url = "https://github.com/replicatedhq/kots/releases/download/v1.100.3/kots_linux_amd64.tar.gz";
+      sha256 = "sha256-qlMHh42M/EDjFxvDq+k684EEnsOaOhBhwQCbLK2D2jM=";
     };
   };
   launch = {
@@ -237,16 +237,16 @@
   };
   lsp-bridge = {
     pname = "lsp-bridge";
-    version = "e526846f697d35973714267bf289aeca2fecf176";
+    version = "9d62ea2089890236e0663a3e4d55f2bf031fffb7";
     src = fetchgit {
       url = "https://github.com/manateelazycat/lsp-bridge.git";
-      rev = "e526846f697d35973714267bf289aeca2fecf176";
+      rev = "9d62ea2089890236e0663a3e4d55f2bf031fffb7";
       fetchSubmodules = false;
       deepClone = false;
       leaveDotGit = false;
-      sha256 = "sha256-J5qqyg2O+5JpNzriCx8e9k07HrcaXwU+I6dEZslMn7w=";
+      sha256 = "sha256-4g+o2hnQlSHMCOu1uC58XeLPrU9sYkcD0xMeuLbrzwc=";
     };
-    date = "2023-05-09";
+    date = "2023-07-09";
   };
   magit-gitflow = {
     pname = "magit-gitflow";
@@ -278,7 +278,7 @@
     pname = "my_cookies";
     version = "0.1.3";
     src = fetchurl {
-      url = "https://pypi.io/packages/source/m/my_cookies/my_cookies-0.1.3.tar.gz";
+      url = "https://pypi.org/packages/source/m/my_cookies/my_cookies-0.1.3.tar.gz";
       sha256 = "sha256-3e5j0HFOXUyUo6YVUKQnbaxvAUtDoRTzGqW8HUfzrQ8=";
     };
   };
@@ -286,13 +286,13 @@
     pname = "newsapi-python";
     version = "0.2.7";
     src = fetchurl {
-      url = "https://pypi.io/packages/source/n/newsapi-python/newsapi-python-0.2.7.tar.gz";
+      url = "https://pypi.org/packages/source/n/newsapi-python/newsapi-python-0.2.7.tar.gz";
       sha256 = "sha256-pLZtXdmJIZjNqkdvdULyYlzdIY5eMSHI+ICyrOcXo8I=";
     };
   };
   operator-ui = {
     pname = "operator-ui";
-    version = "v0.8.0-2c669a2";
+    version = "v0.8.0-e0e85f9";
     src = fetchurl {
       url = "https://github.com/smartcontractkit/operator-ui/releases/download/v0.8.0-059b169/smartcontractkit-operator-ui-0.8.0-059b169.tgz";
       sha256 = "sha256-Udnm2bCx2rXcXLPpfGs8/mCW3tDR/IHLp4+VSni5z0s=";
@@ -300,16 +300,16 @@
   };
   org-ai = {
     pname = "org-ai";
-    version = "1a861334b0e0dee531c87d68c43250a7c3822a57";
+    version = "b10f20b8e9fd00e7cfad3a5ebe0e5756de666354";
     src = fetchgit {
       url = "https://github.com/rksm/org-ai.git";
-      rev = "1a861334b0e0dee531c87d68c43250a7c3822a57";
+      rev = "b10f20b8e9fd00e7cfad3a5ebe0e5756de666354";
       fetchSubmodules = false;
       deepClone = false;
       leaveDotGit = false;
-      sha256 = "sha256-wGvpBU3APJ4XfBcsj3wVMmOy5Cdl3+VpaOwkzXz0J6k=";
+      sha256 = "sha256-3mE9TbDEzpj71LlZvDVbUTGAbeP/Wb6KsDvSY2n9qqM=";
     };
-    date = "2023-04-29";
+    date = "2023-06-23";
   };
   org-cv = {
     pname = "org-cv";
@@ -326,39 +326,39 @@
   };
   tiktoken = {
     pname = "tiktoken";
-    version = "095924e02c85617df6889698d94515f91666c7ea";
+    version = "5d970c1100d3210b42497203d6b5c1e30cfda6cb";
     src = fetchgit {
       url = "https://github.com/openai/tiktoken.git";
-      rev = "095924e02c85617df6889698d94515f91666c7ea";
+      rev = "5d970c1100d3210b42497203d6b5c1e30cfda6cb";
       fetchSubmodules = false;
       deepClone = false;
       leaveDotGit = false;
-      sha256 = "sha256-c4Hr9Lt8akH30DCN/KYNrmBLVBMyXlyNjDBYr8Gr9G8=";
+      sha256 = "sha256-URkrty/J08jmSg9lyuV4MStO5WDquRCaM6NB7j5ySkA=";
     };
-    date = "2023-05-07";
+    date = "2023-06-12";
   };
   tron-deployment = {
     pname = "tron-deployment";
-    version = "7289a9e63a20c41dcea508dd85f00611d89d747b";
+    version = "7f22c3d9203fcc3f58a20a8fec2bb64276ded0b8";
     src = fetchgit {
       url = "https://github.com/tronprotocol/tron-deployment.git";
-      rev = "7289a9e63a20c41dcea508dd85f00611d89d747b";
+      rev = "7f22c3d9203fcc3f58a20a8fec2bb64276ded0b8";
       fetchSubmodules = false;
       deepClone = false;
       leaveDotGit = false;
-      sha256 = "sha256-MxtpqoYaxljmatDNJo7hZHD9k8FG/6uTTaESBQwRdIg=";
+      sha256 = "sha256-o4ToJsWcWbWht0mRKsulR8mfoDTLoo/mFNDbN8rW3ow=";
     };
-    date = "2022-03-28";
+    date = "2023-07-04";
   };
   wasmvm = {
     pname = "wasmvm";
-    version = "v1.2.3";
-    src = fetchFromGitHub ({
+    version = "v1.3.0-rc.0";
+    src = fetchFromGitHub {
       owner = "CosmWasm";
       repo = "wasmvm";
-      rev = "v1.2.3";
+      rev = "v1.3.0-rc.0";
       fetchSubmodules = false;
-      sha256 = "sha256-GscUMJ0Tkg77S9IYA9komyKKoa1AyVXSSaU8hw3ZNwk=";
-    });
+      sha256 = "sha256-Z4tPXeqeLJTPNOyPCI9AhXkULQEp20bE0GsSiKoAZgQ=";
+    };
   };
 }

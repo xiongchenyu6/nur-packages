@@ -27,7 +27,10 @@
           inherit lib;
           pkgs = import nixpkgs {
             inherit system;
-            config.allowUnfree = true;
+            config = {
+              allowUnfree = true;
+              permittedInsecurePackages = [ "nodejs-16.20.1" ];
+            };
           };
           ci = false;
           inherit inputs;
@@ -39,7 +42,10 @@
           inherit lib;
           pkgs = import nixpkgs {
             inherit system;
-            config.allowUnfree = true;
+            config = {
+              allowUnfree = true;
+              permittedInsecurePackages = [ "nodejs-16.20.1" ];
+            };
           };
           ci = true;
           inherit inputs;
@@ -84,7 +90,11 @@
         let
           pkgs = import nixpkgs {
             inherit system;
-            config.allowUnfree = true;
+            config = {
+              allowUnfree = true;
+              permittedInsecurePackages = [ "nodejs-16.20.1" ];
+            };
+
           };
         in {
           tester = self.packages.${system}.default.overrideAttrs (_prev: {

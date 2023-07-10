@@ -10,7 +10,7 @@
             "name": null,
             "sha256": "sha256-gS96R2MX4+SmZUnXc9RwYX5BU/ICT7lWhyuPCZh2UnU=",
             "type": "url",
-            "url": "https://pypi.io/packages/source/F/Flask-SimpleLDAP/Flask-SimpleLDAP-1.4.0.tar.gz"
+            "url": "https://pypi.org/packages/source/F/Flask-SimpleLDAP/Flask-SimpleLDAP-1.4.0.tar.gz"
         },
         "version": "1.4.0"
     },
@@ -28,11 +28,11 @@
             "name": null,
             "owner": "aws",
             "repo": "amazon-cloudwatch-agent",
-            "rev": "v1.247359.0",
-            "sha256": "sha256-yTL281IJIXaf3o/eLq8YuVJW11pqwGQxbZDj4vGaKCI=",
+            "rev": "v1.247360.0",
+            "sha256": "sha256-iA0PX3cpnRXwNnZkUxyHu4/q8ALIUOPOboqeW6E5s4k=",
             "type": "github"
         },
-        "version": "v1.247359.0"
+        "version": "v1.247360.0"
     },
     "aws-codedeploy-agent": {
         "cargoLocks": null,
@@ -67,11 +67,11 @@
             "name": null,
             "owner": "bttcprotocol",
             "repo": "bttc",
-            "rev": "v1.0.7",
-            "sha256": "sha256-tsMZe3nqgCLj1QhCT5//49nAJ1Sd73OSO328x/C5S24=",
+            "rev": "v1.0.8",
+            "sha256": "sha256-qMAeIyfQnlUxXZkyMOFz81pbAEnTN5lr5rS+h2q0KBQ=",
             "type": "github"
         },
-        "version": "v1.0.7"
+        "version": "v1.0.8"
     },
     "chainlink": {
         "cargoLocks": null,
@@ -87,15 +87,15 @@
             "name": null,
             "owner": "smartcontractkit",
             "repo": "chainlink",
-            "rev": "v2.0.0",
-            "sha256": "sha256-6Nh7aXWZ95QtNeblG5ZykoypV+I6WWL2X2p0LYDtGaM=",
+            "rev": "v2.2.0",
+            "sha256": "sha256-YI0chh+KUiGFuXEJsScJOSQ5M/i8UQ8h9A/di4Nkir4=",
             "type": "github"
         },
-        "version": "v2.0.0"
+        "version": "v2.2.0"
     },
     "chatgpt": {
         "cargoLocks": null,
-        "date": "2023-03-22",
+        "date": "2023-07-08",
         "extract": null,
         "name": "chatgpt",
         "passthru": null,
@@ -105,12 +105,12 @@
             "fetchSubmodules": false,
             "leaveDotGit": false,
             "name": null,
-            "rev": "14aaad60cc4970477f8e7d1486cf84d5b2f6470e",
-            "sha256": "sha256-kH5CBlYP6OVf/QSRdjg1gBIFXu/DtkQswYzjeRdrP0g=",
+            "rev": "246b3506004f9a873720a4757d5e8bb3e819f2bf",
+            "sha256": "sha256-iu8ce9jDrAEafnoE+M7RM7ZIwLBXol8zg15/vgUYHnE=",
             "type": "git",
             "url": "https://github.com/joshcho/ChatGPT.el.git"
         },
-        "version": "14aaad60cc4970477f8e7d1486cf84d5b2f6470e"
+        "version": "246b3506004f9a873720a4757d5e8bb3e819f2bf"
     },
     "chatgpt-arcana": {
         "cargoLocks": null,
@@ -133,7 +133,7 @@
     },
     "chatgpt-wrapper": {
         "cargoLocks": null,
-        "date": "2023-05-09",
+        "date": "2023-07-09",
         "extract": null,
         "name": "chatgpt-wrapper",
         "passthru": null,
@@ -143,16 +143,16 @@
             "fetchSubmodules": false,
             "leaveDotGit": false,
             "name": null,
-            "rev": "a15848c11c9252a62efdc34e349868e98d48d811",
-            "sha256": "sha256-dej/ogbFT/fkM97ZzQ+SwZ5VGOTWuYzbPWxBR4UfPU4=",
+            "rev": "d956c3f914312a6c8da57da5b8db99b379065e13",
+            "sha256": "sha256-bgJQ69734063QBz5c5F1PlpUIiI6yDbOuTED+b6fIWs=",
             "type": "git",
             "url": "https://github.com/mmabrouk/chatgpt-wrapper.git"
         },
-        "version": "a15848c11c9252a62efdc34e349868e98d48d811"
+        "version": "d956c3f914312a6c8da57da5b8db99b379065e13"
     },
     "copilot": {
         "cargoLocks": null,
-        "date": "2023-05-07",
+        "date": "2023-07-02",
         "extract": null,
         "name": "copilot",
         "passthru": null,
@@ -162,12 +162,12 @@
             "fetchSubmodules": false,
             "leaveDotGit": false,
             "name": null,
-            "rev": "1ab40d80b2005d14bffe25d6e7b439607eb79742",
-            "sha256": "sha256-zR8wUw+B2muutgVoNPRaLQtNDA1YWA4dyc+FoKPBhEs=",
+            "rev": "9694981880b9fed7ced4ccff4e60fc072290c9a4",
+            "sha256": "sha256-9/xoe/oefZFIKQnbbBKqrJ2fQwgcG1EhHpDLLRiE5B8=",
             "type": "git",
             "url": "https://github.com/zerolfx/copilot.el.git"
         },
-        "version": "1ab40d80b2005d14bffe25d6e7b439607eb79742"
+        "version": "9694981880b9fed7ced4ccff4e60fc072290c9a4"
     },
     "corfu-english-helper": {
         "cargoLocks": null,
@@ -202,11 +202,11 @@
             "name": null,
             "owner": "bttcprotocol",
             "repo": "delivery",
-            "rev": "v1.0.4",
-            "sha256": "sha256-5PBneo4yL+FLiu/dn4HTZkFR3IFVBtBrFYEPV6rap8s=",
+            "rev": "v1.0.5",
+            "sha256": "sha256-jDMGEADIynfvLbqIU4NyT+FyuX3zE/u8jlh/S/Fl/yI=",
             "type": "github"
         },
-        "version": "v1.0.4"
+        "version": "v1.0.5"
     },
     "discourse": {
         "cargoLocks": null,
@@ -238,7 +238,7 @@
             "name": null,
             "sha256": "sha256-oU0up0gXlVog6wCBLjpGMKEyiX602XZCAkDxFSwNfSU=",
             "type": "url",
-            "url": "https://pypi.io/packages/source/e/epc/epc-0.0.5.tar.gz"
+            "url": "https://pypi.org/packages/source/e/epc/epc-0.0.5.tar.gz"
         },
         "version": "0.0.5"
     },
@@ -256,11 +256,11 @@
             "name": null,
             "owner": "weaveworks",
             "repo": "weave-gitops",
-            "rev": "v0.22.0",
-            "sha256": "sha256-7UC+na6o6F8OEFQew419Xlr2o0n5xirGzdBu0QYPhQk=",
+            "rev": "v0.27.0",
+            "sha256": "sha256-q19oKawv7hLHMaPAIIdGLl+4N+HiXuIow8f3k9bTt3A=",
             "type": "github"
         },
-        "version": "v0.22.0"
+        "version": "v0.27.0"
     },
     "gotron-sdk": {
         "cargoLocks": null,
@@ -296,11 +296,11 @@
             "name": null,
             "owner": "arttor",
             "repo": "helmify",
-            "rev": "v0.4.3",
-            "sha256": "sha256-JdRkqGhyBjrVK93QlbTR4Q7I+NsqAulZdrJIljJubCU=",
+            "rev": "v0.4.5",
+            "sha256": "sha256-SmFRiOaqTBT1/pgjXvTPE9kFROyEGnR/5ohjF5Zrrz8=",
             "type": "github"
         },
-        "version": "v0.4.3"
+        "version": "v0.4.5"
     },
     "java-tron-full-node": {
         "cargoLocks": null,
@@ -311,11 +311,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-X7zeKLl3AMsHS5HOHJnjCQVG8B0RKfJyQN54+qK1O+w=",
+            "sha256": "sha256-7zvflGJxXYAt209m/EexgKeS04GzUwAGvp96jvqNUV8=",
             "type": "url",
-            "url": "https://github.com/tronprotocol/java-tron/releases/download/GreatVoyage-v4.7.1.1/FullNode.jar"
+            "url": "https://github.com/tronprotocol/java-tron/releases/download/GreatVoyage-v4.7.2/FullNode.jar"
         },
-        "version": "GreatVoyage-v4.7.1.1"
+        "version": "GreatVoyage-v4.7.2"
     },
     "java-tron-solidity-node": {
         "cargoLocks": null,
@@ -326,11 +326,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-Rl5nTwPWDcuVL6jJQTEV4w0ByMv1W3g4DsJPfH6pcOU=",
+            "sha256": "sha256-TF7ohnYyJ5wmQTfpmIajvQ/ijTLEOJSniNqw9Hk9gtA=",
             "type": "url",
-            "url": "https://github.com/tronprotocol/java-tron/releases/download/GreatVoyage-v4.7.1.1/SolidityNode.jar"
+            "url": "https://github.com/tronprotocol/java-tron/releases/download/GreatVoyage-v4.7.2/SolidityNode.jar"
         },
-        "version": "GreatVoyage-v4.7.1.1"
+        "version": "GreatVoyage-v4.7.2"
     },
     "kots": {
         "cargoLocks": null,
@@ -341,11 +341,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-vjHn2xQecinYw84ZGH3ky21r6tF76MuWqDCLfl41No0=",
+            "sha256": "sha256-qlMHh42M/EDjFxvDq+k684EEnsOaOhBhwQCbLK2D2jM=",
             "type": "url",
-            "url": "https://github.com/replicatedhq/kots/releases/download/v1.98.3/kots_linux_amd64.tar.gz"
+            "url": "https://github.com/replicatedhq/kots/releases/download/v1.100.3/kots_linux_amd64.tar.gz"
         },
-        "version": "v1.98.3"
+        "version": "v1.100.3"
     },
     "launch": {
         "cargoLocks": null,
@@ -387,7 +387,7 @@
     },
     "lsp-bridge": {
         "cargoLocks": null,
-        "date": "2023-05-09",
+        "date": "2023-07-09",
         "extract": null,
         "name": "lsp-bridge",
         "passthru": null,
@@ -397,12 +397,12 @@
             "fetchSubmodules": false,
             "leaveDotGit": false,
             "name": null,
-            "rev": "e526846f697d35973714267bf289aeca2fecf176",
-            "sha256": "sha256-J5qqyg2O+5JpNzriCx8e9k07HrcaXwU+I6dEZslMn7w=",
+            "rev": "9d62ea2089890236e0663a3e4d55f2bf031fffb7",
+            "sha256": "sha256-4g+o2hnQlSHMCOu1uC58XeLPrU9sYkcD0xMeuLbrzwc=",
             "type": "git",
             "url": "https://github.com/manateelazycat/lsp-bridge.git"
         },
-        "version": "e526846f697d35973714267bf289aeca2fecf176"
+        "version": "9d62ea2089890236e0663a3e4d55f2bf031fffb7"
     },
     "magit-gitflow": {
         "cargoLocks": null,
@@ -453,7 +453,7 @@
             "name": null,
             "sha256": "sha256-3e5j0HFOXUyUo6YVUKQnbaxvAUtDoRTzGqW8HUfzrQ8=",
             "type": "url",
-            "url": "https://pypi.io/packages/source/m/my_cookies/my_cookies-0.1.3.tar.gz"
+            "url": "https://pypi.org/packages/source/m/my_cookies/my_cookies-0.1.3.tar.gz"
         },
         "version": "0.1.3"
     },
@@ -468,7 +468,7 @@
             "name": null,
             "sha256": "sha256-pLZtXdmJIZjNqkdvdULyYlzdIY5eMSHI+ICyrOcXo8I=",
             "type": "url",
-            "url": "https://pypi.io/packages/source/n/newsapi-python/newsapi-python-0.2.7.tar.gz"
+            "url": "https://pypi.org/packages/source/n/newsapi-python/newsapi-python-0.2.7.tar.gz"
         },
         "version": "0.2.7"
     },
@@ -485,11 +485,11 @@
             "type": "url",
             "url": "https://github.com/smartcontractkit/operator-ui/releases/download/v0.8.0-059b169/smartcontractkit-operator-ui-0.8.0-059b169.tgz"
         },
-        "version": "v0.8.0-2c669a2"
+        "version": "v0.8.0-e0e85f9"
     },
     "org-ai": {
         "cargoLocks": null,
-        "date": "2023-04-29",
+        "date": "2023-06-23",
         "extract": null,
         "name": "org-ai",
         "passthru": null,
@@ -499,12 +499,12 @@
             "fetchSubmodules": false,
             "leaveDotGit": false,
             "name": null,
-            "rev": "1a861334b0e0dee531c87d68c43250a7c3822a57",
-            "sha256": "sha256-wGvpBU3APJ4XfBcsj3wVMmOy5Cdl3+VpaOwkzXz0J6k=",
+            "rev": "b10f20b8e9fd00e7cfad3a5ebe0e5756de666354",
+            "sha256": "sha256-3mE9TbDEzpj71LlZvDVbUTGAbeP/Wb6KsDvSY2n9qqM=",
             "type": "git",
             "url": "https://github.com/rksm/org-ai.git"
         },
-        "version": "1a861334b0e0dee531c87d68c43250a7c3822a57"
+        "version": "b10f20b8e9fd00e7cfad3a5ebe0e5756de666354"
     },
     "org-cv": {
         "cargoLocks": null,
@@ -527,7 +527,7 @@
     },
     "tiktoken": {
         "cargoLocks": null,
-        "date": "2023-05-07",
+        "date": "2023-06-12",
         "extract": null,
         "name": "tiktoken",
         "passthru": null,
@@ -537,16 +537,16 @@
             "fetchSubmodules": false,
             "leaveDotGit": false,
             "name": null,
-            "rev": "095924e02c85617df6889698d94515f91666c7ea",
-            "sha256": "sha256-c4Hr9Lt8akH30DCN/KYNrmBLVBMyXlyNjDBYr8Gr9G8=",
+            "rev": "5d970c1100d3210b42497203d6b5c1e30cfda6cb",
+            "sha256": "sha256-URkrty/J08jmSg9lyuV4MStO5WDquRCaM6NB7j5ySkA=",
             "type": "git",
             "url": "https://github.com/openai/tiktoken.git"
         },
-        "version": "095924e02c85617df6889698d94515f91666c7ea"
+        "version": "5d970c1100d3210b42497203d6b5c1e30cfda6cb"
     },
     "tron-deployment": {
         "cargoLocks": null,
-        "date": "2022-03-28",
+        "date": "2023-07-04",
         "extract": null,
         "name": "tron-deployment",
         "passthru": null,
@@ -556,12 +556,12 @@
             "fetchSubmodules": false,
             "leaveDotGit": false,
             "name": null,
-            "rev": "7289a9e63a20c41dcea508dd85f00611d89d747b",
-            "sha256": "sha256-MxtpqoYaxljmatDNJo7hZHD9k8FG/6uTTaESBQwRdIg=",
+            "rev": "7f22c3d9203fcc3f58a20a8fec2bb64276ded0b8",
+            "sha256": "sha256-o4ToJsWcWbWht0mRKsulR8mfoDTLoo/mFNDbN8rW3ow=",
             "type": "git",
             "url": "https://github.com/tronprotocol/tron-deployment.git"
         },
-        "version": "7289a9e63a20c41dcea508dd85f00611d89d747b"
+        "version": "7f22c3d9203fcc3f58a20a8fec2bb64276ded0b8"
     },
     "wasmvm": {
         "cargoLocks": null,
@@ -577,10 +577,10 @@
             "name": null,
             "owner": "CosmWasm",
             "repo": "wasmvm",
-            "rev": "v1.2.3",
-            "sha256": "sha256-GscUMJ0Tkg77S9IYA9komyKKoa1AyVXSSaU8hw3ZNwk=",
+            "rev": "v1.3.0-rc.0",
+            "sha256": "sha256-Z4tPXeqeLJTPNOyPCI9AhXkULQEp20bE0GsSiKoAZgQ=",
             "type": "github"
         },
-        "version": "v1.2.3"
+        "version": "v1.3.0-rc.0"
     }
 }

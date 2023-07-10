@@ -78,7 +78,9 @@ fetch.git = "https://github.com/mickeynp/ligature.el.git"
 
 [copilot.el]
 src.git = "https://github.com/zerolfx/copilot.el.git"
+src.branch = "main"
 fetch.git = "https://github.com/zerolfx/copilot.el.git"
+fetch.branch = "main"
 
 [org-cv]
 src.git = "https://gitlab.com/Titan-C/org-cv.git"
