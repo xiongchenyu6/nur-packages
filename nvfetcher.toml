@@ -38,6 +38,10 @@ src.git = "https://github.com/bttcprotocol/launch.git"
 #src.manual = "f71388e3a8091a1c6bc10aa03d7edf8e7b638f23"
 fetch.git = "https://github.com/bttcprotocol/launch.git"
 
+[my2sql]
+src.git = "https://github.com/liuhr/my2sql.git"
+fetch.url = "https://github.com/liuhr/my2sql/raw/master/releases/centOS_release_7.x/my2sql"
+
 [gotron-sdk]
 src.github = "fbsobreira/gotron-sdk"
 fetch.github = "fbsobreira/gotron-sdk"
@@ -78,7 +82,9 @@ fetch.git = "https://github.com/mickeynp/ligature.el.git"
 
 [copilot.el]
 src.git = "https://github.com/zerolfx/copilot.el.git"
+src.branch = "main"
 fetch.git = "https://github.com/zerolfx/copilot.el.git"
+fetch.branch = "main"
 
 [org-cv]
 src.git = "https://gitlab.com/Titan-C/org-cv.git"

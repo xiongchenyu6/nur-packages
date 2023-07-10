@@ -61,9 +61,11 @@ let
 
     kots = callPackage ./pkgs/kots { };
 
-    discourse = callPackage ./pkgs/discourse { };
+    discourse-hb = callPackage ./pkgs/discourse { };
 
     gitops = callPackage ./pkgs/gitops { };
+
+    my2sql = callPackage ./pkgs/my2sql { };
 
     # delivery = callPackage ./pkgs/delivery { };
     # chainlink = callPackage ./pkgs/chainlink { };
