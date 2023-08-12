@@ -63,7 +63,7 @@ let
 
     discourse-hb = callPackage ./pkgs/discourse { };
 
-    gitops = callPackage ./pkgs/gitops { };
+    # gitops = callPackage ./pkgs/gitops { };
 
     my2sql = callPackage ./pkgs/my2sql { };
 
