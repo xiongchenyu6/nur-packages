@@ -4,7 +4,7 @@
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     flake-utils.url = "github:numtide/flake-utils";
     dream2nix = {
-      url = "github:nix-community/dream2nix";
+      url = "github:nix-community/dream2nix/legacy";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     oci-arm-host-capacity-src = {

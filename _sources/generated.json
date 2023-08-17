@@ -133,7 +133,7 @@
     },
     "chatgpt-wrapper": {
         "cargoLocks": null,
-        "date": "2023-08-07",
+        "date": "2023-08-15",
         "extract": null,
         "name": "chatgpt-wrapper",
         "passthru": null,
@@ -143,16 +143,16 @@
             "fetchSubmodules": false,
             "leaveDotGit": false,
             "name": null,
-            "rev": "f2b823cc70da1bd40d8914ba52940d3067716ea4",
-            "sha256": "sha256-CNp2kKmPDbFCyheLjCvMPQk9rZXJ8zivJzDVyJ+WXyk=",
+            "rev": "9200b35e9b945cb6585aa0ea13934084aad86f48",
+            "sha256": "sha256-6AaETPvgVjpYkUBcXunrKSuCzI80S9MY/ihsuUxNqok=",
             "type": "git",
             "url": "https://github.com/mmabrouk/chatgpt-wrapper.git"
         },
-        "version": "f2b823cc70da1bd40d8914ba52940d3067716ea4"
+        "version": "9200b35e9b945cb6585aa0ea13934084aad86f48"
     },
     "copilot": {
         "cargoLocks": null,
-        "date": "2023-08-11",
+        "date": "2023-08-17",
         "extract": null,
         "name": "copilot",
         "passthru": null,
@@ -162,12 +162,12 @@
             "fetchSubmodules": false,
             "leaveDotGit": false,
             "name": null,
-            "rev": "d00d37faf7ada42ffebeeb24cf2fb104a32a0187",
-            "sha256": "sha256-a5XMT2XLhG9NkPqC09Nc6ya0NzouIGhZASS+tLP76to=",
+            "rev": "5858091d8be354caaa28614a89e98cce9d234fa7",
+            "sha256": "sha256-eBvSQLaH0vW2u99g1H2OKpuF0YKChFIIcf8zQDHiGQQ=",
             "type": "git",
             "url": "https://github.com/zerolfx/copilot.el.git"
         },
-        "version": "d00d37faf7ada42ffebeeb24cf2fb104a32a0187"
+        "version": "5858091d8be354caaa28614a89e98cce9d234fa7"
     },
     "corfu-english-helper": {
         "cargoLocks": null,
@@ -241,26 +241,6 @@
             "url": "https://pypi.org/packages/source/e/epc/epc-0.0.5.tar.gz"
         },
         "version": "0.0.5"
-    },
-    "gitops": {
-        "cargoLocks": null,
-        "date": null,
-        "extract": null,
-        "name": "gitops",
-        "passthru": null,
-        "pinned": false,
-        "src": {
-            "deepClone": false,
-            "fetchSubmodules": false,
-            "leaveDotGit": false,
-            "name": null,
-            "owner": "weaveworks",
-            "repo": "weave-gitops",
-            "rev": "v0.29.0",
-            "sha256": "sha256-d/MC+QJypLvURLRRp4U3oErf+MdyJ291Pa+gNPkV4xQ=",
-            "type": "github"
-        },
-        "version": "v0.29.0"
     },
     "gotron-sdk": {
         "cargoLocks": null,
@@ -387,7 +367,7 @@
     },
     "lsp-bridge": {
         "cargoLocks": null,
-        "date": "2023-08-12",
+        "date": "2023-08-16",
         "extract": null,
         "name": "lsp-bridge",
         "passthru": null,
@@ -397,12 +377,12 @@
             "fetchSubmodules": false,
             "leaveDotGit": false,
             "name": null,
-            "rev": "4045030476f98dab86ae239f0e5c1d05e9a2200f",
-            "sha256": "sha256-9L+TqGUMpx6H5E2+aoxBNmLqilKQl2yZvLWl1rxD5L4=",
+            "rev": "2339305ad6387b96fbc3e87b3159f079d5f4ab9a",
+            "sha256": "sha256-+Cso0ZYisblDOyfAS63r64fPLcG3BmSq7DANC29HY0Q=",
             "type": "git",
             "url": "https://github.com/manateelazycat/lsp-bridge.git"
         },
-        "version": "4045030476f98dab86ae239f0e5c1d05e9a2200f"
+        "version": "2339305ad6387b96fbc3e87b3159f079d5f4ab9a"
     },
     "magit-gitflow": {
         "cargoLocks": null,
@@ -561,7 +541,7 @@
     },
     "tron-deployment": {
         "cargoLocks": null,
-        "date": "2023-08-10",
+        "date": "2023-08-16",
         "extract": null,
         "name": "tron-deployment",
         "passthru": null,
@@ -571,12 +551,12 @@
             "fetchSubmodules": false,
             "leaveDotGit": false,
             "name": null,
-            "rev": "e1f5753a51f2b18e1c7bbce3e85b6e9c8c8a07c2",
-            "sha256": "sha256-n6GwT0pnQB2mSma3QOkfg5+Rtqn1gIFUn0mFIEx+xmI=",
+            "rev": "765cdcf1773db5a437e1d1d1df7e07a72549a101",
+            "sha256": "sha256-tj1pySGQGJgJHMLib2tHQb8Q5aqPsehsCod0/mqjEUE=",
             "type": "git",
             "url": "https://github.com/tronprotocol/tron-deployment.git"
         },
-        "version": "e1f5753a51f2b18e1c7bbce3e85b6e9c8c8a07c2"
+        "version": "765cdcf1773db5a437e1d1d1df7e07a72549a101"
     },
     "wasmvm": {
         "cargoLocks": null,
