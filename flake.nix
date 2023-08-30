@@ -29,7 +29,7 @@
             inherit system;
             config = {
               allowUnfree = true;
-              permittedInsecurePackages = [ "nodejs-16.20.1" ];
+              permittedInsecurePackages = [ "nodejs-16.20.2" ];
             };
           };
           ci = false;
@@ -44,7 +44,7 @@
             inherit system;
             config = {
               allowUnfree = true;
-              permittedInsecurePackages = [ "nodejs-16.20.1" ];
+              permittedInsecurePackages = [ "nodejs-16.20.2" ];
             };
           };
           ci = true;
@@ -92,7 +92,7 @@
             inherit system;
             config = {
               allowUnfree = true;
-              permittedInsecurePackages = [ "nodejs-16.20.1" ];
+              permittedInsecurePackages = [ "nodejs-16.20.2" ];
             };
 
           };

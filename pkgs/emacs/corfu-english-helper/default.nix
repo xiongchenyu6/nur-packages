@@ -1,6 +1,6 @@
-{ lib, emacsPackagesFor, emacs, nodejs-16_x, source, ... }:
+{ lib, emacsPackagesFor, emacs29, nodejs-16_x, source, ... }:
 let
-  epkgs = emacsPackagesFor emacs;
+  epkgs = emacsPackagesFor emacs29;
   file-path = builtins.split "/" (toString ./.);
   pkgName = lib.last file-path;
 in epkgs.trivialBuild (source."${pkgName}" // {

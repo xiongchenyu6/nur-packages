@@ -35,7 +35,6 @@ fetch.url = "https://github.com/smartcontractkit/operator-ui/releases/download/v
 
 [launch]
 src.git = "https://github.com/bttcprotocol/launch.git"
-#src.manual = "f71388e3a8091a1c6bc10aa03d7edf8e7b638f23"
 fetch.git = "https://github.com/bttcprotocol/launch.git"
 
 [my2sql]
@@ -72,15 +71,16 @@ src.pypi="newsapi-python"
 fetch.pypi="newsapi-python"
 
 #emacs
+
 [lsp-bridge]
 src.git = "https://github.com/manateelazycat/lsp-bridge.git"
 fetch.git = "https://github.com/manateelazycat/lsp-bridge.git"
 
-[ligature.el]
+[ligature-el]
 src.git = "https://github.com/mickeynp/ligature.el.git"
 fetch.git = "https://github.com/mickeynp/ligature.el.git"
 
-[copilot.el]
+[copilot-el]
 src.git = "https://github.com/zerolfx/copilot.el.git"
 src.branch = "main"
 fetch.git = "https://github.com/zerolfx/copilot.el.git"
@@ -113,6 +113,10 @@ fetch.git = "https://github.com/manateelazycat/corfu-english-helper.git"
 [chatgpt]
 src.git = "https://github.com/joshcho/ChatGPT.el.git"
 fetch.git = "https://github.com/joshcho/ChatGPT.el.git"
+
+[combobulate]
+src.git = "https://github.com/mickeynp/combobulate.git"
+fetch.git = "https://github.com/mickeynp/combobulate.git"
 
 [chatgpt-wrapper]
 src.git = "https://github.com/mmabrouk/chatgpt-wrapper.git"

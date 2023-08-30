@@ -1,6 +1,6 @@
-{ emacsPackagesFor, emacs, source, ... }:
+{ emacsPackagesFor, emacs29, source, ... }:
 let
-  epkgs = emacsPackagesFor emacs;
+  epkgs = emacsPackagesFor emacs29;
   # cleanBrokenFileFilter = name: type: !(((baseNameOf name) == "acm-backend-telega.el") || ((baseNamef name) == "acm-backend-tempel.el"));
   acm = epkgs.trivialBuild {
     pname = "acm";

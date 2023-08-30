@@ -28,11 +28,11 @@
             "name": null,
             "owner": "aws",
             "repo": "amazon-cloudwatch-agent",
-            "rev": "v1.247360.0",
-            "sha256": "sha256-iA0PX3cpnRXwNnZkUxyHu4/q8ALIUOPOboqeW6E5s4k=",
+            "rev": "v1.300026.3",
+            "sha256": "sha256-BhjWM6EDvjy+fx+PthsW0LSFP17VRANgTZvF2JmnuyI=",
             "type": "github"
         },
-        "version": "v1.247360.0"
+        "version": "v1.300026.3"
     },
     "aws-codedeploy-agent": {
         "cargoLocks": null,
@@ -87,11 +87,11 @@
             "name": null,
             "owner": "smartcontractkit",
             "repo": "chainlink",
-            "rev": "v2.3.0",
-            "sha256": "sha256-bkEJniy+yFrbo6o14JPWgZoH9L7rKLAdIf6X6jVPOj4=",
+            "rev": "v2.4.0",
+            "sha256": "sha256-TtYkZpNVMgLr5YGeNg/snwWvx94NAHslkJTclizV/Vw=",
             "type": "github"
         },
-        "version": "v2.3.0"
+        "version": "v2.4.0"
     },
     "chatgpt": {
         "cargoLocks": null,
@@ -114,7 +114,7 @@
     },
     "chatgpt-arcana": {
         "cargoLocks": null,
-        "date": "2023-04-11",
+        "date": "2023-08-28",
         "extract": null,
         "name": "chatgpt-arcana",
         "passthru": null,
@@ -124,12 +124,12 @@
             "fetchSubmodules": false,
             "leaveDotGit": false,
             "name": null,
-            "rev": "9800e29fa0f8730d4dbb6fed054b41c48c0c6890",
-            "sha256": "sha256-N5vMbBHN5pdoSBviqo7GDn+NtGgoDfoYpI4s93loAzM=",
+            "rev": "0386e868f14f083aa9aaeec9fba8bae0144cfee5",
+            "sha256": "sha256-hfdkhchOfT3hnXVHeItLp5EVj44Rq0TliFlXq1dy0Cw=",
             "type": "git",
             "url": "https://github.com/CarlQLange/chatgpt-arcana.el.git"
         },
-        "version": "9800e29fa0f8730d4dbb6fed054b41c48c0c6890"
+        "version": "0386e868f14f083aa9aaeec9fba8bae0144cfee5"
     },
     "chatgpt-wrapper": {
         "cargoLocks": null,
@@ -150,11 +150,11 @@
         },
         "version": "9200b35e9b945cb6585aa0ea13934084aad86f48"
     },
-    "copilot": {
+    "combobulate": {
         "cargoLocks": null,
-        "date": "2023-08-17",
+        "date": "2023-08-14",
         "extract": null,
-        "name": "copilot",
+        "name": "combobulate",
         "passthru": null,
         "pinned": false,
         "src": {
@@ -162,12 +162,31 @@
             "fetchSubmodules": false,
             "leaveDotGit": false,
             "name": null,
-            "rev": "5858091d8be354caaa28614a89e98cce9d234fa7",
-            "sha256": "sha256-eBvSQLaH0vW2u99g1H2OKpuF0YKChFIIcf8zQDHiGQQ=",
+            "rev": "e37e24de1afa577a19974b6967a4837a2ae5cb98",
+            "sha256": "sha256-CUv78OrkVPBxzJlk/px2yJPuLMv4tyJJGvgabjIWi1I=",
+            "type": "git",
+            "url": "https://github.com/mickeynp/combobulate.git"
+        },
+        "version": "e37e24de1afa577a19974b6967a4837a2ae5cb98"
+    },
+    "copilot-el": {
+        "cargoLocks": null,
+        "date": "2023-08-28",
+        "extract": null,
+        "name": "copilot-el",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "rev": "82d52b0314b87b682e44fdfacc90116c8bece491",
+            "sha256": "sha256-YpHAG++HZzJBcmuiTWL7imKLfRJsceIUbHnQAon5FKM=",
             "type": "git",
             "url": "https://github.com/zerolfx/copilot.el.git"
         },
-        "version": "5858091d8be354caaa28614a89e98cce9d234fa7"
+        "version": "82d52b0314b87b682e44fdfacc90116c8bece491"
     },
     "corfu-english-helper": {
         "cargoLocks": null,
@@ -321,11 +340,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-JnQIKcLsqlNS/F9zgdcfh8Sy2O52iFJxuTQ8tjIpHyM=",
+            "sha256": "sha256-phW0vrKD2nD9EId1oFAOW/LfXs4VTptaNPxF05oLGf0=",
             "type": "url",
-            "url": "https://github.com/replicatedhq/kots/releases/download/v1.101.2/kots_linux_amd64.tar.gz"
+            "url": "https://github.com/replicatedhq/kots/releases/download/v1.101.3/kots_linux_amd64.tar.gz"
         },
-        "version": "v1.101.2"
+        "version": "v1.101.3"
     },
     "launch": {
         "cargoLocks": null,
@@ -346,11 +365,11 @@
         },
         "version": "03b0ae39df1ed44c58f403030fa7a49927837c46"
     },
-    "ligature": {
+    "ligature-el": {
         "cargoLocks": null,
         "date": "2023-08-01",
         "extract": null,
-        "name": "ligature",
+        "name": "ligature-el",
         "passthru": null,
         "pinned": false,
         "src": {
@@ -367,7 +386,7 @@
     },
     "lsp-bridge": {
         "cargoLocks": null,
-        "date": "2023-08-16",
+        "date": "2023-08-26",
         "extract": null,
         "name": "lsp-bridge",
         "passthru": null,
@@ -377,12 +396,12 @@
             "fetchSubmodules": false,
             "leaveDotGit": false,
             "name": null,
-            "rev": "2339305ad6387b96fbc3e87b3159f079d5f4ab9a",
-            "sha256": "sha256-+Cso0ZYisblDOyfAS63r64fPLcG3BmSq7DANC29HY0Q=",
+            "rev": "16670a0b7850c997d906ae032454fb329e7f0f23",
+            "sha256": "sha256-PDEXOkxXNgpYg0/hwrklnow065lXRHIE5atzJpxnlxE=",
             "type": "git",
             "url": "https://github.com/manateelazycat/lsp-bridge.git"
         },
-        "version": "2339305ad6387b96fbc3e87b3159f079d5f4ab9a"
+        "version": "16670a0b7850c997d906ae032454fb329e7f0f23"
     },
     "magit-gitflow": {
         "cargoLocks": null,
@@ -480,11 +499,11 @@
             "type": "url",
             "url": "https://github.com/smartcontractkit/operator-ui/releases/download/v0.8.0-059b169/smartcontractkit-operator-ui-0.8.0-059b169.tgz"
         },
-        "version": "v0.8.0-91e5ba4"
+        "version": "v0.8.0-95ae9da"
     },
     "org-ai": {
         "cargoLocks": null,
-        "date": "2023-08-04",
+        "date": "2023-08-20",
         "extract": null,
         "name": "org-ai",
         "passthru": null,
@@ -494,12 +513,12 @@
             "fetchSubmodules": false,
             "leaveDotGit": false,
             "name": null,
-            "rev": "f160791428f0305bb72b08752312cc1c72e989ab",
-            "sha256": "sha256-/PAZyBXleCJKSxqAyqvnrErZD1r+iE9P0jZni00bIYU=",
+            "rev": "e188f2b3506da47452142746f7ea9e08e97a9c09",
+            "sha256": "sha256-s5QsgCywVwYcv+pvIQfEo6Ab0/5q828yusRo6VHCE9I=",
             "type": "git",
             "url": "https://github.com/rksm/org-ai.git"
         },
-        "version": "f160791428f0305bb72b08752312cc1c72e989ab"
+        "version": "e188f2b3506da47452142746f7ea9e08e97a9c09"
     },
     "org-cv": {
         "cargoLocks": null,
@@ -541,7 +560,7 @@
     },
     "tron-deployment": {
         "cargoLocks": null,
-        "date": "2023-08-16",
+        "date": "2023-08-24",
         "extract": null,
         "name": "tron-deployment",
         "passthru": null,
@@ -551,12 +570,12 @@
             "fetchSubmodules": false,
             "leaveDotGit": false,
             "name": null,
-            "rev": "765cdcf1773db5a437e1d1d1df7e07a72549a101",
-            "sha256": "sha256-tj1pySGQGJgJHMLib2tHQb8Q5aqPsehsCod0/mqjEUE=",
+            "rev": "240ed17650feb79d48a966fbb33a71c071a820d8",
+            "sha256": "sha256-yU6O+ZzcI2a/xe6J1xpQR7hDW3gpwVaGHBCRRC9ywmU=",
             "type": "git",
             "url": "https://github.com/tronprotocol/tron-deployment.git"
         },
-        "version": "765cdcf1773db5a437e1d1d1df7e07a72549a101"
+        "version": "240ed17650feb79d48a966fbb33a71c071a820d8"
     },
     "wasmvm": {
         "cargoLocks": null,
@@ -572,10 +591,10 @@
             "name": null,
             "owner": "CosmWasm",
             "repo": "wasmvm",
-            "rev": "v1.3.0",
-            "sha256": "sha256-rsTYvbkYpDkUE4IvILdSL3hXMgAWxz5ltGotJB2t1e4=",
+            "rev": "v1.4.0-rc.1",
+            "sha256": "sha256-p1coRdr4VnNuA3yF9tXkNyXPeZyWaAjC4zaeim2+qGQ=",
             "type": "github"
         },
-        "version": "v1.3.0"
+        "version": "v1.4.0-rc.1"
     }
 }

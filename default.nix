@@ -95,6 +95,8 @@ let
 
     # org-cv = callPackage ./pkgs/emacs/org-cv { };
 
+    combobulate = callPackage ./pkgs/emacs/combobulate { };
+
     magit-gitflow = callPackage ./pkgs/emacs/magit-gitflow { };
 
     chatgpt = callPackage ./pkgs/emacs/chatgpt { };

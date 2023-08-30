@@ -1,6 +1,6 @@
-{ emacsPackagesFor, emacs, source, ... }:
-let epkgs = emacsPackagesFor emacs;
-in epkgs.trivialBuild (source.copilot // {
+{ emacsPackagesFor, emacs29, source, ... }:
+let epkgs = emacsPackagesFor emacs29;
+in epkgs.trivialBuild (source.copilot-el // {
   packageRequires = with epkgs; [ s dash editorconfig ];
 
   postInstall = ''
