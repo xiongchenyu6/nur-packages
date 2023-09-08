@@ -77,7 +77,7 @@
             type = "app";
             program = builtins.toString (pkgs.writeShellScript "update" ''
               nix flake update
-              ${pkgs.nvfetcher}/bin/nvfetcher -c nvfetcher.toml -o _sources
+              # ${pkgs.nvfetcher}/bin/nvfetcher -c nvfetcher.toml -o _sources
             '');
           };
         });
