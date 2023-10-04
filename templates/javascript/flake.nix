@@ -1,6 +1,7 @@
 # SPDX-FileCopyrightText: 2021 Serokell <https://serokell.io/>
 #
 # SPDX-License-Identifier: CC0-1.0
+
 {
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs";
@@ -19,10 +20,15 @@
           inherit inputs pkgs;
           modules = [
             ({ pkgs, ... }: {
-              # This is your devenv configuration
               packages = with pkgs; [ ];
+
+              # This is your devenv configuration
               languages = {
 
+                javascript = {
+                  enable = true;
+                  corepack.enable = true;
+                };
               };
             })
           ];
