@@ -21,10 +21,13 @@
           modules = [
             ({ pkgs, ... }: {
               # This is your devenv configuration
-              languages = { java = { enable = true; }; };
+              packages = with pkgs; [ ];
+              languages = {
+                c = { enable = true; };
+                cplusplus = { enable = true; };
+              };
             })
           ];
         };
       });
 }
-

@@ -24,11 +24,12 @@
 
               # This is your devenv configuration
               languages = {
-
                 javascript = {
                   enable = true;
                   corepack.enable = true;
                 };
+                typescript = { enable = true; };
+
               };
             })
           ];
