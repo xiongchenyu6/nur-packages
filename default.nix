@@ -153,6 +153,11 @@ let
     codedeploy-agent = callPackage ./pkgs/ruby/codedeploy-agent { };
     default = bttc;
 
+    librime = (pkgs.librime.override {
+      plugins = [ source.librime-lua.src ];
+
+    }).overrideAttrs (old: { buildInputs = old.buildInputs ++ [ pkgs.lua ]; });
+
     cyrus_sasl_with_ldap =
       (pkgs.cyrus_sasl.override { enableLdap = true; }).overrideAttrs (_: {
         postInstall = ''

@@ -46,13 +46,13 @@
   };
   chainlink = {
     pname = "chainlink";
-    version = "v2.5.0";
+    version = "v2.6.0";
     src = fetchFromGitHub {
       owner = "smartcontractkit";
       repo = "chainlink";
-      rev = "v2.5.0";
+      rev = "v2.6.0";
       fetchSubmodules = false;
-      sha256 = "sha256-O/pF+fPvKJy7oCCptASZ+1MBxC91izdMvGPt4a0fkj0=";
+      sha256 = "sha256-zG2CbvBFFgf2bi9rGiaDwRETDLWDFdUc4mmKe6nE99w=";
     };
   };
   chatgpt = {
@@ -223,6 +223,19 @@
       sha256 = "sha256-u3OGkahP2/eXy2EiLJ9Xu0TbOk/hYreTmIeGfOJznBU=";
     };
     date = "2023-04-13";
+  };
+  librime-lua = {
+    pname = "librime-lua";
+    version = "757a01445905f89bf58af0d7da8e283c5fbfd973";
+    src = fetchgit {
+      url = "https://github.com/hchunhui/librime-lua.git";
+      rev = "757a01445905f89bf58af0d7da8e283c5fbfd973";
+      fetchSubmodules = false;
+      deepClone = false;
+      leaveDotGit = false;
+      sha256 = "sha256-XCNtwcAq8pmzGaPa4CvaE8Cj6tyI6cjsJUGutSinfpA=";
+    };
+    date = "2023-10-07";
   };
   ligature-el = {
     pname = "ligature-el";

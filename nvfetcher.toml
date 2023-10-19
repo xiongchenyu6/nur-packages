@@ -146,3 +146,8 @@ src.git = "https://github.com/trontech-link/discourse.git"
 src.branch = "feat/add-itoken-footer"
 fetch.git = "https://github.com/trontech-link/discourse.git"
 fetch.branch = "feat/add-itoken-footer"
+
+
+[librime-lua]
+src.git = "https://github.com/hchunhui/librime-lua.git"
+fetch.git = "https://github.com/hchunhui/librime-lua.git"

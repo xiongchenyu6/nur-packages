@@ -87,11 +87,11 @@
             "name": null,
             "owner": "smartcontractkit",
             "repo": "chainlink",
-            "rev": "v2.5.0",
-            "sha256": "sha256-O/pF+fPvKJy7oCCptASZ+1MBxC91izdMvGPt4a0fkj0=",
+            "rev": "v2.6.0",
+            "sha256": "sha256-zG2CbvBFFgf2bi9rGiaDwRETDLWDFdUc4mmKe6nE99w=",
             "type": "github"
         },
-        "version": "v2.5.0"
+        "version": "v2.6.0"
     },
     "chatgpt": {
         "cargoLocks": null,
@@ -364,6 +364,25 @@
             "url": "https://github.com/bttcprotocol/launch.git"
         },
         "version": "03b0ae39df1ed44c58f403030fa7a49927837c46"
+    },
+    "librime-lua": {
+        "cargoLocks": null,
+        "date": "2023-10-07",
+        "extract": null,
+        "name": "librime-lua",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "rev": "757a01445905f89bf58af0d7da8e283c5fbfd973",
+            "sha256": "sha256-XCNtwcAq8pmzGaPa4CvaE8Cj6tyI6cjsJUGutSinfpA=",
+            "type": "git",
+            "url": "https://github.com/hchunhui/librime-lua.git"
+        },
+        "version": "757a01445905f89bf58af0d7da8e283c5fbfd973"
     },
     "ligature-el": {
         "cargoLocks": null,
