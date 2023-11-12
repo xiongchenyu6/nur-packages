@@ -4,7 +4,8 @@
 
 {
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs";
+
+    nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     flake-utils.url = "github:numtide/flake-utils";
     devenv = {
       url = "github:cachix/devenv";
@@ -18,6 +19,7 @@
       in {
         devShell = devenv.lib.mkShell {
           inherit inputs pkgs;
+
           modules = [
             ({ pkgs, ... }: {
               # This is your devenv configuration

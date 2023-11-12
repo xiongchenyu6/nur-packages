@@ -3,7 +3,8 @@
 # SPDX-License-Identifier: CC0-1.0
 {
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+
     flake-utils.url = "github:numtide/flake-utils";
     devenv = {
       url = "github:cachix/devenv";
@@ -17,6 +18,10 @@
       in {
         devShell = devenv.lib.mkShell {
           inherit inputs pkgs;
+          env = {
+            # This is your devenv configuration
+            NODE_OPTIONS = "--openssl-legacy-provider";
+          };
           modules = [
             ({ pkgs, ... }: {
               packages = with pkgs; [ ];

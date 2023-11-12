@@ -3,7 +3,8 @@
 # SPDX-License-Identifier: CC0-1.0
 {
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs";
+
+    nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
     flake-utils.url = "github:numtide/flake-utils";
     devenv = {
       url = "github:cachix/devenv";
