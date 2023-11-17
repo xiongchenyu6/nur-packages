@@ -19,31 +19,6 @@ let
   allPkgs = my-pkgs // pkgs // { inherit source sourcee; };
   callPackage = lib.callPackageWith allPkgs;
   my-pkgs = rec {
-    # example-docker =
-    #   pkgs.dockerTools.buildImage {
-    #     name = "hello-docker";
-    #     tag = "latest";
-    #     created = "now";
-    #     runAsRoot = ''
-    #       mkdir /data
-    #     '';
-    #     copyToRoot = pkgs.buildEnv {
-    #       name = "image-root";
-    #       paths = [
-    #         pkgs.coreutils
-    #         pkgs.bash
-    #         pkgs.vim
-    #       ];
-    #       pathsToLink = [ "/bin" ];
-    #     };
-
-    #     config = {
-    #       WorkingDir = "/data";
-    #       Env = [ "PATH=${pkgs.coreutils}/bin/" ];
-    #       Cmd = [ "${pkgs.coreutils}/bin/cat" "${my-pkgs.example-package}" ];
-    #     };
-    #   };
-
     launch = stdenv.mkDerivation (source.launch // {
       installPhase = ''
         mkdir -p $out;
@@ -62,8 +37,6 @@ let
     kots = callPackage ./pkgs/kots { };
 
     discourse-hb = callPackage ./pkgs/discourse { };
-
-    # gitops = callPackage ./pkgs/gitops { };
 
     my2sql = callPackage ./pkgs/my2sql { };
 
@@ -86,8 +59,6 @@ let
     Flask-SimpleLDAP = callPackage ./pkgs/python3/Flask-SimpleLDAP { };
 
     newsapi-python = callPackage ./pkgs/python3/newsapi-python { };
-
-    # chatgpt-wrapper = callPackage ./pkgs/python3/chatgpt-wrapper { };
 
     copilot-el = callPackage ./pkgs/emacs/copilot { };
 
@@ -118,33 +89,6 @@ let
     java-tron = callPackage ./pkgs/java-tron { };
 
     tron-eventquery = callPackage ./pkgs/tron-eventquery { };
-
-    # my-ferretdb = callPackage ./pkgs/ferretdb { };
-
-    # gptcommit = callPackage ./pkgs/gptcommit { };
-
-    # vbox = nixos-generators.nixosGenerate {
-
-    #   inherit system;
-    #   format = "virtualbox";
-    # };
-    # amazon = nixos-generators.nixosGenerate {
-    #   system = "x86_64-linux";
-    #   format = "amazon";
-    # };
-
-    # tat = callPackage ./tat { };
-
-    # dotfiles = with pkgs;
-    #   stdenv.mkDerivation {
-    #     pname = "dotfiles";
-    #     version = "0.1.0";
-    #     src = ./.;
-    #     installPhase = ''
-    #       mkdir -p $out/etc;
-    #       cp -r . $out/etc;
-    #     '';
-    #   };
 
     ldap-passthrough-conf = callPackage ./pkgs/ldap-passthrough-conf { };
 
