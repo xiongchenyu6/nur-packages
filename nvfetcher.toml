@@ -10,9 +10,9 @@ fetch.url = "https://github.com/tronprotocol/java-tron/releases/download/$ver/Fu
 src.github = "tronprotocol/java-tron"
 fetch.url = "https://github.com/tronprotocol/java-tron/releases/download/$ver/SolidityNode.jar"
 
-[kots]
-src.github = "replicatedhq/kots"
-fetch.url = "https://github.com/replicatedhq/kots/releases/download/$ver/kots_linux_amd64.tar.gz"
+[glab]
+src.git = "https://gitlab.com/gitlab-org/cli.git"
+fetch.git = "https://gitlab.com/gitlab-org/cli.git"
 
 #go
 [bttc]
@@ -24,14 +24,6 @@ git.fetchSubmodules = true
 src.github = "bttcprotocol/delivery"
 fetch.github = "bttcprotocol/delivery"
 git.fetchSubmodules = true
-
-[chainlink]
-src.github = "smartcontractkit/chainlink"
-fetch.github = "smartcontractkit/chainlink"
-
-[operator-ui]
-src.github = "smartcontractkit/operator-ui"
-fetch.url = "https://github.com/smartcontractkit/operator-ui/releases/download/v0.8.0-059b169/smartcontractkit-operator-ui-0.8.0-059b169.tgz"
 
 [launch]
 src.git = "https://github.com/bttcprotocol/launch.git"
@@ -45,13 +37,9 @@ fetch.url = "https://github.com/liuhr/my2sql/raw/master/releases/centOS_release_
 src.github = "fbsobreira/gotron-sdk"
 fetch.github = "fbsobreira/gotron-sdk"
 
-[amazon-cloudwatch-agent]
-src.github = "aws/amazon-cloudwatch-agent"
-fetch.github = "aws/amazon-cloudwatch-agent"
-
-# [gitops]
-# src.github = "weaveworks/weave-gitops"
-# fetch.github = "weaveworks/weave-gitops"
+[gitops]
+src.github = "weaveworks/weave-gitops"
+fetch.github = "weaveworks/weave-gitops"
 
 [helmify]
 src.github = "arttor/helmify"
@@ -71,21 +59,6 @@ src.pypi="newsapi-python"
 fetch.pypi="newsapi-python"
 
 #emacs
-
-[lsp-bridge]
-src.git = "https://github.com/manateelazycat/lsp-bridge.git"
-fetch.git = "https://github.com/manateelazycat/lsp-bridge.git"
-
-[ligature-el]
-src.git = "https://github.com/mickeynp/ligature.el.git"
-fetch.git = "https://github.com/mickeynp/ligature.el.git"
-
-[copilot-el]
-src.git = "https://github.com/zerolfx/copilot.el.git"
-src.branch = "main"
-fetch.git = "https://github.com/zerolfx/copilot.el.git"
-fetch.branch = "main"
-
 [org-cv]
 src.git = "https://gitlab.com/Titan-C/org-cv.git"
 fetch.git = "https://gitlab.com/Titan-C/org-cv.git"
@@ -98,56 +71,15 @@ fetch.git = "https://github.com/jtatarik/magit-gitflow.git"
 src.git = "https://github.com/natecox/magit-town.git"
 fetch.git = "https://github.com/natecox/magit-town.git"
 
-[chatgpt-arcana]
-src.git = "https://github.com/CarlQLange/chatgpt-arcana.el.git"
-fetch.git = "https://github.com/CarlQLange/chatgpt-arcana.el.git"
-
-[org-ai]
-src.git = "https://github.com/rksm/org-ai.git"
-fetch.git = "https://github.com/rksm/org-ai.git"
-
-[corfu-english-helper]
-src.git = "https://github.com/manateelazycat/corfu-english-helper.git"
-fetch.git = "https://github.com/manateelazycat/corfu-english-helper.git"
-
-[chatgpt]
-src.git = "https://github.com/joshcho/ChatGPT.el.git"
-fetch.git = "https://github.com/joshcho/ChatGPT.el.git"
-
 [combobulate]
 src.git = "https://github.com/mickeynp/combobulate.git"
 fetch.git = "https://github.com/mickeynp/combobulate.git"
 
-[chatgpt-wrapper]
-src.git = "https://github.com/mmabrouk/chatgpt-wrapper.git"
-fetch.git = "https://github.com/mmabrouk/chatgpt-wrapper.git"
-
-[tiktoken]
-src.git = "https://github.com/openai/tiktoken.git"
-fetch.git = "https://github.com/openai/tiktoken.git"
-
-[Flask-SimpleLDAP]
-src.pypi="Flask-SimpleLDAP"
-fetch.pypi="Flask-SimpleLDAP"
-
-#ruby
-[aws-codedeploy-agent]
-src.git = "https://github.com/xiongchenyu6/aws-codedeploy-agent.git"
-fetch.git = "https://github.com/xiongchenyu6/aws-codedeploy-agent.git"
-
-#rust
-[wasmvm]
-src.github="CosmWasm/wasmvm"
-fetch.github="CosmWasm/wasmvm"
-
-# tronlink-discourse
-[discourse]
-src.git = "https://github.com/trontech-link/discourse.git"
-src.branch = "feat/add-itoken-footer"
-fetch.git = "https://github.com/trontech-link/discourse.git"
-fetch.branch = "feat/add-itoken-footer"
-
-
 [librime-lua]
 src.git = "https://github.com/hchunhui/librime-lua.git"
 fetch.git = "https://github.com/hchunhui/librime-lua.git"
+
+[copilot-el]
+src.git = "https://github.com/zerolfx/copilot.el.git"
+src.branch = "main"
+fetch.git = "https://github.com/zerolfx/copilot.el.git"

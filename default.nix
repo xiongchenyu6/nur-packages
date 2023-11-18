@@ -30,19 +30,16 @@ let
 
     helmify = callPackage ./pkgs/helmify { };
 
-    my-mongodb = pkgs.mongodb;
-
     bttc = callPackage ./pkgs/bttc { };
 
-    kots = callPackage ./pkgs/kots { };
+    glab = callPackage ./pkgs/glab { };
 
-    discourse-hb = callPackage ./pkgs/discourse { };
+    # discourse-hb = callPackage ./pkgs/discourse { };
 
     my2sql = callPackage ./pkgs/my2sql { };
 
     # delivery = callPackage ./pkgs/delivery { };
-    # chainlink = callPackage ./pkgs/chainlink { };
-    # wasmvm = callPackage ./pkgs/wasmvm { };
+
     gotron-sdk = callPackage ./pkgs/gotron-sdk { };
 
     oci-arm-host-capacity = (inputs.dream2nix.lib.makeFlakeOutputs {
@@ -56,13 +53,9 @@ let
 
     epc = callPackage ./pkgs/python3/epc { };
 
-    Flask-SimpleLDAP = callPackage ./pkgs/python3/Flask-SimpleLDAP { };
-
     newsapi-python = callPackage ./pkgs/python3/newsapi-python { };
 
     copilot-el = callPackage ./pkgs/emacs/copilot { };
-
-    ligature = callPackage ./pkgs/emacs/ligature { };
 
     # org-cv = callPackage ./pkgs/emacs/org-cv { };
 
@@ -70,21 +63,9 @@ let
 
     magit-gitflow = callPackage ./pkgs/emacs/magit-gitflow { };
 
-    chatgpt = callPackage ./pkgs/emacs/chatgpt { };
-
-    chatgpt-arcana = callPackage ./pkgs/emacs/chatgpt-arcana { };
-
-    org-ai = callPackage ./pkgs/emacs/org-ai { };
-
-    corfu-english-helper = callPackage ./pkgs/emacs/corfu-english-helper { };
-
-    # tiktoken = callPackage ./pkgs/python3/tiktoken { };
-
-    # magit-town = callPackage ./pkgs/emacs/magit-town { };
+    magit-town = callPackage ./pkgs/emacs/magit-town { };
 
     inherit (callPackage ./pkgs/npm { }) tronbox solium;
-
-    # amazon-cloudwatch-agent = callPackage ./pkgs/amazon-cloudwatch-agent { };
 
     java-tron = callPackage ./pkgs/java-tron { };
 
@@ -94,7 +75,6 @@ let
 
     ldap-extra-schemas = callPackage ./pkgs/ldap-extra-schemas { };
 
-    codedeploy-agent = callPackage ./pkgs/ruby/codedeploy-agent { };
     default = bttc;
 
     librime = (pkgs.librime.override {
