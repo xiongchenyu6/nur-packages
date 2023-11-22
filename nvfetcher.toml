@@ -83,3 +83,8 @@ fetch.git = "https://github.com/hchunhui/librime-lua.git"
 src.git = "https://github.com/zerolfx/copilot.el.git"
 src.branch = "main"
 fetch.git = "https://github.com/zerolfx/copilot.el.git"
+
+[korb]
+src.git = "https://github.com/BeryJu/korb.git"
+src.branch = "main"
+fetch.git = "https://github.com/BeryJu/korb.git"

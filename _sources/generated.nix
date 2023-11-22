@@ -70,16 +70,16 @@
   };
   glab = {
     pname = "glab";
-    version = "79b370bec4d0730c7c731123f3c95cc1fc94f9c4";
+    version = "54d75b4782a9fc64f83ed5375786e8cee4c95686";
     src = fetchgit {
       url = "https://gitlab.com/gitlab-org/cli.git";
-      rev = "79b370bec4d0730c7c731123f3c95cc1fc94f9c4";
+      rev = "54d75b4782a9fc64f83ed5375786e8cee4c95686";
       fetchSubmodules = false;
       deepClone = false;
       leaveDotGit = false;
-      sha256 = "sha256-AXyEe2Bdu+h1WvexuEdbN9PPEZDpQzyH5xhKiR3LLAc=";
+      sha256 = "sha256-PH8D9feUZYXYGjqCJ3bqaaYPaUsKVcVKVRWlNyTvwMU=";
     };
-    date = "2023-11-17";
+    date = "2023-11-21";
   };
   gotron-sdk = {
     pname = "gotron-sdk";
@@ -94,13 +94,13 @@
   };
   helmify = {
     pname = "helmify";
-    version = "v0.4.8";
+    version = "v0.4.10";
     src = fetchFromGitHub {
       owner = "arttor";
       repo = "helmify";
-      rev = "v0.4.8";
+      rev = "v0.4.10";
       fetchSubmodules = false;
-      sha256 = "sha256-RIYLqQ1J8k5XtsFyDkJz1Seg4K67yaxyRfVckWHh9EQ=";
+      sha256 = "sha256-/l8O84gYQcQyBRMgN+nxdIu5EI6aGWHm1Xk1NjFDNus=";
     };
   };
   java-tron-full-node = {
@@ -118,6 +118,19 @@
       url = "https://github.com/tronprotocol/java-tron/releases/download/GreatVoyage-v4.7.3/SolidityNode.jar";
       sha256 = "sha256-S030uVWQzNLNy+U2hs7qywM46mBOKJux6WpaO2I1njk=";
     };
+  };
+  korb = {
+    pname = "korb";
+    version = "f7086b5729525e5215413beeca8609558e0af589";
+    src = fetchgit {
+      url = "https://github.com/BeryJu/korb.git";
+      rev = "f7086b5729525e5215413beeca8609558e0af589";
+      fetchSubmodules = false;
+      deepClone = false;
+      leaveDotGit = false;
+      sha256 = "sha256-wAyy5CgYpoCLiy2zKlcq8VzkI5BNjZ/WOf0rV7icJrg=";
+    };
+    date = "2023-11-20";
   };
   launch = {
     pname = "launch";

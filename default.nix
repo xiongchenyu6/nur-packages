@@ -42,6 +42,8 @@ let
 
     gotron-sdk = callPackage ./pkgs/gotron-sdk { };
 
+    korb = callPackage ./pkgs/korb { };
+
     oci-arm-host-capacity = (inputs.dream2nix.lib.makeFlakeOutputs {
       pkgs = inputs.dream2nix.inputs.nixpkgs.legacyPackages."x86_64-linux";
       source = inputs.oci-arm-host-capacity-src;

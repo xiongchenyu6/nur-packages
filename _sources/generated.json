@@ -114,7 +114,7 @@
     },
     "glab": {
         "cargoLocks": null,
-        "date": "2023-11-17",
+        "date": "2023-11-21",
         "extract": null,
         "name": "glab",
         "passthru": null,
@@ -124,12 +124,12 @@
             "fetchSubmodules": false,
             "leaveDotGit": false,
             "name": null,
-            "rev": "79b370bec4d0730c7c731123f3c95cc1fc94f9c4",
-            "sha256": "sha256-AXyEe2Bdu+h1WvexuEdbN9PPEZDpQzyH5xhKiR3LLAc=",
+            "rev": "54d75b4782a9fc64f83ed5375786e8cee4c95686",
+            "sha256": "sha256-PH8D9feUZYXYGjqCJ3bqaaYPaUsKVcVKVRWlNyTvwMU=",
             "type": "git",
             "url": "https://gitlab.com/gitlab-org/cli.git"
         },
-        "version": "79b370bec4d0730c7c731123f3c95cc1fc94f9c4"
+        "version": "54d75b4782a9fc64f83ed5375786e8cee4c95686"
     },
     "gotron-sdk": {
         "cargoLocks": null,
@@ -165,11 +165,11 @@
             "name": null,
             "owner": "arttor",
             "repo": "helmify",
-            "rev": "v0.4.8",
-            "sha256": "sha256-RIYLqQ1J8k5XtsFyDkJz1Seg4K67yaxyRfVckWHh9EQ=",
+            "rev": "v0.4.10",
+            "sha256": "sha256-/l8O84gYQcQyBRMgN+nxdIu5EI6aGWHm1Xk1NjFDNus=",
             "type": "github"
         },
-        "version": "v0.4.8"
+        "version": "v0.4.10"
     },
     "java-tron-full-node": {
         "cargoLocks": null,
@@ -200,6 +200,25 @@
             "url": "https://github.com/tronprotocol/java-tron/releases/download/GreatVoyage-v4.7.3/SolidityNode.jar"
         },
         "version": "GreatVoyage-v4.7.3"
+    },
+    "korb": {
+        "cargoLocks": null,
+        "date": "2023-11-20",
+        "extract": null,
+        "name": "korb",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "rev": "f7086b5729525e5215413beeca8609558e0af589",
+            "sha256": "sha256-wAyy5CgYpoCLiy2zKlcq8VzkI5BNjZ/WOf0rV7icJrg=",
+            "type": "git",
+            "url": "https://github.com/BeryJu/korb.git"
+        },
+        "version": "f7086b5729525e5215413beeca8609558e0af589"
     },
     "launch": {
         "cargoLocks": null,
