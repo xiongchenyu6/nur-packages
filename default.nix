@@ -98,11 +98,12 @@ let
       doCheck = false;
     })).override { cyrus_sasl = cyrus_sasl_with_ldap; };
 
-    postfix = pkgs.postfix.override { cyrus_sasl = cyrus_sasl_with_ldap; };
+    postfix_with_ldap =
+      pkgs.postfix.override { cyrus_sasl = cyrus_sasl_with_ldap; };
 
-    sssd = pkgs.sssd.override { withSudo = true; };
+    sssd_with_sude = pkgs.sssd.override { withSudo = true; };
 
-    krb5 = pkgs.krb5.overrideAttrs (old: {
+    krb5_with_ldap = pkgs.krb5.overrideAttrs (old: {
       configureFlags = old.configureFlags
         ++ (if (old.pname == "libkrb5") then [ ] else [ "--with-ldap" ]);
     });

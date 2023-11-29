@@ -40,7 +40,7 @@
     },
     "copilot-el": {
         "cargoLocks": null,
-        "date": "2023-11-08",
+        "date": "2023-12-11",
         "extract": null,
         "name": "copilot-el",
         "passthru": null,
@@ -50,12 +50,12 @@
             "fetchSubmodules": false,
             "leaveDotGit": false,
             "name": null,
-            "rev": "30a054f8569550853a9b6f947a2fe1ded7e7cc6b",
-            "sha256": "sha256-uNtoduh/29dpBcE556G3qHdycdj0OGMridCTy3k5vX8=",
+            "rev": "ba1d6018fdc2d735fecab1b2dcd4b5ea121b05ac",
+            "sha256": "sha256-W4HuvX+AnmHIK6YCstUbmxfhunaCtvcswgtX+92riz4=",
             "type": "git",
             "url": "https://github.com/zerolfx/copilot.el.git"
         },
-        "version": "30a054f8569550853a9b6f947a2fe1ded7e7cc6b"
+        "version": "ba1d6018fdc2d735fecab1b2dcd4b5ea121b05ac"
     },
     "delivery": {
         "cargoLocks": null,
@@ -106,15 +106,15 @@
             "name": null,
             "owner": "weaveworks",
             "repo": "weave-gitops",
-            "rev": "v0.36.0",
-            "sha256": "sha256-tjDDd/4aJOnqRCs+YwYZF61Qv6znILXnAfBdLKOKdrQ=",
+            "rev": "v0.38.0",
+            "sha256": "sha256-Gm4DIQK8T+dTwB5swdrD+SjGgy/wFQ/fJYdSqNDSy9c=",
             "type": "github"
         },
-        "version": "v0.36.0"
+        "version": "v0.38.0"
     },
     "glab": {
         "cargoLocks": null,
-        "date": "2023-11-21",
+        "date": "2023-12-08",
         "extract": null,
         "name": "glab",
         "passthru": null,
@@ -124,12 +124,12 @@
             "fetchSubmodules": false,
             "leaveDotGit": false,
             "name": null,
-            "rev": "54d75b4782a9fc64f83ed5375786e8cee4c95686",
-            "sha256": "sha256-PH8D9feUZYXYGjqCJ3bqaaYPaUsKVcVKVRWlNyTvwMU=",
+            "rev": "a6bc84364e6c094b1ae2ce1eaccfe03c68e88160",
+            "sha256": "sha256-WP6aFtoLWZ1pV05FeGL/uLd6qVLbjzOCRqSVdWyGy3w=",
             "type": "git",
             "url": "https://gitlab.com/gitlab-org/cli.git"
         },
-        "version": "54d75b4782a9fc64f83ed5375786e8cee4c95686"
+        "version": "a6bc84364e6c094b1ae2ce1eaccfe03c68e88160"
     },
     "gotron-sdk": {
         "cargoLocks": null,
@@ -203,7 +203,7 @@
     },
     "korb": {
         "cargoLocks": null,
-        "date": "2023-11-20",
+        "date": "2023-12-07",
         "extract": null,
         "name": "korb",
         "passthru": null,
@@ -213,12 +213,12 @@
             "fetchSubmodules": false,
             "leaveDotGit": false,
             "name": null,
-            "rev": "f7086b5729525e5215413beeca8609558e0af589",
-            "sha256": "sha256-wAyy5CgYpoCLiy2zKlcq8VzkI5BNjZ/WOf0rV7icJrg=",
+            "rev": "f6a523a6a3a487d9829bcfbbeb224f8842ac31c7",
+            "sha256": "sha256-PDrlvcsd4l6m9V6z/kTQP1gm+NW5/v0t2CgkbUc2HLA=",
             "type": "git",
             "url": "https://github.com/BeryJu/korb.git"
         },
-        "version": "f7086b5729525e5215413beeca8609558e0af589"
+        "version": "f6a523a6a3a487d9829bcfbbeb224f8842ac31c7"
     },
     "launch": {
         "cargoLocks": null,

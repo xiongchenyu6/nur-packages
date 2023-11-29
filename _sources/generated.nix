@@ -27,16 +27,16 @@
   };
   copilot-el = {
     pname = "copilot-el";
-    version = "30a054f8569550853a9b6f947a2fe1ded7e7cc6b";
+    version = "ba1d6018fdc2d735fecab1b2dcd4b5ea121b05ac";
     src = fetchgit {
       url = "https://github.com/zerolfx/copilot.el.git";
-      rev = "30a054f8569550853a9b6f947a2fe1ded7e7cc6b";
+      rev = "ba1d6018fdc2d735fecab1b2dcd4b5ea121b05ac";
       fetchSubmodules = false;
       deepClone = false;
       leaveDotGit = false;
-      sha256 = "sha256-uNtoduh/29dpBcE556G3qHdycdj0OGMridCTy3k5vX8=";
+      sha256 = "sha256-W4HuvX+AnmHIK6YCstUbmxfhunaCtvcswgtX+92riz4=";
     };
-    date = "2023-11-08";
+    date = "2023-12-11";
   };
   delivery = {
     pname = "delivery";
@@ -59,27 +59,27 @@
   };
   gitops = {
     pname = "gitops";
-    version = "v0.36.0";
+    version = "v0.38.0";
     src = fetchFromGitHub {
       owner = "weaveworks";
       repo = "weave-gitops";
-      rev = "v0.36.0";
+      rev = "v0.38.0";
       fetchSubmodules = false;
-      sha256 = "sha256-tjDDd/4aJOnqRCs+YwYZF61Qv6znILXnAfBdLKOKdrQ=";
+      sha256 = "sha256-Gm4DIQK8T+dTwB5swdrD+SjGgy/wFQ/fJYdSqNDSy9c=";
     };
   };
   glab = {
     pname = "glab";
-    version = "54d75b4782a9fc64f83ed5375786e8cee4c95686";
+    version = "a6bc84364e6c094b1ae2ce1eaccfe03c68e88160";
     src = fetchgit {
       url = "https://gitlab.com/gitlab-org/cli.git";
-      rev = "54d75b4782a9fc64f83ed5375786e8cee4c95686";
+      rev = "a6bc84364e6c094b1ae2ce1eaccfe03c68e88160";
       fetchSubmodules = false;
       deepClone = false;
       leaveDotGit = false;
-      sha256 = "sha256-PH8D9feUZYXYGjqCJ3bqaaYPaUsKVcVKVRWlNyTvwMU=";
+      sha256 = "sha256-WP6aFtoLWZ1pV05FeGL/uLd6qVLbjzOCRqSVdWyGy3w=";
     };
-    date = "2023-11-21";
+    date = "2023-12-08";
   };
   gotron-sdk = {
     pname = "gotron-sdk";
@@ -121,16 +121,16 @@
   };
   korb = {
     pname = "korb";
-    version = "f7086b5729525e5215413beeca8609558e0af589";
+    version = "f6a523a6a3a487d9829bcfbbeb224f8842ac31c7";
     src = fetchgit {
       url = "https://github.com/BeryJu/korb.git";
-      rev = "f7086b5729525e5215413beeca8609558e0af589";
+      rev = "f6a523a6a3a487d9829bcfbbeb224f8842ac31c7";
       fetchSubmodules = false;
       deepClone = false;
       leaveDotGit = false;
-      sha256 = "sha256-wAyy5CgYpoCLiy2zKlcq8VzkI5BNjZ/WOf0rV7icJrg=";
+      sha256 = "sha256-PDrlvcsd4l6m9V6z/kTQP1gm+NW5/v0t2CgkbUc2HLA=";
     };
-    date = "2023-11-20";
+    date = "2023-12-07";
   };
   launch = {
     pname = "launch";

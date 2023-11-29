@@ -18,13 +18,13 @@
       in {
         devShell = devenv.lib.mkShell {
           inherit inputs pkgs;
-          env = {
-            # This is your devenv configuration
-            NODE_OPTIONS = "--openssl-legacy-provider";
-          };
           modules = [
             ({ pkgs, ... }: {
               packages = with pkgs; [ ];
+              env = {
+                # This is your devenv configuration
+                NODE_OPTIONS = "--openssl-legacy-provider";
+              };
 
               # This is your devenv configuration
               languages = {
