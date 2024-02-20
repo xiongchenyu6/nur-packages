@@ -27,26 +27,26 @@
   };
   copilot-el = {
     pname = "copilot-el";
-    version = "ba1d6018fdc2d735fecab1b2dcd4b5ea121b05ac";
+    version = "284df2953ee1ba96bacce5be23c1e46896440794";
     src = fetchgit {
       url = "https://github.com/zerolfx/copilot.el.git";
-      rev = "ba1d6018fdc2d735fecab1b2dcd4b5ea121b05ac";
+      rev = "284df2953ee1ba96bacce5be23c1e46896440794";
       fetchSubmodules = false;
       deepClone = false;
       leaveDotGit = false;
-      sha256 = "sha256-W4HuvX+AnmHIK6YCstUbmxfhunaCtvcswgtX+92riz4=";
+      sha256 = "sha256-gHM9UTJkKS/VlL2NFUu+UsMbXcMMaD/FCy8DGCK+cXA=";
     };
-    date = "2023-12-11";
+    date = "2024-02-20";
   };
   delivery = {
     pname = "delivery";
-    version = "v1.0.6";
+    version = "v1.0.7";
     src = fetchFromGitHub {
       owner = "bttcprotocol";
       repo = "delivery";
-      rev = "v1.0.6";
+      rev = "v1.0.7";
       fetchSubmodules = true;
-      sha256 = "sha256-/zIznsA1d9xibzr4SD/LtFOULTphLcfsj1qG9c0GYqE=";
+      sha256 = "sha256-euQ9V/fECKa2mdNNMuFV7ks1nsqVPCg0GI44WXnao24=";
     };
   };
   epc = {
@@ -70,16 +70,16 @@
   };
   glab = {
     pname = "glab";
-    version = "a6bc84364e6c094b1ae2ce1eaccfe03c68e88160";
+    version = "3003a14f49c6b44a6f931e60898a3285ddabba51";
     src = fetchgit {
       url = "https://gitlab.com/gitlab-org/cli.git";
-      rev = "a6bc84364e6c094b1ae2ce1eaccfe03c68e88160";
+      rev = "3003a14f49c6b44a6f931e60898a3285ddabba51";
       fetchSubmodules = false;
       deepClone = false;
       leaveDotGit = false;
-      sha256 = "sha256-WP6aFtoLWZ1pV05FeGL/uLd6qVLbjzOCRqSVdWyGy3w=";
+      sha256 = "sha256-HsEg1cpOY8KXCpue95T3CRlCgKKJFwH0EkP7iTya6ZA=";
     };
-    date = "2023-12-08";
+    date = "2024-02-16";
   };
   gotron-sdk = {
     pname = "gotron-sdk";
@@ -94,43 +94,43 @@
   };
   helmify = {
     pname = "helmify";
-    version = "v0.4.10";
+    version = "v0.4.11";
     src = fetchFromGitHub {
       owner = "arttor";
       repo = "helmify";
-      rev = "v0.4.10";
+      rev = "v0.4.11";
       fetchSubmodules = false;
-      sha256 = "sha256-/l8O84gYQcQyBRMgN+nxdIu5EI6aGWHm1Xk1NjFDNus=";
+      sha256 = "sha256-q1k9YvfQPb7SE887ANLXKTFV3ABFAoJ2nPaIZjmLy8o=";
     };
   };
   java-tron-full-node = {
     pname = "java-tron-full-node";
-    version = "GreatVoyage-v4.7.3";
+    version = "GreatVoyage-v4.7.3.1";
     src = fetchurl {
-      url = "https://github.com/tronprotocol/java-tron/releases/download/GreatVoyage-v4.7.3/FullNode.jar";
-      sha256 = "sha256-Ts6qyi3bdgVV+HdiJNTUiT586RhorR4B4eIPGOET/s0=";
+      url = "https://github.com/tronprotocol/java-tron/releases/download/GreatVoyage-v4.7.3.1/FullNode.jar";
+      sha256 = "sha256-An4qvhO/Eh6vxnlvuFS/jtW+KEBzyowFiInWuo+H4AQ=";
     };
   };
   java-tron-solidity-node = {
     pname = "java-tron-solidity-node";
-    version = "GreatVoyage-v4.7.3";
+    version = "GreatVoyage-v4.7.3.1";
     src = fetchurl {
-      url = "https://github.com/tronprotocol/java-tron/releases/download/GreatVoyage-v4.7.3/SolidityNode.jar";
-      sha256 = "sha256-S030uVWQzNLNy+U2hs7qywM46mBOKJux6WpaO2I1njk=";
+      url = "https://github.com/tronprotocol/java-tron/releases/download/GreatVoyage-v4.7.3.1/SolidityNode.jar";
+      sha256 = "sha256-B0rI5yAxk4h6o14Qt7kX2SH3rGVYQlVt1334CbCTB/Y=";
     };
   };
   korb = {
     pname = "korb";
-    version = "f6a523a6a3a487d9829bcfbbeb224f8842ac31c7";
+    version = "ef71d3f89f0a3ad73c81d74c5e7546d81ee849b7";
     src = fetchgit {
       url = "https://github.com/BeryJu/korb.git";
-      rev = "f6a523a6a3a487d9829bcfbbeb224f8842ac31c7";
+      rev = "ef71d3f89f0a3ad73c81d74c5e7546d81ee849b7";
       fetchSubmodules = false;
       deepClone = false;
       leaveDotGit = false;
-      sha256 = "sha256-PDrlvcsd4l6m9V6z/kTQP1gm+NW5/v0t2CgkbUc2HLA=";
+      sha256 = "sha256-KG5FP12tTiXVFlJw59JxhbU/+792IAF6S+fBlnc6BEI=";
     };
-    date = "2023-12-07";
+    date = "2024-02-15";
   };
   launch = {
     pname = "launch";
@@ -147,16 +147,16 @@
   };
   librime-lua = {
     pname = "librime-lua";
-    version = "7c297e4d2e08fcdd3e9b2dcae2a42317b9a217ff";
+    version = "7f3eca2ce659fc2401b8acb52bd2182b433e12b1";
     src = fetchgit {
       url = "https://github.com/hchunhui/librime-lua.git";
-      rev = "7c297e4d2e08fcdd3e9b2dcae2a42317b9a217ff";
+      rev = "7f3eca2ce659fc2401b8acb52bd2182b433e12b1";
       fetchSubmodules = false;
       deepClone = false;
       leaveDotGit = false;
-      sha256 = "sha256-GVfr2fzaQYyfNnjN20YcNfBVB144gZKVEunbX10Mgeg=";
+      sha256 = "sha256-n+KCu8JmFBGPyfBgeLiFqND3wmQs/4eOZjqTXuaW+hk=";
     };
-    date = "2023-10-29";
+    date = "2024-02-06";
   };
   magit-gitflow = {
     pname = "magit-gitflow";

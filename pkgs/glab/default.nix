@@ -4,7 +4,7 @@ buildGoModule (source.glab // (let
   version = gops.version;
 in {
 
-  vendorHash = "sha256-x96ChhozvTrX0eBWt3peX8dpd4gyukJ28RkqcD2W/OM=";
+  vendorHash = "sha256-4CQ4NPHAs736LQxDxvKWEH9TQvIKAouJ6zVReAoZTec=";
 
   ldflags = [ "-s" "-w" "-X main.version=${version}" ];
 

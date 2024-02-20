@@ -22,6 +22,10 @@ in {
         type = types.int;
         description = "Port for management service";
       };
+      logLevel = mkOption {
+        default = "info";
+        type = types.str;
+      };
     };
   };
   config = mkIf cfg.enable {
@@ -46,7 +50,7 @@ in {
           };
           script = "${pkgs.netbird}/bin/netbird-signal run --port ${
               toString cfg.signalPort
-            } --log-file console --log-level debug";
+            } --log-file console --log-level ${cfg.logLevel}";
         };
         "netbird-mgmt" = {
           wantedBy = [ "multi-user.target" ];
@@ -68,7 +72,7 @@ in {
           script =
             "${pkgs.netbird}/bin/netbird-mgmt management --config ${cfg.mgmtConfig} --port ${
               toString cfg.mgmtPort
-            } --log-file console --log-level debug --single-account-mode-domain=netbird.trontech.link";
+            } --log-file console --log-level ${cfg.logLevel} --single-account-mode-domain=netbird.trontech.link";
         };
       };
     };

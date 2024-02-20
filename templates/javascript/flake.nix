@@ -12,10 +12,11 @@
     };
   };
 
-  outputs = { nixpkgs, flake-utils, devenv, ... }@inputs:
+  outputs = { self, nixpkgs, flake-utils, devenv, ... }@inputs:
     flake-utils.lib.eachDefaultSystem (system:
       let pkgs = import nixpkgs { inherit system; };
       in {
+        packages.devenv-up = self.devShell.${system}.config.procfileScript;
         devShell = devenv.lib.mkShell {
           inherit inputs pkgs;
           modules = [
