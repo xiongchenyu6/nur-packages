@@ -46,17 +46,17 @@ src.github = "arttor/helmify"
 fetch.github = "arttor/helmify"
 
 # python
-[my_cookies]
-src.pypi="my_cookies"
-fetch.pypi="my_cookies"
+# [my_cookies]
+# src.pypi="my_cookies"
+# fetch.pypi="my_cookies"
 
-[epc]
-src.pypi="epc"
-fetch.pypi="epc"
+# [epc]
+# src.pypi="epc"
+# fetch.pypi="epc"
 
-[newsapi-python]
-src.pypi="newsapi-python"
-fetch.pypi="newsapi-python"
+# [newsapi-python]
+# src.pypi="newsapi-python"
+# fetch.pypi="newsapi-python"
 
 #emacs
 [org-cv]

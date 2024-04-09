@@ -3,7 +3,7 @@
 buildGoModule (source.gotron-sdk // {
   enableParallelBuilding = true;
   proxyVendor = true;
-  vendorSha256 = "sha256-GhdT0RQkIkV0wjgtRUdUmN7UZyVd0XGyGkmZn30PqG4=";
+  vendorHash = "sha256-GhdT0RQkIkV0wjgtRUdUmN7UZyVd0XGyGkmZn30PqG4=";
   doCheck = false;
   nativeBuildInputs = [ tree installShellFiles ];
   ldflags = [

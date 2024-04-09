@@ -13,15 +13,15 @@
             "name": null,
             "owner": "bttcprotocol",
             "repo": "bttc",
-            "rev": "v1.0.8",
-            "sha256": "sha256-qMAeIyfQnlUxXZkyMOFz81pbAEnTN5lr5rS+h2q0KBQ=",
+            "rev": "v1.1.0",
+            "sha256": "sha256-GQZGMhLu7PM8h6km4aADjYfCy43yVdwGePaLKAk9Be4=",
             "type": "github"
         },
-        "version": "v1.0.8"
+        "version": "v1.1.0"
     },
     "combobulate": {
         "cargoLocks": null,
-        "date": "2023-09-25",
+        "date": "2024-03-11",
         "extract": null,
         "name": "combobulate",
         "passthru": null,
@@ -31,16 +31,16 @@
             "fetchSubmodules": false,
             "leaveDotGit": false,
             "name": null,
-            "rev": "c7e4670a3047c0b58dff3746577a5c8e5832cfba",
-            "sha256": "sha256-oLxJfHN50GWlXZYmZP7ZGqyvwEG3h0HreLAfBqoWfBg=",
+            "rev": "ee82c568ad639605518f62f82fae4bcc0dfdbb81",
+            "sha256": "sha256-rww0/6304xZWTFRo1BVcfSDdXOXtlgmfZOxAoOIjYsk=",
             "type": "git",
             "url": "https://github.com/mickeynp/combobulate.git"
         },
-        "version": "c7e4670a3047c0b58dff3746577a5c8e5832cfba"
+        "version": "ee82c568ad639605518f62f82fae4bcc0dfdbb81"
     },
     "copilot-el": {
         "cargoLocks": null,
-        "date": "2024-02-20",
+        "date": "2024-04-15",
         "extract": null,
         "name": "copilot-el",
         "passthru": null,
@@ -50,12 +50,12 @@
             "fetchSubmodules": false,
             "leaveDotGit": false,
             "name": null,
-            "rev": "284df2953ee1ba96bacce5be23c1e46896440794",
-            "sha256": "sha256-gHM9UTJkKS/VlL2NFUu+UsMbXcMMaD/FCy8DGCK+cXA=",
+            "rev": "edf517a57f539eb41eaa2f92c6752538f3a62b72",
+            "sha256": "sha256-53BGX2llkrM5mDmFSVe+O/Vo4F2gDJTFh/4TqBuQme8=",
             "type": "git",
             "url": "https://github.com/zerolfx/copilot.el.git"
         },
-        "version": "284df2953ee1ba96bacce5be23c1e46896440794"
+        "version": "edf517a57f539eb41eaa2f92c6752538f3a62b72"
     },
     "delivery": {
         "cargoLocks": null,
@@ -71,26 +71,11 @@
             "name": null,
             "owner": "bttcprotocol",
             "repo": "delivery",
-            "rev": "v1.0.7",
-            "sha256": "sha256-euQ9V/fECKa2mdNNMuFV7ks1nsqVPCg0GI44WXnao24=",
+            "rev": "v1.0.8",
+            "sha256": "sha256-YB+tDVToqmKCkSp/mC75+Jtl/yHG5x5h+GDgLS3c8IU=",
             "type": "github"
         },
-        "version": "v1.0.7"
-    },
-    "epc": {
-        "cargoLocks": null,
-        "date": null,
-        "extract": null,
-        "name": "epc",
-        "passthru": null,
-        "pinned": false,
-        "src": {
-            "name": null,
-            "sha256": "sha256-oU0up0gXlVog6wCBLjpGMKEyiX602XZCAkDxFSwNfSU=",
-            "type": "url",
-            "url": "https://pypi.org/packages/source/e/epc/epc-0.0.5.tar.gz"
-        },
-        "version": "0.0.5"
+        "version": "v1.0.8"
     },
     "gitops": {
         "cargoLocks": null,
@@ -114,7 +99,7 @@
     },
     "glab": {
         "cargoLocks": null,
-        "date": "2024-02-16",
+        "date": "2024-04-23",
         "extract": null,
         "name": "glab",
         "passthru": null,
@@ -124,12 +109,12 @@
             "fetchSubmodules": false,
             "leaveDotGit": false,
             "name": null,
-            "rev": "3003a14f49c6b44a6f931e60898a3285ddabba51",
-            "sha256": "sha256-HsEg1cpOY8KXCpue95T3CRlCgKKJFwH0EkP7iTya6ZA=",
+            "rev": "2931bb3f4992448d233f7391f6cd26f2ad95aee5",
+            "sha256": "sha256-Aax52s1fsK5sKRJXrzWEVpnnreuFakRLFVZjE3nRkx8=",
             "type": "git",
             "url": "https://gitlab.com/gitlab-org/cli.git"
         },
-        "version": "3003a14f49c6b44a6f931e60898a3285ddabba51"
+        "version": "2931bb3f4992448d233f7391f6cd26f2ad95aee5"
     },
     "gotron-sdk": {
         "cargoLocks": null,
@@ -165,11 +150,11 @@
             "name": null,
             "owner": "arttor",
             "repo": "helmify",
-            "rev": "v0.4.11",
-            "sha256": "sha256-q1k9YvfQPb7SE887ANLXKTFV3ABFAoJ2nPaIZjmLy8o=",
+            "rev": "v0.4.12",
+            "sha256": "sha256-f8REO6VYCJztjfNh5vC8iT/kfM2v7ayaEJ3w/ywOrHk=",
             "type": "github"
         },
-        "version": "v0.4.11"
+        "version": "v0.4.12"
     },
     "java-tron-full-node": {
         "cargoLocks": null,
@@ -180,11 +165,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-An4qvhO/Eh6vxnlvuFS/jtW+KEBzyowFiInWuo+H4AQ=",
+            "sha256": "sha256-OmGqytkIbNy2ibuq1WlSCauCIGq/QwR98+GnNvFWfCQ=",
             "type": "url",
-            "url": "https://github.com/tronprotocol/java-tron/releases/download/GreatVoyage-v4.7.3.1/FullNode.jar"
+            "url": "https://github.com/tronprotocol/java-tron/releases/download/GreatVoyage-v4.7.4/FullNode.jar"
         },
-        "version": "GreatVoyage-v4.7.3.1"
+        "version": "GreatVoyage-v4.7.4"
     },
     "java-tron-solidity-node": {
         "cargoLocks": null,
@@ -195,15 +180,15 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-B0rI5yAxk4h6o14Qt7kX2SH3rGVYQlVt1334CbCTB/Y=",
+            "sha256": "sha256-7L7GbE6vnKY3/9FcJnO44spnxWHUO1ZU8idze9pV2SQ=",
             "type": "url",
-            "url": "https://github.com/tronprotocol/java-tron/releases/download/GreatVoyage-v4.7.3.1/SolidityNode.jar"
+            "url": "https://github.com/tronprotocol/java-tron/releases/download/GreatVoyage-v4.7.4/SolidityNode.jar"
         },
-        "version": "GreatVoyage-v4.7.3.1"
+        "version": "GreatVoyage-v4.7.4"
     },
     "korb": {
         "cargoLocks": null,
-        "date": "2024-02-15",
+        "date": "2024-04-18",
         "extract": null,
         "name": "korb",
         "passthru": null,
@@ -213,12 +198,12 @@
             "fetchSubmodules": false,
             "leaveDotGit": false,
             "name": null,
-            "rev": "ef71d3f89f0a3ad73c81d74c5e7546d81ee849b7",
-            "sha256": "sha256-KG5FP12tTiXVFlJw59JxhbU/+792IAF6S+fBlnc6BEI=",
+            "rev": "a2ae130b306e9de449c4333fda25684460c33cfe",
+            "sha256": "sha256-wLPAV2724fcHJGou0rCMvSY7oZaE+lcQHUPzTITU7dU=",
             "type": "git",
             "url": "https://github.com/BeryJu/korb.git"
         },
-        "version": "ef71d3f89f0a3ad73c81d74c5e7546d81ee849b7"
+        "version": "a2ae130b306e9de449c4333fda25684460c33cfe"
     },
     "launch": {
         "cargoLocks": null,
@@ -241,7 +226,7 @@
     },
     "librime-lua": {
         "cargoLocks": null,
-        "date": "2024-02-06",
+        "date": "2024-04-13",
         "extract": null,
         "name": "librime-lua",
         "passthru": null,
@@ -251,12 +236,12 @@
             "fetchSubmodules": false,
             "leaveDotGit": false,
             "name": null,
-            "rev": "7f3eca2ce659fc2401b8acb52bd2182b433e12b1",
-            "sha256": "sha256-n+KCu8JmFBGPyfBgeLiFqND3wmQs/4eOZjqTXuaW+hk=",
+            "rev": "7c1b93965962b7c480d4d7f1a947e4712a9f0c5f",
+            "sha256": "sha256-H/ufyHIfYjAjF/Dt3CilL4x9uAXGcF1BkdAgzIbSGA8=",
             "type": "git",
             "url": "https://github.com/hchunhui/librime-lua.git"
         },
-        "version": "7f3eca2ce659fc2401b8acb52bd2182b433e12b1"
+        "version": "7c1b93965962b7c480d4d7f1a947e4712a9f0c5f"
     },
     "magit-gitflow": {
         "cargoLocks": null,
@@ -311,39 +296,9 @@
         },
         "version": "1ff5d20e854fd7be43ff07c88358fe3754f29af0"
     },
-    "my_cookies": {
-        "cargoLocks": null,
-        "date": null,
-        "extract": null,
-        "name": "my_cookies",
-        "passthru": null,
-        "pinned": false,
-        "src": {
-            "name": null,
-            "sha256": "sha256-3e5j0HFOXUyUo6YVUKQnbaxvAUtDoRTzGqW8HUfzrQ8=",
-            "type": "url",
-            "url": "https://pypi.org/packages/source/m/my_cookies/my_cookies-0.1.3.tar.gz"
-        },
-        "version": "0.1.3"
-    },
-    "newsapi-python": {
-        "cargoLocks": null,
-        "date": null,
-        "extract": null,
-        "name": "newsapi-python",
-        "passthru": null,
-        "pinned": false,
-        "src": {
-            "name": null,
-            "sha256": "sha256-pLZtXdmJIZjNqkdvdULyYlzdIY5eMSHI+ICyrOcXo8I=",
-            "type": "url",
-            "url": "https://pypi.org/packages/source/n/newsapi-python/newsapi-python-0.2.7.tar.gz"
-        },
-        "version": "0.2.7"
-    },
     "org-cv": {
         "cargoLocks": null,
-        "date": "2023-10-27",
+        "date": "2024-03-30",
         "extract": null,
         "name": "org-cv",
         "passthru": null,
@@ -353,16 +308,16 @@
             "fetchSubmodules": false,
             "leaveDotGit": false,
             "name": null,
-            "rev": "dbbe6e85b250f08acceb5647f2fbf9feb9b36858",
-            "sha256": "sha256-kJCgIXiFNL8L+TkjqqfRy+Rld9t1E5K1SlqLstmxuf0=",
+            "rev": "dd2f840050f37cf5cb02e683f9434445288f7627",
+            "sha256": "sha256-7YlJTQr2t1UNl1HJJxNoq8Yu8sfRxehXncH85cuPchU=",
             "type": "git",
             "url": "https://gitlab.com/Titan-C/org-cv.git"
         },
-        "version": "dbbe6e85b250f08acceb5647f2fbf9feb9b36858"
+        "version": "dd2f840050f37cf5cb02e683f9434445288f7627"
     },
     "tron-deployment": {
         "cargoLocks": null,
-        "date": "2023-09-07",
+        "date": "2024-03-21",
         "extract": null,
         "name": "tron-deployment",
         "passthru": null,
@@ -372,11 +327,11 @@
             "fetchSubmodules": false,
             "leaveDotGit": false,
             "name": null,
-            "rev": "4ab85be8a31130dca7b308594efa35a9d58012d8",
-            "sha256": "sha256-xzeo+y2irphn7+KgkfC/MTZqDYyWRYvZekErCb+NqhI=",
+            "rev": "14699a3d5348efdd84a54da023b955f163b2483d",
+            "sha256": "sha256-zFcMgzwIYvlq7yBttqWfj/aoqosQV13jaB0w/7Hp8FE=",
             "type": "git",
             "url": "https://github.com/tronprotocol/tron-deployment.git"
         },
-        "version": "4ab85be8a31130dca7b308594efa35a9d58012d8"
+        "version": "14699a3d5348efdd84a54da023b955f163b2483d"
     }
 }

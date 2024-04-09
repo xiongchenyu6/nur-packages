@@ -6,7 +6,7 @@ let
   version = fluxcd.version;
 in buildGoModule (source.fluxcd // {
 
-  vendorSha256 = "sha256-ifzzNEFXq2VzidaxCTdz7VZOCoA0zPcK6uL0CyBNrE4=";
+  vendorHash = "sha256-ifzzNEFXq2VzidaxCTdz7VZOCoA0zPcK6uL0CyBNrE4=";
 
   postUnpack = ''
     mkdir -p source/cmd/flux/manifests

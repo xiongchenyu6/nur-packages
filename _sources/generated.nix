@@ -3,58 +3,50 @@
 {
   bttc = {
     pname = "bttc";
-    version = "v1.0.8";
+    version = "v1.1.0";
     src = fetchFromGitHub {
       owner = "bttcprotocol";
       repo = "bttc";
-      rev = "v1.0.8";
+      rev = "v1.1.0";
       fetchSubmodules = true;
-      sha256 = "sha256-qMAeIyfQnlUxXZkyMOFz81pbAEnTN5lr5rS+h2q0KBQ=";
+      sha256 = "sha256-GQZGMhLu7PM8h6km4aADjYfCy43yVdwGePaLKAk9Be4=";
     };
   };
   combobulate = {
     pname = "combobulate";
-    version = "c7e4670a3047c0b58dff3746577a5c8e5832cfba";
+    version = "ee82c568ad639605518f62f82fae4bcc0dfdbb81";
     src = fetchgit {
       url = "https://github.com/mickeynp/combobulate.git";
-      rev = "c7e4670a3047c0b58dff3746577a5c8e5832cfba";
+      rev = "ee82c568ad639605518f62f82fae4bcc0dfdbb81";
       fetchSubmodules = false;
       deepClone = false;
       leaveDotGit = false;
-      sha256 = "sha256-oLxJfHN50GWlXZYmZP7ZGqyvwEG3h0HreLAfBqoWfBg=";
+      sha256 = "sha256-rww0/6304xZWTFRo1BVcfSDdXOXtlgmfZOxAoOIjYsk=";
     };
-    date = "2023-09-25";
+    date = "2024-03-11";
   };
   copilot-el = {
     pname = "copilot-el";
-    version = "284df2953ee1ba96bacce5be23c1e46896440794";
+    version = "edf517a57f539eb41eaa2f92c6752538f3a62b72";
     src = fetchgit {
       url = "https://github.com/zerolfx/copilot.el.git";
-      rev = "284df2953ee1ba96bacce5be23c1e46896440794";
+      rev = "edf517a57f539eb41eaa2f92c6752538f3a62b72";
       fetchSubmodules = false;
       deepClone = false;
       leaveDotGit = false;
-      sha256 = "sha256-gHM9UTJkKS/VlL2NFUu+UsMbXcMMaD/FCy8DGCK+cXA=";
+      sha256 = "sha256-53BGX2llkrM5mDmFSVe+O/Vo4F2gDJTFh/4TqBuQme8=";
     };
-    date = "2024-02-20";
+    date = "2024-04-15";
   };
   delivery = {
     pname = "delivery";
-    version = "v1.0.7";
+    version = "v1.0.8";
     src = fetchFromGitHub {
       owner = "bttcprotocol";
       repo = "delivery";
-      rev = "v1.0.7";
+      rev = "v1.0.8";
       fetchSubmodules = true;
-      sha256 = "sha256-euQ9V/fECKa2mdNNMuFV7ks1nsqVPCg0GI44WXnao24=";
-    };
-  };
-  epc = {
-    pname = "epc";
-    version = "0.0.5";
-    src = fetchurl {
-      url = "https://pypi.org/packages/source/e/epc/epc-0.0.5.tar.gz";
-      sha256 = "sha256-oU0up0gXlVog6wCBLjpGMKEyiX602XZCAkDxFSwNfSU=";
+      sha256 = "sha256-YB+tDVToqmKCkSp/mC75+Jtl/yHG5x5h+GDgLS3c8IU=";
     };
   };
   gitops = {
@@ -70,16 +62,16 @@
   };
   glab = {
     pname = "glab";
-    version = "3003a14f49c6b44a6f931e60898a3285ddabba51";
+    version = "2931bb3f4992448d233f7391f6cd26f2ad95aee5";
     src = fetchgit {
       url = "https://gitlab.com/gitlab-org/cli.git";
-      rev = "3003a14f49c6b44a6f931e60898a3285ddabba51";
+      rev = "2931bb3f4992448d233f7391f6cd26f2ad95aee5";
       fetchSubmodules = false;
       deepClone = false;
       leaveDotGit = false;
-      sha256 = "sha256-HsEg1cpOY8KXCpue95T3CRlCgKKJFwH0EkP7iTya6ZA=";
+      sha256 = "sha256-Aax52s1fsK5sKRJXrzWEVpnnreuFakRLFVZjE3nRkx8=";
     };
-    date = "2024-02-16";
+    date = "2024-04-23";
   };
   gotron-sdk = {
     pname = "gotron-sdk";
@@ -94,43 +86,43 @@
   };
   helmify = {
     pname = "helmify";
-    version = "v0.4.11";
+    version = "v0.4.12";
     src = fetchFromGitHub {
       owner = "arttor";
       repo = "helmify";
-      rev = "v0.4.11";
+      rev = "v0.4.12";
       fetchSubmodules = false;
-      sha256 = "sha256-q1k9YvfQPb7SE887ANLXKTFV3ABFAoJ2nPaIZjmLy8o=";
+      sha256 = "sha256-f8REO6VYCJztjfNh5vC8iT/kfM2v7ayaEJ3w/ywOrHk=";
     };
   };
   java-tron-full-node = {
     pname = "java-tron-full-node";
-    version = "GreatVoyage-v4.7.3.1";
+    version = "GreatVoyage-v4.7.4";
     src = fetchurl {
-      url = "https://github.com/tronprotocol/java-tron/releases/download/GreatVoyage-v4.7.3.1/FullNode.jar";
-      sha256 = "sha256-An4qvhO/Eh6vxnlvuFS/jtW+KEBzyowFiInWuo+H4AQ=";
+      url = "https://github.com/tronprotocol/java-tron/releases/download/GreatVoyage-v4.7.4/FullNode.jar";
+      sha256 = "sha256-OmGqytkIbNy2ibuq1WlSCauCIGq/QwR98+GnNvFWfCQ=";
     };
   };
   java-tron-solidity-node = {
     pname = "java-tron-solidity-node";
-    version = "GreatVoyage-v4.7.3.1";
+    version = "GreatVoyage-v4.7.4";
     src = fetchurl {
-      url = "https://github.com/tronprotocol/java-tron/releases/download/GreatVoyage-v4.7.3.1/SolidityNode.jar";
-      sha256 = "sha256-B0rI5yAxk4h6o14Qt7kX2SH3rGVYQlVt1334CbCTB/Y=";
+      url = "https://github.com/tronprotocol/java-tron/releases/download/GreatVoyage-v4.7.4/SolidityNode.jar";
+      sha256 = "sha256-7L7GbE6vnKY3/9FcJnO44spnxWHUO1ZU8idze9pV2SQ=";
     };
   };
   korb = {
     pname = "korb";
-    version = "ef71d3f89f0a3ad73c81d74c5e7546d81ee849b7";
+    version = "a2ae130b306e9de449c4333fda25684460c33cfe";
     src = fetchgit {
       url = "https://github.com/BeryJu/korb.git";
-      rev = "ef71d3f89f0a3ad73c81d74c5e7546d81ee849b7";
+      rev = "a2ae130b306e9de449c4333fda25684460c33cfe";
       fetchSubmodules = false;
       deepClone = false;
       leaveDotGit = false;
-      sha256 = "sha256-KG5FP12tTiXVFlJw59JxhbU/+792IAF6S+fBlnc6BEI=";
+      sha256 = "sha256-wLPAV2724fcHJGou0rCMvSY7oZaE+lcQHUPzTITU7dU=";
     };
-    date = "2024-02-15";
+    date = "2024-04-18";
   };
   launch = {
     pname = "launch";
@@ -147,16 +139,16 @@
   };
   librime-lua = {
     pname = "librime-lua";
-    version = "7f3eca2ce659fc2401b8acb52bd2182b433e12b1";
+    version = "7c1b93965962b7c480d4d7f1a947e4712a9f0c5f";
     src = fetchgit {
       url = "https://github.com/hchunhui/librime-lua.git";
-      rev = "7f3eca2ce659fc2401b8acb52bd2182b433e12b1";
+      rev = "7c1b93965962b7c480d4d7f1a947e4712a9f0c5f";
       fetchSubmodules = false;
       deepClone = false;
       leaveDotGit = false;
-      sha256 = "sha256-n+KCu8JmFBGPyfBgeLiFqND3wmQs/4eOZjqTXuaW+hk=";
+      sha256 = "sha256-H/ufyHIfYjAjF/Dt3CilL4x9uAXGcF1BkdAgzIbSGA8=";
     };
-    date = "2024-02-06";
+    date = "2024-04-13";
   };
   magit-gitflow = {
     pname = "magit-gitflow";
@@ -193,46 +185,30 @@
     };
     date = "2022-11-27";
   };
-  my_cookies = {
-    pname = "my_cookies";
-    version = "0.1.3";
-    src = fetchurl {
-      url = "https://pypi.org/packages/source/m/my_cookies/my_cookies-0.1.3.tar.gz";
-      sha256 = "sha256-3e5j0HFOXUyUo6YVUKQnbaxvAUtDoRTzGqW8HUfzrQ8=";
-    };
-  };
-  newsapi-python = {
-    pname = "newsapi-python";
-    version = "0.2.7";
-    src = fetchurl {
-      url = "https://pypi.org/packages/source/n/newsapi-python/newsapi-python-0.2.7.tar.gz";
-      sha256 = "sha256-pLZtXdmJIZjNqkdvdULyYlzdIY5eMSHI+ICyrOcXo8I=";
-    };
-  };
   org-cv = {
     pname = "org-cv";
-    version = "dbbe6e85b250f08acceb5647f2fbf9feb9b36858";
+    version = "dd2f840050f37cf5cb02e683f9434445288f7627";
     src = fetchgit {
       url = "https://gitlab.com/Titan-C/org-cv.git";
-      rev = "dbbe6e85b250f08acceb5647f2fbf9feb9b36858";
+      rev = "dd2f840050f37cf5cb02e683f9434445288f7627";
       fetchSubmodules = false;
       deepClone = false;
       leaveDotGit = false;
-      sha256 = "sha256-kJCgIXiFNL8L+TkjqqfRy+Rld9t1E5K1SlqLstmxuf0=";
+      sha256 = "sha256-7YlJTQr2t1UNl1HJJxNoq8Yu8sfRxehXncH85cuPchU=";
     };
-    date = "2023-10-27";
+    date = "2024-03-30";
   };
   tron-deployment = {
     pname = "tron-deployment";
-    version = "4ab85be8a31130dca7b308594efa35a9d58012d8";
+    version = "14699a3d5348efdd84a54da023b955f163b2483d";
     src = fetchgit {
       url = "https://github.com/tronprotocol/tron-deployment.git";
-      rev = "4ab85be8a31130dca7b308594efa35a9d58012d8";
+      rev = "14699a3d5348efdd84a54da023b955f163b2483d";
       fetchSubmodules = false;
       deepClone = false;
       leaveDotGit = false;
-      sha256 = "sha256-xzeo+y2irphn7+KgkfC/MTZqDYyWRYvZekErCb+NqhI=";
+      sha256 = "sha256-zFcMgzwIYvlq7yBttqWfj/aoqosQV13jaB0w/7Hp8FE=";
     };
-    date = "2023-09-07";
+    date = "2024-03-21";
   };
 }

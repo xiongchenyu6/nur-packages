@@ -32,7 +32,7 @@ let
 
     bttc = callPackage ./pkgs/bttc { };
 
-    glab = callPackage ./pkgs/glab { };
+    # glab = callPackage ./pkgs/glab { };
 
     # discourse-hb = callPackage ./pkgs/discourse { };
 
