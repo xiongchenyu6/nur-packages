@@ -3,6 +3,6 @@
 buildGoModule (source.helmify // {
   enableParallelBuilding = true;
   proxyVendor = true;
-  vendorHash = "sha256-FmgAHHpHH8D7YVvysAEI34nRHBgjhy9JFkYeBOYjSm8=";
+  vendorHash = "sha256-WME1hMPAih6q3RXyCAkBiKZ6TBnaCcuWf+B1DdlvT+o=";
   doCheck = false;
 })

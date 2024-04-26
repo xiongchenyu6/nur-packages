@@ -4,40 +4,26 @@
 {
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
-
-    flake-utils.url = "github:numtide/flake-utils";
-    devenv = {
-      url = "github:cachix/devenv";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    flake-parts.url = "github:hercules-ci/flake-parts";
   };
 
-  outputs = { self, nixpkgs, flake-utils, devenv, ... }@inputs:
-    flake-utils.lib.eachDefaultSystem (system:
-      let pkgs = import nixpkgs { inherit system; };
-      in {
-        packages.devenv-up = self.devShell.${system}.config.procfileScript;
-        devShell = devenv.lib.mkShell {
-          inherit inputs pkgs;
-          modules = [
-            ({ pkgs, ... }: {
-              packages = with pkgs; [ ];
-              env = {
-                # This is your devenv configuration
-                NODE_OPTIONS = "--openssl-legacy-provider";
-              };
-
-              # This is your devenv configuration
-              languages = {
-                javascript = {
-                  enable = true;
-                  corepack.enable = true;
-                };
-                typescript = { enable = true; };
-
-              };
-            })
-          ];
+  outputs = { nixpkgs, flake-parts, ... }@inputs:
+    flake-parts.lib.mkFlake { inherit inputs; } {
+      systems = [ "x86_64-linux" "aarch64-darwin" "x86_64-darwin" ];
+      perSystem = { config, self', inputs', pkgs, system, lib, ... }:
+        with pkgs; {
+          packages.default = stdenv.mkDerivation {
+            name = "corepack-shims";
+            buildInputs = [ nodejs ];
+            phases = [ "installPhase" ];
+            installPhase = ''
+              mkdir -p $out/bin
+              corepack enable --install-directory=$out/bin
+            '';
+          };
+          devShells.default = pkgs.mkShell {
+            buildInputs = with pkgs; [ nodejs self'.packages.default ];
+          };
         };
-      });
+    };
 }

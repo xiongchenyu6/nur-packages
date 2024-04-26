@@ -27,16 +27,16 @@
   };
   copilot-el = {
     pname = "copilot-el";
-    version = "edf517a57f539eb41eaa2f92c6752538f3a62b72";
+    version = "733bff26450255e092c10873580e9abfed8a81b8";
     src = fetchgit {
       url = "https://github.com/zerolfx/copilot.el.git";
-      rev = "edf517a57f539eb41eaa2f92c6752538f3a62b72";
+      rev = "733bff26450255e092c10873580e9abfed8a81b8";
       fetchSubmodules = false;
       deepClone = false;
       leaveDotGit = false;
-      sha256 = "sha256-53BGX2llkrM5mDmFSVe+O/Vo4F2gDJTFh/4TqBuQme8=";
+      sha256 = "sha256-Knp36PtgA73gtYO+W1clQfr570bKCxTFsGW3/iH86A0=";
     };
-    date = "2024-04-15";
+    date = "2024-05-01";
   };
   delivery = {
     pname = "delivery";
@@ -62,16 +62,16 @@
   };
   glab = {
     pname = "glab";
-    version = "2931bb3f4992448d233f7391f6cd26f2ad95aee5";
+    version = "dcd43293d415d8013febc1f091189b216420e179";
     src = fetchgit {
       url = "https://gitlab.com/gitlab-org/cli.git";
-      rev = "2931bb3f4992448d233f7391f6cd26f2ad95aee5";
+      rev = "dcd43293d415d8013febc1f091189b216420e179";
       fetchSubmodules = false;
       deepClone = false;
       leaveDotGit = false;
-      sha256 = "sha256-Aax52s1fsK5sKRJXrzWEVpnnreuFakRLFVZjE3nRkx8=";
+      sha256 = "sha256-lXw4FHd9naC+HTuEoI0GJGOC0ByDIxbgf8FLAmTJEWc=";
     };
-    date = "2024-04-23";
+    date = "2024-05-13";
   };
   gotron-sdk = {
     pname = "gotron-sdk";
@@ -113,16 +113,16 @@
   };
   korb = {
     pname = "korb";
-    version = "a2ae130b306e9de449c4333fda25684460c33cfe";
+    version = "e7d7933d674f7decad39fdd0f582bb1e4e5a938e";
     src = fetchgit {
       url = "https://github.com/BeryJu/korb.git";
-      rev = "a2ae130b306e9de449c4333fda25684460c33cfe";
+      rev = "e7d7933d674f7decad39fdd0f582bb1e4e5a938e";
       fetchSubmodules = false;
       deepClone = false;
       leaveDotGit = false;
-      sha256 = "sha256-wLPAV2724fcHJGou0rCMvSY7oZaE+lcQHUPzTITU7dU=";
+      sha256 = "sha256-Qxkd+ijkQAUrzj84aV8EY7ZGb5PU02Gaej7RnWrRyp4=";
     };
-    date = "2024-04-18";
+    date = "2024-05-13";
   };
   launch = {
     pname = "launch";
@@ -139,16 +139,16 @@
   };
   librime-lua = {
     pname = "librime-lua";
-    version = "7c1b93965962b7c480d4d7f1a947e4712a9f0c5f";
+    version = "43229d766f1e0f3198f61dc9d2e38bc1f921387f";
     src = fetchgit {
       url = "https://github.com/hchunhui/librime-lua.git";
-      rev = "7c1b93965962b7c480d4d7f1a947e4712a9f0c5f";
+      rev = "43229d766f1e0f3198f61dc9d2e38bc1f921387f";
       fetchSubmodules = false;
       deepClone = false;
       leaveDotGit = false;
-      sha256 = "sha256-H/ufyHIfYjAjF/Dt3CilL4x9uAXGcF1BkdAgzIbSGA8=";
+      sha256 = "sha256-JdT47lb3+HrDq3xbcm2nNHfL4/wg7h+ei+MMF6SbsGg=";
     };
-    date = "2024-04-13";
+    date = "2024-05-03";
   };
   magit-gitflow = {
     pname = "magit-gitflow";

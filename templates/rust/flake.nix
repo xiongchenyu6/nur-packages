@@ -1,31 +1,18 @@
 # SPDX-FileCopyrightText: 2021 Serokell <https://serokell.io/>
 #
 # SPDX-License-Identifier: CC0-1.0
-
 {
   inputs = {
-
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
-    flake-utils.url = "github:numtide/flake-utils";
-    devenv = {
-      url = "github:cachix/devenv";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    flake-parts.url = "github:hercules-ci/flake-parts";
   };
 
-  outputs = { nixpkgs, flake-utils, devenv, ... }@inputs:
-    flake-utils.lib.eachDefaultSystem (system:
-      let pkgs = import nixpkgs { inherit system; };
-      in {
-        devShell = devenv.lib.mkShell {
-          inherit inputs pkgs;
-          modules = [
-            ({ pkgs, ... }: {
-              # This is your devenv configuration
-              packages = with pkgs; [ ];
-              languages = { rust = { enable = true; }; };
-            })
-          ];
-        };
-      });
+  outputs = { nixpkgs, flake-parts, ... }@inputs:
+    flake-parts.lib.mkFlake { inherit inputs; } {
+      systems = [ "x86_64-linux" "aarch64-darwin" "x86_64-darwin" ];
+      perSystem = { config, self', inputs', pkgs, system, lib, ... }: {
+        devShells.default =
+          pkgs.mkShell { buildInputs = with pkgs; [ rustc cargo ]; };
+      };
+    };
 }

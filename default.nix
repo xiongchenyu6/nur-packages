@@ -44,18 +44,18 @@ let
 
     korb = callPackage ./pkgs/korb { };
 
-    oci-arm-host-capacity = (inputs.dream2nix.lib.makeFlakeOutputs {
-      pkgs = inputs.dream2nix.inputs.nixpkgs.legacyPackages."x86_64-linux";
-      source = inputs.oci-arm-host-capacity-src;
-      config.projectRoot = ./.;
-      autoProjects = true;
-    }).packages."x86_64-linux"."hitrov/oci-arm-host-capacity";
+    # oci-arm-host-capacity = (inputs.dream2nix.lib.makeFlakeOutputs {
+    #   pkgs = inputs.dream2nix.inputs.nixpkgs.legacyPackages."x86_64-linux";
+    #   source = inputs.oci-arm-host-capacity-src;
+    #   config.projectRoot = ./.;
+    #   autoProjects = true;
+    # }).packages."x86_64-linux"."hitrov/oci-arm-host-capacity";
 
-    my_cookies = callPackage ./pkgs/python3/my_cookies { };
+    # my_cookies = callPackage ./pkgs/python3/my_cookies { };
 
-    epc = callPackage ./pkgs/python3/epc { };
+    #epc = callPackage ./pkgs/python3/epc { };
 
-    newsapi-python = callPackage ./pkgs/python3/newsapi-python { };
+    #newsapi-python = callPackage ./pkgs/python3/newsapi-python { };
 
     copilot-el = callPackage ./pkgs/emacs/copilot { };
 
@@ -78,6 +78,8 @@ let
     ldap-extra-schemas = callPackage ./pkgs/ldap-extra-schemas { };
 
     default = bttc;
+
+    feishu-lark = callPackage ./pkgs/feishu-lark { };
 
     librime = (pkgs.librime.override {
       plugins = [ source.librime-lua.src ];
@@ -103,10 +105,10 @@ let
 
     sssd_with_sude = pkgs.sssd.override { withSudo = true; };
 
-    krb5_with_ldap = pkgs.krb5.overrideAttrs (old: {
-      configureFlags = old.configureFlags
-        ++ (if (old.pname == "libkrb5") then [ ] else [ "--with-ldap" ]);
-    });
+    # krb5_with_ldap = pkgs.krb5.overrideAttrs (old: {
+    #   configureFlags = old.configureFlags
+    #     ++ (if (old.pname == "libkrb5") then [ ] else [ "--with-ldap" ]);
+    # });
 
     sudo_with_sssd = pkgs.sudo.override {
       sssd = sssd;

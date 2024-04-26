@@ -3,7 +3,7 @@ let bin = "bttc";
 in buildGoModule (source.bttc // rec {
   enableParallelBuilding = true;
   proxyVendor = true;
-  vendorHash = "sha256-O56F2n9tdzsYBNCoPMgo3bVo2qbRyI25iIcKTKx4s/8=";
+  vendorHash = "sha256-NI9bvHYnTlLjmthqja4Ej4JAU2K9MeXjpeC53/05gSU=";
   subPackages = [ "cmd/geth" "cmd/bootnode" ];
   doCheck = false;
   postInstall = "mv $out/bin/geth $out/bin/${bin}";

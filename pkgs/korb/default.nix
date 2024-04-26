@@ -3,7 +3,7 @@
 buildGoModule (source.korb // {
   enableParallelBuilding = true;
   proxyVendor = true;
-  vendorHash = "sha256-h76HgkjJS97V86wk9D5xdfYHTxNiEhQRr6eCpK6hc0A=";
+  vendorHash = "sha256-SHAoQtjqds2EqJmyYZEtG2e7gUw87lYevqS7ZFK4Fc0=";
   doCheck = false;
   nativeBuildInputs = [ tree installShellFiles ];
   # postInstall = ''

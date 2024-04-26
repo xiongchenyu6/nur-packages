@@ -40,7 +40,7 @@
     },
     "copilot-el": {
         "cargoLocks": null,
-        "date": "2024-04-15",
+        "date": "2024-05-01",
         "extract": null,
         "name": "copilot-el",
         "passthru": null,
@@ -50,12 +50,12 @@
             "fetchSubmodules": false,
             "leaveDotGit": false,
             "name": null,
-            "rev": "edf517a57f539eb41eaa2f92c6752538f3a62b72",
-            "sha256": "sha256-53BGX2llkrM5mDmFSVe+O/Vo4F2gDJTFh/4TqBuQme8=",
+            "rev": "733bff26450255e092c10873580e9abfed8a81b8",
+            "sha256": "sha256-Knp36PtgA73gtYO+W1clQfr570bKCxTFsGW3/iH86A0=",
             "type": "git",
             "url": "https://github.com/zerolfx/copilot.el.git"
         },
-        "version": "edf517a57f539eb41eaa2f92c6752538f3a62b72"
+        "version": "733bff26450255e092c10873580e9abfed8a81b8"
     },
     "delivery": {
         "cargoLocks": null,
@@ -99,7 +99,7 @@
     },
     "glab": {
         "cargoLocks": null,
-        "date": "2024-04-23",
+        "date": "2024-05-13",
         "extract": null,
         "name": "glab",
         "passthru": null,
@@ -109,12 +109,12 @@
             "fetchSubmodules": false,
             "leaveDotGit": false,
             "name": null,
-            "rev": "2931bb3f4992448d233f7391f6cd26f2ad95aee5",
-            "sha256": "sha256-Aax52s1fsK5sKRJXrzWEVpnnreuFakRLFVZjE3nRkx8=",
+            "rev": "dcd43293d415d8013febc1f091189b216420e179",
+            "sha256": "sha256-lXw4FHd9naC+HTuEoI0GJGOC0ByDIxbgf8FLAmTJEWc=",
             "type": "git",
             "url": "https://gitlab.com/gitlab-org/cli.git"
         },
-        "version": "2931bb3f4992448d233f7391f6cd26f2ad95aee5"
+        "version": "dcd43293d415d8013febc1f091189b216420e179"
     },
     "gotron-sdk": {
         "cargoLocks": null,
@@ -188,7 +188,7 @@
     },
     "korb": {
         "cargoLocks": null,
-        "date": "2024-04-18",
+        "date": "2024-05-13",
         "extract": null,
         "name": "korb",
         "passthru": null,
@@ -198,12 +198,12 @@
             "fetchSubmodules": false,
             "leaveDotGit": false,
             "name": null,
-            "rev": "a2ae130b306e9de449c4333fda25684460c33cfe",
-            "sha256": "sha256-wLPAV2724fcHJGou0rCMvSY7oZaE+lcQHUPzTITU7dU=",
+            "rev": "e7d7933d674f7decad39fdd0f582bb1e4e5a938e",
+            "sha256": "sha256-Qxkd+ijkQAUrzj84aV8EY7ZGb5PU02Gaej7RnWrRyp4=",
             "type": "git",
             "url": "https://github.com/BeryJu/korb.git"
         },
-        "version": "a2ae130b306e9de449c4333fda25684460c33cfe"
+        "version": "e7d7933d674f7decad39fdd0f582bb1e4e5a938e"
     },
     "launch": {
         "cargoLocks": null,
@@ -226,7 +226,7 @@
     },
     "librime-lua": {
         "cargoLocks": null,
-        "date": "2024-04-13",
+        "date": "2024-05-03",
         "extract": null,
         "name": "librime-lua",
         "passthru": null,
@@ -236,12 +236,12 @@
             "fetchSubmodules": false,
             "leaveDotGit": false,
             "name": null,
-            "rev": "7c1b93965962b7c480d4d7f1a947e4712a9f0c5f",
-            "sha256": "sha256-H/ufyHIfYjAjF/Dt3CilL4x9uAXGcF1BkdAgzIbSGA8=",
+            "rev": "43229d766f1e0f3198f61dc9d2e38bc1f921387f",
+            "sha256": "sha256-JdT47lb3+HrDq3xbcm2nNHfL4/wg7h+ei+MMF6SbsGg=",
             "type": "git",
             "url": "https://github.com/hchunhui/librime-lua.git"
         },
-        "version": "7c1b93965962b7c480d4d7f1a947e4712a9f0c5f"
+        "version": "43229d766f1e0f3198f61dc9d2e38bc1f921387f"
     },
     "magit-gitflow": {
         "cargoLocks": null,
