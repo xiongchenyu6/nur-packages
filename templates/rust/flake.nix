@@ -14,6 +14,9 @@
         devShells.default =
           with pkgs; mkShell{
             buildInputs = [
+                            nixfmt-rfc-style
+              nil
+
             rustc
             cargo
             rust-analyzer
