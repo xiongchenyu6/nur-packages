@@ -12,7 +12,16 @@
       systems = [ "x86_64-linux" "aarch64-darwin" "x86_64-darwin" ];
       perSystem = { config, self', inputs', pkgs, system, lib, ... }: {
         devShells.default =
-          pkgs.mkShell { buildInputs = with pkgs; [ rustc cargo ]; };
+          with pkgs; mkShell{
+            buildInputs = [
+            rustc
+            cargo
+            rust-analyzer
+            clippy
+            openssl
+          ];
+            nativeBuildInputs = [ pkg-config ];
+         };
       };
     };
 }

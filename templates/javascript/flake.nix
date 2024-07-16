@@ -23,6 +23,13 @@
           };
           devShells.default = pkgs.mkShell {
             buildInputs = with pkgs; [ nodejs self'.packages.default ];
+            shellHook = let
+              lib-path = lib.makeLibraryPath
+                (with pkgs; lib.optionals stdenv.isLinux [ stdenv.cc.cc ]);
+            in ''
+              export "LD_LIBRARY_PATH=$LD_LIBRARY_PATH:${lib-path}"
+            '';
+
           };
         };
     };
