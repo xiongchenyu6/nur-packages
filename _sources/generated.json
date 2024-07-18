@@ -40,7 +40,7 @@
     },
     "copilot-el": {
         "cargoLocks": null,
-        "date": "2024-05-01",
+        "date": "2024-07-12",
         "extract": null,
         "name": "copilot-el",
         "passthru": null,
@@ -50,12 +50,12 @@
             "fetchSubmodules": false,
             "leaveDotGit": false,
             "name": null,
-            "rev": "733bff26450255e092c10873580e9abfed8a81b8",
-            "sha256": "sha256-Knp36PtgA73gtYO+W1clQfr570bKCxTFsGW3/iH86A0=",
+            "rev": "eedd881fd9b3574d77ec2499f877dc26d875fffb",
+            "sha256": "sha256-GgmjxuDIq8LUhf2D3He5obgreLUqO9N/4/xn0iF7cFo=",
             "type": "git",
             "url": "https://github.com/zerolfx/copilot.el.git"
         },
-        "version": "733bff26450255e092c10873580e9abfed8a81b8"
+        "version": "eedd881fd9b3574d77ec2499f877dc26d875fffb"
     },
     "delivery": {
         "cargoLocks": null,
@@ -99,7 +99,7 @@
     },
     "glab": {
         "cargoLocks": null,
-        "date": "2024-05-13",
+        "date": "2024-07-18",
         "extract": null,
         "name": "glab",
         "passthru": null,
@@ -109,12 +109,12 @@
             "fetchSubmodules": false,
             "leaveDotGit": false,
             "name": null,
-            "rev": "dcd43293d415d8013febc1f091189b216420e179",
-            "sha256": "sha256-lXw4FHd9naC+HTuEoI0GJGOC0ByDIxbgf8FLAmTJEWc=",
+            "rev": "78049bdba62f7ebefe9fa9717b57c93dbc03e980",
+            "sha256": "sha256-VsqaCG1oPq2oAQXhLGz0w2jMp849IVIYZ0DeYf4U2Io=",
             "type": "git",
             "url": "https://gitlab.com/gitlab-org/cli.git"
         },
-        "version": "dcd43293d415d8013febc1f091189b216420e179"
+        "version": "78049bdba62f7ebefe9fa9717b57c93dbc03e980"
     },
     "gotron-sdk": {
         "cargoLocks": null,
@@ -150,11 +150,11 @@
             "name": null,
             "owner": "arttor",
             "repo": "helmify",
-            "rev": "v0.4.12",
-            "sha256": "sha256-f8REO6VYCJztjfNh5vC8iT/kfM2v7ayaEJ3w/ywOrHk=",
+            "rev": "v0.4.13",
+            "sha256": "sha256-3gz75S7u/Gli7yHktNUIPveib+J0mFaizMKaloJKMWs=",
             "type": "github"
         },
-        "version": "v0.4.12"
+        "version": "v0.4.13"
     },
     "java-tron-full-node": {
         "cargoLocks": null,
@@ -165,11 +165,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-OmGqytkIbNy2ibuq1WlSCauCIGq/QwR98+GnNvFWfCQ=",
+            "sha256": "sha256-riyjWg+SuAKB3RVU4q1TPOb//9L5oD39VMXu187atZ0=",
             "type": "url",
-            "url": "https://github.com/tronprotocol/java-tron/releases/download/GreatVoyage-v4.7.4/FullNode.jar"
+            "url": "https://github.com/tronprotocol/java-tron/releases/download/GreatVoyage-v4.7.5/FullNode.jar"
         },
-        "version": "GreatVoyage-v4.7.4"
+        "version": "GreatVoyage-v4.7.5"
     },
     "java-tron-solidity-node": {
         "cargoLocks": null,
@@ -180,15 +180,15 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-7L7GbE6vnKY3/9FcJnO44spnxWHUO1ZU8idze9pV2SQ=",
+            "sha256": "sha256-ABJmNgs1EMDjNGTz1HmJ0/R8TWy9e7CXP6m2Q24MU9Q=",
             "type": "url",
-            "url": "https://github.com/tronprotocol/java-tron/releases/download/GreatVoyage-v4.7.4/SolidityNode.jar"
+            "url": "https://github.com/tronprotocol/java-tron/releases/download/GreatVoyage-v4.7.5/SolidityNode.jar"
         },
-        "version": "GreatVoyage-v4.7.4"
+        "version": "GreatVoyage-v4.7.5"
     },
     "korb": {
         "cargoLocks": null,
-        "date": "2024-05-13",
+        "date": null,
         "extract": null,
         "name": "korb",
         "passthru": null,
@@ -198,12 +198,13 @@
             "fetchSubmodules": false,
             "leaveDotGit": false,
             "name": null,
-            "rev": "e7d7933d674f7decad39fdd0f582bb1e4e5a938e",
-            "sha256": "sha256-Qxkd+ijkQAUrzj84aV8EY7ZGb5PU02Gaej7RnWrRyp4=",
-            "type": "git",
-            "url": "https://github.com/BeryJu/korb.git"
+            "owner": "BeryJu",
+            "repo": "korb",
+            "rev": "v2.3.2",
+            "sha256": "sha256-4f5Ii75Pc+88ONiEWAQG7A6NaKvQ5/1jqu3O0f7AaVI=",
+            "type": "github"
         },
-        "version": "e7d7933d674f7decad39fdd0f582bb1e4e5a938e"
+        "version": "v2.3.2"
     },
     "launch": {
         "cargoLocks": null,
@@ -226,7 +227,7 @@
     },
     "librime-lua": {
         "cargoLocks": null,
-        "date": "2024-05-03",
+        "date": "2024-05-19",
         "extract": null,
         "name": "librime-lua",
         "passthru": null,
@@ -236,12 +237,12 @@
             "fetchSubmodules": false,
             "leaveDotGit": false,
             "name": null,
-            "rev": "43229d766f1e0f3198f61dc9d2e38bc1f921387f",
-            "sha256": "sha256-JdT47lb3+HrDq3xbcm2nNHfL4/wg7h+ei+MMF6SbsGg=",
+            "rev": "7be6974b6d81c116bba39f6707dc640f6636fa4e",
+            "sha256": "sha256-jsrnAFE99d0U0LdddTL7G1p416qJfSNR935TZFH3Swk=",
             "type": "git",
             "url": "https://github.com/hchunhui/librime-lua.git"
         },
-        "version": "43229d766f1e0f3198f61dc9d2e38bc1f921387f"
+        "version": "7be6974b6d81c116bba39f6707dc640f6636fa4e"
     },
     "magit-gitflow": {
         "cargoLocks": null,

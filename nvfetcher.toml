@@ -85,6 +85,5 @@ src.branch = "main"
 fetch.git = "https://github.com/zerolfx/copilot.el.git"
 
 [korb]
-src.git = "https://github.com/BeryJu/korb.git"
-src.branch = "main"
-fetch.git = "https://github.com/BeryJu/korb.git"
+src.github = "BeryJu/korb"
+fetch.github = "BeryJu/korb"
