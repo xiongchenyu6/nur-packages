@@ -14,14 +14,14 @@
         devShells.default =
           with pkgs; mkShell{
             buildInputs = [
-                            nixfmt-rfc-style
-              nil
-
+            nixfmt-rfc-style
+            nil
             rustc
             cargo
             rust-analyzer
             clippy
             openssl
+            rustfmt
           ];
             nativeBuildInputs = [ pkg-config ];
          };
