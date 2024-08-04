@@ -21,14 +21,12 @@
               corepack enable --install-directory=$out/bin
             '';
           };
-          devShells.default = pkgs.mkShell {
-            buildInputs = with pkgs; [ nodejs self'.packages.default ];
-            shellHook = let
+          devShells.default = let
               lib-path = lib.makeLibraryPath
                 (with pkgs; lib.optionals stdenv.isLinux [ stdenv.cc.cc ]);
-            in ''
-              export "LD_LIBRARY_PATH=$LD_LIBRARY_PATH:${lib-path}"
-            '';
+            in  pkgs.mkShell {
+            buildInputs = with pkgs; [ nodejs self'.packages.default ];
+            LD_LIBRARY_PATH="$LD_LIBRARY_PATH:${lib-path}";
 
           };
         };
