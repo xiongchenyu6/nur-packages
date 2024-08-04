@@ -5,26 +5,30 @@
 # Having pkgs default to <nixpkgs> is fine though, and it lets you use short
 # commands such as:
 #     nix-build -A mypackage
-{ pkgs ? import <nixpkgs> { }, lib, inputs, ... }:
+{
+  pkgs ? import <nixpkgs> { },
+  lib,
+  inputs,
+  ...
+}:
 with pkgs;
 with builtins;
 let
-  source = callPackage ./_sources/generated.nix {
-    inherit fetchFromGitHub fetchurl fetchgit;
-  };
-  sourcee = callPackage ./_sources/generated.nix {
-    inherit fetchFromGitHub fetchurl fetchgit;
-  };
+  source = callPackage ./_sources/generated.nix { inherit fetchFromGitHub fetchurl fetchgit; };
+  sourcee = callPackage ./_sources/generated.nix { inherit fetchFromGitHub fetchurl fetchgit; };
 
   allPkgs = my-pkgs // pkgs // { inherit source sourcee; };
   callPackage = lib.callPackageWith allPkgs;
   my-pkgs = rec {
-    launch = stdenv.mkDerivation (source.launch // {
-      installPhase = ''
-        mkdir -p $out;
-        cp -r . $out;
-      '';
-    });
+    launch = stdenv.mkDerivation (
+      source.launch
+      // {
+        installPhase = ''
+          mkdir -p $out;
+          cp -r . $out;
+        '';
+      }
+    );
 
     pg-ldap-sync = callPackage ./pkgs/pg-ldap-sync { };
 
@@ -59,6 +63,8 @@ let
 
     copilot-el = callPackage ./pkgs/emacs/copilot { };
 
+    copilot-chat = callPackage ./pkgs/emacs/copilot-chat { };
+
     # org-cv = callPackage ./pkgs/emacs/org-cv { };
 
     combobulate = callPackage ./pkgs/emacs/combobulate { };
@@ -79,29 +85,35 @@ let
 
     default = bttc;
 
-    feishu-lark = callPackage ./pkgs/feishu-lark { };
+    # feishu-lark = callPackage ./pkgs/feishu-lark { };
 
-    librime = (pkgs.librime.override {
-      plugins = [ source.librime-lua.src ];
+    librime =
+      (pkgs.librime.override {
+        plugins = [ source.librime-lua.src ];
 
-    }).overrideAttrs (old: { buildInputs = old.buildInputs ++ [ pkgs.lua ]; });
+      }).overrideAttrs
+        (old: {
+          buildInputs = old.buildInputs ++ [ pkgs.lua ];
+        });
 
-    cyrus_sasl_with_ldap =
-      (pkgs.cyrus_sasl.override { enableLdap = true; }).overrideAttrs (_: {
-        postInstall = ''
-          ln -sf ${ldap-passthrough-conf}/slapd.conf $out/lib/sasl2/
-          ln -sf ${ldap-passthrough-conf}/smtpd.conf $out/lib/sasl2/
-        '';
-      });
+    cyrus_sasl_with_ldap = (pkgs.cyrus_sasl.override { enableLdap = true; }).overrideAttrs (_: {
+      postInstall = ''
+        ln -sf ${ldap-passthrough-conf}/slapd.conf $out/lib/sasl2/
+        ln -sf ${ldap-passthrough-conf}/smtpd.conf $out/lib/sasl2/
+      '';
+    });
 
-    openldap_with_cyrus_sasl = (pkgs.openldap.overrideAttrs (old: {
-      configureFlags = old.configureFlags
-        ++ [ "--enable-spasswd" "--with-cyrus-sasl" ];
-      doCheck = false;
-    })).override { cyrus_sasl = cyrus_sasl_with_ldap; };
+    openldap_with_cyrus_sasl =
+      (pkgs.openldap.overrideAttrs (old: {
+        configureFlags = old.configureFlags ++ [
+          "--enable-spasswd"
+          "--with-cyrus-sasl"
+        ];
+        doCheck = false;
+      })).override
+        { cyrus_sasl = cyrus_sasl_with_ldap; };
 
-    postfix_with_ldap =
-      pkgs.postfix.override { cyrus_sasl = cyrus_sasl_with_ldap; };
+    postfix_with_ldap = pkgs.postfix.override { cyrus_sasl = cyrus_sasl_with_ldap; };
 
     sssd_with_sude = pkgs.sssd.override { withSudo = true; };
 
@@ -116,4 +128,5 @@ let
       withSssd = true;
     };
   };
-in my-pkgs
+in
+my-pkgs

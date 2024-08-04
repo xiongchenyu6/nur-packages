@@ -38,6 +38,26 @@
         },
         "version": "ee82c568ad639605518f62f82fae4bcc0dfdbb81"
     },
+    "copilot-chat": {
+        "cargoLocks": null,
+        "date": null,
+        "extract": null,
+        "name": "copilot-chat",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "chep",
+            "repo": "copilot-chat.el",
+            "rev": "v1.0.1",
+            "sha256": "sha256-vuIO6nM2JrYXUxEotmChYQNyWAsU7MJ2DXuHmAvyViQ=",
+            "type": "github"
+        },
+        "version": "v1.0.1"
+    },
     "copilot-el": {
         "cargoLocks": null,
         "date": "2024-07-24",

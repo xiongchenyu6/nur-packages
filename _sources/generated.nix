@@ -25,6 +25,17 @@
     };
     date = "2024-03-11";
   };
+  copilot-chat = {
+    pname = "copilot-chat";
+    version = "v1.0.1";
+    src = fetchFromGitHub {
+      owner = "chep";
+      repo = "copilot-chat.el";
+      rev = "v1.0.1";
+      fetchSubmodules = false;
+      sha256 = "sha256-vuIO6nM2JrYXUxEotmChYQNyWAsU7MJ2DXuHmAvyViQ=";
+    };
+  };
   copilot-el = {
     pname = "copilot-el";
     version = "f831b2b8375950eb1cc282d15ccc78ed90f30a1a";
