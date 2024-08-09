@@ -38,16 +38,16 @@
   };
   copilot-el = {
     pname = "copilot-el";
-    version = "f831b2b8375950eb1cc282d15ccc78ed90f30a1a";
+    version = "3af3a5f8877fd5c6c55454f5c5bf076a56608939";
     src = fetchgit {
       url = "https://github.com/zerolfx/copilot.el.git";
-      rev = "f831b2b8375950eb1cc282d15ccc78ed90f30a1a";
+      rev = "3af3a5f8877fd5c6c55454f5c5bf076a56608939";
       fetchSubmodules = false;
       deepClone = false;
       leaveDotGit = false;
-      sha256 = "sha256-knqDqPWu2YwFWw59jopf0bTnpCoh5Ydf+Rcz/i//VIw=";
+      sha256 = "sha256-xT8++/EFo/OGqZwSxbzckOdcuhQqeRUt8VoN3fyA0dg=";
     };
-    date = "2024-07-24";
+    date = "2024-08-05";
   };
   delivery = {
     pname = "delivery";
@@ -73,16 +73,16 @@
   };
   glab = {
     pname = "glab";
-    version = "7d6f9dceb77f99f8a1bd5ff0c340f8960029736c";
+    version = "e455e6f2c620e58d14e537e8f31e431d87a8563d";
     src = fetchgit {
       url = "https://gitlab.com/gitlab-org/cli.git";
-      rev = "7d6f9dceb77f99f8a1bd5ff0c340f8960029736c";
+      rev = "e455e6f2c620e58d14e537e8f31e431d87a8563d";
       fetchSubmodules = false;
       deepClone = false;
       leaveDotGit = false;
-      sha256 = "sha256-KMWsQGGiK2ZWsbY1hDvKrMhDlS00b6fa7Nj+CFgOhiU=";
+      sha256 = "sha256-jiMM+ZT/ueZDHzj83OTCCicarpoqtzvF3EupVxJm3Ng=";
     };
-    date = "2024-08-01";
+    date = "2024-08-06";
   };
   gotron-sdk = {
     pname = "gotron-sdk";

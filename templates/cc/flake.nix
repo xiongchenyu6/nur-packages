@@ -12,7 +12,7 @@
       systems = [ "x86_64-linux" "aarch64-darwin" "x86_64-darwin" ];
       perSystem = { config, self', inputs', pkgs, system, lib, ... }: {
         devShells.default =
-          pkgs.mkShell { buildInputs = with pkgs; [ clang bear ]; };
+          pkgs.mkShell { buildInputs = with pkgs; [ clang bear cmake]; };
       };
     };
 }

@@ -21,8 +21,8 @@
     description = "A grossly incandescent and minimal nixos rust config";
   };
 
-  cpp = {
-    path = ./cpp;
+  cc = {
+    path = ./cc;
     description = "A grossly incandescent and minimal nixos cpp config";
   };
 
