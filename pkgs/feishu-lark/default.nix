@@ -1,32 +1,79 @@
-{ addOpenGLRunpath, alsa-lib, at-spi2-atk, at-spi2-core, atk, autoPatchelfHook
-, cairo, cups, curl, dbus, dpkg, expat, fetchurl, fontconfig, freetype
-, gdk-pixbuf, glib, glibc, gnutls, gtk3, lib, libGL, xorg, libappindicator-gtk3
-, libcxx, libdbusmenu, libxkbcommon, libdrm, libgcrypt, libglvnd, libnotify
-, libpulseaudio, libuuid, makeShellWrapper, mesa, nspr, nss, pango, pciutils
-, pipewire, pixman, stdenv, systemd, wayland, wrapGAppsHook, xdg-utils
+{
+  addOpenGLRunpath,
+  alsa-lib,
+  at-spi2-atk,
+  at-spi2-core,
+  atk,
+  autoPatchelfHook,
+  cairo,
+  cups,
+  curl,
+  dbus,
+  dpkg,
+  expat,
+  fetchurl,
+  fontconfig,
+  freetype,
+  gdk-pixbuf,
+  glib,
+  glibc,
+  gnutls,
+  gtk3,
+  lib,
+  libGL,
+  xorg,
+  libappindicator-gtk3,
+  libcxx,
+  libdbusmenu,
+  libxkbcommon,
+  libdrm,
+  libgcrypt,
+  libglvnd,
+  libnotify,
+  libpulseaudio,
+  libuuid,
+  makeShellWrapper,
+  mesa,
+  nspr,
+  nss,
+  pango,
+  pciutils,
+  pipewire,
+  pixman,
+  stdenv,
+  systemd,
+  wayland,
+  wrapGAppsHook,
+  xdg-utils,
 
-# for custom command line arguments, e.g. "--use-gl=desktop"
-, commandLineArgs ? "" }@args:
+  # for custom command line arguments, e.g. "--use-gl=desktop"
+  commandLineArgs ? "",
+}@args:
 
 ################################################################################
 # Mostly based on dingtalk-bin package from AUR:
 # https://aur.archlinux.org/packages/dingtalk-bin
 ################################################################################
 
-let version = "7.11.9";
+let
+  version = "7.18.11";
 
-in stdenv.mkDerivation rec {
+in
+stdenv.mkDerivation rec {
   pname = "feishu-lark";
-  packageHash = "21bed243"; # A hash value used in the download url
+  packageHash = "c29ca886"; # A hash value used in the download url
 
   inherit version;
   src = fetchurl {
-    url =
-      "https://sf16-va.larksuitecdn.com/obj/lark-artifact-storage/${packageHash}/Lark-linux_x64-${version}.deb";
-    sha256 = "sha256-re0U2lDzLVWvyxcZuGXl5LX0RAfXldZs1SAO9O/Lcag=";
+    url = "https://sf16-va.larksuitecdn.com/obj/lark-artifact-storage/${packageHash}/Lark-linux_x64-${version}.deb";
+    sha256 = "sha256-EeKP5jK1xnwRqtJ9h7w6FxC5EGIh68nF3AIJUMgetq0=";
   };
 
-  nativeBuildInputs = [ autoPatchelfHook makeShellWrapper dpkg ];
+  nativeBuildInputs = [
+    autoPatchelfHook
+    makeShellWrapper
+    dpkg
+  ];
 
   buildInputs = [
     gtk3
@@ -120,8 +167,7 @@ in stdenv.mkDerivation rec {
         --prefix LD_LIBRARY_PATH  :  ${rpath}:$out/opt/bytedance/lark:${addOpenGLRunpath.driverLink}/share \
         --add-flags "\''${NIXOS_OZONE_WL:+\''${WAYLAND_DISPLAY:+ --enable-features=WaylandWindowDecorations}}" \
         ${
-          lib.optionalString (commandLineArgs != "")
-          "--add-flags ${lib.escapeShellArg commandLineArgs}"
+          lib.optionalString (commandLineArgs != "") "--add-flags ${lib.escapeShellArg commandLineArgs}"
         }
     done
 

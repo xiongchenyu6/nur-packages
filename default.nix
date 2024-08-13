@@ -85,7 +85,7 @@ let
 
     default = bttc;
 
-    # feishu-lark = callPackage ./pkgs/feishu-lark { };
+    feishu-lark = callPackage ./pkgs/feishu-lark { };
 
     librime =
       (pkgs.librime.override {

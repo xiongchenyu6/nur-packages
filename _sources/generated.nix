@@ -73,16 +73,16 @@
   };
   glab = {
     pname = "glab";
-    version = "e455e6f2c620e58d14e537e8f31e431d87a8563d";
+    version = "f1ea77c742ae1cb099ee91140338d25c0826ac37";
     src = fetchgit {
       url = "https://gitlab.com/gitlab-org/cli.git";
-      rev = "e455e6f2c620e58d14e537e8f31e431d87a8563d";
+      rev = "f1ea77c742ae1cb099ee91140338d25c0826ac37";
       fetchSubmodules = false;
       deepClone = false;
       leaveDotGit = false;
-      sha256 = "sha256-jiMM+ZT/ueZDHzj83OTCCicarpoqtzvF3EupVxJm3Ng=";
+      sha256 = "sha256-Ic3WsIf/6apQf7I9FEcnLfeertBQjZcedRgt959B3ZE=";
     };
-    date = "2024-08-06";
+    date = "2024-08-12";
   };
   gotron-sdk = {
     pname = "gotron-sdk";
