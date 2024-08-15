@@ -12,7 +12,7 @@
       systems = [ "x86_64-linux" "aarch64-darwin" "x86_64-darwin" ];
       perSystem = { config, self', inputs', pkgs, system, lib, ... }: {
         devShells.default =
-          with pkgs; mkShell{
+          with pkgs; mkShell.override {stdenv = pkgs.clangStdenv; }{
             RUST_SRC_PATH = "${pkgs.rust.packages.stable.rustPlatform.rustLibSrc}";
             RUST_BACKTRACE = 1;
 

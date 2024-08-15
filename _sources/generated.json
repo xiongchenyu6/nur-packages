@@ -119,7 +119,7 @@
     },
     "glab": {
         "cargoLocks": null,
-        "date": "2024-08-12",
+        "date": "2024-08-15",
         "extract": null,
         "name": "glab",
         "passthru": null,
@@ -129,12 +129,12 @@
             "fetchSubmodules": false,
             "leaveDotGit": false,
             "name": null,
-            "rev": "f1ea77c742ae1cb099ee91140338d25c0826ac37",
-            "sha256": "sha256-Ic3WsIf/6apQf7I9FEcnLfeertBQjZcedRgt959B3ZE=",
+            "rev": "ef4e0e21bac363957d0c64b96a51a19a5cd0a52e",
+            "sha256": "sha256-iA68SQaKTmfoghNLRz3h7gVmELbteVsdZ8dgKREI6ws=",
             "type": "git",
             "url": "https://gitlab.com/gitlab-org/cli.git"
         },
-        "version": "f1ea77c742ae1cb099ee91140338d25c0826ac37"
+        "version": "ef4e0e21bac363957d0c64b96a51a19a5cd0a52e"
     },
     "gotron-sdk": {
         "cargoLocks": null,
