@@ -38,16 +38,16 @@
   };
   copilot-el = {
     pname = "copilot-el";
-    version = "3af3a5f8877fd5c6c55454f5c5bf076a56608939";
+    version = "535ef61e82f09d744cd5b097b1fc99f08cce175c";
     src = fetchgit {
       url = "https://github.com/zerolfx/copilot.el.git";
-      rev = "3af3a5f8877fd5c6c55454f5c5bf076a56608939";
+      rev = "535ef61e82f09d744cd5b097b1fc99f08cce175c";
       fetchSubmodules = false;
       deepClone = false;
       leaveDotGit = false;
-      sha256 = "sha256-xT8++/EFo/OGqZwSxbzckOdcuhQqeRUt8VoN3fyA0dg=";
+      sha256 = "sha256-/ZDnEZWUFcKnUtFrd/4C7LX16GAdUQncU8ZnYzntKS0=";
     };
-    date = "2024-08-05";
+    date = "2024-08-16";
   };
   delivery = {
     pname = "delivery";
@@ -73,16 +73,16 @@
   };
   glab = {
     pname = "glab";
-    version = "ef4e0e21bac363957d0c64b96a51a19a5cd0a52e";
+    version = "344899d77d2c10a0257de384fff4c39eb4c7a478";
     src = fetchgit {
       url = "https://gitlab.com/gitlab-org/cli.git";
-      rev = "ef4e0e21bac363957d0c64b96a51a19a5cd0a52e";
+      rev = "344899d77d2c10a0257de384fff4c39eb4c7a478";
       fetchSubmodules = false;
       deepClone = false;
       leaveDotGit = false;
-      sha256 = "sha256-iA68SQaKTmfoghNLRz3h7gVmELbteVsdZ8dgKREI6ws=";
+      sha256 = "sha256-sFy6B3Bbtdo6eOyK9SkPUMybJUUUKy/Xyd2JSHtQ7RI=";
     };
-    date = "2024-08-15";
+    date = "2024-08-19";
   };
   gotron-sdk = {
     pname = "gotron-sdk";
@@ -148,16 +148,16 @@
   };
   librime-lua = {
     pname = "librime-lua";
-    version = "7be6974b6d81c116bba39f6707dc640f6636fa4e";
+    version = "fa6563cf7b40f3bfbf09e856420bff8de6820558";
     src = fetchgit {
       url = "https://github.com/hchunhui/librime-lua.git";
-      rev = "7be6974b6d81c116bba39f6707dc640f6636fa4e";
+      rev = "fa6563cf7b40f3bfbf09e856420bff8de6820558";
       fetchSubmodules = false;
       deepClone = false;
       leaveDotGit = false;
-      sha256 = "sha256-jsrnAFE99d0U0LdddTL7G1p416qJfSNR935TZFH3Swk=";
+      sha256 = "sha256-jv5TZSp36UGbaRiXv9iUNLu3DE/yrWANQhY6TWLPD8c=";
     };
-    date = "2024-05-19";
+    date = "2024-08-19";
   };
   magit-gitflow = {
     pname = "magit-gitflow";
