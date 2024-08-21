@@ -42,11 +42,11 @@
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1723320709,
-        "narHash": "sha256-DeKCsLQsS58D8TB/cTjXs2x8XMvsyv2JVxcF0Hu6pu8=",
+        "lastModified": 1724177844,
+        "narHash": "sha256-G7Mf9uN9m8FimeP3eMHu/dOC4QS8QAzo0h4ZIlDHcCA=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "e1d92cda6fd1bcec60e4938ce92fcee619eea793",
+        "rev": "d13fa5a45a34e7c8be33474f58003914430bdc5a",
         "type": "github"
       },
       "original": {
@@ -71,11 +71,11 @@
     "oci-arm-host-capacity-src": {
       "flake": false,
       "locked": {
-        "lastModified": 1703349394,
-        "narHash": "sha256-2p0jpl2SlyEvZ+xvZMhZz9Mk+dHEfmxgd1Ht5o9cSFo=",
+        "lastModified": 1723563078,
+        "narHash": "sha256-aCo6UDqG+9YVNf3W6pxmx1ml+ApdyyRhtzcVTaPdG/o=",
         "owner": "hitrov",
         "repo": "oci-arm-host-capacity",
-        "rev": "369de7b2851f1b22db34f95ba02001d5c9f839c7",
+        "rev": "ea70acaf92bedcf0900a9209bdd8c31106b0df83",
         "type": "github"
       },
       "original": {
