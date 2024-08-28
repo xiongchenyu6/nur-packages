@@ -87,6 +87,8 @@ let
 
     feishu-lark = callPackage ./pkgs/feishu-lark { };
 
+    cursor = callPackage ./pkgs/cursor { };
+
     librime =
       (pkgs.librime.override {
         plugins = [ source.librime-lua.src ];
