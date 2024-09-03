@@ -35,4 +35,9 @@
     path = ./shell;
     description = "A grossly incandescent and minimal nixos shell config";
   };
+
+  cuda = {
+    path = ./cuda;
+    description = "A grossly incandescent and minimal nixos cuda config";
+  };
 }

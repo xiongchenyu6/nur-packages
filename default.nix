@@ -89,6 +89,7 @@ let
 
     cursor = callPackage ./pkgs/cursor { };
 
+    haystack-editor = callPackage ./pkgs/haystack-editor { };
     librime =
       (pkgs.librime.override {
         plugins = [ source.librime-lua.src ];
