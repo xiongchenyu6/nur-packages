@@ -14,7 +14,8 @@
       perSystem = { config, self', inputs', pkgs, system, lib, ... }: {
         devShells.default =
           pkgs.mkShell {          
-            buildInputs = with pkgs; [
+            buildInputs = with pkgs; [             nixfmt-rfc-style
+            nil
               git gitRepo gnupg autoconf curl
               procps gnumake util-linux m4 gperf unzip
               cudatoolkit linuxPackages.nvidia_x11

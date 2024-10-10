@@ -21,7 +21,7 @@
     },
     "combobulate": {
         "cargoLocks": null,
-        "date": "2024-03-11",
+        "date": "2024-10-01",
         "extract": null,
         "name": "combobulate",
         "passthru": null,
@@ -31,12 +31,12 @@
             "fetchSubmodules": false,
             "leaveDotGit": false,
             "name": null,
-            "rev": "ee82c568ad639605518f62f82fae4bcc0dfdbb81",
-            "sha256": "sha256-rww0/6304xZWTFRo1BVcfSDdXOXtlgmfZOxAoOIjYsk=",
+            "rev": "a6aeea6f8a735c1abfeff351608f4ce37f990820",
+            "sha256": "sha256-brrHRoJ/Cz7nKgYSPbXFLwXm213DLAnJAUvisItirew=",
             "type": "git",
             "url": "https://github.com/mickeynp/combobulate.git"
         },
-        "version": "ee82c568ad639605518f62f82fae4bcc0dfdbb81"
+        "version": "a6aeea6f8a735c1abfeff351608f4ce37f990820"
     },
     "copilot-chat": {
         "cargoLocks": null,
@@ -60,7 +60,7 @@
     },
     "copilot-el": {
         "cargoLocks": null,
-        "date": "2024-08-16",
+        "date": "2024-09-25",
         "extract": null,
         "name": "copilot-el",
         "passthru": null,
@@ -70,12 +70,12 @@
             "fetchSubmodules": false,
             "leaveDotGit": false,
             "name": null,
-            "rev": "535ef61e82f09d744cd5b097b1fc99f08cce175c",
-            "sha256": "sha256-/ZDnEZWUFcKnUtFrd/4C7LX16GAdUQncU8ZnYzntKS0=",
+            "rev": "b5878d6a8c741138b5efbf4fe1c594f3fd69dbdd",
+            "sha256": "sha256-02ywlMPku1FIritZjjtxbQW6MmPvSwmRCrudYsUb8bU=",
             "type": "git",
             "url": "https://github.com/zerolfx/copilot.el.git"
         },
-        "version": "535ef61e82f09d744cd5b097b1fc99f08cce175c"
+        "version": "b5878d6a8c741138b5efbf4fe1c594f3fd69dbdd"
     },
     "delivery": {
         "cargoLocks": null,
@@ -119,7 +119,7 @@
     },
     "glab": {
         "cargoLocks": null,
-        "date": "2024-08-29",
+        "date": "2024-10-10",
         "extract": null,
         "name": "glab",
         "passthru": null,
@@ -129,12 +129,12 @@
             "fetchSubmodules": false,
             "leaveDotGit": false,
             "name": null,
-            "rev": "14cf200ab82eb6cea0f16462041fb2d6ac636cc4",
-            "sha256": "sha256-V5L6pT2vemgkTq9TwzBoav0Anugcu7xMa7/PV8UazmI=",
+            "rev": "9c9f43dd4072ae78d85c2e400560cd3e47d2eebe",
+            "sha256": "sha256-XqfW6dxfvHTfHcuY39SCAovrd+jYx2ahChseUN5gR7s=",
             "type": "git",
             "url": "https://gitlab.com/gitlab-org/cli.git"
         },
-        "version": "14cf200ab82eb6cea0f16462041fb2d6ac636cc4"
+        "version": "9c9f43dd4072ae78d85c2e400560cd3e47d2eebe"
     },
     "gotron-sdk": {
         "cargoLocks": null,
@@ -170,11 +170,11 @@
             "name": null,
             "owner": "arttor",
             "repo": "helmify",
-            "rev": "v0.4.13",
-            "sha256": "sha256-3gz75S7u/Gli7yHktNUIPveib+J0mFaizMKaloJKMWs=",
+            "rev": "v0.4.14",
+            "sha256": "sha256-6aPS6/jSZGJz0goNvQ5wSEuCsSVS7D++8iMfI40jueY=",
             "type": "github"
         },
-        "version": "v0.4.13"
+        "version": "v0.4.14"
     },
     "java-tron-full-node": {
         "cargoLocks": null,
@@ -185,11 +185,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-riyjWg+SuAKB3RVU4q1TPOb//9L5oD39VMXu187atZ0=",
+            "sha256": "sha256-2QcQZlu+27v1VOyASSi72iuhoRP+VZBX5jTISSQUxmM=",
             "type": "url",
-            "url": "https://github.com/tronprotocol/java-tron/releases/download/GreatVoyage-v4.7.5/FullNode.jar"
+            "url": "https://github.com/tronprotocol/java-tron/releases/download/GreatVoyage-v4.7.6/FullNode.jar"
         },
-        "version": "GreatVoyage-v4.7.5"
+        "version": "GreatVoyage-v4.7.6"
     },
     "java-tron-solidity-node": {
         "cargoLocks": null,
@@ -200,11 +200,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-ABJmNgs1EMDjNGTz1HmJ0/R8TWy9e7CXP6m2Q24MU9Q=",
+            "sha256": "sha256-x9mFCztI8c/jCfmTxm92DmGA8YhCHGhz0NSaMJWfhgE=",
             "type": "url",
-            "url": "https://github.com/tronprotocol/java-tron/releases/download/GreatVoyage-v4.7.5/SolidityNode.jar"
+            "url": "https://github.com/tronprotocol/java-tron/releases/download/GreatVoyage-v4.7.6/SolidityNode.jar"
         },
-        "version": "GreatVoyage-v4.7.5"
+        "version": "GreatVoyage-v4.7.6"
     },
     "korb": {
         "cargoLocks": null,

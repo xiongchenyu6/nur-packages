@@ -23,11 +23,14 @@
           };
           devShells.default = let
               lib-path = lib.makeLibraryPath
-                (with pkgs; lib.optionals stdenv.isLinux [ stdenv.cc.cc ]);
+                (with pkgs; lib.optionals stdenv.isLinux [ nixfmt-rfc-stylenil stdenv.cc.cc ]);
             in  pkgs.mkShell {
-            buildInputs = with pkgs; [ nodejs self'.packages.default ];
+              buildInputs = with pkgs; [
+                nixfmt-rfc-style
+                nil
+                nodejs
+                self'.packages.default ];
             LD_LIBRARY_PATH="$LD_LIBRARY_PATH:${lib-path}";
-
           };
         };
     };

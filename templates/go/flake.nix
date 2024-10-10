@@ -12,7 +12,9 @@
       systems = [ "x86_64-linux" "aarch64-darwin" "x86_64-darwin" ];
       perSystem = { config, self', inputs', pkgs, system, lib, ... }: {
         devShells.default =
-          pkgs.mkShell { buildInputs = with pkgs; [ go golsp ]; };
+          pkgs.mkShell { buildInputs = with pkgs; [            nixfmt-rfc-style
+            nil
+ go golsp ]; };
       };
     };
 }

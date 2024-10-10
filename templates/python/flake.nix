@@ -19,7 +19,7 @@
             ];
           shellHook = let
             lib-path = lib.makeLibraryPath (with pkgs;
-              lib.optionals stdenv.isLinux [ opencv libGL glib stdenv.cc.cc ]);
+              lib.optionals stdenv.isLinux [ nixfmt-rfc-stylenilopencv libGL glib stdenv.cc.cc ]);
           in ''
             # Allow the use of wheels.
             SOURCE_DATE_EPOCH=$(date +%s)

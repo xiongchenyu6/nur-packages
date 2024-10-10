@@ -13,7 +13,9 @@
       systems = [ "x86_64-linux" "aarch64-darwin" "x86_64-darwin" ];
       perSystem = { config, self', inputs', pkgs, system, lib, ... }: {
         devShells.default =
-          pkgs.mkShell.override {stdenv = pkgs.clangStdenv; } { buildInputs = with pkgs; [ clang bear cmake]; };
+          pkgs.mkShell.override {stdenv = pkgs.clangStdenv; } { buildInputs = with pkgs; [            nixfmt-rfc-style
+            nil
+ clang bear cmake]; };
       };
     };
 }
