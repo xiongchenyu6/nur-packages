@@ -10,7 +10,11 @@ in
 epkgs.trivialBuild (
   source.copilot-chat
   // {
-    packageRequires = with epkgs; [ markdown-mode ];
+    packageRequires = with epkgs; [
+      markdown-mode
+      request
+      shell-maker
+    ];
 
     # postInstall = ''
     #   ls assets

@@ -10,9 +10,9 @@ fetch.url = "https://github.com/tronprotocol/java-tron/releases/download/$ver/Fu
 src.github = "tronprotocol/java-tron"
 fetch.url = "https://github.com/tronprotocol/java-tron/releases/download/$ver/SolidityNode.jar"
 
-[glab]
-src.git = "https://gitlab.com/gitlab-org/cli.git"
-fetch.git = "https://gitlab.com/gitlab-org/cli.git"
+*% [glab]
+*% src.git = "https://gitlab.com/gitlab-org/cli.git"
+*% fetch.git = "https://gitlab.com/gitlab-org/cli.git"
 
 #go
 [bttc]
@@ -91,3 +91,8 @@ fetch.git = "https://github.com/zerolfx/copilot.el.git"
 [korb]
 src.github = "BeryJu/korb"
 fetch.github = "BeryJu/korb"
+
+[albert]
+src.github = "albertlauncher/albert"
+fetch.github = "albertlauncher/albert"
+git.fetchSubmodules = true

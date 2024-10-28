@@ -1,4 +1,24 @@
 {
+    "albert": {
+        "cargoLocks": null,
+        "date": null,
+        "extract": null,
+        "name": "albert",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": true,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "albertlauncher",
+            "repo": "albert",
+            "rev": "v0.26.6",
+            "sha256": "sha256-Z4YgqqtJPYMzpnMt74TX2Hi0AEMyhRc2QHSVuwuaxfE=",
+            "type": "github"
+        },
+        "version": "v0.26.6"
+    },
     "bttc": {
         "cargoLocks": null,
         "date": null,
@@ -21,7 +41,7 @@
     },
     "combobulate": {
         "cargoLocks": null,
-        "date": "2024-10-01",
+        "date": "2024-10-18",
         "extract": null,
         "name": "combobulate",
         "passthru": null,
@@ -31,12 +51,12 @@
             "fetchSubmodules": false,
             "leaveDotGit": false,
             "name": null,
-            "rev": "a6aeea6f8a735c1abfeff351608f4ce37f990820",
-            "sha256": "sha256-brrHRoJ/Cz7nKgYSPbXFLwXm213DLAnJAUvisItirew=",
+            "rev": "e9c5be84062e8183f556d7133d5a477a57e37e51",
+            "sha256": "sha256-r6jObsYx7RRTJUmrCN5h3+0WcHqJA67emhr4/W3rBrM=",
             "type": "git",
             "url": "https://github.com/mickeynp/combobulate.git"
         },
-        "version": "a6aeea6f8a735c1abfeff351608f4ce37f990820"
+        "version": "e9c5be84062e8183f556d7133d5a477a57e37e51"
     },
     "copilot-chat": {
         "cargoLocks": null,
@@ -52,11 +72,11 @@
             "name": null,
             "owner": "chep",
             "repo": "copilot-chat.el",
-            "rev": "v1.0.1",
-            "sha256": "sha256-vuIO6nM2JrYXUxEotmChYQNyWAsU7MJ2DXuHmAvyViQ=",
+            "rev": "v1.2.0",
+            "sha256": "sha256-EVDky/pETKUh/yoIIcMrO+ZAJ+MeTS6l/CplrlKostw=",
             "type": "github"
         },
-        "version": "v1.0.1"
+        "version": "v1.2.0"
     },
     "copilot-el": {
         "cargoLocks": null,
@@ -119,7 +139,7 @@
     },
     "glab": {
         "cargoLocks": null,
-        "date": "2024-10-10",
+        "date": "2024-10-27",
         "extract": null,
         "name": "glab",
         "passthru": null,
@@ -129,12 +149,12 @@
             "fetchSubmodules": false,
             "leaveDotGit": false,
             "name": null,
-            "rev": "9c9f43dd4072ae78d85c2e400560cd3e47d2eebe",
-            "sha256": "sha256-XqfW6dxfvHTfHcuY39SCAovrd+jYx2ahChseUN5gR7s=",
+            "rev": "c5081d0c9515b736609e7546b648a5b809f3adb8",
+            "sha256": "sha256-YLHB6mBuX1sLzpy5uYx9fWJ+ha6vFj217E0GCML8OT0=",
             "type": "git",
             "url": "https://gitlab.com/gitlab-org/cli.git"
         },
-        "version": "9c9f43dd4072ae78d85c2e400560cd3e47d2eebe"
+        "version": "c5081d0c9515b736609e7546b648a5b809f3adb8"
     },
     "gotron-sdk": {
         "cargoLocks": null,
@@ -247,7 +267,7 @@
     },
     "librime-lua": {
         "cargoLocks": null,
-        "date": "2024-08-19",
+        "date": "2024-10-27",
         "extract": null,
         "name": "librime-lua",
         "passthru": null,
@@ -257,12 +277,12 @@
             "fetchSubmodules": false,
             "leaveDotGit": false,
             "name": null,
-            "rev": "fa6563cf7b40f3bfbf09e856420bff8de6820558",
-            "sha256": "sha256-jv5TZSp36UGbaRiXv9iUNLu3DE/yrWANQhY6TWLPD8c=",
+            "rev": "1bde771a044c5db505f3da65d25a806c0dcadc01",
+            "sha256": "sha256-UuwK0pXZsJ/dxXqU1DzrwmgJqnYnztrtPihVzJGQxMs=",
             "type": "git",
             "url": "https://github.com/hchunhui/librime-lua.git"
         },
-        "version": "fa6563cf7b40f3bfbf09e856420bff8de6820558"
+        "version": "1bde771a044c5db505f3da65d25a806c0dcadc01"
     },
     "magit-gitflow": {
         "cargoLocks": null,

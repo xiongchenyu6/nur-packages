@@ -87,7 +87,9 @@ let
 
     feishu-lark = callPackage ./pkgs/feishu-lark { };
 
-    cursor = callPackage ./pkgs/cursor { };
+    #cursor = callPackage ./pkgs/cursor { };
+
+    #albert = callPackage ./pkgs/albert { };
 
     haystack-editor = callPackage ./pkgs/haystack-editor { };
     librime =
