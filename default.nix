@@ -91,6 +91,8 @@ let
 
     #albert = callPackage ./pkgs/albert { };
 
+    sui-testnet = callPackage ./pkgs/sui-testnet { };
+
     haystack-editor = callPackage ./pkgs/haystack-editor { };
     librime =
       (pkgs.librime.override {

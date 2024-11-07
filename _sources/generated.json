@@ -1,24 +1,4 @@
 {
-    "albert": {
-        "cargoLocks": null,
-        "date": null,
-        "extract": null,
-        "name": "albert",
-        "passthru": null,
-        "pinned": false,
-        "src": {
-            "deepClone": false,
-            "fetchSubmodules": true,
-            "leaveDotGit": false,
-            "name": null,
-            "owner": "albertlauncher",
-            "repo": "albert",
-            "rev": "v0.26.6",
-            "sha256": "sha256-Z4YgqqtJPYMzpnMt74TX2Hi0AEMyhRc2QHSVuwuaxfE=",
-            "type": "github"
-        },
-        "version": "v0.26.6"
-    },
     "bttc": {
         "cargoLocks": null,
         "date": null,
@@ -137,25 +117,6 @@
         },
         "version": "v0.38.0"
     },
-    "glab": {
-        "cargoLocks": null,
-        "date": "2024-10-27",
-        "extract": null,
-        "name": "glab",
-        "passthru": null,
-        "pinned": false,
-        "src": {
-            "deepClone": false,
-            "fetchSubmodules": false,
-            "leaveDotGit": false,
-            "name": null,
-            "rev": "c5081d0c9515b736609e7546b648a5b809f3adb8",
-            "sha256": "sha256-YLHB6mBuX1sLzpy5uYx9fWJ+ha6vFj217E0GCML8OT0=",
-            "type": "git",
-            "url": "https://gitlab.com/gitlab-org/cli.git"
-        },
-        "version": "c5081d0c9515b736609e7546b648a5b809f3adb8"
-    },
     "gotron-sdk": {
         "cargoLocks": null,
         "date": null,
@@ -267,7 +228,7 @@
     },
     "librime-lua": {
         "cargoLocks": null,
-        "date": "2024-10-27",
+        "date": "2024-11-02",
         "extract": null,
         "name": "librime-lua",
         "passthru": null,
@@ -277,12 +238,12 @@
             "fetchSubmodules": false,
             "leaveDotGit": false,
             "name": null,
-            "rev": "1bde771a044c5db505f3da65d25a806c0dcadc01",
-            "sha256": "sha256-UuwK0pXZsJ/dxXqU1DzrwmgJqnYnztrtPihVzJGQxMs=",
+            "rev": "b210d0cfbd2a3cc6edd4709dd0a92c479bfca10b",
+            "sha256": "sha256-ETjLN40G4I0FEsQgNY8JM4AInqyb3yJwEJTGqdIHGWg=",
             "type": "git",
             "url": "https://github.com/hchunhui/librime-lua.git"
         },
-        "version": "1bde771a044c5db505f3da65d25a806c0dcadc01"
+        "version": "b210d0cfbd2a3cc6edd4709dd0a92c479bfca10b"
     },
     "magit-gitflow": {
         "cargoLocks": null,
@@ -355,6 +316,21 @@
             "url": "https://gitlab.com/Titan-C/org-cv.git"
         },
         "version": "dd2f840050f37cf5cb02e683f9434445288f7627"
+    },
+    "sui": {
+        "cargoLocks": null,
+        "date": null,
+        "extract": null,
+        "name": "sui",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-qbdVV/0iz1DWaR6TnygdrzelVAhmGcKEOSVylJaVvYU=",
+            "type": "url",
+            "url": "https://github.com/MystenLabs/sui/releases/download/testnet-v1.37.1/sui-testnet-v1.37.1-ubuntu-x86_64.tgz"
+        },
+        "version": "testnet-v1.37.1"
     },
     "tron-deployment": {
         "cargoLocks": null,
