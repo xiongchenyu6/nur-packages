@@ -93,6 +93,8 @@ let
 
     sui-testnet = callPackage ./pkgs/sui-testnet { };
 
+    record_screen = callPackage ./pkgs/record_screen { };
+
     haystack-editor = callPackage ./pkgs/haystack-editor { };
     librime =
       (pkgs.librime.override {
