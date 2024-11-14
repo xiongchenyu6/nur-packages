@@ -89,7 +89,7 @@ let
 
     #cursor = callPackage ./pkgs/cursor { };
 
-    #albert = callPackage ./pkgs/albert { };
+    albert = callPackage ./pkgs/albert { };
 
     sui-testnet = callPackage ./pkgs/sui-testnet { };
 

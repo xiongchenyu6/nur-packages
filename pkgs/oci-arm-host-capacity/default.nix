@@ -1,5 +1,5 @@
 { php, php81Packages, curl, stdenv, git, source, lib, ... }:
-stdenv.mkDerivation (source.oci-arm-host-capacity // {
+stdenv.mkDerivation (source. // {
   enableParallelBuilding = true;
   buildInputs = [ curl php php81Packages.composer ];
 

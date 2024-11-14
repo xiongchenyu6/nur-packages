@@ -15,7 +15,7 @@
           buildInputs = with pkgs;
             [
               (python3.withPackages
-                (python-pkgs: [ python-pkgs.virtualenvwrapper ]))
+                (python-pkgs: [ python-pkgs.virtualenvwrapper python-pkgs.pip ]))
             ];
           shellHook = let
             lib-path = lib.makeLibraryPath (with pkgs;

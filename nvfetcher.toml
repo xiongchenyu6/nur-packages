@@ -96,7 +96,7 @@ fetch.git = "https://github.com/zerolfx/copilot.el.git"
 src.github = "BeryJu/korb"
 fetch.github = "BeryJu/korb"
 
-# [albert]
-# src.github = "albertlauncher/albert"
-# fetch.github = "albertlauncher/albert"
-# git.fetchSubmodules = true
+[albert]
+src.github = "albertlauncher/albert"
+fetch.github = "albertlauncher/albert"
+git.fetchSubmodules = true
