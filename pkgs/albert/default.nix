@@ -7,7 +7,7 @@
   libqalculate,
   muparser,
   libarchive,
-  python3Packages,
+  python311Packages,
   nix-update-script,
   pkg-config,
   source,
@@ -19,7 +19,7 @@ stdenv.mkDerivation (
     source.albert
     // {
       pname = "albert";
-      version = "0.26.6";
+      version = "0.26.7";
 
       nativeBuildInputs = [
         cmake
@@ -40,7 +40,7 @@ stdenv.mkDerivation (
           qt6.qt5compat
           qt6.qttools
         ]
-        ++ (with python3Packages; [
+        ++ (with python311Packages; [
           python
           pybind11
         ]);
