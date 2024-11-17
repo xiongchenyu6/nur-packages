@@ -69,7 +69,7 @@ stdenv.mkDerivation rec {
   inherit version;
   src = fetchurl {
     url = "https://d2dv27o1k99orf.cloudfront.net/Haystack+Editor+Linux.zip";
-    sha256 = "sha256-nutmeKGcHg+Boj9f7875b4nWU/orwUrvKGcoPLG6+58=";
+    sha256 = "sha256-YcWQYwWol4cDGgHd4bRYfC879I8BkRkvRyFcTWheOpY=";
   };
 
   nativeBuildInputs = [

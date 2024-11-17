@@ -1,4 +1,3 @@
-
 # SPDX-FileCopyrightText: 2021 Serokell <https://serokell.io/>
 #
 # SPDX-License-Identifier: CC0-1.0
@@ -8,14 +7,35 @@
     flake-parts.url = "github:hercules-ci/flake-parts";
   };
 
-  outputs = { nixpkgs, flake-parts, ... }@inputs:
+  outputs =
+    { nixpkgs, flake-parts, ... }@inputs:
     flake-parts.lib.mkFlake { inherit inputs; } {
-      systems = [ "x86_64-linux" "aarch64-darwin" "x86_64-darwin" ];
-      perSystem = { config, self', inputs', pkgs, system, lib, ... }: {
-        devShells.default =
-          pkgs.mkShell.override {stdenv = pkgs.clangStdenv; } { buildInputs = with pkgs; [            nixfmt-rfc-style
-            nil
- clang bear cmake]; };
-      };
+      systems = [
+        "x86_64-linux"
+        "aarch64-darwin"
+        "x86_64-darwin"
+      ];
+      perSystem =
+        {
+          config,
+          self',
+          inputs',
+          pkgs,
+          system,
+          lib,
+          ...
+        }:
+        {
+          devShells.default = pkgs.mkShell.override { stdenv = pkgs.clangStdenv; } {
+            nativeBuildInputs = with pkgs; [
+              nixfmt-rfc-style
+              nixd
+              clang
+              bear
+              cmake
+            ];
+            buildInputs = with pkgs; [ ];
+          };
+        };
     };
 }

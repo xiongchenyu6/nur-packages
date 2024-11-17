@@ -45,7 +45,6 @@
   wayland,
   wrapGAppsHook,
   xdg-utils,
-
   # for custom command line arguments, e.g. "--use-gl=desktop"
   commandLineArgs ? "",
 }@args:
@@ -77,7 +76,6 @@ stdenv.mkDerivation rec {
 
   buildInputs = [
     gtk3
-
     # for autopatchelf
     alsa-lib
     cups

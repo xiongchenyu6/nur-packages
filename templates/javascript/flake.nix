@@ -7,11 +7,26 @@
     flake-parts.url = "github:hercules-ci/flake-parts";
   };
 
-  outputs = { nixpkgs, flake-parts, ... }@inputs:
+  outputs =
+    { nixpkgs, flake-parts, ... }@inputs:
     flake-parts.lib.mkFlake { inherit inputs; } {
-      systems = [ "x86_64-linux" "aarch64-darwin" "x86_64-darwin" ];
-      perSystem = { config, self', inputs', pkgs, system, lib, ... }:
-        with pkgs; {
+      systems = [
+        "x86_64-linux"
+        "aarch64-darwin"
+        "x86_64-darwin"
+      ];
+      perSystem =
+        {
+          config,
+          self',
+          inputs',
+          pkgs,
+          system,
+          lib,
+          ...
+        }:
+        with pkgs;
+        {
           packages.default = stdenv.mkDerivation {
             name = "corepack-shims";
             buildInputs = [ nodejs ];
@@ -21,17 +36,25 @@
               corepack enable --install-directory=$out/bin
             '';
           };
-          devShells.default = let
-              lib-path = lib.makeLibraryPath
-                (with pkgs; lib.optionals stdenv.isLinux [ nixfmt-rfc-stylenil stdenv.cc.cc ]);
-            in  pkgs.mkShell {
+          devShells.default =
+            let
+              lib-path = lib.makeLibraryPath (
+                with pkgs;
+                lib.optionals stdenv.isLinux [
+                  nixfmt-rfc-style
+                  stdenv.cc.cc
+                ]
+              );
+            in
+            pkgs.mkShell {
               buildInputs = with pkgs; [
                 nixfmt-rfc-style
-                nil
+                nixd
                 nodejs
-                self'.packages.default ];
-            LD_LIBRARY_PATH="$LD_LIBRARY_PATH:${lib-path}";
-          };
+                self'.packages.default
+              ];
+              LD_LIBRARY_PATH = "$LD_LIBRARY_PATH:${lib-path}";
+            };
         };
     };
 }
