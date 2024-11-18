@@ -13,11 +13,11 @@
             "name": null,
             "owner": "albertlauncher",
             "repo": "albert",
-            "rev": "v0.26.7",
-            "sha256": "sha256-eXfSpLO1ccreFBUYi6BYmqLJek01Jc0AFUci8iUaAYw=",
+            "rev": "v0.26.8",
+            "sha256": "sha256-MwQhYskt2SEVUUTgN/XLoXe1NiztOs7gWBUrD5xUjTg=",
             "type": "github"
         },
-        "version": "v0.26.7"
+        "version": "v0.26.8"
     },
     "bttc": {
         "cargoLocks": null,
@@ -80,7 +80,7 @@
     },
     "copilot-el": {
         "cargoLocks": null,
-        "date": "2024-09-25",
+        "date": "2024-11-18",
         "extract": null,
         "name": "copilot-el",
         "passthru": null,
@@ -90,12 +90,12 @@
             "fetchSubmodules": false,
             "leaveDotGit": false,
             "name": null,
-            "rev": "b5878d6a8c741138b5efbf4fe1c594f3fd69dbdd",
-            "sha256": "sha256-02ywlMPku1FIritZjjtxbQW6MmPvSwmRCrudYsUb8bU=",
+            "rev": "88b10203705a9cdcbc232e7d2914f6b12217a885",
+            "sha256": "sha256-oTAxayxrEiIu0GUtsqaL/pCY0ElU1RjZp7OXgqqJqnA=",
             "type": "git",
             "url": "https://github.com/zerolfx/copilot.el.git"
         },
-        "version": "b5878d6a8c741138b5efbf4fe1c594f3fd69dbdd"
+        "version": "88b10203705a9cdcbc232e7d2914f6b12217a885"
     },
     "delivery": {
         "cargoLocks": null,
@@ -171,11 +171,11 @@
             "name": null,
             "owner": "arttor",
             "repo": "helmify",
-            "rev": "v0.4.14",
-            "sha256": "sha256-6aPS6/jSZGJz0goNvQ5wSEuCsSVS7D++8iMfI40jueY=",
+            "rev": "v0.4.16",
+            "sha256": "sha256-Q7NUetrQmjNACCg9QCJpGj3/wGmC0z26GKtW9T0ZPLg=",
             "type": "github"
         },
-        "version": "v0.4.14"
+        "version": "v0.4.16"
     },
     "java-tron-full-node": {
         "cargoLocks": null,
@@ -346,11 +346,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-jr3aMXZ4u6k+iikPRmsMBShwZsnFNKCkBv8CQkz3l6A=",
+            "sha256": "sha256-HTCytNuE+2fML3qK2rAOhDrVgM45m4VsmVK+pBy1eDA=",
             "type": "url",
-            "url": "https://github.com/MystenLabs/sui/releases/download/testnet-v1.37.3/sui-testnet-v1.37.3-ubuntu-x86_64.tgz"
+            "url": "https://github.com/MystenLabs/sui/releases/download/testnet-v1.38.0/sui-testnet-v1.38.0-ubuntu-x86_64.tgz"
         },
-        "version": "testnet-v1.37.3"
+        "version": "testnet-v1.38.0"
     },
     "tron-deployment": {
         "cargoLocks": null,

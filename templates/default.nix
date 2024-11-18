@@ -40,4 +40,9 @@
     path = ./cuda;
     description = "A grossly incandescent and minimal nixos cuda config";
   };
+  terraform = {
+    path = ./terraform;
+    description = "A grossly incandescent and minimal nixos terraform config";
+  };
+
 }

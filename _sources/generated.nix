@@ -3,13 +3,13 @@
 {
   albert = {
     pname = "albert";
-    version = "v0.26.7";
+    version = "v0.26.8";
     src = fetchFromGitHub {
       owner = "albertlauncher";
       repo = "albert";
-      rev = "v0.26.7";
+      rev = "v0.26.8";
       fetchSubmodules = true;
-      sha256 = "sha256-eXfSpLO1ccreFBUYi6BYmqLJek01Jc0AFUci8iUaAYw=";
+      sha256 = "sha256-MwQhYskt2SEVUUTgN/XLoXe1NiztOs7gWBUrD5xUjTg=";
     };
   };
   bttc = {
@@ -49,16 +49,16 @@
   };
   copilot-el = {
     pname = "copilot-el";
-    version = "b5878d6a8c741138b5efbf4fe1c594f3fd69dbdd";
+    version = "88b10203705a9cdcbc232e7d2914f6b12217a885";
     src = fetchgit {
       url = "https://github.com/zerolfx/copilot.el.git";
-      rev = "b5878d6a8c741138b5efbf4fe1c594f3fd69dbdd";
+      rev = "88b10203705a9cdcbc232e7d2914f6b12217a885";
       fetchSubmodules = false;
       deepClone = false;
       leaveDotGit = false;
-      sha256 = "sha256-02ywlMPku1FIritZjjtxbQW6MmPvSwmRCrudYsUb8bU=";
+      sha256 = "sha256-oTAxayxrEiIu0GUtsqaL/pCY0ElU1RjZp7OXgqqJqnA=";
     };
-    date = "2024-09-25";
+    date = "2024-11-18";
   };
   delivery = {
     pname = "delivery";
@@ -95,13 +95,13 @@
   };
   helmify = {
     pname = "helmify";
-    version = "v0.4.14";
+    version = "v0.4.16";
     src = fetchFromGitHub {
       owner = "arttor";
       repo = "helmify";
-      rev = "v0.4.14";
+      rev = "v0.4.16";
       fetchSubmodules = false;
-      sha256 = "sha256-6aPS6/jSZGJz0goNvQ5wSEuCsSVS7D++8iMfI40jueY=";
+      sha256 = "sha256-Q7NUetrQmjNACCg9QCJpGj3/wGmC0z26GKtW9T0ZPLg=";
     };
   };
   java-tron-full-node = {
@@ -207,10 +207,10 @@
   };
   sui = {
     pname = "sui";
-    version = "testnet-v1.37.3";
+    version = "testnet-v1.38.0";
     src = fetchurl {
-      url = "https://github.com/MystenLabs/sui/releases/download/testnet-v1.37.3/sui-testnet-v1.37.3-ubuntu-x86_64.tgz";
-      sha256 = "sha256-jr3aMXZ4u6k+iikPRmsMBShwZsnFNKCkBv8CQkz3l6A=";
+      url = "https://github.com/MystenLabs/sui/releases/download/testnet-v1.38.0/sui-testnet-v1.38.0-ubuntu-x86_64.tgz";
+      sha256 = "sha256-HTCytNuE+2fML3qK2rAOhDrVgM45m4VsmVK+pBy1eDA=";
     };
   };
   tron-deployment = {

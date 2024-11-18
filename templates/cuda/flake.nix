@@ -26,12 +26,9 @@
           ...
         }:
         {
-          devShells.default = pkgs.mkShell {
-            buildInputs = with pkgs; [
-              nixfmt-rfc-style
-              nixd
-              git
-              gitRepo
+          devShells.default = pkgs.mkShell (with pkgs; {
+            nativeBuildInputs = [ nixfmt-rfc-style nixd ];
+            buildInputs =  [
               gnupg
               autoconf
               curl
@@ -63,7 +60,7 @@
               export EXTRA_LDFLAGS="-L/lib -L${pkgs.linuxPackages.nvidia_x11}/lib"
               export EXTRA_CCFLAGS="-I/usr/include"
             '';
-          };
+          });
         };
     };
 }
