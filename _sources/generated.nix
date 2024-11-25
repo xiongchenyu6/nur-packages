@@ -62,13 +62,13 @@
   };
   delivery = {
     pname = "delivery";
-    version = "v1.0.8";
+    version = "v1.0.9";
     src = fetchFromGitHub {
       owner = "bttcprotocol";
       repo = "delivery";
-      rev = "v1.0.8";
+      rev = "v1.0.9";
       fetchSubmodules = true;
-      sha256 = "sha256-YB+tDVToqmKCkSp/mC75+Jtl/yHG5x5h+GDgLS3c8IU=";
+      sha256 = "sha256-T8SsMPEz4HCIaiWIr5TmaJWK/AzrbpB6TFX2I4Jpxfw=";
     };
   };
   gitops = {
@@ -106,18 +106,18 @@
   };
   java-tron-full-node = {
     pname = "java-tron-full-node";
-    version = "GreatVoyage-v4.7.6";
+    version = "GreatVoyage-v4.7.7";
     src = fetchurl {
-      url = "https://github.com/tronprotocol/java-tron/releases/download/GreatVoyage-v4.7.6/FullNode.jar";
-      sha256 = "sha256-2QcQZlu+27v1VOyASSi72iuhoRP+VZBX5jTISSQUxmM=";
+      url = "https://github.com/tronprotocol/java-tron/releases/download/GreatVoyage-v4.7.7/FullNode.jar";
+      sha256 = "sha256-1Bpd3sA8P5ZH9G7UQxKWiMCRgDrpGwxh5oUYDaQYMW4=";
     };
   };
   java-tron-solidity-node = {
     pname = "java-tron-solidity-node";
-    version = "GreatVoyage-v4.7.6";
+    version = "GreatVoyage-v4.7.7";
     src = fetchurl {
-      url = "https://github.com/tronprotocol/java-tron/releases/download/GreatVoyage-v4.7.6/SolidityNode.jar";
-      sha256 = "sha256-x9mFCztI8c/jCfmTxm92DmGA8YhCHGhz0NSaMJWfhgE=";
+      url = "https://github.com/tronprotocol/java-tron/releases/download/GreatVoyage-v4.7.7/SolidityNode.jar";
+      sha256 = "sha256-AxTsEtyojysidExCCZ4CD7VZs64HABBZ+Im2H/B8Q7s=";
     };
   };
   korb = {
@@ -207,10 +207,10 @@
   };
   sui = {
     pname = "sui";
-    version = "testnet-v1.38.0";
+    version = "testnet-v1.38.2";
     src = fetchurl {
-      url = "https://github.com/MystenLabs/sui/releases/download/testnet-v1.38.0/sui-testnet-v1.38.0-ubuntu-x86_64.tgz";
-      sha256 = "sha256-HTCytNuE+2fML3qK2rAOhDrVgM45m4VsmVK+pBy1eDA=";
+      url = "https://github.com/MystenLabs/sui/releases/download/testnet-v1.38.2/sui-testnet-v1.38.2-ubuntu-x86_64.tgz";
+      sha256 = "sha256-8jfVJCTdIfGBegkAcHPogfX1nCWEzrVBQ6LJcrmV0JA=";
     };
   };
   tron-deployment = {
