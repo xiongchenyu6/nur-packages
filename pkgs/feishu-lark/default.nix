@@ -1,5 +1,5 @@
 {
-  addOpenGLRunpath,
+  addDriverRunpath,
   alsa-lib,
   at-spi2-atk,
   at-spi2-core,
@@ -55,17 +55,18 @@
 ################################################################################
 
 let
-  version = "7.18.11";
+  version = "7.28.10";
 
 in
 stdenv.mkDerivation rec {
   pname = "feishu-lark";
-  packageHash = "c29ca886"; # A hash value used in the download url
+  packageHash = "1d51a0a0"; # A hash value used in the download url
 
   inherit version;
   src = fetchurl {
     url = "https://sf16-va.larksuitecdn.com/obj/lark-artifact-storage/${packageHash}/Lark-linux_x64-${version}.deb";
-    sha256 = "sha256-EeKP5jK1xnwRqtJ9h7w6FxC5EGIh68nF3AIJUMgetq0=";
+
+    sha256 = "sha256-011f1VZUruK+zBLTtGTl4QEDYgWJy2z2GSWwsWeq8Hs=";
   };
 
   nativeBuildInputs = [
@@ -162,7 +163,7 @@ stdenv.mkDerivation rec {
     for executable in $out/opt/bytedance/lark/{lark,vulcan/vulcan}; do
       wrapProgram $executable \
         --prefix XDG_DATA_DIRS    :  "$XDG_ICON_DIRS:$GSETTINGS_SCHEMAS_PATH" \
-        --prefix LD_LIBRARY_PATH  :  ${rpath}:$out/opt/bytedance/lark:${addOpenGLRunpath.driverLink}/share \
+        --prefix LD_LIBRARY_PATH  :  ${rpath}:$out/opt/bytedance/lark:${addDriverRunpath.driverLink}/share \
         --add-flags "\''${NIXOS_OZONE_WL:+\''${WAYLAND_DISPLAY:+ --enable-features=WaylandWindowDecorations}}" \
         ${
           lib.optionalString (commandLineArgs != "") "--add-flags ${lib.escapeShellArg commandLineArgs}"
