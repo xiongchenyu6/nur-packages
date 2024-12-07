@@ -48,6 +48,8 @@ let
 
     korb = callPackage ./pkgs/korb { };
 
+    sops = callPackage ./pkgs/sops { };
+
     # oci-arm-host-capacity = (inputs.dream2nix.lib.makeFlakeOutputs {
     #   pkgs = inputs.dream2nix.inputs.nixpkgs.legacyPackages."x86_64-linux";
     #   source = inputs.oci-arm-host-capacity-src;

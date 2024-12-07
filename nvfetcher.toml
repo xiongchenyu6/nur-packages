@@ -100,3 +100,7 @@ fetch.github = "BeryJu/korb"
 src.github = "albertlauncher/albert"
 fetch.github = "albertlauncher/albert"
 git.fetchSubmodules = true
+
+[sops]
+src.github = "getsops/sops"
+fetch.github = "getsops/sops"

@@ -3,13 +3,13 @@
 {
   albert = {
     pname = "albert";
-    version = "v0.26.8";
+    version = "v0.26.11";
     src = fetchFromGitHub {
       owner = "albertlauncher";
       repo = "albert";
-      rev = "v0.26.8";
+      rev = "v0.26.11";
       fetchSubmodules = true;
-      sha256 = "sha256-MwQhYskt2SEVUUTgN/XLoXe1NiztOs7gWBUrD5xUjTg=";
+      sha256 = "sha256-rPQ6nxUT7qiuOgmmQKCrYHl4kKJODe+nw4VNGjF+n/g=";
     };
   };
   bttc = {
@@ -25,16 +25,16 @@
   };
   combobulate = {
     pname = "combobulate";
-    version = "e9c5be84062e8183f556d7133d5a477a57e37e51";
+    version = "ca2545be196ec32945b5db109578582d7c7270b5";
     src = fetchgit {
       url = "https://github.com/mickeynp/combobulate.git";
-      rev = "e9c5be84062e8183f556d7133d5a477a57e37e51";
+      rev = "ca2545be196ec32945b5db109578582d7c7270b5";
       fetchSubmodules = false;
       deepClone = false;
       leaveDotGit = false;
-      sha256 = "sha256-r6jObsYx7RRTJUmrCN5h3+0WcHqJA67emhr4/W3rBrM=";
+      sha256 = "sha256-XckwDNACLU0TCYwI5oiIk59UC7WXAFM9adLAEN8aGXw=";
     };
-    date = "2024-10-18";
+    date = "2024-12-04";
   };
   copilot-chat = {
     pname = "copilot-chat";
@@ -49,16 +49,16 @@
   };
   copilot-el = {
     pname = "copilot-el";
-    version = "88b10203705a9cdcbc232e7d2914f6b12217a885";
+    version = "c5dfa99f05878db5e6a6a378dc7ed09f11e803d4";
     src = fetchgit {
       url = "https://github.com/zerolfx/copilot.el.git";
-      rev = "88b10203705a9cdcbc232e7d2914f6b12217a885";
+      rev = "c5dfa99f05878db5e6a6a378dc7ed09f11e803d4";
       fetchSubmodules = false;
       deepClone = false;
       leaveDotGit = false;
-      sha256 = "sha256-oTAxayxrEiIu0GUtsqaL/pCY0ElU1RjZp7OXgqqJqnA=";
+      sha256 = "sha256-FzI08AW7a7AleEM7kSQ8LsWsDYID8SW1SmSN6/mIB/A=";
     };
-    date = "2024-11-18";
+    date = "2024-12-27";
   };
   delivery = {
     pname = "delivery";
@@ -95,13 +95,13 @@
   };
   helmify = {
     pname = "helmify";
-    version = "v0.4.16";
+    version = "v0.4.17";
     src = fetchFromGitHub {
       owner = "arttor";
       repo = "helmify";
-      rev = "v0.4.16";
+      rev = "v0.4.17";
       fetchSubmodules = false;
-      sha256 = "sha256-Q7NUetrQmjNACCg9QCJpGj3/wGmC0z26GKtW9T0ZPLg=";
+      sha256 = "sha256-hrElsEPR2TMBV4Uwne9GCLLgds2Bz+3abV2aFeUZVkE=";
     };
   };
   java-tron-full-node = {
@@ -146,16 +146,16 @@
   };
   librime-lua = {
     pname = "librime-lua";
-    version = "b210d0cfbd2a3cc6edd4709dd0a92c479bfca10b";
+    version = "e3912a4b3ac2c202d89face3fef3d41eb1d7fcd6";
     src = fetchgit {
       url = "https://github.com/hchunhui/librime-lua.git";
-      rev = "b210d0cfbd2a3cc6edd4709dd0a92c479bfca10b";
+      rev = "e3912a4b3ac2c202d89face3fef3d41eb1d7fcd6";
       fetchSubmodules = false;
       deepClone = false;
       leaveDotGit = false;
-      sha256 = "sha256-ETjLN40G4I0FEsQgNY8JM4AInqyb3yJwEJTGqdIHGWg=";
+      sha256 = "sha256-zx0F41szn5qlc2MNjt1vizLIsIFQ67fp5cb8U8UUgtY=";
     };
-    date = "2024-11-02";
+    date = "2024-12-21";
   };
   magit-gitflow = {
     pname = "magit-gitflow";
@@ -205,12 +205,23 @@
     };
     date = "2024-03-30";
   };
+  sops = {
+    pname = "sops";
+    version = "v3.9.3";
+    src = fetchFromGitHub {
+      owner = "getsops";
+      repo = "sops";
+      rev = "v3.9.3";
+      fetchSubmodules = false;
+      sha256 = "sha256-U8ZJktOSj0JJ70CbXDS3FpNmk07cKnco5w2rt4BnQBU=";
+    };
+  };
   sui = {
     pname = "sui";
-    version = "testnet-v1.38.2";
+    version = "mainnet-v1.39.4";
     src = fetchurl {
-      url = "https://github.com/MystenLabs/sui/releases/download/testnet-v1.38.2/sui-testnet-v1.38.2-ubuntu-x86_64.tgz";
-      sha256 = "sha256-8jfVJCTdIfGBegkAcHPogfX1nCWEzrVBQ6LJcrmV0JA=";
+      url = "https://github.com/MystenLabs/sui/releases/download/mainnet-v1.39.4/sui-mainnet-v1.39.4-ubuntu-x86_64.tgz";
+      sha256 = "sha256-TiNC0cPkMUNcjNbs4DXzVfgxBLqhPMB77ghlXqCaO6E=";
     };
   };
   tron-deployment = {
