@@ -91,8 +91,6 @@ let
 
     #cursor = callPackage ./pkgs/cursor { };
 
-    albert = callPackage ./pkgs/albert { };
-
     sui-testnet = callPackage ./pkgs/sui-testnet { };
 
     record_screen = callPackage ./pkgs/record_screen { };

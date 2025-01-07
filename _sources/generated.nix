@@ -3,13 +3,13 @@
 {
   albert = {
     pname = "albert";
-    version = "v0.26.11";
+    version = "v0.26.13";
     src = fetchFromGitHub {
       owner = "albertlauncher";
       repo = "albert";
-      rev = "v0.26.11";
+      rev = "v0.26.13";
       fetchSubmodules = true;
-      sha256 = "sha256-rPQ6nxUT7qiuOgmmQKCrYHl4kKJODe+nw4VNGjF+n/g=";
+      sha256 = "sha256-p/8kCj9dN9x7gEvXnHGABL9Ab5zUJP5jI2L6AvCT8Qs=";
     };
   };
   bttc = {
@@ -49,16 +49,16 @@
   };
   copilot-el = {
     pname = "copilot-el";
-    version = "c5dfa99f05878db5e6a6a378dc7ed09f11e803d4";
+    version = "be6c274562e150e4acf5253968d1b434c40d368b";
     src = fetchgit {
       url = "https://github.com/zerolfx/copilot.el.git";
-      rev = "c5dfa99f05878db5e6a6a378dc7ed09f11e803d4";
+      rev = "be6c274562e150e4acf5253968d1b434c40d368b";
       fetchSubmodules = false;
       deepClone = false;
       leaveDotGit = false;
-      sha256 = "sha256-FzI08AW7a7AleEM7kSQ8LsWsDYID8SW1SmSN6/mIB/A=";
+      sha256 = "sha256-QYlFzh/rzIK0lTtj60rGxJtWr9JaGoVzfALeJltVOdU=";
     };
-    date = "2024-12-27";
+    date = "2025-01-05";
   };
   delivery = {
     pname = "delivery";
@@ -218,10 +218,10 @@
   };
   sui = {
     pname = "sui";
-    version = "mainnet-v1.39.4";
+    version = "testnet-v1.40.1";
     src = fetchurl {
-      url = "https://github.com/MystenLabs/sui/releases/download/mainnet-v1.39.4/sui-mainnet-v1.39.4-ubuntu-x86_64.tgz";
-      sha256 = "sha256-TiNC0cPkMUNcjNbs4DXzVfgxBLqhPMB77ghlXqCaO6E=";
+      url = "https://github.com/MystenLabs/sui/releases/download/testnet-v1.40.1/sui-testnet-v1.40.1-ubuntu-x86_64.tgz";
+      sha256 = "sha256-W2+u19X32+zAsErNjiaXKypYBLmFvyCmqn7LTVNk0+w=";
     };
   };
   tron-deployment = {
