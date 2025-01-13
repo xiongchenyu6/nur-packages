@@ -11,16 +11,34 @@
         nixpkgs.follows = "nixpkgs";
       };
     };
-
   };
 
   outputs = { nixpkgs, flake-parts, home-manager, ... }@inputs:
-       let   sharedOverlays = [
-        
+    let
+      sharedOverlays = [
       ];
-      modules = [
+      sharedModules = [
       ];
-      tf = builtins.fromJSON (builtins.readFile ./tf.json);
+      nixos-modules = [
+        home-manager.nixosModules.home-manager
+
+        (_: {
+          nixpkgs = {
+            system = "x86_64-linux";
+            config = {
+              allowUnfree = true;
+              allowBroken = true;
+              android_sdk.accept_license = true;
+            };
+            overlays = sharedOverlays;
+          };
+          home-manager = {
+            inherit sharedModules;
+            useGlobalPkgs = true;
+            useUserPackages = true;
+          };
+        })
+      ];
      in
     flake-parts.lib.mkFlake { inherit inputs; } {
       systems = [ "x86_64-linux" "aarch64-linux" ];
@@ -33,53 +51,9 @@
           lib,
           ...
         }: {
-        nixosConfigurations =
-          let
-            ls-to-node =
-              dir: override:
-              builtins.foldl' (
-                acc: f:
-                acc
-                // {
-                  "${f}" = nixpkgs.lib.nixosSystem (
-                    ({
-                      specialArgs = {
-                        profiles = {
-                          share = import ./profiles/shares.nix { inherit lib; };
-                        };
-                        inherit tf;
-                      };
-                      modules = [
-                        (
-                          { modulesPath, ... }:
-                          {
-                            imports = [
-                              "${modulesPath}/virtualisation/amazon-image.nix"
-                              (dir + "/${f}")
-                            ];
-                            networking.hostName = f;
-                            nixpkgs = {
-                              config = {
-                                allowUnfree = true;
-                                allowBroken = true;
-                                permittedInsecurePackages = [ "nodejs-16.20.2" ];
-                              };
-                              overlays = sharedOverlays;
-                            };
-                          }
-                        )
-                      ] ++ modules;
-                    })
-                    // (if (builtins.hasAttr f override) then override.${f} else { })
-                  );
-                }
-              ) { } (builtins.attrNames (builtins.readDir dir));
-          in
-          (ls-to-node ./hosts {
-            # nexus = {
-            #   system = "aarch64-linux";
-            # };
-          });
+          nixosConfigurations = {
+            default = nixpkgs.lib.nixosSystem { modules = [ ./hosts/default ] ++ nixos-modules;  };
+          };
       };
     };
 }
