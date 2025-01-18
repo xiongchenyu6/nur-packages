@@ -15,6 +15,7 @@
             "repo": "albert",
             "rev": "v0.26.13",
             "sha256": "sha256-p/8kCj9dN9x7gEvXnHGABL9Ab5zUJP5jI2L6AvCT8Qs=",
+            "sparseCheckout": [],
             "type": "github"
         },
         "version": "v0.26.13"
@@ -35,6 +36,7 @@
             "repo": "bttc",
             "rev": "v1.1.0",
             "sha256": "sha256-GQZGMhLu7PM8h6km4aADjYfCy43yVdwGePaLKAk9Be4=",
+            "sparseCheckout": [],
             "type": "github"
         },
         "version": "v1.1.0"
@@ -53,6 +55,7 @@
             "name": null,
             "rev": "ca2545be196ec32945b5db109578582d7c7270b5",
             "sha256": "sha256-XckwDNACLU0TCYwI5oiIk59UC7WXAFM9adLAEN8aGXw=",
+            "sparseCheckout": [],
             "type": "git",
             "url": "https://github.com/mickeynp/combobulate.git"
         },
@@ -74,13 +77,14 @@
             "repo": "copilot-chat.el",
             "rev": "v1.2.0",
             "sha256": "sha256-EVDky/pETKUh/yoIIcMrO+ZAJ+MeTS6l/CplrlKostw=",
+            "sparseCheckout": [],
             "type": "github"
         },
         "version": "v1.2.0"
     },
     "copilot-el": {
         "cargoLocks": null,
-        "date": "2025-01-05",
+        "date": "2025-01-15",
         "extract": null,
         "name": "copilot-el",
         "passthru": null,
@@ -90,12 +94,13 @@
             "fetchSubmodules": false,
             "leaveDotGit": false,
             "name": null,
-            "rev": "be6c274562e150e4acf5253968d1b434c40d368b",
-            "sha256": "sha256-QYlFzh/rzIK0lTtj60rGxJtWr9JaGoVzfALeJltVOdU=",
+            "rev": "867a3debf907cbd7c5b0eb8837354a1efc7c2db9",
+            "sha256": "sha256-BEA5cQSNgAMOULM3uNMATYHtFwV7CXAsZYi5IT1kB8A=",
+            "sparseCheckout": [],
             "type": "git",
             "url": "https://github.com/zerolfx/copilot.el.git"
         },
-        "version": "be6c274562e150e4acf5253968d1b434c40d368b"
+        "version": "867a3debf907cbd7c5b0eb8837354a1efc7c2db9"
     },
     "delivery": {
         "cargoLocks": null,
@@ -113,6 +118,7 @@
             "repo": "delivery",
             "rev": "v1.0.9",
             "sha256": "sha256-T8SsMPEz4HCIaiWIr5TmaJWK/AzrbpB6TFX2I4Jpxfw=",
+            "sparseCheckout": [],
             "type": "github"
         },
         "version": "v1.0.9"
@@ -133,6 +139,7 @@
             "repo": "weave-gitops",
             "rev": "v0.38.0",
             "sha256": "sha256-Gm4DIQK8T+dTwB5swdrD+SjGgy/wFQ/fJYdSqNDSy9c=",
+            "sparseCheckout": [],
             "type": "github"
         },
         "version": "v0.38.0"
@@ -153,6 +160,7 @@
             "repo": "gotron-sdk",
             "rev": "v2.3.0",
             "sha256": "sha256-8n+xkvcyWpcOSzOcnIJncC7svZ5LJccXi1XTx0S3RmU=",
+            "sparseCheckout": [],
             "type": "github"
         },
         "version": "v2.3.0"
@@ -173,6 +181,7 @@
             "repo": "helmify",
             "rev": "v0.4.17",
             "sha256": "sha256-hrElsEPR2TMBV4Uwne9GCLLgds2Bz+3abV2aFeUZVkE=",
+            "sparseCheckout": [],
             "type": "github"
         },
         "version": "v0.4.17"
@@ -223,6 +232,7 @@
             "repo": "korb",
             "rev": "v2.3.2",
             "sha256": "sha256-4f5Ii75Pc+88ONiEWAQG7A6NaKvQ5/1jqu3O0f7AaVI=",
+            "sparseCheckout": [],
             "type": "github"
         },
         "version": "v2.3.2"
@@ -241,6 +251,7 @@
             "name": null,
             "rev": "03b0ae39df1ed44c58f403030fa7a49927837c46",
             "sha256": "sha256-u3OGkahP2/eXy2EiLJ9Xu0TbOk/hYreTmIeGfOJznBU=",
+            "sparseCheckout": [],
             "type": "git",
             "url": "https://github.com/bttcprotocol/launch.git"
         },
@@ -260,6 +271,7 @@
             "name": null,
             "rev": "e3912a4b3ac2c202d89face3fef3d41eb1d7fcd6",
             "sha256": "sha256-zx0F41szn5qlc2MNjt1vizLIsIFQ67fp5cb8U8UUgtY=",
+            "sparseCheckout": [],
             "type": "git",
             "url": "https://github.com/hchunhui/librime-lua.git"
         },
@@ -279,6 +291,7 @@
             "name": null,
             "rev": "cc41b561ec6eea947fe9a176349fb4f771ed865b",
             "sha256": "sha256-LqBvn+Ev8GsZG6zmQ5eGt+5vDQk5ywqvagrvnzNP5ks=",
+            "sparseCheckout": [],
             "type": "git",
             "url": "https://github.com/jtatarik/magit-gitflow.git"
         },
@@ -298,6 +311,7 @@
             "name": null,
             "rev": "4ce962e6e2d8249d3a5aa4c40e9924a424b50ebf",
             "sha256": "sha256-dcLarzN9miAxzW9IP3IECxjRuShR/D3m5eU7vV6YE+A=",
+            "sparseCheckout": [],
             "type": "git",
             "url": "https://github.com/natecox/magit-town.git"
         },
@@ -318,9 +332,30 @@
         },
         "version": "1ff5d20e854fd7be43ff07c88358fe3754f29af0"
     },
+    "netbird": {
+        "cargoLocks": null,
+        "date": null,
+        "extract": null,
+        "name": "netbird",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "netbirdio",
+            "repo": "netbird",
+            "rev": "v0.36.3",
+            "sha256": "sha256-ZAKVjBjffinOyHhzln/ny7tooZwtKHfMEDb/Uy0k6Gw=",
+            "sparseCheckout": [],
+            "type": "github"
+        },
+        "version": "v0.36.3"
+    },
     "org-cv": {
         "cargoLocks": null,
-        "date": "2024-03-30",
+        "date": "2025-01-17",
         "extract": null,
         "name": "org-cv",
         "passthru": null,
@@ -330,12 +365,13 @@
             "fetchSubmodules": false,
             "leaveDotGit": false,
             "name": null,
-            "rev": "dd2f840050f37cf5cb02e683f9434445288f7627",
-            "sha256": "sha256-7YlJTQr2t1UNl1HJJxNoq8Yu8sfRxehXncH85cuPchU=",
+            "rev": "33c8844589f491ce5362ddd82ad0d4ba702eb4a5",
+            "sha256": "sha256-4GlYrsTJBFAgx1XI8CCfaXTUlKxM+3P9Eviqfqt7n1E=",
+            "sparseCheckout": [],
             "type": "git",
             "url": "https://gitlab.com/Titan-C/org-cv.git"
         },
-        "version": "dd2f840050f37cf5cb02e683f9434445288f7627"
+        "version": "33c8844589f491ce5362ddd82ad0d4ba702eb4a5"
     },
     "sops": {
         "cargoLocks": null,
@@ -353,6 +389,7 @@
             "repo": "sops",
             "rev": "v3.9.3",
             "sha256": "sha256-U8ZJktOSj0JJ70CbXDS3FpNmk07cKnco5w2rt4BnQBU=",
+            "sparseCheckout": [],
             "type": "github"
         },
         "version": "v3.9.3"
@@ -366,11 +403,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-W2+u19X32+zAsErNjiaXKypYBLmFvyCmqn7LTVNk0+w=",
+            "sha256": "sha256-NwI02WrMS9HCBt9m7+A1ofvPSqykIWqwf3P7+3Tymek=",
             "type": "url",
-            "url": "https://github.com/MystenLabs/sui/releases/download/testnet-v1.40.1/sui-testnet-v1.40.1-ubuntu-x86_64.tgz"
+            "url": "https://github.com/MystenLabs/sui/releases/download/testnet-v1.41.0/sui-testnet-v1.41.0-ubuntu-x86_64.tgz"
         },
-        "version": "testnet-v1.40.1"
+        "version": "testnet-v1.41.0"
     },
     "tron-deployment": {
         "cargoLocks": null,
@@ -386,6 +423,7 @@
             "name": null,
             "rev": "14699a3d5348efdd84a54da023b955f163b2483d",
             "sha256": "sha256-zFcMgzwIYvlq7yBttqWfj/aoqosQV13jaB0w/7Hp8FE=",
+            "sparseCheckout": [],
             "type": "git",
             "url": "https://github.com/tronprotocol/tron-deployment.git"
         },
