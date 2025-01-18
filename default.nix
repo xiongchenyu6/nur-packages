@@ -95,6 +95,8 @@ let
 
     record_screen = callPackage ./pkgs/record_screen { };
 
+    netbird = callPackage ./pkgs/netbird { };
+
     haystack-editor = callPackage ./pkgs/haystack-editor { };
     librime =
       (pkgs.librime.override {

@@ -104,3 +104,7 @@ git.fetchSubmodules = true
 [sops]
 src.github = "getsops/sops"
 fetch.github = "getsops/sops"
+
+[netbird]
+src.github = "netbirdio/netbird"
+fetch.github = "netbirdio/netbird"

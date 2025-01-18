@@ -32,6 +32,7 @@
       fetchSubmodules = false;
       deepClone = false;
       leaveDotGit = false;
+      sparseCheckout = [ ];
       sha256 = "sha256-XckwDNACLU0TCYwI5oiIk59UC7WXAFM9adLAEN8aGXw=";
     };
     date = "2024-12-04";
@@ -49,16 +50,17 @@
   };
   copilot-el = {
     pname = "copilot-el";
-    version = "be6c274562e150e4acf5253968d1b434c40d368b";
+    version = "867a3debf907cbd7c5b0eb8837354a1efc7c2db9";
     src = fetchgit {
       url = "https://github.com/zerolfx/copilot.el.git";
-      rev = "be6c274562e150e4acf5253968d1b434c40d368b";
+      rev = "867a3debf907cbd7c5b0eb8837354a1efc7c2db9";
       fetchSubmodules = false;
       deepClone = false;
       leaveDotGit = false;
-      sha256 = "sha256-QYlFzh/rzIK0lTtj60rGxJtWr9JaGoVzfALeJltVOdU=";
+      sparseCheckout = [ ];
+      sha256 = "sha256-BEA5cQSNgAMOULM3uNMATYHtFwV7CXAsZYi5IT1kB8A=";
     };
-    date = "2025-01-05";
+    date = "2025-01-15";
   };
   delivery = {
     pname = "delivery";
@@ -140,6 +142,7 @@
       fetchSubmodules = false;
       deepClone = false;
       leaveDotGit = false;
+      sparseCheckout = [ ];
       sha256 = "sha256-u3OGkahP2/eXy2EiLJ9Xu0TbOk/hYreTmIeGfOJznBU=";
     };
     date = "2023-04-13";
@@ -153,6 +156,7 @@
       fetchSubmodules = false;
       deepClone = false;
       leaveDotGit = false;
+      sparseCheckout = [ ];
       sha256 = "sha256-zx0F41szn5qlc2MNjt1vizLIsIFQ67fp5cb8U8UUgtY=";
     };
     date = "2024-12-21";
@@ -166,6 +170,7 @@
       fetchSubmodules = false;
       deepClone = false;
       leaveDotGit = false;
+      sparseCheckout = [ ];
       sha256 = "sha256-LqBvn+Ev8GsZG6zmQ5eGt+5vDQk5ywqvagrvnzNP5ks=";
     };
     date = "2017-09-29";
@@ -179,6 +184,7 @@
       fetchSubmodules = false;
       deepClone = false;
       leaveDotGit = false;
+      sparseCheckout = [ ];
       sha256 = "sha256-dcLarzN9miAxzW9IP3IECxjRuShR/D3m5eU7vV6YE+A=";
     };
     date = "2019-04-02";
@@ -192,18 +198,30 @@
     };
     date = "2022-11-27";
   };
+  netbird = {
+    pname = "netbird";
+    version = "v0.36.3";
+    src = fetchFromGitHub {
+      owner = "netbirdio";
+      repo = "netbird";
+      rev = "v0.36.3";
+      fetchSubmodules = false;
+      sha256 = "sha256-ZAKVjBjffinOyHhzln/ny7tooZwtKHfMEDb/Uy0k6Gw=";
+    };
+  };
   org-cv = {
     pname = "org-cv";
-    version = "dd2f840050f37cf5cb02e683f9434445288f7627";
+    version = "33c8844589f491ce5362ddd82ad0d4ba702eb4a5";
     src = fetchgit {
       url = "https://gitlab.com/Titan-C/org-cv.git";
-      rev = "dd2f840050f37cf5cb02e683f9434445288f7627";
+      rev = "33c8844589f491ce5362ddd82ad0d4ba702eb4a5";
       fetchSubmodules = false;
       deepClone = false;
       leaveDotGit = false;
-      sha256 = "sha256-7YlJTQr2t1UNl1HJJxNoq8Yu8sfRxehXncH85cuPchU=";
+      sparseCheckout = [ ];
+      sha256 = "sha256-4GlYrsTJBFAgx1XI8CCfaXTUlKxM+3P9Eviqfqt7n1E=";
     };
-    date = "2024-03-30";
+    date = "2025-01-17";
   };
   sops = {
     pname = "sops";
@@ -218,10 +236,10 @@
   };
   sui = {
     pname = "sui";
-    version = "testnet-v1.40.1";
+    version = "testnet-v1.41.0";
     src = fetchurl {
-      url = "https://github.com/MystenLabs/sui/releases/download/testnet-v1.40.1/sui-testnet-v1.40.1-ubuntu-x86_64.tgz";
-      sha256 = "sha256-W2+u19X32+zAsErNjiaXKypYBLmFvyCmqn7LTVNk0+w=";
+      url = "https://github.com/MystenLabs/sui/releases/download/testnet-v1.41.0/sui-testnet-v1.41.0-ubuntu-x86_64.tgz";
+      sha256 = "sha256-NwI02WrMS9HCBt9m7+A1ofvPSqykIWqwf3P7+3Tymek=";
     };
   };
   tron-deployment = {
@@ -233,6 +251,7 @@
       fetchSubmodules = false;
       deepClone = false;
       leaveDotGit = false;
+      sparseCheckout = [ ];
       sha256 = "sha256-zFcMgzwIYvlq7yBttqWfj/aoqosQV13jaB0w/7Hp8FE=";
     };
     date = "2024-03-21";
