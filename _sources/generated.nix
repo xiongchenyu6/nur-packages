@@ -211,17 +211,17 @@
   };
   org-cv = {
     pname = "org-cv";
-    version = "33c8844589f491ce5362ddd82ad0d4ba702eb4a5";
+    version = "e8de952df7669b38ca475d00fe943ab96d8cfac4";
     src = fetchgit {
       url = "https://gitlab.com/Titan-C/org-cv.git";
-      rev = "33c8844589f491ce5362ddd82ad0d4ba702eb4a5";
+      rev = "e8de952df7669b38ca475d00fe943ab96d8cfac4";
       fetchSubmodules = false;
       deepClone = false;
       leaveDotGit = false;
       sparseCheckout = [ ];
-      sha256 = "sha256-4GlYrsTJBFAgx1XI8CCfaXTUlKxM+3P9Eviqfqt7n1E=";
+      sha256 = "sha256-qwJTtyfNZpA4YCOxh90hXW89aYThE9K6GnJIxeUI7No=";
     };
-    date = "2025-01-17";
+    date = "2025-01-24";
   };
   sops = {
     pname = "sops";
