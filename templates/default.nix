@@ -7,9 +7,13 @@
     path = ./java;
     description = "A grossly incandescent and minimal nixos java config";
   };
-  javascript = {
-    path = ./javascript;
+  nodejs = {
+    path = ./nodejs;
     description = "A grossly incandescent and minimal nixos javascrpit config";
+  };
+  bun = {
+    path = ./bun;
+    description = "A grossly incandescent and minimal nixos bun config";
   };
   python = {
     path = ./python;
@@ -38,6 +42,10 @@
   terraform = {
     path = ./terraform;
     description = "A grossly incandescent and minimal nixos terraform config";
+  };
+  tenv = {
+    path = ./tenv;
+    description = "A grossly incandescent and minimal nixos tenv config";
   };
   nixos = {
     path = ./nixos;
