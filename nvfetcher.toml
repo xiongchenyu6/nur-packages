@@ -1,14 +1,14 @@
-[tron-deployment]
-src.git="https://github.com/tronprotocol/tron-deployment.git"
-fetch.git="https://github.com/tronprotocol/tron-deployment.git"
+# [tron-deployment]
+# src.git="https://github.com/tronprotocol/tron-deployment.git"
+# fetch.git="https://github.com/tronprotocol/tron-deployment.git"
 
-[java-tron-full-node]
-src.github = "tronprotocol/java-tron"
-fetch.url = "https://github.com/tronprotocol/java-tron/releases/download/$ver/FullNode.jar"
+# [java-tron-full-node]
+# src.github = "tronprotocol/java-tron"
+# fetch.url = "https://github.com/tronprotocol/java-tron/releases/download/$ver/FullNode.jar"
 
-[java-tron-solidity-node]
-src.github = "tronprotocol/java-tron"
-fetch.url = "https://github.com/tronprotocol/java-tron/releases/download/$ver/SolidityNode.jar"
+# [java-tron-solidity-node]
+# src.github = "tronprotocol/java-tron"
+# fetch.url = "https://github.com/tronprotocol/java-tron/releases/download/$ver/SolidityNode.jar"
 
 [sui]
 src.github = "MystenLabs/sui"
@@ -19,19 +19,19 @@ fetch.url = "https://github.com/MystenLabs/sui/releases/download/$ver/sui-$ver-u
 # fetch.git = "https://gitlab.com/gitlab-org/cli.git"
 
 #go
-[bttc]
-src.github = "bttcprotocol/bttc"
-fetch.github = "bttcprotocol/bttc"
-git.fetchSubmodules = true
+# [bttc]
+# src.github = "bttcprotocol/bttc"
+# fetch.github = "bttcprotocol/bttc"
+# git.fetchSubmodules = true
 
-[delivery]
-src.github = "bttcprotocol/delivery"
-fetch.github = "bttcprotocol/delivery"
-git.fetchSubmodules = true
+# [delivery]
+# src.github = "bttcprotocol/delivery"
+# fetch.github = "bttcprotocol/delivery"
+# git.fetchSubmodules = true
 
-[launch]
-src.git = "https://github.com/bttcprotocol/launch.git"
-fetch.git = "https://github.com/bttcprotocol/launch.git"
+# [launch]
+# src.git = "https://github.com/bttcprotocol/launch.git"
+# fetch.git = "https://github.com/bttcprotocol/launch.git"
 
 [my2sql]
 src.git = "https://github.com/liuhr/my2sql.git"
@@ -41,9 +41,9 @@ fetch.url = "https://github.com/liuhr/my2sql/raw/master/releases/centOS_release_
 src.github = "fbsobreira/gotron-sdk"
 fetch.github = "fbsobreira/gotron-sdk"
 
-[gitops]
-src.github = "weaveworks/weave-gitops"
-fetch.github = "weaveworks/weave-gitops"
+# [gitops]
+# src.github = "weaveworks/weave-gitops"
+# fetch.github = "weaveworks/weave-gitops"
 
 [helmify]
 src.github = "arttor/helmify"
@@ -96,14 +96,10 @@ fetch.git = "https://github.com/zerolfx/copilot.el.git"
 src.github = "BeryJu/korb"
 fetch.github = "BeryJu/korb"
 
-[albert]
-src.github = "albertlauncher/albert"
-fetch.github = "albertlauncher/albert"
-git.fetchSubmodules = true
-
-[sops]
-src.github = "getsops/sops"
-fetch.github = "getsops/sops"
+# [albert]
+# src.github = "albertlauncher/albert"
+# fetch.github = "albertlauncher/albert"
+# git.fetchSubmodules = true
 
 [netbird]
 src.github = "netbirdio/netbird"

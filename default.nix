@@ -6,101 +6,21 @@
 # commands such as:
 #     nix-build -A mypackage
 {
+  self,
   pkgs ? import <nixpkgs> { },
-  lib,
-  inputs,
   ...
 }:
 with pkgs;
 with builtins;
 let
-  source = callPackage ./_sources/generated.nix { inherit fetchFromGitHub fetchurl fetchgit; };
-  sourcee = callPackage ./_sources/generated.nix { inherit fetchFromGitHub fetchurl fetchgit; };
-
-  allPkgs = my-pkgs // pkgs // { inherit source sourcee; };
-  callPackage = lib.callPackageWith allPkgs;
-  my-pkgs = rec {
-    launch = stdenv.mkDerivation (
-      source.launch
-      // {
-        installPhase = ''
-          mkdir -p $out;
-          cp -r . $out;
-        '';
-      }
-    );
-
-    pg-ldap-sync = callPackage ./pkgs/pg-ldap-sync { };
-
-    helmify = callPackage ./pkgs/helmify { };
-
-    bttc = callPackage ./pkgs/bttc { };
-
-    # glab = callPackage ./pkgs/glab { };
-
-    # discourse-hb = callPackage ./pkgs/discourse { };
-
-    my2sql = callPackage ./pkgs/my2sql { };
-
-    # delivery = callPackage ./pkgs/delivery { };
-
-    gotron-sdk = callPackage ./pkgs/gotron-sdk { };
-
-    korb = callPackage ./pkgs/korb { };
-
-    sops = callPackage ./pkgs/sops { };
-
-    # oci-arm-host-capacity = (inputs.dream2nix.lib.makeFlakeOutputs {
-    #   pkgs = inputs.dream2nix.inputs.nixpkgs.legacyPackages."x86_64-linux";
-    #   source = inputs.oci-arm-host-capacity-src;
-    #   config.projectRoot = ./.;
-    #   autoProjects = true;
-    # }).packages."x86_64-linux"."hitrov/oci-arm-host-capacity";
-
-    # my_cookies = callPackage ./pkgs/python3/my_cookies { };
-
-    #epc = callPackage ./pkgs/python3/epc { };
-
-    #newsapi-python = callPackage ./pkgs/python3/newsapi-python { };
-
-    copilot-el = callPackage ./pkgs/emacs/copilot { };
-
-    copilot-chat = callPackage ./pkgs/emacs/copilot-chat { };
-
-    # org-cv = callPackage ./pkgs/emacs/org-cv { };
-
-    combobulate = callPackage ./pkgs/emacs/combobulate { };
-
-    magit-gitflow = callPackage ./pkgs/emacs/magit-gitflow { };
-
-    magit-town = callPackage ./pkgs/emacs/magit-town { };
-
-    inherit (callPackage ./pkgs/npm { }) tronbox solium;
-
-    java-tron = callPackage ./pkgs/java-tron { };
-
-    tron-eventquery = callPackage ./pkgs/tron-eventquery { };
-
-    ldap-passthrough-conf = callPackage ./pkgs/ldap-passthrough-conf { };
-
-    ldap-extra-schemas = callPackage ./pkgs/ldap-extra-schemas { };
-
-    default = bttc;
-
-    feishu-lark = callPackage ./pkgs/feishu-lark { };
-
-    #cursor = callPackage ./pkgs/cursor { };
-
-    sui-testnet = callPackage ./pkgs/sui-testnet { };
-
-    record_screen = callPackage ./pkgs/record_screen { };
-
-    netbird = callPackage ./pkgs/netbird { };
-
-    haystack-editor = callPackage ./pkgs/haystack-editor { };
+  sources = callPackage ./_sources/generated.nix { inherit fetchFromGitHub fetchurl fetchgit; };
+  ldap-passthrough-conf = self.packages.x86_64-linux.ldap-passthrough-conf;
+in
+rec {
+    default = librime;
     librime =
       (pkgs.librime.override {
-        plugins = [ source.librime-lua.src ];
+        plugins = [ sources.librime-lua.src ];
 
       }).overrideAttrs
         (old: {
@@ -138,6 +58,4 @@ let
       withInsults = true;
       withSssd = true;
     };
-  };
-in
-my-pkgs
+  }

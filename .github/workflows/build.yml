@@ -59,7 +59,6 @@ jobs:
           nix_path: "${{ matrix.nixPath }}"
           # nix 2.6 breaks restrict-eval, when using the NIX_PATH
           # see https://github.com/NixOS/nix/issues/5980
-          install_url: https://releases.nixos.org/nix/nix-2.11.1/install
           extra_nix_config: |
             experimental-features = nix-command flakes
             access-tokens = github.com=${{ secrets.GITHUB_TOKEN }}
@@ -77,10 +76,7 @@ jobs:
           authToken: "${{ secrets.CACHIX_AUTH_TOKEN }}"
       - name: Build nix packages
         run: |
-          nix flake update
-          nix run .#update
-          nix run .#ci -- ${{ matrix.system }}
-
+          nix build
       - name: Trigger NUR update
         # Don't replace <YOUR_REPO_NAME> here!
         if: ${{ matrix.nurRepo != '<YOUR_REPO_NAME>' }}

@@ -8,20 +8,16 @@
       url = "github:nix-community/dream2nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    oci-arm-host-capacity-src = {
-      url = "github:hitrov/oci-arm-host-capacity";
-      flake = false;
-    };
+    pkgs-by-name-for-flake-parts.url = "github:drupol/pkgs-by-name-for-flake-parts";
+
   };
-  outputs =
+  outputs = { self, nixpkgs, flake-parts, dream2nix, pkgs-by-name-for-flake-parts, ... }@inputs:
+    flake-parts.lib.mkFlake { inherit inputs; } ({ inputs, ... }: 
     {
-      self,
-      nixpkgs,
-      flake-parts,
-      dream2nix,
-      ...
-    }@inputs:
-    flake-parts.lib.mkFlake { inherit inputs; } {
+      
+      imports = [
+        inputs.pkgs-by-name-for-flake-parts.flakeModule
+      ];
       systems = [
         "x86_64-linux"
         "aarch64-linux"
@@ -32,26 +28,12 @@
       perSystem =
         { pkgs, lib, ... }:
         {
+          pkgsDirectory = ./pkgs;
+          pkgsNameSeparator = "-";
           packages = import ./. {
-            inherit lib pkgs;
-            ci = false;
-            inherit inputs;
-            inherit dream2nix;
+            inherit self lib pkgs;
           };
           apps = {
-            ci = {
-              type = "app";
-              program = builtins.toString (
-                pkgs.writeShellScript "ci" ''
-                  if [ "$1" == "" ]; then
-                  echo "Usage: ci <system>";
-                  exit 1;
-                  fi
-                  exec ${pkgs.nix-build-uncached}/bin/nix-build-uncached ci.nix -A $1 --show-trace
-                ''
-              );
-            };
-
             update = {
               type = "app";
               program = builtins.toString (
@@ -71,21 +53,20 @@
           };
         };
 
-      flake =
-        {
-          withSystem,
-          inputs,
-          lib,
-          ...
-        }:
-        {
-          # Put your original flake attributes here.
-          overlays = {
-            default = import ./overlay.nix { inherit lib inputs; };
-            nixops-fix = ./pkgs/nixops-fixed/poetry-git-overlay.nix;
-          };
-          nixosModules = import ./modules;
-          templates = import ./templates;
-        };
-    };
+      flake = {
+        overlays.default = _final: prev:
+          let
+            isReserved = n: n == "lib" || n == "overlays" || n == "modules";
+            nameValuePair = n: v: {
+              name = n;
+              value = v;
+            };
+            nurAttrs = self.packages.x86_64-linux;
+          in builtins.listToAttrs (map (n: nameValuePair n nurAttrs.${n})
+            (builtins.filter (n: !isReserved n) (builtins.attrNames nurAttrs)));       
+    
+        nixosModules = import ./modules;
+        templates = import ./templates;
+      };
+    });
 }

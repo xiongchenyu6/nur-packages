@@ -1,46 +1,4 @@
 {
-    "albert": {
-        "cargoLocks": null,
-        "date": null,
-        "extract": null,
-        "name": "albert",
-        "passthru": null,
-        "pinned": false,
-        "src": {
-            "deepClone": false,
-            "fetchSubmodules": true,
-            "leaveDotGit": false,
-            "name": null,
-            "owner": "albertlauncher",
-            "repo": "albert",
-            "rev": "v0.26.13",
-            "sha256": "sha256-p/8kCj9dN9x7gEvXnHGABL9Ab5zUJP5jI2L6AvCT8Qs=",
-            "sparseCheckout": [],
-            "type": "github"
-        },
-        "version": "v0.26.13"
-    },
-    "bttc": {
-        "cargoLocks": null,
-        "date": null,
-        "extract": null,
-        "name": "bttc",
-        "passthru": null,
-        "pinned": false,
-        "src": {
-            "deepClone": false,
-            "fetchSubmodules": true,
-            "leaveDotGit": false,
-            "name": null,
-            "owner": "bttcprotocol",
-            "repo": "bttc",
-            "rev": "v1.1.0",
-            "sha256": "sha256-GQZGMhLu7PM8h6km4aADjYfCy43yVdwGePaLKAk9Be4=",
-            "sparseCheckout": [],
-            "type": "github"
-        },
-        "version": "v1.1.0"
-    },
     "combobulate": {
         "cargoLocks": null,
         "date": "2024-12-04",
@@ -102,48 +60,6 @@
         },
         "version": "867a3debf907cbd7c5b0eb8837354a1efc7c2db9"
     },
-    "delivery": {
-        "cargoLocks": null,
-        "date": null,
-        "extract": null,
-        "name": "delivery",
-        "passthru": null,
-        "pinned": false,
-        "src": {
-            "deepClone": false,
-            "fetchSubmodules": true,
-            "leaveDotGit": false,
-            "name": null,
-            "owner": "bttcprotocol",
-            "repo": "delivery",
-            "rev": "v1.0.9",
-            "sha256": "sha256-T8SsMPEz4HCIaiWIr5TmaJWK/AzrbpB6TFX2I4Jpxfw=",
-            "sparseCheckout": [],
-            "type": "github"
-        },
-        "version": "v1.0.9"
-    },
-    "gitops": {
-        "cargoLocks": null,
-        "date": null,
-        "extract": null,
-        "name": "gitops",
-        "passthru": null,
-        "pinned": false,
-        "src": {
-            "deepClone": false,
-            "fetchSubmodules": false,
-            "leaveDotGit": false,
-            "name": null,
-            "owner": "weaveworks",
-            "repo": "weave-gitops",
-            "rev": "v0.38.0",
-            "sha256": "sha256-Gm4DIQK8T+dTwB5swdrD+SjGgy/wFQ/fJYdSqNDSy9c=",
-            "sparseCheckout": [],
-            "type": "github"
-        },
-        "version": "v0.38.0"
-    },
     "gotron-sdk": {
         "cargoLocks": null,
         "date": null,
@@ -186,36 +102,6 @@
         },
         "version": "v0.4.17"
     },
-    "java-tron-full-node": {
-        "cargoLocks": null,
-        "date": null,
-        "extract": null,
-        "name": "java-tron-full-node",
-        "passthru": null,
-        "pinned": false,
-        "src": {
-            "name": null,
-            "sha256": "sha256-1Bpd3sA8P5ZH9G7UQxKWiMCRgDrpGwxh5oUYDaQYMW4=",
-            "type": "url",
-            "url": "https://github.com/tronprotocol/java-tron/releases/download/GreatVoyage-v4.7.7/FullNode.jar"
-        },
-        "version": "GreatVoyage-v4.7.7"
-    },
-    "java-tron-solidity-node": {
-        "cargoLocks": null,
-        "date": null,
-        "extract": null,
-        "name": "java-tron-solidity-node",
-        "passthru": null,
-        "pinned": false,
-        "src": {
-            "name": null,
-            "sha256": "sha256-AxTsEtyojysidExCCZ4CD7VZs64HABBZ+Im2H/B8Q7s=",
-            "type": "url",
-            "url": "https://github.com/tronprotocol/java-tron/releases/download/GreatVoyage-v4.7.7/SolidityNode.jar"
-        },
-        "version": "GreatVoyage-v4.7.7"
-    },
     "korb": {
         "cargoLocks": null,
         "date": null,
@@ -236,26 +122,6 @@
             "type": "github"
         },
         "version": "v2.3.2"
-    },
-    "launch": {
-        "cargoLocks": null,
-        "date": "2023-04-13",
-        "extract": null,
-        "name": "launch",
-        "passthru": null,
-        "pinned": false,
-        "src": {
-            "deepClone": false,
-            "fetchSubmodules": false,
-            "leaveDotGit": false,
-            "name": null,
-            "rev": "03b0ae39df1ed44c58f403030fa7a49927837c46",
-            "sha256": "sha256-u3OGkahP2/eXy2EiLJ9Xu0TbOk/hYreTmIeGfOJznBU=",
-            "sparseCheckout": [],
-            "type": "git",
-            "url": "https://github.com/bttcprotocol/launch.git"
-        },
-        "version": "03b0ae39df1ed44c58f403030fa7a49927837c46"
     },
     "librime-lua": {
         "cargoLocks": null,
@@ -346,12 +212,12 @@
             "name": null,
             "owner": "netbirdio",
             "repo": "netbird",
-            "rev": "v0.36.3",
-            "sha256": "sha256-ZAKVjBjffinOyHhzln/ny7tooZwtKHfMEDb/Uy0k6Gw=",
+            "rev": "v0.36.5",
+            "sha256": "sha256-3k41lydp6bIfANblvdYK07xY/B3SbXwipbLAIUxmf9I=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "v0.36.3"
+        "version": "v0.36.5"
     },
     "org-cv": {
         "cargoLocks": null,
@@ -373,27 +239,6 @@
         },
         "version": "e8de952df7669b38ca475d00fe943ab96d8cfac4"
     },
-    "sops": {
-        "cargoLocks": null,
-        "date": null,
-        "extract": null,
-        "name": "sops",
-        "passthru": null,
-        "pinned": false,
-        "src": {
-            "deepClone": false,
-            "fetchSubmodules": false,
-            "leaveDotGit": false,
-            "name": null,
-            "owner": "getsops",
-            "repo": "sops",
-            "rev": "v3.9.3",
-            "sha256": "sha256-U8ZJktOSj0JJ70CbXDS3FpNmk07cKnco5w2rt4BnQBU=",
-            "sparseCheckout": [],
-            "type": "github"
-        },
-        "version": "v3.9.3"
-    },
     "sui": {
         "cargoLocks": null,
         "date": null,
@@ -403,30 +248,10 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-NwI02WrMS9HCBt9m7+A1ofvPSqykIWqwf3P7+3Tymek=",
+            "sha256": "sha256-sxs0O8gS2E62nZ9EnUL3ZFnwXLcm1p8R45jjxQl4WO4=",
             "type": "url",
-            "url": "https://github.com/MystenLabs/sui/releases/download/testnet-v1.41.0/sui-testnet-v1.41.0-ubuntu-x86_64.tgz"
+            "url": "https://github.com/MystenLabs/sui/releases/download/testnet-v1.42.2/sui-testnet-v1.42.2-ubuntu-x86_64.tgz"
         },
-        "version": "testnet-v1.41.0"
-    },
-    "tron-deployment": {
-        "cargoLocks": null,
-        "date": "2024-03-21",
-        "extract": null,
-        "name": "tron-deployment",
-        "passthru": null,
-        "pinned": false,
-        "src": {
-            "deepClone": false,
-            "fetchSubmodules": false,
-            "leaveDotGit": false,
-            "name": null,
-            "rev": "14699a3d5348efdd84a54da023b955f163b2483d",
-            "sha256": "sha256-zFcMgzwIYvlq7yBttqWfj/aoqosQV13jaB0w/7Hp8FE=",
-            "sparseCheckout": [],
-            "type": "git",
-            "url": "https://github.com/tronprotocol/tron-deployment.git"
-        },
-        "version": "14699a3d5348efdd84a54da023b955f163b2483d"
+        "version": "testnet-v1.42.2"
     }
 }
