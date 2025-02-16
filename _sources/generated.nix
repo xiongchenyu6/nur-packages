@@ -17,28 +17,28 @@
   };
   copilot-chat = {
     pname = "copilot-chat";
-    version = "v1.2.0";
+    version = "v1.3.0";
     src = fetchFromGitHub {
       owner = "chep";
       repo = "copilot-chat.el";
-      rev = "v1.2.0";
+      rev = "v1.3.0";
       fetchSubmodules = false;
-      sha256 = "sha256-EVDky/pETKUh/yoIIcMrO+ZAJ+MeTS6l/CplrlKostw=";
+      sha256 = "sha256-bQJG7sVKt0KsYGrC3YuwWFDCK9PGr4qTBFerasNgSwo=";
     };
   };
   copilot-el = {
     pname = "copilot-el";
-    version = "867a3debf907cbd7c5b0eb8837354a1efc7c2db9";
+    version = "7d105d708a23d16cdfd5240500be8bb02f95a46e";
     src = fetchgit {
       url = "https://github.com/zerolfx/copilot.el.git";
-      rev = "867a3debf907cbd7c5b0eb8837354a1efc7c2db9";
+      rev = "7d105d708a23d16cdfd5240500be8bb02f95a46e";
       fetchSubmodules = false;
       deepClone = false;
       leaveDotGit = false;
       sparseCheckout = [ ];
-      sha256 = "sha256-BEA5cQSNgAMOULM3uNMATYHtFwV7CXAsZYi5IT1kB8A=";
+      sha256 = "sha256-ATIyNAnd1pU82xdGH7+z9zkOcDVJhYhh65QDQ73NiL0=";
     };
-    date = "2025-01-15";
+    date = "2025-02-23";
   };
   gotron-sdk = {
     pname = "gotron-sdk";
@@ -126,13 +126,13 @@
   };
   netbird = {
     pname = "netbird";
-    version = "v0.36.5";
+    version = "v0.37.1";
     src = fetchFromGitHub {
       owner = "netbirdio";
       repo = "netbird";
-      rev = "v0.36.5";
+      rev = "v0.37.1";
       fetchSubmodules = false;
-      sha256 = "sha256-3k41lydp6bIfANblvdYK07xY/B3SbXwipbLAIUxmf9I=";
+      sha256 = "sha256-5+R0Y/xPgnVH53p1vtY65tOqePWQVOMR4oY1yOOFHK4=";
     };
   };
   org-cv = {
@@ -151,10 +151,10 @@
   };
   sui = {
     pname = "sui";
-    version = "testnet-v1.42.2";
+    version = "testnet-v1.43.1";
     src = fetchurl {
-      url = "https://github.com/MystenLabs/sui/releases/download/testnet-v1.42.2/sui-testnet-v1.42.2-ubuntu-x86_64.tgz";
-      sha256 = "sha256-sxs0O8gS2E62nZ9EnUL3ZFnwXLcm1p8R45jjxQl4WO4=";
+      url = "https://github.com/MystenLabs/sui/releases/download/testnet-v1.43.1/sui-testnet-v1.43.1-ubuntu-x86_64.tgz";
+      sha256 = "sha256-kJzpYbd9ImIohJGHtvkjo6ADL7D7CignmUptEY9N8Ro=";
     };
   };
 }

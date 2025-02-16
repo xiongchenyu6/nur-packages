@@ -46,7 +46,7 @@ buildGoModule (
       pname = "netbird";
       inherit version;
 
-      vendorHash = "sha256-30KSccdeQ+DrYjotCR0w0LvY1jCBBJIAy5rKQtSsD9Q=";
+      vendorHash = "sha256-DGvDkkdM8WaaR5FQwZgKn2n1JEDeqUegZxeAIxniJ5A=";
 
       nativeBuildInputs = [ installShellFiles ] ++ lib.optional ui pkg-config;
 

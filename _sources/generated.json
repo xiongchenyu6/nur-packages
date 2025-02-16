@@ -33,16 +33,16 @@
             "name": null,
             "owner": "chep",
             "repo": "copilot-chat.el",
-            "rev": "v1.2.0",
-            "sha256": "sha256-EVDky/pETKUh/yoIIcMrO+ZAJ+MeTS6l/CplrlKostw=",
+            "rev": "v1.3.0",
+            "sha256": "sha256-bQJG7sVKt0KsYGrC3YuwWFDCK9PGr4qTBFerasNgSwo=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "v1.2.0"
+        "version": "v1.3.0"
     },
     "copilot-el": {
         "cargoLocks": null,
-        "date": "2025-01-15",
+        "date": "2025-02-23",
         "extract": null,
         "name": "copilot-el",
         "passthru": null,
@@ -52,13 +52,13 @@
             "fetchSubmodules": false,
             "leaveDotGit": false,
             "name": null,
-            "rev": "867a3debf907cbd7c5b0eb8837354a1efc7c2db9",
-            "sha256": "sha256-BEA5cQSNgAMOULM3uNMATYHtFwV7CXAsZYi5IT1kB8A=",
+            "rev": "7d105d708a23d16cdfd5240500be8bb02f95a46e",
+            "sha256": "sha256-ATIyNAnd1pU82xdGH7+z9zkOcDVJhYhh65QDQ73NiL0=",
             "sparseCheckout": [],
             "type": "git",
             "url": "https://github.com/zerolfx/copilot.el.git"
         },
-        "version": "867a3debf907cbd7c5b0eb8837354a1efc7c2db9"
+        "version": "7d105d708a23d16cdfd5240500be8bb02f95a46e"
     },
     "gotron-sdk": {
         "cargoLocks": null,
@@ -212,12 +212,12 @@
             "name": null,
             "owner": "netbirdio",
             "repo": "netbird",
-            "rev": "v0.36.5",
-            "sha256": "sha256-3k41lydp6bIfANblvdYK07xY/B3SbXwipbLAIUxmf9I=",
+            "rev": "v0.37.1",
+            "sha256": "sha256-5+R0Y/xPgnVH53p1vtY65tOqePWQVOMR4oY1yOOFHK4=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "v0.36.5"
+        "version": "v0.37.1"
     },
     "org-cv": {
         "cargoLocks": null,
@@ -248,10 +248,10 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-sxs0O8gS2E62nZ9EnUL3ZFnwXLcm1p8R45jjxQl4WO4=",
+            "sha256": "sha256-kJzpYbd9ImIohJGHtvkjo6ADL7D7CignmUptEY9N8Ro=",
             "type": "url",
-            "url": "https://github.com/MystenLabs/sui/releases/download/testnet-v1.42.2/sui-testnet-v1.42.2-ubuntu-x86_64.tgz"
+            "url": "https://github.com/MystenLabs/sui/releases/download/testnet-v1.43.1/sui-testnet-v1.43.1-ubuntu-x86_64.tgz"
         },
-        "version": "testnet-v1.42.2"
+        "version": "testnet-v1.43.1"
     }
 }

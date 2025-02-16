@@ -11,7 +11,12 @@
 let
   epkgs = emacsPackagesFor emacs29;
   sources = import ../../../_sources/generated.nix {
-    inherit (pkgs) fetchgit fetchFromGitHub fetchurl dockerTools;
+    inherit (pkgs)
+      fetchgit
+      fetchFromGitHub
+      fetchurl
+      dockerTools
+      ;
   };
 in
 epkgs.trivialBuild (
@@ -21,6 +26,7 @@ epkgs.trivialBuild (
       markdown-mode
       request
       shell-maker
+      magit
     ];
 
     # postInstall = ''
