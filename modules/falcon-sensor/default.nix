@@ -13,29 +13,43 @@ let
 
   startPreScript = pkgs.writeScript "init-falcon" ''
     #! ${pkgs.bash}/bin/sh
+    set -e
+
     # Create required directories with proper permissions
     mkdir -p /opt/CrowdStrike
     mkdir -p /var/log/crowdstrike
     chmod 755 /var/log/crowdstrike
 
-    # Link necessary files
-    ln -sf ${falcon}/opt/CrowdStrike/* /opt/CrowdStrike
+    # Create the falconctl.log file with proper permissions and ensure it's writable
+    touch /var/log/falconctl.log || true
+    chmod 666 /var/log/falconctl.log || true
+
+    # Clear and recreate the directory to avoid linking errors
+    rm -rf /opt/CrowdStrike/* 2>/dev/null || true
+
+    # Link necessary files one by one to handle directories properly
+    for file in ${falcon}/opt/CrowdStrike/*; do
+      base=$(basename "$file")
+      ln -sfn "$file" "/opt/CrowdStrike/$base"
+    done
 
     # Set CID from file if provided
     ${optionalString (cfg.cidFile != null) ''
       CID=$(cat ${cfg.cidFile})
       if [ -n "$CID" ]; then
-        ${falcon}/bin/fs-bash -c "${falcon}/opt/CrowdStrike/falconctl -s --cid=$CID"
+        # Add the -f flag which is required when setting CID
+        ${falcon}/bin/fs-bash -c "${falcon}/opt/CrowdStrike/falconctl -s -f --cid=$CID"
       else
         echo "Error: CID file is empty or unreadable"
         exit 1
       fi
     ''}
 
-    # Set trace logging level if configured
+    # Set trace level if specified
     ${optionalString (cfg.traceLevel != null) ''
-      ${falcon}/bin/fs-bash -c "${falcon}/opt/CrowdStrike/falconctl -sf --trace=${cfg.traceLevel}"
-      echo "Falcon trace logging set to ${cfg.traceLevel}"
+      echo "Setting Falcon trace level to: ${cfg.traceLevel}"
+      # Correct format for setting trace level
+      ${falcon}/bin/fs-bash -c "${falcon}/opt/CrowdStrike/falconctl -s -f --trace=${cfg.traceLevel}"
     ''}
   '';
 in
@@ -54,23 +68,14 @@ in
     };
 
     traceLevel = mkOption {
-      type = types.nullOr (
-        types.enum [
-          "none"
-          "err"
-          "warn"
-          "info"
-          "debug"
-        ]
-      );
+      type = types.nullOr types.str;
       default = null;
       description = ''
-        Set the trace logging level for the Falcon sensor.
-        - none: Disable trace logging
-        - err: Error level only
-        - warn: Warning level
-        - info: Informational level
-        - debug: Debug level (most verbose)
+        Sets the trace level for the Falcon Sensor.
+        Valid values include: none, err, warn, info, debug
+
+        Note: This must be specified as a parameter with equals sign, 
+        e.g., --trace=debug (not as a separate argument).
       '';
       example = "debug";
     };
