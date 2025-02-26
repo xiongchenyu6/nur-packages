@@ -31,6 +31,12 @@ let
         exit 1
       fi
     ''}
+
+    # Set trace logging level if configured
+    ${optionalString (cfg.traceLevel != null) ''
+      ${falcon}/bin/fs-bash -c "${falcon}/opt/CrowdStrike/falconctl -sf --trace=${cfg.traceLevel}"
+      echo "Falcon trace logging set to ${cfg.traceLevel}"
+    ''}
   '';
 in
 {
@@ -45,6 +51,28 @@ in
         This can be an encrypted file managed by SOPS.
       '';
       example = "/run/secrets/falcon-cid";
+    };
+
+    traceLevel = mkOption {
+      type = types.nullOr (
+        types.enum [
+          "none"
+          "err"
+          "warn"
+          "info"
+          "debug"
+        ]
+      );
+      default = null;
+      description = ''
+        Set the trace logging level for the Falcon sensor.
+        - none: Disable trace logging
+        - err: Error level only
+        - warn: Warning level
+        - info: Informational level
+        - debug: Debug level (most verbose)
+      '';
+      example = "debug";
     };
   };
 
