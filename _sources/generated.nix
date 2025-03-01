@@ -151,10 +151,10 @@
   };
   sui = {
     pname = "sui";
-    version = "testnet-v1.43.1";
+    version = "mainnet-v1.43.1";
     src = fetchurl {
-      url = "https://github.com/MystenLabs/sui/releases/download/testnet-v1.43.1/sui-testnet-v1.43.1-ubuntu-x86_64.tgz";
-      sha256 = "sha256-kJzpYbd9ImIohJGHtvkjo6ADL7D7CignmUptEY9N8Ro=";
+      url = "https://github.com/MystenLabs/sui/releases/download/mainnet-v1.43.1/sui-mainnet-v1.43.1-ubuntu-x86_64.tgz";
+      sha256 = "sha256-WROCuGwj9TyDl/At9suq/98h5rEVzqZeAKqY7g0gXSs=";
     };
   };
 }
