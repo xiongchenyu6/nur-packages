@@ -17,10 +17,11 @@ stdenv.mkDerivation (
   // (
     let
       sui = (lib.importJSON ../../_sources/generated.json).sui;
+      name = sui.name;
       version = sui.version;
     in
     rec {
-      pname = "sui-testnet";
+      pname = name;
       inherit version;
 
       nativeBuildInputs = [
