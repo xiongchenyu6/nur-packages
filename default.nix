@@ -17,45 +17,51 @@ let
   ldap-passthrough-conf = self.packages.x86_64-linux.ldap-passthrough-conf;
 in
 rec {
-    default = librime;
-    librime =
-      (pkgs.librime.override {
-        plugins = [ sources.librime-lua.src ];
+  default = librime;
+  librime =
+    (pkgs.librime.override {
+      plugins = [ sources.librime-lua.src ];
 
-      }).overrideAttrs
-        (old: {
-          buildInputs = old.buildInputs ++ [ pkgs.lua ];
-        });
+    }).overrideAttrs
+      (old: {
+        buildInputs = old.buildInputs ++ [ pkgs.lua ];
+      });
 
-    cyrus_sasl_with_ldap = (pkgs.cyrus_sasl.override { enableLdap = true; }).overrideAttrs (_: {
-      postInstall = ''
-        ln -sf ${ldap-passthrough-conf}/slapd.conf $out/lib/sasl2/
-        ln -sf ${ldap-passthrough-conf}/smtpd.conf $out/lib/sasl2/
-      '';
-    });
+  cyrus_sasl_with_ldap = (pkgs.cyrus_sasl.override { enableLdap = true; }).overrideAttrs (_: {
+    postInstall = ''
+      ln -sf ${ldap-passthrough-conf}/slapd.conf $out/lib/sasl2/
+      ln -sf ${ldap-passthrough-conf}/smtpd.conf $out/lib/sasl2/
+    '';
+  });
 
-    openldap_with_cyrus_sasl =
-      (pkgs.openldap.overrideAttrs (old: {
-        configureFlags = old.configureFlags ++ [
-          "--enable-spasswd"
-          "--with-cyrus-sasl"
-        ];
-        doCheck = false;
-      })).override
-        { cyrus_sasl = cyrus_sasl_with_ldap; };
+  wrangler = (
+    pkgs.wrangler.overrideAttrs (old: {
+      dontCheckForBrokenSymlinks = true;
+    })
+  );
 
-    postfix_with_ldap = pkgs.postfix.override { cyrus_sasl = cyrus_sasl_with_ldap; };
+  openldap_with_cyrus_sasl =
+    (pkgs.openldap.overrideAttrs (old: {
+      configureFlags = old.configureFlags ++ [
+        "--enable-spasswd"
+        "--with-cyrus-sasl"
+      ];
+      doCheck = false;
+    })).override
+      { cyrus_sasl = cyrus_sasl_with_ldap; };
 
-    sssd_with_sude = pkgs.sssd.override { withSudo = true; };
+  postfix_with_ldap = pkgs.postfix.override { cyrus_sasl = cyrus_sasl_with_ldap; };
 
-    # krb5_with_ldap = pkgs.krb5.overrideAttrs (old: {
-    #   configureFlags = old.configureFlags
-    #     ++ (if (old.pname == "libkrb5") then [ ] else [ "--with-ldap" ]);
-    # });
+  sssd_with_sude = pkgs.sssd.override { withSudo = true; };
 
-    sudo_with_sssd = pkgs.sudo.override {
-      sssd = sssd;
-      withInsults = true;
-      withSssd = true;
-    };
-  }
+  # krb5_with_ldap = pkgs.krb5.overrideAttrs (old: {
+  #   configureFlags = old.configureFlags
+  #     ++ (if (old.pname == "libkrb5") then [ ] else [ "--with-ldap" ]);
+  # });
+
+  sudo_with_sssd = pkgs.sudo.override {
+    sssd = sssd;
+    withInsults = true;
+    withSssd = true;
+  };
+}
