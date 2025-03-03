@@ -53,13 +53,13 @@
   };
   helmify = {
     pname = "helmify";
-    version = "v0.4.17";
+    version = "v0.4.18";
     src = fetchFromGitHub {
       owner = "arttor";
       repo = "helmify";
-      rev = "v0.4.17";
+      rev = "v0.4.18";
       fetchSubmodules = false;
-      sha256 = "sha256-hrElsEPR2TMBV4Uwne9GCLLgds2Bz+3abV2aFeUZVkE=";
+      sha256 = "sha256-yk+ST0W7HLlAe5NOaBrQvpG6AYgwWDkpK5/ml5TLAQw=";
     };
   };
   korb = {
@@ -151,10 +151,10 @@
   };
   sui = {
     pname = "sui";
-    version = "testnet-v1.43.1";
+    version = "testnet-v1.44.2";
     src = fetchurl {
-      url = "https://github.com/MystenLabs/sui/releases/download/testnet-v1.43.1/sui-testnet-v1.43.1-ubuntu-x86_64.tgz";
-      sha256 = "sha256-kJzpYbd9ImIohJGHtvkjo6ADL7D7CignmUptEY9N8Ro=";
+      url = "https://github.com/MystenLabs/sui/releases/download/testnet-v1.44.2/sui-testnet-v1.44.2-ubuntu-x86_64.tgz";
+      sha256 = "sha256-SFXzpm1wRZIXBpKtVobeyBZPIbLt/Yn05SFLbbX43Qc=";
     };
   };
 }

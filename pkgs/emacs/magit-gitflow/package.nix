@@ -1,19 +1,32 @@
-{ pkgs,
+{
+  pkgs,
   fetchgit,
   fetchFromGitHub,
   fetchurl,
   dockerTools,
   emacsPackagesFor,
-  emacs29,
+  emacs30,
   ...
 }:
-let 
-  epkgs = emacsPackagesFor emacs29;
+let
+  epkgs = emacsPackagesFor emacs30;
   sources = import ../../../_sources/generated.nix {
-    inherit (pkgs) fetchgit fetchFromGitHub fetchurl dockerTools;
+    inherit (pkgs)
+      fetchgit
+      fetchFromGitHub
+      fetchurl
+      dockerTools
+      ;
   };
-in epkgs.trivialBuild (sources.magit-gitflow // {
-  propagatedBuildInputs = with epkgs; [ magit magit-popup ];
+in
+epkgs.trivialBuild (
+  sources.magit-gitflow
+  // {
+    propagatedBuildInputs = with epkgs; [
+      magit
+      magit-popup
+    ];
 
-  doCheck = false;
-})
+    doCheck = false;
+  }
+)

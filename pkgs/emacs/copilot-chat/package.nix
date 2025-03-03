@@ -5,11 +5,11 @@
   fetchurl,
   dockerTools,
   emacsPackagesFor,
-  emacs29,
+  emacs30,
   ...
 }:
 let
-  epkgs = emacsPackagesFor emacs29;
+  epkgs = emacsPackagesFor emacs30;
   sources = import ../../../_sources/generated.nix {
     inherit (pkgs)
       fetchgit
