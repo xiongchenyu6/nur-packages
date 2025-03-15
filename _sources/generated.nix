@@ -3,27 +3,27 @@
 {
   combobulate = {
     pname = "combobulate";
-    version = "ca2545be196ec32945b5db109578582d7c7270b5";
+    version = "59b64d66d66eb84da6a2cedd152b1692378af674";
     src = fetchgit {
       url = "https://github.com/mickeynp/combobulate.git";
-      rev = "ca2545be196ec32945b5db109578582d7c7270b5";
+      rev = "59b64d66d66eb84da6a2cedd152b1692378af674";
       fetchSubmodules = false;
       deepClone = false;
       leaveDotGit = false;
       sparseCheckout = [ ];
-      sha256 = "sha256-XckwDNACLU0TCYwI5oiIk59UC7WXAFM9adLAEN8aGXw=";
+      sha256 = "sha256-j5NbQS9QoPXe9PSUikGOEr1icl3yuMO0qNSYs1w7SFs=";
     };
-    date = "2024-12-04";
+    date = "2025-03-12";
   };
   copilot-chat = {
     pname = "copilot-chat";
-    version = "v1.3.0";
+    version = "v2.0.1";
     src = fetchFromGitHub {
       owner = "chep";
       repo = "copilot-chat.el";
-      rev = "v1.3.0";
+      rev = "v2.0.1";
       fetchSubmodules = false;
-      sha256 = "sha256-bQJG7sVKt0KsYGrC3YuwWFDCK9PGr4qTBFerasNgSwo=";
+      sha256 = "sha256-7ACNuOxwLiZw3SRnjZ9fn0ynezrHtKYFXFwMRm4yt/8=";
     };
   };
   copilot-el = {
@@ -126,13 +126,13 @@
   };
   netbird = {
     pname = "netbird";
-    version = "v0.37.1";
+    version = "v0.38.0";
     src = fetchFromGitHub {
       owner = "netbirdio";
       repo = "netbird";
-      rev = "v0.37.1";
+      rev = "v0.38.0";
       fetchSubmodules = false;
-      sha256 = "sha256-5+R0Y/xPgnVH53p1vtY65tOqePWQVOMR4oY1yOOFHK4=";
+      sha256 = "sha256-mqay00xLg4u2G+0yW+OuK9UAhnBUBBKswRfbt+qC3HE=";
     };
   };
   org-cv = {
@@ -151,10 +151,10 @@
   };
   sui = {
     pname = "sui";
-    version = "testnet-v1.44.2";
+    version = "mainnet-v1.44.3";
     src = fetchurl {
-      url = "https://github.com/MystenLabs/sui/releases/download/testnet-v1.44.2/sui-testnet-v1.44.2-ubuntu-x86_64.tgz";
-      sha256 = "sha256-SFXzpm1wRZIXBpKtVobeyBZPIbLt/Yn05SFLbbX43Qc=";
+      url = "https://github.com/MystenLabs/sui/releases/download/mainnet-v1.44.3/sui-mainnet-v1.44.3-ubuntu-x86_64.tgz";
+      sha256 = "sha256-oWfsrGKDboBdi8HmXo+1WRIh8kY/1G2suYtXaqKGCpg=";
     };
   };
 }
