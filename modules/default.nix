@@ -13,4 +13,5 @@
   binbash = import ./binbash;
   netbird = import ./netbird;
   falcon-sensor = import ./falcon-sensor;
+  postgrest = import ./postgrest;
 }
