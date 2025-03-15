@@ -40,7 +40,7 @@ writeShellApplication {
 
         # Trap for cleanup on exit
         OnExit() {
-      	  notify-send --icon ~/.config/hypr/assets/square.png -u warning "Recording canceled"
+      	  notify-send --icon ~/.config/hypr/assets/square.png -u normal "Recording canceled"
       	  [[ -f $TmpRecordPath ]] && rm -f "$TmpRecordPath"
       	  [[ -f $TmpPalettePath ]] && rm -f "$TmpPalettePath"
         }
@@ -49,7 +49,14 @@ writeShellApplication {
         # Set umask so tmp files are only acessible to the user
         umask 177
 
-        if [ "$1" = "area" ]; then
+        # Check if argument is provided, default to screen if not
+        if [ -z "$1" ]; then
+          ACTION="screen"
+        else
+          ACTION="$1"
+        fi
+
+        if [ "$ACTION" = "area" ]; then
       	  # Get selection and honor escape key
       	  COORDS="$(slurp)"
       	  if [ "$COORDS" != 'selection cancelled' ]; then
@@ -60,7 +67,7 @@ writeShellApplication {
       	  else
       		  exit
       	  fi
-        elif [ "$1" = "screen" ]; then
+        elif [ "$ACTION" = "screen" ]; then
       	  notify-send --icon ~/.config/hypr/assets/square.png 'Screen Recording started'
 
       	  OUTPUT=$(hyprctl -j monitors | jq -r '.[] | select( .focused | IN(true)).name')

@@ -1,4 +1,5 @@
-{ pkgs,
+{
+  pkgs,
   fetchgit,
   fetchFromGitHub,
   fetchurl,
@@ -7,9 +8,14 @@
   stdenv,
   autoPatchelfHook,
 }:
-let 
+let
   sources = import ../../_sources/generated.nix {
-    inherit (pkgs) fetchgit fetchFromGitHub fetchurl dockerTools;
+    inherit (pkgs)
+      fetchgit
+      fetchFromGitHub
+      fetchurl
+      dockerTools
+      ;
   };
 in
 stdenv.mkDerivation (

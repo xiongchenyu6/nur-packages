@@ -27,6 +27,7 @@ epkgs.trivialBuild (
       request
       shell-maker
       magit
+      polymode
     ];
 
     # postInstall = ''
