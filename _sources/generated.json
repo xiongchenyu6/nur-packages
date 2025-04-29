@@ -19,30 +19,9 @@
         },
         "version": "59b64d66d66eb84da6a2cedd152b1692378af674"
     },
-    "copilot-chat": {
-        "cargoLocks": null,
-        "date": null,
-        "extract": null,
-        "name": "copilot-chat",
-        "passthru": null,
-        "pinned": false,
-        "src": {
-            "deepClone": false,
-            "fetchSubmodules": false,
-            "leaveDotGit": false,
-            "name": null,
-            "owner": "chep",
-            "repo": "copilot-chat.el",
-            "rev": "v2.0.1",
-            "sha256": "sha256-7ACNuOxwLiZw3SRnjZ9fn0ynezrHtKYFXFwMRm4yt/8=",
-            "sparseCheckout": [],
-            "type": "github"
-        },
-        "version": "v2.0.1"
-    },
     "copilot-el": {
         "cargoLocks": null,
-        "date": "2025-04-17",
+        "date": "2025-04-28",
         "extract": null,
         "name": "copilot-el",
         "passthru": null,
@@ -52,13 +31,13 @@
             "fetchSubmodules": false,
             "leaveDotGit": false,
             "name": null,
-            "rev": "229d8544834a8d446ec9747102ad160280a65620",
-            "sha256": "sha256-1OJwP0xoxAgleaxUGcCrlfHvo0Bqzf+tEH6jOwRBZ6c=",
+            "rev": "784edd550508c88582f04013b1d5ea5b3824746c",
+            "sha256": "sha256-JXahmStgmDmtF9HUbDiZSH53zZz2p6lCDuwj70PmAW8=",
             "sparseCheckout": [],
             "type": "git",
             "url": "https://github.com/zerolfx/copilot.el.git"
         },
-        "version": "229d8544834a8d446ec9747102ad160280a65620"
+        "version": "784edd550508c88582f04013b1d5ea5b3824746c"
     },
     "gotron-sdk": {
         "cargoLocks": null,
@@ -80,6 +59,26 @@
             "type": "github"
         },
         "version": "v2.3.0"
+    },
+    "gptel": {
+        "cargoLocks": null,
+        "date": "2025-05-02",
+        "extract": null,
+        "name": "gptel",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "rev": "11fbb4dcd9e634af2e42784d0cf2af840c5e9468",
+            "sha256": "sha256-cWKTihiOavy6NcYQpVNv7ycqRwXzOUkNCoJLJ0jXAa4=",
+            "sparseCheckout": [],
+            "type": "git",
+            "url": "https://github.com/karthink/gptel.git"
+        },
+        "version": "11fbb4dcd9e634af2e42784d0cf2af840c5e9468"
     },
     "helmify": {
         "cargoLocks": null,
@@ -212,12 +211,12 @@
             "name": null,
             "owner": "netbirdio",
             "repo": "netbird",
-            "rev": "v0.41.3",
-            "sha256": "sha256-Nr72ZBe+wENQh/4QOMLA9Zvo2HDw9NK/42d2iyBqwvE=",
+            "rev": "v0.43.1",
+            "sha256": "sha256-otjdzt+RLjic3VyoRh/uneP6qChy8QaxkIQT9YFS1pY=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "v0.41.3"
+        "version": "v0.43.1"
     },
     "org-cv": {
         "cargoLocks": null,
@@ -248,10 +247,10 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-lG7o6j3nldbdo8Ily4NFp03AyTWEJ6Tsu589ZGKb2AE=",
+            "sha256": "sha256-RHNOeXrdjWvuUxuel3jshDHbQ+OTjr5KoDsUwGOLkD8=",
             "type": "url",
-            "url": "https://github.com/MystenLabs/sui/releases/download/testnet-v1.47.0/sui-testnet-v1.47.0-ubuntu-x86_64.tgz"
+            "url": "https://github.com/MystenLabs/sui/releases/download/testnet-v1.48.0/sui-testnet-v1.48.0-ubuntu-x86_64.tgz"
         },
-        "version": "testnet-v1.47.0"
+        "version": "testnet-v1.48.0"
     }
 }

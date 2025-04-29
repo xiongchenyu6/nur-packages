@@ -54,18 +54,17 @@
 ################################################################################
 
 let
-  version = "7.32.11";
+  version = "7.36.11";
 
 in
 stdenv.mkDerivation rec {
   pname = "feishu-lark";
-  packageHash = "afc02e52"; # A hash value used in the download url
+  packageHash = "932c7f7e"; # A hash value used in the download url
 
   inherit version;
   src = fetchurl {
     url = "https://sf16-va.larksuitecdn.com/obj/lark-artifact-storage/${packageHash}/Lark-linux_x64-${version}.deb";
-
-    sha256 = "sha256-hfLKbKzZzOYqNGEoLw4gMXI2jfNvtFPU7hAODeA9SxU=";
+    sha256 = "sha256-TRP0jLIFIlpLAFCJOtYjvSzwkYN7hrivZtPAZlZ5MX4=";
   };
 
   nativeBuildInputs = [
