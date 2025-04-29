@@ -63,9 +63,9 @@ fetch.github = "arttor/helmify"
 # fetch.pypi="newsapi-python"
 
 #emacs
-[copilot-chat]
-src.github = "chep/copilot-chat.el"
-fetch.github = "chep/copilot-chat.el"
+[gptel]
+src.git = "https://github.com/karthink/gptel.git"
+fetch.git = "https://github.com/karthink/gptel.git"
 
 [org-cv]
 src.git = "https://gitlab.com/Titan-C/org-cv.git"
