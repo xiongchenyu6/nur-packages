@@ -21,17 +21,30 @@ let
     inherit version arch src;
     name = pname;
 
-    buildInputs = [
+    nativeBuildInputs = [
       dpkg
-      zlib
       autoPatchelfHook
     ];
 
+    buildInputs = [
+      stdenv.cc.cc.lib
+      zlib
+    ];
+
+    dontUnpack = true;
     sourceRoot = ".";
 
-    unpackPhase = ''dpkg-deb -x $src .                                                                                                                                 '';
+    unpackPhase = ''
+      runHook preUnpack
+      dpkg-deb -x $src .
+      runHook postUnpack
+    '';
 
-    installPhase = ''cp -r . $out                                                                                                                              '';
+    installPhase = ''
+      runHook preInstall
+      cp -r . $out
+      runHook postInstall
+    '';
 
     meta = with lib; {
       description = "Crowdstrike Falcon Sensor";

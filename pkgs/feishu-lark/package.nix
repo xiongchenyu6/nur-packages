@@ -54,19 +54,15 @@
 ################################################################################
 
 let
-  version = "7.36.11";
+  version = "7.46.12";
 
 in
 stdenv.mkDerivation rec {
   pname = "feishu-lark";
-  packageHash = "932c7f7e"; # A hash value used in the download url
+  packageHash = "3d9dcd0b"; # A hash value used in the download url
 
   inherit version;
-  src = fetchurl {
-    url = "https://sf16-va.larksuitecdn.com/obj/lark-artifact-storage/${packageHash}/Lark-linux_x64-${version}.deb";
-    sha256 = "sha256-TRP0jLIFIlpLAFCJOtYjvSzwkYN7hrivZtPAZlZ5MX4=";
-  };
-
+  src = ./Lark-linux_x64-7.46.12.deb;
   nativeBuildInputs = [
     autoPatchelfHook
     makeShellWrapper
@@ -176,4 +172,12 @@ stdenv.mkDerivation rec {
     mkdir -p $out/bin
     ln -s $out/opt/bytedance/lark/bytedance-lark $out/bin/bytedance-lark
   '';
+
+  meta = with lib; {
+    description = "ByteDance Lark/Feishu desktop client";
+    homepage = "https://www.larksuite.com/";
+    license = licenses.unfree;
+    platforms = platforms.linux;  # Linux-only package (uses .deb)
+    maintainers = [ ];
+  };
 }
