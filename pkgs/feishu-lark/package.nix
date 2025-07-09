@@ -54,17 +54,18 @@
 ################################################################################
 
 let
-  version = "7.36.11";
+  version = "7.46.12";
 
 in
 stdenv.mkDerivation rec {
   pname = "feishu-lark";
-  packageHash = "932c7f7e"; # A hash value used in the download url
+  packageHash = "3d9dcd0b"; # A hash value used in the download url
 
   inherit version;
   src = fetchurl {
-    url = "https://sf16-va.larksuitecdn.com/obj/lark-artifact-storage/${packageHash}/Lark-linux_x64-${version}.deb";
-    sha256 = "sha256-TRP0jLIFIlpLAFCJOtYjvSzwkYN7hrivZtPAZlZ5MX4=";
+    url = "https://lf16-larkappversion-sign.larksuitecdn.com/obj/lark-artifact-storage/${packageHash}/Lark-linux_x64-${version}.deb?lk3s=fb957577&x-expires=1757764891&x-signature=Oq1%2BeQt3Uj5Gfexd3nNGRTTaCzc%3D";
+
+    sha256 = "sha256-+B+T/Sinq7vPDpI0eaWCr91jgooCIXX1N0oAeicZLpw=";
   };
 
   nativeBuildInputs = [
