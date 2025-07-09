@@ -51,5 +51,8 @@
     path = ./nixos;
     description = "A grossly incandescent and minimal nixos nixos config";
   };
-
+  zig = {
+    path = ./zig;
+    description = "A grossly incandescent and minimal nixos zig config";
+  };
 }
