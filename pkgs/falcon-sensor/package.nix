@@ -6,7 +6,7 @@
   openssl,
   libnl,
   zlib,
-  fetchurl,
+  requireFile,
   autoPatchelfHook,
   buildFHSEnv,
   writeScript,
@@ -14,12 +14,50 @@
 }:
 let
   pname = "falcon-sensor";
-  version = "7.21";
+  # Version information - update these when you have a new version
+  version = "7.30.0";
+  release = "18306";
   arch = "amd64";
-  src = ./falcon-sensor_7.21_amd64.deb;
+
+  # SHA256 hash of the .deb file - users need to verify this matches their download
+  debSha256 = "25faf5ae428ba0e0b67cf075401fd1310df57651424e2bfe742ff7b4711ba422";
+
+  # Require users to manually download the .deb file from CrowdStrike
+  # This avoids storing proprietary binaries in the repository
+  src = requireFile {
+    name = "falcon-sensor_${version}-${release}_${arch}.deb";
+    sha256 = debSha256;
+    message = ''
+      This package requires the CrowdStrike Falcon Sensor .deb file.
+
+      To use this package, you must:
+
+      1. Download falcon-sensor_${version}-${release}_${arch}.deb from:
+         https://falcon.crowdstrike.com/
+         (You need a valid CrowdStrike account)
+
+      2. Add the file to the Nix store using one of these methods:
+
+         Option A: Use nix-store to add the file:
+           nix-store --add-fixed sha256 falcon-sensor_${version}-${release}_${arch}.deb
+
+         Option B: Use nix-prefetch-url:
+           nix-prefetch-url --type sha256 file:///path/to/falcon-sensor_${version}-${release}_${arch}.deb
+
+         Option C: Place the file in the Nix store manually:
+           sudo cp falcon-sensor_${version}-${release}_${arch}.deb /nix/store/
+
+      3. Verify the SHA256 hash matches: ${debSha256}
+
+      4. Retry the build
+
+      If you have a different version of the .deb file, you'll need to update
+      the version, release, and debSha256 values in this package definition.
+    '';
+  };
+
   falcon-sensor = stdenv.mkDerivation {
-    inherit version arch src;
-    name = pname;
+    inherit pname version src;
 
     nativeBuildInputs = [
       dpkg
@@ -31,9 +69,6 @@ let
       zlib
     ];
 
-    dontUnpack = true;
-    sourceRoot = ".";
-
     unpackPhase = ''
       runHook preUnpack
       dpkg-deb -x $src .
@@ -42,28 +77,51 @@ let
 
     installPhase = ''
       runHook preInstall
-      cp -r . $out
+      mkdir -p $out
+
+      # Move lib to usr/lib to match FHS expectations
+      if [ -d "lib" ]; then
+        mkdir -p $out/usr/lib
+        cp -r lib/* $out/usr/lib/
+      fi
+
+      # Copy other directories
+      if [ -d "opt/CrowdStrike" ]; then
+        mkdir -p $out/opt
+        cp -r opt/CrowdStrike $out/opt/
+      fi
+
+      if [ -d "etc" ]; then
+        cp -r etc $out/
+      fi
+
       runHook postInstall
     '';
 
     meta = with lib; {
-      description = "Crowdstrike Falcon Sensor";
-      homepage = "https://www.crowdstrike.com/";
+      description = "CrowdStrike Falcon Sensor for Linux";
+      homepage = "https://falcon.crowdstrike.com/";
       license = licenses.unfree;
       platforms = platforms.linux;
-      maintainers = with maintainers; [ klden ];
+      maintainers = with maintainers; [ ];
     };
   };
+
+  fs-bash = buildFHSEnv {
+    name = "fs-bash";
+    targetPkgs = pkgs: [
+      libnl
+      openssl
+      zlib
+    ];
+
+    extraInstallCommands = ''ln -s ${falcon-sensor}/* $out/'';
+
+    runScript = "bash";
+  };
 in
-buildFHSEnv {
-  name = "fs-bash";
-  targetPkgs = pkgs: [
-    libnl
-    openssl
-    zlib
-  ];
-
-  extraInstallCommands = ''ln -s ${falcon-sensor}/* $out/                                                                                                                           '';
-
-  runScript = "bash";
-}
+falcon-sensor.overrideAttrs (oldAttrs: {
+  passthru = {
+    fs-bash = fs-bash;
+  };
+})

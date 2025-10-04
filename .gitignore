@@ -2,3 +2,6 @@ result
 result-*
 .direnv/
 keyfile.toml
+
+# Proprietary binaries that users must download manually
+pkgs/falcon-sensor/*.deb

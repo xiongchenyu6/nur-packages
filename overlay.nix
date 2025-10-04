@@ -33,7 +33,7 @@ in
   
   # Linux-only packages (conditionally included)
   cyrus_sasl_with_ldap = 
-    if lib.hasPrefix "linux" prev.system then
+    if lib.hasSuffix "linux" prev.system then
       let
         ldap-passthrough-conf = prev.callPackage ./pkgs/ldap-passthrough-conf/package.nix { };
       in
@@ -47,7 +47,7 @@ in
       throw "cyrus_sasl_with_ldap is only available on Linux";
   
   openldap_with_cyrus_sasl =
-    if lib.hasPrefix "linux" prev.system then
+    if lib.hasSuffix "linux" prev.system then
       let
         ldap-passthrough-conf = prev.callPackage ./pkgs/ldap-passthrough-conf/package.nix { };
         cyrus_sasl_with_ldap_pkg = (prev.cyrus_sasl.override { enableLdap = true; }).overrideAttrs (_: {
@@ -68,7 +68,7 @@ in
       throw "openldap_with_cyrus_sasl is only available on Linux";
   
   postfix_with_ldap =
-    if lib.hasPrefix "linux" prev.system then
+    if lib.hasSuffix "linux" prev.system then
       let
         ldap-passthrough-conf = prev.callPackage ./pkgs/ldap-passthrough-conf/package.nix { };
         cyrus_sasl_with_ldap_pkg = (prev.cyrus_sasl.override { enableLdap = true; }).overrideAttrs (_: {
@@ -83,13 +83,13 @@ in
       throw "postfix_with_ldap is only available on Linux";
   
   sssd_with_sude =
-    if lib.hasPrefix "linux" prev.system then
+    if lib.hasSuffix "linux" prev.system then
       prev.sssd.override { withSudo = true; }
     else
       throw "sssd_with_sude is only available on Linux";
   
   sudo_with_sssd =
-    if lib.hasPrefix "linux" prev.system then
+    if lib.hasSuffix "linux" prev.system then
       let
         sssd_pkg = prev.sssd.override { withSudo = true; };
       in
@@ -102,7 +102,7 @@ in
       throw "sudo_with_sssd is only available on Linux";
   
   ldap-passthrough-conf =
-    if lib.hasPrefix "linux" prev.system then
+    if lib.hasSuffix "linux" prev.system then
       prev.callPackage ./pkgs/ldap-passthrough-conf/package.nix { }
     else
       throw "ldap-passthrough-conf is only available on Linux";
@@ -118,31 +118,31 @@ in
   
   # Linux-only packages from pkgs/
   falcon-sensor = 
-    if lib.hasPrefix "linux" prev.system then
+    if lib.hasSuffix "linux" prev.system then
       prev.callPackage ./pkgs/falcon-sensor/package.nix { }
     else
       throw "falcon-sensor is only available on Linux";
   
   feishu-lark =
-    if lib.hasPrefix "linux" prev.system then
+    if lib.hasSuffix "linux" prev.system then
       prev.callPackage ./pkgs/feishu-lark/package.nix { }
     else
       throw "feishu-lark is only available on Linux";
   
   haystack-editor =
-    if lib.hasPrefix "linux" prev.system then
+    if lib.hasSuffix "linux" prev.system then
       prev.callPackage ./pkgs/haystack-editor/package.nix { }
     else
       throw "haystack-editor is only available on Linux";
   
   record_screen =
-    if lib.hasPrefix "linux" prev.system then
+    if lib.hasSuffix "linux" prev.system then
       prev.callPackage ./pkgs/record_screen/package.nix { }
     else
       throw "record_screen is only available on Linux";
   
   sui =
-    if lib.hasPrefix "linux" prev.system then
+    if lib.hasSuffix "linux" prev.system then
       prev.callPackage ./pkgs/sui/package.nix { }
     else
       throw "sui is only available on Linux";

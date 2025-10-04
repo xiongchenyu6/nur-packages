@@ -1,6 +1,5 @@
 {
   pkgs,
-  addOpenGLRunpath,
   alsa-lib,
   at-spi2-atk,
   at-spi2-core,

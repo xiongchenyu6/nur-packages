@@ -49,7 +49,7 @@
                     let
                       packageFile = path + "/package.nix";
                       isLinuxOnly = builtins.elem name linuxOnlyPackages;
-                      isLinuxSystem = lib.hasPrefix "linux" system;
+                      isLinuxSystem = lib.hasSuffix "linux" system;
                     in
                     if builtins.pathExists packageFile && 
                        (!isLinuxOnly || isLinuxSystem) then

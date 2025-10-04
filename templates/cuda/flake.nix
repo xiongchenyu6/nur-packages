@@ -26,6 +26,16 @@
           lib,
           ...
         }:
+        let
+          # Configure nixpkgs to allow unfree packages (required for CUDA)
+          pkgs = import nixpkgs {
+            inherit system;
+            config = {
+              allowUnfree = true;
+              cudaSupport = true;
+            };
+          };
+        in
         {
           devShells.default = pkgs.mkShell (with pkgs; {
             nativeBuildInputs = [ nixfmt-rfc-style nixd ];
