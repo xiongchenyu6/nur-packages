@@ -23,6 +23,14 @@ in
     dontCheckForBrokenSymlinks = true;
   });
   
+  # Emacs packages
+  emacs-copilot-el = prev.callPackage ./pkgs/emacs/copilot-el/package.nix { };
+  emacs-combobulate = prev.callPackage ./pkgs/emacs/combobulate/package.nix { };
+  emacs-gptel = prev.callPackage ./pkgs/emacs/gptel/package.nix { };
+  emacs-magit-gitflow = prev.callPackage ./pkgs/emacs/magit-gitflow/package.nix { };
+  emacs-magit-town = prev.callPackage ./pkgs/emacs/magit-town/package.nix { };
+  emacs-org-cv = prev.callPackage ./pkgs/emacs/org-cv/package.nix { };
+  
   # Linux-only packages (conditionally included)
   cyrus_sasl_with_ldap = 
     if lib.hasPrefix "linux" prev.system then
