@@ -101,21 +101,9 @@
         };
 
       flake = {
-        overlays.default = final: prev:
-          let
-            # Import packages from default.nix, but use 'prev' to avoid circular dependencies
-            defaultPackages = import ./. {
-              self = {};  # Pass empty set since it's not used anymore
-              pkgs = prev;  # Use prev instead of final to avoid circular dependency
-              lib = prev.lib;  # Use prev.lib as well
-            };
-            
-            # Filter out reserved attributes
-            isReserved = n: n == "lib" || n == "overlays" || n == "modules";
-            filtered = builtins.removeAttrs defaultPackages 
-              (builtins.filter isReserved (builtins.attrNames defaultPackages));
-          in 
-          filtered;       
+        # Overlay that provides all NUR packages
+        # Uses lazy evaluation and super (prev) to avoid infinite recursion
+        overlays.default = import ./overlay.nix;
     
         nixosModules = import ./modules;
         templates = import ./templates;
