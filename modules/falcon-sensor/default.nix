@@ -9,9 +9,14 @@ with lib;
 
 let
   cfg = config.services.falcon-sensor;
-  falcon = pkgs.falcon-sensor;
+  
+  # Check if running on Linux
+  isLinux = pkgs.stdenv.isLinux;
+  
+  falcon = if isLinux then pkgs.falcon-sensor else null;
+  fs-bash = if isLinux then falcon.passthru.fs-bash else null;
 
-  startPreScript = pkgs.writeScript "init-falcon" ''
+  startPreScript = if isLinux then pkgs.writeScript "init-falcon" ''
     #! ${pkgs.bash}/bin/sh
     set -e
 
@@ -38,7 +43,7 @@ let
       CID=$(cat ${cfg.cidFile})
       if [ -n "$CID" ]; then
         # Add the -f flag which is required when setting CID
-        ${falcon}/bin/fs-bash -c "${falcon}/opt/CrowdStrike/falconctl -s -f --cid=$CID"
+        ${fs-bash}/bin/fs-bash -c "${falcon}/opt/CrowdStrike/falconctl -s -f --cid=$CID"
       else
         echo "Error: CID file is empty or unreadable"
         exit 1
@@ -49,9 +54,9 @@ let
     ${optionalString (cfg.traceLevel != null) ''
       echo "Setting Falcon trace level to: ${cfg.traceLevel}"
       # Correct format for setting trace level
-      ${falcon}/bin/fs-bash -c "${falcon}/opt/CrowdStrike/falconctl -s -f --trace=${cfg.traceLevel}"
+      ${fs-bash}/bin/fs-bash -c "${falcon}/opt/CrowdStrike/falconctl -s -f --trace=${cfg.traceLevel}"
     ''}
-  '';
+  '' else null;
 in
 {
   options.services.falcon-sensor = {
@@ -81,34 +86,47 @@ in
     };
   };
 
-  config = mkIf cfg.enable {
-    systemd.services.falcon-sensor = {
-      enable = true;
-      description = "CrowdStrike Falcon Sensor";
-      unitConfig.DefaultDependencies = false;
-      after = [ "local-fs.target" ];
-      conflicts = [ "shutdown.target" ];
-      before = [
-        "sysinit.target"
-        "shutdown.target"
+  config = mkMerge [
+    # Add assertion for Linux-only support
+    (mkIf cfg.enable {
+      assertions = [
+        {
+          assertion = isLinux;
+          message = "falcon-sensor is only available on Linux";
+        }
       ];
-      serviceConfig = {
-        ExecStartPre = "${startPreScript}";
-        ExecStart = "${falcon}/bin/fs-bash -c \"${falcon}/opt/CrowdStrike/falcond\"";
-        Type = "forking";
-        PIDFile = "/run/falcond.pid";
-        Restart = "on-failure";
-        RestartSec = "10s";
-        TimeoutStopSec = "60s";
-        KillMode = "process";
-        RuntimeDirectory = "crowdstrike";
-        RuntimeDirectoryMode = "0755";
-        StateDirectory = "crowdstrike";
-        StateDirectoryMode = "0755";
-        LogsDirectory = "crowdstrike";
-        LogsDirectoryMode = "0755";
+    })
+    
+    # Only define the service when both enabled and on Linux
+    (mkIf (cfg.enable && isLinux) {
+      systemd.services.falcon-sensor = {
+        enable = true;
+        description = "CrowdStrike Falcon Sensor";
+        unitConfig.DefaultDependencies = false;
+        after = [ "local-fs.target" ];
+        conflicts = [ "shutdown.target" ];
+        before = [
+          "sysinit.target"
+          "shutdown.target"
+        ];
+        serviceConfig = {
+          ExecStartPre = startPreScript;
+          ExecStart = "${fs-bash}/bin/fs-bash -c \"${falcon}/opt/CrowdStrike/falcond\"";
+          Type = "forking";
+          PIDFile = "/run/falcond.pid";
+          Restart = "on-failure";
+          RestartSec = "10s";
+          TimeoutStopSec = "60s";
+          KillMode = "process";
+          RuntimeDirectory = "crowdstrike";
+          RuntimeDirectoryMode = "0755";
+          StateDirectory = "crowdstrike";
+          StateDirectoryMode = "0755";
+          LogsDirectory = "crowdstrike";
+          LogsDirectoryMode = "0755";
+        };
+        wantedBy = [ "multi-user.target" ];
       };
-      wantedBy = [ "multi-user.target" ];
-    };
-  };
+    })
+  ];
 }

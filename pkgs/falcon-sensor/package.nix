@@ -54,16 +54,21 @@ let
       maintainers = with maintainers; [ klden ];
     };
   };
+  fs-bash = buildFHSEnv {
+    name = "fs-bash";
+    targetPkgs = pkgs: [
+      libnl
+      openssl
+      zlib
+    ];
+
+    extraInstallCommands = ''ln -s ${falcon-sensor}/* $out/'';
+
+    runScript = "bash";
+  };
 in
-buildFHSEnv {
-  name = "fs-bash";
-  targetPkgs = pkgs: [
-    libnl
-    openssl
-    zlib
-  ];
-
-  extraInstallCommands = ''ln -s ${falcon-sensor}/* $out/                                                                                                                           '';
-
-  runScript = "bash";
-}
+falcon-sensor.overrideAttrs (oldAttrs: {
+  passthru = {
+    fs-bash = fs-bash;
+  };
+})
