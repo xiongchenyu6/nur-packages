@@ -146,5 +146,14 @@ in
       prev.callPackage ./pkgs/sui/package.nix { }
     else
       throw "sui is only available on Linux";
+
+  # Hashtopolis packages
+  hashtopolis-server =
+    if lib.hasSuffix "linux" prev.system then
+      prev.callPackage ./pkgs/hashtopolis-server/package.nix { }
+    else
+      throw "hashtopolis-server is only available on Linux";
+
+  hashtopolis-agent = prev.callPackage ./pkgs/hashtopolis-agent/package.nix { };
 }
 

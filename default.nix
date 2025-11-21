@@ -17,7 +17,7 @@ let
   };
   
   # Check if we're on Linux
-  isLinux = lib.hasPrefix "linux" pkgs.system;
+  isLinux = pkgs.stdenv.isLinux;
   
   # Build ldap-passthrough-conf directly from the package definition (only needed on Linux)
   ldap-passthrough-conf = if isLinux 
@@ -92,4 +92,11 @@ in
   wrangler = pkgs.wrangler.overrideAttrs (old: {
     dontCheckForBrokenSymlinks = true;
   });
+
+  # Hashtopolis packages
+  hashtopolis-server = if isLinux
+    then pkgs.callPackage ./pkgs/hashtopolis-server/package.nix { }
+    else null;
+
+  hashtopolis-agent = pkgs.callPackage ./pkgs/hashtopolis-agent/package.nix { };
 } // linuxPackages
