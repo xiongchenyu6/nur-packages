@@ -10,13 +10,14 @@ in
   # Each package is defined as a lazy thunk
   
   librime = (prev.librime.override {
-    plugins = [ 
+    plugins = [
       (prev.callPackage ./_sources/generated.nix {
         inherit (prev) fetchFromGitHub fetchurl fetchgit;
       }).librime-lua.src
     ];
   }).overrideAttrs (old: {
     buildInputs = old.buildInputs ++ [ prev.lua ];
+    nativeBuildInputs = old.nativeBuildInputs ++ [ prev.lua ];
   });
   
   wrangler = prev.wrangler.overrideAttrs (old: {

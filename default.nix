@@ -83,6 +83,7 @@ in
     }).overrideAttrs
       (old: {
         buildInputs = old.buildInputs ++ [ pkgs.lua ];
+        nativeBuildInputs = old.nativeBuildInputs ++ [ pkgs.lua ];
       });
   
   default = pkgs.librime.override {
