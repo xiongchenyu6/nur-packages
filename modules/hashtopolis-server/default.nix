@@ -174,27 +174,38 @@ in {
 
       # preStart runs as root by default
       preStart = ''
-        # Ensure data directory exists
-        mkdir -p ${cfg.dataDir}
-
         # Check if this is a fresh install or if files need to be refreshed
         if [ ! -d "${cfg.dataDir}/src" ]; then
           echo "First time setup - installing Hashtopolis files..."
 
-          # Clean any existing files that might have wrong permissions
-          rm -rf ${cfg.dataDir}/*
+          # If directory exists but no src, we need to clean it completely
+          if [ -d "${cfg.dataDir}" ]; then
+            echo "Cleaning existing directory with wrong permissions..."
+            # First fix permissions on directories to allow deletion
+            find ${cfg.dataDir} -type d -exec chmod 755 {} \; 2>/dev/null || true
+            # Then remove everything
+            rm -rf ${cfg.dataDir}
+          fi
+
+          # Create fresh directory
+          mkdir -p ${cfg.dataDir}
 
           # Copy all files from the package
           cp -r ${cfg.package}/share/hashtopolis/* ${cfg.dataDir}/
+
+          # Fix ownership and permissions
+          chown -R hashtopolis:hashtopolis ${cfg.dataDir}
+          find ${cfg.dataDir} -type d -exec chmod 755 {} \;
+          find ${cfg.dataDir} -type f -exec chmod 644 {} \;
         else
           # Existing installation - just ensure permissions are correct
           echo "Hashtopolis files already present in ${cfg.dataDir}"
-        fi
 
-        # Fix ownership and permissions for all files (this needs root)
-        chown -R hashtopolis:hashtopolis ${cfg.dataDir}
-        chmod -R u+rwX,g+rX,o+rX ${cfg.dataDir}
-        chmod 755 ${cfg.dataDir}
+          # Fix any permission issues
+          chown -R hashtopolis:hashtopolis ${cfg.dataDir}
+          find ${cfg.dataDir} -type d -exec chmod 755 {} \;
+          find ${cfg.dataDir} -type f -exec chmod 644 {} \;
+        fi
 
         # Setup environment file (always refresh this)
         cp -f ${envFile} ${cfg.dataDir}/.env
@@ -211,12 +222,16 @@ in {
         Restart = "always";
         RestartSec = "10s";
 
+        # Directory management
+        StateDirectory = "hashtopolis";
+        StateDirectoryMode = "0755";
+
         # Security hardening
         PrivateTmp = true;
         NoNewPrivileges = true;
         ProtectSystem = "strict";
         ProtectHome = true;
-        ReadWritePaths = [ cfg.dataDir ];
+        # ReadWritePaths is not needed when using StateDirectory
       };
     };
 
