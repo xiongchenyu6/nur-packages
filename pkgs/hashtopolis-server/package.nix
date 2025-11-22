@@ -22,6 +22,15 @@ stdenv.mkDerivation rec {
 
   buildInputs = [ php82 ];
 
+  postPatch = ''
+    # Fix hardcoded paths to use /var/lib/hashtopolis instead of /usr/local/share/hashtopolis
+    substituteInPlace src/inc/confv2.php \
+      --replace '"/usr/local/share/hashtopolis/files"' '"/var/lib/hashtopolis/files"' \
+      --replace '"/usr/local/share/hashtopolis/import"' '"/var/lib/hashtopolis/import"' \
+      --replace '"/usr/local/share/hashtopolis/log"' '"/var/lib/hashtopolis/log"' \
+      --replace '"/usr/local/share/hashtopolis/config"' '"/var/lib/hashtopolis/config"'
+  '';
+
   installPhase = ''
     runHook preInstall
 

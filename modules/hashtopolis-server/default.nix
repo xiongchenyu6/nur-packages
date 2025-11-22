@@ -212,10 +212,11 @@ in {
         mkdir -p ${cfg.dataDir}/import
         mkdir -p ${cfg.dataDir}/log
         mkdir -p ${cfg.dataDir}/tmp
+        mkdir -p ${cfg.dataDir}/config
 
         # Ensure proper ownership and permissions on runtime directories
-        chown -R hashtopolis:hashtopolis ${cfg.dataDir}/files ${cfg.dataDir}/import ${cfg.dataDir}/log ${cfg.dataDir}/tmp
-        chmod -R 755 ${cfg.dataDir}/files ${cfg.dataDir}/import ${cfg.dataDir}/log ${cfg.dataDir}/tmp
+        chown -R hashtopolis:hashtopolis ${cfg.dataDir}/files ${cfg.dataDir}/import ${cfg.dataDir}/log ${cfg.dataDir}/tmp ${cfg.dataDir}/config
+        chmod -R 755 ${cfg.dataDir}/files ${cfg.dataDir}/import ${cfg.dataDir}/log ${cfg.dataDir}/tmp ${cfg.dataDir}/config
 
         # Setup environment file (always refresh this)
         cp -f ${envFile} ${cfg.dataDir}/.env
