@@ -174,21 +174,21 @@ in {
 
       # preStart runs as root by default
       preStart = ''
+        # StateDirectory ensures the directory exists, so we just need to manage contents
+
         # Check if this is a fresh install or if files need to be refreshed
         if [ ! -d "${cfg.dataDir}/src" ]; then
           echo "First time setup - installing Hashtopolis files..."
 
-          # If directory exists but no src, we need to clean it completely
+          # Clean contents if directory exists but no src folder
           if [ -d "${cfg.dataDir}" ]; then
-            echo "Cleaning existing directory with wrong permissions..."
-            # First fix permissions on directories to allow deletion
+            echo "Cleaning existing contents..."
+            # Fix permissions on existing contents to allow deletion
             find ${cfg.dataDir} -type d -exec chmod 755 {} \; 2>/dev/null || true
-            # Then remove everything
-            rm -rf ${cfg.dataDir}
+            find ${cfg.dataDir} -type f -exec chmod 644 {} \; 2>/dev/null || true
+            # Remove all contents but not the directory itself
+            rm -rf ${cfg.dataDir}/* ${cfg.dataDir}/.[!.]* 2>/dev/null || true
           fi
-
-          # Create fresh directory
-          mkdir -p ${cfg.dataDir}
 
           # Copy all files from the package
           cp -r ${cfg.package}/share/hashtopolis/* ${cfg.dataDir}/
