@@ -172,12 +172,23 @@ in {
         HOME = cfg.dataDir;
       };
 
+      # preStart runs as root by default
       preStart = ''
+        # Ensure data directory exists with correct permissions
+        mkdir -p ${cfg.dataDir}
+
         # Copy hashtopolis files if not present
         if [ ! -d "${cfg.dataDir}/src" ]; then
+          # First time setup - copy all files
           cp -r ${cfg.package}/share/hashtopolis/* ${cfg.dataDir}/
-          chown -R hashtopolis:hashtopolis ${cfg.dataDir}
+        else
+          # Existing installation - just ensure permissions are correct
+          echo "Hashtopolis files already present in ${cfg.dataDir}"
         fi
+
+        # Fix ownership for all files (this needs root)
+        chown -R hashtopolis:hashtopolis ${cfg.dataDir}
+        chmod 755 ${cfg.dataDir}
 
         # Setup environment file
         cp ${envFile} ${cfg.dataDir}/.env
