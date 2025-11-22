@@ -23,6 +23,10 @@ let
   envFile = pkgs.writeText "hashtopolis.env" ''
     HASHTOPOLIS_ADMIN_USER=${cfg.adminUser}
     HASHTOPOLIS_ADMIN_PASSWORD=${cfg.adminPassword}
+    HASHTOPOLIS_DB_HOST=${cfg.database.host}
+    HASHTOPOLIS_DB_USER=${cfg.database.user}
+    HASHTOPOLIS_DB_PASS=${cfg.database.password}
+    HASHTOPOLIS_DB_DATABASE=${cfg.database.name}
     MYSQL_HOST=${cfg.database.host}
     MYSQL_PORT=${toString cfg.database.port}
     MYSQL_DATABASE=${cfg.database.name}
@@ -234,6 +238,7 @@ in {
         User = "hashtopolis";
         Group = "hashtopolis";
         WorkingDirectory = cfg.dataDir;
+        EnvironmentFile = "${cfg.dataDir}/.env";
         ExecStart = "${cfg.phpPackage}/bin/php -S ${cfg.listenAddress}:${toString cfg.port} -t ${cfg.dataDir}/src";
         Restart = "always";
         RestartSec = "10s";

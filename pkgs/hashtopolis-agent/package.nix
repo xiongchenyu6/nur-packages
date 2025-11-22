@@ -29,18 +29,7 @@ stdenv.mkDerivation rec {
 
   buildPhase = ''
     runHook preBuild
-
-    # Fix timestamps to avoid zip creation issues
-    find . -exec touch -t 198001010000 {} \;
-
-    # Create the agent zip file as expected by Hashtopolis
-    # Using zip command instead of python's zipfile module to avoid timestamp issues
-    ${zip}/bin/zip -r hashtopolis.zip \
-      hashtopolis.py \
-      htpclient \
-      __main__.py \
-      || true
-
+    # No build needed for Python script
     runHook postBuild
   '';
 
@@ -51,12 +40,16 @@ stdenv.mkDerivation rec {
     mkdir -p $out/share/hashtopolis-agent
     mkdir -p $out/bin
 
-    # Copy the zip file
-    cp hashtopolis.zip $out/share/hashtopolis-agent/
+    # Copy all agent files
+    cp -r * $out/share/hashtopolis-agent/
 
     # Create wrapper script
-    makeWrapper ${pythonEnv}/bin/python3 $out/bin/hashtopolis-agent \
-      --add-flags "$out/share/hashtopolis-agent/hashtopolis.zip"
+    cat > $out/bin/hashtopolis-agent << EOF
+    #!${stdenv.shell}
+    cd $out/share/hashtopolis-agent
+    exec ${pythonEnv}/bin/python3 __main__.py "\$@"
+    EOF
+    chmod +x $out/bin/hashtopolis-agent
 
     runHook postInstall
   '';
