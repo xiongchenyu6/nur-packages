@@ -25,10 +25,13 @@ stdenv.mkDerivation rec {
   postPatch = ''
     # Add support for HASHTOPOLIS_CONFIG_PATH environment variable
     # Insert it at line 42, right after the LOG_PATH check
-    sed -i '42a\
-  if (getenv('\''HASHTOPOLIS_CONFIG_PATH'\'') !== false) {\
-    $DIRECTORIES["config"] = getenv('\''HASHTOPOLIS_CONFIG_PATH'\'');\
-  }' src/inc/confv2.php
+    cat > patch.tmp << 'EOF'
+  if (getenv('HASHTOPOLIS_CONFIG_PATH') !== false) {
+    $DIRECTORIES["config"] = getenv('HASHTOPOLIS_CONFIG_PATH');
+  }
+EOF
+    sed -i '42r patch.tmp' src/inc/confv2.php
+    rm patch.tmp
   '';
 
   installPhase = ''
