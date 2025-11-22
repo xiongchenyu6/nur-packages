@@ -207,6 +207,16 @@ in {
           find ${cfg.dataDir} -type f -exec chmod 644 {} \;
         fi
 
+        # Create required directories for Hashtopolis operation
+        mkdir -p ${cfg.dataDir}/files
+        mkdir -p ${cfg.dataDir}/import
+        mkdir -p ${cfg.dataDir}/log
+        mkdir -p ${cfg.dataDir}/tmp
+
+        # Ensure proper ownership and permissions on runtime directories
+        chown -R hashtopolis:hashtopolis ${cfg.dataDir}/files ${cfg.dataDir}/import ${cfg.dataDir}/log ${cfg.dataDir}/tmp
+        chmod -R 755 ${cfg.dataDir}/files ${cfg.dataDir}/import ${cfg.dataDir}/log ${cfg.dataDir}/tmp
+
         # Setup environment file (always refresh this)
         cp -f ${envFile} ${cfg.dataDir}/.env
         chown hashtopolis:hashtopolis ${cfg.dataDir}/.env
