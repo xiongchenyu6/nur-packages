@@ -23,12 +23,24 @@ stdenv.mkDerivation rec {
   buildInputs = [ php82 ];
 
   postPatch = ''
-    # Fix hardcoded paths to use /var/lib/hashtopolis instead of /usr/local/share/hashtopolis
-    substituteInPlace src/inc/confv2.php \
-      --replace '"/usr/local/share/hashtopolis/files"' '"/var/lib/hashtopolis/files"' \
-      --replace '"/usr/local/share/hashtopolis/import"' '"/var/lib/hashtopolis/import"' \
-      --replace '"/usr/local/share/hashtopolis/log"' '"/var/lib/hashtopolis/log"' \
-      --replace '"/usr/local/share/hashtopolis/config"' '"/var/lib/hashtopolis/config"'
+    # Create a conf.php file to override default paths
+    cat > src/inc/conf.php << 'EOF'
+    <?php
+    // Database configuration (will be overridden by environment variables)
+    $CONN['user'] = 'hashtopolis';
+    $CONN['pass'] = 'hashtopolis';
+    $CONN['server'] = 'localhost';
+    $CONN['db'] = 'hashtopolis';
+    $CONN['port'] = 3306;
+
+    // Directory configuration - use /var/lib/hashtopolis
+    $DIRECTORIES = [
+      "files" => "/var/lib/hashtopolis/files/",
+      "import" => "/var/lib/hashtopolis/import/",
+      "log" => "/var/lib/hashtopolis/log/",
+      "config" => "/var/lib/hashtopolis/config/"
+    ];
+    EOF
   '';
 
   installPhase = ''
