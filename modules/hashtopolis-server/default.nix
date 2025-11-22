@@ -174,24 +174,30 @@ in {
 
       # preStart runs as root by default
       preStart = ''
-        # Ensure data directory exists with correct permissions
+        # Ensure data directory exists
         mkdir -p ${cfg.dataDir}
 
-        # Copy hashtopolis files if not present
+        # Check if this is a fresh install or if files need to be refreshed
         if [ ! -d "${cfg.dataDir}/src" ]; then
-          # First time setup - copy all files
+          echo "First time setup - installing Hashtopolis files..."
+
+          # Clean any existing files that might have wrong permissions
+          rm -rf ${cfg.dataDir}/*
+
+          # Copy all files from the package
           cp -r ${cfg.package}/share/hashtopolis/* ${cfg.dataDir}/
         else
           # Existing installation - just ensure permissions are correct
           echo "Hashtopolis files already present in ${cfg.dataDir}"
         fi
 
-        # Fix ownership for all files (this needs root)
+        # Fix ownership and permissions for all files (this needs root)
         chown -R hashtopolis:hashtopolis ${cfg.dataDir}
+        chmod -R u+rwX,g+rX,o+rX ${cfg.dataDir}
         chmod 755 ${cfg.dataDir}
 
-        # Setup environment file
-        cp ${envFile} ${cfg.dataDir}/.env
+        # Setup environment file (always refresh this)
+        cp -f ${envFile} ${cfg.dataDir}/.env
         chown hashtopolis:hashtopolis ${cfg.dataDir}/.env
         chmod 600 ${cfg.dataDir}/.env
       '';
