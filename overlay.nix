@@ -16,8 +16,8 @@ in
       }).librime-lua.src
     ];
   }).overrideAttrs (old: {
-    buildInputs = old.buildInputs ++ [ prev.lua ];
-    nativeBuildInputs = old.nativeBuildInputs ++ [ prev.lua ];
+    buildInputs = old.buildInputs ++ [ prev.lua5_2 ];
+    nativeBuildInputs = old.nativeBuildInputs ++ [ prev.lua5_2 prev.pkg-config ];
   });
   
   wrangler = prev.wrangler.overrideAttrs (old: {

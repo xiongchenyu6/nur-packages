@@ -82,8 +82,8 @@ in
       plugins = [ sources.librime-lua.src ];
     }).overrideAttrs
       (old: {
-        buildInputs = old.buildInputs ++ [ pkgs.lua ];
-        nativeBuildInputs = old.nativeBuildInputs ++ [ pkgs.lua ];
+        buildInputs = old.buildInputs ++ [ pkgs.lua5_2 ];
+        nativeBuildInputs = old.nativeBuildInputs ++ [ pkgs.lua5_2 pkgs.pkg-config ];
       });
   
   default = pkgs.librime.override {
