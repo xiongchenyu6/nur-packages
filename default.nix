@@ -101,4 +101,9 @@ in
     else null;
 
   hashtopolis-agent = pkgs.callPackage ./pkgs/hashtopolis-agent/package.nix { };
+
+  # FitCrack package
+  fitcrack = if isLinux
+    then pkgs.callPackage ./pkgs/fitcrack/package.nix { }
+    else null;
 } // linuxPackages
