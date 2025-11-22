@@ -25,11 +25,13 @@ stdenv.mkDerivation rec {
   postPatch = ''
     # Add support for HASHTOPOLIS_CONFIG_PATH environment variable
     # The application doesn't have this by default, so we add it
-    sed -i '/if (getenv('\''HASHTOPOLIS_LOG_PATH'\'') !== false) {/a\
-  }\
-  if (getenv('\''HASHTOPOLIS_CONFIG_PATH'\'') !== false) {\
-    $DIRECTORIES["config"] = getenv('\''HASHTOPOLIS_CONFIG_PATH'\'');' \
-      src/inc/confv2.php
+    cat >> src/inc/confv2.php << 'PHP_PATCH'
+
+    // Added by Nix to support config path environment variable
+    if (isset($DIRECTORIES) && getenv('HASHTOPOLIS_CONFIG_PATH') !== false) {
+      $DIRECTORIES["config"] = getenv('HASHTOPOLIS_CONFIG_PATH');
+    }
+    PHP_PATCH
   '';
 
   installPhase = ''
