@@ -43,11 +43,11 @@ stdenv.mkDerivation rec {
     # Copy all agent files
     cp -r * $out/share/hashtopolis-agent/
 
-    # Create wrapper script
+    # Create wrapper script that doesn't change directory
+    # The service will set the working directory appropriately
     cat > $out/bin/hashtopolis-agent << EOF
     #!${stdenv.shell}
-    cd $out/share/hashtopolis-agent
-    exec ${pythonEnv}/bin/python3 __main__.py "\$@"
+    exec ${pythonEnv}/bin/python3 $out/share/hashtopolis-agent/__main__.py "\$@"
     EOF
     chmod +x $out/bin/hashtopolis-agent
 
