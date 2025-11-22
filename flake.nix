@@ -39,20 +39,26 @@
               };
               
               # Manually import packages from pkgs/ directory with platform filtering
-              pkgsByName = 
+              pkgsByName =
                 let
                   # Platform-specific package mapping
                   linuxOnlyPackages = [ "falcon-sensor" "feishu-lark" "haystack-editor" "record_screen" "sui" ];
-                  
+
+                  # Unfree packages that should be excluded from CI builds
+                  unfreePackages = [ "falcon-sensor" "feishu-lark" ];
+
                   # Function to safely import a package if it's compatible with the current system
                   tryImportPackage = name: path:
                     let
                       packageFile = path + "/package.nix";
                       isLinuxOnly = builtins.elem name linuxOnlyPackages;
                       isLinuxSystem = lib.hasSuffix "linux" system;
+                      isUnfree = builtins.elem name unfreePackages;
                     in
-                    if builtins.pathExists packageFile && 
-                       (!isLinuxOnly || isLinuxSystem) then
+                    # Skip unfree packages entirely - they won't be built in CI
+                    if builtins.pathExists packageFile &&
+                       (!isLinuxOnly || isLinuxSystem) &&
+                       (!isUnfree) then  # Exclude unfree packages
                       (let
                         result = builtins.tryEval (pkgs.callPackage packageFile {});
                       in
