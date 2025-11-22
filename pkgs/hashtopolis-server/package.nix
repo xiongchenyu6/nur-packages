@@ -23,17 +23,24 @@ stdenv.mkDerivation rec {
   buildInputs = [ php82 ];
 
   postPatch = ''
-    # Patch confv2.php to use /var/lib/hashtopolis paths
-    # This patches both the hardcoded paths AND the relative paths
+    # Patch load.php to override the directories after they're loaded
+    # Add our directory override right after the confv2.php include
+    sed -i '/include(dirname(__FILE__) . "\/confv2.php");/a\
+    \
+    # Override directories to use /var/lib/hashtopolis\
+    $DIRECTORIES = [\
+      "files" => "/var/lib/hashtopolis/files/",\
+      "import" => "/var/lib/hashtopolis/import/",\
+      "log" => "/var/lib/hashtopolis/log/",\
+      "config" => "/var/lib/hashtopolis/config/"\
+    ];' src/inc/load.php
+
+    # Also patch confv2.php just to be safe
     substituteInPlace src/inc/confv2.php \
-      --replace '"/usr/local/share/hashtopolis/files"' '"/var/lib/hashtopolis/files/"' \
-      --replace '"/usr/local/share/hashtopolis/import"' '"/var/lib/hashtopolis/import/"' \
-      --replace '"/usr/local/share/hashtopolis/log"' '"/var/lib/hashtopolis/log/"' \
-      --replace '"/usr/local/share/hashtopolis/config"' '"/var/lib/hashtopolis/config/"' \
-      --replace 'dirname(__FILE__) . "/../files/"' '"/var/lib/hashtopolis/files/"' \
-      --replace 'dirname(__FILE__) . "/../import/"' '"/var/lib/hashtopolis/import/"' \
-      --replace 'dirname(__FILE__) . "/../log/"' '"/var/lib/hashtopolis/log/"' \
-      --replace 'dirname(__FILE__) . "/../config/"' '"/var/lib/hashtopolis/config/"'
+      --replace-fail '"/usr/local/share/hashtopolis/files"' '"/var/lib/hashtopolis/files/"' \
+      --replace-fail '"/usr/local/share/hashtopolis/import"' '"/var/lib/hashtopolis/import/"' \
+      --replace-fail '"/usr/local/share/hashtopolis/log"' '"/var/lib/hashtopolis/log/"' \
+      --replace-fail '"/usr/local/share/hashtopolis/config"' '"/var/lib/hashtopolis/config/"'
   '';
 
   installPhase = ''
