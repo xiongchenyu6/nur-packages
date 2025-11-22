@@ -26,11 +26,11 @@ stdenv.mkDerivation rec {
     runHook preInstall
 
     # Create output directory structure
-    mkdir -p $out/share/hashtopolis
+    mkdir -p $out/share/hashtopolis/src
     mkdir -p $out/bin
 
-    # Copy server files
-    cp -r src/* $out/share/hashtopolis/
+    # Copy server files to src subdirectory (as expected by the PHP server)
+    cp -r src/* $out/share/hashtopolis/src/
 
     # Copy additional files
     cp -r doc $out/share/hashtopolis/
@@ -38,7 +38,7 @@ stdenv.mkDerivation rec {
 
     # Create wrapper script for running the server
     makeWrapper ${php82}/bin/php $out/bin/hashtopolis-server \
-      --add-flags "-S 0.0.0.0:8080 -t $out/share/hashtopolis"
+      --add-flags "-S 0.0.0.0:8080 -t $out/share/hashtopolis/src"
 
     runHook postInstall
   '';
