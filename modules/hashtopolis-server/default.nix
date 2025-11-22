@@ -170,6 +170,11 @@ in {
 
       environment = {
         HOME = cfg.dataDir;
+        # Set environment variables that hashtopolis checks for directory paths
+        HASHTOPOLIS_FILES_PATH = "${cfg.dataDir}/files";
+        HASHTOPOLIS_IMPORT_PATH = "${cfg.dataDir}/import";
+        HASHTOPOLIS_LOG_PATH = "${cfg.dataDir}/log";
+        # Note: There's no HASHTOPOLIS_CONFIG_PATH in the source, but we set it anyway
       };
 
       # preStart runs as root by default

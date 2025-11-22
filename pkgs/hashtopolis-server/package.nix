@@ -22,27 +22,6 @@ stdenv.mkDerivation rec {
 
   buildInputs = [ php82 ];
 
-  postPatch = ''
-    # Patch load.php to override the directories after they're loaded
-    # Add our directory override right after the confv2.php include
-    sed -i '/include(dirname(__FILE__) . "\/confv2.php");/a\
-    \
-    # Override directories to use /var/lib/hashtopolis\
-    $DIRECTORIES = [\
-      "files" => "/var/lib/hashtopolis/files/",\
-      "import" => "/var/lib/hashtopolis/import/",\
-      "log" => "/var/lib/hashtopolis/log/",\
-      "config" => "/var/lib/hashtopolis/config/"\
-    ];' src/inc/load.php
-
-    # Also patch confv2.php just to be safe
-    substituteInPlace src/inc/confv2.php \
-      --replace-fail '"/usr/local/share/hashtopolis/files"' '"/var/lib/hashtopolis/files/"' \
-      --replace-fail '"/usr/local/share/hashtopolis/import"' '"/var/lib/hashtopolis/import/"' \
-      --replace-fail '"/usr/local/share/hashtopolis/log"' '"/var/lib/hashtopolis/log/"' \
-      --replace-fail '"/usr/local/share/hashtopolis/config"' '"/var/lib/hashtopolis/config/"'
-  '';
-
   installPhase = ''
     runHook preInstall
 
