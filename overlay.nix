@@ -118,19 +118,17 @@ in
   my2sql = prev.callPackage ./pkgs/my2sql/package.nix { };
   
   # Linux-only packages from pkgs/
-  # Unfree packages - commented out to avoid CI build failures
-  # Users can uncomment these if they accept unfree licenses
-  # falcon-sensor =
-  #   if lib.hasSuffix "linux" prev.system then
-  #     prev.callPackage ./pkgs/falcon-sensor/package.nix { }
-  #   else
-  #     throw "falcon-sensor is only available on Linux";
+  falcon-sensor =
+    if lib.hasSuffix "linux" prev.system then
+      prev.callPackage ./pkgs/falcon-sensor/package.nix { }
+    else
+      throw "falcon-sensor is only available on Linux";
 
-  # feishu-lark =
-  #   if lib.hasSuffix "linux" prev.system then
-  #     prev.callPackage ./pkgs/feishu-lark/package.nix { }
-  #   else
-  #     throw "feishu-lark is only available on Linux";
+  feishu-lark =
+    if lib.hasSuffix "linux" prev.system then
+      prev.callPackage ./pkgs/feishu-lark/package.nix { }
+    else
+      throw "feishu-lark is only available on Linux";
   
   haystack-editor =
     if lib.hasSuffix "linux" prev.system then

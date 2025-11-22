@@ -1,0 +1,26 @@
+builds:
+  include:
+    - "*.default.*"
+    - "*.librime.*"
+    - "*.wrangler.*"
+    - "*.cyrus_sasl_with_ldap.*"
+    - "*.openldap_with_cyrus_sasl.*"
+    - "*.postfix_with_ldap.*"
+    - "*.sssd_with_sude.*"
+    - "*.sudo_with_sssd.*"
+    - "*.ldap-passthrough-conf.*"
+    - "*.ldap-extra-schemas.*"
+    - "*.hashtopolis-server.*"
+    - "*.hashtopolis-agent.*"
+    - "*.gotron-sdk.*"
+    - "*.helmify.*"
+    - "*.korb.*"
+    - "*.my2sql.*"
+    - "*.record_screen.*"
+    - "*.sui.*"
+    - "*.haystack-editor.*"
+    - "*.emacs-*.*"
+    # Explicitly exclude unfree packages from CI builds
+  exclude:
+    - "*.falcon-sensor.*"
+    - "*.feishu-lark.*"
