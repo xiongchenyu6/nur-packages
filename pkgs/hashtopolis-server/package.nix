@@ -22,6 +22,16 @@ stdenv.mkDerivation rec {
 
   buildInputs = [ php82 ];
 
+  postPatch = ''
+    # Add support for HASHTOPOLIS_CONFIG_PATH environment variable
+    # The application doesn't have this by default, so we add it
+    sed -i '/if (getenv('\''HASHTOPOLIS_LOG_PATH'\'') !== false) {/a\
+  }\
+  if (getenv('\''HASHTOPOLIS_CONFIG_PATH'\'') !== false) {\
+    $DIRECTORIES["config"] = getenv('\''HASHTOPOLIS_CONFIG_PATH'\'');' \
+      src/inc/confv2.php
+  '';
+
   installPhase = ''
     runHook preInstall
 

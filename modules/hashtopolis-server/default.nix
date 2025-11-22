@@ -174,7 +174,7 @@ in {
         HASHTOPOLIS_FILES_PATH = "${cfg.dataDir}/files";
         HASHTOPOLIS_IMPORT_PATH = "${cfg.dataDir}/import";
         HASHTOPOLIS_LOG_PATH = "${cfg.dataDir}/log";
-        # Note: There's no HASHTOPOLIS_CONFIG_PATH in the source, but we set it anyway
+        HASHTOPOLIS_CONFIG_PATH = "${cfg.dataDir}/config";
       };
 
       # preStart runs as root by default
