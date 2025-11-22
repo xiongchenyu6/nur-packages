@@ -13,7 +13,6 @@ let
     pdo_mysql
     curl
     gd
-    json
     mbstring
     zip
     openssl
