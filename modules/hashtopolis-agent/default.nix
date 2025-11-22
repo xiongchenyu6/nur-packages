@@ -199,22 +199,28 @@ in {
         CUDA_VISIBLE_DEVICES = concatStringsSep "," (map toString cfg.gpuDevices);
       };
 
-      preStart = ''
-        # Copy config file
-        cp ${agentConfig} ${cfg.dataDir}/config.json
-        chown ${cfg.user}:${cfg.group} ${cfg.dataDir}/config.json
-
-        # Link hashcat if using native
-        ${optionalString (cfg.useNativeHashcat && cfg.hashcatPackage != null) ''
-          ln -sf ${cfg.hashcatPackage}/bin/hashcat ${cfg.crackersPath}/hashcat
-        ''}
-      '';
-
       serviceConfig = {
         Type = "simple";
         User = cfg.user;
         Group = cfg.group;
         WorkingDirectory = cfg.dataDir;
+
+        # Run preStart as root to set up files
+        ExecStartPre = let
+          preStartScript = pkgs.writeShellScript "hashtopolis-agent-prestart" ''
+            # Copy config file
+            cp ${agentConfig} ${cfg.dataDir}/config.json
+            chown ${cfg.user}:${cfg.group} ${cfg.dataDir}/config.json
+            chmod 640 ${cfg.dataDir}/config.json
+
+            # Link hashcat if using native
+            ${optionalString (cfg.useNativeHashcat && cfg.hashcatPackage != null) ''
+              ln -sf ${cfg.hashcatPackage}/bin/hashcat ${cfg.crackersPath}/hashcat
+              chown -h ${cfg.user}:${cfg.group} ${cfg.crackersPath}/hashcat
+            ''}
+          '';
+        in "+${preStartScript}";
+
         ExecStart = "${cfg.package}/bin/hashtopolis-agent";
         Restart = mkIf cfg.restartOnFailure "always";
         RestartSec = "30s";
