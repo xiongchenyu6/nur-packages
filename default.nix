@@ -75,8 +75,7 @@ let
       };
   };
 
-in
-{
+  # Define librime with lua5_2 support
   librime =
     (pkgs.librime.override {
       plugins = [ sources.librime-lua.src ];
@@ -85,10 +84,12 @@ in
         buildInputs = old.buildInputs ++ [ pkgs.lua5_2 ];
         nativeBuildInputs = old.nativeBuildInputs ++ [ pkgs.lua5_2 pkgs.pkg-config ];
       });
-  
-  default = pkgs.librime.override {
-    plugins = [ sources.librime-lua.src ];
-  };
+
+in
+{
+  inherit librime;
+
+  default = librime;
 
   wrangler = pkgs.wrangler.overrideAttrs (old: {
     dontCheckForBrokenSymlinks = true;

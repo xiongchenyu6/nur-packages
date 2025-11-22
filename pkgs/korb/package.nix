@@ -1,19 +1,37 @@
-{pkgs, buildGoModule, tree, lib, installShellFiles, pkg-config, patchelf, ...
+{
+  pkgs,
+  buildGoModule,
+  tree,
+  lib,
+  installShellFiles,
+  pkg-config,
+  patchelf,
+  ...
 }:
-let 
+let
   sources = import ../../_sources/generated.nix {
-    inherit (pkgs) fetchgit fetchFromGitHub fetchurl dockerTools;
+    inherit (pkgs)
+      fetchgit
+      fetchFromGitHub
+      fetchurl
+      dockerTools
+      ;
   };
 in
-buildGoModule (sources.korb // {
-  enableParallelBuilding = true;
-  proxyVendor = true;
-  vendorHash = "sha256-/wuMwEm1E46FlePmEWBwHTgVmeo4hdI6QPFywrnO0NY=";
-  doCheck = false;
-  nativeBuildInputs = [ tree installShellFiles ];
-  # postInstall = ''
-  #   mv $out/bin/main $out/bin/korb
-  # '';
-})
+buildGoModule (
+  sources.korb
+  // {
+    enableParallelBuilding = true;
+    proxyVendor = true;
+    vendorHash = "sha256-m4u6G1W4WsXqfrqICNfaaYpD+MCB+wHAijDinsfAxQM=";
+    doCheck = false;
+    nativeBuildInputs = [
+      tree
+      installShellFiles
+    ];
+    # postInstall = ''
+    #   mv $out/bin/main $out/bin/korb
+    # '';
+  }
+)
 # patchelf --set-interpreter ${wasmvm}/lib/libwasmvm.x86_64.so $out/bin/core
-

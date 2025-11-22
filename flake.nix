@@ -31,7 +31,7 @@
         {
           # pkgsDirectory = ./pkgs;
           # pkgsNameSeparator = "-";
-          packages = 
+          packages =
             let
               # Import packages from default.nix
               allPackages = import ./. {
@@ -77,8 +77,12 @@
                   ) packageNames;
                 in
                 builtins.foldl' (acc: set: acc // set) {} packageSets;
+              # Combine all packages and set default
+              combinedPackages = allPackages // pkgsByName;
             in
-            allPackages // pkgsByName;
+            combinedPackages // {
+              default = combinedPackages.librime or combinedPackages.default or null;
+            };
             
           apps = {
             update = {
