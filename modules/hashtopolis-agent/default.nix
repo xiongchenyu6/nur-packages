@@ -198,11 +198,21 @@ in {
         CUDA_VISIBLE_DEVICES = "-1"; # Disable CUDA
       } // optionalAttrs (cfg.gpuDevices != []) {
         CUDA_VISIBLE_DEVICES = concatStringsSep "," (map toString cfg.gpuDevices);
+      } // optionalAttrs (elem "gpu" cfg.deviceTypes) {
+        CUDA_PATH = "${pkgs.cudatoolkit}";
+        LD_LIBRARY_PATH = lib.makeLibraryPath ([
+          pkgs.cudatoolkit
+          pkgs.linuxPackages.nvidia_x11
+          pkgs.ocl-icd
+        ]);
       };
 
       path = with pkgs; [
         pciutils  # lspci for hardware detection
         p7zip     # 7z/7zr for extracting archives
+      ] ++ optionals (elem "gpu" cfg.deviceTypes) [
+        cudatoolkit
+        ocl-icd
       ];
 
       serviceConfig = {
@@ -244,6 +254,7 @@ in {
 
         # Allow GPU access if needed
         PrivateDevices = mkIf (elem "gpu" cfg.deviceTypes) false;
+        SupplementaryGroups = mkIf (elem "gpu" cfg.deviceTypes) [ "video" "render" ];
 
         # Load environment file if specified
         EnvironmentFile = mkIf (cfg.environmentFile != null) cfg.environmentFile;
