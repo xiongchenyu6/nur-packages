@@ -179,6 +179,7 @@ in {
       "d ${cfg.dataDir}/hashlists 0750 ${cfg.user} ${cfg.group} -"
       "d ${cfg.dataDir}/zaps 0750 ${cfg.user} ${cfg.group} -"
       "d ${cfg.crackersPath} 0750 ${cfg.user} ${cfg.group} -"
+      "d ${cfg.crackersPath}/temp 0750 ${cfg.user} ${cfg.group} -"
       "d ${cfg.princePath} 0750 ${cfg.user} ${cfg.group} -"
       "d ${cfg.preprocessorsPath} 0750 ${cfg.user} ${cfg.group} -"
     ];
@@ -199,7 +200,10 @@ in {
         CUDA_VISIBLE_DEVICES = concatStringsSep "," (map toString cfg.gpuDevices);
       };
 
-      path = [ pkgs.pciutils ];  # Add lspci to PATH
+      path = with pkgs; [
+        pciutils  # lspci for hardware detection
+        p7zip     # 7z/7zr for extracting archives
+      ];
 
       serviceConfig = {
         Type = "simple";
