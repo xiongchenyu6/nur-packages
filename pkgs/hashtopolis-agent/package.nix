@@ -27,6 +27,23 @@ stdenv.mkDerivation rec {
 
   buildInputs = [ pythonEnv ];
 
+  postPatch = ''
+    # Patch the agent to use system 7z instead of downloading 7zr
+    # Skip downloading 7zr binary
+    substituteInPlace htpclient/binarydownload.py \
+      --replace-fail "if not os.path.isfile(path):" "if False:" \
+      --replace-fail "\"./7zr\" + Initialize.get_os_extension() + \" x -otemp prince.7z\"" "\"7z x -otemp prince.7z\"" \
+      --replace-fail "f\"7zr{Initialize.get_os_extension()} x -otemp temp.7z\"" "\"7z x -otemp temp.7z\"" \
+      --replace-fail "f\"./7zr{Initialize.get_os_extension()} x -otemp temp.7z\"" "\"7z x -otemp temp.7z\"" \
+      --replace-fail "f'7zr{Initialize.get_os_extension()} x -o\"{temp_folder}\" \"{zip_file}\"'" "f'7z x -o\"{temp_folder}\" \"{zip_file}\"'" \
+      --replace-fail "f\"./7zr{Initialize.get_os_extension()} x -o'{temp_folder}' '{zip_file}'\"" "f\"7z x -o'{temp_folder}' '{zip_file}'\""
+
+    # Also patch files.py for 7zr usage
+    substituteInPlace htpclient/files.py \
+      --replace-fail "f'7zr{Initialize.get_os_extension()} x -aoa -o\"{files_path}\" -y \"{file_localpath}\"'" "f'7z x -aoa -o\"{files_path}\" -y \"{file_localpath}\"'" \
+      --replace-fail "f\"./7zr{Initialize.get_os_extension()} x -aoa -o'{files_path}' -y '{file_localpath}'\"" "f\"7z x -aoa -o'{files_path}' -y '{file_localpath}'\""
+  '';
+
   buildPhase = ''
     runHook preBuild
     # No build needed for Python script
