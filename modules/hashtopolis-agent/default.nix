@@ -199,6 +199,8 @@ in {
         CUDA_VISIBLE_DEVICES = concatStringsSep "," (map toString cfg.gpuDevices);
       };
 
+      path = [ pkgs.pciutils ];  # Add lspci to PATH
+
       serviceConfig = {
         Type = "simple";
         User = cfg.user;
