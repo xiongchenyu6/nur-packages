@@ -34,16 +34,8 @@ in {
 
     serverUrl = mkOption {
       type = types.str;
-      default = "";
       example = "http://hashtopolis.example.com:8080/api/server.php";
       description = "URL of the Hashtopolis server API endpoint";
-    };
-
-    serverUrlFile = mkOption {
-      type = types.nullOr types.path;
-      default = null;
-      example = "/run/secrets/hashtopolis-server-url";
-      description = "Path to file containing server URL (e.g., SOPS secret). Takes precedence over serverUrl option.";
     };
 
     voucher = mkOption {
@@ -63,13 +55,6 @@ in {
       type = types.str;
       default = "";
       description = "Agent UUID (automatically generated after registration)";
-    };
-
-    uuidFile = mkOption {
-      type = types.nullOr types.path;
-      default = null;
-      example = "/run/secrets/hashtopolis-uuid";
-      description = "Path to file containing agent UUID (e.g., SOPS secret). Takes precedence over uuid option.";
     };
 
     dataDir = mkOption {
@@ -274,17 +259,6 @@ in {
             if [ ! -f ${cfg.dataDir}/config.json ]; then
               echo "Creating initial config file..."
 
-              # Read server URL from file if specified, otherwise use direct value
-              SERVER_URL="${cfg.serverUrl}"
-              ${optionalString (cfg.serverUrlFile != null) ''
-                if [ -f "${cfg.serverUrlFile}" ]; then
-                  SERVER_URL=$(cat "${cfg.serverUrlFile}" | tr -d '\n')
-                  echo "Loaded server URL from file: ${cfg.serverUrlFile}"
-                else
-                  echo "Warning: Server URL file ${cfg.serverUrlFile} not found, using direct serverUrl value"
-                fi
-              ''}
-
               # Read voucher from file if specified, otherwise use direct value
               VOUCHER="${cfg.voucher}"
               ${optionalString (cfg.voucherFile != null) ''
@@ -296,23 +270,12 @@ in {
                 fi
               ''}
 
-              # Read UUID from file if specified, otherwise use direct value
-              UUID="${cfg.uuid}"
-              ${optionalString (cfg.uuidFile != null) ''
-                if [ -f "${cfg.uuidFile}" ]; then
-                  UUID=$(cat "${cfg.uuidFile}" | tr -d '\n')
-                  echo "Loaded UUID from file: ${cfg.uuidFile}"
-                else
-                  echo "Warning: UUID file ${cfg.uuidFile} not found, using direct uuid value"
-                fi
-              ''}
-
-              # Create config JSON with all values
+              # Create config JSON
               cat > ${cfg.dataDir}/config.json <<EOF
             {
-              "url": "$SERVER_URL",
+              "url": "${cfg.serverUrl}",
               "voucher": "$VOUCHER",
-              "uuid": "$UUID",
+              "uuid": "${cfg.uuid}",
               "files-path": "${cfg.dataDir}/files",
               "hashlist-path": "${cfg.dataDir}/hashlists",
               "zaps-path": "${cfg.dataDir}/zaps",
