@@ -358,22 +358,30 @@ in {
         RemoveIPC = true;
 
         # Restrict system calls - allow execution for hashcat
-        SystemCallFilter = [
+        # For GPU: CUDA requires many syscalls, so we need to be less restrictive
+        SystemCallFilter = if (elem "gpu" cfg.deviceTypes) then [
+          "~@clock"
+          "~@cpu-emulation"
+          "~@debug"
+          "~@keyring"
+          "~@module"
+          "~@mount"
+          "~@obsolete"
+          "~@reboot"
+          "~@swap"
+        ] else [
           "@system-service"
           "~@privileged"
           "~@resources"
           "@network-io"
           "@file-system"
           "execve"  # Need to execute hashcat
-          "ioctl"  # Needed for GPU device control
-          "mmap"  # Needed for GPU memory mapping
-          "mmap2"  # Needed for GPU memory mapping (32-bit)
         ];
         SystemCallArchitectures = "native";
 
-        # Protect kernel settings
-        ProtectKernelTunables = true;
-        ProtectKernelModules = true;
+        # Protect kernel settings (relaxed for GPU to allow CUDA initialization)
+        ProtectKernelTunables = !(elem "gpu" cfg.deviceTypes);
+        ProtectKernelModules = !(elem "gpu" cfg.deviceTypes);
         ProtectKernelLogs = true;
         ProtectControlGroups = true;
         ProtectClock = true;
