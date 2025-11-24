@@ -351,25 +351,14 @@ in {
 
         # Network access required for server communication
         PrivateNetwork = false;
-        RestrictAddressFamilies = [ "AF_INET" "AF_INET6" ];
+        RestrictAddressFamilies = mkIf (!(elem "gpu" cfg.deviceTypes)) [ "AF_INET" "AF_INET6" ];  # CUDA might need Unix sockets
 
         # Namespace isolation
         PrivateUsers = false;  # Need to preserve user/group for file permissions
-        RemoveIPC = true;
+        RemoveIPC = !(elem "gpu" cfg.deviceTypes);  # CUDA might need IPC
 
-        # Restrict system calls - allow execution for hashcat
-        # For GPU: CUDA requires many syscalls, so we need to be less restrictive
-        SystemCallFilter = if (elem "gpu" cfg.deviceTypes) then [
-          "~@clock"
-          "~@cpu-emulation"
-          "~@debug"
-          "~@keyring"
-          "~@module"
-          "~@mount"
-          "~@obsolete"
-          "~@reboot"
-          "~@swap"
-        ] else [
+        # Restrict system calls - disabled for GPU as CUDA needs unrestricted access
+        SystemCallFilter = mkIf (!(elem "gpu" cfg.deviceTypes)) [
           "@system-service"
           "~@privileged"
           "~@resources"
@@ -377,7 +366,7 @@ in {
           "@file-system"
           "execve"  # Need to execute hashcat
         ];
-        SystemCallArchitectures = "native";
+        SystemCallArchitectures = mkIf (!(elem "gpu" cfg.deviceTypes)) "native";
 
         # Protect kernel settings (relaxed for GPU to allow CUDA initialization)
         ProtectKernelTunables = !(elem "gpu" cfg.deviceTypes);
@@ -396,7 +385,7 @@ in {
         LockPersonality = true;
         RestrictRealtime = true;
         RestrictSUIDSGID = true;
-        RestrictNamespaces = true;
+        RestrictNamespaces = !(elem "gpu" cfg.deviceTypes);  # CUDA might need namespace operations
 
         # Memory protections - disabled because hashcat needs to execute downloaded binaries
         MemoryDenyWriteExecute = false;
