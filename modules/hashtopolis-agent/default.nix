@@ -373,8 +373,7 @@ in {
         ProtectControlGroups = true;
         ProtectClock = true;
         ProtectHostname = true;
-        ProtectProc = "invisible";
-        ProcSubset = "pid";
+        # Can't use ProtectProc/ProcSubset - agent needs to read /proc/cpuinfo for hardware detection
 
         # Restrict capabilities
         CapabilityBoundingSet = "";
