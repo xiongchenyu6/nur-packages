@@ -7,23 +7,20 @@ let
 
   hashtopolisAgentPkg = pkgs.callPackage ../../pkgs/hashtopolis-agent/package.nix { };
 
-  # Configuration file for the agent
-  agentConfig = pkgs.writeText "agent.config" ''
-    {
-      "url": "${cfg.serverUrl}",
-      "voucher": "${cfg.voucher}",
-      "uuid": "${cfg.uuid}",
-      "files-path": "${cfg.dataDir}/files",
-      "hashlist-path": "${cfg.dataDir}/hashlists",
-      "zaps-path": "${cfg.dataDir}/zaps",
-      "crackers-path": "${cfg.crackersPath}",
-      "prince-path": "${cfg.princePath}",
-      "preprocessors-path": "${cfg.preprocessorsPath}",
-      "use-native-hashcat": ${if cfg.useNativeHashcat then "true" else "false"},
-      "allow-piping": ${if cfg.allowPiping then "true" else "false"},
-      "disable-update": true
-    }
-  '';
+  # Base configuration template (without voucher)
+  agentConfigTemplate = {
+    url = cfg.serverUrl;
+    uuid = cfg.uuid;
+    "files-path" = "${cfg.dataDir}/files";
+    "hashlist-path" = "${cfg.dataDir}/hashlists";
+    "zaps-path" = "${cfg.dataDir}/zaps";
+    "crackers-path" = cfg.crackersPath;
+    "prince-path" = cfg.princePath;
+    "preprocessors-path" = cfg.preprocessorsPath;
+    "use-native-hashcat" = cfg.useNativeHashcat;
+    "allow-piping" = cfg.allowPiping;
+    "disable-update" = true;
+  };
 
 in {
   options.services.hashtopolis-agent = {
@@ -37,8 +34,16 @@ in {
 
     serverUrl = mkOption {
       type = types.str;
+      default = "";
       example = "http://hashtopolis.example.com:8080/api/server.php";
       description = "URL of the Hashtopolis server API endpoint";
+    };
+
+    serverUrlFile = mkOption {
+      type = types.nullOr types.path;
+      default = null;
+      example = "/run/secrets/hashtopolis-server-url";
+      description = "Path to file containing server URL (e.g., SOPS secret). Takes precedence over serverUrl option.";
     };
 
     voucher = mkOption {
@@ -47,10 +52,24 @@ in {
       description = "Voucher token for agent registration (leave empty after registration)";
     };
 
+    voucherFile = mkOption {
+      type = types.nullOr types.path;
+      default = null;
+      example = "/run/secrets/hashtopolis-voucher";
+      description = "Path to file containing voucher token (e.g., SOPS secret). Takes precedence over voucher option.";
+    };
+
     uuid = mkOption {
       type = types.str;
       default = "";
       description = "Agent UUID (automatically generated after registration)";
+    };
+
+    uuidFile = mkOption {
+      type = types.nullOr types.path;
+      default = null;
+      example = "/run/secrets/hashtopolis-uuid";
+      description = "Path to file containing agent UUID (e.g., SOPS secret). Takes precedence over uuid option.";
     };
 
     dataDir = mkOption {
@@ -253,8 +272,59 @@ in {
 
             # Only create config file if it doesn't exist (to preserve UUID after registration)
             if [ ! -f ${cfg.dataDir}/config.json ]; then
-              # First time setup - create config from template
-              cp ${agentConfig} ${cfg.dataDir}/config.json
+              echo "Creating initial config file..."
+
+              # Read server URL from file if specified, otherwise use direct value
+              SERVER_URL="${cfg.serverUrl}"
+              ${optionalString (cfg.serverUrlFile != null) ''
+                if [ -f "${cfg.serverUrlFile}" ]; then
+                  SERVER_URL=$(cat "${cfg.serverUrlFile}" | tr -d '\n')
+                  echo "Loaded server URL from file: ${cfg.serverUrlFile}"
+                else
+                  echo "Warning: Server URL file ${cfg.serverUrlFile} not found, using direct serverUrl value"
+                fi
+              ''}
+
+              # Read voucher from file if specified, otherwise use direct value
+              VOUCHER="${cfg.voucher}"
+              ${optionalString (cfg.voucherFile != null) ''
+                if [ -f "${cfg.voucherFile}" ]; then
+                  VOUCHER=$(cat "${cfg.voucherFile}" | tr -d '\n')
+                  echo "Loaded voucher from file: ${cfg.voucherFile}"
+                else
+                  echo "Warning: Voucher file ${cfg.voucherFile} not found, using direct voucher value"
+                fi
+              ''}
+
+              # Read UUID from file if specified, otherwise use direct value
+              UUID="${cfg.uuid}"
+              ${optionalString (cfg.uuidFile != null) ''
+                if [ -f "${cfg.uuidFile}" ]; then
+                  UUID=$(cat "${cfg.uuidFile}" | tr -d '\n')
+                  echo "Loaded UUID from file: ${cfg.uuidFile}"
+                else
+                  echo "Warning: UUID file ${cfg.uuidFile} not found, using direct uuid value"
+                fi
+              ''}
+
+              # Create config JSON with all values
+              cat > ${cfg.dataDir}/config.json <<EOF
+            {
+              "url": "$SERVER_URL",
+              "voucher": "$VOUCHER",
+              "uuid": "$UUID",
+              "files-path": "${cfg.dataDir}/files",
+              "hashlist-path": "${cfg.dataDir}/hashlists",
+              "zaps-path": "${cfg.dataDir}/zaps",
+              "crackers-path": "${cfg.crackersPath}",
+              "prince-path": "${cfg.princePath}",
+              "preprocessors-path": "${cfg.preprocessorsPath}",
+              "use-native-hashcat": ${if cfg.useNativeHashcat then "true" else "false"},
+              "allow-piping": ${if cfg.allowPiping then "true" else "false"},
+              "disable-update": true
+            }
+            EOF
+
               chown ${cfg.user}:${cfg.group} ${cfg.dataDir}/config.json
               chmod 640 ${cfg.dataDir}/config.json
             fi
