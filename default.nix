@@ -106,4 +106,11 @@ in
   fitcrack = if isLinux
     then pkgs.callPackage ./pkgs/fitcrack/package.nix { }
     else null;
+
+  # Falcon Sensor package
+  falcon-sensor = if isLinux
+    then pkgs.callPackage ./pkgs/falcon-sensor {
+      inherit builtins;
+    }
+    else null;
 } // linuxPackages
