@@ -20,12 +20,18 @@ The Falcon Sensor .deb file is proprietary software and cannot be distributed in
 
 Choose one of these methods:
 
-#### Method A: Using nix-store
+#### Method A: Using the helper script (Recommended)
+```bash
+# From the falcon-sensor package directory
+./add-falcon-sensor.sh /path/to/falcon-sensor_7.30.0-18306_amd64.deb
+```
+
+#### Method B: Using nix-store
 ```bash
 nix-store --add-fixed sha256 falcon-sensor_7.30.0-18306_amd64.deb
 ```
 
-#### Method B: Using nix-prefetch-url
+#### Method C: Using nix-prefetch-url
 ```bash
 nix-prefetch-url --type sha256 file:///path/to/falcon-sensor_7.30.0-18306_amd64.deb
 ```
