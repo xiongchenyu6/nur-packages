@@ -63,6 +63,20 @@ Add to your NixOS configuration:
 }
 ```
 
+### Step 5: Alternative Manual Provisioning
+
+If you prefer to manually provision with a provisioning token instead of using a CID file:
+
+```bash
+# Configure with your CID and provisioning token
+sudo /opt/CrowdStrike/falconctl -s -f --cid=<YOUR_CID> --provisioning-token=<YOUR_TOKEN>
+
+# Restart the service
+sudo systemctl restart falcon-sensor
+```
+
+Note: You can get your CID and provisioning token from the Falcon console under "Host setup and management".
+
 ## Updating the Package
 
 When CrowdStrike releases a new version:

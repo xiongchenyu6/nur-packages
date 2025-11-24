@@ -71,6 +71,7 @@ let
 
     unpackPhase = ''
       runHook preUnpack
+      # Extract the .deb file using dpkg-deb (same as AUR: tar -xf data.tar.xz)
       dpkg-deb -x $src .
       runHook postUnpack
     '';
@@ -99,10 +100,21 @@ let
     '';
 
     meta = with lib; {
-      description = "CrowdStrike Falcon Sensor for Linux";
+      description = "CrowdStrike Falcon Sensor for Linux - Enterprise Endpoint Protection";
+      longDescription = ''
+        The CrowdStrike Falcon sensor is proprietary software for endpoint protection.
+        By building and installing this package, you acknowledge that you are using
+        software directly from CrowdStrike and agree to be bound by their End User
+        License Agreement and Privacy Notice.
+
+        Terms of Use: https://www.crowdstrike.com/software-terms-of-use/
+        Privacy Notice: https://www.crowdstrike.com/privacy-notice/
+
+        This package requires manual download of the .deb file from CrowdStrike.
+      '';
       homepage = "https://falcon.crowdstrike.com/";
       license = licenses.unfree;
-      platforms = platforms.linux;
+      platforms = [ "x86_64-linux" ];
       maintainers = with maintainers; [ ];
     };
   };
