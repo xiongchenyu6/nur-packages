@@ -340,11 +340,62 @@ in {
         NoNewPrivileges = true;
         ProtectSystem = "strict";
         ProtectHome = true;
-        ReadWritePaths = [ cfg.dataDir ];
+        ReadWritePaths = [
+          cfg.dataDir
+          cfg.crackersPath
+          cfg.princePath
+          cfg.preprocessorsPath
+        ];
+
+        # Network access required for server communication
+        PrivateNetwork = false;
+        RestrictAddressFamilies = [ "AF_INET" "AF_INET6" ];
+
+        # Namespace isolation
+        PrivateUsers = false;  # Need to preserve user/group for file permissions
+        RemoveIPC = true;
+
+        # Restrict system calls - allow execution for hashcat
+        SystemCallFilter = [
+          "@system-service"
+          "~@privileged"
+          "~@resources"
+          "@network-io"
+          "@file-system"
+          "execve"  # Need to execute hashcat
+        ];
+        SystemCallArchitectures = "native";
+
+        # Protect kernel settings
+        ProtectKernelTunables = true;
+        ProtectKernelModules = true;
+        ProtectKernelLogs = true;
+        ProtectControlGroups = true;
+        ProtectClock = true;
+        ProtectHostname = true;
+        ProtectProc = "invisible";
+        ProcSubset = "pid";
+
+        # Restrict capabilities
+        CapabilityBoundingSet = "";
+        AmbientCapabilities = "";
+
+        # Lock down personality
+        LockPersonality = true;
+        RestrictRealtime = true;
+        RestrictSUIDSGID = true;
+        RestrictNamespaces = true;
+
+        # Memory protections - disabled because hashcat needs to execute downloaded binaries
+        MemoryDenyWriteExecute = false;
 
         # Allow GPU access if needed
-        PrivateDevices = mkIf (elem "gpu" cfg.deviceTypes) false;
+        PrivateDevices = !(elem "gpu" cfg.deviceTypes);
         SupplementaryGroups = mkIf (elem "gpu" cfg.deviceTypes) [ "video" "render" ];
+        DeviceAllow = mkIf (elem "gpu" cfg.deviceTypes) [
+          "/dev/dri rw"
+          "/dev/nvidia* rw"
+        ];
 
         # Load environment file if specified
         EnvironmentFile = mkIf (cfg.environmentFile != null) cfg.environmentFile;
