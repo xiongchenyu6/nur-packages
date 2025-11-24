@@ -345,6 +345,8 @@ in {
           cfg.crackersPath
           cfg.princePath
           cfg.preprocessorsPath
+        ] ++ optionals (elem "gpu" cfg.deviceTypes) [
+          "/run/opengl-driver"  # Needed for NVIDIA driver access
         ];
 
         # Network access required for server communication
@@ -363,6 +365,9 @@ in {
           "@network-io"
           "@file-system"
           "execve"  # Need to execute hashcat
+          "ioctl"  # Needed for GPU device control
+          "mmap"  # Needed for GPU memory mapping
+          "mmap2"  # Needed for GPU memory mapping (32-bit)
         ];
         SystemCallArchitectures = "native";
 
@@ -390,10 +395,18 @@ in {
 
         # Allow GPU access if needed
         PrivateDevices = !(elem "gpu" cfg.deviceTypes);
+        DevicePolicy = mkIf (elem "gpu" cfg.deviceTypes) "auto";
         SupplementaryGroups = mkIf (elem "gpu" cfg.deviceTypes) [ "video" "render" ];
         DeviceAllow = mkIf (elem "gpu" cfg.deviceTypes) [
           "/dev/dri rw"
-          "/dev/nvidia* rw"
+          "/dev/nvidia0 rw"
+          "/dev/nvidia1 rw"
+          "/dev/nvidia2 rw"
+          "/dev/nvidia3 rw"
+          "/dev/nvidiactl rw"
+          "/dev/nvidia-modeset rw"
+          "/dev/nvidia-uvm rw"
+          "/dev/nvidia-uvm-tools rw"
         ];
 
         # Load environment file if specified
