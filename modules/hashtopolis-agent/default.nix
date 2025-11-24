@@ -259,10 +259,22 @@ in {
               chmod 640 ${cfg.dataDir}/config.json
             fi
 
+            # Don't link hashcat here - do it in ExecStartPost after agent starts
+          '';
+        in "+${preStartScript}";
+
+        ExecStart = "${cfg.package}/bin/hashtopolis-agent";
+
+        # Run after agent starts to set up hashcat
+        ExecStartPost = let
+          postStartScript = pkgs.writeShellScript "hashtopolis-agent-poststart" ''
+            # Wait a moment for agent to initialize
+            sleep 5
+
             # Create wrapper scripts for downloaded hashcat binaries
             # The server downloads hashcat.bin but expects to run ./hashcat
             for dir in ${cfg.crackersPath}/*/; do
-              if [ -d "$dir" ] && [ -f "$dir/hashcat.bin" ]; then
+              if [ -d "$dir" ] && [ -f "$dir/hashcat.bin" ] && [ ! -f "$dir/hashcat" ]; then
                 # Create a wrapper that runs hashcat.bin with proper LD setup
                 cat > "$dir/hashcat" <<'EOF'
             #!/bin/sh
@@ -273,15 +285,16 @@ in {
               fi
             done
 
-            # Link hashcat if using native
+            # Link native hashcat if configured
             ${optionalString (cfg.useNativeHashcat && cfg.hashcatPackage != null) ''
-              ln -sf ${cfg.hashcatPackage}/bin/hashcat ${cfg.crackersPath}/hashcat
-              chown -h ${cfg.user}:${cfg.group} ${cfg.crackersPath}/hashcat
+              if [ ! -f ${cfg.crackersPath}/hashcat ]; then
+                ln -sf ${cfg.hashcatPackage}/bin/hashcat ${cfg.crackersPath}/hashcat
+                chown -h ${cfg.user}:${cfg.group} ${cfg.crackersPath}/hashcat
+              fi
             ''}
           '';
-        in "+${preStartScript}";
+        in "+${postStartScript}";
 
-        ExecStart = "${cfg.package}/bin/hashtopolis-agent";
         Restart = mkIf cfg.restartOnFailure "always";
         RestartSec = "30s";
 
