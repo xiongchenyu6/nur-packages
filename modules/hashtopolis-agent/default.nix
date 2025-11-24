@@ -161,6 +161,21 @@ in {
   };
 
   config = mkIf cfg.enable {
+    # Enable nix-ld for running downloaded binaries
+    programs.nix-ld = {
+      enable = true;
+      libraries = with pkgs; [
+        stdenv.cc.cc.lib
+        zlib
+        openssl
+        glibc
+      ] ++ optionals (elem "gpu" cfg.deviceTypes) [
+        cudatoolkit
+        linuxPackages.nvidia_x11
+        ocl-icd
+      ];
+    };
+
     # Create user and group
     users.users.${cfg.user} = {
       isSystemUser = true;
@@ -193,7 +208,8 @@ in {
 
       environment = {
         HOME = cfg.dataDir;
-        HASHTOPOLIS_CONFIG = "${agentConfig}";
+        # Point to the config file in the data directory
+        HASHTOPOLIS_CONFIG = "${cfg.dataDir}/config.json";
       } // optionalAttrs (cfg.cpuOnly) {
         CUDA_VISIBLE_DEVICES = "-1"; # Disable CUDA
       } // optionalAttrs (cfg.gpuDevices != []) {
@@ -220,14 +236,42 @@ in {
         User = cfg.user;
         Group = cfg.group;
         WorkingDirectory = cfg.dataDir;
+        StateDirectory = "hashtopolis-agent";
+        StateDirectoryMode = "0750";
 
         # Run preStart as root to set up files
         ExecStartPre = let
           preStartScript = pkgs.writeShellScript "hashtopolis-agent-prestart" ''
-            # Copy config file
-            cp ${agentConfig} ${cfg.dataDir}/config.json
-            chown ${cfg.user}:${cfg.group} ${cfg.dataDir}/config.json
-            chmod 640 ${cfg.dataDir}/config.json
+            # Ensure all required directories exist
+            mkdir -p ${cfg.dataDir}/{files,hashlists,zaps}
+            mkdir -p ${cfg.crackersPath}/temp
+            mkdir -p ${cfg.princePath}
+            mkdir -p ${cfg.preprocessorsPath}
+
+            # Set proper ownership
+            chown -R ${cfg.user}:${cfg.group} ${cfg.dataDir}
+
+            # Only create config file if it doesn't exist (to preserve UUID after registration)
+            if [ ! -f ${cfg.dataDir}/config.json ]; then
+              # First time setup - create config from template
+              cp ${agentConfig} ${cfg.dataDir}/config.json
+              chown ${cfg.user}:${cfg.group} ${cfg.dataDir}/config.json
+              chmod 640 ${cfg.dataDir}/config.json
+            fi
+
+            # Create wrapper scripts for downloaded hashcat binaries
+            # The server downloads hashcat.bin but expects to run ./hashcat
+            for dir in ${cfg.crackersPath}/*/; do
+              if [ -d "$dir" ] && [ -f "$dir/hashcat.bin" ]; then
+                # Create a wrapper that runs hashcat.bin with proper LD setup
+                cat > "$dir/hashcat" <<'EOF'
+            #!/bin/sh
+            exec "$(dirname "$0")/hashcat.bin" "$@"
+            EOF
+                chmod +x "$dir/hashcat"
+                chown ${cfg.user}:${cfg.group} "$dir/hashcat"
+              fi
+            done
 
             # Link hashcat if using native
             ${optionalString (cfg.useNativeHashcat && cfg.hashcatPackage != null) ''

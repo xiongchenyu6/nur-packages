@@ -32,11 +32,11 @@ stdenv.mkDerivation rec {
     # Skip downloading 7zr binary
     substituteInPlace htpclient/binarydownload.py \
       --replace-fail "if not os.path.isfile(path):" "if False:" \
-      --replace-fail "\"./7zr\" + Initialize.get_os_extension() + \" x -otemp prince.7z\"" "\"7z x -otemp prince.7z\"" \
-      --replace-fail "f\"7zr{Initialize.get_os_extension()} x -otemp temp.7z\"" "\"7z x -otemp temp.7z\"" \
-      --replace-fail "f\"./7zr{Initialize.get_os_extension()} x -otemp temp.7z\"" "\"7z x -otemp temp.7z\"" \
-      --replace-fail "f'7zr{Initialize.get_os_extension()} x -o\"{temp_folder}\" \"{zip_file}\"'" "f'7z x -o\"{temp_folder}\" \"{zip_file}\"'" \
-      --replace-fail "f\"./7zr{Initialize.get_os_extension()} x -o'{temp_folder}' '{zip_file}'\"" "f\"7z x -o'{temp_folder}' '{zip_file}'\""
+      --replace-fail "\"./7zr\" + Initialize.get_os_extension() + \" x -otemp prince.7z\"" "\"7z x -aoa -y -otemp prince.7z\"" \
+      --replace-fail "f\"7zr{Initialize.get_os_extension()} x -otemp temp.7z\"" "\"7z x -aoa -y -otemp temp.7z\"" \
+      --replace-fail "f\"./7zr{Initialize.get_os_extension()} x -otemp temp.7z\"" "\"7z x -aoa -y -otemp temp.7z\"" \
+      --replace-fail "f'7zr{Initialize.get_os_extension()} x -o\"{temp_folder}\" \"{zip_file}\"'" "f'7z x -aoa -y -o\"{temp_folder}\" \"{zip_file}\"'" \
+      --replace-fail "f\"./7zr{Initialize.get_os_extension()} x -o'{temp_folder}' '{zip_file}'\"" "f\"7z x -aoa -y -o'{temp_folder}' '{zip_file}'\""
 
     # Also patch files.py for 7zr usage
     substituteInPlace htpclient/files.py \
@@ -60,11 +60,29 @@ stdenv.mkDerivation rec {
     # Copy all agent files
     cp -r * $out/share/hashtopolis-agent/
 
-    # Create wrapper script that doesn't change directory
-    # The service will set the working directory appropriately
+    # Create wrapper script that ensures we're in the working directory
+    # and that the log file is writable
     cat > $out/bin/hashtopolis-agent << EOF
     #!${stdenv.shell}
-    exec ${pythonEnv}/bin/python3 $out/share/hashtopolis-agent/__main__.py "\$@"
+
+    # Ensure we're in a writable directory (systemd should set this, but be safe)
+    if [ -w "." ]; then
+      # Current directory is writable, use it
+      exec ${pythonEnv}/bin/python3 $out/share/hashtopolis-agent/__main__.py "\$@"
+    elif [ -n "\$STATE_DIRECTORY" ] && [ -w "\$STATE_DIRECTORY" ]; then
+      # Use systemd's STATE_DIRECTORY if available
+      cd "\$STATE_DIRECTORY"
+      exec ${pythonEnv}/bin/python3 $out/share/hashtopolis-agent/__main__.py "\$@"
+    elif [ -w /var/lib/hashtopolis-agent ]; then
+      # Fallback to the standard directory
+      cd /var/lib/hashtopolis-agent
+      exec ${pythonEnv}/bin/python3 $out/share/hashtopolis-agent/__main__.py "\$@"
+    else
+      echo "Error: No writable directory found for hashtopolis-agent" >&2
+      echo "Current directory: \$(pwd)" >&2
+      echo "STATE_DIRECTORY: \$STATE_DIRECTORY" >&2
+      exit 1
+    fi
     EOF
     chmod +x $out/bin/hashtopolis-agent
 
