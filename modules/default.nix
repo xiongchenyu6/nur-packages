@@ -16,4 +16,5 @@
   postgrest = import ./postgrest;
   hashtopolis-server = import ./hashtopolis-server;
   hashtopolis-agent = import ./hashtopolis-agent;
+  fleet = import ./fleet.nix;
 }
