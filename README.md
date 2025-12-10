@@ -200,16 +200,21 @@ in {
 - `my2sql` - MySQL binlog parser
 - `record_screen` - Screen recording tool
 - `sui` - Sui blockchain tools
+- `emacs-copilot-el`, `emacs-combobulate`, `emacs-gptel`, `emacs-magit-gitflow`, `emacs-magit-town`, `emacs-org-cv` - curated Emacs extensions
+- `cyrus_sasl_with_ldap`, `openldap_with_cyrus_sasl`, `postfix_with_ldap`, `sssd_with_sude`, `sudo_with_sssd` - LDAP-enabled variants
+- `librime` (with lua plugin) and `wrangler` override sets
 
 ### Modules (`modules/`)
 - `binbash` - Binary bash module
 - `bttc` - BitTorrent Chain node
 - `chainlink` - Chainlink oracle node
 - `codedeploy-agent` - AWS CodeDeploy agent
+- `fleet` - Fleet GitOps controller
 - `falcon-sensor` - CrowdStrike Falcon service
 - `hashtopolis-agent` - Distributed hashcat agent
 - `hashtopolis-server` - Hashcat task server
 - `java-tron` - TRON blockchain node
+- `gotrue-supabase` - Supabase Auth (GoTrue) service
 - `netbird` - NetBird VPN service
 - `oci-arm-host-capacity` - OCI ARM monitor
 - `phabricator` - Development platform
