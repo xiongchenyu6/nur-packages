@@ -7,6 +7,18 @@ let
 
   hashtopolisAgentPkg = pkgs.callPackage ../../pkgs/hashtopolis-agent/package.nix { };
 
+  gpuEnabled = elem "gpu" cfg.deviceTypes;
+  cpuEnabled = elem "cpu" cfg.deviceTypes;
+
+  openclLibs = with pkgs; [
+    ocl-icd
+  ] ++ optionals gpuEnabled [
+    cudatoolkit
+    linuxPackages.nvidia_x11
+  ] ++ optionals (cpuEnabled && !gpuEnabled) [
+    pocl
+  ];
+
   # Base configuration template (without voucher)
   agentConfigTemplate = {
     url = cfg.serverUrl;
@@ -173,11 +185,7 @@ in {
         zlib
         openssl
         glibc
-      ] ++ optionals (elem "gpu" cfg.deviceTypes) [
-        cudatoolkit
-        linuxPackages.nvidia_x11
-        ocl-icd
-      ];
+      ] ++ openclLibs;
     };
 
     # Create user and group
@@ -218,13 +226,10 @@ in {
         CUDA_VISIBLE_DEVICES = "-1"; # Disable CUDA
       } // optionalAttrs (cfg.gpuDevices != []) {
         CUDA_VISIBLE_DEVICES = concatStringsSep "," (map toString cfg.gpuDevices);
-      } // optionalAttrs (elem "gpu" cfg.deviceTypes) {
+      } // optionalAttrs gpuEnabled {
         CUDA_PATH = "${pkgs.cudatoolkit}";
-        LD_LIBRARY_PATH = lib.makeLibraryPath ([
-          pkgs.cudatoolkit
-          pkgs.linuxPackages.nvidia_x11
-          pkgs.ocl-icd
-        ]);
+      } // {
+        LD_LIBRARY_PATH = lib.makeLibraryPath openclLibs;
       };
 
       path = with pkgs; [

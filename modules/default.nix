@@ -17,4 +17,5 @@
   hashtopolis-server = import ./hashtopolis-server;
   hashtopolis-agent = import ./hashtopolis-agent;
   fleet = import ./fleet.nix;
+  gotrue-supabase = import ./gotrue-supabase;
 }

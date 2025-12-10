@@ -1,37 +1,40 @@
-{ lib
-, stdenv
-, fetchFromGitHub
-, php82
-, mariadb
-, makeWrapper
-, unzip
+{
+  lib,
+  stdenv,
+  fetchFromGitHub,
+  php82,
+  makeWrapper,
+  unzip,
 }:
 
 stdenv.mkDerivation rec {
   pname = "hashtopolis-server";
-  version = "0.14.6";
+  version = "1.0.0-rainbow4";
 
   src = fetchFromGitHub {
     owner = "hashtopolis";
     repo = "server";
     rev = "v${version}";
-    sha256 = "0z2p63c41bj93m2fmvan8j21sgvzfv28bz4n0kv17qgh83nb19wa";
+    sha256 = "sha256-LMRrHxdjIgNlECeRY859oU4LdkKm/q2j0b5N6Fjf1mc=";
   };
 
-  nativeBuildInputs = [ makeWrapper unzip ];
+  nativeBuildInputs = [
+    makeWrapper
+    unzip
+  ];
 
   buildInputs = [ php82 ];
 
   postPatch = ''
-    # Add support for HASHTOPOLIS_CONFIG_PATH environment variable
-    # Insert it at line 42, right after the LOG_PATH check
-    cat > patch.tmp << 'EOF'
-  if (getenv('HASHTOPOLIS_CONFIG_PATH') !== false) {
-    $DIRECTORIES["config"] = getenv('HASHTOPOLIS_CONFIG_PATH');
-  }
-EOF
-    sed -i '42r patch.tmp' src/inc/confv2.php
-    rm patch.tmp
+        # Add support for HASHTOPOLIS_CONFIG_PATH environment variable
+        # Insert it at line 42, right after the LOG_PATH check
+        cat > patch.tmp << 'EOF'
+      if (getenv('HASHTOPOLIS_CONFIG_PATH') !== false) {
+        $DIRECTORIES["config"] = getenv('HASHTOPOLIS_CONFIG_PATH');
+      }
+    EOF
+        sed -i '42r patch.tmp' src/inc/confv2.php
+        rm patch.tmp
   '';
 
   installPhase = ''

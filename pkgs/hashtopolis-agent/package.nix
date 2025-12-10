@@ -31,12 +31,14 @@ stdenv.mkDerivation rec {
     # Patch the agent to use system 7z instead of downloading 7zr
     # Skip downloading 7zr binary
     substituteInPlace htpclient/binarydownload.py \
+      --replace-fail "import os.path" $'import os.path\nimport shutil' \
       --replace-fail "if not os.path.isfile(path):" "if False:" \
       --replace-fail "\"./7zr\" + Initialize.get_os_extension() + \" x -otemp prince.7z\"" "\"7z x -aoa -y -otemp prince.7z\"" \
       --replace-fail "f\"7zr{Initialize.get_os_extension()} x -otemp temp.7z\"" "\"7z x -aoa -y -otemp temp.7z\"" \
       --replace-fail "f\"./7zr{Initialize.get_os_extension()} x -otemp temp.7z\"" "\"7z x -aoa -y -otemp temp.7z\"" \
       --replace-fail "f'7zr{Initialize.get_os_extension()} x -o\"{temp_folder}\" \"{zip_file}\"'" "f'7z x -aoa -y -o\"{temp_folder}\" \"{zip_file}\"'" \
-      --replace-fail "f\"./7zr{Initialize.get_os_extension()} x -o'{temp_folder}' '{zip_file}'\"" "f\"7z x -aoa -y -o'{temp_folder}' '{zip_file}'\""
+      --replace-fail "f\"./7zr{Initialize.get_os_extension()} x -o'{temp_folder}' '{zip_file}'\"" "f\"7z x -aoa -y -o'{temp_folder}' '{zip_file}'\"" \
+      --replace-fail "os.rename(Path('temp', name), path)" "shutil.move(Path('temp', name), path)"
 
     # Also patch files.py for 7zr usage
     substituteInPlace htpclient/files.py \
