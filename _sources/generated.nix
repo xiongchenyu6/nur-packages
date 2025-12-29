@@ -17,17 +17,17 @@
   };
   copilot-el = {
     pname = "copilot-el";
-    version = "8e43edf1f3efe094ea42a21863b3b742a339742c";
+    version = "7ee4758bb748beac7d29e62de5d2e752ebafb858";
     src = fetchgit {
       url = "https://github.com/zerolfx/copilot.el.git";
-      rev = "8e43edf1f3efe094ea42a21863b3b742a339742c";
+      rev = "7ee4758bb748beac7d29e62de5d2e752ebafb858";
       fetchSubmodules = false;
       deepClone = false;
       leaveDotGit = false;
       sparseCheckout = [ ];
-      sha256 = "sha256-HT9gV/zJC1qVICkDS+1+AVcYhE6ntA3gvwl2DJa8mAI=";
+      sha256 = "sha256-jzrf6k9yJEMR0H1hOkf1LY2p5ik++poMoAlrhrYPD2U=";
     };
-    date = "2025-11-17";
+    date = "2025-12-10";
   };
   gotron-sdk = {
     pname = "gotron-sdk";
@@ -42,17 +42,17 @@
   };
   gptel = {
     pname = "gptel";
-    version = "9d6313ce7c6eb71bfb24a8d1edcd60fe4534eea3";
+    version = "5cb7f076db62206d4cecc1cb040aa1c6e26e612d";
     src = fetchgit {
       url = "https://github.com/karthink/gptel.git";
-      rev = "9d6313ce7c6eb71bfb24a8d1edcd60fe4534eea3";
+      rev = "5cb7f076db62206d4cecc1cb040aa1c6e26e612d";
       fetchSubmodules = false;
       deepClone = false;
       leaveDotGit = false;
       sparseCheckout = [ ];
-      sha256 = "sha256-mBInxLzXu2t4DH+TeAX7AsLFm9zz/bzD8g4QMtm0aZg=";
+      sha256 = "sha256-S1ANn7AaD4cPfickUnCsj/doJRY4nzq3rQD/Vt2BFl8=";
     };
-    date = "2025-11-18";
+    date = "2026-01-13";
   };
   helmify = {
     pname = "helmify";
@@ -120,22 +120,22 @@
   };
   my2sql = {
     pname = "my2sql";
-    version = "1ff5d20e854fd7be43ff07c88358fe3754f29af0";
+    version = "71a069af44554b7e6367b2cb9735c06ab5353fe4";
     src = fetchurl {
       url = "https://github.com/liuhr/my2sql/raw/master/releases/centOS_release_7.x/my2sql";
       sha256 = "sha256-ggsA5U6AgszBuwAipX8BSuQSA0o67GDnkTZNkHhPpfo=";
     };
-    date = "2022-11-27";
+    date = "2026-01-06";
   };
   netbird = {
     pname = "netbird";
-    version = "v0.60.1";
+    version = "v0.62.3";
     src = fetchFromGitHub {
       owner = "netbirdio";
       repo = "netbird";
-      rev = "v0.60.1";
+      rev = "v0.62.3";
       fetchSubmodules = false;
-      sha256 = "sha256-8nu2Bc/w+X+Qb9vv6E/epPrnmtD9tRHWsrXd3Dzoigo=";
+      sha256 = "sha256-eNuln/wSie11XCRcQTb+/iqY+JwtgFcRbH/t2+FitSo=";
     };
   };
   org-cv = {
@@ -154,10 +154,10 @@
   };
   sui = {
     pname = "sui";
-    version = "testnet-v1.61.1";
+    version = "mainnet-v1.63.3";
     src = fetchurl {
-      url = "https://github.com/MystenLabs/sui/releases/download/testnet-v1.61.1/sui-testnet-v1.61.1-ubuntu-x86_64.tgz";
-      sha256 = "sha256-nVUTVrOF2BwYIAxiKWeAhTt46ITbIlPFJFxfkSI11ss=";
+      url = "https://github.com/MystenLabs/sui/releases/download/mainnet-v1.63.3/sui-mainnet-v1.63.3-ubuntu-x86_64.tgz";
+      sha256 = "sha256-mN+s969uSsaAxjZKtyTJVcNCtqfzPdHBNo2Nlrx7e3w=";
     };
   };
 }

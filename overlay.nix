@@ -156,5 +156,10 @@ in
       throw "hashtopolis-server is only available on Linux";
 
   hashtopolis-agent = prev.callPackage ./pkgs/hashtopolis-agent/package.nix { };
+
+  # FCITX5 fix
+  fcitx5-configtool = prev.fcitx5-configtool.overrideAttrs (oldAttrs: {
+    propagatedBuildInputs = (oldAttrs.propagatedBuildInputs or []) ++ [ prev.libxcb-cursor ];
+  });
 }
 

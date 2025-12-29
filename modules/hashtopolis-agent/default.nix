@@ -10,11 +10,43 @@ let
   gpuEnabled = elem "gpu" cfg.deviceTypes;
   cpuEnabled = elem "cpu" cfg.deviceTypes;
 
+  # Resolve hashcat package: use configured package, or default to appropriate hashcat when useNativeHashcat is true
+  effectiveHashcatPackage = if cfg.hashcatPackage != null then cfg.hashcatPackage
+                            else if cfg.useNativeHashcat then (if gpuEnabled then (pkgs.hashcat.override { cudaSupport = true; }) else pkgs.hashcat)
+                            else null;
+
+  # Get hashcat binary - always use the wrapper which sets up LD_LIBRARY_PATH for CUDA
+  hashcatBinary = if effectiveHashcatPackage != null
+                  then "${effectiveHashcatPackage}/bin/hashcat"
+                  else null;
+
+  # Helper to check if a path is under another path
+  isSubPath = parent: child: lib.hasPrefix (toString parent) (toString child);
+
+  # Get extra paths that need write access (paths not under dataDir)
+  extraWritePaths = lib.filter (p: !isSubPath cfg.dataDir p) [
+    cfg.crackersPath
+    cfg.princePath
+    cfg.preprocessorsPath
+  ];
+
   openclLibs = with pkgs; [
     ocl-icd
+    zlib
+    ncurses5
+    stdenv.cc.cc.lib
   ] ++ optionals gpuEnabled [
     cudatoolkit
     linuxPackages.nvidia_x11
+    libGLU
+    libGL
+    xorg.libXi
+    xorg.libXmu
+    freeglut
+    xorg.libXext
+    xorg.libX11
+    xorg.libXv
+    xorg.libXrandr
   ] ++ optionals (cpuEnabled && !gpuEnabled) [
     pocl
   ];
@@ -103,7 +135,7 @@ in {
       type = types.nullOr types.package;
       default = null;
       example = "pkgs.hashcat";
-      description = "Hashcat package to use when useNativeHashcat is true";
+      description = "Hashcat package to use when useNativeHashcat is true. Defaults to pkgs.hashcat when useNativeHashcat is enabled and this is not set.";
     };
 
     allowPiping = mkOption {
@@ -185,7 +217,10 @@ in {
         zlib
         openssl
         glibc
-      ] ++ openclLibs;
+        ocl-icd
+      ] ++ openclLibs ++ optionals gpuEnabled [
+        linuxPackages.nvidia_x11
+      ];
     };
 
     # Create user and group
@@ -194,7 +229,7 @@ in {
       group = cfg.group;
       home = cfg.dataDir;
       createHome = true;
-      extraGroups = [ "video" ]; # For GPU access
+      extraGroups = [ "video" "render" ]; # For GPU access
     };
 
     users.groups.${cfg.group} = {};
@@ -215,8 +250,9 @@ in {
     systemd.services.hashtopolis-agent = {
       description = "Hashtopolis Agent";
       wantedBy = optionals cfg.autoStart [ "multi-user.target" ];
-      after = [ "network-online.target" ];
+      after = [ "network-online.target" "systemd-tmpfiles-setup.service" ];
       wants = [ "network-online.target" ];
+      requires = [ "systemd-tmpfiles-setup.service" ];
 
       environment = {
         HOME = cfg.dataDir;
@@ -228,16 +264,26 @@ in {
         CUDA_VISIBLE_DEVICES = concatStringsSep "," (map toString cfg.gpuDevices);
       } // optionalAttrs gpuEnabled {
         CUDA_PATH = "${pkgs.cudatoolkit}";
-      } // {
-        LD_LIBRARY_PATH = lib.makeLibraryPath openclLibs;
+        # Set a writable cache path for the CUDA JIT compiler
+        CUDA_CACHE_PATH = "${cfg.dataDir}/.nv";
+        EXTRA_LDFLAGS = "-L/lib -L${pkgs.linuxPackages.nvidia_x11}/lib";
+        EXTRA_CCFLAGS = "-I/usr/include";
+        # Note: LD_LIBRARY_PATH is NOT set here because the hashcat wrapper script
+        # already handles library paths correctly. Setting it here would interfere.
       };
 
       path = with pkgs; [
         pciutils  # lspci for hardware detection
         p7zip     # 7z/7zr for extracting archives
+        unzip
+        gnumake
+        binutils
+        stdenv.cc
       ] ++ optionals (elem "gpu" cfg.deviceTypes) [
         cudatoolkit
         ocl-icd
+      ] ++ optionals (cfg.useNativeHashcat && effectiveHashcatPackage != null) [
+        effectiveHashcatPackage
       ];
 
       serviceConfig = {
@@ -287,7 +333,8 @@ in {
               "crackers-path": "${cfg.crackersPath}",
               "prince-path": "${cfg.princePath}",
               "preprocessors-path": "${cfg.preprocessorsPath}",
-              "use-native-hashcat": ${if cfg.useNativeHashcat then "true" else "false"},
+              "use-native-hashcat": ${if cfg.useNativeHashcat then "true" else "false"},${optionalString (cfg.useNativeHashcat && hashcatBinary != null) ''
+              "native-hashcat-path": "${hashcatBinary}",''}
               "allow-piping": ${if cfg.allowPiping then "true" else "false"},
               "disable-update": true
             }
@@ -324,9 +371,9 @@ in {
             done
 
             # Link native hashcat if configured
-            ${optionalString (cfg.useNativeHashcat && cfg.hashcatPackage != null) ''
+            ${optionalString (cfg.useNativeHashcat && hashcatBinary != null) ''
               if [ ! -f ${cfg.crackersPath}/hashcat ]; then
-                ln -sf ${cfg.hashcatPackage}/bin/hashcat ${cfg.crackersPath}/hashcat
+                ln -sf ${hashcatBinary} ${cfg.crackersPath}/hashcat
                 chown -h ${cfg.user}:${cfg.group} ${cfg.crackersPath}/hashcat
               fi
             ''}
@@ -340,85 +387,13 @@ in {
         MemoryMax = mkIf (cfg.memoryLimit != null) cfg.memoryLimit;
         CPUQuota = mkIf (cfg.cpuQuota != null) "${toString cfg.cpuQuota}%";
 
-        # Security hardening
-        PrivateTmp = true;
-        NoNewPrivileges = true;
-        ProtectSystem = "strict";
-        ProtectHome = true;
-        ReadWritePaths = [
-          cfg.dataDir
-          cfg.crackersPath
-          cfg.princePath
-          cfg.preprocessorsPath
-        ] ++ optionals (elem "gpu" cfg.deviceTypes) [
-          "/run/opengl-driver"  # Needed for NVIDIA driver access
-        ];
-
-        # Network access required for server communication
-        PrivateNetwork = false;
-        RestrictAddressFamilies = mkIf (!(elem "gpu" cfg.deviceTypes)) [ "AF_INET" "AF_INET6" ];  # CUDA might need Unix sockets
-
-        # Namespace isolation
-        PrivateUsers = false;  # Need to preserve user/group for file permissions
-        RemoveIPC = !(elem "gpu" cfg.deviceTypes);  # CUDA might need IPC
-
-        # Restrict system calls - disabled for GPU as CUDA needs unrestricted access
-        SystemCallFilter = mkIf (!(elem "gpu" cfg.deviceTypes)) [
-          "@system-service"
-          "~@privileged"
-          "~@resources"
-          "@network-io"
-          "@file-system"
-          "execve"  # Need to execute hashcat
-        ];
-        SystemCallArchitectures = mkIf (!(elem "gpu" cfg.deviceTypes)) "native";
-
-        # Protect kernel settings (relaxed for GPU to allow CUDA initialization)
-        ProtectKernelTunables = !(elem "gpu" cfg.deviceTypes);
-        ProtectKernelModules = !(elem "gpu" cfg.deviceTypes);
-        ProtectKernelLogs = true;
-        ProtectControlGroups = true;
-        ProtectClock = true;
-        ProtectHostname = true;
-        # Can't use ProtectProc/ProcSubset - agent needs to read /proc/cpuinfo for hardware detection
-
-        # Restrict capabilities
-        CapabilityBoundingSet = "";
-        AmbientCapabilities = "";
-
-        # Lock down personality
-        LockPersonality = true;
-        RestrictRealtime = true;
-        RestrictSUIDSGID = true;
-        RestrictNamespaces = !(elem "gpu" cfg.deviceTypes);  # CUDA might need namespace operations
-
-        # Memory protections - disabled because hashcat needs to execute downloaded binaries
-        MemoryDenyWriteExecute = false;
-
-        # Allow GPU access if needed
-        PrivateDevices = !(elem "gpu" cfg.deviceTypes);
-        DevicePolicy = mkIf (elem "gpu" cfg.deviceTypes) "auto";
-        SupplementaryGroups = mkIf (elem "gpu" cfg.deviceTypes) [ "video" "render" ];
-        DeviceAllow = mkIf (elem "gpu" cfg.deviceTypes) [
-          "/dev/dri rw"
-          "/dev/nvidia0 rw"
-          "/dev/nvidia1 rw"
-          "/dev/nvidia2 rw"
-          "/dev/nvidia3 rw"
-          "/dev/nvidiactl rw"
-          "/dev/nvidia-modeset rw"
-          "/dev/nvidia-uvm rw"
-          "/dev/nvidia-uvm-tools rw"
-        ];
-
-        # Load environment file if specified
-        EnvironmentFile = mkIf (cfg.environmentFile != null) cfg.environmentFile;
+        # Security hardening has been removed.
       };
     };
 
     # Install hashcat if requested
-    environment.systemPackages = mkIf (cfg.useNativeHashcat && cfg.hashcatPackage != null) [
-      cfg.hashcatPackage
+    environment.systemPackages = mkIf (cfg.useNativeHashcat && effectiveHashcatPackage != null) [
+      effectiveHashcatPackage
     ];
 
     # GPU support - ensure necessary drivers are available
