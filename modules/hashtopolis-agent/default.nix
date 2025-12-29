@@ -7,14 +7,43 @@ let
 
   hashtopolisAgentPkg = pkgs.callPackage ../../pkgs/hashtopolis-agent/package.nix { };
 
+  # Resolve hashcat package: use configured package, or default to pkgs.hashcat when useNativeHashcat is true
+  effectiveHashcatPackage = if cfg.hashcatPackage != null then cfg.hashcatPackage
+                            else if cfg.useNativeHashcat then pkgs.hashcat
+                            else null;
+
   gpuEnabled = elem "gpu" cfg.deviceTypes;
   cpuEnabled = elem "cpu" cfg.deviceTypes;
 
+  # Helper to check if a path is under another path
+  isSubPath = parent: child: lib.hasPrefix (toString parent) (toString child);
+
+  # Get extra paths that need write access (paths not under dataDir)
+  extraWritePaths = lib.filter (p: !isSubPath cfg.dataDir p) [
+    cfg.crackersPath
+    cfg.princePath
+    cfg.preprocessorsPath
+  ];
+
   openclLibs = with pkgs; [
     ocl-icd
+    zlib
+    ncurses5
+    stdenv.cc.cc.lib
   ] ++ optionals gpuEnabled [
     cudatoolkit
     linuxPackages.nvidia_x11
+    linuxPackages.nvidia_x11.lib
+    libGLU
+    libGL
+    xorg.libXi
+    xorg.libXmu
+    freeglut
+    xorg.libXext
+    xorg.libX11
+    xorg.libXv
+    xorg.libXrandr
+    addOpenGLRunpath
   ] ++ optionals (cpuEnabled && !gpuEnabled) [
     pocl
   ];
@@ -103,7 +132,7 @@ in {
       type = types.nullOr types.package;
       default = null;
       example = "pkgs.hashcat";
-      description = "Hashcat package to use when useNativeHashcat is true";
+      description = "Hashcat package to use when useNativeHashcat is true. Defaults to pkgs.hashcat when useNativeHashcat is enabled and this is not set.";
     };
 
     allowPiping = mkOption {
@@ -185,7 +214,11 @@ in {
         zlib
         openssl
         glibc
-      ] ++ openclLibs;
+        ocl-icd
+      ] ++ openclLibs ++ optionals gpuEnabled [
+        linuxPackages.nvidia_x11
+        linuxPackages.nvidia_x11.lib
+      ];
     };
 
     # Create user and group
@@ -215,8 +248,9 @@ in {
     systemd.services.hashtopolis-agent = {
       description = "Hashtopolis Agent";
       wantedBy = optionals cfg.autoStart [ "multi-user.target" ];
-      after = [ "network-online.target" ];
+      after = [ "network-online.target" "systemd-tmpfiles-setup.service" ];
       wants = [ "network-online.target" ];
+      requires = [ "systemd-tmpfiles-setup.service" ];
 
       environment = {
         HOME = cfg.dataDir;
@@ -228,16 +262,28 @@ in {
         CUDA_VISIBLE_DEVICES = concatStringsSep "," (map toString cfg.gpuDevices);
       } // optionalAttrs gpuEnabled {
         CUDA_PATH = "${pkgs.cudatoolkit}";
-      } // {
+        EXTRA_LDFLAGS = "-L/lib -L${pkgs.linuxPackages.nvidia_x11}/lib";
+        EXTRA_CCFLAGS = "-I/usr/include";
+        LD_LIBRARY_PATH = lib.makeLibraryPath (openclLibs ++ [
+          pkgs.linuxPackages.nvidia_x11
+          pkgs.linuxPackages.nvidia_x11.lib
+        ]);
+      } // optionalAttrs (!gpuEnabled) {
         LD_LIBRARY_PATH = lib.makeLibraryPath openclLibs;
       };
 
       path = with pkgs; [
         pciutils  # lspci for hardware detection
         p7zip     # 7z/7zr for extracting archives
+        unzip
+        gnumake
+        binutils
+        stdenv.cc
       ] ++ optionals (elem "gpu" cfg.deviceTypes) [
         cudatoolkit
         ocl-icd
+      ] ++ optionals (cfg.useNativeHashcat && effectiveHashcatPackage != null) [
+        effectiveHashcatPackage
       ];
 
       serviceConfig = {
@@ -287,7 +333,8 @@ in {
               "crackers-path": "${cfg.crackersPath}",
               "prince-path": "${cfg.princePath}",
               "preprocessors-path": "${cfg.preprocessorsPath}",
-              "use-native-hashcat": ${if cfg.useNativeHashcat then "true" else "false"},
+              "use-native-hashcat": ${if cfg.useNativeHashcat then "true" else "false"},${optionalString (cfg.useNativeHashcat && effectiveHashcatPackage != null) ''
+              "native-hashcat-path": "${effectiveHashcatPackage}/bin/hashcat",''}
               "allow-piping": ${if cfg.allowPiping then "true" else "false"},
               "disable-update": true
             }
@@ -324,9 +371,9 @@ in {
             done
 
             # Link native hashcat if configured
-            ${optionalString (cfg.useNativeHashcat && cfg.hashcatPackage != null) ''
+            ${optionalString (cfg.useNativeHashcat && effectiveHashcatPackage != null) ''
               if [ ! -f ${cfg.crackersPath}/hashcat ]; then
-                ln -sf ${cfg.hashcatPackage}/bin/hashcat ${cfg.crackersPath}/hashcat
+                ln -sf ${effectiveHashcatPackage}/bin/hashcat ${cfg.crackersPath}/hashcat
                 chown -h ${cfg.user}:${cfg.group} ${cfg.crackersPath}/hashcat
               fi
             ''}
@@ -345,12 +392,12 @@ in {
         NoNewPrivileges = true;
         ProtectSystem = "strict";
         ProtectHome = true;
+        # Note: dataDir covers most paths, but we add any paths configured outside of it
+        # This avoids issues with non-existent paths when directories are deleted
         ReadWritePaths = [
           cfg.dataDir
-          cfg.crackersPath
-          cfg.princePath
-          cfg.preprocessorsPath
-        ] ++ optionals (elem "gpu" cfg.deviceTypes) [
+        ] ++ extraWritePaths
+          ++ optionals (elem "gpu" cfg.deviceTypes) [
           "/run/opengl-driver"  # Needed for NVIDIA driver access
         ];
 
@@ -417,8 +464,8 @@ in {
     };
 
     # Install hashcat if requested
-    environment.systemPackages = mkIf (cfg.useNativeHashcat && cfg.hashcatPackage != null) [
-      cfg.hashcatPackage
+    environment.systemPackages = mkIf (cfg.useNativeHashcat && effectiveHashcatPackage != null) [
+      effectiveHashcatPackage
     ];
 
     # GPU support - ensure necessary drivers are available

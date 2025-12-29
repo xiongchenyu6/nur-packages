@@ -179,53 +179,22 @@ in {
         HASHTOPOLIS_IMPORT_PATH = "${cfg.dataDir}/import";
         HASHTOPOLIS_LOG_PATH = "${cfg.dataDir}/log";
         HASHTOPOLIS_CONFIG_PATH = "${cfg.dataDir}/config";
+        HASHTOPOLIS_LOCKS_PATH = "${cfg.dataDir}/locks";
       };
 
       # preStart runs as root by default
       preStart = ''
-        # StateDirectory ensures the directory exists, so we just need to manage contents
-
-        # Check if this is a fresh install or if files need to be refreshed
-        if [ ! -d "${cfg.dataDir}/src" ]; then
-          echo "First time setup - installing Hashtopolis files..."
-
-          # Clean contents if directory exists but no src folder
-          if [ -d "${cfg.dataDir}" ]; then
-            echo "Cleaning existing contents..."
-            # Fix permissions on existing contents to allow deletion
-            find ${cfg.dataDir} -type d -exec chmod 755 {} \; 2>/dev/null || true
-            find ${cfg.dataDir} -type f -exec chmod 644 {} \; 2>/dev/null || true
-            # Remove all contents but not the directory itself
-            rm -rf ${cfg.dataDir}/* ${cfg.dataDir}/.[!.]* 2>/dev/null || true
-          fi
-
-          # Copy all files from the package
-          cp -r ${cfg.package}/share/hashtopolis/* ${cfg.dataDir}/
-
-          # Fix ownership and permissions
-          chown -R hashtopolis:hashtopolis ${cfg.dataDir}
-          find ${cfg.dataDir} -type d -exec chmod 755 {} \;
-          find ${cfg.dataDir} -type f -exec chmod 644 {} \;
-        else
-          # Existing installation - just ensure permissions are correct
-          echo "Hashtopolis files already present in ${cfg.dataDir}"
-
-          # Fix any permission issues
-          chown -R hashtopolis:hashtopolis ${cfg.dataDir}
-          find ${cfg.dataDir} -type d -exec chmod 755 {} \;
-          find ${cfg.dataDir} -type f -exec chmod 644 {} \;
-        fi
-
         # Create required directories for Hashtopolis operation
         mkdir -p ${cfg.dataDir}/files
         mkdir -p ${cfg.dataDir}/import
         mkdir -p ${cfg.dataDir}/log
         mkdir -p ${cfg.dataDir}/tmp
         mkdir -p ${cfg.dataDir}/config
+        mkdir -p ${cfg.dataDir}/locks
 
         # Ensure proper ownership and permissions on runtime directories
-        chown -R hashtopolis:hashtopolis ${cfg.dataDir}/files ${cfg.dataDir}/import ${cfg.dataDir}/log ${cfg.dataDir}/tmp ${cfg.dataDir}/config
-        chmod -R 755 ${cfg.dataDir}/files ${cfg.dataDir}/import ${cfg.dataDir}/log ${cfg.dataDir}/tmp ${cfg.dataDir}/config
+        chown -R hashtopolis:hashtopolis ${cfg.dataDir}
+        chmod -R 755 ${cfg.dataDir}
 
         # Setup environment file (always refresh this)
         cp -f ${envFile} ${cfg.dataDir}/.env
@@ -239,7 +208,8 @@ in {
         Group = "hashtopolis";
         WorkingDirectory = cfg.dataDir;
         EnvironmentFile = "${cfg.dataDir}/.env";
-        ExecStart = "${cfg.phpPackage}/bin/php -S ${cfg.listenAddress}:${toString cfg.port} -t ${cfg.dataDir}/src";
+        # Run directly from the Nix store - code updates automatically
+        ExecStart = "${cfg.phpPackage}/bin/php -S ${cfg.listenAddress}:${toString cfg.port} -t ${cfg.package}/share/hashtopolis/src";
         Restart = "always";
         RestartSec = "10s";
 

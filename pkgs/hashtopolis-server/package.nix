@@ -1,40 +1,48 @@
 {
   lib,
-  stdenv,
-  fetchFromGitHub,
   php82,
+  fetchFromGitHub,
   makeWrapper,
-  unzip,
+  stdenv,
 }:
 
-stdenv.mkDerivation rec {
+php82.buildComposerProject2 {
   pname = "hashtopolis-server";
-  version = "1.0.0-rainbow4";
+  version = "1.0.0";
 
   src = fetchFromGitHub {
     owner = "hashtopolis";
     repo = "server";
-    rev = "v${version}";
-    sha256 = "sha256-LMRrHxdjIgNlECeRY859oU4LdkKm/q2j0b5N6Fjf1mc=";
+    rev = "v1.0.0-rainbow4";
+    hash = "sha256-LMRrHxdjIgNlECeRY859oU4LdkKm/q2j0b5N6Fjf1mc=";
   };
 
-  nativeBuildInputs = [
-    makeWrapper
-    unzip
-  ];
+  vendorHash = if stdenv.hostPlatform.isAarch64 
+    then "sha256-/1P7Sc0Kq+qXTiOh64YjSbI96U/cg2Wwyk4YPo+iqAM="
+    else "sha256-oNhs39uECAU0xIlTJEdsSnNjPtzBNK+I0bKR2x27v3w=";
 
-  buildInputs = [ php82 ];
+  composerNoDev = true;
+
+  nativeBuildInputs = [ makeWrapper ];
 
   postPatch = ''
-        # Add support for HASHTOPOLIS_CONFIG_PATH environment variable
-        # Insert it at line 42, right after the LOG_PATH check
-        cat > patch.tmp << 'EOF'
-      if (getenv('HASHTOPOLIS_CONFIG_PATH') !== false) {
-        $DIRECTORIES["config"] = getenv('HASHTOPOLIS_CONFIG_PATH');
-      }
-    EOF
-        sed -i '42r patch.tmp' src/inc/confv2.php
-        rm patch.tmp
+    # Add support for HASHTOPOLIS_CONFIG_PATH environment variable
+    # Insert it at line 42, right after the LOG_PATH check
+    cat > patch.tmp << 'EOF'
+  if (getenv('HASHTOPOLIS_CONFIG_PATH') !== false) {
+    $DIRECTORIES["config"] = getenv('HASHTOPOLIS_CONFIG_PATH');
+  }
+EOF
+    sed -i '42r patch.tmp' src/inc/confv2.php
+    rm patch.tmp
+
+    # Patch Lock.class.php to use environment variable for locks directory
+    substituteInPlace src/inc/utils/Lock.class.php \
+      --replace 'dirname(__FILE__) . "/locks/"' '(getenv("HASHTOPOLIS_LOCKS_PATH") ?: dirname(__FILE__) . "/locks/") . "/"'
+
+    # Patch LockUtils.class.php deleteLockFile method  
+    substituteInPlace src/inc/utils/LockUtils.class.php \
+      --replace 'dirname(__FILE__) . "/locks/"' '(getenv("HASHTOPOLIS_LOCKS_PATH") ?: dirname(__FILE__) . "/locks/") . "/"'
   '';
 
   installPhase = ''
@@ -42,10 +50,14 @@ stdenv.mkDerivation rec {
 
     # Create output directory structure
     mkdir -p $out/share/hashtopolis/src
+    mkdir -p $out/share/hashtopolis/vendor
     mkdir -p $out/bin
 
     # Copy server files to src subdirectory (as expected by the PHP server)
     cp -r src/* $out/share/hashtopolis/src/
+
+    # Copy vendor directory with Composer dependencies
+    cp -r vendor/* $out/share/hashtopolis/vendor/
 
     # Copy additional files
     cp -r doc $out/share/hashtopolis/
