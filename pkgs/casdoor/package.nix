@@ -33,8 +33,9 @@ stdenv.mkDerivation {
   ];
 
   installPhase = ''
-    mkdir -p $out/bin
+    mkdir -p $out/bin $out/web
     install -m755 casdoor $out/bin/casdoor
+    cp -r web/build $out/web/
   '';
 
   dontConfigure = true;

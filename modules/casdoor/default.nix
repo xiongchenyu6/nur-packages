@@ -70,7 +70,7 @@ let
     logConfig = ${builtins.toJSON cfg.logConfig}
     initDataNewOnly = ${boolToYesNo cfg.initDataNewOnly}
     initDataFile = "${cfg.initDataFile}"
-    frontendBaseDir = "${cfg.frontendBaseDir}"
+    frontendBaseDir = "${if cfg.frontendBaseDir != null then cfg.frontendBaseDir else "${cfg.package}/web/build"}"
   '';
 
 in
@@ -377,9 +377,9 @@ in
     };
 
     frontendBaseDir = mkOption {
-      type = types.str;
-      default = "../cc_0";
-      description = "Frontend base directory";
+      type = types.nullOr types.str;
+      default = null;
+      description = "Frontend base directory. Defaults to the package's web/build directory.";
     };
 
     environmentFile = mkOption {
@@ -466,11 +466,14 @@ in
         RestartSec = "10s";
 
         # Security hardening
-        NoNewPrivileges = true;
         ProtectSystem = "strict";
         ProtectHome = true;
         ReadWritePaths = [ cfg.dataDir ];
         PrivateTmp = true;
+
+        # Allow binding to privileged ports (LDAP 389, LDAPS 636)
+        AmbientCapabilities = [ "CAP_NET_BIND_SERVICE" ];
+        CapabilityBoundingSet = [ "CAP_NET_BIND_SERVICE" ];
       }
       // lib.optionalAttrs (cfg.environmentFile != null) {
         EnvironmentFile = cfg.environmentFile;
