@@ -469,11 +469,12 @@ in
         ProtectHome = true;
         ReadWritePaths = [ cfg.dataDir ];
         PrivateTmp = true;
+      }
+      // lib.optionalAttrs (cfg.environmentFile != null) {
+        EnvironmentFile = cfg.environmentFile;
       };
 
-      EnvironmentFile = mkIf (cfg.environmentFile != null) cfg.environmentFile;
+      environment.systemPackages = [ cfg.package ];
     };
-
-    environment.systemPackages = [ cfg.package ];
   };
 }
