@@ -371,7 +371,7 @@ in
     };
 
     initDataFile = mkOption {
-      type = types.path;
+      type = types.str;
       default = "./init_data.json";
       description = "Path to initial data file";
     };
