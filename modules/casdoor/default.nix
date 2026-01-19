@@ -473,8 +473,8 @@ in
       // lib.optionalAttrs (cfg.environmentFile != null) {
         EnvironmentFile = cfg.environmentFile;
       };
-
-      environment.systemPackages = [ cfg.package ];
     };
+
+    environment.systemPackages = [ cfg.package ];
   };
 }
