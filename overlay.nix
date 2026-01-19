@@ -8,22 +8,27 @@ in
 {
   # Core packages (available on all platforms)
   # Each package is defined as a lazy thunk
-  
-  librime = (prev.librime.override {
-    plugins = [
-      (prev.callPackage ./_sources/generated.nix {
-        inherit (prev) fetchFromGitHub fetchurl fetchgit;
-      }).librime-lua.src
-    ];
-  }).overrideAttrs (old: {
-    buildInputs = old.buildInputs ++ [ prev.lua5_2 ];
-    nativeBuildInputs = old.nativeBuildInputs ++ [ prev.lua5_2 prev.pkg-config ];
-  });
-  
+
+  librime =
+    (prev.librime.override {
+      plugins = [
+        (prev.callPackage ./_sources/generated.nix {
+          inherit (prev) fetchFromGitHub fetchurl fetchgit;
+        }).librime-lua.src
+      ];
+    }).overrideAttrs
+      (old: {
+        buildInputs = old.buildInputs ++ [ prev.lua5_2 ];
+        nativeBuildInputs = old.nativeBuildInputs ++ [
+          prev.lua5_2
+          prev.pkg-config
+        ];
+      });
+
   wrangler = prev.wrangler.overrideAttrs (old: {
     dontCheckForBrokenSymlinks = true;
   });
-  
+
   # Emacs packages
   emacs-copilot-el = prev.callPackage ./pkgs/emacs/copilot-el/package.nix { };
   emacs-combobulate = prev.callPackage ./pkgs/emacs/combobulate/package.nix { };
@@ -31,9 +36,9 @@ in
   emacs-magit-gitflow = prev.callPackage ./pkgs/emacs/magit-gitflow/package.nix { };
   emacs-magit-town = prev.callPackage ./pkgs/emacs/magit-town/package.nix { };
   emacs-org-cv = prev.callPackage ./pkgs/emacs/org-cv/package.nix { };
-  
+
   # Linux-only packages (conditionally included)
-  cyrus_sasl_with_ldap = 
+  cyrus_sasl_with_ldap =
     if lib.hasSuffix "linux" prev.system then
       let
         ldap-passthrough-conf = prev.callPackage ./pkgs/ldap-passthrough-conf/package.nix { };
@@ -46,7 +51,7 @@ in
       })
     else
       throw "cyrus_sasl_with_ldap is only available on Linux";
-  
+
   openldap_with_cyrus_sasl =
     if lib.hasSuffix "linux" prev.system then
       let
@@ -64,10 +69,11 @@ in
           "--with-cyrus-sasl"
         ];
         doCheck = false;
-      })).override { cyrus_sasl = cyrus_sasl_with_ldap_pkg; }
+      })).override
+        { cyrus_sasl = cyrus_sasl_with_ldap_pkg; }
     else
       throw "openldap_with_cyrus_sasl is only available on Linux";
-  
+
   postfix_with_ldap =
     if lib.hasSuffix "linux" prev.system then
       let
@@ -82,13 +88,13 @@ in
       prev.postfix.override { cyrus_sasl = cyrus_sasl_with_ldap_pkg; }
     else
       throw "postfix_with_ldap is only available on Linux";
-  
+
   sssd_with_sude =
     if lib.hasSuffix "linux" prev.system then
       prev.sssd.override { withSudo = true; }
     else
       throw "sssd_with_sude is only available on Linux";
-  
+
   sudo_with_sssd =
     if lib.hasSuffix "linux" prev.system then
       let
@@ -101,22 +107,22 @@ in
       }
     else
       throw "sudo_with_sssd is only available on Linux";
-  
+
   ldap-passthrough-conf =
     if lib.hasSuffix "linux" prev.system then
       prev.callPackage ./pkgs/ldap-passthrough-conf/package.nix { }
     else
       throw "ldap-passthrough-conf is only available on Linux";
-  
+
   # Packages from pkgs/ directory (automatically discovered)
   # Only include packages that are compatible with the current platform
-  
+
   gotron-sdk = prev.callPackage ./pkgs/gotron-sdk/package.nix { };
   helmify = prev.callPackage ./pkgs/helmify/package.nix { };
   korb = prev.callPackage ./pkgs/korb/package.nix { };
   ldap-extra-schemas = prev.callPackage ./pkgs/ldap-extra-schemas/package.nix { };
   my2sql = prev.callPackage ./pkgs/my2sql/package.nix { };
-  
+
   # Linux-only packages from pkgs/
   falcon-sensor =
     if lib.hasSuffix "linux" prev.system then
@@ -129,24 +135,26 @@ in
       prev.callPackage ./pkgs/feishu-lark/package.nix { }
     else
       throw "feishu-lark is only available on Linux";
-  
+
   haystack-editor =
     if lib.hasSuffix "linux" prev.system then
       prev.callPackage ./pkgs/haystack-editor/package.nix { }
     else
       throw "haystack-editor is only available on Linux";
-  
+
   record_screen =
     if lib.hasSuffix "linux" prev.system then
       prev.callPackage ./pkgs/record_screen/package.nix { }
     else
       throw "record_screen is only available on Linux";
-  
+
   sui =
     if lib.hasSuffix "linux" prev.system then
       prev.callPackage ./pkgs/sui/package.nix { }
     else
       throw "sui is only available on Linux";
+
+  casdoor = prev.callPackage ./pkgs/casdoor/package.nix { };
 
   # Hashtopolis packages
   hashtopolis-server =
@@ -159,7 +167,6 @@ in
 
   # FCITX5 fix
   fcitx5-configtool = prev.fcitx5-configtool.overrideAttrs (oldAttrs: {
-    propagatedBuildInputs = (oldAttrs.propagatedBuildInputs or []) ++ [ prev.libxcb-cursor ];
+    propagatedBuildInputs = (oldAttrs.propagatedBuildInputs or [ ]) ++ [ prev.libxcb-cursor ];
   });
 }
-
