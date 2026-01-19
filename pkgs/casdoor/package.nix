@@ -5,7 +5,7 @@
   autoPatchelfHook,
 }:
 let
-  version = "2.252.0";
+  version = "2.253.0";
   passthru.platforms = [
     "x86_64-linux"
     "aarch64-linux"
@@ -19,7 +19,7 @@ stdenv.mkDerivation {
 
   src = fetchurl {
     url = "https://github.com/casdoor/casdoor/releases/download/v${version}/casdoor_Linux_x86_64.tar.gz";
-    hash = "sha256-XmguYJgSC7jU7sdx5FvrlZVdHoZomZUhfUQsnd9kKdU=";
+    hash = "sha256-quPcr7Ff9D077fp9gUz50/D1+Ejz0AO4cSwQzDW3bEA=";
   };
 
   sourceRoot = ".";
