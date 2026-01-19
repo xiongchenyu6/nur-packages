@@ -428,6 +428,8 @@ in
       wants = [ "network-online.target" ];
       requires = [ "systemd-tmpfiles-setup.service" ];
 
+      path = [ pkgs.lsof ];
+
       environment = {
         HOME = cfg.dataDir;
       };
