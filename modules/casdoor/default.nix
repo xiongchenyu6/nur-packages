@@ -24,7 +24,7 @@ let
     driverName = ${cfg.database.driver}
     dataSourceName = ${
       if cfg.database.driver == "postgres" then
-        "${cfg.database.username}:${cfg.database.password}@dbhost=${cfg.database.host}:${toString cfg.database.port}/${cfg.database.name}?sslmode=disable"
+        "host=${cfg.database.host} port=${toString cfg.database.port} user=${cfg.database.username} dbname=${cfg.database.name} password=${cfg.database.password} sslmode=disable"
       else
         "${cfg.database.username}:${cfg.database.password}@tcp(${cfg.database.host}:${toString cfg.database.port})/"
     }
