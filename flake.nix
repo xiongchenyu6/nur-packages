@@ -42,7 +42,7 @@
               pkgsByName =
                 let
                   # Platform-specific package mapping
-                  linuxOnlyPackages = [ "falcon-sensor" "feishu-lark" "haystack-editor" "record_screen" "sui" ];
+                  linuxOnlyPackages = [ "falcon-sensor" "feishu-lark" "haystack-editor" "record_screen" "roxybrowser" "sui" ];
 
                   # Function to safely import a package if it's compatible with the current system
                   tryImportPackage = name: path:

@@ -12,17 +12,16 @@
   ...
 }:
 let
-  sources = pkgs.callPackage ./_sources/generated.nix { 
-    inherit (pkgs) fetchFromGitHub fetchurl fetchgit; 
+  sources = pkgs.callPackage ./_sources/generated.nix {
+    inherit (pkgs) fetchFromGitHub fetchurl fetchgit;
   };
-  
+
   # Check if we're on Linux
   isLinux = pkgs.stdenv.isLinux;
-  
+
   # Build ldap-passthrough-conf directly from the package definition (only needed on Linux)
-  ldap-passthrough-conf = if isLinux 
-    then pkgs.callPackage ./pkgs/ldap-passthrough-conf/package.nix { }
-    else null;
+  ldap-passthrough-conf =
+    if isLinux then pkgs.callPackage ./pkgs/ldap-passthrough-conf/package.nix { } else null;
 
   # Linux-only packages
   linuxPackages = lib.optionalAttrs isLinux {
@@ -82,7 +81,10 @@ let
     }).overrideAttrs
       (old: {
         buildInputs = old.buildInputs ++ [ pkgs.lua5_2 ];
-        nativeBuildInputs = old.nativeBuildInputs ++ [ pkgs.lua5_2 pkgs.pkg-config ];
+        nativeBuildInputs = old.nativeBuildInputs ++ [
+          pkgs.lua5_2
+          pkgs.pkg-config
+        ];
       });
 
 in
@@ -96,21 +98,24 @@ in
   });
 
   # Hashtopolis packages
-  hashtopolis-server = if isLinux
-    then pkgs.callPackage ./pkgs/hashtopolis-server/package.nix { }
-    else null;
+  hashtopolis-server =
+    if isLinux then pkgs.callPackage ./pkgs/hashtopolis-server/package.nix { } else null;
 
   hashtopolis-agent = pkgs.callPackage ./pkgs/hashtopolis-agent/package.nix { };
 
   # FitCrack package
-  fitcrack = if isLinux
-    then pkgs.callPackage ./pkgs/fitcrack/package.nix { }
-    else null;
+  fitcrack = if isLinux then pkgs.callPackage ./pkgs/fitcrack/package.nix { } else null;
 
   # Falcon Sensor package
-  falcon-sensor = if isLinux
-    then pkgs.callPackage ./pkgs/falcon-sensor {
-      inherit builtins;
-    }
-    else null;
-} // linuxPackages
+  falcon-sensor =
+    if isLinux then
+      pkgs.callPackage ./pkgs/falcon-sensor {
+        inherit builtins;
+      }
+    else
+      null;
+
+  # RoxyBrowser package
+  roxybrowser = if isLinux then pkgs.callPackage ./pkgs/roxybrowser/package.nix { } else null;
+}
+// linuxPackages
