@@ -54,7 +54,6 @@ stdenv.mkDerivation (
           sui-data-ingestion \
           sui-debug \
           sui-faucet \
-          sui-graphql-rpc \
           sui-node \
           sui-test-validator \
           sui-tool
