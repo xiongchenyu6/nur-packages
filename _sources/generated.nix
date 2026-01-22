@@ -42,17 +42,17 @@
   };
   gptel = {
     pname = "gptel";
-    version = "5cb7f076db62206d4cecc1cb040aa1c6e26e612d";
+    version = "7f15e57e1a5c7dcc504457708645aef2deceb425";
     src = fetchgit {
       url = "https://github.com/karthink/gptel.git";
-      rev = "5cb7f076db62206d4cecc1cb040aa1c6e26e612d";
+      rev = "7f15e57e1a5c7dcc504457708645aef2deceb425";
       fetchSubmodules = false;
       deepClone = false;
       leaveDotGit = false;
       sparseCheckout = [ ];
-      sha256 = "sha256-S1ANn7AaD4cPfickUnCsj/doJRY4nzq3rQD/Vt2BFl8=";
+      sha256 = "sha256-39dbWuY9LAsFWPTTsH/sjzHyu7qHcQ/86/mMYjSlXlI=";
     };
-    date = "2026-01-13";
+    date = "2026-01-15";
   };
   helmify = {
     pname = "helmify";
@@ -129,13 +129,13 @@
   };
   netbird = {
     pname = "netbird";
-    version = "v0.62.3";
+    version = "v0.64.0";
     src = fetchFromGitHub {
       owner = "netbirdio";
       repo = "netbird";
-      rev = "v0.62.3";
+      rev = "v0.64.0";
       fetchSubmodules = false;
-      sha256 = "sha256-eNuln/wSie11XCRcQTb+/iqY+JwtgFcRbH/t2+FitSo=";
+      sha256 = "sha256-3E8kdSJLturNxUoG66LxqWudVTGOObLtimmdoKZiKPs=";
     };
   };
   org-cv = {
@@ -154,10 +154,10 @@
   };
   sui = {
     pname = "sui";
-    version = "mainnet-v1.63.3";
+    version = "testnet-v1.64.0";
     src = fetchurl {
-      url = "https://github.com/MystenLabs/sui/releases/download/mainnet-v1.63.3/sui-mainnet-v1.63.3-ubuntu-x86_64.tgz";
-      sha256 = "sha256-mN+s969uSsaAxjZKtyTJVcNCtqfzPdHBNo2Nlrx7e3w=";
+      url = "https://github.com/MystenLabs/sui/releases/download/testnet-v1.64.0/sui-testnet-v1.64.0-ubuntu-x86_64.tgz";
+      sha256 = "sha256-9vVIbSfWzyEkADszIN/VRgDQOSTvcuYCdL3Ln2tFPpM=";
     };
   };
 }
