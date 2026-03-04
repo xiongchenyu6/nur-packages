@@ -53,15 +53,15 @@
                     in
                     if builtins.pathExists packageFile &&
                        (!isLinuxOnly || isLinuxSystem) then
-                      (let
-                        result = builtins.tryEval (pkgs.callPackage packageFile {});
-                      in
-                      if result.success then
-                        { ${name} = result.value; }
-                      else
-                        {})
+                       (let
+                         result = builtins.tryEval (pkgs.callPackage packageFile {});
+                       in
+                       if result.success then
+                         { ${name} = result.value; }
+                       else
+                         {})
                     else
-                      {};
+                     {};
                   
                   # Get all package directories
                   pkgDirs = builtins.readDir ./pkgs;
