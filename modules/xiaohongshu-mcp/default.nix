@@ -14,15 +14,34 @@ in
     enable = mkEnableOption "Enables xiaohongshu-mcp service";
 
     port = mkOption {
-      default = 8080;
+      default = 18060;
       type = types.int;
       description = "Port for the xiaohongshu-mcp server";
     };
 
-    cookieFile = mkOption {
-      type = types.nullOr types.path;
+    chromiumPackage = mkOption {
+      type = types.package;
+      default = pkgs.chromium;
+      defaultText = literalExpression "pkgs.chromium";
+      description = "Chromium package to use for browser automation";
+    };
+
+    display = mkOption {
+      type = types.str;
+      default = ":99";
+      description = "X display to use (requires Xvfb or similar)";
+    };
+
+    workingDirectory = mkOption {
+      type = types.str;
+      default = "/var/lib/xiaohongshu-mcp";
+      description = "Working directory for the service";
+    };
+
+    cookiesPath = mkOption {
+      type = types.nullOr types.str;
       default = null;
-      description = "Path to a file containing the xiaohongshu cookie for authentication";
+      description = "Path to cookies.json source to symlink into working directory";
     };
 
     user = mkOption {
@@ -41,28 +60,37 @@ in
   config = mkIf cfg.enable {
     systemd.services.xiaohongshu-mcp = {
       wantedBy = [ "multi-user.target" ];
-      after = [ "network.target" ];
+      after = [
+        "network-online.target"
+        "xvfb.service"
+      ];
+      wants = [ "network-online.target" ];
+      requires = [ "xvfb.service" ];
       description = "Xiaohongshu MCP Server";
+
+      environment = {
+        DISPLAY = cfg.display;
+      };
+
+      preStart = mkIf (cfg.cookiesPath != null) ''
+        mkdir -p ${cfg.workingDirectory}
+        ln -sfn ${cfg.cookiesPath} ${cfg.workingDirectory}/cookies.json
+      '';
+
+      script = ''
+        exec ${xiaohongshu-mcp}/bin/xiaohongshu-mcp \
+          --port :${toString cfg.port} \
+          -bin ${cfg.chromiumPackage}/bin/chromium
+      '';
 
       serviceConfig = {
         User = cfg.user;
         Group = cfg.group;
-        Restart = "on-failure";
+        Restart = "always";
         RestartSec = "5s";
-        StateDirectory = "xiaohongshu-mcp";
-        WorkingDirectory = "/var/lib/xiaohongshu-mcp";
+        WorkingDirectory = cfg.workingDirectory;
         Type = "simple";
       };
-
-      script =
-        let
-          cookieArg =
-            if cfg.cookieFile != null then
-              "--cookie-file ${cfg.cookieFile}"
-            else
-              "";
-        in
-        "${xiaohongshu-mcp}/bin/xiaohongshu-mcp --port ${toString cfg.port} ${cookieArg}";
     };
 
     users.users.${cfg.user} = mkIf (cfg.user == "xiaohongshu-mcp") {
