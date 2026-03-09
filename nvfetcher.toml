@@ -104,3 +104,7 @@ fetch.github = "BeryJu/korb"
 [netbird]
 src.github = "netbirdio/netbird"
 fetch.github = "netbirdio/netbird"
+
+[xiaohongshu-mcp]
+src.github = "xpzouying/xiaohongshu-mcp"
+fetch.url = "https://github.com/xpzouying/xiaohongshu-mcp/releases/download/$ver/xiaohongshu-mcp-linux-amd64.tar.gz"

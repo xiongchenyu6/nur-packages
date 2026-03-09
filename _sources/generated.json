@@ -1,7 +1,7 @@
 {
     "combobulate": {
-        "cargoLocks": null,
-        "date": "2025-06-21",
+        "cargoLock": null,
+        "date": "2026-01-26",
         "extract": null,
         "name": "combobulate",
         "passthru": null,
@@ -11,17 +11,17 @@
             "fetchSubmodules": false,
             "leaveDotGit": false,
             "name": null,
-            "rev": "17c71802eed2df1a6b25199784806da6763fb90c",
-            "sha256": "sha256-m+06WLfHkdlMkLzP+fah3YN3rHG0H8t/iWEDSrct25E=",
+            "rev": "38773810b5e532f25d11c6d1af02c3a8dffeacd7",
+            "sha256": "sha256-gW0j0asfH4My+mBSt8pj3d51PigGWzFUhETydUI9xEg=",
             "sparseCheckout": [],
             "type": "git",
             "url": "https://github.com/mickeynp/combobulate.git"
         },
-        "version": "17c71802eed2df1a6b25199784806da6763fb90c"
+        "version": "38773810b5e532f25d11c6d1af02c3a8dffeacd7"
     },
     "copilot-el": {
-        "cargoLocks": null,
-        "date": "2025-12-10",
+        "cargoLock": null,
+        "date": "2026-03-05",
         "extract": null,
         "name": "copilot-el",
         "passthru": null,
@@ -31,16 +31,16 @@
             "fetchSubmodules": false,
             "leaveDotGit": false,
             "name": null,
-            "rev": "7ee4758bb748beac7d29e62de5d2e752ebafb858",
-            "sha256": "sha256-jzrf6k9yJEMR0H1hOkf1LY2p5ik++poMoAlrhrYPD2U=",
+            "rev": "59a4a292236ac9bea8756c0a0613b750b14d91eb",
+            "sha256": "sha256-Y/zGxNV9NerwXq0tb3I5xReozBfjfumNmldXHP1hGjY=",
             "sparseCheckout": [],
             "type": "git",
             "url": "https://github.com/zerolfx/copilot.el.git"
         },
-        "version": "7ee4758bb748beac7d29e62de5d2e752ebafb858"
+        "version": "59a4a292236ac9bea8756c0a0613b750b14d91eb"
     },
     "gotron-sdk": {
-        "cargoLocks": null,
+        "cargoLock": null,
         "date": null,
         "extract": null,
         "name": "gotron-sdk",
@@ -53,16 +53,16 @@
             "name": null,
             "owner": "fbsobreira",
             "repo": "gotron-sdk",
-            "rev": "v0.24.1",
-            "sha256": "sha256-FkalIfUWUX5BaIBYaqh+i3S+5mvaShfRAUL+UYMymdo=",
+            "rev": "v0.24.2",
+            "sha256": "sha256-X2/oZy8SDCQNbpqgjkKka0NyAdXrDn8J/f2uden3A7U=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "v0.24.1"
+        "version": "v0.24.2"
     },
     "gptel": {
-        "cargoLocks": null,
-        "date": "2026-01-15",
+        "cargoLock": null,
+        "date": "2026-03-08",
         "extract": null,
         "name": "gptel",
         "passthru": null,
@@ -72,16 +72,16 @@
             "fetchSubmodules": false,
             "leaveDotGit": false,
             "name": null,
-            "rev": "7f15e57e1a5c7dcc504457708645aef2deceb425",
-            "sha256": "sha256-39dbWuY9LAsFWPTTsH/sjzHyu7qHcQ/86/mMYjSlXlI=",
+            "rev": "9682e8f5f96a72c858fb3420003642194793b32f",
+            "sha256": "sha256-37JxAnfcXJt86ea8W7uqNc/7mAQkba3rFUzrVncLVmw=",
             "sparseCheckout": [],
             "type": "git",
             "url": "https://github.com/karthink/gptel.git"
         },
-        "version": "7f15e57e1a5c7dcc504457708645aef2deceb425"
+        "version": "9682e8f5f96a72c858fb3420003642194793b32f"
     },
     "helmify": {
-        "cargoLocks": null,
+        "cargoLock": null,
         "date": null,
         "extract": null,
         "name": "helmify",
@@ -102,7 +102,7 @@
         "version": "v0.4.19"
     },
     "korb": {
-        "cargoLocks": null,
+        "cargoLock": null,
         "date": null,
         "extract": null,
         "name": "korb",
@@ -123,7 +123,7 @@
         "version": "v2.3.4"
     },
     "librime-lua": {
-        "cargoLocks": null,
+        "cargoLock": null,
         "date": "2025-07-07",
         "extract": null,
         "name": "librime-lua",
@@ -143,7 +143,7 @@
         "version": "68f9c364a2d25a04c7d4794981d7c796b05ab627"
     },
     "magit-gitflow": {
-        "cargoLocks": null,
+        "cargoLock": null,
         "date": "2017-09-29",
         "extract": null,
         "name": "magit-gitflow",
@@ -163,7 +163,7 @@
         "version": "cc41b561ec6eea947fe9a176349fb4f771ed865b"
     },
     "magit-town": {
-        "cargoLocks": null,
+        "cargoLock": null,
         "date": "2019-04-02",
         "extract": null,
         "name": "magit-town",
@@ -183,7 +183,7 @@
         "version": "4ce962e6e2d8249d3a5aa4c40e9924a424b50ebf"
     },
     "my2sql": {
-        "cargoLocks": null,
+        "cargoLock": null,
         "date": "2026-01-06",
         "extract": null,
         "name": "my2sql",
@@ -198,7 +198,7 @@
         "version": "71a069af44554b7e6367b2cb9735c06ab5353fe4"
     },
     "netbird": {
-        "cargoLocks": null,
+        "cargoLock": null,
         "date": null,
         "extract": null,
         "name": "netbird",
@@ -211,15 +211,15 @@
             "name": null,
             "owner": "netbirdio",
             "repo": "netbird",
-            "rev": "v0.64.0",
-            "sha256": "sha256-3E8kdSJLturNxUoG66LxqWudVTGOObLtimmdoKZiKPs=",
+            "rev": "v0.66.2",
+            "sha256": "sha256-KKVznhyk+zg8j/5d9YiL1BFpvXGZrDwLkmzbYy+LV8I=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "v0.64.0"
+        "version": "v0.66.2"
     },
     "org-cv": {
-        "cargoLocks": null,
+        "cargoLock": null,
         "date": "2025-01-24",
         "extract": null,
         "name": "org-cv",
@@ -239,7 +239,7 @@
         "version": "e8de952df7669b38ca475d00fe943ab96d8cfac4"
     },
     "sui": {
-        "cargoLocks": null,
+        "cargoLock": null,
         "date": null,
         "extract": null,
         "name": "sui",
@@ -247,10 +247,25 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-9vVIbSfWzyEkADszIN/VRgDQOSTvcuYCdL3Ln2tFPpM=",
+            "sha256": "sha256-bLytwi6sDSLe45hMvECQAuGnrY7zNEyVGQlExObdiqw=",
             "type": "url",
-            "url": "https://github.com/MystenLabs/sui/releases/download/testnet-v1.64.0/sui-testnet-v1.64.0-ubuntu-x86_64.tgz"
+            "url": "https://github.com/MystenLabs/sui/releases/download/testnet-v1.67.1/sui-testnet-v1.67.1-ubuntu-x86_64.tgz"
         },
-        "version": "testnet-v1.64.0"
+        "version": "testnet-v1.67.1"
+    },
+    "xiaohongshu-mcp": {
+        "cargoLock": null,
+        "date": null,
+        "extract": null,
+        "name": "xiaohongshu-mcp",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-T8CWYRffhG+GpUmJWn0X8nwQbT7dRwUCXXyUX4MfAwA=",
+            "type": "url",
+            "url": "https://github.com/xpzouying/xiaohongshu-mcp/releases/download/v2026.03.09.0605-0e16f4b/xiaohongshu-mcp-linux-amd64.tar.gz"
+        },
+        "version": "v2026.03.09.0605-0e16f4b"
     }
 }
