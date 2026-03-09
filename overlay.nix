@@ -165,6 +165,9 @@ in
 
   hashtopolis-agent = prev.callPackage ./pkgs/hashtopolis-agent/package.nix { };
 
+  # Xiaohongshu MCP package
+  xiaohongshu-mcp = prev.callPackage ./pkgs/xiaohongshu-mcp/package.nix { };
+
   # FCITX5 fix
   fcitx5-configtool = prev.fcitx5-configtool.overrideAttrs (oldAttrs: {
     propagatedBuildInputs = (oldAttrs.propagatedBuildInputs or [ ]) ++ [ prev.libxcb-cursor ];

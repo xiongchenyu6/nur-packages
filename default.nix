@@ -117,5 +117,8 @@ in
 
   # RoxyBrowser package
   roxybrowser = if isLinux then pkgs.callPackage ./pkgs/roxybrowser/package.nix { } else null;
+
+  # Xiaohongshu MCP package
+  xiaohongshu-mcp = pkgs.callPackage ./pkgs/xiaohongshu-mcp/package.nix { };
 }
 // linuxPackages

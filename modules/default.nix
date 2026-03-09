@@ -19,4 +19,5 @@
   casdoor = import ./casdoor;
   fleet = import ./fleet.nix;
   gotrue-supabase = import ./gotrue-supabase;
+  xiaohongshu-mcp = import ./xiaohongshu-mcp;
 }
