@@ -19,20 +19,47 @@ let
     session
   ]));
 
-  # Environment file for hashtopolis
-  envFile = pkgs.writeText "hashtopolis.env" ''
-    HASHTOPOLIS_ADMIN_USER=${cfg.adminUser}
-    HASHTOPOLIS_ADMIN_PASSWORD=${cfg.adminPassword}
-    HASHTOPOLIS_DB_HOST=${cfg.database.host}
-    HASHTOPOLIS_DB_USER=${cfg.database.user}
-    HASHTOPOLIS_DB_PASS=${cfg.database.password}
-    HASHTOPOLIS_DB_DATABASE=${cfg.database.name}
-    MYSQL_HOST=${cfg.database.host}
-    MYSQL_PORT=${toString cfg.database.port}
-    MYSQL_DATABASE=${cfg.database.name}
-    MYSQL_USER=${cfg.database.user}
-    MYSQL_PASSWORD=${cfg.database.password}
-    ${cfg.extraEnvVars}
+  # Build PHP -d flags from phpOptions
+  phpFlags = concatStringsSep " " (mapAttrsToList (k: v: "-d ${k}=${v}") cfg.phpOptions);
+
+  # preStart script that generates .env at runtime from non-secret options + secret files
+  preStartScript = pkgs.writeShellScript "hashtopolis-pre-start" ''
+    set -euo pipefail
+
+    ENV_FILE="${cfg.dataDir}/.env"
+
+    # Write non-secret values
+    cat > "$ENV_FILE" <<'ENVEOF'
+HASHTOPOLIS_ADMIN_USER=${cfg.adminUser}
+HASHTOPOLIS_DB_HOST=${cfg.database.host}
+HASHTOPOLIS_DB_USER=${cfg.database.user}
+HASHTOPOLIS_DB_DATABASE=${cfg.database.name}
+MYSQL_HOST=${cfg.database.host}
+MYSQL_PORT=${toString cfg.database.port}
+MYSQL_DATABASE=${cfg.database.name}
+MYSQL_USER=${cfg.database.user}
+${cfg.extraEnvVars}
+ENVEOF
+
+    # Append secrets read from files
+    ${optionalString (cfg.adminPasswordFile != null) ''
+      printf 'HASHTOPOLIS_ADMIN_PASSWORD=%s\n' "$(cat ${cfg.adminPasswordFile})" >> "$ENV_FILE"
+    ''}
+    ${optionalString (cfg.database.passwordFile != null) ''
+      DB_PASS="$(cat ${cfg.database.passwordFile})"
+      printf 'HASHTOPOLIS_DB_PASS=%s\n' "$DB_PASS" >> "$ENV_FILE"
+      printf 'MYSQL_PASSWORD=%s\n' "$DB_PASS" >> "$ENV_FILE"
+    ''}
+
+    # If an environmentFile is provided, append its contents (overrides above)
+    ${optionalString (cfg.environmentFile != null) ''
+      if [ -f "${cfg.environmentFile}" ]; then
+        cat "${cfg.environmentFile}" >> "$ENV_FILE"
+      fi
+    ''}
+
+    chown hashtopolis:hashtopolis "$ENV_FILE"
+    chmod 600 "$ENV_FILE"
   '';
 
 in {
@@ -69,10 +96,11 @@ in {
       description = "Initial admin username";
     };
 
-    adminPassword = mkOption {
-      type = types.str;
-      default = "hashtopolis";
-      description = "Initial admin password (should be changed after first login)";
+    adminPasswordFile = mkOption {
+      type = types.nullOr types.path;
+      default = null;
+      example = "/run/secrets/hashtopolis-admin-password";
+      description = "Path to file containing the initial admin password";
     };
 
     database = {
@@ -100,9 +128,11 @@ in {
         description = "Database user";
       };
 
-      password = mkOption {
-        type = types.str;
-        description = "Database password";
+      passwordFile = mkOption {
+        type = types.nullOr types.path;
+        default = null;
+        example = "/run/secrets/hashtopolis-db-password";
+        description = "Path to file containing the database password";
       };
 
       createLocally = mkOption {
@@ -118,10 +148,24 @@ in {
       description = "PHP package to use (with required extensions)";
     };
 
+    phpOptions = mkOption {
+      type = types.attrsOf types.str;
+      default = {};
+      example = { memory_limit = "1024M"; };
+      description = "PHP ini directives passed via -d flags to the PHP built-in server";
+    };
+
+    environmentFile = mkOption {
+      type = types.nullOr types.path;
+      default = null;
+      example = "/run/secrets/hashtopolis.env";
+      description = "Path to environment file with additional secrets. Variables here are appended to the generated .env file.";
+    };
+
     extraEnvVars = mkOption {
       type = types.lines;
       default = "";
-      description = "Extra environment variables to pass to Hashtopolis";
+      description = "Extra environment variable lines to include in the generated .env file";
     };
 
     nginx = {
@@ -150,6 +194,16 @@ in {
 
     users.groups.hashtopolis = {};
 
+    # Create required subdirectories via tmpfiles
+    systemd.tmpfiles.rules = [
+      "d ${cfg.dataDir}/files 0755 hashtopolis hashtopolis -"
+      "d ${cfg.dataDir}/import 0755 hashtopolis hashtopolis -"
+      "d ${cfg.dataDir}/log 0755 hashtopolis hashtopolis -"
+      "d ${cfg.dataDir}/tmp 0755 hashtopolis hashtopolis -"
+      "d ${cfg.dataDir}/config 0755 hashtopolis hashtopolis -"
+      "d ${cfg.dataDir}/locks 0755 hashtopolis hashtopolis -"
+    ];
+
     # Create database if requested
     services.mysql = mkIf cfg.database.createLocally {
       enable = true;
@@ -169,12 +223,12 @@ in {
     systemd.services.hashtopolis-server = {
       description = "Hashtopolis Server";
       wantedBy = [ "multi-user.target" ];
-      after = [ "network.target" ] ++ optional cfg.database.createLocally "mysql.service";
+      after = [ "network.target" "systemd-tmpfiles-setup.service" ]
+        ++ optional cfg.database.createLocally "mysql.service";
       requires = optional cfg.database.createLocally "mysql.service";
 
       environment = {
         HOME = cfg.dataDir;
-        # Set environment variables that hashtopolis checks for directory paths
         HASHTOPOLIS_FILES_PATH = "${cfg.dataDir}/files";
         HASHTOPOLIS_IMPORT_PATH = "${cfg.dataDir}/import";
         HASHTOPOLIS_LOG_PATH = "${cfg.dataDir}/log";
@@ -182,34 +236,14 @@ in {
         HASHTOPOLIS_LOCKS_PATH = "${cfg.dataDir}/locks";
       };
 
-      # preStart runs as root by default
-      preStart = ''
-        # Create required directories for Hashtopolis operation
-        mkdir -p ${cfg.dataDir}/files
-        mkdir -p ${cfg.dataDir}/import
-        mkdir -p ${cfg.dataDir}/log
-        mkdir -p ${cfg.dataDir}/tmp
-        mkdir -p ${cfg.dataDir}/config
-        mkdir -p ${cfg.dataDir}/locks
-
-        # Ensure proper ownership and permissions on runtime directories
-        chown -R hashtopolis:hashtopolis ${cfg.dataDir}
-        chmod -R 755 ${cfg.dataDir}
-
-        # Setup environment file (always refresh this)
-        cp -f ${envFile} ${cfg.dataDir}/.env
-        chown hashtopolis:hashtopolis ${cfg.dataDir}/.env
-        chmod 600 ${cfg.dataDir}/.env
-      '';
-
       serviceConfig = {
         Type = "simple";
         User = "hashtopolis";
         Group = "hashtopolis";
         WorkingDirectory = cfg.dataDir;
+        ExecStartPre = "+${preStartScript}";
         EnvironmentFile = "${cfg.dataDir}/.env";
-        # Run directly from the Nix store - code updates automatically
-        ExecStart = "${cfg.phpPackage}/bin/php -S ${cfg.listenAddress}:${toString cfg.port} -t ${cfg.package}/share/hashtopolis/src";
+        ExecStart = "${cfg.phpPackage}/bin/php ${phpFlags} -S ${cfg.listenAddress}:${toString cfg.port} -t ${cfg.package}/share/hashtopolis/src";
         Restart = "always";
         RestartSec = "10s";
 
@@ -222,7 +256,6 @@ in {
         NoNewPrivileges = true;
         ProtectSystem = "strict";
         ProtectHome = true;
-        # ReadWritePaths is not needed when using StateDirectory
       };
     };
 
