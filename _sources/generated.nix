@@ -132,17 +132,6 @@
     };
     date = "2026-01-06";
   };
-  netbird = {
-    pname = "netbird";
-    version = "v0.66.2";
-    src = fetchFromGitHub {
-      owner = "netbirdio";
-      repo = "netbird";
-      rev = "v0.66.2";
-      fetchSubmodules = false;
-      sha256 = "sha256-KKVznhyk+zg8j/5d9YiL1BFpvXGZrDwLkmzbYy+LV8I=";
-    };
-  };
   org-cv = {
     pname = "org-cv";
     version = "e8de952df7669b38ca475d00fe943ab96d8cfac4";
@@ -168,9 +157,12 @@
   xiaohongshu-mcp = {
     pname = "xiaohongshu-mcp";
     version = "v2026.03.09.0605-0e16f4b";
-    src = fetchurl {
-      url = "https://github.com/xpzouying/xiaohongshu-mcp/releases/download/v2026.03.09.0605-0e16f4b/xiaohongshu-mcp-linux-amd64.tar.gz";
-      sha256 = "sha256-T8CWYRffhG+GpUmJWn0X8nwQbT7dRwUCXXyUX4MfAwA=";
+    src = fetchFromGitHub {
+      owner = "xpzouying";
+      repo = "xiaohongshu-mcp";
+      rev = "v2026.03.09.0605-0e16f4b";
+      fetchSubmodules = false;
+      sha256 = "sha256-ofCBMzm/IkFtO0bDuCOIwqo+RsRADNt7iF8C3yifDd8=";
     };
   };
 }

@@ -197,27 +197,6 @@
         },
         "version": "71a069af44554b7e6367b2cb9735c06ab5353fe4"
     },
-    "netbird": {
-        "cargoLock": null,
-        "date": null,
-        "extract": null,
-        "name": "netbird",
-        "passthru": null,
-        "pinned": false,
-        "src": {
-            "deepClone": false,
-            "fetchSubmodules": false,
-            "leaveDotGit": false,
-            "name": null,
-            "owner": "netbirdio",
-            "repo": "netbird",
-            "rev": "v0.66.2",
-            "sha256": "sha256-KKVznhyk+zg8j/5d9YiL1BFpvXGZrDwLkmzbYy+LV8I=",
-            "sparseCheckout": [],
-            "type": "github"
-        },
-        "version": "v0.66.2"
-    },
     "org-cv": {
         "cargoLock": null,
         "date": "2025-01-24",
@@ -261,10 +240,16 @@
         "passthru": null,
         "pinned": false,
         "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
             "name": null,
-            "sha256": "sha256-T8CWYRffhG+GpUmJWn0X8nwQbT7dRwUCXXyUX4MfAwA=",
-            "type": "url",
-            "url": "https://github.com/xpzouying/xiaohongshu-mcp/releases/download/v2026.03.09.0605-0e16f4b/xiaohongshu-mcp-linux-amd64.tar.gz"
+            "owner": "xpzouying",
+            "repo": "xiaohongshu-mcp",
+            "rev": "v2026.03.09.0605-0e16f4b",
+            "sha256": "sha256-ofCBMzm/IkFtO0bDuCOIwqo+RsRADNt7iF8C3yifDd8=",
+            "sparseCheckout": [],
+            "type": "github"
         },
         "version": "v2026.03.09.0605-0e16f4b"
     }

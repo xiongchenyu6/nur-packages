@@ -101,10 +101,6 @@ fetch.github = "BeryJu/korb"
 # fetch.github = "albertlauncher/albert"
 # git.fetchSubmodules = true
 
-[netbird]
-src.github = "netbirdio/netbird"
-fetch.github = "netbirdio/netbird"
-
 [xiaohongshu-mcp]
 src.github = "xpzouying/xiaohongshu-mcp"
-fetch.url = "https://github.com/xpzouying/xiaohongshu-mcp/releases/download/$ver/xiaohongshu-mcp-linux-amd64.tar.gz"
+fetch.github = "xpzouying/xiaohongshu-mcp"
