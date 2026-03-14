@@ -232,6 +232,27 @@
         },
         "version": "testnet-v1.67.1"
     },
+    "sub2api": {
+        "cargoLock": null,
+        "date": null,
+        "extract": null,
+        "name": "sub2api",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "Wei-Shaw",
+            "repo": "sub2api",
+            "rev": "v0.1.97",
+            "sha256": "sha256-z8iCqK/AD7DFRNED6lNrZWBz6Us6yB8uo1wlE3S2o2w=",
+            "sparseCheckout": [],
+            "type": "github"
+        },
+        "version": "v0.1.97"
+    },
     "xiaohongshu-mcp": {
         "cargoLock": null,
         "date": null,

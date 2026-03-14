@@ -154,6 +154,17 @@
       sha256 = "sha256-bLytwi6sDSLe45hMvECQAuGnrY7zNEyVGQlExObdiqw=";
     };
   };
+  sub2api = {
+    pname = "sub2api";
+    version = "v0.1.97";
+    src = fetchFromGitHub {
+      owner = "Wei-Shaw";
+      repo = "sub2api";
+      rev = "v0.1.97";
+      fetchSubmodules = false;
+      sha256 = "sha256-z8iCqK/AD7DFRNED6lNrZWBz6Us6yB8uo1wlE3S2o2w=";
+    };
+  };
   xiaohongshu-mcp = {
     pname = "xiaohongshu-mcp";
     version = "v2026.03.09.0605-0e16f4b";

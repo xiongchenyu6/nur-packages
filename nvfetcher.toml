@@ -104,3 +104,7 @@ fetch.github = "BeryJu/korb"
 [xiaohongshu-mcp]
 src.github = "xpzouying/xiaohongshu-mcp"
 fetch.github = "xpzouying/xiaohongshu-mcp"
+
+[sub2api]
+src.github = "Wei-Shaw/sub2api"
+fetch.github = "Wei-Shaw/sub2api"
