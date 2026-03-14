@@ -168,6 +168,9 @@ in
   # Xiaohongshu MCP package
   xiaohongshu-mcp = prev.callPackage ./pkgs/xiaohongshu-mcp/package.nix { };
 
+  # Sub2API package
+  sub2api = prev.callPackage ./pkgs/sub2api/package.nix { };
+
   # FCITX5 fix
   fcitx5-configtool = prev.fcitx5-configtool.overrideAttrs (oldAttrs: {
     propagatedBuildInputs = (oldAttrs.propagatedBuildInputs or [ ]) ++ [ prev.libxcb-cursor ];
