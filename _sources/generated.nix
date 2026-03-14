@@ -162,7 +162,7 @@
       repo = "sub2api";
       rev = "v0.1.97";
       fetchSubmodules = false;
-      sha256 = "sha256-z8iCqK/AD7DFRNED6lNrZWBz6Us6yB8uo1wlE3S2o2w=";
+      sha256 = "sha256-2P8Xd5fW6a009l9SU3jmA/djXuqukobF0MqlSZ8PzKg=";
     };
   };
   xiaohongshu-mcp = {
