@@ -156,13 +156,13 @@
   };
   sub2api = {
     pname = "sub2api";
-    version = "v0.1.97";
+    version = "v0.1.99";
     src = fetchFromGitHub {
       owner = "Wei-Shaw";
       repo = "sub2api";
-      rev = "v0.1.97";
+      rev = "v0.1.99";
       fetchSubmodules = false;
-      sha256 = "sha256-2P8Xd5fW6a009l9SU3jmA/djXuqukobF0MqlSZ8PzKg=";
+      sha256 = "sha256-H8SNFlZRTGXFmteDkyPk42kJBtD5SILtrXJWI9YR4uQ=";
     };
   };
   xiaohongshu-mcp = {
