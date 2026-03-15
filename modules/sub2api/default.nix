@@ -206,6 +206,8 @@ in
       ];
       wants = [ "network-online.target" ];
 
+      path = [ config.services.postgresql.package ];
+
       environment = {
         HOME = cfg.dataDir;
       };
