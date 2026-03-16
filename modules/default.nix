@@ -17,6 +17,7 @@
   hashtopolis-server = import ./hashtopolis-server;
   hashtopolis-agent = import ./hashtopolis-agent;
   casdoor = import ./casdoor;
+  casibase = import ./casibase;
   fleet = import ./fleet.nix;
   gotrue-supabase = import ./gotrue-supabase;
   xiaohongshu-mcp = import ./xiaohongshu-mcp;

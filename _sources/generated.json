@@ -1,4 +1,64 @@
 {
+    "casibase-darwin-arm64": {
+        "cargoLock": null,
+        "date": null,
+        "extract": null,
+        "name": "casibase-darwin-arm64",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-gMQcQjtYgzeXtw4eOoYavpHSb8U6+NKw2ldXMg7Patw=",
+            "type": "url",
+            "url": "https://github.com/casibase/casibase/releases/download/v1.758.2/casibase_Darwin_arm64.tar.gz"
+        },
+        "version": "v1.758.2"
+    },
+    "casibase-darwin-x86_64": {
+        "cargoLock": null,
+        "date": null,
+        "extract": null,
+        "name": "casibase-darwin-x86_64",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-L4Mt7F6vhZ4EKe2vViXD8hojGDPQuqqNHCW5Y/xUhg8=",
+            "type": "url",
+            "url": "https://github.com/casibase/casibase/releases/download/v1.758.2/casibase_Darwin_x86_64.tar.gz"
+        },
+        "version": "v1.758.2"
+    },
+    "casibase-linux-arm64": {
+        "cargoLock": null,
+        "date": null,
+        "extract": null,
+        "name": "casibase-linux-arm64",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-Ptxz3B2J/LOR4dJmr1Wl2mLxASxNkinsK37CpeMpJ3k=",
+            "type": "url",
+            "url": "https://github.com/casibase/casibase/releases/download/v1.758.2/casibase_Linux_arm64.tar.gz"
+        },
+        "version": "v1.758.2"
+    },
+    "casibase-linux-x86_64": {
+        "cargoLock": null,
+        "date": null,
+        "extract": null,
+        "name": "casibase-linux-x86_64",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-7Wb2+dJe1q8yv2Rmta7f1mAojOw60G4JMDcCsiM5Ky8=",
+            "type": "url",
+            "url": "https://github.com/casibase/casibase/releases/download/v1.758.2/casibase_Linux_x86_64.tar.gz"
+        },
+        "version": "v1.758.2"
+    },
     "combobulate": {
         "cargoLock": null,
         "date": "2026-01-26",
@@ -72,13 +132,13 @@
             "fetchSubmodules": false,
             "leaveDotGit": false,
             "name": null,
-            "rev": "e1353c06ff36b65386c81268f1d480384d361c7e",
-            "sha256": "sha256-xWNAMyySeyIBqJD3Etq+LgrmUX0NltLrcNVOdGg56Ik=",
+            "rev": "29401924c23e536da33e22c461961ab567f65cc1",
+            "sha256": "sha256-LzeJISyTHQbHmGHzAfnFuT1fyiouH4+zvfhujj3K7Hk=",
             "sparseCheckout": [],
             "type": "git",
             "url": "https://github.com/karthink/gptel.git"
         },
-        "version": "e1353c06ff36b65386c81268f1d480384d361c7e"
+        "version": "29401924c23e536da33e22c461961ab567f65cc1"
     },
     "hashtopolis-agent": {
         "cargoLock": null,

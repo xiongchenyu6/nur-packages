@@ -6,6 +6,38 @@
   dockerTools,
 }:
 {
+  casibase-darwin-arm64 = {
+    pname = "casibase-darwin-arm64";
+    version = "v1.758.2";
+    src = fetchurl {
+      url = "https://github.com/casibase/casibase/releases/download/v1.758.2/casibase_Darwin_arm64.tar.gz";
+      sha256 = "sha256-gMQcQjtYgzeXtw4eOoYavpHSb8U6+NKw2ldXMg7Patw=";
+    };
+  };
+  casibase-darwin-x86_64 = {
+    pname = "casibase-darwin-x86_64";
+    version = "v1.758.2";
+    src = fetchurl {
+      url = "https://github.com/casibase/casibase/releases/download/v1.758.2/casibase_Darwin_x86_64.tar.gz";
+      sha256 = "sha256-L4Mt7F6vhZ4EKe2vViXD8hojGDPQuqqNHCW5Y/xUhg8=";
+    };
+  };
+  casibase-linux-arm64 = {
+    pname = "casibase-linux-arm64";
+    version = "v1.758.2";
+    src = fetchurl {
+      url = "https://github.com/casibase/casibase/releases/download/v1.758.2/casibase_Linux_arm64.tar.gz";
+      sha256 = "sha256-Ptxz3B2J/LOR4dJmr1Wl2mLxASxNkinsK37CpeMpJ3k=";
+    };
+  };
+  casibase-linux-x86_64 = {
+    pname = "casibase-linux-x86_64";
+    version = "v1.758.2";
+    src = fetchurl {
+      url = "https://github.com/casibase/casibase/releases/download/v1.758.2/casibase_Linux_x86_64.tar.gz";
+      sha256 = "sha256-7Wb2+dJe1q8yv2Rmta7f1mAojOw60G4JMDcCsiM5Ky8=";
+    };
+  };
   combobulate = {
     pname = "combobulate";
     version = "38773810b5e532f25d11c6d1af02c3a8dffeacd7";
@@ -47,15 +79,15 @@
   };
   gptel = {
     pname = "gptel";
-    version = "e1353c06ff36b65386c81268f1d480384d361c7e";
+    version = "29401924c23e536da33e22c461961ab567f65cc1";
     src = fetchgit {
       url = "https://github.com/karthink/gptel.git";
-      rev = "e1353c06ff36b65386c81268f1d480384d361c7e";
+      rev = "29401924c23e536da33e22c461961ab567f65cc1";
       fetchSubmodules = false;
       deepClone = false;
       leaveDotGit = false;
       sparseCheckout = [ ];
-      sha256 = "sha256-xWNAMyySeyIBqJD3Etq+LgrmUX0NltLrcNVOdGg56Ik=";
+      sha256 = "sha256-LzeJISyTHQbHmGHzAfnFuT1fyiouH4+zvfhujj3K7Hk=";
     };
     date = "2026-03-15";
   };

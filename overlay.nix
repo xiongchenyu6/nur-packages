@@ -156,6 +156,8 @@ in
 
   casdoor = prev.callPackage ./pkgs/casdoor/package.nix { };
 
+  casibase = prev.callPackage ./pkgs/casibase/package.nix { };
+
   # Hashtopolis packages
   hashtopolis-server =
     if lib.hasSuffix "linux" prev.system then
