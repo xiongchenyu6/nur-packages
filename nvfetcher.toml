@@ -108,3 +108,12 @@ fetch.github = "xpzouying/xiaohongshu-mcp"
 [sub2api]
 src.github = "Wei-Shaw/sub2api"
 fetch.github = "Wei-Shaw/sub2api"
+
+[hashtopolis-server]
+src.github_tag = "hashtopolis/server"
+src.include_regex = "v.*-rainbow.*"
+fetch.github = "hashtopolis/server"
+
+[hashtopolis-agent]
+src.github = "hashtopolis/agent-python"
+fetch.github = "hashtopolis/agent-python"

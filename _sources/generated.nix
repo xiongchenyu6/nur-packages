@@ -47,17 +47,39 @@
   };
   gptel = {
     pname = "gptel";
-    version = "9682e8f5f96a72c858fb3420003642194793b32f";
+    version = "e1353c06ff36b65386c81268f1d480384d361c7e";
     src = fetchgit {
       url = "https://github.com/karthink/gptel.git";
-      rev = "9682e8f5f96a72c858fb3420003642194793b32f";
+      rev = "e1353c06ff36b65386c81268f1d480384d361c7e";
       fetchSubmodules = false;
       deepClone = false;
       leaveDotGit = false;
       sparseCheckout = [ ];
-      sha256 = "sha256-37JxAnfcXJt86ea8W7uqNc/7mAQkba3rFUzrVncLVmw=";
+      sha256 = "sha256-xWNAMyySeyIBqJD3Etq+LgrmUX0NltLrcNVOdGg56Ik=";
     };
-    date = "2026-03-08";
+    date = "2026-03-15";
+  };
+  hashtopolis-agent = {
+    pname = "hashtopolis-agent";
+    version = "v0.7.4";
+    src = fetchFromGitHub {
+      owner = "hashtopolis";
+      repo = "agent-python";
+      rev = "v0.7.4";
+      fetchSubmodules = false;
+      sha256 = "sha256-KyuDXE+B/Rq4N1noJvgNBif9po7b6p6SXco1yBoZWXw=";
+    };
+  };
+  hashtopolis-server = {
+    pname = "hashtopolis-server";
+    version = "v1.0.0-rainbow5";
+    src = fetchFromGitHub {
+      owner = "hashtopolis";
+      repo = "server";
+      rev = "v1.0.0-rainbow5";
+      fetchSubmodules = false;
+      sha256 = "sha256-ezfd3BT+iEPu42gQfAb/zQ5E0jbmxmtQCRD6T6S6oXY=";
+    };
   };
   helmify = {
     pname = "helmify";
@@ -146,23 +168,23 @@
     };
     date = "2025-01-24";
   };
-  sui = {
-    pname = "sui";
-    version = "testnet-v1.67.1";
-    src = fetchurl {
-      url = "https://github.com/MystenLabs/sui/releases/download/testnet-v1.67.1/sui-testnet-v1.67.1-ubuntu-x86_64.tgz";
-      sha256 = "sha256-bLytwi6sDSLe45hMvECQAuGnrY7zNEyVGQlExObdiqw=";
-    };
-  };
   sub2api = {
     pname = "sub2api";
-    version = "v0.1.99";
+    version = "v0.1.101";
     src = fetchFromGitHub {
       owner = "Wei-Shaw";
       repo = "sub2api";
-      rev = "v0.1.99";
+      rev = "v0.1.101";
       fetchSubmodules = false;
-      sha256 = "sha256-H8SNFlZRTGXFmteDkyPk42kJBtD5SILtrXJWI9YR4uQ=";
+      sha256 = "sha256-kY5o0xE2rNm/ruuq0luFZ6eWiKKuhZND7KnimVYSRcU=";
+    };
+  };
+  sui = {
+    pname = "sui";
+    version = "mainnet-v1.67.3";
+    src = fetchurl {
+      url = "https://github.com/MystenLabs/sui/releases/download/mainnet-v1.67.3/sui-mainnet-v1.67.3-ubuntu-x86_64.tgz";
+      sha256 = "sha256-oxENeFRz5CpzZ9MDgp9ko41HjLGGoPXwM4qTtOXY4nU=";
     };
   };
   xiaohongshu-mcp = {

@@ -1,27 +1,29 @@
-{ lib
-, stdenv
-, fetchFromGitHub
-, python3
-, makeWrapper
-, zip
+{
+  pkgs,
+  lib,
+  stdenv,
+  python3,
+  makeWrapper,
+  zip,
 }:
 
 let
+  sources = import ../../_sources/generated.nix {
+    inherit (pkgs)
+      fetchgit
+      fetchFromGitHub
+      fetchurl
+      dockerTools
+      ;
+  };
   pythonEnv = python3.withPackages (ps: with ps; [
     requests
     psutil
   ]);
 in
-stdenv.mkDerivation rec {
-  pname = "hashtopolis-agent";
-  version = "0.7.4";
-
-  src = fetchFromGitHub {
-    owner = "hashtopolis";
-    repo = "agent-python";
-    rev = "v${version}";
-    sha256 = "0z2r34dchdfabn99xsnviskgs9q61pw2ds2r6yw1mzc19xf86arb";
-  };
+stdenv.mkDerivation (
+  sources.hashtopolis-agent
+  // {
 
   nativeBuildInputs = [ makeWrapper ];
 
@@ -109,4 +111,4 @@ stdenv.mkDerivation rec {
     maintainers = [ ];
     platforms = platforms.all;
   };
-}
+})

@@ -29,11 +29,11 @@ If you have the .deb file hosted somewhere (private S3, internal server, etc.):
 
 ```bash
 # Build with your URL
-export FALCON_SENSOR_URL="https://your-server.com/falcon-sensor_7.30.0-18306_amd64.deb"
+export FALCON_SENSOR_URL="https://your-server.com/falcon-sensor_7.34.0-18708_amd64.deb"
 nix build .#falcon-sensor --impure
 
 # Or try with local file
-export FALCON_SENSOR_URL="file:///path/to/falcon-sensor_7.30.0-18306_amd64.deb"
+export FALCON_SENSOR_URL="file:///path/to/falcon-sensor_7.34.0-18708_amd64.deb"
 nix build .#falcon-sensor --impure
 ```
 
@@ -44,25 +44,21 @@ nix build .#falcon-sensor --impure
 1. Log in to your CrowdStrike Falcon console at https://falcon.crowdstrike.com/
 2. Navigate to the sensor downloads section
 3. Download the Linux sensor for Debian/Ubuntu (amd64)
-   - Current version: `falcon-sensor_7.30.0-18306_amd64.deb`
-   - SHA256: `25faf5ae428ba0e0b67cf075401fd1310df57651424e2bfe742ff7b4711ba422`
+   - Current version: `falcon-sensor_7.34.0-18708_amd64.deb`
+   - SHA256: `b5a99132dcbc6aac63e19ec9b45fadfe36ae962750baee808a38d23f1d98cacd`
 
 #### Step 2: Add to Nix Store
 
-Use the helper script (recommended):
+The deb file is included in the repo at `pkgs/falcon-sensor/falcon-sensor_7.34_amd64.deb`.
+Since `requireFile` expects the exact name `falcon-sensor_7.34.0-18708_amd64.deb`, rename and add it:
+
 ```bash
 cd pkgs/falcon-sensor
-./add-falcon-sensor.sh /path/to/falcon-sensor_7.30.0-18306_amd64.deb
+cp falcon-sensor_7.34_amd64.deb /tmp/falcon-sensor_7.34.0-18708_amd64.deb
+nix-store --add-fixed sha256 /tmp/falcon-sensor_7.34.0-18708_amd64.deb
 ```
 
-Or manually:
-```bash
-# Using nix-store
-nix-store --add-fixed sha256 falcon-sensor_7.30.0-18306_amd64.deb
-
-# Or using nix-prefetch-url
-nix-prefetch-url --type sha256 file:///path/to/falcon-sensor_7.30.0-18306_amd64.deb
-```
+> **Note**: This must be run on **every machine** where you build or deploy falcon-sensor.
 
 #### Step 3: Build the Package
 
@@ -146,7 +142,7 @@ The .deb file isn't in your Nix store. Use one of the installation methods above
 ### SHA256 Mismatch
 
 If you get a hash mismatch error:
-- Verify you downloaded the correct version (7.30.0-18306)
+- Verify you downloaded the correct version (7.34.0-18708)
 - Check the file isn't corrupted
 - Update the SHA256 if using a different version
 

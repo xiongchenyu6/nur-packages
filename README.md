@@ -222,6 +222,7 @@ in {
 - `ssh-gotify-notify` - SSH notification service
 - `tat-agent` - TAT agent service
 - `unit-status-telegram` - Telegram notifications
+- `webhook-upgrade` - Webhook-driven NixOS auto upgrade
 
 ## 🛠 Development
 

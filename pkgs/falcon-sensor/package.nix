@@ -15,12 +15,12 @@
 let
   pname = "falcon-sensor";
   # Version information - update these when you have a new version
-  version = "7.30.0";
-  release = "18306";
+  version = "7.34.0";
+  release = "18708";
   arch = "amd64";
 
   # SHA256 hash of the .deb file - users need to verify this matches their download
-  debSha256 = "25faf5ae428ba0e0b67cf075401fd1310df57651424e2bfe742ff7b4711ba422";
+  debSha256 = "b5a99132dcbc6aac63e19ec9b45fadfe36ae962750baee808a38d23f1d98cacd";
 
   # Require users to manually download the .deb file from CrowdStrike
   # This avoids storing proprietary binaries in the repository

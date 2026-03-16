@@ -1,48 +1,42 @@
 {
+  pkgs,
   lib,
-  php82,
-  fetchFromGitHub,
+  php83,
   makeWrapper,
   stdenv,
 }:
-
-php82.buildComposerProject2 {
-  pname = "hashtopolis-server";
-  version = "1.0.0";
-
-  src = fetchFromGitHub {
-    owner = "hashtopolis";
-    repo = "server";
-    rev = "v1.0.0-rainbow4";
-    hash = "sha256-LMRrHxdjIgNlECeRY859oU4LdkKm/q2j0b5N6Fjf1mc=";
+let
+  sources = import ../../_sources/generated.nix {
+    inherit (pkgs)
+      fetchgit
+      fetchFromGitHub
+      fetchurl
+      dockerTools
+      ;
   };
+in
+php83.buildComposerProject2 (
+  sources.hashtopolis-server
+  // {
+  version = builtins.replaceStrings [ "-rainbow" ] [ "-rc" ] sources.hashtopolis-server.version;
 
-  vendorHash = if stdenv.hostPlatform.isAarch64 
-    then "sha256-/1P7Sc0Kq+qXTiOh64YjSbI96U/cg2Wwyk4YPo+iqAM="
-    else "sha256-oNhs39uECAU0xIlTJEdsSnNjPtzBNK+I0bKR2x27v3w=";
+  vendorHash = "sha256-olcH4KDx0DNiZNz0ffuUwsxzyZwYKb9Nuqsd6CskpIE=";
 
   composerNoDev = true;
 
   nativeBuildInputs = [ makeWrapper ];
 
   postPatch = ''
-    # Add support for HASHTOPOLIS_CONFIG_PATH environment variable
-    # Insert it at line 42, right after the LOG_PATH check
-    cat > patch.tmp << 'EOF'
-  if (getenv('HASHTOPOLIS_CONFIG_PATH') !== false) {
-    $DIRECTORIES["config"] = getenv('HASHTOPOLIS_CONFIG_PATH');
-  }
-EOF
-    sed -i '42r patch.tmp' src/inc/confv2.php
-    rm patch.tmp
-
     # Patch Lock.class.php to use environment variable for locks directory
     substituteInPlace src/inc/utils/Lock.class.php \
       --replace 'dirname(__FILE__) . "/locks/"' '(getenv("HASHTOPOLIS_LOCKS_PATH") ?: dirname(__FILE__) . "/locks/") . "/"'
 
-    # Patch LockUtils.class.php deleteLockFile method  
+    # Patch LockUtils.class.php deleteLockFile method
     substituteInPlace src/inc/utils/LockUtils.class.php \
       --replace 'dirname(__FILE__) . "/locks/"' '(getenv("HASHTOPOLIS_LOCKS_PATH") ?: dirname(__FILE__) . "/locks/") . "/"'
+
+    # Ensure update.php loads the Composer autoloader (needed for Composer\Semver\Comparator)
+    sed -i '2a require_once(dirname(__FILE__) . "/../../vendor/autoload.php");' src/install/updates/update.php
   '';
 
   installPhase = ''
@@ -61,10 +55,11 @@ EOF
 
     # Copy additional files
     cp -r doc $out/share/hashtopolis/
-    cp env.example $out/share/hashtopolis/.env.example
+    cp env.mysql.example $out/share/hashtopolis/.env.mysql.example
+    cp env.postgres.example $out/share/hashtopolis/.env.postgres.example
 
     # Create wrapper script for running the server
-    makeWrapper ${php82}/bin/php $out/bin/hashtopolis-server \
+    makeWrapper ${php83}/bin/php $out/bin/hashtopolis-server \
       --add-flags "-S 0.0.0.0:8080 -t $out/share/hashtopolis/src"
 
     runHook postInstall
@@ -77,4 +72,4 @@ EOF
     maintainers = [ ];
     platforms = platforms.linux;
   };
-}
+})

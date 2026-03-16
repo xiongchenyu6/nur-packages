@@ -21,4 +21,5 @@
   gotrue-supabase = import ./gotrue-supabase;
   xiaohongshu-mcp = import ./xiaohongshu-mcp;
   sub2api = import ./sub2api;
+  webhook-upgrade = import ./webhook-upgrade;
 }

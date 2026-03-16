@@ -62,7 +62,7 @@
     },
     "gptel": {
         "cargoLock": null,
-        "date": "2026-03-08",
+        "date": "2026-03-15",
         "extract": null,
         "name": "gptel",
         "passthru": null,
@@ -72,13 +72,55 @@
             "fetchSubmodules": false,
             "leaveDotGit": false,
             "name": null,
-            "rev": "9682e8f5f96a72c858fb3420003642194793b32f",
-            "sha256": "sha256-37JxAnfcXJt86ea8W7uqNc/7mAQkba3rFUzrVncLVmw=",
+            "rev": "e1353c06ff36b65386c81268f1d480384d361c7e",
+            "sha256": "sha256-xWNAMyySeyIBqJD3Etq+LgrmUX0NltLrcNVOdGg56Ik=",
             "sparseCheckout": [],
             "type": "git",
             "url": "https://github.com/karthink/gptel.git"
         },
-        "version": "9682e8f5f96a72c858fb3420003642194793b32f"
+        "version": "e1353c06ff36b65386c81268f1d480384d361c7e"
+    },
+    "hashtopolis-agent": {
+        "cargoLock": null,
+        "date": null,
+        "extract": null,
+        "name": "hashtopolis-agent",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "hashtopolis",
+            "repo": "agent-python",
+            "rev": "v0.7.4",
+            "sha256": "sha256-KyuDXE+B/Rq4N1noJvgNBif9po7b6p6SXco1yBoZWXw=",
+            "sparseCheckout": [],
+            "type": "github"
+        },
+        "version": "v0.7.4"
+    },
+    "hashtopolis-server": {
+        "cargoLock": null,
+        "date": null,
+        "extract": null,
+        "name": "hashtopolis-server",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "hashtopolis",
+            "repo": "server",
+            "rev": "v1.0.0-rainbow5",
+            "sha256": "sha256-ezfd3BT+iEPu42gQfAb/zQ5E0jbmxmtQCRD6T6S6oXY=",
+            "sparseCheckout": [],
+            "type": "github"
+        },
+        "version": "v1.0.0-rainbow5"
     },
     "helmify": {
         "cargoLock": null,
@@ -217,21 +259,6 @@
         },
         "version": "e8de952df7669b38ca475d00fe943ab96d8cfac4"
     },
-    "sui": {
-        "cargoLock": null,
-        "date": null,
-        "extract": null,
-        "name": "sui",
-        "passthru": null,
-        "pinned": false,
-        "src": {
-            "name": null,
-            "sha256": "sha256-bLytwi6sDSLe45hMvECQAuGnrY7zNEyVGQlExObdiqw=",
-            "type": "url",
-            "url": "https://github.com/MystenLabs/sui/releases/download/testnet-v1.67.1/sui-testnet-v1.67.1-ubuntu-x86_64.tgz"
-        },
-        "version": "testnet-v1.67.1"
-    },
     "sub2api": {
         "cargoLock": null,
         "date": null,
@@ -246,12 +273,27 @@
             "name": null,
             "owner": "Wei-Shaw",
             "repo": "sub2api",
-            "rev": "v0.1.97",
-            "sha256": "sha256-z8iCqK/AD7DFRNED6lNrZWBz6Us6yB8uo1wlE3S2o2w=",
+            "rev": "v0.1.101",
+            "sha256": "sha256-kY5o0xE2rNm/ruuq0luFZ6eWiKKuhZND7KnimVYSRcU=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "v0.1.97"
+        "version": "v0.1.101"
+    },
+    "sui": {
+        "cargoLock": null,
+        "date": null,
+        "extract": null,
+        "name": "sui",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-oxENeFRz5CpzZ9MDgp9ko41HjLGGoPXwM4qTtOXY4nU=",
+            "type": "url",
+            "url": "https://github.com/MystenLabs/sui/releases/download/mainnet-v1.67.3/sui-mainnet-v1.67.3-ubuntu-x86_64.tgz"
+        },
+        "version": "mainnet-v1.67.3"
     },
     "xiaohongshu-mcp": {
         "cargoLock": null,

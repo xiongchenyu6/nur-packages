@@ -8,7 +8,7 @@ let
   hashtopolisServerPkg = pkgs.callPackage ../../pkgs/hashtopolis-server/package.nix { };
 
   # PHP with required extensions
-  php = pkgs.php82.withExtensions ({ enabled, all }: enabled ++ (with all; [
+  php = pkgs.php83.withExtensions ({ enabled, all }: enabled ++ (with all; [
     mysqli
     pdo_mysql
     curl
