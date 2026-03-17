@@ -495,17 +495,21 @@ in
                       mkdir -p ${confDir}
                       mkdir -p ${cfg.dataDir}/logs
                       mkdir -p ${cfg.dataDir}/cache
+                      mkdir -p ${cfg.dataDir}/data
 
                       # Write the configuration file
                       cat > ${confDir}/app.conf <<'EOF'
             ${appConfContent}
             EOF
 
+                      # Symlink package data files into working directory
+                      ln -sfn ${cfg.package}/data/* ${cfg.dataDir}/data/
+
                       # Set proper ownership
                       chown -R ${cfg.user}:${cfg.group} ${cfg.dataDir}
           '';
 
-        ExecStart = "${cfg.package}/bin/casibase -config ${cfg.dataDir}/conf/app.conf";
+        ExecStart = "${cfg.package}/bin/casibase";
 
         Restart = mkIf cfg.restartOnFailure "always";
         RestartSec = "10s";

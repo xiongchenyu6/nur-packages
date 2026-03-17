@@ -44,9 +44,10 @@ stdenv.mkDerivation {
   ];
 
   installPhase = ''
-    mkdir -p $out/bin $out/web
+    mkdir -p $out/bin $out/web $out/data
     install -m755 casibase $out/bin/casibase
     cp -r web/build $out/web/
+    cp -r data/* $out/data/
   '';
 
   dontConfigure = true;
