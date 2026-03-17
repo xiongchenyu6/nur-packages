@@ -70,7 +70,7 @@ let
     logConfig = ${builtins.toJSON cfg.logConfig}
     initDataNewOnly = ${boolToYesNo cfg.initDataNewOnly}
     initDataFile = "${cfg.initDataFile}"
-    frontendBaseDir = "${if cfg.frontendBaseDir != null then cfg.frontendBaseDir else "${cfg.package}/web/build"}"
+    frontendBaseDir = "${if cfg.frontendBaseDir != null then cfg.frontendBaseDir else "${cfg.dataDir}/web/build"}"
   '';
 
 in
@@ -268,8 +268,8 @@ in
 
     staticBaseUrl = mkOption {
       type = types.str;
-      default = "https://cdn.casbin.org";
-      description = "Static base URL for assets";
+      default = "";
+      description = "Static base URL for assets. Empty string serves assets locally from the bundled static files. Set to 'https://cdn.casbin.org' to use the upstream CDN instead.";
     };
 
     isDemoMode = mkOption {
@@ -450,11 +450,15 @@ in
                       mkdir -p ${confDir}
                       mkdir -p ${cfg.dataDir}/logs
                       mkdir -p ${cfg.dataDir}/object
+                      mkdir -p ${cfg.dataDir}/web/build
 
                       # Write the configuration file
                       cat > ${confDir}/app.conf <<'EOF'
             ${appConfContent}
             EOF
+
+                      # Copy web/build from package (includes bundled static assets)
+                      cp -rn ${cfg.package}/web/build/* ${cfg.dataDir}/web/build/ 2>/dev/null || true
 
                       # Set proper ownership
                       chown -R ${cfg.user}:${cfg.group} ${cfg.dataDir}

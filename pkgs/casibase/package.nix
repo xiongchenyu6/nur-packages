@@ -26,6 +26,15 @@ let
   };
 
   platformSource = platformSources.${stdenv.hostPlatform.system};
+
+  # Static assets (logos, flags, icons) from casdoor/static GitHub repo
+  # These are normally served from cdn.casibase.org which may be blocked in some networks
+  staticAssets = fetchFromGitHub {
+    owner = "casdoor";
+    repo = "static";
+    rev = "576df3db5344e7357fcbf33a463b8f9647cb97b7";
+    hash = "sha256-k9p8/3RXC6uKsm7+ALa1pWKq5HdSOfoZP1nKV4H4MPg=";
+  };
 in
 stdenv.mkDerivation {
   pname = "casibase";
@@ -48,6 +57,11 @@ stdenv.mkDerivation {
     install -m755 casibase $out/bin/casibase
     cp -r web/build $out/web/
     cp -r data/* $out/data/
+
+    # Bundle static assets so they can be served locally
+    # instead of requiring cdn.casibase.org (which may be blocked)
+    cp -r ${staticAssets}/img $out/web/build/
+    cp -r ${staticAssets}/flag-icons $out/web/build/
   '';
 
   dontConfigure = true;

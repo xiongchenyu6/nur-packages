@@ -33,9 +33,7 @@ buildGoModule (
       "-X  main.version==${(lib.importJSON ../../_sources/generated.json).gotron-sdk.version}"
       "-X main.commit=${(lib.importJSON ../../_sources/generated.json).gotron-sdk.src.rev}"
     ];
-    postInstall = ''
-      mv $out/bin/cmd $out/bin/tronctl
-    '';
+    subPackages = [ "cmd/tronctl" ];
     installCheckPhase = "";
   }
 )

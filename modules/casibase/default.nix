@@ -334,8 +334,8 @@ in
 
     staticBaseUrl = mkOption {
       type = types.str;
-      default = "https://cdn.casibase.org";
-      description = "Static base URL for assets";
+      default = "";
+      description = "Static base URL for assets. Empty string serves assets locally from the bundled static files. Set to 'https://cdn.casibase.org' to use the upstream CDN instead.";
     };
 
     htmlTitle = mkOption {
@@ -474,6 +474,8 @@ in
       ];
       wants = [ "network-online.target" ];
       requires = [ "systemd-tmpfiles-setup.service" ];
+
+      path = [ pkgs.lsof ];
 
       environment = {
         HOME = cfg.dataDir;

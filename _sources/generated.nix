@@ -54,42 +54,42 @@
   };
   copilot-el = {
     pname = "copilot-el";
-    version = "59a4a292236ac9bea8756c0a0613b750b14d91eb";
+    version = "c8c06efaa508569e13d7191882ae33435bb14543";
     src = fetchgit {
       url = "https://github.com/zerolfx/copilot.el.git";
-      rev = "59a4a292236ac9bea8756c0a0613b750b14d91eb";
+      rev = "c8c06efaa508569e13d7191882ae33435bb14543";
       fetchSubmodules = false;
       deepClone = false;
       leaveDotGit = false;
       sparseCheckout = [ ];
-      sha256 = "sha256-Y/zGxNV9NerwXq0tb3I5xReozBfjfumNmldXHP1hGjY=";
+      sha256 = "sha256-1uHPtz0F0pim7KlotB1+pmls1i7H3hRhZ0DX1h53cPc=";
     };
-    date = "2026-03-05";
+    date = "2026-03-16";
   };
   gotron-sdk = {
     pname = "gotron-sdk";
-    version = "v0.24.2";
+    version = "v0.25.1";
     src = fetchFromGitHub {
       owner = "fbsobreira";
       repo = "gotron-sdk";
-      rev = "v0.24.2";
+      rev = "v0.25.1";
       fetchSubmodules = false;
-      sha256 = "sha256-X2/oZy8SDCQNbpqgjkKka0NyAdXrDn8J/f2uden3A7U=";
+      sha256 = "sha256-W1iLXGBSh2Fqypo4dq38OGNjQU7bQNzIKANtO9S8j0g=";
     };
   };
   gptel = {
     pname = "gptel";
-    version = "29401924c23e536da33e22c461961ab567f65cc1";
+    version = "59cfad85e496c58dcf8fb96167dfdf4830ca6381";
     src = fetchgit {
       url = "https://github.com/karthink/gptel.git";
-      rev = "29401924c23e536da33e22c461961ab567f65cc1";
+      rev = "59cfad85e496c58dcf8fb96167dfdf4830ca6381";
       fetchSubmodules = false;
       deepClone = false;
       leaveDotGit = false;
       sparseCheckout = [ ];
-      sha256 = "sha256-LzeJISyTHQbHmGHzAfnFuT1fyiouH4+zvfhujj3K7Hk=";
+      sha256 = "sha256-9Y+km97PbZZIBAqE/8S8dhqJ4IQUwgmE451N5wOuJHk=";
     };
-    date = "2026-03-15";
+    date = "2026-03-16";
   };
   hashtopolis-agent = {
     pname = "hashtopolis-agent";
@@ -202,21 +202,21 @@
   };
   sub2api = {
     pname = "sub2api";
-    version = "v0.1.101";
+    version = "v0.1.102";
     src = fetchFromGitHub {
       owner = "Wei-Shaw";
       repo = "sub2api";
-      rev = "v0.1.101";
+      rev = "v0.1.102";
       fetchSubmodules = false;
-      sha256 = "sha256-kY5o0xE2rNm/ruuq0luFZ6eWiKKuhZND7KnimVYSRcU=";
+      sha256 = "sha256-5eOVf00k/oOujWJj0x6ve+5+monGfnhEKHLO9nSuWSI=";
     };
   };
   sui = {
     pname = "sui";
-    version = "mainnet-v1.67.3";
+    version = "testnet-v1.68.0";
     src = fetchurl {
-      url = "https://github.com/MystenLabs/sui/releases/download/mainnet-v1.67.3/sui-mainnet-v1.67.3-ubuntu-x86_64.tgz";
-      sha256 = "sha256-oxENeFRz5CpzZ9MDgp9ko41HjLGGoPXwM4qTtOXY4nU=";
+      url = "https://github.com/MystenLabs/sui/releases/download/testnet-v1.68.0/sui-testnet-v1.68.0-ubuntu-x86_64.tgz";
+      sha256 = "sha256-/snoT28ambtphawXBu7pXPTTBy/Pry1SlJcoUrwoOOQ=";
     };
   };
   xiaohongshu-mcp = {
