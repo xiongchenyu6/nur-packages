@@ -69,7 +69,7 @@ let
     navbarHtml = "${cfg.navbarHtml}"
     footerHtml = "${cfg.footerHtml}"
     appUrl = "${cfg.appUrl}"
-    frontendBaseDir = "${if cfg.frontendBaseDir != null then cfg.frontendBaseDir else "${cfg.package}/web/build"}"
+    frontendBaseDir = "${if cfg.frontendBaseDir != null then cfg.frontendBaseDir else "${cfg.dataDir}/web/build"}"
     showGithubCorner = ${boolToYesNo cfg.showGithubCorner}
     defaultThemeType = "${cfg.theme.type}"
     defaultColorPrimary = "${cfg.theme.colorPrimary}"
@@ -496,14 +496,17 @@ in
                       mkdir -p ${cfg.dataDir}/logs
                       mkdir -p ${cfg.dataDir}/cache
                       mkdir -p ${cfg.dataDir}/data
+                      mkdir -p ${cfg.dataDir}/web/build
 
                       # Write the configuration file
                       cat > ${confDir}/app.conf <<'EOF'
             ${appConfContent}
             EOF
 
-                      # Symlink package data files into working directory
+                      # Symlink package data and web files into working directory
                       ln -sfn ${cfg.package}/data/* ${cfg.dataDir}/data/
+                      # Copy web/build from package (casibase needs to write into web/build/data/)
+                      cp -rn ${cfg.package}/web/build/* ${cfg.dataDir}/web/build/ 2>/dev/null || true
 
                       # Set proper ownership
                       chown -R ${cfg.user}:${cfg.group} ${cfg.dataDir}
