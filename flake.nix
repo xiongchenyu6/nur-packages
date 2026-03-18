@@ -88,19 +88,22 @@
                     ];
                   });
 
-                # Dynamically find all alibabacloud-* packages in prev
-                alibabacloudPkgs = builtins.filter (name: lib.hasPrefix "alibabacloud-" name) (
-                  builtins.attrNames prev
-                );
+                # Dynamically find all packages matching known problematic prefixes
+                allPkgNames = builtins.attrNames prev;
+                prefixMatched = builtins.filter (
+                  name:
+                  lib.hasPrefix "alibabacloud-" name || lib.hasPrefix "aliyun-" name || lib.hasPrefix "tea-" name
+                ) allPkgNames;
 
-                # Other packages that need setuptools but don't declare it
+                # Other individual packages that need setuptools but don't declare it
                 otherSetuptoolsPackages = [
                   "esdk-obs-python"
                   "psycogreen"
                   "jieba"
+                  "aniso8601"
                 ];
 
-                setuptools-packages = alibabacloudPkgs ++ otherSetuptoolsPackages;
+                setuptools-packages = prefixMatched ++ otherSetuptoolsPackages;
               in
               lib.genAttrs setuptools-packages (name: addSetuptools name);
 
