@@ -333,12 +333,12 @@
             "name": null,
             "owner": "Wei-Shaw",
             "repo": "sub2api",
-            "rev": "v0.1.102",
-            "sha256": "sha256-5eOVf00k/oOujWJj0x6ve+5+monGfnhEKHLO9nSuWSI=",
+            "rev": "v0.1.103",
+            "sha256": "sha256-7nuL9uL/Be2sXb5ACJmo0mlYu/k/WSAUOW7YoQjBMxY=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "v0.1.102"
+        "version": "v0.1.103"
     },
     "sui": {
         "cargoLock": null,

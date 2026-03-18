@@ -173,6 +173,14 @@ in
   # Sub2API package
   sub2api = prev.callPackage ./pkgs/sub2api/package.nix { };
 
+  # Dify packages (require uv2nix; must be provided via the flake overlay or passed explicitly)
+  # These are placeholders — actual packages come from the flake's perSystem using uv2nix
+  dify-web =
+    if lib.hasSuffix "linux" prev.system then
+      prev.callPackage ./pkgs/dify/web/package.nix { }
+    else
+      throw "dify-web is only available on Linux";
+
   # FCITX5 fix
   fcitx5-configtool = prev.fcitx5-configtool.overrideAttrs (oldAttrs: {
     propagatedBuildInputs = (oldAttrs.propagatedBuildInputs or [ ]) ++ [ prev.libxcb-cursor ];
