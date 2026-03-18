@@ -87,17 +87,20 @@
                       (final.resolveBuildSystem { setuptools = [ ]; })
                     ];
                   });
-                # Packages that need setuptools but don't declare it
-                setuptools-packages = [
-                  "alibabacloud-credentials-api"
-                  "alibabacloud-endpoint-util"
-                  "alibabacloud-gateway-spi"
-                  "alibabacloud-credentials"
-                  "alibabacloud-gpdb20160503"
+
+                # Dynamically find all alibabacloud-* packages in prev
+                alibabacloudPkgs = builtins.filter (name: lib.hasPrefix "alibabacloud-" name) (
+                  builtins.attrNames prev
+                );
+
+                # Other packages that need setuptools but don't declare it
+                otherSetuptoolsPackages = [
                   "esdk-obs-python"
                   "psycogreen"
                   "jieba"
                 ];
+
+                setuptools-packages = alibabacloudPkgs ++ otherSetuptoolsPackages;
               in
               lib.genAttrs setuptools-packages (name: addSetuptools name);
 
