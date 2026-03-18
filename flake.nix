@@ -79,19 +79,41 @@
             difyPyprojectOverrides =
               final: prev:
               let
-                # Apply setuptools to ALL derivation packages that don't already have it.
-                # Many legacy Python packages use setuptools without declaring it in
-                # their build-system metadata. Rather than listing them individually,
-                # we inject setuptools as a build dependency for every package derivation.
                 setuptools = final.resolveBuildSystem { setuptools = [ ]; };
                 addSetuptools =
                   name: drv:
-                  if builtins.isAttrs drv && drv ? overrideAttrs then
+                  if builtins.isAttrs drv && drv ? overrideAttrs && !builtins.elem name skipPackages then
                     drv.overrideAttrs (old: {
                       nativeBuildInputs = (old.nativeBuildInputs or [ ]) ++ [ setuptools ];
                     })
                   else
                     drv;
+                # Packages that must NOT get setuptools injected (build-system bootstrapping)
+                skipPackages = [
+                  "setuptools"
+                  "wheel"
+                  "flit-core"
+                  "flit"
+                  "hatchling"
+                  "hatch-vcs"
+                  "hatch-fancy-pypi-readme"
+                  "poetry-core"
+                  "pdm-backend"
+                  "pdm-pep517"
+                  "meson-python"
+                  "scikit-build-core"
+                  "scikit-build"
+                  "pyproject-hooks"
+                  "build"
+                  "installer"
+                  "tomli"
+                  "packaging"
+                  "pathspec"
+                  "pluggy"
+                  "trove-classifiers"
+                  "editables"
+                  "pip"
+                ];
               in
               builtins.mapAttrs addSetuptools prev;
 
