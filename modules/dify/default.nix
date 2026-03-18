@@ -309,6 +309,8 @@ in
       # PostgreSQL setup
       postgresql = mkIf cfg.database.createLocally {
         enable = true;
+        # Listen on localhost so Dify can connect via TCP (needed for sqlalchemy URL format)
+        enableTCPIP = mkDefault (cfg.database.host == "127.0.0.1" || cfg.database.host == "localhost");
         ensureDatabases = [ cfg.database.name ];
         ensureUsers = [
           {
@@ -317,6 +319,15 @@ in
           }
         ];
         extensions = ps: optionals cfg.database.enablePgvector [ ps.pgvector ];
+        # Allow local TCP connections from the dify user
+        authentication = mkIf (cfg.database.host == "127.0.0.1" || cfg.database.host == "localhost") (
+          pkgs.lib.mkForce ''
+            # TYPE  DATABASE        USER            ADDRESS                 METHOD
+            local   all             all                                     trust
+            host    all             all             127.0.0.1/32            trust
+            host    all             all             ::1/128                 trust
+          ''
+        );
       };
 
       # Redis setup
@@ -511,6 +522,7 @@ in
             Type = "simple";
             User = cfg.user;
             Group = cfg.group;
+            WorkingDirectory = "${cfg.package.web}/lib/dify-web";
             ExecStart = "${cfg.package.web}/bin/dify-web";
             Restart = "always";
             RestartSec = "10s";
