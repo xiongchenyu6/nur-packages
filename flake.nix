@@ -141,7 +141,10 @@
             );
 
             difyApiEnv = lib.optionalAttrs isLinuxSystem (
-              difyPythonSet.mkVirtualEnv "dify-api-env" difyWorkspace.deps.default
+              (difyPythonSet.mkVirtualEnv "dify-api-env" difyWorkspace.deps.default).overrideAttrs {
+                # typer and typer-slim both provide typer/* files
+                venvIgnoreCollisions = [ "lib/python3.12/site-packages/typer/*" ];
+              }
             );
 
             difyPackages = lib.optionalAttrs isLinuxSystem {
