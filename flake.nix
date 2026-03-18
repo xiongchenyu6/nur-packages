@@ -114,7 +114,17 @@
                   "tos"
                 ];
               in
-              lib.genAttrs setuptools-packages (name: addSetuptools name);
+              lib.genAttrs setuptools-packages (name: addSetuptools name)
+              // {
+                # mysql-connector-python wheel bundles vendor libs missing system deps
+                mysql-connector-python = prev.mysql-connector-python.overrideAttrs (old: {
+                  buildInputs = (old.buildInputs or [ ]) ++ [
+                    pkgs.libkrb5
+                    pkgs.systemdLibs
+                    pkgs.libxcrypt-legacy
+                  ];
+                });
+              };
 
             # Build the Dify Python environment (only on Linux)
             difyPythonSet = lib.optionalAttrs isLinuxSystem (
