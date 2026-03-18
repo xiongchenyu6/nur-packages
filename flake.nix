@@ -79,43 +79,35 @@
             difyPyprojectOverrides =
               final: prev:
               let
-                setuptools = final.resolveBuildSystem { setuptools = [ ]; };
                 addSetuptools =
-                  name: drv:
-                  if builtins.isAttrs drv && drv ? overrideAttrs && !builtins.elem name skipPackages then
-                    drv.overrideAttrs (old: {
-                      nativeBuildInputs = (old.nativeBuildInputs or [ ]) ++ [ setuptools ];
-                    })
-                  else
-                    drv;
-                # Packages that must NOT get setuptools injected (build-system bootstrapping)
-                skipPackages = [
-                  "setuptools"
-                  "wheel"
-                  "flit-core"
-                  "flit"
-                  "hatchling"
-                  "hatch-vcs"
-                  "hatch-fancy-pypi-readme"
-                  "poetry-core"
-                  "pdm-backend"
-                  "pdm-pep517"
-                  "meson-python"
-                  "scikit-build-core"
-                  "scikit-build"
-                  "pyproject-hooks"
-                  "build"
-                  "installer"
-                  "tomli"
-                  "packaging"
-                  "pathspec"
-                  "pluggy"
-                  "trove-classifiers"
-                  "editables"
-                  "pip"
+                  name:
+                  prev.${name}.overrideAttrs (old: {
+                    nativeBuildInputs = (old.nativeBuildInputs or [ ]) ++ [
+                      (final.resolveBuildSystem { setuptools = [ ]; })
+                    ];
+                  });
+
+                # Dynamically find all packages matching known problematic prefixes
+                allPkgNames = builtins.attrNames prev;
+                prefixMatched = builtins.filter (
+                  name:
+                  lib.hasPrefix "alibabacloud-" name || lib.hasPrefix "aliyun-" name || lib.hasPrefix "tea-" name
+                ) allPkgNames;
+
+                # Individual packages that need setuptools but don't declare it
+                otherSetuptoolsPackages = [
+                  "aniso8601"
+                  "cos-python-sdk-v5"
+                  "crcmod"
+                  "esdk-obs-python"
+                  "jieba"
+                  "psycogreen"
+                  "tablestore"
                 ];
+
+                setuptools-packages = prefixMatched ++ otherSetuptoolsPackages;
               in
-              builtins.mapAttrs addSetuptools prev;
+              lib.genAttrs setuptools-packages (name: addSetuptools name);
 
             # Build the Dify Python environment (only on Linux)
             difyPythonSet = lib.optionalAttrs isLinuxSystem (
