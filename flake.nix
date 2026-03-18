@@ -79,16 +79,19 @@
             difyPyprojectOverrides =
               final: prev:
               let
-                # Apply setuptools to ALL sdist packages that don't already have it.
+                # Apply setuptools to ALL derivation packages that don't already have it.
                 # Many legacy Python packages use setuptools without declaring it in
                 # their build-system metadata. Rather than listing them individually,
-                # we inject setuptools as a build dependency for every package.
+                # we inject setuptools as a build dependency for every package derivation.
                 setuptools = final.resolveBuildSystem { setuptools = [ ]; };
                 addSetuptools =
                   name: drv:
-                  drv.overrideAttrs (old: {
-                    nativeBuildInputs = (old.nativeBuildInputs or [ ]) ++ [ setuptools ];
-                  });
+                  if builtins.isAttrs drv && drv ? overrideAttrs then
+                    drv.overrideAttrs (old: {
+                      nativeBuildInputs = (old.nativeBuildInputs or [ ]) ++ [ setuptools ];
+                    })
+                  else
+                    drv;
               in
               builtins.mapAttrs addSetuptools prev;
 
