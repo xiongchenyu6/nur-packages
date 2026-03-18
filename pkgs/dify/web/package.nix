@@ -17,7 +17,7 @@ stdenv.mkDerivation (finalAttrs: {
     owner = "langgenius";
     repo = "dify";
     tag = finalAttrs.version;
-    hash = lib.fakeHash;
+    hash = "sha256-hYok7YCw4SsLqunRpFjniErYBYPTh2RP53dFd8ujOOo=";
   };
 
   sourceRoot = "${finalAttrs.src.name}/web";
@@ -39,7 +39,7 @@ stdenv.mkDerivation (finalAttrs: {
       pnpm
       ;
     fetcherVersion = 3;
-    hash = lib.fakeHash;
+    hash = "sha256-WYiBb1Itq1QTm2f5hR1hcyskiuGCZbsYiickkHE7WCs=";
   };
 
   env = {
