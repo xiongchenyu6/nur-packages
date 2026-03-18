@@ -40,14 +40,11 @@ stdenv.mkDerivation {
     export PATH="${difyApiEnv}/bin:${postgresql}/bin:$PATH"
     ENVEOF
 
-    # dify-api: gunicorn server
+    # dify-api: gunicorn server (bind/workers/worker-class passed by startup script)
     makeWrapper ${difyApiEnv}/bin/gunicorn $out/bin/dify-api \
       --prefix PATH : "${lib.makeBinPath [ postgresql ]}" \
       --set PYTHONPATH "$out/lib/dify-api/app" \
       --run "cd $out/lib/dify-api/app" \
-      --add-flags "--bind 0.0.0.0:5001" \
-      --add-flags "--workers 1" \
-      --add-flags "--worker-class gevent" \
       --add-flags "--timeout 200" \
       --add-flags "app:app"
 
