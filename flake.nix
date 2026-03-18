@@ -75,6 +75,32 @@
           let
             isLinuxSystem = lib.hasSuffix "linux" system;
 
+            # Overrides for sdist packages missing build system declarations
+            difyPyprojectOverrides =
+              final: prev:
+              let
+                # Helper to add setuptools as build dependency
+                addSetuptools =
+                  name:
+                  prev.${name}.overrideAttrs (old: {
+                    nativeBuildInputs = (old.nativeBuildInputs or [ ]) ++ [
+                      (final.resolveBuildSystem { setuptools = [ ]; })
+                    ];
+                  });
+                # Packages that need setuptools but don't declare it
+                setuptools-packages = [
+                  "alibabacloud-credentials-api"
+                  "alibabacloud-endpoint-util"
+                  "alibabacloud-gateway-spi"
+                  "alibabacloud-credentials"
+                  "alibabacloud-gpdb20160503"
+                  "esdk-obs-python"
+                  "psycogreen"
+                  "jieba"
+                ];
+              in
+              lib.genAttrs setuptools-packages (name: addSetuptools name);
+
             # Build the Dify Python environment (only on Linux)
             difyPythonSet = lib.optionalAttrs isLinuxSystem (
               (pkgs.callPackage pyproject-nix.build.packages {
@@ -84,6 +110,7 @@
                   lib.composeManyExtensions [
                     pyproject-build-systems.overlays.default
                     (difyWorkspace.mkPyprojectOverlay { sourcePreference = "wheel"; })
+                    difyPyprojectOverrides
                   ]
                 )
             );
