@@ -113,16 +113,16 @@
             "name": null,
             "owner": "fbsobreira",
             "repo": "gotron-sdk",
-            "rev": "v0.25.1",
-            "sha256": "sha256-W1iLXGBSh2Fqypo4dq38OGNjQU7bQNzIKANtO9S8j0g=",
+            "rev": "v0.25.2",
+            "sha256": "sha256-qlQHGyAtfArayoSFHuyLbe/NpgQJcxLobpYtXPh+PH0=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "v0.25.1"
+        "version": "v0.25.2"
     },
     "gptel": {
         "cargoLock": null,
-        "date": "2026-03-16",
+        "date": "2026-03-19",
         "extract": null,
         "name": "gptel",
         "passthru": null,
@@ -132,13 +132,13 @@
             "fetchSubmodules": false,
             "leaveDotGit": false,
             "name": null,
-            "rev": "59cfad85e496c58dcf8fb96167dfdf4830ca6381",
-            "sha256": "sha256-9Y+km97PbZZIBAqE/8S8dhqJ4IQUwgmE451N5wOuJHk=",
+            "rev": "bbfbd711fae64b079f7057d71772805edeb00a3d",
+            "sha256": "sha256-pArCirduxy4tGQVt41haXf7+dHzDfNrxBoAFHlFGErg=",
             "sparseCheckout": [],
             "type": "git",
             "url": "https://github.com/karthink/gptel.git"
         },
-        "version": "59cfad85e496c58dcf8fb96167dfdf4830ca6381"
+        "version": "bbfbd711fae64b079f7057d71772805edeb00a3d"
     },
     "hashtopolis-agent": {
         "cargoLock": null,
@@ -333,12 +333,12 @@
             "name": null,
             "owner": "Wei-Shaw",
             "repo": "sub2api",
-            "rev": "v0.1.103",
-            "sha256": "sha256-7nuL9uL/Be2sXb5ACJmo0mlYu/k/WSAUOW7YoQjBMxY=",
+            "rev": "v0.1.104",
+            "sha256": "sha256-tq3HwJyCRbDO/zWo9d+Pw0n4ux7mgcbMyal5ZKKITVU=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "v0.1.103"
+        "version": "v0.1.104"
     },
     "sui": {
         "cargoLock": null,

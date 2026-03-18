@@ -59,10 +59,10 @@ stdenv.mkDerivation {
       --add-flags "-Q dataset,generation,mail,ops_trace,plugin"
 
     # dify-beat: celery beat scheduler
+    # PYTHONPATH set for imports; cwd is controlled by systemd WorkingDirectory
     makeWrapper ${difyApiEnv}/bin/celery $out/bin/dify-beat \
       --prefix PATH : "${lib.makeBinPath [ postgresql ]}" \
       --set PYTHONPATH "$out/lib/dify-api/app" \
-      --run "cd $out/lib/dify-api/app" \
       --add-flags "-A app.celery" \
       --add-flags "beat"
 

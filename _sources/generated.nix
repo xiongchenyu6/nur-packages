@@ -68,28 +68,28 @@
   };
   gotron-sdk = {
     pname = "gotron-sdk";
-    version = "v0.25.1";
+    version = "v0.25.2";
     src = fetchFromGitHub {
       owner = "fbsobreira";
       repo = "gotron-sdk";
-      rev = "v0.25.1";
+      rev = "v0.25.2";
       fetchSubmodules = false;
-      sha256 = "sha256-W1iLXGBSh2Fqypo4dq38OGNjQU7bQNzIKANtO9S8j0g=";
+      sha256 = "sha256-qlQHGyAtfArayoSFHuyLbe/NpgQJcxLobpYtXPh+PH0=";
     };
   };
   gptel = {
     pname = "gptel";
-    version = "59cfad85e496c58dcf8fb96167dfdf4830ca6381";
+    version = "bbfbd711fae64b079f7057d71772805edeb00a3d";
     src = fetchgit {
       url = "https://github.com/karthink/gptel.git";
-      rev = "59cfad85e496c58dcf8fb96167dfdf4830ca6381";
+      rev = "bbfbd711fae64b079f7057d71772805edeb00a3d";
       fetchSubmodules = false;
       deepClone = false;
       leaveDotGit = false;
       sparseCheckout = [ ];
-      sha256 = "sha256-9Y+km97PbZZIBAqE/8S8dhqJ4IQUwgmE451N5wOuJHk=";
+      sha256 = "sha256-pArCirduxy4tGQVt41haXf7+dHzDfNrxBoAFHlFGErg=";
     };
-    date = "2026-03-16";
+    date = "2026-03-19";
   };
   hashtopolis-agent = {
     pname = "hashtopolis-agent";
@@ -202,13 +202,13 @@
   };
   sub2api = {
     pname = "sub2api";
-    version = "v0.1.103";
+    version = "v0.1.104";
     src = fetchFromGitHub {
       owner = "Wei-Shaw";
       repo = "sub2api";
-      rev = "v0.1.103";
+      rev = "v0.1.104";
       fetchSubmodules = false;
-      sha256 = "sha256-7nuL9uL/Be2sXb5ACJmo0mlYu/k/WSAUOW7YoQjBMxY=";
+      sha256 = "sha256-tq3HwJyCRbDO/zWo9d+Pw0n4ux7mgcbMyal5ZKKITVU=";
     };
   };
   sui = {
