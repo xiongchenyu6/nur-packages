@@ -58,14 +58,15 @@ stdenv.mkDerivation (finalAttrs: {
     runHook preInstall
 
     mkdir -p $out/lib/dify-web
-    # Standalone output may be at .next/standalone/ or .next/standalone/web/
+    # Copy standalone server files (may be at standalone/ or standalone/web/)
     if [ -d .next/standalone/web ]; then
-      cp -r .next/standalone/web/* $out/lib/dify-web/
+      cp -r .next/standalone/web/. $out/lib/dify-web/
     else
-      cp -r .next/standalone/* $out/lib/dify-web/
+      cp -r .next/standalone/. $out/lib/dify-web/
     fi
-    mkdir -p $out/lib/dify-web/.next
-    cp -r .next/static $out/lib/dify-web/.next/static
+    # Copy full .next/ build output (BUILD_ID, routes-manifest.json, etc.)
+    cp -r .next/. $out/lib/dify-web/.next/
+    # Overwrite with standalone's own node_modules (don't use build-time ones)
     cp -r public $out/lib/dify-web/public
 
     mkdir -p $out/bin
