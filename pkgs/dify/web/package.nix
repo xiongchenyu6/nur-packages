@@ -4,6 +4,8 @@
   fetchFromGitHub,
   nodejs_22,
   pnpm_10,
+  pnpmConfigHook,
+  fetchPnpmDeps,
   makeWrapper,
 }:
 
@@ -22,17 +24,21 @@ stdenv.mkDerivation (finalAttrs: {
 
   nativeBuildInputs = [
     nodejs_22
-    pnpm_10.configHook
+    pnpmConfigHook
     makeWrapper
   ];
 
-  pnpmDeps = pnpm_10.fetchDeps {
+  pnpm = pnpm_10;
+
+  pnpmDeps = fetchPnpmDeps {
     inherit (finalAttrs)
       pname
       version
       src
       sourceRoot
+      pnpm
       ;
+    fetcherVersion = 3;
     hash = lib.fakeHash;
   };
 
