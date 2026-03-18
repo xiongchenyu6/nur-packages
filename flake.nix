@@ -79,33 +79,18 @@
             difyPyprojectOverrides =
               final: prev:
               let
-                # Helper to add setuptools as build dependency
+                # Apply setuptools to ALL sdist packages that don't already have it.
+                # Many legacy Python packages use setuptools without declaring it in
+                # their build-system metadata. Rather than listing them individually,
+                # we inject setuptools as a build dependency for every package.
+                setuptools = final.resolveBuildSystem { setuptools = [ ]; };
                 addSetuptools =
-                  name:
-                  prev.${name}.overrideAttrs (old: {
-                    nativeBuildInputs = (old.nativeBuildInputs or [ ]) ++ [
-                      (final.resolveBuildSystem { setuptools = [ ]; })
-                    ];
+                  name: drv:
+                  drv.overrideAttrs (old: {
+                    nativeBuildInputs = (old.nativeBuildInputs or [ ]) ++ [ setuptools ];
                   });
-
-                # Dynamically find all packages matching known problematic prefixes
-                allPkgNames = builtins.attrNames prev;
-                prefixMatched = builtins.filter (
-                  name:
-                  lib.hasPrefix "alibabacloud-" name || lib.hasPrefix "aliyun-" name || lib.hasPrefix "tea-" name
-                ) allPkgNames;
-
-                # Other individual packages that need setuptools but don't declare it
-                otherSetuptoolsPackages = [
-                  "esdk-obs-python"
-                  "psycogreen"
-                  "jieba"
-                  "aniso8601"
-                ];
-
-                setuptools-packages = prefixMatched ++ otherSetuptoolsPackages;
               in
-              lib.genAttrs setuptools-packages (name: addSetuptools name);
+              builtins.mapAttrs addSetuptools prev;
 
             # Build the Dify Python environment (only on Linux)
             difyPythonSet = lib.optionalAttrs isLinuxSystem (
