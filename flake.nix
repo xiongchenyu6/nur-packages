@@ -218,10 +218,25 @@
               update = {
                 type = "app";
                 program = builtins.toString (
-                  pkgs.writeShellScript "update" ''
-                    nix flake update
-                    # ${pkgs.nvfetcher}/bin/nvfetcher -c nvfetcher.toml -o _sources
-                  ''
+                  "${pkgs.writeShellApplication {
+                    name = "update";
+                    runtimeInputs = with pkgs; [
+                      bash
+                      coreutils
+                      git
+                      gnused
+                      jq
+                      nix
+                      nvfetcher
+                      perl
+                      ripgrep
+                    ];
+                    text = ''
+                      repo_root="$(git rev-parse --show-toplevel 2>/dev/null || pwd)"
+                      cd "$repo_root"
+                      bash ./scripts/update.sh
+                    '';
+                  }}/bin/update"
                 );
               };
             };

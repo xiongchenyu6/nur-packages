@@ -23,7 +23,7 @@ buildGoModule (
   // {
     enableParallelBuilding = true;
     proxyVendor = true;
-    vendorHash = "sha256-tX6B/3H8GEyVlo8y/mlkD8ezXqE6nTKMqrIu57USmbw=";
+    vendorHash = "sha256-kKqN9caXr156LaA4Ic/Qqw5YmlL0sZC+ufq0liHT3vo=";
     doCheck = false;
     nativeBuildInputs = [
       tree

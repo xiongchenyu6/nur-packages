@@ -8,34 +8,34 @@
 {
   casibase-darwin-arm64 = {
     pname = "casibase-darwin-arm64";
-    version = "v1.758.2";
+    version = "v1.761.0";
     src = fetchurl {
-      url = "https://github.com/casibase/casibase/releases/download/v1.758.2/casibase_Darwin_arm64.tar.gz";
-      sha256 = "sha256-gMQcQjtYgzeXtw4eOoYavpHSb8U6+NKw2ldXMg7Patw=";
+      url = "https://github.com/casibase/casibase/releases/download/v1.761.0/casibase_Darwin_arm64.tar.gz";
+      sha256 = "sha256-jC9FvmmRqhSfsNJVtjO6efUl2OVGaMjKLxdyUprHADM=";
     };
   };
   casibase-darwin-x86_64 = {
     pname = "casibase-darwin-x86_64";
-    version = "v1.758.2";
+    version = "v1.761.0";
     src = fetchurl {
-      url = "https://github.com/casibase/casibase/releases/download/v1.758.2/casibase_Darwin_x86_64.tar.gz";
-      sha256 = "sha256-L4Mt7F6vhZ4EKe2vViXD8hojGDPQuqqNHCW5Y/xUhg8=";
+      url = "https://github.com/casibase/casibase/releases/download/v1.761.0/casibase_Darwin_x86_64.tar.gz";
+      sha256 = "sha256-P38itdvqDTSmuP9awG+hhUYhYcFspd+8y3FXZuvLsRA=";
     };
   };
   casibase-linux-arm64 = {
     pname = "casibase-linux-arm64";
-    version = "v1.758.2";
+    version = "v1.761.0";
     src = fetchurl {
-      url = "https://github.com/casibase/casibase/releases/download/v1.758.2/casibase_Linux_arm64.tar.gz";
-      sha256 = "sha256-Ptxz3B2J/LOR4dJmr1Wl2mLxASxNkinsK37CpeMpJ3k=";
+      url = "https://github.com/casibase/casibase/releases/download/v1.761.0/casibase_Linux_arm64.tar.gz";
+      sha256 = "sha256-6QtxPaIcsm1oOKwQj+HZM5k5pgb6SDfRlY0WnTWJ5QQ=";
     };
   };
   casibase-linux-x86_64 = {
     pname = "casibase-linux-x86_64";
-    version = "v1.758.2";
+    version = "v1.761.0";
     src = fetchurl {
-      url = "https://github.com/casibase/casibase/releases/download/v1.758.2/casibase_Linux_x86_64.tar.gz";
-      sha256 = "sha256-7Wb2+dJe1q8yv2Rmta7f1mAojOw60G4JMDcCsiM5Ky8=";
+      url = "https://github.com/casibase/casibase/releases/download/v1.761.0/casibase_Linux_x86_64.tar.gz";
+      sha256 = "sha256-sm49HC43awFRz04ParOxUoQOJH0ZBt1uqVuH3UbWcxw=";
     };
   };
   combobulate = {
@@ -54,42 +54,42 @@
   };
   copilot-el = {
     pname = "copilot-el";
-    version = "c8c06efaa508569e13d7191882ae33435bb14543";
+    version = "4aabe0bfaa481d3381dc51a25fe229bf3d2c0a72";
     src = fetchgit {
       url = "https://github.com/zerolfx/copilot.el.git";
-      rev = "c8c06efaa508569e13d7191882ae33435bb14543";
+      rev = "4aabe0bfaa481d3381dc51a25fe229bf3d2c0a72";
       fetchSubmodules = false;
       deepClone = false;
       leaveDotGit = false;
       sparseCheckout = [ ];
-      sha256 = "sha256-1uHPtz0F0pim7KlotB1+pmls1i7H3hRhZ0DX1h53cPc=";
+      sha256 = "sha256-pdxD6WlYh4G5hSYhmgx887mFEopbJXZEg1lwuDcKH0M=";
     };
-    date = "2026-03-16";
+    date = "2026-03-25";
   };
   gotron-sdk = {
     pname = "gotron-sdk";
-    version = "v0.25.2";
+    version = "v0.26.0";
     src = fetchFromGitHub {
       owner = "fbsobreira";
       repo = "gotron-sdk";
-      rev = "v0.25.2";
+      rev = "v0.26.0";
       fetchSubmodules = false;
-      sha256 = "sha256-qlQHGyAtfArayoSFHuyLbe/NpgQJcxLobpYtXPh+PH0=";
+      sha256 = "sha256-GqMXqUnvOt92xVcURFQa+uqTqU7LZd8vFEh78ZlTp+k=";
     };
   };
   gptel = {
     pname = "gptel";
-    version = "bbfbd711fae64b079f7057d71772805edeb00a3d";
+    version = "e1adf9c184dc18ad22c3676910e092411d78d414";
     src = fetchgit {
       url = "https://github.com/karthink/gptel.git";
-      rev = "bbfbd711fae64b079f7057d71772805edeb00a3d";
+      rev = "e1adf9c184dc18ad22c3676910e092411d78d414";
       fetchSubmodules = false;
       deepClone = false;
       leaveDotGit = false;
       sparseCheckout = [ ];
-      sha256 = "sha256-pArCirduxy4tGQVt41haXf7+dHzDfNrxBoAFHlFGErg=";
+      sha256 = "sha256-NdGoi80O5TyxLi2/orsBZBsIlpvz9IT2L3Kz8y2F2GY=";
     };
-    date = "2026-03-19";
+    date = "2026-03-29";
   };
   hashtopolis-agent = {
     pname = "hashtopolis-agent";
@@ -202,21 +202,21 @@
   };
   sub2api = {
     pname = "sub2api";
-    version = "v0.1.104";
+    version = "v0.1.106";
     src = fetchFromGitHub {
       owner = "Wei-Shaw";
       repo = "sub2api";
-      rev = "v0.1.104";
+      rev = "v0.1.106";
       fetchSubmodules = false;
-      sha256 = "sha256-tq3HwJyCRbDO/zWo9d+Pw0n4ux7mgcbMyal5ZKKITVU=";
+      sha256 = "sha256-uqqL1PeL+9T8rtvDCsVsFbuPVT3WawcW/Jk5ZubG5xk=";
     };
   };
   sui = {
     pname = "sui";
-    version = "testnet-v1.68.0";
+    version = "mainnet-v1.68.1";
     src = fetchurl {
-      url = "https://github.com/MystenLabs/sui/releases/download/testnet-v1.68.0/sui-testnet-v1.68.0-ubuntu-x86_64.tgz";
-      sha256 = "sha256-/snoT28ambtphawXBu7pXPTTBy/Pry1SlJcoUrwoOOQ=";
+      url = "https://github.com/MystenLabs/sui/releases/download/mainnet-v1.68.1/sui-mainnet-v1.68.1-ubuntu-x86_64.tgz";
+      sha256 = "sha256-0uTzQxyj2hPrrPqR9pgox2U1LRr2CPsc+mAtF2Jdvns=";
     };
   };
   xiaohongshu-mcp = {
