@@ -1,0 +1,61 @@
+name: Daily dependency update
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "17 3 * * *"
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: daily-dependency-update
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    env:
+      GIT_SSL_NO_VERIFY: "true"
+      NIXPKGS_ALLOW_UNFREE: "1"
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Install nix
+        uses: cachix/install-nix-action@v30
+        with:
+          extra_nix_config: |
+            experimental-features = nix-command flakes
+            access-tokens = github.com=${{ secrets.GITHUB_TOKEN }}
+
+      - name: Run daily update
+        run: nix run .#update
+
+      - name: Show working tree
+        if: always()
+        run: git status --short
+
+      - name: Create pull request
+        uses: peter-evans/create-pull-request@v7
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          branch: automation/daily-dependency-update
+          delete-branch: true
+          commit-message: "chore: update flake inputs and nvfetcher sources"
+          title: "chore: daily dependency update"
+          body: |
+            Automated daily update run.
+
+            This updates:
+            - `flake.lock`
+            - `_sources/generated.nix`
+            - `_sources/generated.json`
+            - fixed-output dependency hashes reported by package builds
+          labels: |
+            dependencies
+            automated

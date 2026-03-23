@@ -254,7 +254,7 @@ nixos-rebuild build-vm --flake .#test-config
 
 ### Updating Dependencies
 ```bash
-# Update all flake inputs
+# Update flake inputs, refresh nvfetcher sources, and rebuild changed packages
 nix run .#update
 ```
 

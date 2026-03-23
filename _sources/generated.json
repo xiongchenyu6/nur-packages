@@ -8,11 +8,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-gMQcQjtYgzeXtw4eOoYavpHSb8U6+NKw2ldXMg7Patw=",
+            "sha256": "sha256-jC9FvmmRqhSfsNJVtjO6efUl2OVGaMjKLxdyUprHADM=",
             "type": "url",
-            "url": "https://github.com/casibase/casibase/releases/download/v1.758.2/casibase_Darwin_arm64.tar.gz"
+            "url": "https://github.com/casibase/casibase/releases/download/v1.761.0/casibase_Darwin_arm64.tar.gz"
         },
-        "version": "v1.758.2"
+        "version": "v1.761.0"
     },
     "casibase-darwin-x86_64": {
         "cargoLock": null,
@@ -23,11 +23,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-L4Mt7F6vhZ4EKe2vViXD8hojGDPQuqqNHCW5Y/xUhg8=",
+            "sha256": "sha256-P38itdvqDTSmuP9awG+hhUYhYcFspd+8y3FXZuvLsRA=",
             "type": "url",
-            "url": "https://github.com/casibase/casibase/releases/download/v1.758.2/casibase_Darwin_x86_64.tar.gz"
+            "url": "https://github.com/casibase/casibase/releases/download/v1.761.0/casibase_Darwin_x86_64.tar.gz"
         },
-        "version": "v1.758.2"
+        "version": "v1.761.0"
     },
     "casibase-linux-arm64": {
         "cargoLock": null,
@@ -38,11 +38,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-Ptxz3B2J/LOR4dJmr1Wl2mLxASxNkinsK37CpeMpJ3k=",
+            "sha256": "sha256-6QtxPaIcsm1oOKwQj+HZM5k5pgb6SDfRlY0WnTWJ5QQ=",
             "type": "url",
-            "url": "https://github.com/casibase/casibase/releases/download/v1.758.2/casibase_Linux_arm64.tar.gz"
+            "url": "https://github.com/casibase/casibase/releases/download/v1.761.0/casibase_Linux_arm64.tar.gz"
         },
-        "version": "v1.758.2"
+        "version": "v1.761.0"
     },
     "casibase-linux-x86_64": {
         "cargoLock": null,
@@ -53,11 +53,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-7Wb2+dJe1q8yv2Rmta7f1mAojOw60G4JMDcCsiM5Ky8=",
+            "sha256": "sha256-sm49HC43awFRz04ParOxUoQOJH0ZBt1uqVuH3UbWcxw=",
             "type": "url",
-            "url": "https://github.com/casibase/casibase/releases/download/v1.758.2/casibase_Linux_x86_64.tar.gz"
+            "url": "https://github.com/casibase/casibase/releases/download/v1.761.0/casibase_Linux_x86_64.tar.gz"
         },
-        "version": "v1.758.2"
+        "version": "v1.761.0"
     },
     "combobulate": {
         "cargoLock": null,
@@ -81,7 +81,7 @@
     },
     "copilot-el": {
         "cargoLock": null,
-        "date": "2026-03-16",
+        "date": "2026-03-25",
         "extract": null,
         "name": "copilot-el",
         "passthru": null,
@@ -91,13 +91,13 @@
             "fetchSubmodules": false,
             "leaveDotGit": false,
             "name": null,
-            "rev": "c8c06efaa508569e13d7191882ae33435bb14543",
-            "sha256": "sha256-1uHPtz0F0pim7KlotB1+pmls1i7H3hRhZ0DX1h53cPc=",
+            "rev": "4aabe0bfaa481d3381dc51a25fe229bf3d2c0a72",
+            "sha256": "sha256-pdxD6WlYh4G5hSYhmgx887mFEopbJXZEg1lwuDcKH0M=",
             "sparseCheckout": [],
             "type": "git",
             "url": "https://github.com/zerolfx/copilot.el.git"
         },
-        "version": "c8c06efaa508569e13d7191882ae33435bb14543"
+        "version": "4aabe0bfaa481d3381dc51a25fe229bf3d2c0a72"
     },
     "gotron-sdk": {
         "cargoLock": null,
@@ -113,16 +113,16 @@
             "name": null,
             "owner": "fbsobreira",
             "repo": "gotron-sdk",
-            "rev": "v0.25.2",
-            "sha256": "sha256-qlQHGyAtfArayoSFHuyLbe/NpgQJcxLobpYtXPh+PH0=",
+            "rev": "v0.26.0",
+            "sha256": "sha256-GqMXqUnvOt92xVcURFQa+uqTqU7LZd8vFEh78ZlTp+k=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "v0.25.2"
+        "version": "v0.26.0"
     },
     "gptel": {
         "cargoLock": null,
-        "date": "2026-03-19",
+        "date": "2026-03-29",
         "extract": null,
         "name": "gptel",
         "passthru": null,
@@ -132,13 +132,13 @@
             "fetchSubmodules": false,
             "leaveDotGit": false,
             "name": null,
-            "rev": "bbfbd711fae64b079f7057d71772805edeb00a3d",
-            "sha256": "sha256-pArCirduxy4tGQVt41haXf7+dHzDfNrxBoAFHlFGErg=",
+            "rev": "424c835bc46ed083088e82e2fcd48c2e1c34bacf",
+            "sha256": "sha256-Fh3vb1VHlteqszZWxbpSpamQC/C7PT5I4jU+zojqqk8=",
             "sparseCheckout": [],
             "type": "git",
             "url": "https://github.com/karthink/gptel.git"
         },
-        "version": "bbfbd711fae64b079f7057d71772805edeb00a3d"
+        "version": "424c835bc46ed083088e82e2fcd48c2e1c34bacf"
     },
     "hashtopolis-agent": {
         "cargoLock": null,
@@ -333,12 +333,12 @@
             "name": null,
             "owner": "Wei-Shaw",
             "repo": "sub2api",
-            "rev": "v0.1.104",
-            "sha256": "sha256-tq3HwJyCRbDO/zWo9d+Pw0n4ux7mgcbMyal5ZKKITVU=",
+            "rev": "v0.1.105",
+            "sha256": "sha256-kuy3aAOgPP+9HLfm6tQ7S6KBFjY7l8A33Wenzhdujec=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "v0.1.104"
+        "version": "v0.1.105"
     },
     "sui": {
         "cargoLock": null,
@@ -349,11 +349,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-/snoT28ambtphawXBu7pXPTTBy/Pry1SlJcoUrwoOOQ=",
+            "sha256": "sha256-0uTzQxyj2hPrrPqR9pgox2U1LRr2CPsc+mAtF2Jdvns=",
             "type": "url",
-            "url": "https://github.com/MystenLabs/sui/releases/download/testnet-v1.68.0/sui-testnet-v1.68.0-ubuntu-x86_64.tgz"
+            "url": "https://github.com/MystenLabs/sui/releases/download/mainnet-v1.68.1/sui-mainnet-v1.68.1-ubuntu-x86_64.tgz"
         },
-        "version": "testnet-v1.68.0"
+        "version": "mainnet-v1.68.1"
     },
     "xiaohongshu-mcp": {
         "cargoLock": null,
