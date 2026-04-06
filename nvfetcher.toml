@@ -105,6 +105,10 @@ fetch.github = "BeryJu/korb"
 src.github = "xpzouying/xiaohongshu-mcp"
 fetch.github = "xpzouying/xiaohongshu-mcp"
 
+[cc-gateway]
+src.git = "https://github.com/motiful/cc-gateway.git"
+fetch.git = "https://github.com/motiful/cc-gateway.git"
+
 [sub2api]
 src.github = "Wei-Shaw/sub2api"
 fetch.github = "Wei-Shaw/sub2api"

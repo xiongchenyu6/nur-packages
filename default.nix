@@ -121,6 +121,9 @@ in
   # Xiaohongshu MCP package
   xiaohongshu-mcp = pkgs.callPackage ./pkgs/xiaohongshu-mcp/package.nix { };
 
+  # cc-gateway package
+  cc-gateway = pkgs.callPackage ./pkgs/cc-gateway/package.nix { };
+
   # Dify packages (built via flake.nix perSystem with uv2nix, not directly callable here)
   # Use `nix build .#dify-api` and `nix build .#dify-web` instead
 }

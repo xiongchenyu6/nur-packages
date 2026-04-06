@@ -59,9 +59,29 @@
         },
         "version": "v1.761.0"
     },
+    "cc-gateway": {
+        "cargoLock": null,
+        "date": "2026-04-02",
+        "extract": null,
+        "name": "cc-gateway",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "rev": "447fad19b2b98602058951cad53895ed56e5ea84",
+            "sha256": "sha256-GUss0AKl/VocbuchGZinaWY/pgsM7B5ZnYlk3j/Wql0=",
+            "sparseCheckout": [],
+            "type": "git",
+            "url": "https://github.com/motiful/cc-gateway.git"
+        },
+        "version": "447fad19b2b98602058951cad53895ed56e5ea84"
+    },
     "combobulate": {
         "cargoLock": null,
-        "date": "2026-01-26",
+        "date": "2026-04-01",
         "extract": null,
         "name": "combobulate",
         "passthru": null,
@@ -71,17 +91,17 @@
             "fetchSubmodules": false,
             "leaveDotGit": false,
             "name": null,
-            "rev": "38773810b5e532f25d11c6d1af02c3a8dffeacd7",
-            "sha256": "sha256-gW0j0asfH4My+mBSt8pj3d51PigGWzFUhETydUI9xEg=",
+            "rev": "0792f45a7e327c7d6d066532adde90992aaa2f01",
+            "sha256": "sha256-iiQdXGdDu3QuU6Gq53/VRf1SGAods3KdvrN7lx+4mjE=",
             "sparseCheckout": [],
             "type": "git",
             "url": "https://github.com/mickeynp/combobulate.git"
         },
-        "version": "38773810b5e532f25d11c6d1af02c3a8dffeacd7"
+        "version": "0792f45a7e327c7d6d066532adde90992aaa2f01"
     },
     "copilot-el": {
         "cargoLock": null,
-        "date": "2026-03-25",
+        "date": "2026-03-31",
         "extract": null,
         "name": "copilot-el",
         "passthru": null,
@@ -91,13 +111,13 @@
             "fetchSubmodules": false,
             "leaveDotGit": false,
             "name": null,
-            "rev": "4aabe0bfaa481d3381dc51a25fe229bf3d2c0a72",
-            "sha256": "sha256-pdxD6WlYh4G5hSYhmgx887mFEopbJXZEg1lwuDcKH0M=",
+            "rev": "ab5c58bc969f52f6d75e972658f2c3381c70b4fa",
+            "sha256": "sha256-hXZsu/pDE0/Li+GcFbC9ObbY4N1sVWDZ48CJfDrJmL4=",
             "sparseCheckout": [],
             "type": "git",
             "url": "https://github.com/zerolfx/copilot.el.git"
         },
-        "version": "4aabe0bfaa481d3381dc51a25fe229bf3d2c0a72"
+        "version": "ab5c58bc969f52f6d75e972658f2c3381c70b4fa"
     },
     "gotron-sdk": {
         "cargoLock": null,
@@ -122,7 +142,7 @@
     },
     "gptel": {
         "cargoLock": null,
-        "date": "2026-03-29",
+        "date": "2026-04-07",
         "extract": null,
         "name": "gptel",
         "passthru": null,
@@ -132,13 +152,13 @@
             "fetchSubmodules": false,
             "leaveDotGit": false,
             "name": null,
-            "rev": "e1adf9c184dc18ad22c3676910e092411d78d414",
-            "sha256": "sha256-NdGoi80O5TyxLi2/orsBZBsIlpvz9IT2L3Kz8y2F2GY=",
+            "rev": "cdbcdcbcef2152be97420dd737da08c0c51a324b",
+            "sha256": "sha256-rCQjpU+eu/SIOiQWB5NFhYqyu9U44ZpgZ5zAkF5rceo=",
             "sparseCheckout": [],
             "type": "git",
             "url": "https://github.com/karthink/gptel.git"
         },
-        "version": "e1adf9c184dc18ad22c3676910e092411d78d414"
+        "version": "cdbcdcbcef2152be97420dd737da08c0c51a324b"
     },
     "hashtopolis-agent": {
         "cargoLock": null,
@@ -333,12 +353,12 @@
             "name": null,
             "owner": "Wei-Shaw",
             "repo": "sub2api",
-            "rev": "v0.1.106",
-            "sha256": "sha256-uqqL1PeL+9T8rtvDCsVsFbuPVT3WawcW/Jk5ZubG5xk=",
+            "rev": "v0.1.109",
+            "sha256": "sha256-6oEGCVMyIbPBMCtgZUptgUUCJ55LhddTaBIuW9ypx6U=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "v0.1.106"
+        "version": "v0.1.109"
     },
     "sui": {
         "cargoLock": null,
@@ -349,11 +369,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-0uTzQxyj2hPrrPqR9pgox2U1LRr2CPsc+mAtF2Jdvns=",
+            "sha256": "sha256-c2E5eqk/ISuv9fgrouOYRHR6kBmheHPJKM81meObbH0=",
             "type": "url",
-            "url": "https://github.com/MystenLabs/sui/releases/download/mainnet-v1.68.1/sui-mainnet-v1.68.1-ubuntu-x86_64.tgz"
+            "url": "https://github.com/MystenLabs/sui/releases/download/testnet-v1.69.2/sui-testnet-v1.69.2-ubuntu-x86_64.tgz"
         },
-        "version": "mainnet-v1.68.1"
+        "version": "testnet-v1.69.2"
     },
     "xiaohongshu-mcp": {
         "cargoLock": null,
