@@ -13,6 +13,11 @@ concurrency:
   group: daily-dependency-update
   cancel-in-progress: false
 
+env:
+  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  NIX_CONFIG: access-tokens = github.com=${{ secrets.GITHUB_TOKEN }}
+
 jobs:
   update:
     runs-on: ubuntu-latest
@@ -41,10 +46,12 @@ jobs:
         run: git status --short
 
       - name: Create pull request
+        if: success()
         uses: peter-evans/create-pull-request@v7
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           branch: automation/daily-dependency-update
+          base: master
           delete-branch: true
           commit-message: "chore: update flake inputs and nvfetcher sources"
           title: "chore: daily dependency update"

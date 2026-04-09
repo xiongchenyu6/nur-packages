@@ -58,7 +58,9 @@ stdenv.mkDerivation (
           sui-test-validator \
           sui-tool
         do
-          install -m755 tmp/$binary $out/bin/$binary
+          if [[ -f tmp/$binary ]]; then
+            install -m755 tmp/$binary $out/bin/$binary
+          fi
         done
       '';
 

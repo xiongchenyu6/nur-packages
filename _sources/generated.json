@@ -152,13 +152,13 @@
             "fetchSubmodules": false,
             "leaveDotGit": false,
             "name": null,
-            "rev": "cdbcdcbcef2152be97420dd737da08c0c51a324b",
-            "sha256": "sha256-rCQjpU+eu/SIOiQWB5NFhYqyu9U44ZpgZ5zAkF5rceo=",
+            "rev": "e505a9d6c682bbb9af250d975ab4e7e1dabc4d09",
+            "sha256": "sha256-e6iSTfdsmWCHWt5pNJXSEuZdxvS7yIzAHmPKY9KvAe0=",
             "sparseCheckout": [],
             "type": "git",
             "url": "https://github.com/karthink/gptel.git"
         },
-        "version": "cdbcdcbcef2152be97420dd737da08c0c51a324b"
+        "version": "e505a9d6c682bbb9af250d975ab4e7e1dabc4d09"
     },
     "hashtopolis-agent": {
         "cargoLock": null,
@@ -353,12 +353,12 @@
             "name": null,
             "owner": "Wei-Shaw",
             "repo": "sub2api",
-            "rev": "v0.1.109",
-            "sha256": "sha256-6oEGCVMyIbPBMCtgZUptgUUCJ55LhddTaBIuW9ypx6U=",
+            "rev": "v0.1.110",
+            "sha256": "sha256-uvezACyazy9ol/oxx273hG3uNcKegKr/9KrX+ZPa0fo=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "v0.1.109"
+        "version": "v0.1.110"
     },
     "sui": {
         "cargoLock": null,
@@ -371,9 +371,9 @@
             "name": null,
             "sha256": "sha256-c2E5eqk/ISuv9fgrouOYRHR6kBmheHPJKM81meObbH0=",
             "type": "url",
-            "url": "https://github.com/MystenLabs/sui/releases/download/testnet-v1.69.2/sui-testnet-v1.69.2-ubuntu-x86_64.tgz"
+            "url": "https://github.com/MystenLabs/sui/releases/download/mainnet-v1.69.2/sui-mainnet-v1.69.2-ubuntu-x86_64.tgz"
         },
-        "version": "testnet-v1.69.2"
+        "version": "mainnet-v1.69.2"
     },
     "xiaohongshu-mcp": {
         "cargoLock": null,

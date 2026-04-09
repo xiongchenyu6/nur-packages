@@ -93,15 +93,15 @@
   };
   gptel = {
     pname = "gptel";
-    version = "cdbcdcbcef2152be97420dd737da08c0c51a324b";
+    version = "e505a9d6c682bbb9af250d975ab4e7e1dabc4d09";
     src = fetchgit {
       url = "https://github.com/karthink/gptel.git";
-      rev = "cdbcdcbcef2152be97420dd737da08c0c51a324b";
+      rev = "e505a9d6c682bbb9af250d975ab4e7e1dabc4d09";
       fetchSubmodules = false;
       deepClone = false;
       leaveDotGit = false;
       sparseCheckout = [ ];
-      sha256 = "sha256-rCQjpU+eu/SIOiQWB5NFhYqyu9U44ZpgZ5zAkF5rceo=";
+      sha256 = "sha256-e6iSTfdsmWCHWt5pNJXSEuZdxvS7yIzAHmPKY9KvAe0=";
     };
     date = "2026-04-07";
   };
@@ -216,20 +216,20 @@
   };
   sub2api = {
     pname = "sub2api";
-    version = "v0.1.109";
+    version = "v0.1.110";
     src = fetchFromGitHub {
       owner = "Wei-Shaw";
       repo = "sub2api";
-      rev = "v0.1.109";
+      rev = "v0.1.110";
       fetchSubmodules = false;
-      sha256 = "sha256-6oEGCVMyIbPBMCtgZUptgUUCJ55LhddTaBIuW9ypx6U=";
+      sha256 = "sha256-uvezACyazy9ol/oxx273hG3uNcKegKr/9KrX+ZPa0fo=";
     };
   };
   sui = {
     pname = "sui";
-    version = "testnet-v1.69.2";
+    version = "mainnet-v1.69.2";
     src = fetchurl {
-      url = "https://github.com/MystenLabs/sui/releases/download/testnet-v1.69.2/sui-testnet-v1.69.2-ubuntu-x86_64.tgz";
+      url = "https://github.com/MystenLabs/sui/releases/download/mainnet-v1.69.2/sui-mainnet-v1.69.2-ubuntu-x86_64.tgz";
       sha256 = "sha256-c2E5eqk/ISuv9fgrouOYRHR6kBmheHPJKM81meObbH0=";
     };
   };

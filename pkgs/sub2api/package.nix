@@ -58,7 +58,7 @@ buildGo126Module (
   // {
     modRoot = "backend";
     subPackages = [ "cmd/server" ];
-    vendorHash = "sha256-cL1PVVVe3MAiHpO/irJN2ofqIHo9YiOobbUCqyuD9HI=";
+    vendorHash = "sha256-boQuQU+h1yXx9Xn7IwOV3IuYBJb+Z9fkHQvnFj0SCiE=";
     tags = [ "embed" ];
     ldflags = [
       "-s"
@@ -66,6 +66,10 @@ buildGo126Module (
       "-X main.Version=${version}"
     ];
     doCheck = false;
+
+    postPatch = ''
+      substituteInPlace backend/go.mod --replace-fail "go 1.26.2" "go 1.26.1"
+    '';
 
     preBuild = ''
       cp -r ${frontend} internal/web/dist
