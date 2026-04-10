@@ -235,13 +235,13 @@
   };
   xiaohongshu-mcp = {
     pname = "xiaohongshu-mcp";
-    version = "v2026.03.09.0605-0e16f4b";
+    version = "v2026.04.09.1645-7732044";
     src = fetchFromGitHub {
       owner = "xpzouying";
       repo = "xiaohongshu-mcp";
-      rev = "v2026.03.09.0605-0e16f4b";
+      rev = "v2026.04.09.1645-7732044";
       fetchSubmodules = false;
-      sha256 = "sha256-ofCBMzm/IkFtO0bDuCOIwqo+RsRADNt7iF8C3yifDd8=";
+      sha256 = "sha256-sm0maJypWFRq4jsmE9vVlLZrs4HJpJWY+aA3YFAuF8I=";
     };
   };
 }
