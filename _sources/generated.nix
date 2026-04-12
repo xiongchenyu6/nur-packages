@@ -8,34 +8,34 @@
 {
   casibase-darwin-arm64 = {
     pname = "casibase-darwin-arm64";
-    version = "v1.761.0";
+    version = "v1.764.0";
     src = fetchurl {
-      url = "https://github.com/casibase/casibase/releases/download/v1.761.0/casibase_Darwin_arm64.tar.gz";
-      sha256 = "sha256-jC9FvmmRqhSfsNJVtjO6efUl2OVGaMjKLxdyUprHADM=";
+      url = "https://github.com/casibase/casibase/releases/download/v1.764.0/casibase_Darwin_arm64.tar.gz";
+      sha256 = "sha256-PATtqZBrwsXDpT49MWlL5AAHuywuak2ocEGEknRx/IE=";
     };
   };
   casibase-darwin-x86_64 = {
     pname = "casibase-darwin-x86_64";
-    version = "v1.761.0";
+    version = "v1.764.0";
     src = fetchurl {
-      url = "https://github.com/casibase/casibase/releases/download/v1.761.0/casibase_Darwin_x86_64.tar.gz";
-      sha256 = "sha256-P38itdvqDTSmuP9awG+hhUYhYcFspd+8y3FXZuvLsRA=";
+      url = "https://github.com/casibase/casibase/releases/download/v1.764.0/casibase_Darwin_x86_64.tar.gz";
+      sha256 = "sha256-E1hUORXqUcbRZxyljUmX0f4F0e7hCYb+qkrP/tJjSjc=";
     };
   };
   casibase-linux-arm64 = {
     pname = "casibase-linux-arm64";
-    version = "v1.761.0";
+    version = "v1.764.0";
     src = fetchurl {
-      url = "https://github.com/casibase/casibase/releases/download/v1.761.0/casibase_Linux_arm64.tar.gz";
-      sha256 = "sha256-6QtxPaIcsm1oOKwQj+HZM5k5pgb6SDfRlY0WnTWJ5QQ=";
+      url = "https://github.com/casibase/casibase/releases/download/v1.764.0/casibase_Linux_arm64.tar.gz";
+      sha256 = "sha256-8b3Etm/RxQXuArIdFjJD4orZ7vu+rAewvlTXg9H6Dkw=";
     };
   };
   casibase-linux-x86_64 = {
     pname = "casibase-linux-x86_64";
-    version = "v1.761.0";
+    version = "v1.764.0";
     src = fetchurl {
-      url = "https://github.com/casibase/casibase/releases/download/v1.761.0/casibase_Linux_x86_64.tar.gz";
-      sha256 = "sha256-sm49HC43awFRz04ParOxUoQOJH0ZBt1uqVuH3UbWcxw=";
+      url = "https://github.com/casibase/casibase/releases/download/v1.764.0/casibase_Linux_x86_64.tar.gz";
+      sha256 = "sha256-obEIzdGZ+25r5TRIw40BykB07K/KpeRAQUPqalD5mBw=";
     };
   };
   cc-gateway = {
@@ -54,17 +54,17 @@
   };
   combobulate = {
     pname = "combobulate";
-    version = "0792f45a7e327c7d6d066532adde90992aaa2f01";
+    version = "74fc764c58904f6f7a9ab3417887f0eaa44af30b";
     src = fetchgit {
       url = "https://github.com/mickeynp/combobulate.git";
-      rev = "0792f45a7e327c7d6d066532adde90992aaa2f01";
+      rev = "74fc764c58904f6f7a9ab3417887f0eaa44af30b";
       fetchSubmodules = false;
       deepClone = false;
       leaveDotGit = false;
       sparseCheckout = [ ];
-      sha256 = "sha256-iiQdXGdDu3QuU6Gq53/VRf1SGAods3KdvrN7lx+4mjE=";
+      sha256 = "sha256-VlXofftxEz21ew7C1Dv+9dW7xCU1G8p3E8wN7qzgYME=";
     };
-    date = "2026-04-01";
+    date = "2026-04-10";
   };
   copilot-el = {
     pname = "copilot-el";
@@ -93,17 +93,17 @@
   };
   gptel = {
     pname = "gptel";
-    version = "e505a9d6c682bbb9af250d975ab4e7e1dabc4d09";
+    version = "8d6411b5f89d796c817ff79324973b8910e164fe";
     src = fetchgit {
       url = "https://github.com/karthink/gptel.git";
-      rev = "e505a9d6c682bbb9af250d975ab4e7e1dabc4d09";
+      rev = "8d6411b5f89d796c817ff79324973b8910e164fe";
       fetchSubmodules = false;
       deepClone = false;
       leaveDotGit = false;
       sparseCheckout = [ ];
-      sha256 = "sha256-e6iSTfdsmWCHWt5pNJXSEuZdxvS7yIzAHmPKY9KvAe0=";
+      sha256 = "sha256-BgOtog94HH/SRV1NRxv3tOu7rhxVXN0UZAhinG7DhX4=";
     };
-    date = "2026-04-07";
+    date = "2026-04-10";
   };
   hashtopolis-agent = {
     pname = "hashtopolis-agent";
@@ -235,13 +235,13 @@
   };
   xiaohongshu-mcp = {
     pname = "xiaohongshu-mcp";
-    version = "v2026.03.09.0605-0e16f4b";
+    version = "v2026.04.09.1645-7732044";
     src = fetchFromGitHub {
       owner = "xpzouying";
       repo = "xiaohongshu-mcp";
-      rev = "v2026.03.09.0605-0e16f4b";
+      rev = "v2026.04.09.1645-7732044";
       fetchSubmodules = false;
-      sha256 = "sha256-ofCBMzm/IkFtO0bDuCOIwqo+RsRADNt7iF8C3yifDd8=";
+      sha256 = "sha256-sm0maJypWFRq4jsmE9vVlLZrs4HJpJWY+aA3YFAuF8I=";
     };
   };
 }
