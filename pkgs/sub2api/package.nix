@@ -36,7 +36,7 @@ let
       pname = "sub2api-frontend";
       inherit version;
       src = "${sources.sub2api.src}/frontend";
-      hash = "sha256-TTOfjim1qIrNyjb7Z81nyIFs7+njrLhSJ+FCWx9UUjc=";
+      hash = "sha256-ZpVhuU+XHmkzKRKMZe7IscQdXCUidxy0IfrHqmWh6jQ=";
       fetcherVersion = 3;
     };
 
@@ -58,7 +58,7 @@ buildGo126Module (
   // {
     modRoot = "backend";
     subPackages = [ "cmd/server" ];
-    vendorHash = "sha256-boQuQU+h1yXx9Xn7IwOV3IuYBJb+Z9fkHQvnFj0SCiE=";
+    vendorHash = "sha256-pBH6gWUcM9QkRFlMoF23eE3lJzvtT/oYcSxLhLqwqpQ=";
     tags = [ "embed" ];
     ldflags = [
       "-s"

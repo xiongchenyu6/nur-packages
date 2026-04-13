@@ -8,11 +8,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-PATtqZBrwsXDpT49MWlL5AAHuywuak2ocEGEknRx/IE=",
+            "sha256": "sha256-3t95GDIbUYxQmjMcBVZOit9sxF60PfZPs0vTLRMhzY0=",
             "type": "url",
-            "url": "https://github.com/casibase/casibase/releases/download/v1.764.0/casibase_Darwin_arm64.tar.gz"
+            "url": "https://github.com/casibase/casibase/releases/download/v1.765.0/casibase_Darwin_arm64.tar.gz"
         },
-        "version": "v1.764.0"
+        "version": "v1.765.0"
     },
     "casibase-darwin-x86_64": {
         "cargoLock": null,
@@ -23,11 +23,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-E1hUORXqUcbRZxyljUmX0f4F0e7hCYb+qkrP/tJjSjc=",
+            "sha256": "sha256-O5hzOJy4JxFpwtR3fN2HOpRqgnScAJYXbOwq11cLGFs=",
             "type": "url",
-            "url": "https://github.com/casibase/casibase/releases/download/v1.764.0/casibase_Darwin_x86_64.tar.gz"
+            "url": "https://github.com/casibase/casibase/releases/download/v1.765.0/casibase_Darwin_x86_64.tar.gz"
         },
-        "version": "v1.764.0"
+        "version": "v1.765.0"
     },
     "casibase-linux-arm64": {
         "cargoLock": null,
@@ -38,11 +38,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-8b3Etm/RxQXuArIdFjJD4orZ7vu+rAewvlTXg9H6Dkw=",
+            "sha256": "sha256-UEi8usfyqwo1OCuZHsTJJWBGR2a17zdYBNlg3sYkaKk=",
             "type": "url",
-            "url": "https://github.com/casibase/casibase/releases/download/v1.764.0/casibase_Linux_arm64.tar.gz"
+            "url": "https://github.com/casibase/casibase/releases/download/v1.765.0/casibase_Linux_arm64.tar.gz"
         },
-        "version": "v1.764.0"
+        "version": "v1.765.0"
     },
     "casibase-linux-x86_64": {
         "cargoLock": null,
@@ -53,11 +53,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-obEIzdGZ+25r5TRIw40BykB07K/KpeRAQUPqalD5mBw=",
+            "sha256": "sha256-y5CctZybSRdKrEzKkIyTekvoFGV6XxDBq3gzG6iPLso=",
             "type": "url",
-            "url": "https://github.com/casibase/casibase/releases/download/v1.764.0/casibase_Linux_x86_64.tar.gz"
+            "url": "https://github.com/casibase/casibase/releases/download/v1.765.0/casibase_Linux_x86_64.tar.gz"
         },
-        "version": "v1.764.0"
+        "version": "v1.765.0"
     },
     "cc-gateway": {
         "cargoLock": null,
@@ -142,7 +142,7 @@
     },
     "gptel": {
         "cargoLock": null,
-        "date": "2026-04-10",
+        "date": "2026-04-13",
         "extract": null,
         "name": "gptel",
         "passthru": null,
@@ -152,13 +152,13 @@
             "fetchSubmodules": false,
             "leaveDotGit": false,
             "name": null,
-            "rev": "8d6411b5f89d796c817ff79324973b8910e164fe",
-            "sha256": "sha256-BgOtog94HH/SRV1NRxv3tOu7rhxVXN0UZAhinG7DhX4=",
+            "rev": "4747ffa251af84dbb6fe181f5d2b484ec2e442a7",
+            "sha256": "sha256-Zxx2xEXf70SOASIDjfsTus7Ir91dxfsLkbU5x8ul5bg=",
             "sparseCheckout": [],
             "type": "git",
             "url": "https://github.com/karthink/gptel.git"
         },
-        "version": "8d6411b5f89d796c817ff79324973b8910e164fe"
+        "version": "4747ffa251af84dbb6fe181f5d2b484ec2e442a7"
     },
     "hashtopolis-agent": {
         "cargoLock": null,
@@ -195,12 +195,12 @@
             "name": null,
             "owner": "hashtopolis",
             "repo": "server",
-            "rev": "v1.0.0-rainbow5",
-            "sha256": "sha256-ezfd3BT+iEPu42gQfAb/zQ5E0jbmxmtQCRD6T6S6oXY=",
+            "rev": "v1.0.0-rainbow6",
+            "sha256": "sha256-XNdbxKLw3DUNEUkAQMh6ysEnjC2gsvnHgc5L59Ke/y8=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "v1.0.0-rainbow5"
+        "version": "v1.0.0-rainbow6"
     },
     "helmify": {
         "cargoLock": null,
@@ -353,12 +353,12 @@
             "name": null,
             "owner": "Wei-Shaw",
             "repo": "sub2api",
-            "rev": "v0.1.110",
-            "sha256": "sha256-uvezACyazy9ol/oxx273hG3uNcKegKr/9KrX+ZPa0fo=",
+            "rev": "v0.1.114",
+            "sha256": "sha256-tu4FyupG96fAUugo4FlqjL+YcDoaKGi94lrtdiPNUrc=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "v0.1.110"
+        "version": "v0.1.114"
     },
     "sui": {
         "cargoLock": null,
@@ -369,11 +369,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-c2E5eqk/ISuv9fgrouOYRHR6kBmheHPJKM81meObbH0=",
+            "sha256": "sha256-3IzNJHjGMhVJXdEBEXBm+3e+ETa3zBDq3nPfsyX3qkI=",
             "type": "url",
-            "url": "https://github.com/MystenLabs/sui/releases/download/mainnet-v1.69.2/sui-mainnet-v1.69.2-ubuntu-x86_64.tgz"
+            "url": "https://github.com/MystenLabs/sui/releases/download/testnet-v1.70.1/sui-testnet-v1.70.1-ubuntu-x86_64.tgz"
         },
-        "version": "mainnet-v1.69.2"
+        "version": "testnet-v1.70.1"
     },
     "xiaohongshu-mcp": {
         "cargoLock": null,
@@ -389,11 +389,11 @@
             "name": null,
             "owner": "xpzouying",
             "repo": "xiaohongshu-mcp",
-            "rev": "v2026.04.09.1645-7732044",
-            "sha256": "sha256-sm0maJypWFRq4jsmE9vVlLZrs4HJpJWY+aA3YFAuF8I=",
+            "rev": "v2026.04.16.1657-c63748f",
+            "sha256": "sha256-s5yPNDNW30CVcZ1yuxJUsPb2ONiy4kFzpvo1zubjQ8A=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "v2026.04.09.1645-7732044"
+        "version": "v2026.04.16.1657-c63748f"
     }
 }

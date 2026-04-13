@@ -8,34 +8,34 @@
 {
   casibase-darwin-arm64 = {
     pname = "casibase-darwin-arm64";
-    version = "v1.764.0";
+    version = "v1.765.0";
     src = fetchurl {
-      url = "https://github.com/casibase/casibase/releases/download/v1.764.0/casibase_Darwin_arm64.tar.gz";
-      sha256 = "sha256-PATtqZBrwsXDpT49MWlL5AAHuywuak2ocEGEknRx/IE=";
+      url = "https://github.com/casibase/casibase/releases/download/v1.765.0/casibase_Darwin_arm64.tar.gz";
+      sha256 = "sha256-3t95GDIbUYxQmjMcBVZOit9sxF60PfZPs0vTLRMhzY0=";
     };
   };
   casibase-darwin-x86_64 = {
     pname = "casibase-darwin-x86_64";
-    version = "v1.764.0";
+    version = "v1.765.0";
     src = fetchurl {
-      url = "https://github.com/casibase/casibase/releases/download/v1.764.0/casibase_Darwin_x86_64.tar.gz";
-      sha256 = "sha256-E1hUORXqUcbRZxyljUmX0f4F0e7hCYb+qkrP/tJjSjc=";
+      url = "https://github.com/casibase/casibase/releases/download/v1.765.0/casibase_Darwin_x86_64.tar.gz";
+      sha256 = "sha256-O5hzOJy4JxFpwtR3fN2HOpRqgnScAJYXbOwq11cLGFs=";
     };
   };
   casibase-linux-arm64 = {
     pname = "casibase-linux-arm64";
-    version = "v1.764.0";
+    version = "v1.765.0";
     src = fetchurl {
-      url = "https://github.com/casibase/casibase/releases/download/v1.764.0/casibase_Linux_arm64.tar.gz";
-      sha256 = "sha256-8b3Etm/RxQXuArIdFjJD4orZ7vu+rAewvlTXg9H6Dkw=";
+      url = "https://github.com/casibase/casibase/releases/download/v1.765.0/casibase_Linux_arm64.tar.gz";
+      sha256 = "sha256-UEi8usfyqwo1OCuZHsTJJWBGR2a17zdYBNlg3sYkaKk=";
     };
   };
   casibase-linux-x86_64 = {
     pname = "casibase-linux-x86_64";
-    version = "v1.764.0";
+    version = "v1.765.0";
     src = fetchurl {
-      url = "https://github.com/casibase/casibase/releases/download/v1.764.0/casibase_Linux_x86_64.tar.gz";
-      sha256 = "sha256-obEIzdGZ+25r5TRIw40BykB07K/KpeRAQUPqalD5mBw=";
+      url = "https://github.com/casibase/casibase/releases/download/v1.765.0/casibase_Linux_x86_64.tar.gz";
+      sha256 = "sha256-y5CctZybSRdKrEzKkIyTekvoFGV6XxDBq3gzG6iPLso=";
     };
   };
   cc-gateway = {
@@ -93,17 +93,17 @@
   };
   gptel = {
     pname = "gptel";
-    version = "8d6411b5f89d796c817ff79324973b8910e164fe";
+    version = "4747ffa251af84dbb6fe181f5d2b484ec2e442a7";
     src = fetchgit {
       url = "https://github.com/karthink/gptel.git";
-      rev = "8d6411b5f89d796c817ff79324973b8910e164fe";
+      rev = "4747ffa251af84dbb6fe181f5d2b484ec2e442a7";
       fetchSubmodules = false;
       deepClone = false;
       leaveDotGit = false;
       sparseCheckout = [ ];
-      sha256 = "sha256-BgOtog94HH/SRV1NRxv3tOu7rhxVXN0UZAhinG7DhX4=";
+      sha256 = "sha256-Zxx2xEXf70SOASIDjfsTus7Ir91dxfsLkbU5x8ul5bg=";
     };
-    date = "2026-04-10";
+    date = "2026-04-13";
   };
   hashtopolis-agent = {
     pname = "hashtopolis-agent";
@@ -118,13 +118,13 @@
   };
   hashtopolis-server = {
     pname = "hashtopolis-server";
-    version = "v1.0.0-rainbow5";
+    version = "v1.0.0-rainbow6";
     src = fetchFromGitHub {
       owner = "hashtopolis";
       repo = "server";
-      rev = "v1.0.0-rainbow5";
+      rev = "v1.0.0-rainbow6";
       fetchSubmodules = false;
-      sha256 = "sha256-ezfd3BT+iEPu42gQfAb/zQ5E0jbmxmtQCRD6T6S6oXY=";
+      sha256 = "sha256-XNdbxKLw3DUNEUkAQMh6ysEnjC2gsvnHgc5L59Ke/y8=";
     };
   };
   helmify = {
@@ -216,32 +216,32 @@
   };
   sub2api = {
     pname = "sub2api";
-    version = "v0.1.110";
+    version = "v0.1.114";
     src = fetchFromGitHub {
       owner = "Wei-Shaw";
       repo = "sub2api";
-      rev = "v0.1.110";
+      rev = "v0.1.114";
       fetchSubmodules = false;
-      sha256 = "sha256-uvezACyazy9ol/oxx273hG3uNcKegKr/9KrX+ZPa0fo=";
+      sha256 = "sha256-tu4FyupG96fAUugo4FlqjL+YcDoaKGi94lrtdiPNUrc=";
     };
   };
   sui = {
     pname = "sui";
-    version = "mainnet-v1.69.2";
+    version = "testnet-v1.70.1";
     src = fetchurl {
-      url = "https://github.com/MystenLabs/sui/releases/download/mainnet-v1.69.2/sui-mainnet-v1.69.2-ubuntu-x86_64.tgz";
-      sha256 = "sha256-c2E5eqk/ISuv9fgrouOYRHR6kBmheHPJKM81meObbH0=";
+      url = "https://github.com/MystenLabs/sui/releases/download/testnet-v1.70.1/sui-testnet-v1.70.1-ubuntu-x86_64.tgz";
+      sha256 = "sha256-3IzNJHjGMhVJXdEBEXBm+3e+ETa3zBDq3nPfsyX3qkI=";
     };
   };
   xiaohongshu-mcp = {
     pname = "xiaohongshu-mcp";
-    version = "v2026.04.09.1645-7732044";
+    version = "v2026.04.16.1657-c63748f";
     src = fetchFromGitHub {
       owner = "xpzouying";
       repo = "xiaohongshu-mcp";
-      rev = "v2026.04.09.1645-7732044";
+      rev = "v2026.04.16.1657-c63748f";
       fetchSubmodules = false;
-      sha256 = "sha256-sm0maJypWFRq4jsmE9vVlLZrs4HJpJWY+aA3YFAuF8I=";
+      sha256 = "sha256-s5yPNDNW30CVcZ1yuxJUsPb2ONiy4kFzpvo1zubjQ8A=";
     };
   };
 }
