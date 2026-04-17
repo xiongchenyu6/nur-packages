@@ -20,19 +20,21 @@ php83.buildComposerProject2 (
   // {
   version = builtins.replaceStrings [ "-rainbow" ] [ "-rc" ] sources.hashtopolis-server.version;
 
-  vendorHash = "sha256-olcH4KDx0DNiZNz0ffuUwsxzyZwYKb9Nuqsd6CskpIE=";
+  vendorHash = "sha256-KobiZlzJjL6nOsxmbndnNxE5a9ElLvU+ehdnvcRqtxo=";
 
   composerNoDev = true;
+
+  composerStrictValidation = false;
 
   nativeBuildInputs = [ makeWrapper ];
 
   postPatch = ''
-    # Patch Lock.class.php to use environment variable for locks directory
-    substituteInPlace src/inc/utils/Lock.class.php \
+    # Patch Lock.php to use environment variable for locks directory
+    substituteInPlace src/inc/utils/Lock.php \
       --replace 'dirname(__FILE__) . "/locks/"' '(getenv("HASHTOPOLIS_LOCKS_PATH") ?: dirname(__FILE__) . "/locks/") . "/"'
 
-    # Patch LockUtils.class.php deleteLockFile method
-    substituteInPlace src/inc/utils/LockUtils.class.php \
+    # Patch LockUtils.php deleteLockFile method
+    substituteInPlace src/inc/utils/LockUtils.php \
       --replace 'dirname(__FILE__) . "/locks/"' '(getenv("HASHTOPOLIS_LOCKS_PATH") ?: dirname(__FILE__) . "/locks/") . "/"'
 
     # Ensure update.php loads the Composer autoloader (needed for Composer\Semver\Comparator)

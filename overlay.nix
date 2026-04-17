@@ -170,6 +170,8 @@ in
   # Xiaohongshu MCP package
   xiaohongshu-mcp = prev.callPackage ./pkgs/xiaohongshu-mcp/package.nix { };
 
+  camber = prev.callPackage ./pkgs/camber/package.nix { };
+
   cc-gateway = prev.callPackage ./pkgs/cc-gateway/package.nix { };
 
   # Sub2API package

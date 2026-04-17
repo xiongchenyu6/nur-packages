@@ -8,34 +8,34 @@
 {
   casibase-darwin-arm64 = {
     pname = "casibase-darwin-arm64";
-    version = "v1.765.0";
+    version = "v1.771.3";
     src = fetchurl {
-      url = "https://github.com/casibase/casibase/releases/download/v1.765.0/casibase_Darwin_arm64.tar.gz";
-      sha256 = "sha256-3t95GDIbUYxQmjMcBVZOit9sxF60PfZPs0vTLRMhzY0=";
+      url = "https://github.com/casibase/casibase/releases/download/v1.771.3/casibase_Darwin_arm64.tar.gz";
+      sha256 = "sha256-/6RBkAFAaqZ6nGKyZfUFq6qqFWE4tRY5Qc17jlXGg0E=";
     };
   };
   casibase-darwin-x86_64 = {
     pname = "casibase-darwin-x86_64";
-    version = "v1.765.0";
+    version = "v1.771.3";
     src = fetchurl {
-      url = "https://github.com/casibase/casibase/releases/download/v1.765.0/casibase_Darwin_x86_64.tar.gz";
-      sha256 = "sha256-O5hzOJy4JxFpwtR3fN2HOpRqgnScAJYXbOwq11cLGFs=";
+      url = "https://github.com/casibase/casibase/releases/download/v1.771.3/casibase_Darwin_x86_64.tar.gz";
+      sha256 = "sha256-OwO97KIJJLTwl9rQZCVcvt6fjvobMr3352OkrMvGses=";
     };
   };
   casibase-linux-arm64 = {
     pname = "casibase-linux-arm64";
-    version = "v1.765.0";
+    version = "v1.771.3";
     src = fetchurl {
-      url = "https://github.com/casibase/casibase/releases/download/v1.765.0/casibase_Linux_arm64.tar.gz";
-      sha256 = "sha256-UEi8usfyqwo1OCuZHsTJJWBGR2a17zdYBNlg3sYkaKk=";
+      url = "https://github.com/casibase/casibase/releases/download/v1.771.3/casibase_Linux_arm64.tar.gz";
+      sha256 = "sha256-UPG2Dd0oqWw912SV/MVeN3Y5AzMPy6iZeIJRtT2ctCE=";
     };
   };
   casibase-linux-x86_64 = {
     pname = "casibase-linux-x86_64";
-    version = "v1.765.0";
+    version = "v1.771.3";
     src = fetchurl {
-      url = "https://github.com/casibase/casibase/releases/download/v1.765.0/casibase_Linux_x86_64.tar.gz";
-      sha256 = "sha256-y5CctZybSRdKrEzKkIyTekvoFGV6XxDBq3gzG6iPLso=";
+      url = "https://github.com/casibase/casibase/releases/download/v1.771.3/casibase_Linux_x86_64.tar.gz";
+      sha256 = "sha256-Yv/NO0PU1ly7EMHcx+SaQmx9Xb8kV9QULca668F1hrY=";
     };
   };
   cc-gateway = {
@@ -54,17 +54,17 @@
   };
   combobulate = {
     pname = "combobulate";
-    version = "74fc764c58904f6f7a9ab3417887f0eaa44af30b";
+    version = "a4efc0e8ce7f4aead027fe98f70dcc0a659b8cbf";
     src = fetchgit {
       url = "https://github.com/mickeynp/combobulate.git";
-      rev = "74fc764c58904f6f7a9ab3417887f0eaa44af30b";
+      rev = "a4efc0e8ce7f4aead027fe98f70dcc0a659b8cbf";
       fetchSubmodules = false;
       deepClone = false;
       leaveDotGit = false;
       sparseCheckout = [ ];
-      sha256 = "sha256-VlXofftxEz21ew7C1Dv+9dW7xCU1G8p3E8wN7qzgYME=";
+      sha256 = "sha256-i+inK8Qb5J8+lTNfF2KukIW9OUnsGrnqn8IHyZeMK7c=";
     };
-    date = "2026-04-10";
+    date = "2026-04-20";
   };
   copilot-el = {
     pname = "copilot-el";
@@ -93,17 +93,17 @@
   };
   gptel = {
     pname = "gptel";
-    version = "4747ffa251af84dbb6fe181f5d2b484ec2e442a7";
+    version = "a0adf16a3c9f1aadcb3ed92b76be371f2e5b5219";
     src = fetchgit {
       url = "https://github.com/karthink/gptel.git";
-      rev = "4747ffa251af84dbb6fe181f5d2b484ec2e442a7";
+      rev = "a0adf16a3c9f1aadcb3ed92b76be371f2e5b5219";
       fetchSubmodules = false;
       deepClone = false;
       leaveDotGit = false;
       sparseCheckout = [ ];
-      sha256 = "sha256-Zxx2xEXf70SOASIDjfsTus7Ir91dxfsLkbU5x8ul5bg=";
+      sha256 = "sha256-cyQafqxTbGR9u1ENqQW4D5HvnelrHtD5PSK4zkN4HyA=";
     };
-    date = "2026-04-13";
+    date = "2026-04-19";
   };
   hashtopolis-agent = {
     pname = "hashtopolis-agent";
@@ -227,19 +227,19 @@
   };
   sui = {
     pname = "sui";
-    version = "testnet-v1.70.1";
+    version = "testnet-v1.70.2";
     src = fetchurl {
-      url = "https://github.com/MystenLabs/sui/releases/download/testnet-v1.70.1/sui-testnet-v1.70.1-ubuntu-x86_64.tgz";
-      sha256 = "sha256-3IzNJHjGMhVJXdEBEXBm+3e+ETa3zBDq3nPfsyX3qkI=";
+      url = "https://github.com/MystenLabs/sui/releases/download/testnet-v1.70.2/sui-testnet-v1.70.2-ubuntu-x86_64.tgz";
+      sha256 = "sha256-4G6Sy1b10CWtwifQ68E/OZ9gMzrVfDFCfWX3hsoHp9Y=";
     };
   };
   xiaohongshu-mcp = {
     pname = "xiaohongshu-mcp";
-    version = "v2026.04.16.1657-c63748f";
+    version = "v2026.04.17.0444-c63748f";
     src = fetchFromGitHub {
       owner = "xpzouying";
       repo = "xiaohongshu-mcp";
-      rev = "v2026.04.16.1657-c63748f";
+      rev = "v2026.04.17.0444-c63748f";
       fetchSubmodules = false;
       sha256 = "sha256-s5yPNDNW30CVcZ1yuxJUsPb2ONiy4kFzpvo1zubjQ8A=";
     };
