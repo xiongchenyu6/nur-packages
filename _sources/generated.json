@@ -375,6 +375,27 @@
         },
         "version": "testnet-v1.70.2"
     },
+    "supabase-realtime": {
+        "cargoLock": null,
+        "date": null,
+        "extract": null,
+        "name": "supabase-realtime",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "supabase",
+            "repo": "realtime",
+            "rev": "v2.86.3",
+            "sha256": "sha256-gZBoSWBkHz+KXyUxvO/B/wjE5FwGfu2QDrPKlgpN4TY=",
+            "sparseCheckout": [],
+            "type": "github"
+        },
+        "version": "v2.86.3"
+    },
     "xiaohongshu-mcp": {
         "cargoLock": null,
         "date": null,

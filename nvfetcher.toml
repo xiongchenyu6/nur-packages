@@ -137,3 +137,8 @@ fetch.github = "hashtopolis/server"
 [hashtopolis-agent]
 src.github = "hashtopolis/agent-python"
 fetch.github = "hashtopolis/agent-python"
+
+
+[supabase-realtime]
+src.github = "supabase/realtime"
+fetch.github = "supabase/realtime"

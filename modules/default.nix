@@ -25,4 +25,5 @@
   sub2api = import ./sub2api;
   webhook-upgrade = import ./webhook-upgrade;
   dify = import ./dify;
+  supabase-realtime = import ./supabase-realtime;
 }

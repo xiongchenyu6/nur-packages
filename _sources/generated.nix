@@ -233,6 +233,17 @@
       sha256 = "sha256-4G6Sy1b10CWtwifQ68E/OZ9gMzrVfDFCfWX3hsoHp9Y=";
     };
   };
+  supabase-realtime = {
+    pname = "supabase-realtime";
+    version = "v2.86.3";
+    src = fetchFromGitHub {
+      owner = "supabase";
+      repo = "realtime";
+      rev = "v2.86.3";
+      fetchSubmodules = false;
+      sha256 = "sha256-gZBoSWBkHz+KXyUxvO/B/wjE5FwGfu2QDrPKlgpN4TY=";
+    };
+  };
   xiaohongshu-mcp = {
     pname = "xiaohongshu-mcp";
     version = "v2026.04.17.0444-c63748f";
