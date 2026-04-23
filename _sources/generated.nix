@@ -93,17 +93,17 @@
   };
   gptel = {
     pname = "gptel";
-    version = "a0adf16a3c9f1aadcb3ed92b76be371f2e5b5219";
+    version = "593786fce27b54248d4c0ae19b120cbbcf51aea9";
     src = fetchgit {
       url = "https://github.com/karthink/gptel.git";
-      rev = "a0adf16a3c9f1aadcb3ed92b76be371f2e5b5219";
+      rev = "593786fce27b54248d4c0ae19b120cbbcf51aea9";
       fetchSubmodules = false;
       deepClone = false;
       leaveDotGit = false;
       sparseCheckout = [ ];
-      sha256 = "sha256-cyQafqxTbGR9u1ENqQW4D5HvnelrHtD5PSK4zkN4HyA=";
+      sha256 = "sha256-iLgDL8QlgnJ0VizyM64JLDel988L4Z/3mZ+ZfIo1g7w=";
     };
-    date = "2026-04-19";
+    date = "2026-04-22";
   };
   hashtopolis-agent = {
     pname = "hashtopolis-agent";
@@ -193,12 +193,12 @@
   };
   my2sql = {
     pname = "my2sql";
-    version = "71a069af44554b7e6367b2cb9735c06ab5353fe4";
+    version = "69b39554cb116d02fba389ff258ca9736dea7437";
     src = fetchurl {
       url = "https://github.com/liuhr/my2sql/raw/master/releases/centOS_release_7.x/my2sql";
       sha256 = "sha256-ggsA5U6AgszBuwAipX8BSuQSA0o67GDnkTZNkHhPpfo=";
     };
-    date = "2026-01-06";
+    date = "2026-04-23";
   };
   org-cv = {
     pname = "org-cv";
@@ -216,20 +216,20 @@
   };
   sub2api = {
     pname = "sub2api";
-    version = "v0.1.114";
+    version = "v0.1.115";
     src = fetchFromGitHub {
       owner = "Wei-Shaw";
       repo = "sub2api";
-      rev = "v0.1.114";
+      rev = "v0.1.115";
       fetchSubmodules = false;
-      sha256 = "sha256-tu4FyupG96fAUugo4FlqjL+YcDoaKGi94lrtdiPNUrc=";
+      sha256 = "sha256-+UN0aQhk6gea3Qw70fZCA7ZOErR9AS6dHu+goA89wCQ=";
     };
   };
   sui = {
     pname = "sui";
-    version = "testnet-v1.70.2";
+    version = "mainnet-v1.70.2";
     src = fetchurl {
-      url = "https://github.com/MystenLabs/sui/releases/download/testnet-v1.70.2/sui-testnet-v1.70.2-ubuntu-x86_64.tgz";
+      url = "https://github.com/MystenLabs/sui/releases/download/mainnet-v1.70.2/sui-mainnet-v1.70.2-ubuntu-x86_64.tgz";
       sha256 = "sha256-4G6Sy1b10CWtwifQ68E/OZ9gMzrVfDFCfWX3hsoHp9Y=";
     };
   };

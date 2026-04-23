@@ -58,7 +58,7 @@ buildGo126Module (
   // {
     modRoot = "backend";
     subPackages = [ "cmd/server" ];
-    vendorHash = "sha256-pBH6gWUcM9QkRFlMoF23eE3lJzvtT/oYcSxLhLqwqpQ=";
+    vendorHash = "sha256-BbPZbO17ydwntEnUZIdw9QcoNSnXpgP81DqojBzHCHk=";
     tags = [ "embed" ];
     ldflags = [
       "-s"
