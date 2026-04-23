@@ -199,15 +199,42 @@ in
   inherit
     (
       let
+        extForPg = pg: {
+          pg_plan_filter = pg.pkgs.callPackage ./pkgs/pg-extensions/pg_plan_filter/package.nix { };
+          pg_hashids = pg.pkgs.callPackage ./pkgs/pg-extensions/pg_hashids/package.nix { };
+          index_advisor = pg.pkgs.callPackage ./pkgs/pg-extensions/index_advisor/package.nix { };
+        };
+        # NixOS's services.postgresql module calls
+        # `cfg.package.withJIT.withPackages cfg.extensions`. Inside
+        # nixpkgs' `pkgs/servers/sql/postgresql/generic.nix`, both
+        # `.pkgs` and `.withPackages` are baked against a `self`
+        # fixed-point captured when the derivation was first built —
+        # BEFORE our overlay runs. Merging `pg.pkgs = pg.pkgs // newExts`
+        # therefore only fixes `pg.pkgs` but NOT the pkgs scope that
+        # `pg.withPackages` (or `pg.withJIT.withPackages`) internally
+        # evaluates its user function against.
+        #
+        # Fix: wrap `.withPackages` on each of pg / pg.withJIT /
+        # pg.withoutJIT so the extension function sees our extras merged
+        # into its `ps` argument. We still extend `.pkgs` so explicit
+        # access (e.g. `postgresql18Packages.pg_plan_filter` or
+        # `pg.pkgs.pg_plan_filter`) works too.
         extendPg =
           pg:
-          pg
+          let
+            newExts = extForPg pg;
+            wrap =
+              p:
+              p
+              // {
+                pkgs = p.pkgs // newExts;
+                withPackages = f: p.withPackages (ps: f (ps // newExts));
+              };
+          in
+          (wrap pg)
           // {
-            pkgs = pg.pkgs // {
-              pg_plan_filter = pg.pkgs.callPackage ./pkgs/pg-extensions/pg_plan_filter/package.nix { };
-              pg_hashids = pg.pkgs.callPackage ./pkgs/pg-extensions/pg_hashids/package.nix { };
-              index_advisor = pg.pkgs.callPackage ./pkgs/pg-extensions/index_advisor/package.nix { };
-            };
+            withJIT = wrap pg.withJIT;
+            withoutJIT = wrap pg.withoutJIT;
           };
       in
       {
