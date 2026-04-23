@@ -189,4 +189,37 @@ in
   fcitx5-configtool = prev.fcitx5-configtool.overrideAttrs (oldAttrs: {
     propagatedBuildInputs = (oldAttrs.propagatedBuildInputs or [ ]) ++ [ prev.libxcb-cursor ];
   });
+
+  # PostgreSQL extensions
+  # Augments postgresql{_17,_18}(_jit).pkgs so the new extensions are
+  # discoverable via `services.postgresql.extensions = ps: [ ps.pg_plan_filter ];`
+  # without rebuilding PostgreSQL itself. Uses the `pkgs.callPackage` scope from
+  # the original attribute set so that helpers like `postgresqlBuildExtension`
+  # resolve automatically.
+  inherit
+    (
+      let
+        extendPg =
+          pg:
+          pg
+          // {
+            pkgs = pg.pkgs // {
+              pg_plan_filter = pg.pkgs.callPackage ./pkgs/pg-extensions/pg_plan_filter/package.nix { };
+              pg_hashids = pg.pkgs.callPackage ./pkgs/pg-extensions/pg_hashids/package.nix { };
+              index_advisor = pg.pkgs.callPackage ./pkgs/pg-extensions/index_advisor/package.nix { };
+            };
+          };
+      in
+      {
+        postgresql_17 = extendPg prev.postgresql_17;
+        postgresql_17_jit = extendPg prev.postgresql_17_jit;
+        postgresql_18 = extendPg prev.postgresql_18;
+        postgresql_18_jit = extendPg prev.postgresql_18_jit;
+      }
+    )
+    postgresql_17
+    postgresql_17_jit
+    postgresql_18
+    postgresql_18_jit
+    ;
 }
