@@ -115,6 +115,15 @@ services.codedeploy-agent = {
 };
 ```
 
+### Game Servers
+```nix
+services.dnf-server-native = {
+  enable = true;
+  # Private Dungeon & Fighter (DNF) server using 1995chen/dnf containers.
+  # See modules/dnf-server/README.md for full options, quirks, and ports.
+};
+```
+
 ## 🚀 Installation
 
 ### Method 1: Using Flakes (Recommended)

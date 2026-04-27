@@ -156,7 +156,7 @@ in
 
   casdoor = prev.callPackage ./pkgs/casdoor/package.nix { };
 
-  casibase = prev.callPackage ./pkgs/casibase/package.nix { };
+  openagent = prev.callPackage ./pkgs/openagent/package.nix { };
 
   # Hashtopolis packages
   hashtopolis-server =

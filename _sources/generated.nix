@@ -6,38 +6,6 @@
   dockerTools,
 }:
 {
-  casibase-darwin-arm64 = {
-    pname = "casibase-darwin-arm64";
-    version = "v1.771.3";
-    src = fetchurl {
-      url = "https://github.com/casibase/casibase/releases/download/v1.771.3/casibase_Darwin_arm64.tar.gz";
-      sha256 = "sha256-/6RBkAFAaqZ6nGKyZfUFq6qqFWE4tRY5Qc17jlXGg0E=";
-    };
-  };
-  casibase-darwin-x86_64 = {
-    pname = "casibase-darwin-x86_64";
-    version = "v1.771.3";
-    src = fetchurl {
-      url = "https://github.com/casibase/casibase/releases/download/v1.771.3/casibase_Darwin_x86_64.tar.gz";
-      sha256 = "sha256-OwO97KIJJLTwl9rQZCVcvt6fjvobMr3352OkrMvGses=";
-    };
-  };
-  casibase-linux-arm64 = {
-    pname = "casibase-linux-arm64";
-    version = "v1.771.3";
-    src = fetchurl {
-      url = "https://github.com/casibase/casibase/releases/download/v1.771.3/casibase_Linux_arm64.tar.gz";
-      sha256 = "sha256-UPG2Dd0oqWw912SV/MVeN3Y5AzMPy6iZeIJRtT2ctCE=";
-    };
-  };
-  casibase-linux-x86_64 = {
-    pname = "casibase-linux-x86_64";
-    version = "v1.771.3";
-    src = fetchurl {
-      url = "https://github.com/casibase/casibase/releases/download/v1.771.3/casibase_Linux_x86_64.tar.gz";
-      sha256 = "sha256-Yv/NO0PU1ly7EMHcx+SaQmx9Xb8kV9QULca668F1hrY=";
-    };
-  };
   cc-gateway = {
     pname = "cc-gateway";
     version = "447fad19b2b98602058951cad53895ed56e5ea84";
@@ -93,17 +61,17 @@
   };
   gptel = {
     pname = "gptel";
-    version = "593786fce27b54248d4c0ae19b120cbbcf51aea9";
+    version = "f5ad4eb812920fba3fcfbe32042ef89f979a7e17";
     src = fetchgit {
       url = "https://github.com/karthink/gptel.git";
-      rev = "593786fce27b54248d4c0ae19b120cbbcf51aea9";
+      rev = "f5ad4eb812920fba3fcfbe32042ef89f979a7e17";
       fetchSubmodules = false;
       deepClone = false;
       leaveDotGit = false;
       sparseCheckout = [ ];
-      sha256 = "sha256-iLgDL8QlgnJ0VizyM64JLDel988L4Z/3mZ+ZfIo1g7w=";
+      sha256 = "sha256-qDPDFK/mODg/nBVCbHEaICIBtjaFdRsOSQXVXK3vx60=";
     };
-    date = "2026-04-22";
+    date = "2026-05-03";
   };
   hashtopolis-agent = {
     pname = "hashtopolis-agent";
@@ -151,17 +119,17 @@
   };
   librime-lua = {
     pname = "librime-lua";
-    version = "68f9c364a2d25a04c7d4794981d7c796b05ab627";
+    version = "ec52e48ea18f11af37717a01c337f853215cf70b";
     src = fetchgit {
       url = "https://github.com/hchunhui/librime-lua.git";
-      rev = "68f9c364a2d25a04c7d4794981d7c796b05ab627";
+      rev = "ec52e48ea18f11af37717a01c337f853215cf70b";
       fetchSubmodules = false;
       deepClone = false;
       leaveDotGit = false;
       sparseCheckout = [ ];
-      sha256 = "sha256-m7/qXdIlMMHscDDcFmusNuOR0cuzPpDQdprqRci8qZw=";
+      sha256 = "sha256-ipqsYAqlt29dZlgynziCC4rHFDbXsD64KPkhXQiz8/w=";
     };
-    date = "2025-07-07";
+    date = "2026-05-02";
   };
   magit-gitflow = {
     pname = "magit-gitflow";
@@ -200,6 +168,38 @@
     };
     date = "2026-04-23";
   };
+  openagent-darwin-arm64 = {
+    pname = "openagent-darwin-arm64";
+    version = "v1.790.1";
+    src = fetchurl {
+      url = "https://github.com/the-open-agent/openagent/releases/download/v1.790.1/openagent_Darwin_arm64.tar.gz";
+      sha256 = "sha256-aWWIawjXqMpiJ3TR20EDP5fswHTQfcvKS0U6f8Y0W3g=";
+    };
+  };
+  openagent-darwin-x86_64 = {
+    pname = "openagent-darwin-x86_64";
+    version = "v1.790.1";
+    src = fetchurl {
+      url = "https://github.com/the-open-agent/openagent/releases/download/v1.790.1/openagent_Darwin_x86_64.tar.gz";
+      sha256 = "sha256-KNwC1Ro8R8SDOkP7sakghG82Zavz/BmhrtMsfjZMhYY=";
+    };
+  };
+  openagent-linux-arm64 = {
+    pname = "openagent-linux-arm64";
+    version = "v1.790.1";
+    src = fetchurl {
+      url = "https://github.com/the-open-agent/openagent/releases/download/v1.790.1/openagent_Linux_arm64.tar.gz";
+      sha256 = "sha256-704GMpB+3BIg0sYFODwgfqAQRjIzHdkNpECw40OGyUc=";
+    };
+  };
+  openagent-linux-x86_64 = {
+    pname = "openagent-linux-x86_64";
+    version = "v1.790.1";
+    src = fetchurl {
+      url = "https://github.com/the-open-agent/openagent/releases/download/v1.790.1/openagent_Linux_x86_64.tar.gz";
+      sha256 = "sha256-63NIrQlY5/YxqHHQ+1Eb9UA7fJBw+Wjysgd/X3+UIzk=";
+    };
+  };
   org-cv = {
     pname = "org-cv";
     version = "e8de952df7669b38ca475d00fe943ab96d8cfac4";
@@ -216,32 +216,32 @@
   };
   sub2api = {
     pname = "sub2api";
-    version = "v0.1.115";
+    version = "v0.1.123";
     src = fetchFromGitHub {
       owner = "Wei-Shaw";
       repo = "sub2api";
-      rev = "v0.1.115";
+      rev = "v0.1.123";
       fetchSubmodules = false;
-      sha256 = "sha256-+UN0aQhk6gea3Qw70fZCA7ZOErR9AS6dHu+goA89wCQ=";
+      sha256 = "sha256-GiL9MirrU6G9euInMXl0De6xaPDje4CqDw06uRPax8Q=";
     };
   };
   sui = {
     pname = "sui";
-    version = "mainnet-v1.70.2";
+    version = "testnet-v1.71.0";
     src = fetchurl {
-      url = "https://github.com/MystenLabs/sui/releases/download/mainnet-v1.70.2/sui-mainnet-v1.70.2-ubuntu-x86_64.tgz";
-      sha256 = "sha256-4G6Sy1b10CWtwifQ68E/OZ9gMzrVfDFCfWX3hsoHp9Y=";
+      url = "https://github.com/MystenLabs/sui/releases/download/testnet-v1.71.0/sui-testnet-v1.71.0-ubuntu-x86_64.tgz";
+      sha256 = "sha256-aYFa16PHYZQhJqrv25pHVJxehv4+Do/gcYynAPRWZv0=";
     };
   };
   supabase-realtime = {
     pname = "supabase-realtime";
-    version = "v2.86.3";
+    version = "v2.90.1";
     src = fetchFromGitHub {
       owner = "supabase";
       repo = "realtime";
-      rev = "v2.86.3";
+      rev = "v2.90.1";
       fetchSubmodules = false;
-      sha256 = "sha256-gZBoSWBkHz+KXyUxvO/B/wjE5FwGfu2QDrPKlgpN4TY=";
+      sha256 = "sha256-Q3BbrWGwY0ypHnO7GrLKfMh0VipRzoRxKxgeJKOe3yE=";
     };
   };
   xiaohongshu-mcp = {

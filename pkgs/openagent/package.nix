@@ -19,10 +19,10 @@ let
   };
 
   platformSources = {
-    "x86_64-linux" = sources.casibase-linux-x86_64;
-    "aarch64-linux" = sources.casibase-linux-arm64;
-    "x86_64-darwin" = sources.casibase-darwin-x86_64;
-    "aarch64-darwin" = sources.casibase-darwin-arm64;
+    "x86_64-linux" = sources.openagent-linux-x86_64;
+    "aarch64-linux" = sources.openagent-linux-arm64;
+    "x86_64-darwin" = sources.openagent-darwin-x86_64;
+    "aarch64-darwin" = sources.openagent-darwin-arm64;
   };
 
   platformSource = platformSources.${stdenv.hostPlatform.system};
@@ -37,7 +37,7 @@ let
   };
 in
 stdenv.mkDerivation {
-  pname = "casibase";
+  pname = "openagent";
   version = platformSource.version;
 
   src = platformSource.src;
@@ -54,7 +54,7 @@ stdenv.mkDerivation {
 
   installPhase = ''
     mkdir -p $out/bin $out/web $out/data
-    install -m755 casibase $out/bin/casibase
+    install -m755 openagent $out/bin/openagent
     cp -r web/build $out/web/
     cp -r data/* $out/data/
 
@@ -69,7 +69,7 @@ stdenv.mkDerivation {
   dontPatch = true;
 
   meta = with lib; {
-    description = "Open-source AI Cloud OS / knowledge management platform with Casdoor SSO";
+    description = "Open-source AI Cloud OS / knowledge management platform with Casdoor SSO (formerly casibase)";
     homepage = "https://casibase.org";
     license = licenses.asl20;
     platforms = builtins.attrNames platformSources;

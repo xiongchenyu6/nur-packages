@@ -8,9 +8,9 @@
 with lib;
 
 let
-  cfg = config.services.casibase;
+  cfg = config.services.openagent;
 
-  casibasePkg = pkgs.callPackage ../../pkgs/casibase/package.nix { };
+  openagentPkg = pkgs.callPackage ../../pkgs/openagent/package.nix { };
 
   boolToYesNo = b: if b then "yes" else "no";
 
@@ -69,7 +69,9 @@ let
     navbarHtml = "${cfg.navbarHtml}"
     footerHtml = "${cfg.footerHtml}"
     appUrl = "${cfg.appUrl}"
-    frontendBaseDir = "${if cfg.frontendBaseDir != null then cfg.frontendBaseDir else "${cfg.dataDir}/web/build"}"
+    frontendBaseDir = "${
+      if cfg.frontendBaseDir != null then cfg.frontendBaseDir else "${cfg.dataDir}/web/build"
+    }"
     showGithubCorner = ${boolToYesNo cfg.showGithubCorner}
     defaultThemeType = "${cfg.theme.type}"
     defaultColorPrimary = "${cfg.theme.colorPrimary}"
@@ -81,18 +83,18 @@ let
 
 in
 {
-  options.services.casibase = {
-    enable = mkEnableOption "Casibase - AI Cloud OS / Knowledge Management";
+  options.services.openagent = {
+    enable = mkEnableOption "OpenAgent - AI Cloud OS / Knowledge Management (formerly Casibase)";
 
     package = mkOption {
       type = types.package;
-      default = casibasePkg;
-      description = "Casibase package to use";
+      default = openagentPkg;
+      description = "OpenAgent package to use";
     };
 
     appName = mkOption {
       type = types.str;
-      default = "casibase";
+      default = "openagent";
       description = "Application name";
     };
 
@@ -119,20 +121,20 @@ in
 
     user = mkOption {
       type = types.str;
-      default = "casibase";
-      description = "User under which casibase runs";
+      default = "openagent";
+      description = "User under which openagent runs";
     };
 
     group = mkOption {
       type = types.str;
-      default = "casibase";
-      description = "Group under which casibase runs";
+      default = "openagent";
+      description = "Group under which openagent runs";
     };
 
     dataDir = mkOption {
       type = types.path;
-      default = "/var/lib/casibase";
-      description = "Data directory for casibase";
+      default = "/var/lib/openagent";
+      description = "Data directory for openagent";
     };
 
     database = {
@@ -161,19 +163,19 @@ in
 
       username = mkOption {
         type = types.str;
-        default = "casibase";
+        default = "openagent";
         description = "Database username";
       };
 
       password = mkOption {
         type = types.str;
-        default = "casibase";
+        default = "openagent";
         description = "Database password";
       };
 
       name = mkOption {
         type = types.str;
-        default = "casibase";
+        default = "openagent";
         description = "Database name";
       };
     };
@@ -242,7 +244,7 @@ in
 
       application = mkOption {
         type = types.str;
-        default = "app-casibase";
+        default = "app-openagent";
         description = "Casdoor application name";
       };
     };
@@ -340,7 +342,7 @@ in
 
     htmlTitle = mkOption {
       type = types.str;
-      default = "Casibase";
+      default = "OpenAgent";
       description = "HTML page title";
     };
 
@@ -422,7 +424,7 @@ in
       type = types.attrs;
       default = {
         adapter = "file";
-        filename = "logs/casibase.log";
+        filename = "logs/openagent.log";
         maxdays = 99999;
         perm = "0770";
       };
@@ -438,13 +440,13 @@ in
     autoStart = mkOption {
       type = types.bool;
       default = true;
-      description = "Start casibase automatically on boot";
+      description = "Start openagent automatically on boot";
     };
 
     restartOnFailure = mkOption {
       type = types.bool;
       default = true;
-      description = "Restart casibase on failure";
+      description = "Restart openagent on failure";
     };
   };
 
@@ -465,8 +467,8 @@ in
       "d ${cfg.dataDir}/cache 0750 ${cfg.user} ${cfg.group} -"
     ];
 
-    systemd.services.casibase = {
-      description = "Casibase AI Cloud OS / Knowledge Management";
+    systemd.services.openagent = {
+      description = "OpenAgent AI Cloud OS / Knowledge Management";
       wantedBy = optionals cfg.autoStart [ "multi-user.target" ];
       after = [
         "network-online.target"
@@ -486,14 +488,14 @@ in
         User = cfg.user;
         Group = cfg.group;
         WorkingDirectory = cfg.dataDir;
-        StateDirectory = "casibase";
+        StateDirectory = "openagent";
         StateDirectoryMode = "0750";
 
         ExecStartPre =
           let
             confDir = "${cfg.dataDir}/conf";
           in
-          pkgs.writeShellScript "casibase-pre-start" ''
+          pkgs.writeShellScript "openagent-pre-start" ''
                       mkdir -p ${confDir}
                       mkdir -p ${cfg.dataDir}/logs
                       mkdir -p ${cfg.dataDir}/cache
@@ -507,14 +509,14 @@ in
 
                       # Symlink package data and web files into working directory
                       ln -sfn ${cfg.package}/data/* ${cfg.dataDir}/data/
-                      # Copy web/build from package (casibase needs to write into web/build/data/)
+                      # Copy web/build from package (openagent needs to write into web/build/data/)
                       cp -rn ${cfg.package}/web/build/* ${cfg.dataDir}/web/build/ 2>/dev/null || true
 
                       # Set proper ownership
                       chown -R ${cfg.user}:${cfg.group} ${cfg.dataDir}
           '';
 
-        ExecStart = "${cfg.package}/bin/casibase";
+        ExecStart = "${cfg.package}/bin/openagent";
 
         Restart = mkIf cfg.restartOnFailure "always";
         RestartSec = "10s";
