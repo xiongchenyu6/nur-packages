@@ -113,21 +113,21 @@ fetch.git = "https://github.com/motiful/cc-gateway.git"
 src.github = "Wei-Shaw/sub2api"
 fetch.github = "Wei-Shaw/sub2api"
 
-[casibase-linux-x86_64]
-src.github = "casibase/casibase"
-fetch.url = "https://github.com/casibase/casibase/releases/download/$ver/casibase_Linux_x86_64.tar.gz"
+[openagent-linux-x86_64]
+src.github = "the-open-agent/openagent"
+fetch.url = "https://github.com/the-open-agent/openagent/releases/download/$ver/openagent_Linux_x86_64.tar.gz"
 
-[casibase-linux-arm64]
-src.github = "casibase/casibase"
-fetch.url = "https://github.com/casibase/casibase/releases/download/$ver/casibase_Linux_arm64.tar.gz"
+[openagent-linux-arm64]
+src.github = "the-open-agent/openagent"
+fetch.url = "https://github.com/the-open-agent/openagent/releases/download/$ver/openagent_Linux_arm64.tar.gz"
 
-[casibase-darwin-x86_64]
-src.github = "casibase/casibase"
-fetch.url = "https://github.com/casibase/casibase/releases/download/$ver/casibase_Darwin_x86_64.tar.gz"
+[openagent-darwin-x86_64]
+src.github = "the-open-agent/openagent"
+fetch.url = "https://github.com/the-open-agent/openagent/releases/download/$ver/openagent_Darwin_x86_64.tar.gz"
 
-[casibase-darwin-arm64]
-src.github = "casibase/casibase"
-fetch.url = "https://github.com/casibase/casibase/releases/download/$ver/casibase_Darwin_arm64.tar.gz"
+[openagent-darwin-arm64]
+src.github = "the-open-agent/openagent"
+fetch.url = "https://github.com/the-open-agent/openagent/releases/download/$ver/openagent_Darwin_arm64.tar.gz"
 
 [hashtopolis-server]
 src.github_tag = "hashtopolis/server"

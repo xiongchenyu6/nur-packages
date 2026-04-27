@@ -15,7 +15,7 @@ nix build .#default            # Build default package
 nix run .#update               # Update flake inputs
 nixfmt-rfc-style <file>        # Format Nix code (run inside dev shell)
 statix check                   # Lint Nix code (run inside dev shell)
-nvfetcher -c nvfetcher.toml -o _sources  # Update auto-fetched sources
+nvfetcher -c nvfetcher.toml -o _sources -k keyfile.toml  # Update auto-fetched sources (keyfile avoids GitHub 403)
 ```
 
 There is no test framework; `nix build .#<package>` is the verification method.

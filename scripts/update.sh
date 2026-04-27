@@ -9,7 +9,11 @@ echo "==> Updating flake inputs"
 nix flake update
 
 echo "==> Refreshing nvfetcher sources"
-nvfetcher -c nvfetcher.toml -o _sources
+nvfetcher_args=(-c nvfetcher.toml -o _sources)
+if [[ -f keyfile.toml ]]; then
+  nvfetcher_args+=(-k keyfile.toml)
+fi
+nvfetcher "${nvfetcher_args[@]}"
 
 echo "==> Rebuilding packages for updated sources"
 bash ./scripts/update-changed-packages.sh
