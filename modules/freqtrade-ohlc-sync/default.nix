@@ -11,7 +11,7 @@ let
   cfg = config.services.freqtrade-ohlc-sync;
 
   pythonEnv = cfg.package.python.withPackages (ps: [
-    ps.ccxt
+    ps.requests
     ps.psycopg2
   ]);
 

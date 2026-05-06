@@ -1,21 +1,19 @@
 #!/usr/bin/env python3
 """
-Pull recent klines from Binance via CCXT and write them straight into a
-TimescaleDB hypertable, then refresh continuous aggregates.
+Pull recent klines from Binance and write them straight into a TimescaleDB
+hypertable, then refresh continuous aggregates.
 
 Designed to be idempotent and incremental:
   - For each (pair, tf) we read max(ts) from the destination hypertable
     and only fetch newer candles.
   - On a fresh DB the first run can backfill up to --backfill-days candles.
-  - All writes go through a temporary staging table + INSERT … ON CONFLICT
-    DO NOTHING so re-running is safe and overlapping ranges don't bloat
-    the hypertable.
+  - All writes COPY into a TEMP table and INSERT … ON CONFLICT DO NOTHING,
+    so re-running with overlapping ranges is safe.
 
-The script intentionally does NOT depend on freqtrade — it speaks CCXT
-directly, which keeps the Nix closure small enough to deploy on aarch64
-hosts without dragging in pandas-ta and friends.
+Talks to Binance's public REST endpoint directly (no ccxt / freqtrade
+dependency), keeping the closure tiny on aarch64.
 
-Usage (with sops-managed env or explicit env vars):
+Usage (env-driven):
   TIMESCALE_URL=postgres://… python sync_ohlc.py --pairs BTC/USDT ETH/USDT
 """
 from __future__ import annotations
@@ -28,22 +26,31 @@ import time
 from datetime import datetime, timezone
 from typing import Iterable
 
-import ccxt
 import psycopg2
+import requests
 
 
 SCHEMA = os.environ.get("TIMESCALE_SCHEMA", "quant")
 TABLE = os.environ.get("TIMESCALE_TABLE", "ohlc")
 DB_URL = os.environ.get("TIMESCALE_URL")
-EXCHANGE_ID = os.environ.get("OHLC_EXCHANGE", "binance")
 
-# Continuous-aggregate views to refresh after each sync. Override with the
-# `--refresh-views` flag (empty list disables the refresh step).
+# Default to spot. For USDT-M futures override BINANCE_BASE to
+# https://fapi.binance.com and BINANCE_KLINES_PATH to /fapi/v1/klines.
+BINANCE_BASE = os.environ.get("BINANCE_BASE", "https://api.binance.com")
+BINANCE_KLINES_PATH = os.environ.get("BINANCE_KLINES_PATH", "/api/v3/klines")
+
+# Continuous-aggregate views to refresh after each sync.
 DEFAULT_REFRESH_VIEWS = ("ohlc_15m", "ohlc_1h", "ohlc_1d")
 
-# CCXT page size — Binance returns max 1000 1m candles per call. Smaller
-# values trade throughput for fairness on the public API.
+# Binance returns max 1000 1m candles per call.
 PAGE_LIMIT = 1000
+
+# Per-tf seconds; Binance interval strings happen to match.
+_TF_SECONDS = {
+    "1m": 60, "3m": 180, "5m": 300, "15m": 900, "30m": 1800,
+    "1h": 3600, "2h": 7200, "4h": 14400, "6h": 21600, "8h": 28800, "12h": 43200,
+    "1d": 86400, "3d": 259200, "1w": 604800, "1M": 2592000,
+}
 
 
 def _connect():
@@ -52,16 +59,9 @@ def _connect():
     return psycopg2.connect(DB_URL)
 
 
-def _make_exchange():
-    klass = getattr(ccxt, EXCHANGE_ID)
-    ex = klass({"enableRateLimit": True})
-    ex.load_markets()
-    return ex
-
-
-def _tf_to_seconds(tf: str) -> int:
-    units = {"m": 60, "h": 3600, "d": 86400, "w": 604800}
-    return int(tf[:-1]) * units[tf[-1]]
+def _binance_symbol(pair: str) -> str:
+    """`BTC/USDT` → `BTCUSDT`. Binance ignores the `/`."""
+    return pair.replace("/", "")
 
 
 def _max_ts(cur, pair: str, tf: str) -> datetime | None:
@@ -72,29 +72,40 @@ def _max_ts(cur, pair: str, tf: str) -> datetime | None:
     return cur.fetchone()[0]
 
 
-def _fetch_since(
-    ex, pair: str, tf: str, since_ms: int, until_ms: int
-) -> Iterable[list]:
-    """Yield (ts_ms, o, h, l, c, v) tuples between since_ms and until_ms."""
+def _fetch_klines(pair: str, tf: str, since_ms: int, until_ms: int) -> Iterable[list]:
+    """Yield Binance klines [openTime_ms, o, h, l, c, v] between since/until."""
+    if tf not in _TF_SECONDS:
+        raise ValueError(f"unsupported timeframe: {tf}")
+    tf_ms = _TF_SECONDS[tf] * 1000
     cursor = since_ms
-    tf_ms = _tf_to_seconds(tf) * 1000
+    sym = _binance_symbol(pair)
+    sess = requests.Session()
+    sess.headers.update({"User-Agent": "freqtrade-ohlc-sync/1.0"})
     while cursor < until_ms:
-        batch = ex.fetch_ohlcv(pair, timeframe=tf, since=cursor, limit=PAGE_LIMIT)
+        params = {
+            "symbol": sym,
+            "interval": tf,
+            "startTime": cursor,
+            "endTime": min(until_ms, cursor + PAGE_LIMIT * tf_ms),
+            "limit": PAGE_LIMIT,
+        }
+        r = sess.get(BINANCE_BASE + BINANCE_KLINES_PATH, params=params, timeout=20)
+        r.raise_for_status()
+        batch = r.json()
         if not batch:
             return
         for row in batch:
-            if row[0] >= until_ms:
-                return
-            yield row
+            # row[0]=openTime ms, [1..5] strings o,h,l,c,v
+            yield [row[0], float(row[1]), float(row[2]), float(row[3]),
+                   float(row[4]), float(row[5])]
         last_ts = batch[-1][0]
-        # Advance cursor by one tf to avoid asking for the same candle twice.
         cursor = last_ts + tf_ms
-        # Guard against pathological exchanges that return < 2 rows.
-        if len(batch) < 2:
-            cursor = max(cursor, last_ts + tf_ms)
+        # Hard cap on total rows per pair/run to avoid runaway pulls.
+        # Binance's REST is generously rate-limited; we stay polite anyway.
+        time.sleep(0.05)
 
 
-def _copy_rows(conn, pair: str, tf: str, rows: list[tuple]) -> int:
+def _copy_rows(conn, pair: str, tf: str, rows: list[list]) -> int:
     if not rows:
         return 0
     buf = io.StringIO()
@@ -103,11 +114,8 @@ def _copy_rows(conn, pair: str, tf: str, rows: list[tuple]) -> int:
         buf.write(f"{pair}\t{tf}\t{ts}\t{o}\t{h}\t{l}\t{c}\t{v}\n")
     buf.seek(0)
     with conn.cursor() as cur:
-        # COPY into a TEMP table, then upsert. This avoids needing a unique
-        # index on the hypertable for ON CONFLICT semantics while still
-        # being idempotent in the face of overlapping fetches.
         cur.execute(
-            f"""
+            """
             CREATE TEMP TABLE _stage (
               pair text, tf text, ts timestamptz,
               open double precision, high double precision,
@@ -149,8 +157,8 @@ def _refresh_aggregates(views: list[str]) -> None:
         fresh.close()
 
 
-def sync_pair(conn, ex, pair: str, tf: str, backfill_days: int) -> int:
-    tf_ms = _tf_to_seconds(tf) * 1000
+def sync_pair(conn, pair: str, tf: str, backfill_days: int) -> int:
+    tf_ms = _TF_SECONDS[tf] * 1000
     now_ms = int(time.time() * 1000)
     with conn.cursor() as cur:
         last = _max_ts(cur, pair, tf)
@@ -165,7 +173,7 @@ def sync_pair(conn, ex, pair: str, tf: str, backfill_days: int) -> int:
         print(f"  {pair:<12} {tf}  already current")
         return 0
 
-    rows = list(_fetch_since(ex, pair, tf, since_ms, now_ms))
+    rows = list(_fetch_klines(pair, tf, since_ms, now_ms))
     if not rows:
         print(f"  {pair:<12} {tf}  {mode:<40}  no rows returned")
         return 0
@@ -183,13 +191,15 @@ def main():
         "--pairs",
         nargs="+",
         default=["BTC/USDT", "ETH/USDT", "BNB/USDT", "SOL/USDT"],
-        help="CCXT pair symbols (e.g. BTC/USDT).",
+        help="Pair symbols using slash notation (BTC/USDT). "
+             "Translated to Binance `BTCUSDT` automatically.",
     )
     ap.add_argument(
         "--timeframes",
         nargs="+",
         default=["1m"],
-        help="CCXT timeframes; only base 1m is needed if downstream views aggregate.",
+        help="Binance interval strings; usually just `1m` if downstream "
+             "TimescaleDB continuous aggregates derive higher tfs.",
     )
     ap.add_argument(
         "--backfill-days",
@@ -201,23 +211,22 @@ def main():
         "--refresh-views",
         nargs="*",
         default=list(DEFAULT_REFRESH_VIEWS),
-        help="Continuous aggregate views to refresh after sync. Pass empty to skip.",
+        help="Continuous aggregate views to refresh. Pass empty to skip.",
     )
     args = ap.parse_args()
 
     print(
-        f"sync_ohlc → {EXCHANGE_ID} pairs={args.pairs} tfs={args.timeframes} "
-        f"target=schema={SCHEMA} table={TABLE}",
+        f"sync_ohlc → {BINANCE_BASE}{BINANCE_KLINES_PATH} pairs={args.pairs} "
+        f"tfs={args.timeframes} target=schema={SCHEMA} table={TABLE}",
         flush=True,
     )
     t0 = time.time()
-    ex = _make_exchange()
     total = 0
     with _connect() as conn:
         for pair in args.pairs:
             for tf in args.timeframes:
                 try:
-                    total += sync_pair(conn, ex, pair, tf, args.backfill_days)
+                    total += sync_pair(conn, pair, tf, args.backfill_days)
                 except Exception as e:  # pragma: no cover — log & continue
                     print(f"  {pair} {tf} ERROR: {e}", flush=True)
         if total > 0 and args.refresh_views:
