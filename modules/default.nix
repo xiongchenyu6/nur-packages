@@ -27,4 +27,5 @@
   dify = import ./dify;
   supabase-realtime = import ./supabase-realtime;
   dnf-server = import ./dnf-server;
+  freqtrade-ohlc-sync = import ./freqtrade-ohlc-sync;
 }
