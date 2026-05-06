@@ -21,7 +21,7 @@
     },
     "combobulate": {
         "cargoLock": null,
-        "date": "2026-04-20",
+        "date": "2026-05-19",
         "extract": null,
         "name": "combobulate",
         "passthru": null,
@@ -31,13 +31,13 @@
             "fetchSubmodules": false,
             "leaveDotGit": false,
             "name": null,
-            "rev": "a4efc0e8ce7f4aead027fe98f70dcc0a659b8cbf",
-            "sha256": "sha256-i+inK8Qb5J8+lTNfF2KukIW9OUnsGrnqn8IHyZeMK7c=",
+            "rev": "4e8cf0df8e22cdaf87c6637eddb60500f0055f46",
+            "sha256": "sha256-pZuboYn6UL46dNLuqHpg6+ecOvqkAN08R8L1Zeku8F8=",
             "sparseCheckout": [],
             "type": "git",
             "url": "https://github.com/mickeynp/combobulate.git"
         },
-        "version": "a4efc0e8ce7f4aead027fe98f70dcc0a659b8cbf"
+        "version": "4e8cf0df8e22cdaf87c6637eddb60500f0055f46"
     },
     "copilot-el": {
         "cargoLock": null,
@@ -82,7 +82,7 @@
     },
     "gptel": {
         "cargoLock": null,
-        "date": "2026-05-03",
+        "date": "2026-05-30",
         "extract": null,
         "name": "gptel",
         "passthru": null,
@@ -92,13 +92,13 @@
             "fetchSubmodules": false,
             "leaveDotGit": false,
             "name": null,
-            "rev": "f5ad4eb812920fba3fcfbe32042ef89f979a7e17",
-            "sha256": "sha256-qDPDFK/mODg/nBVCbHEaICIBtjaFdRsOSQXVXK3vx60=",
+            "rev": "f342b3010f135ca4a38b02564b50b2d3e66554cf",
+            "sha256": "sha256-qdJWgKaLZxA0BEcIOOWocrdZDh6wPXkOcF1R/szH87E=",
             "sparseCheckout": [],
             "type": "git",
             "url": "https://github.com/karthink/gptel.git"
         },
-        "version": "f5ad4eb812920fba3fcfbe32042ef89f979a7e17"
+        "version": "f342b3010f135ca4a38b02564b50b2d3e66554cf"
     },
     "hashtopolis-agent": {
         "cargoLock": null,
@@ -156,12 +156,12 @@
             "name": null,
             "owner": "arttor",
             "repo": "helmify",
-            "rev": "v0.4.19",
-            "sha256": "sha256-casZJRHpTbakI1FdSYPYcda2G8xPP+feTQil6R+FdbE=",
+            "rev": "v0.4.20",
+            "sha256": "sha256-Az/rNrNwWkQCZ8iy2qkix8xqsWA+eUbFw7YstA9usdw=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "v0.4.19"
+        "version": "v0.4.20"
     },
     "korb": {
         "cargoLock": null,
@@ -268,11 +268,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-aWWIawjXqMpiJ3TR20EDP5fswHTQfcvKS0U6f8Y0W3g=",
+            "sha256": "sha256-baUqSxPAsT+IOYxy32plVwC4ykpo8MC2pIBewjDT/7I=",
             "type": "url",
-            "url": "https://github.com/the-open-agent/openagent/releases/download/v1.790.1/openagent_Darwin_arm64.tar.gz"
+            "url": "https://github.com/the-open-agent/openagent/releases/download/v2.31.0/openagent_darwin_arm64"
         },
-        "version": "v1.790.1"
+        "version": "v2.31.0"
     },
     "openagent-darwin-x86_64": {
         "cargoLock": null,
@@ -283,11 +283,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-KNwC1Ro8R8SDOkP7sakghG82Zavz/BmhrtMsfjZMhYY=",
+            "sha256": "sha256-9V7I5upZozp4LfWFwjTHJND3Yf8cE+ewB5d+oEf7Cmw=",
             "type": "url",
-            "url": "https://github.com/the-open-agent/openagent/releases/download/v1.790.1/openagent_Darwin_x86_64.tar.gz"
+            "url": "https://github.com/the-open-agent/openagent/releases/download/v2.31.0/openagent_darwin_x86"
         },
-        "version": "v1.790.1"
+        "version": "v2.31.0"
     },
     "openagent-linux-arm64": {
         "cargoLock": null,
@@ -298,11 +298,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-704GMpB+3BIg0sYFODwgfqAQRjIzHdkNpECw40OGyUc=",
+            "sha256": "sha256-wpN4+NUiHEgW3j2HteeTljifb5zvLal8fjinktHOM58=",
             "type": "url",
-            "url": "https://github.com/the-open-agent/openagent/releases/download/v1.790.1/openagent_Linux_arm64.tar.gz"
+            "url": "https://github.com/the-open-agent/openagent/releases/download/v2.31.0/openagent_linux_arm64"
         },
-        "version": "v1.790.1"
+        "version": "v2.31.0"
     },
     "openagent-linux-x86_64": {
         "cargoLock": null,
@@ -313,11 +313,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-63NIrQlY5/YxqHHQ+1Eb9UA7fJBw+Wjysgd/X3+UIzk=",
+            "sha256": "sha256-NOXSwFff2/1siuDB1aeWx+PIFPeZb35hTafiUSXBoXo=",
             "type": "url",
-            "url": "https://github.com/the-open-agent/openagent/releases/download/v1.790.1/openagent_Linux_x86_64.tar.gz"
+            "url": "https://github.com/the-open-agent/openagent/releases/download/v2.31.0/openagent_linux_x86"
         },
-        "version": "v1.790.1"
+        "version": "v2.31.0"
     },
     "org-cv": {
         "cargoLock": null,
@@ -353,12 +353,12 @@
             "name": null,
             "owner": "Wei-Shaw",
             "repo": "sub2api",
-            "rev": "v0.1.123",
-            "sha256": "sha256-GiL9MirrU6G9euInMXl0De6xaPDje4CqDw06uRPax8Q=",
+            "rev": "v0.1.133",
+            "sha256": "sha256-VRBjBlQoOGM0md4fFW137cBseKu/p4gJ5MC8FmRL710=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "v0.1.123"
+        "version": "v0.1.133"
     },
     "sui": {
         "cargoLock": null,
@@ -369,11 +369,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-aYFa16PHYZQhJqrv25pHVJxehv4+Do/gcYynAPRWZv0=",
+            "sha256": "sha256-5XKBbP1+2bfwTQ2W0mz2Q3kiBfYIAGnnptASDkayzsU=",
             "type": "url",
-            "url": "https://github.com/MystenLabs/sui/releases/download/testnet-v1.71.0/sui-testnet-v1.71.0-ubuntu-x86_64.tgz"
+            "url": "https://github.com/MystenLabs/sui/releases/download/mainnet-v1.72.5/sui-mainnet-v1.72.5-ubuntu-x86_64.tgz"
         },
-        "version": "testnet-v1.71.0"
+        "version": "mainnet-v1.72.5"
     },
     "supabase-realtime": {
         "cargoLock": null,
@@ -389,12 +389,12 @@
             "name": null,
             "owner": "supabase",
             "repo": "realtime",
-            "rev": "v2.90.1",
-            "sha256": "sha256-Q3BbrWGwY0ypHnO7GrLKfMh0VipRzoRxKxgeJKOe3yE=",
+            "rev": "v2.102.3",
+            "sha256": "sha256-oJJ3eu+THFOamIxNqZOtfp09pYszTlhbJCsw32d9HZI=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "v2.90.1"
+        "version": "v2.102.3"
     },
     "xiaohongshu-mcp": {
         "cargoLock": null,
@@ -410,11 +410,11 @@
             "name": null,
             "owner": "xpzouying",
             "repo": "xiaohongshu-mcp",
-            "rev": "v2026.04.17.0444-c63748f",
-            "sha256": "sha256-s5yPNDNW30CVcZ1yuxJUsPb2ONiy4kFzpvo1zubjQ8A=",
+            "rev": "v2026.05.28.0902-17500db",
+            "sha256": "sha256-AfT8DWvoSHt8BKnQTf6Rq6JCo4ySwiCe7bHXydbXhWA=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "v2026.04.17.0444-c63748f"
+        "version": "v2026.05.28.0902-17500db"
     }
 }

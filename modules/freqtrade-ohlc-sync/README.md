@@ -4,8 +4,13 @@ NixOS module that periodically pulls recent OHLC candles from a CCXT-supported
 exchange (default: Binance) and writes them into a TimescaleDB hypertable,
 then refreshes the continuous aggregates that downstream apps query.
 
-It does **not** depend on freqtrade — only `python3`, `ccxt`, and
-`psycopg2` — so the closure is small enough to deploy on aarch64 hosts.
+It does **not** depend on freqtrade or ccxt — only `python3`, `requests`,
+and `psycopg2` — so the closure is small enough to deploy on aarch64 hosts.
+Talks to Binance's public `/api/v3/klines` REST endpoint directly. To pull
+USDT-M futures klines instead, set environment overrides in the unit:
+
+    Environment="BINANCE_BASE=https://fapi.binance.com"
+    Environment="BINANCE_KLINES_PATH=/fapi/v1/klines"
 
 ## What it expects on the database side
 

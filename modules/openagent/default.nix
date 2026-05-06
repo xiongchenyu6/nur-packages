@@ -507,10 +507,17 @@ in
             ${appConfContent}
             EOF
 
-                      # Symlink package data and web files into working directory
-                      ln -sfn ${cfg.package}/data/* ${cfg.dataDir}/data/
-                      # Copy web/build from package (openagent needs to write into web/build/data/)
-                      cp -rn ${cfg.package}/web/build/* ${cfg.dataDir}/web/build/ 2>/dev/null || true
+                      # v2.x embeds the frontend, data and skills in the binary, so the
+                      # package usually ships only bin/openagent. Older (casibase-era)
+                      # packages also carried data/ and web/build/; symlink/copy them only
+                      # when present so this works with both layouts.
+                      if [ -d "${cfg.package}/data" ]; then
+                        ln -sfn ${cfg.package}/data/* ${cfg.dataDir}/data/
+                      fi
+                      if [ -d "${cfg.package}/web/build" ]; then
+                        # openagent needs to write into web/build/data/, so copy (don't symlink)
+                        cp -rn ${cfg.package}/web/build/* ${cfg.dataDir}/web/build/ 2>/dev/null || true
+                      fi
 
                       # Set proper ownership
                       chown -R ${cfg.user}:${cfg.group} ${cfg.dataDir}

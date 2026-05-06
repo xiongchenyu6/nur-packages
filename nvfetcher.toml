@@ -113,21 +113,23 @@ fetch.git = "https://github.com/motiful/cc-gateway.git"
 src.github = "Wei-Shaw/sub2api"
 fetch.github = "Wei-Shaw/sub2api"
 
+# v2.x ships raw statically-linked Go binaries (not tarballs); asset names are lowercase
+# and use "x86" for x86_64. The frontend, config and skills are embedded in the binary.
 [openagent-linux-x86_64]
 src.github = "the-open-agent/openagent"
-fetch.url = "https://github.com/the-open-agent/openagent/releases/download/$ver/openagent_Linux_x86_64.tar.gz"
+fetch.url = "https://github.com/the-open-agent/openagent/releases/download/$ver/openagent_linux_x86"
 
 [openagent-linux-arm64]
 src.github = "the-open-agent/openagent"
-fetch.url = "https://github.com/the-open-agent/openagent/releases/download/$ver/openagent_Linux_arm64.tar.gz"
+fetch.url = "https://github.com/the-open-agent/openagent/releases/download/$ver/openagent_linux_arm64"
 
 [openagent-darwin-x86_64]
 src.github = "the-open-agent/openagent"
-fetch.url = "https://github.com/the-open-agent/openagent/releases/download/$ver/openagent_Darwin_x86_64.tar.gz"
+fetch.url = "https://github.com/the-open-agent/openagent/releases/download/$ver/openagent_darwin_x86"
 
 [openagent-darwin-arm64]
 src.github = "the-open-agent/openagent"
-fetch.url = "https://github.com/the-open-agent/openagent/releases/download/$ver/openagent_Darwin_arm64.tar.gz"
+fetch.url = "https://github.com/the-open-agent/openagent/releases/download/$ver/openagent_darwin_arm64"
 
 [hashtopolis-server]
 src.github_tag = "hashtopolis/server"
