@@ -2,8 +2,6 @@
   pkgs,
   buildGo126Module,
   stdenvNoCC,
-  fetchPnpmDeps,
-  pnpmConfigHook,
   pnpm_10,
   nodejs,
   lib,
@@ -27,16 +25,15 @@ let
     src = "${sources.sub2api.src}/frontend";
 
     nativeBuildInputs = [
-      pnpmConfigHook
-      pnpm_10
+      pnpm_10.configHook
       nodejs
     ];
 
-    pnpmDeps = fetchPnpmDeps {
+    pnpmDeps = pnpm_10.fetchDeps {
       pname = "sub2api-frontend";
       inherit version;
       src = "${sources.sub2api.src}/frontend";
-      hash = "sha256-ZpVhuU+XHmkzKRKMZe7IscQdXCUidxy0IfrHqmWh6jQ=";
+      hash = "sha256-1ShAwutwXzRp3qd4oe/jw8WAyKpr+WIm9610rJwgIiQ=";
       fetcherVersion = 3;
     };
 
@@ -58,7 +55,7 @@ buildGo126Module (
   // {
     modRoot = "backend";
     subPackages = [ "cmd/server" ];
-    vendorHash = "sha256-EUzegkYsya2RjylVhjdsP8gChLq9mqb9YU2MrTnj9S8=";
+    vendorHash = "sha256-rfv0MEUx2IXf3GsDVVZhEIyvKAW0L68tyzbrP5f4iqk=";
     tags = [ "embed" ];
     ldflags = [
       "-s"
@@ -66,10 +63,6 @@ buildGo126Module (
       "-X main.Version=${version}"
     ];
     doCheck = false;
-
-    postPatch = ''
-      substituteInPlace backend/go.mod --replace-fail "go 1.26.2" "go 1.26.1"
-    '';
 
     preBuild = ''
       cp -r ${frontend} internal/web/dist

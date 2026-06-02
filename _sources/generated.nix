@@ -235,13 +235,13 @@
   };
   supabase-realtime = {
     pname = "supabase-realtime";
-    version = "v2.102.3";
+    version = "v2.103.1";
     src = fetchFromGitHub {
       owner = "supabase";
       repo = "realtime";
-      rev = "v2.102.3";
+      rev = "v2.103.1";
       fetchSubmodules = false;
-      sha256 = "sha256-oJJ3eu+THFOamIxNqZOtfp09pYszTlhbJCsw32d9HZI=";
+      sha256 = "sha256-G01h1pmkElDdaHwcoF73pBnPSIb3UW4fAV5cJshfkAY=";
     };
   };
   xiaohongshu-mcp = {

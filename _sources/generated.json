@@ -389,12 +389,12 @@
             "name": null,
             "owner": "supabase",
             "repo": "realtime",
-            "rev": "v2.102.3",
-            "sha256": "sha256-oJJ3eu+THFOamIxNqZOtfp09pYszTlhbJCsw32d9HZI=",
+            "rev": "v2.103.1",
+            "sha256": "sha256-G01h1pmkElDdaHwcoF73pBnPSIb3UW4fAV5cJshfkAY=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "v2.102.3"
+        "version": "v2.103.1"
     },
     "xiaohongshu-mcp": {
         "cargoLock": null,
