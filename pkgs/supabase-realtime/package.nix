@@ -22,7 +22,7 @@ beamPackages.mixRelease {
   mixFodDeps = beamPackages.fetchMixDeps {
     pname = "mix-deps-realtime";
     inherit src version;
-    hash = "sha256-KWkppz0D5w0ccM+uJksQXRXt/hvApNLcaYxxw9T5aH4=";
+    hash = "sha256-IsWk9MM3BgX1Cme9SqOHPM4MmOkKQnH3IANpnM3McfE=";
   };
 
   meta = with lib; {
