@@ -58,7 +58,14 @@ def build_node() -> TradingNode:
     # lets build() validate the full wiring offline; run() (which connects) is gated on real
     # keys in main(), so the placeholder never reaches the network.
     api_key = os.environ.get("BINANCE_API_KEY") or "CHECK_ONLY_NO_CONNECT"
-    api_secret = os.environ.get("BINANCE_API_SECRET") or "CHECK_ONLY_NO_CONNECT"
+    # Ed25519 secret is a multi-line PEM that doesn't fit an env value, so support a
+    # file path (BINANCE_API_SECRET_FILE) for deploy (sops writes the PEM to a file).
+    api_secret = os.environ.get("BINANCE_API_SECRET")
+    if not api_secret:
+        secret_file = os.environ.get("BINANCE_API_SECRET_FILE")
+        if secret_file and Path(secret_file).exists():
+            api_secret = Path(secret_file).read_text().strip()
+    api_secret = api_secret or "CHECK_ONLY_NO_CONNECT"
 
     provider = InstrumentProviderConfig(load_all=True)
     config = TradingNodeConfig(
@@ -106,7 +113,11 @@ def build_node() -> TradingNode:
 
 def main() -> int:
     check_only = "--check" in sys.argv
-    has_keys = bool(os.environ.get("BINANCE_API_KEY") and os.environ.get("BINANCE_API_SECRET"))
+    _secret_present = bool(
+        os.environ.get("BINANCE_API_SECRET")
+        or (os.environ.get("BINANCE_API_SECRET_FILE") and Path(os.environ["BINANCE_API_SECRET_FILE"]).exists())
+    )
+    has_keys = bool(os.environ.get("BINANCE_API_KEY")) and _secret_present
 
     node = build_node()  # constructing + build() validates the full live wiring offline
     print(f"TradingNode built OK (venue={BINANCE_VENUE}, "
