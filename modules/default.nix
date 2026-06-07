@@ -29,4 +29,5 @@
   dnf-server = import ./dnf-server;
   freqtrade-ohlc-sync = import ./freqtrade-ohlc-sync;
   nautilus-accumulator = import ./nautilus-accumulator;
+  nautilus-trend = import ./nautilus-trend;
 }
