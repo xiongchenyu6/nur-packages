@@ -28,4 +28,5 @@
   supabase-realtime = import ./supabase-realtime;
   dnf-server = import ./dnf-server;
   freqtrade-ohlc-sync = import ./freqtrade-ohlc-sync;
+  nautilus-accumulator = import ./nautilus-accumulator;
 }
