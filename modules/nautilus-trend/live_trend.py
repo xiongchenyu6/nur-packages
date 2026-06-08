@@ -1,10 +1,11 @@
-"""Live crypto trend follower on NautilusTrader (Binance) — the HonestTrend15mProtections
-strategy running live, testnet by default. Same event-driven class as the equity trend.
+"""Live crypto trend follower on NautilusTrader (Binance) — Donchian breakout, the
+recent-regime-validated strategy (see ../STRATEGY_LEADERBOARD.md). One DonchianBreakout
+instance per instrument; testnet by default.
 
-Credentials/env mirror live_accumulation.py:
-  BINANCE_API_KEY, BINANCE_API_SECRET or BINANCE_API_SECRET_FILE (Ed25519 PEM),
-  BINANCE_TESTNET=1 (default), BINANCE_BAR (default 15-MINUTE-LAST-EXTERNAL),
-  TREND_INSTRUMENT (default BTCUSDT.BINANCE), FNG_CSV (optional regime gate).
+Env: BINANCE_API_KEY, BINANCE_API_SECRET or BINANCE_API_SECRET_FILE (Ed25519 PEM),
+     BINANCE_TESTNET=1 (default), BINANCE_BAR (default 1-HOUR-LAST-EXTERNAL),
+     TREND_INSTRUMENTS (default "ETHUSDT.BINANCE,BTCUSDT.BINANCE,SOLUSDT.BINANCE"),
+     TREND_RISK_FRAC (default 0.0667), TREND_ENTRY_LB (168), TREND_EXIT_LB (72).
 
 Validate wiring offline:  python live_trend.py --check
 """
@@ -27,10 +28,9 @@ from nautilus_trader.live.node import TradingNode
 from nautilus_trader.model.data import BarType
 
 _HERE = Path(__file__).resolve().parent
-for _p in (str(_HERE), str(_HERE.parent / "nautilus_equity")):
-    if _p not in sys.path:
-        sys.path.insert(0, _p)
-from honest_trend_equity import HonestTrendEquity, HonestTrendEquityConfig  # noqa: E402
+if str(_HERE) not in sys.path:
+    sys.path.insert(0, str(_HERE))
+from donchian import DonchianBreakout, DonchianBreakoutConfig  # noqa: E402
 
 
 def _secret() -> str:
@@ -72,19 +72,21 @@ def build_node() -> TradingNode:
     node.add_exec_client_factory("BINANCE", BinanceLiveExecClientFactory)
     node.build()
 
-    instrument = os.environ.get("TREND_INSTRUMENT", "BTCUSDT.BINANCE")
-    bar_spec = os.environ.get("BINANCE_BAR", "15-MINUTE-LAST-EXTERNAL")
-    fng = os.environ.get("FNG_CSV")
-    strategy = HonestTrendEquity(HonestTrendEquityConfig(
-        instrument_id=instrument,
-        bar_type=BarType.from_str(f"{instrument}-{bar_spec}"),
-        ema_fast=72, ema_slow=144, adx_period=14, adx_threshold=18.0,
-        vol_window=96, min_hold_bars=48, risk_frac=0.10,
-        stop_loss_pct=0.0, rth_only=False,
-        regime_csv=fng if (fng and Path(fng).exists()) else None,
-        regime_threshold=80.0, regime_mode="block_above",
-    ))
-    node.trader.add_strategy(strategy)
+    instruments = os.environ.get(
+        "TREND_INSTRUMENTS", "ETHUSDT.BINANCE,BTCUSDT.BINANCE,SOLUSDT.BINANCE"
+    ).split(",")
+    bar_spec = os.environ.get("BINANCE_BAR", "1-HOUR-LAST-EXTERNAL")
+    risk = float(os.environ.get("TREND_RISK_FRAC", "0.0667"))
+    entry_lb = int(os.environ.get("TREND_ENTRY_LB", "168"))
+    exit_lb = int(os.environ.get("TREND_EXIT_LB", "72"))
+
+    for iid in (s.strip() for s in instruments if s.strip()):
+        node.trader.add_strategy(DonchianBreakout(DonchianBreakoutConfig(
+            instrument_id=iid,
+            bar_type=BarType.from_str(f"{iid}-{bar_spec}"),
+            entry_lb=entry_lb, exit_lb=exit_lb, risk_frac=risk,
+            order_id_tag=iid.split(".")[0][:8],  # distinct per instance
+        )))
     return node
 
 
@@ -95,7 +97,7 @@ def main() -> int:
         or (os.environ.get("BINANCE_API_SECRET_FILE") and Path(os.environ["BINANCE_API_SECRET_FILE"]).exists())
     )
     node = build_node()
-    print(f"Trend TradingNode built OK (venue={BINANCE_VENUE}, "
+    print(f"Trend (Donchian) TradingNode built OK (venue={BINANCE_VENUE}, "
           f"testnet={os.environ.get('BINANCE_TESTNET','1') != '0'})")
     if check_only or not has_keys:
         if not has_keys:

@@ -14,7 +14,7 @@ let
 
   app = pkgs.runCommand "nautilus-trend-app" { } ''
     mkdir -p $out/app
-    for f in live_trend.py honest_trend_equity.py regime_gate.py kelly_sizer.py crypto_data.py fetch_fng.py; do
+    for f in live_trend.py donchian.py honest_trend_equity.py regime_gate.py kelly_sizer.py crypto_data.py fetch_fng.py; do
       cp ${./.}/$f $out/app/$f
     done
   '';
@@ -33,16 +33,34 @@ in
       description = "The nautilus-trader python package.";
     };
 
-    instrument = mkOption {
-      type = types.str;
-      default = "BTCUSDT.BINANCE";
-      description = "Nautilus instrument id to trade.";
+    instruments = mkOption {
+      type = types.listOf types.str;
+      default = [ "ETHUSDT.BINANCE" "BTCUSDT.BINANCE" "SOLUSDT.BINANCE" ];
+      description = "Instrument ids for the Donchian breakout (one strategy instance each).";
     };
 
     barSpec = mkOption {
       type = types.str;
-      default = "15-MINUTE-LAST-EXTERNAL";
-      description = "Bar type spec (HonestTrend15mProtections uses 15m).";
+      default = "1-HOUR-LAST-EXTERNAL";
+      description = "Bar type spec. Donchian winner uses 1h.";
+    };
+
+    riskFrac = mkOption {
+      type = types.float;
+      default = 0.0667;
+      description = "Fraction of equity per instrument (3 × 6.67% ≈ 20% total).";
+    };
+
+    entryLb = mkOption {
+      type = types.int;
+      default = 168;
+      description = "Donchian entry lookback (bars).";
+    };
+
+    exitLb = mkOption {
+      type = types.int;
+      default = 72;
+      description = "Donchian exit lookback (bars).";
     };
 
     testnet = mkOption {
@@ -85,7 +103,10 @@ in
       environment = {
         BINANCE_TESTNET = if cfg.testnet then "1" else "0";
         BINANCE_BAR = cfg.barSpec;
-        TREND_INSTRUMENT = cfg.instrument;
+        TREND_INSTRUMENTS = concatStringsSep "," cfg.instruments;
+        TREND_RISK_FRAC = toString cfg.riskFrac;
+        TREND_ENTRY_LB = toString cfg.entryLb;
+        TREND_EXIT_LB = toString cfg.exitLb;
         FNG_CSV = fngCsv;
         SSL_CERT_FILE = caBundle;
         NIX_SSL_CERT_FILE = caBundle;
