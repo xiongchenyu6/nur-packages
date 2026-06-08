@@ -49,30 +49,34 @@ def _instruments() -> list[str]:
 
 
 def build_node() -> TradingNode:
-    # Mainnet public data only. The data client can read public bars without trading creds;
-    # keys are passed through only if provided (e.g. to lift anonymous rate limits). A
-    # placeholder lets build() validate wiring offline without ever connecting.
-    api_key = os.environ.get("BINANCE_API_KEY") or "PUBLIC_DATA_ONLY"
+    # Mainnet public data only. Instruments + bars load anonymously via Binance's public
+    # exchangeInfo / WebSocket — NO keys needed. Critically, we must pass *no* key when none
+    # is set: a placeholder/garbage key forces an authenticated fee-tier call that hard-fails
+    # (-2008 Invalid Api-Key) and aborts instrument loading. Keys are threaded through only
+    # if genuinely provided (e.g. a real read-only mainnet key to lift anon rate limits).
+    api_key = os.environ.get("BINANCE_API_KEY") or None
     api_secret = os.environ.get("BINANCE_API_SECRET")
     if not api_secret:
         secret_file = os.environ.get("BINANCE_API_SECRET_FILE")
         if secret_file and Path(secret_file).exists():
             api_secret = Path(secret_file).read_text().strip()
-    api_secret = api_secret or "PUBLIC_DATA_ONLY"
+    api_secret = api_secret or None
 
     provider = InstrumentProviderConfig(load_all=True)
+    data_client_kwargs = dict(
+        account_type=BinanceAccountType.SPOT,
+        environment=BinanceEnvironment.LIVE,  # mainnet prices; no exec client = no trading
+        instrument_provider=provider,
+    )
+    # Only include creds when present so the adapter takes the anonymous public path otherwise.
+    if api_key and api_secret:
+        data_client_kwargs["api_key"] = api_key
+        data_client_kwargs["api_secret"] = api_secret
+
     config = TradingNodeConfig(
         trader_id="SIGNAL-001",
         logging=LoggingConfig(log_level="INFO"),
-        data_clients={
-            "BINANCE": BinanceDataClientConfig(
-                api_key=api_key,
-                api_secret=api_secret,
-                account_type=BinanceAccountType.SPOT,
-                environment=BinanceEnvironment.LIVE,  # mainnet prices; no exec client = no trading
-                instrument_provider=provider,
-            )
-        },
+        data_clients={"BINANCE": BinanceDataClientConfig(**data_client_kwargs)},
         # No exec_clients — this node cannot place orders.
     )
 
