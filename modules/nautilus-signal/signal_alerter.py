@@ -41,7 +41,14 @@ class SignalAlerter(Actor):
             self.subscribe_bars(bt)
             self._spike[iid] = SpikeDetector()
             self._dip[iid] = DipDetector()
-        if not self._notifier.enabled:
+        if self._notifier.enabled:
+            syms = ", ".join(iid.split(".")[0] for iid in self._iids)
+            # One-time heartbeat: confirms the live creds→Telegram path and tells the
+            # operator the node is watching. Only re-fires on restart/redeploy.
+            self._notifier.send(
+                f"🟢 *Signal node online*\nWatching {syms} for spike + accumulation-dip alerts."
+            )
+        else:
             self.log.warning(
                 "SignalAlerter: TelegramNotifier disabled (no creds) — detecting but not sending"
             )
