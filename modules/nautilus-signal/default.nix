@@ -74,11 +74,14 @@ in
   };
 
   config = mkIf cfg.enable {
+    # The nautilus user is shared across the nautilus-* services. Declare it with
+    # mkDefault so co-enabling nautilus-accumulator (which sets a literal description)
+    # doesn't conflict, while this module still works standalone.
     users.users = mkIf (cfg.user == "nautilus") {
       nautilus = {
         isSystemUser = true;
         group = cfg.group;
-        description = "nautilus services runner";
+        description = mkDefault "nautilus services runner";
       };
     };
     users.groups = mkIf (cfg.group == "nautilus") { nautilus = { }; };
