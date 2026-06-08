@@ -11,13 +11,14 @@ let
   cfg = config.services.nautilus-accumulator;
 
   # Python env with the NUR nautilus-trader package (pandas etc. come transitively).
-  pythonEnv = pkgs.python313.withPackages (_: [ cfg.package ]);
+  pythonEnv = pkgs.python313.withPackages (ps: [ cfg.package ps.psycopg2 ]);
 
   app = pkgs.runCommand "nautilus-accumulator-app" { } ''
     mkdir -p $out/app
     cp ${./live_accumulation.py} $out/app/live_accumulation.py
     cp ${./accumulator.py}       $out/app/accumulator.py
     cp ${./crypto_data.py}       $out/app/crypto_data.py
+    cp ${./trade_ledger.py}      $out/app/trade_ledger.py
     cp ${./fetch_fng.py}         $out/app/fetch_fng.py
   '';
 
@@ -118,6 +119,7 @@ in
 
       environment = {
         BINANCE_TESTNET = if cfg.testnet then "1" else "0";
+        NAUTILUS_ENV = if cfg.testnet then "testnet" else "live";
         BINANCE_BAR = cfg.barSpec;
         ACC_INSTRUMENT = cfg.instrument;
         ACC_BASE_BUY_USD = toString cfg.baseBuyUsd;

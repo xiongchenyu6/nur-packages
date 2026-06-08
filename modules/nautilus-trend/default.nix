@@ -10,11 +10,11 @@ with lib;
 let
   cfg = config.services.nautilus-trend;
 
-  pythonEnv = pkgs.python313.withPackages (_: [ cfg.package ]);
+  pythonEnv = pkgs.python313.withPackages (ps: [ cfg.package ps.psycopg2 ]);
 
   app = pkgs.runCommand "nautilus-trend-app" { } ''
     mkdir -p $out/app
-    for f in live_trend.py donchian.py honest_trend_equity.py regime_gate.py kelly_sizer.py crypto_data.py fetch_fng.py; do
+    for f in live_trend.py donchian.py trade_ledger.py honest_trend_equity.py regime_gate.py kelly_sizer.py crypto_data.py fetch_fng.py; do
       cp ${./.}/$f $out/app/$f
     done
   '';
@@ -102,6 +102,7 @@ in
 
       environment = {
         BINANCE_TESTNET = if cfg.testnet then "1" else "0";
+        NAUTILUS_ENV = if cfg.testnet then "testnet" else "live";
         BINANCE_BAR = cfg.barSpec;
         TREND_INSTRUMENTS = concatStringsSep "," cfg.instruments;
         TREND_RISK_FRAC = toString cfg.riskFrac;
