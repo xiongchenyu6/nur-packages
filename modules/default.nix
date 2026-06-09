@@ -31,4 +31,5 @@
   nautilus-accumulator = import ./nautilus-accumulator;
   nautilus-trend = import ./nautilus-trend;
   nautilus-signal = import ./nautilus-signal;
+  nautilus-equity-trend = import ./nautilus-equity-trend;
 }
