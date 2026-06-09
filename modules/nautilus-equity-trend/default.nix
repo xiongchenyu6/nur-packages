@@ -86,6 +86,16 @@ in
       description = "Slow EMA period (EQ_EMA_SLOW). Recommended live config: 100.";
     };
 
+    quotePerBaseFx = mkOption {
+      type = types.float;
+      default = 1.0;
+      description = ''
+        USD per 1 unit of the account base currency (EQ_QUOTE_PER_BASE_FX). The IB paper
+        account base is SGD, so set this to ~0.74 (USD/SGD) or the strategy sizes off raw
+        SGD and over-buys ~1.35x. Leave 1.0 only for a USD-base account.
+      '';
+    };
+
     account = mkOption {
       type = types.str;
       default = "DUQ654554";
@@ -180,6 +190,7 @@ in
         IB_BAR = cfg.barSpec;
         EQ_EMA_FAST = toString cfg.emaFast;
         EQ_EMA_SLOW = toString cfg.emaSlow;
+        EQ_QUOTE_PER_BASE_FX = toString cfg.quotePerBaseFx;
         # Trade-ledger persistence: tags rows asset_class='equity' (set in the strategy)
         # and environment=NAUTILUS_ENV. TIMESCALE_URL comes from environmentFile (sops).
         NAUTILUS_ENV = cfg.environment;
