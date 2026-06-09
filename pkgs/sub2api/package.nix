@@ -37,6 +37,15 @@ let
       fetcherVersion = 3;
     };
 
+    # The frontend imports legal markdown from the repo-root `docs/legal`
+    # directory (e.g. `../../../../docs/legal/admin-compliance.zh.md?raw`),
+    # which lives outside the `frontend/` source root. Make it available
+    # as a sibling of the build root before Vite resolves the imports.
+    preBuild = ''
+      cp -r ${sources.sub2api.src}/docs ../docs
+      chmod -R u+w ../docs
+    '';
+
     buildPhase = ''
       runHook preBuild
       pnpm build
@@ -63,6 +72,12 @@ buildGo126Module (
       "-X main.Version=${version}"
     ];
     doCheck = false;
+
+    # go.mod pins a go patch release newer than the one nixpkgs ships;
+    # relax the directive so the available toolchain is accepted.
+    postPatch = ''
+      substituteInPlace backend/go.mod --replace-fail "go 1.26.4" "go 1.26.3"
+    '';
 
     preBuild = ''
       cp -r ${frontend} internal/web/dist

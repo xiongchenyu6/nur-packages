@@ -25,7 +25,7 @@ let
 
   app = pkgs.runCommand "nautilus-equity-trend-app" { } ''
     mkdir -p $out/app
-    for f in live_honest_equity.py honest_trend_equity.py regime_gate.py kelly_sizer.py; do
+    for f in live_honest_equity.py honest_trend_equity.py regime_gate.py kelly_sizer.py trade_ledger.py; do
       cp ${./.}/$f $out/app/$f
     done
   '';
@@ -86,6 +86,16 @@ in
       description = "Slow EMA period (EQ_EMA_SLOW). Recommended live config: 100.";
     };
 
+    quotePerBaseFx = mkOption {
+      type = types.float;
+      default = 1.0;
+      description = ''
+        USD per 1 unit of the account base currency (EQ_QUOTE_PER_BASE_FX). The IB paper
+        account base is SGD, so set this to ~0.74 (USD/SGD) or the strategy sizes off raw
+        SGD and over-buys ~1.35x. Leave 1.0 only for a USD-base account.
+      '';
+    };
+
     account = mkOption {
       type = types.str;
       default = "DUQ654554";
@@ -106,6 +116,28 @@ in
       type = types.str;
       default = "127.0.0.1";
       description = "IB Gateway/TWS host (IB_HOST). Default 127.0.0.1 — co-located with the Gateway.";
+    };
+
+    environmentFile = mkOption {
+      type = types.nullOr types.path;
+      default = null;
+      description = ''
+        Optional EnvironmentFile carrying TIMESCALE_URL so the node persists fills /
+        closed positions to quant.nautilus_trades (asset_class='equity'), mirroring the
+        crypto nautilus-accumulator/nautilus-trend services. Point it at a sops template
+        (e.g. config.sops.templates."nautilus-equity.env".path) holding
+        `TIMESCALE_URL=postgres://quant:<pw>@db.panda.qzz.io:5432/api?sslmode=require`.
+        When null the ledger is a no-op (TIMESCALE_URL unset) — trading is unaffected.
+      '';
+    };
+
+    environment = mkOption {
+      type = types.enum [ "testnet" "live" ];
+      default = "testnet";
+      description = ''
+        NAUTILUS_ENV value recorded in quant.nautilus_trades.environment. The equity node
+        is PAPER-only, so this stays "testnet" (the dashboard segregates testnet vs live).
+      '';
     };
 
     port = mkOption {
@@ -158,6 +190,10 @@ in
         IB_BAR = cfg.barSpec;
         EQ_EMA_FAST = toString cfg.emaFast;
         EQ_EMA_SLOW = toString cfg.emaSlow;
+        EQ_QUOTE_PER_BASE_FX = toString cfg.quotePerBaseFx;
+        # Trade-ledger persistence: tags rows asset_class='equity' (set in the strategy)
+        # and environment=NAUTILUS_ENV. TIMESCALE_URL comes from environmentFile (sops).
+        NAUTILUS_ENV = cfg.environment;
         SSL_CERT_FILE = caBundle;
         NIX_SSL_CERT_FILE = caBundle;
         PYTHONUNBUFFERED = "1";
@@ -166,6 +202,8 @@ in
       serviceConfig = {
         Type = "exec";
         ExecStart = "${pythonEnv}/bin/python ${app}/app/live_honest_equity.py";
+        # Optional: carries TIMESCALE_URL so the node writes quant.nautilus_trades.
+        EnvironmentFile = mkIf (cfg.environmentFile != null) cfg.environmentFile;
         User = cfg.user;
         Group = cfg.group;
         Restart = "on-failure";
