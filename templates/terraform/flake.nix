@@ -38,7 +38,7 @@
           devShells.default = pkgs.mkShell {
             TENV_AUTO_INSTALL = true;
             nativeBuildInputs = with pkgs; [
-              nixfmt-rfc-style
+              nixfmt
               nixd
               terraform
               terraform-ls

@@ -38,7 +38,7 @@
         in
         {
           devShells.default = pkgs.mkShell (with pkgs; {
-            nativeBuildInputs = [ nixfmt-rfc-style nixd ];
+            nativeBuildInputs = [ nixfmt nixd ];
             buildInputs =  [
               gnupg
               autoconf

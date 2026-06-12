@@ -39,7 +39,7 @@
                 lib-path = lib.makeLibraryPath (
                   with pkgs;
                   lib.optionals stdenv.isLinux [
-                    nixfmt-rfc-style
+                    nixfmt
                     nixd
                     stdenv.cc.cc
                   ]

@@ -38,7 +38,7 @@
                 ];
               nativeBuildInputs = [
                 pkg-config
-                nixfmt-rfc-style
+                nixfmt
                 nixd
                 rustc
                 cargo

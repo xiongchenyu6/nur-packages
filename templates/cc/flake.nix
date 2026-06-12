@@ -29,7 +29,7 @@
         {
           devShells.default = pkgs.mkShell.override { stdenv = pkgs.clangStdenv; } {
             nativeBuildInputs = with pkgs; [
-              nixfmt-rfc-style
+              nixfmt
               nixd
               clang
               bear

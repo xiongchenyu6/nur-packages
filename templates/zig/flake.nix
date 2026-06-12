@@ -29,7 +29,7 @@
         {
           devShells.default = pkgs.mkShell {
             nativeBuildInputs = with pkgs; [
-              nixfmt-rfc-style
+              nixfmt
               nixd
               zig
               zigimports

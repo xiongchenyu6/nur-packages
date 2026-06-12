@@ -42,14 +42,14 @@
               lib-path = lib.makeLibraryPath (
                 with pkgs;
                 lib.optionals stdenv.isLinux [
-                  nixfmt-rfc-style
+                  nixfmt
                   stdenv.cc.cc
                 ]
               );
             in
             pkgs.mkShell {
               buildInputs = with pkgs; [
-                nixfmt-rfc-style
+                nixfmt
                 nixd
                 nodejs
                 self'.packages.default

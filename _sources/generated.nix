@@ -22,31 +22,31 @@
   };
   combobulate = {
     pname = "combobulate";
-    version = "cd33e21df33ea19ebac8cd3c735a26db6fcbd841";
+    version = "a91c3f20fa61e11810985c0ba02784bcc076ff01";
     src = fetchgit {
       url = "https://github.com/mickeynp/combobulate.git";
-      rev = "cd33e21df33ea19ebac8cd3c735a26db6fcbd841";
+      rev = "a91c3f20fa61e11810985c0ba02784bcc076ff01";
       fetchSubmodules = false;
       deepClone = false;
       leaveDotGit = false;
       sparseCheckout = [ ];
-      sha256 = "sha256-4RRh9bJ+k/86P+S/CMn0YA7mlmUKnWMitq8cVXld6SI=";
+      sha256 = "sha256-30dpkV+WkejXJY1QgJnFjgQwgMMXhc+r5AO7ANieVnY=";
     };
-    date = "2026-06-09";
+    date = "2026-06-17";
   };
   copilot-el = {
     pname = "copilot-el";
-    version = "ab5c58bc969f52f6d75e972658f2c3381c70b4fa";
+    version = "c72f9b28ac94320bed28d9887fe3c8322f034d4d";
     src = fetchgit {
       url = "https://github.com/zerolfx/copilot.el.git";
-      rev = "ab5c58bc969f52f6d75e972658f2c3381c70b4fa";
+      rev = "c72f9b28ac94320bed28d9887fe3c8322f034d4d";
       fetchSubmodules = false;
       deepClone = false;
       leaveDotGit = false;
       sparseCheckout = [ ];
-      sha256 = "sha256-hXZsu/pDE0/Li+GcFbC9ObbY4N1sVWDZ48CJfDrJmL4=";
+      sha256 = "sha256-4T1YceEPDjiRl+i/gSmjYYxX38VaucWfhJ5JRV6UFrs=";
     };
-    date = "2026-03-31";
+    date = "2026-06-17";
   };
   gotron-sdk = {
     pname = "gotron-sdk";
@@ -61,17 +61,17 @@
   };
   gptel = {
     pname = "gptel";
-    version = "6589abf7c51143f9424f3e402b29dd7755408781";
+    version = "983cb1fece13b245b99da252b396cc163f591b09";
     src = fetchgit {
       url = "https://github.com/karthink/gptel.git";
-      rev = "6589abf7c51143f9424f3e402b29dd7755408781";
+      rev = "983cb1fece13b245b99da252b396cc163f591b09";
       fetchSubmodules = false;
       deepClone = false;
       leaveDotGit = false;
       sparseCheckout = [ ];
-      sha256 = "sha256-LnskwoXxVMrrWaHdnORVt8/nmb7zfiJ9aeby4Vu98vw=";
+      sha256 = "sha256-/9CoOa6CpGrxNQUSqW4nSOzxacDhRjCdf9C5uZ/C50U=";
     };
-    date = "2026-06-10";
+    date = "2026-06-16";
   };
   hashtopolis-agent = {
     pname = "hashtopolis-agent";
@@ -170,34 +170,34 @@
   };
   openagent-darwin-arm64 = {
     pname = "openagent-darwin-arm64";
-    version = "v2.39.3";
+    version = "v2.47.1";
     src = fetchurl {
-      url = "https://github.com/the-open-agent/openagent/releases/download/v2.39.3/openagent_darwin_arm64";
-      sha256 = "sha256-IbOmi8aNhbeMaq0ashAcUErBt9A5tiz+jsJU3kONRMs=";
+      url = "https://github.com/the-open-agent/openagent/releases/download/v2.47.1/openagent_darwin_arm64";
+      sha256 = "sha256-FgGkzE0oiaj68DodO1FYlOm55C4cPEcNWXMSny8TnXw=";
     };
   };
   openagent-darwin-x86_64 = {
     pname = "openagent-darwin-x86_64";
-    version = "v2.39.3";
+    version = "v2.47.1";
     src = fetchurl {
-      url = "https://github.com/the-open-agent/openagent/releases/download/v2.39.3/openagent_darwin_x86";
-      sha256 = "sha256-JzjGTfSPWKtjFGUOX0AqjZxzFIe/K9ikZNxwn/FPpv4=";
+      url = "https://github.com/the-open-agent/openagent/releases/download/v2.47.1/openagent_darwin_x86";
+      sha256 = "sha256-7BshRk96DNEjtgsrSabtay1jEGVv/Ytq7KI99846iKk=";
     };
   };
   openagent-linux-arm64 = {
     pname = "openagent-linux-arm64";
-    version = "v2.39.3";
+    version = "v2.47.1";
     src = fetchurl {
-      url = "https://github.com/the-open-agent/openagent/releases/download/v2.39.3/openagent_linux_arm64";
-      sha256 = "sha256-TaknxlaWYf7d3cgfBh6ADHDyzh99/kZLJDoSFrw1LT4=";
+      url = "https://github.com/the-open-agent/openagent/releases/download/v2.47.1/openagent_linux_arm64";
+      sha256 = "sha256-Nnl2DcJB/z9mUMbo8oL2N3xJDADwlx4x8K+ztnOMoi0=";
     };
   };
   openagent-linux-x86_64 = {
     pname = "openagent-linux-x86_64";
-    version = "v2.39.3";
+    version = "v2.47.1";
     src = fetchurl {
-      url = "https://github.com/the-open-agent/openagent/releases/download/v2.39.3/openagent_linux_x86";
-      sha256 = "sha256-n8QWUFMPNyIzY0UmffMTRsV34OChZC/oY/UBaV/qQuI=";
+      url = "https://github.com/the-open-agent/openagent/releases/download/v2.47.1/openagent_linux_x86";
+      sha256 = "sha256-ZyNLxyralSXPdORgwOqLegmztVabiw5Uq42ggfpI2FI=";
     };
   };
   org-cv = {
@@ -216,43 +216,43 @@
   };
   sub2api = {
     pname = "sub2api";
-    version = "v0.1.136";
+    version = "v0.1.137";
     src = fetchFromGitHub {
       owner = "Wei-Shaw";
       repo = "sub2api";
-      rev = "v0.1.136";
+      rev = "v0.1.137";
       fetchSubmodules = false;
-      sha256 = "sha256-yzEHmf8JcN42tfZDkwBb1A7MQ66K6JQZwisiv2hH1WE=";
+      sha256 = "sha256-EtrbY7LXxqT7bLjVcJ/TCQR6fEhxe403XINiXIm4ntI=";
     };
   };
   sui = {
     pname = "sui";
-    version = "testnet-v1.73.1";
+    version = "mainnet-v1.73.2";
     src = fetchurl {
-      url = "https://github.com/MystenLabs/sui/releases/download/testnet-v1.73.1/sui-testnet-v1.73.1-ubuntu-x86_64.tgz";
-      sha256 = "sha256-ZYrQAJv3ORr8ndv5RUiNKuCbPX2TyIIiqf2cifzGuWM=";
+      url = "https://github.com/MystenLabs/sui/releases/download/mainnet-v1.73.2/sui-mainnet-v1.73.2-ubuntu-x86_64.tgz";
+      sha256 = "sha256-EYlODmXWywbPH6JD3+IYvUQT6nZ3YAo7D3yniGOkqeA=";
     };
   };
   supabase-realtime = {
     pname = "supabase-realtime";
-    version = "v2.105.2";
+    version = "v2.108.0";
     src = fetchFromGitHub {
       owner = "supabase";
       repo = "realtime";
-      rev = "v2.105.2";
+      rev = "v2.108.0";
       fetchSubmodules = false;
-      sha256 = "sha256-eBw/CR0wvxVsDg91VLf+hE68ttVWZzYf79XPlO3xBDE=";
+      sha256 = "sha256-E+w/UvlWCmAS7PWLMaqB2pqVRGZQ+UpxyLo4C8kkTLU=";
     };
   };
   xiaohongshu-mcp = {
     pname = "xiaohongshu-mcp";
-    version = "v2026.05.28.0902-17500db";
+    version = "v2026.06.12.1403-5c43e3d";
     src = fetchFromGitHub {
       owner = "xpzouying";
       repo = "xiaohongshu-mcp";
-      rev = "v2026.05.28.0902-17500db";
+      rev = "v2026.06.12.1403-5c43e3d";
       fetchSubmodules = false;
-      sha256 = "sha256-AfT8DWvoSHt8BKnQTf6Rq6JCo4ySwiCe7bHXydbXhWA=";
+      sha256 = "sha256-3zhFsFwjxBGovJoQRb58NaT2NLmZBytN2K2AqnD3oXA=";
     };
   };
 }
