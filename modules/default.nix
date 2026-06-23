@@ -22,6 +22,7 @@
   gotrue-supabase = import ./gotrue-supabase;
   xiaohongshu-mcp = import ./xiaohongshu-mcp;
   cc-gateway = import ./cc-gateway;
+  codexpro = import ./codexpro;
   sub2api = import ./sub2api;
   webhook-upgrade = import ./webhook-upgrade;
   dify = import ./dify;

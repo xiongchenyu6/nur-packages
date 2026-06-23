@@ -124,6 +124,9 @@ in
   # cc-gateway package
   cc-gateway = pkgs.callPackage ./pkgs/cc-gateway/package.nix { };
 
+  # codexpro - self-hosted MCP server bridging ChatGPT to a local workspace
+  codexpro = pkgs.callPackage ./pkgs/codexpro/package.nix { };
+
   # Supabase Realtime
   supabase-realtime =
     if isLinux then pkgs.callPackage ./pkgs/supabase-realtime/package.nix { } else null;

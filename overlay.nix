@@ -174,6 +174,9 @@ in
 
   cc-gateway = prev.callPackage ./pkgs/cc-gateway/package.nix { };
 
+  # codexpro - self-hosted MCP server bridging ChatGPT to a local workspace
+  codexpro = prev.callPackage ./pkgs/codexpro/package.nix { };
+
   # Sub2API package
   sub2api = prev.callPackage ./pkgs/sub2api/package.nix { };
 
