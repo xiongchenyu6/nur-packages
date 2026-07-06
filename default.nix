@@ -127,6 +127,9 @@ in
   # codexpro - self-hosted MCP server bridging ChatGPT to a local workspace
   codexpro = pkgs.callPackage ./pkgs/codexpro/package.nix { };
 
+  # LarkSuite CLI
+  larksuite-cli = pkgs.callPackage ./pkgs/larksuite-cli/package.nix { };
+
   # Supabase Realtime
   supabase-realtime =
     if isLinux then pkgs.callPackage ./pkgs/supabase-realtime/package.nix { } else null;

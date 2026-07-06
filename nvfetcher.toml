@@ -131,6 +131,31 @@ fetch.url = "https://github.com/the-open-agent/openagent/releases/download/$ver/
 src.github = "the-open-agent/openagent"
 fetch.url = "https://github.com/the-open-agent/openagent/releases/download/$ver/openagent_darwin_arm64"
 
+[larksuite-cli-linux-x86_64]
+src.github_tag = "larksuite/cli"
+src.prefix = "v"
+fetch.url = "https://github.com/larksuite/cli/releases/download/v$ver/lark-cli-$ver-linux-amd64.tar.gz"
+
+[larksuite-cli-linux-arm64]
+src.github_tag = "larksuite/cli"
+src.prefix = "v"
+fetch.url = "https://github.com/larksuite/cli/releases/download/v$ver/lark-cli-$ver-linux-arm64.tar.gz"
+
+[larksuite-cli-linux-riscv64]
+src.github_tag = "larksuite/cli"
+src.prefix = "v"
+fetch.url = "https://github.com/larksuite/cli/releases/download/v$ver/lark-cli-$ver-linux-riscv64.tar.gz"
+
+[larksuite-cli-darwin-x86_64]
+src.github_tag = "larksuite/cli"
+src.prefix = "v"
+fetch.url = "https://github.com/larksuite/cli/releases/download/v$ver/lark-cli-$ver-darwin-amd64.tar.gz"
+
+[larksuite-cli-darwin-arm64]
+src.github_tag = "larksuite/cli"
+src.prefix = "v"
+fetch.url = "https://github.com/larksuite/cli/releases/download/v$ver/lark-cli-$ver-darwin-arm64.tar.gz"
+
 [hashtopolis-server]
 src.github_tag = "hashtopolis/server"
 src.include_regex = "v.*-rainbow.*"

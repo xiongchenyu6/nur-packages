@@ -117,6 +117,46 @@
       sha256 = "sha256-jznXK+YlPjglafrTA1jlCuxKkZSetgk9GeY0FWxnHy4=";
     };
   };
+  larksuite-cli-darwin-arm64 = {
+    pname = "larksuite-cli-darwin-arm64";
+    version = "1.0.65";
+    src = fetchurl {
+      url = "https://github.com/larksuite/cli/releases/download/v1.0.65/lark-cli-1.0.65-darwin-arm64.tar.gz";
+      sha256 = "sha256-kTXgQSz2vLDObm3jMIuoePbxaoh69GyAa9qhfX2G52g=";
+    };
+  };
+  larksuite-cli-darwin-x86_64 = {
+    pname = "larksuite-cli-darwin-x86_64";
+    version = "1.0.65";
+    src = fetchurl {
+      url = "https://github.com/larksuite/cli/releases/download/v1.0.65/lark-cli-1.0.65-darwin-amd64.tar.gz";
+      sha256 = "sha256-fYpFOa3isb2kaTbOripz5CpBTkRKdbni4POSlLjmGwc=";
+    };
+  };
+  larksuite-cli-linux-arm64 = {
+    pname = "larksuite-cli-linux-arm64";
+    version = "1.0.65";
+    src = fetchurl {
+      url = "https://github.com/larksuite/cli/releases/download/v1.0.65/lark-cli-1.0.65-linux-arm64.tar.gz";
+      sha256 = "sha256-8/EaLhY7LqlpiuTF+SOk+8ooJ09EzQpGib91iPIpJC4=";
+    };
+  };
+  larksuite-cli-linux-riscv64 = {
+    pname = "larksuite-cli-linux-riscv64";
+    version = "1.0.65";
+    src = fetchurl {
+      url = "https://github.com/larksuite/cli/releases/download/v1.0.65/lark-cli-1.0.65-linux-riscv64.tar.gz";
+      sha256 = "sha256-3sSXTZZTgwEepk56oixAxNvuyailP1kwmPlixfVYLYw=";
+    };
+  };
+  larksuite-cli-linux-x86_64 = {
+    pname = "larksuite-cli-linux-x86_64";
+    version = "1.0.65";
+    src = fetchurl {
+      url = "https://github.com/larksuite/cli/releases/download/v1.0.65/lark-cli-1.0.65-linux-amd64.tar.gz";
+      sha256 = "sha256-LY+9M+edBu/NckOXHTpOGgSa2R0E8MqXIUxnMOEMJMg=";
+    };
+  };
   librime-lua = {
     pname = "librime-lua";
     version = "ec52e48ea18f11af37717a01c337f853215cf70b";

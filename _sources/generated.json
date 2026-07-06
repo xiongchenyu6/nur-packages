@@ -184,6 +184,81 @@
         },
         "version": "v2.3.4"
     },
+    "larksuite-cli-darwin-arm64": {
+        "cargoLock": null,
+        "date": null,
+        "extract": null,
+        "name": "larksuite-cli-darwin-arm64",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-kTXgQSz2vLDObm3jMIuoePbxaoh69GyAa9qhfX2G52g=",
+            "type": "url",
+            "url": "https://github.com/larksuite/cli/releases/download/v1.0.65/lark-cli-1.0.65-darwin-arm64.tar.gz"
+        },
+        "version": "1.0.65"
+    },
+    "larksuite-cli-darwin-x86_64": {
+        "cargoLock": null,
+        "date": null,
+        "extract": null,
+        "name": "larksuite-cli-darwin-x86_64",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-fYpFOa3isb2kaTbOripz5CpBTkRKdbni4POSlLjmGwc=",
+            "type": "url",
+            "url": "https://github.com/larksuite/cli/releases/download/v1.0.65/lark-cli-1.0.65-darwin-amd64.tar.gz"
+        },
+        "version": "1.0.65"
+    },
+    "larksuite-cli-linux-arm64": {
+        "cargoLock": null,
+        "date": null,
+        "extract": null,
+        "name": "larksuite-cli-linux-arm64",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-8/EaLhY7LqlpiuTF+SOk+8ooJ09EzQpGib91iPIpJC4=",
+            "type": "url",
+            "url": "https://github.com/larksuite/cli/releases/download/v1.0.65/lark-cli-1.0.65-linux-arm64.tar.gz"
+        },
+        "version": "1.0.65"
+    },
+    "larksuite-cli-linux-riscv64": {
+        "cargoLock": null,
+        "date": null,
+        "extract": null,
+        "name": "larksuite-cli-linux-riscv64",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-3sSXTZZTgwEepk56oixAxNvuyailP1kwmPlixfVYLYw=",
+            "type": "url",
+            "url": "https://github.com/larksuite/cli/releases/download/v1.0.65/lark-cli-1.0.65-linux-riscv64.tar.gz"
+        },
+        "version": "1.0.65"
+    },
+    "larksuite-cli-linux-x86_64": {
+        "cargoLock": null,
+        "date": null,
+        "extract": null,
+        "name": "larksuite-cli-linux-x86_64",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-LY+9M+edBu/NckOXHTpOGgSa2R0E8MqXIUxnMOEMJMg=",
+            "type": "url",
+            "url": "https://github.com/larksuite/cli/releases/download/v1.0.65/lark-cli-1.0.65-linux-amd64.tar.gz"
+        },
+        "version": "1.0.65"
+    },
     "librime-lua": {
         "cargoLock": null,
         "date": "2026-05-02",
