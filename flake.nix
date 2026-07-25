@@ -218,25 +218,27 @@
               update = {
                 type = "app";
                 program = builtins.toString (
-                  "${pkgs.writeShellApplication {
-                    name = "update";
-                    runtimeInputs = with pkgs; [
-                      bash
-                      coreutils
-                      git
-                      gnused
-                      jq
-                      nix
-                      nvfetcher
-                      perl
-                      ripgrep
-                    ];
-                    text = ''
-                      repo_root="$(git rev-parse --show-toplevel 2>/dev/null || pwd)"
-                      cd "$repo_root"
-                      bash ./scripts/update.sh
-                    '';
-                  }}/bin/update"
+                  "${
+                    pkgs.writeShellApplication {
+                      name = "update";
+                      runtimeInputs = with pkgs; [
+                        bash
+                        coreutils
+                        git
+                        gnused
+                        jq
+                        nix
+                        nvfetcher
+                        perl
+                        ripgrep
+                      ];
+                      text = ''
+                        repo_root="$(git rev-parse --show-toplevel 2>/dev/null || pwd)"
+                        cd "$repo_root"
+                        bash ./scripts/update.sh
+                      '';
+                    }
+                  }/bin/update"
                 );
               };
             };
@@ -255,6 +257,7 @@
           overlays.default = import ./overlay.nix;
 
           nixosModules = import ./modules;
+          homeModules = import ./modules/home.nix;
           templates = import ./templates;
         };
       }

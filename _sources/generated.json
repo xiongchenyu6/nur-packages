@@ -21,7 +21,7 @@
     },
     "combobulate": {
         "cargoLock": null,
-        "date": "2026-06-17",
+        "date": "2026-07-23",
         "extract": null,
         "name": "combobulate",
         "passthru": null,
@@ -31,17 +31,17 @@
             "fetchSubmodules": false,
             "leaveDotGit": false,
             "name": null,
-            "rev": "a91c3f20fa61e11810985c0ba02784bcc076ff01",
-            "sha256": "sha256-30dpkV+WkejXJY1QgJnFjgQwgMMXhc+r5AO7ANieVnY=",
+            "rev": "713bf3081f2d80cbd13ed175a808b242d9cc652d",
+            "sha256": "sha256-RbEd52oz0TqbqZDYjlClQFsXFRDqGnTdYoXSgdrk2Do=",
             "sparseCheckout": [],
             "type": "git",
             "url": "https://github.com/mickeynp/combobulate.git"
         },
-        "version": "a91c3f20fa61e11810985c0ba02784bcc076ff01"
+        "version": "713bf3081f2d80cbd13ed175a808b242d9cc652d"
     },
     "copilot-el": {
         "cargoLock": null,
-        "date": "2026-06-17",
+        "date": "2026-07-07",
         "extract": null,
         "name": "copilot-el",
         "passthru": null,
@@ -51,13 +51,13 @@
             "fetchSubmodules": false,
             "leaveDotGit": false,
             "name": null,
-            "rev": "c72f9b28ac94320bed28d9887fe3c8322f034d4d",
-            "sha256": "sha256-4T1YceEPDjiRl+i/gSmjYYxX38VaucWfhJ5JRV6UFrs=",
+            "rev": "277ca357422ba34bcf7fe650cb720580994eea84",
+            "sha256": "sha256-LYjZeBpQ8UOGoiFETyDF85fOFhKH1aQ/YwCOPfaARjo=",
             "sparseCheckout": [],
             "type": "git",
             "url": "https://github.com/zerolfx/copilot.el.git"
         },
-        "version": "c72f9b28ac94320bed28d9887fe3c8322f034d4d"
+        "version": "277ca357422ba34bcf7fe650cb720580994eea84"
     },
     "gotron-sdk": {
         "cargoLock": null,
@@ -82,7 +82,7 @@
     },
     "gptel": {
         "cargoLock": null,
-        "date": "2026-06-16",
+        "date": "2026-07-24",
         "extract": null,
         "name": "gptel",
         "passthru": null,
@@ -92,13 +92,13 @@
             "fetchSubmodules": false,
             "leaveDotGit": false,
             "name": null,
-            "rev": "983cb1fece13b245b99da252b396cc163f591b09",
-            "sha256": "sha256-/9CoOa6CpGrxNQUSqW4nSOzxacDhRjCdf9C5uZ/C50U=",
+            "rev": "f01c55cdc0c4b49c6c56e9d462831ada9d68f0f2",
+            "sha256": "sha256-An0w/w7ededQU4CJFccVFl8vC+TIB+GManTju0lx4CA=",
             "sparseCheckout": [],
             "type": "git",
             "url": "https://github.com/karthink/gptel.git"
         },
-        "version": "983cb1fece13b245b99da252b396cc163f591b09"
+        "version": "f01c55cdc0c4b49c6c56e9d462831ada9d68f0f2"
     },
     "hashtopolis-agent": {
         "cargoLock": null,
@@ -193,11 +193,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-kTXgQSz2vLDObm3jMIuoePbxaoh69GyAa9qhfX2G52g=",
+            "sha256": "sha256-2CxKhk69HiotlZQa7jnDTXuRB3xHLT+1mEt2gm759pM=",
             "type": "url",
-            "url": "https://github.com/larksuite/cli/releases/download/v1.0.65/lark-cli-1.0.65-darwin-arm64.tar.gz"
+            "url": "https://github.com/larksuite/cli/releases/download/v1.0.77/lark-cli-1.0.77-darwin-arm64.tar.gz"
         },
-        "version": "1.0.65"
+        "version": "1.0.77"
     },
     "larksuite-cli-darwin-x86_64": {
         "cargoLock": null,
@@ -208,11 +208,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-fYpFOa3isb2kaTbOripz5CpBTkRKdbni4POSlLjmGwc=",
+            "sha256": "sha256-EjazowH1Q+bX1DQFlRWVHQrPplN2ownuMcUzwjjwI9E=",
             "type": "url",
-            "url": "https://github.com/larksuite/cli/releases/download/v1.0.65/lark-cli-1.0.65-darwin-amd64.tar.gz"
+            "url": "https://github.com/larksuite/cli/releases/download/v1.0.77/lark-cli-1.0.77-darwin-amd64.tar.gz"
         },
-        "version": "1.0.65"
+        "version": "1.0.77"
     },
     "larksuite-cli-linux-arm64": {
         "cargoLock": null,
@@ -223,11 +223,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-8/EaLhY7LqlpiuTF+SOk+8ooJ09EzQpGib91iPIpJC4=",
+            "sha256": "sha256-PIP3tx9a7djjCgd58P+NAltKkrPzb6nMnF6p8HV+r8k=",
             "type": "url",
-            "url": "https://github.com/larksuite/cli/releases/download/v1.0.65/lark-cli-1.0.65-linux-arm64.tar.gz"
+            "url": "https://github.com/larksuite/cli/releases/download/v1.0.77/lark-cli-1.0.77-linux-arm64.tar.gz"
         },
-        "version": "1.0.65"
+        "version": "1.0.77"
     },
     "larksuite-cli-linux-riscv64": {
         "cargoLock": null,
@@ -238,11 +238,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-3sSXTZZTgwEepk56oixAxNvuyailP1kwmPlixfVYLYw=",
+            "sha256": "sha256-bmCcUcvSCXo+JV9ve8aIihcweO+h6MKw80B+uCv0xMM=",
             "type": "url",
-            "url": "https://github.com/larksuite/cli/releases/download/v1.0.65/lark-cli-1.0.65-linux-riscv64.tar.gz"
+            "url": "https://github.com/larksuite/cli/releases/download/v1.0.77/lark-cli-1.0.77-linux-riscv64.tar.gz"
         },
-        "version": "1.0.65"
+        "version": "1.0.77"
     },
     "larksuite-cli-linux-x86_64": {
         "cargoLock": null,
@@ -253,11 +253,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-LY+9M+edBu/NckOXHTpOGgSa2R0E8MqXIUxnMOEMJMg=",
+            "sha256": "sha256-WqnE/5sUuMVyx5f8rmt9lfhJgbHdHLdSDP0XZXKP9c0=",
             "type": "url",
-            "url": "https://github.com/larksuite/cli/releases/download/v1.0.65/lark-cli-1.0.65-linux-amd64.tar.gz"
+            "url": "https://github.com/larksuite/cli/releases/download/v1.0.77/lark-cli-1.0.77-linux-amd64.tar.gz"
         },
-        "version": "1.0.65"
+        "version": "1.0.77"
     },
     "librime-lua": {
         "cargoLock": null,
@@ -343,11 +343,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-FgGkzE0oiaj68DodO1FYlOm55C4cPEcNWXMSny8TnXw=",
+            "sha256": "sha256-3EjVVaexOVYjAVPlNQSBS0YEFmofqXYSr4F4WrFPpjI=",
             "type": "url",
-            "url": "https://github.com/the-open-agent/openagent/releases/download/v2.47.1/openagent_darwin_arm64"
+            "url": "https://github.com/the-open-agent/openagent/releases/download/v2.85.0/openagent_darwin_arm64"
         },
-        "version": "v2.47.1"
+        "version": "v2.85.0"
     },
     "openagent-darwin-x86_64": {
         "cargoLock": null,
@@ -358,11 +358,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-7BshRk96DNEjtgsrSabtay1jEGVv/Ytq7KI99846iKk=",
+            "sha256": "sha256-WoYMExgWohVZXmWYioYRcuFRsBTDyRHyu1fdU4foKew=",
             "type": "url",
-            "url": "https://github.com/the-open-agent/openagent/releases/download/v2.47.1/openagent_darwin_x86"
+            "url": "https://github.com/the-open-agent/openagent/releases/download/v2.85.0/openagent_darwin_x86"
         },
-        "version": "v2.47.1"
+        "version": "v2.85.0"
     },
     "openagent-linux-arm64": {
         "cargoLock": null,
@@ -373,11 +373,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-Nnl2DcJB/z9mUMbo8oL2N3xJDADwlx4x8K+ztnOMoi0=",
+            "sha256": "sha256-qmjmZ8ZWy+7zhu6NPNEOI657XBU7Lwd4H84SDkHvAzU=",
             "type": "url",
-            "url": "https://github.com/the-open-agent/openagent/releases/download/v2.47.1/openagent_linux_arm64"
+            "url": "https://github.com/the-open-agent/openagent/releases/download/v2.85.0/openagent_linux_arm64"
         },
-        "version": "v2.47.1"
+        "version": "v2.85.0"
     },
     "openagent-linux-x86_64": {
         "cargoLock": null,
@@ -388,11 +388,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-ZyNLxyralSXPdORgwOqLegmztVabiw5Uq42ggfpI2FI=",
+            "sha256": "sha256-I7p0j7Brg9urLgTyhAl1HTxfc7Tsg2W7C2VrYQ+hkFA=",
             "type": "url",
-            "url": "https://github.com/the-open-agent/openagent/releases/download/v2.47.1/openagent_linux_x86"
+            "url": "https://github.com/the-open-agent/openagent/releases/download/v2.85.0/openagent_linux_x86"
         },
-        "version": "v2.47.1"
+        "version": "v2.85.0"
     },
     "org-cv": {
         "cargoLock": null,
@@ -428,12 +428,12 @@
             "name": null,
             "owner": "Wei-Shaw",
             "repo": "sub2api",
-            "rev": "v0.1.137",
-            "sha256": "sha256-EtrbY7LXxqT7bLjVcJ/TCQR6fEhxe403XINiXIm4ntI=",
+            "rev": "v0.1.164",
+            "sha256": "sha256-4GtFTtKk41yGPCwepCtwDy94Faf4090lPXwTIBiJjew=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "v0.1.137"
+        "version": "v0.1.164"
     },
     "sui": {
         "cargoLock": null,
@@ -444,11 +444,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-EYlODmXWywbPH6JD3+IYvUQT6nZ3YAo7D3yniGOkqeA=",
+            "sha256": "sha256-SjTvIeVmUHcgZPlGkZ0mLZ4iECA0AH3M7DzDQYuTUF0=",
             "type": "url",
-            "url": "https://github.com/MystenLabs/sui/releases/download/mainnet-v1.73.2/sui-mainnet-v1.73.2-ubuntu-x86_64.tgz"
+            "url": "https://github.com/MystenLabs/sui/releases/download/testnet-v1.76.0/sui-testnet-v1.76.0-ubuntu-x86_64.tgz"
         },
-        "version": "mainnet-v1.73.2"
+        "version": "testnet-v1.76.0"
     },
     "supabase-realtime": {
         "cargoLock": null,
@@ -464,12 +464,12 @@
             "name": null,
             "owner": "supabase",
             "repo": "realtime",
-            "rev": "v2.108.0",
-            "sha256": "sha256-E+w/UvlWCmAS7PWLMaqB2pqVRGZQ+UpxyLo4C8kkTLU=",
+            "rev": "v2.119.3",
+            "sha256": "sha256-DuFuEKPTySpI3hZ8kA8cqGFxYUipHEJ/f1cHOk84osM=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "v2.108.0"
+        "version": "v2.119.3"
     },
     "xiaohongshu-mcp": {
         "cargoLock": null,
@@ -485,11 +485,11 @@
             "name": null,
             "owner": "xpzouying",
             "repo": "xiaohongshu-mcp",
-            "rev": "v2026.06.12.1403-5c43e3d",
-            "sha256": "sha256-3zhFsFwjxBGovJoQRb58NaT2NLmZBytN2K2AqnD3oXA=",
+            "rev": "v2026.07.23.0205-85aed8b",
+            "sha256": "sha256-3wpaSk6kWtP2kSgtLB3k/z2sWTUWJ2xpU5JFphSLUi8=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "v2026.06.12.1403-5c43e3d"
+        "version": "v2026.07.23.0205-85aed8b"
     }
 }

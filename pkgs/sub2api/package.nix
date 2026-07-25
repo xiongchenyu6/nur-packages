@@ -5,6 +5,8 @@
   pnpm_10,
   nodejs,
   lib,
+  pnpmConfigHook,
+  fetchPnpmDeps,
   ...
 }:
 let
@@ -25,15 +27,15 @@ let
     src = "${sources.sub2api.src}/frontend";
 
     nativeBuildInputs = [
-      pnpm_10.configHook
+      pnpmConfigHook
       nodejs
     ];
 
-    pnpmDeps = pnpm_10.fetchDeps {
+    pnpmDeps = fetchPnpmDeps {
       pname = "sub2api-frontend";
       inherit version;
       src = "${sources.sub2api.src}/frontend";
-      hash = "sha256-Kvh/ROIvKxLrJSz9EyP5IemJnPY9KqW71MGiG6t6F8c=";
+      hash = "sha256-BzcM/8ur4mMSVn2L3Kd0OBYN6RLwQMLO+5ksRgxZYPY=";
       fetcherVersion = 3;
     };
 
