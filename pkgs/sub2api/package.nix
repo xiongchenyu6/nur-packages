@@ -5,6 +5,8 @@
   pnpm_10,
   nodejs,
   lib,
+  pnpmConfigHook,
+  fetchPnpmDeps,
   ...
 }:
 let
@@ -24,16 +26,16 @@ let
     inherit version;
     src = "${sources.sub2api.src}/frontend";
 
-    # The hook and the fetcher must come from the same pnpm as the one on
-    # PATH. Taking them from the top level picked up whatever `pnpm` currently
-    # points at (11.x), which rejects this fetcherVersion.
+    # The hook and the fetcher have to be built against the same pnpm as the
+    # one on PATH. Left at their defaults they follow whatever `pnpm` points at
+    # (11.x today), which rejects this lockfile's fetcherVersion.
     nativeBuildInputs = [
       pnpm_10
-      pnpm_10.configHook
+      (pnpmConfigHook.override { pnpm = pnpm_10; })
       nodejs
     ];
 
-    pnpmDeps = pnpm_10.fetchDeps {
+    pnpmDeps = (fetchPnpmDeps.override { pnpm = pnpm_10; }) {
       pname = "sub2api-frontend";
       inherit version;
       src = "${sources.sub2api.src}/frontend";
@@ -68,7 +70,7 @@ buildGo126Module (
   // {
     modRoot = "backend";
     subPackages = [ "cmd/server" ];
-    vendorHash = "sha256-rfv0MEUx2IXf3GsDVVZhEIyvKAW0L68tyzbrP5f4iqk=";
+    vendorHash = "sha256-n2enHZwqmjK5NOdfIYglopI8/qaHjwxSAbbZaiLNkiQ=";
     tags = [ "embed" ];
     ldflags = [
       "-s"
@@ -76,12 +78,6 @@ buildGo126Module (
       "-X main.Version=${version}"
     ];
     doCheck = false;
-
-    # go.mod pins a go patch release newer than the one nixpkgs ships;
-    # relax the directive so the available toolchain is accepted.
-    postPatch = ''
-      substituteInPlace backend/go.mod --replace-fail "go 1.26.4" "go 1.26.3"
-    '';
 
     preBuild = ''
       cp -r ${frontend} internal/web/dist
