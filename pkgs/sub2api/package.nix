@@ -5,8 +5,6 @@
   pnpm_10,
   nodejs,
   lib,
-  pnpmConfigHook,
-  fetchPnpmDeps,
   ...
 }:
 let
@@ -26,12 +24,16 @@ let
     inherit version;
     src = "${sources.sub2api.src}/frontend";
 
+    # The hook and the fetcher must come from the same pnpm as the one on
+    # PATH. Taking them from the top level picked up whatever `pnpm` currently
+    # points at (11.x), which rejects this fetcherVersion.
     nativeBuildInputs = [
-      pnpmConfigHook
+      pnpm_10
+      pnpm_10.configHook
       nodejs
     ];
 
-    pnpmDeps = fetchPnpmDeps {
+    pnpmDeps = pnpm_10.fetchDeps {
       pname = "sub2api-frontend";
       inherit version;
       src = "${sources.sub2api.src}/frontend";

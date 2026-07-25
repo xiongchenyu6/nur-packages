@@ -13,7 +13,6 @@
   binbash = import ./binbash;
   netbird = import ./netbird;
   falcon-sensor = import ./falcon-sensor;
-  postgrest = import ./postgrest;
   hashtopolis-server = import ./hashtopolis-server;
   hashtopolis-agent = import ./hashtopolis-agent;
   casdoor = import ./casdoor;
