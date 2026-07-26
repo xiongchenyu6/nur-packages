@@ -46,6 +46,7 @@ jobs:
         run: git status --short
 
       - name: Create pull request
+        id: cpr
         if: success()
         uses: peter-evans/create-pull-request@v8
         with:
@@ -63,6 +64,24 @@ jobs:
             - `_sources/generated.nix`
             - `_sources/generated.json`
             - fixed-output dependency hashes reported by package builds
+
+            Merged automatically: the update step above rebuilds every package
+            whose source changed, so reaching this point means they all built.
           labels: |
             dependencies
             automated
+
+      # Merged from here rather than with `gh pr merge --auto`. Auto-merge waits
+      # on required status checks, master has none, and a PR opened with
+      # GITHUB_TOKEN cannot trigger build.yml anyway — GitHub suppresses
+      # workflow runs for token-authored events to avoid recursion. The gate is
+      # therefore the update step itself: scripts/update.sh ends by rebuilding
+      # every package whose source moved, and a failure there fails this job
+      # before it ever gets here.
+      - name: Merge the update
+        if: steps.cpr.outputs.pull-request-number != ''
+        run: |
+          gh pr merge "$PR" --squash --delete-branch
+          echo "Merged #$PR ($(gh pr view "$PR" --json title --jq .title))"
+        env:
+          PR: ${{ steps.cpr.outputs.pull-request-number }}
