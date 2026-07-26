@@ -21,7 +21,7 @@ buildGoModule (
       "."
       "cmd/login"
     ];
-    vendorHash = "sha256-WeBjIgsAiUMcbZfdIJ+RhBn1IIq2N+ooMAWFJhN5RQc=";
+    vendorHash = "sha256-rUeprxHYJhUBETePmN/z31kWuECE1hG9Ihqqd2N1iYY=";
     doCheck = false;
     postInstall = ''
       mv $out/bin/login $out/bin/xiaohongshu-login

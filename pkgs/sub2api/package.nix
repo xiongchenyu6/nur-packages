@@ -39,7 +39,7 @@ let
       pname = "sub2api-frontend";
       inherit version;
       src = "${sources.sub2api.src}/frontend";
-      hash = "sha256-BzcM/8ur4mMSVn2L3Kd0OBYN6RLwQMLO+5ksRgxZYPY=";
+      hash = "sha256-iHznjXx1dE+JNTNC5UyNsekroNJ9FojzFHW8woSJ+20=";
       fetcherVersion = 3;
     };
 
