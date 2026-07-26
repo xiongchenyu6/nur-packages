@@ -8,6 +8,7 @@ on:
 permissions:
   contents: write
   pull-requests: write
+  issues: write
 
 concurrency:
   group: daily-dependency-update
@@ -85,3 +86,40 @@ jobs:
           echo "Merged #$PR ($(gh pr view "$PR" --json title --jq .title))"
         env:
           PR: ${{ steps.cpr.outputs.pull-request-number }}
+
+      # This job merges its own work, so a failure is only visible if something
+      # says so. GitHub's failure email is easy to filter into oblivion, and the
+      # run was broken for four nights before anyone noticed. One issue is kept
+      # open while it is failing and closed again on the next success, so a
+      # month of failures does not become thirty issues.
+      - name: Report failure
+        if: failure()
+        run: |
+          run_url="$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"
+          existing=$(gh issue list --label automation --state open \
+            --search "in:title $TITLE" --json number --jq '.[0].number // empty')
+          if [ -n "$existing" ]; then
+            gh issue comment "$existing" --body "Failed again: $run_url"
+          else
+            gh issue create --title "$TITLE" --label automation --label dependencies \
+              --body "The nightly dependency update failed.
+
+          Run: $run_url
+
+          It rebuilds every package whose source moved, so this usually means one
+          of them stopped building against current nixpkgs rather than anything
+          wrong with the workflow. This issue closes itself on the next green run."
+          fi
+        env:
+          TITLE: "Daily dependency update is failing"
+
+      - name: Close the failure issue
+        if: success()
+        run: |
+          gh issue list --label automation --state open \
+            --search "in:title $TITLE" --json number --jq '.[].number' \
+          | while read -r n; do
+              gh issue close "$n" --comment "Green again: $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"
+            done
+        env:
+          TITLE: "Daily dependency update is failing"
