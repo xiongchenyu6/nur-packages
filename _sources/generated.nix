@@ -61,17 +61,17 @@
   };
   gptel = {
     pname = "gptel";
-    version = "f01c55cdc0c4b49c6c56e9d462831ada9d68f0f2";
+    version = "88d0358e6714a07f63a82482b1968c00b7352308";
     src = fetchgit {
       url = "https://github.com/karthink/gptel.git";
-      rev = "f01c55cdc0c4b49c6c56e9d462831ada9d68f0f2";
+      rev = "88d0358e6714a07f63a82482b1968c00b7352308";
       fetchSubmodules = false;
       deepClone = false;
       leaveDotGit = false;
       sparseCheckout = [ ];
-      sha256 = "sha256-An0w/w7ededQU4CJFccVFl8vC+TIB+GManTju0lx4CA=";
+      sha256 = "sha256-ghMdpfHcFrAGEgjZsje2XpALXt+x86QGZ+LFLIhoai4=";
     };
-    date = "2026-07-24";
+    date = "2026-07-25";
   };
   hashtopolis-agent = {
     pname = "hashtopolis-agent";
@@ -204,7 +204,7 @@
     version = "69b39554cb116d02fba389ff258ca9736dea7437";
     src = fetchurl {
       url = "https://github.com/liuhr/my2sql/raw/master/releases/centOS_release_7.x/my2sql";
-      sha256 = "sha256-ggsA5U6AgszBuwAipX8BSuQSA0o67GDnkTZNkHhPpfo=";
+      sha256 = "sha256-bKJQVZozAp5XDMMumJzHHUxLuh6sSmhSUyDWAeasuMg=";
     };
     date = "2026-04-23";
   };
@@ -213,7 +213,7 @@
     version = "v2.85.0";
     src = fetchurl {
       url = "https://github.com/the-open-agent/openagent/releases/download/v2.85.0/openagent_darwin_arm64";
-      sha256 = "sha256-3EjVVaexOVYjAVPlNQSBS0YEFmofqXYSr4F4WrFPpjI=";
+      sha256 = "sha256-8IjnkjCclRkxzEjfesp5M5QPZQ9Gx2HGAdWbBoPO+Js=";
     };
   };
   openagent-darwin-x86_64 = {
@@ -221,7 +221,7 @@
     version = "v2.85.0";
     src = fetchurl {
       url = "https://github.com/the-open-agent/openagent/releases/download/v2.85.0/openagent_darwin_x86";
-      sha256 = "sha256-WoYMExgWohVZXmWYioYRcuFRsBTDyRHyu1fdU4foKew=";
+      sha256 = "sha256-FGoQqyzVKAKVC9yjcD3xpYhSFi1GS/hurk9/j8athZU=";
     };
   };
   openagent-linux-arm64 = {
@@ -229,7 +229,7 @@
     version = "v2.85.0";
     src = fetchurl {
       url = "https://github.com/the-open-agent/openagent/releases/download/v2.85.0/openagent_linux_arm64";
-      sha256 = "sha256-qmjmZ8ZWy+7zhu6NPNEOI657XBU7Lwd4H84SDkHvAzU=";
+      sha256 = "sha256-9pJbaYSqxHbmavLtESQVJFRRqlv1pQElMS/ah4KVhw8=";
     };
   };
   openagent-linux-x86_64 = {
@@ -237,7 +237,7 @@
     version = "v2.85.0";
     src = fetchurl {
       url = "https://github.com/the-open-agent/openagent/releases/download/v2.85.0/openagent_linux_x86";
-      sha256 = "sha256-I7p0j7Brg9urLgTyhAl1HTxfc7Tsg2W7C2VrYQ+hkFA=";
+      sha256 = "sha256-1r3jvLrffP11jqLfrrgbrZIvnXy8yaz4LujU/eEE9pI=";
     };
   };
   org-cv = {
@@ -256,13 +256,13 @@
   };
   sub2api = {
     pname = "sub2api";
-    version = "v0.1.164";
+    version = "v0.1.165";
     src = fetchFromGitHub {
       owner = "Wei-Shaw";
       repo = "sub2api";
-      rev = "v0.1.164";
+      rev = "v0.1.165";
       fetchSubmodules = false;
-      sha256 = "sha256-4GtFTtKk41yGPCwepCtwDy94Faf4090lPXwTIBiJjew=";
+      sha256 = "sha256-1Y60R3nlee33h8PJrz6ui94tWVG7IEA6hNd0IJXIBwc=";
     };
   };
   sui = {
@@ -286,13 +286,13 @@
   };
   xiaohongshu-mcp = {
     pname = "xiaohongshu-mcp";
-    version = "v2026.07.23.0205-85aed8b";
+    version = "v1.2.8";
     src = fetchFromGitHub {
       owner = "xpzouying";
       repo = "xiaohongshu-mcp";
-      rev = "v2026.07.23.0205-85aed8b";
+      rev = "v1.2.8";
       fetchSubmodules = false;
-      sha256 = "sha256-3wpaSk6kWtP2kSgtLB3k/z2sWTUWJ2xpU5JFphSLUi8=";
+      sha256 = "sha256-vVv0Gnbqwg4kEawb4AL46VajdYptb7fBGQ7E9uCR3UM=";
     };
   };
 }
