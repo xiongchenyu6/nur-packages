@@ -21,6 +21,9 @@ let
     mkdir -p $out/app
     cp ${./.}/news_collector.py $out/app/news_collector.py
     cp ${./.}/stress_index.py $out/app/stress_index.py
+    cp ${./.}/market_collector.py $out/app/market_collector.py
+    cp ${./.}/signal_evaluator.py $out/app/signal_evaluator.py
+    cp ${./.}/alert_dispatcher.py $out/app/alert_dispatcher.py
   '';
 
   caBundle = "${pkgs.cacert}/etc/ssl/certs/ca-bundle.crt";
@@ -68,6 +71,23 @@ let
       SystemCallFilter = "@system-service";
     };
   };
+
+  # Long-running loop variant (signal evaluator / alert dispatcher poll on
+  # their own interval env var) — same env + hardening, but restart forever.
+  mkDaemon =
+    name: script: description:
+    let
+      unit = mkCollector name script description;
+    in
+    unit
+    // {
+      wantedBy = [ "multi-user.target" ];
+      serviceConfig = unit.serviceConfig // {
+        Type = "simple";
+        Restart = "always";
+        RestartSec = "10s";
+      };
+    };
 in
 {
   options.services.quant-collectors = {
@@ -92,6 +112,12 @@ in
       type = types.str;
       default = "*:31";
       description = "OnCalendar spec for the stress index (default: hourly at :31).";
+    };
+
+    marketInterval = mkOption {
+      type = types.str;
+      default = "*:08/30";
+      description = "OnCalendar spec for the market collector (default: every 30 min at :08/:38).";
     };
 
     user = mkOption {
@@ -140,5 +166,28 @@ in
         Persistent = true;
       };
     };
+
+    # Moved off the game box 2026-07-29 (same reason as news/stress: 7×24 next
+    # to the DB, box power-off must not stall the dashboard).
+    systemd.services.quant-market-collector =
+      mkCollector "quant-market-collector" "market_collector.py"
+        "Quant market collector — Binance spot snapshot + klines → quant.market_snapshots / ohlc";
+    systemd.timers.quant-market-collector = {
+      description = "Market snapshot every 30 minutes";
+      wantedBy = [ "timers.target" ];
+      timerConfig = {
+        OnCalendar = cfg.marketInterval;
+        Persistent = true;
+      };
+    };
+
+    systemd.services.quant-signal-evaluator =
+      mkDaemon "quant-signal-evaluator" "signal_evaluator.py"
+        "Quant user-signal evaluator loop — quant.user_signals rules → quant.signal_fires";
+    # SINGLE getUpdates consumer for the Telegram bot — never run a second
+    # copy anywhere (long-polling conflicts break /start binding).
+    systemd.services.quant-alert-dispatcher =
+      mkDaemon "quant-alert-dispatcher" "alert_dispatcher.py"
+        "Quant alert dispatcher loop — pending pushes + Telegram /start binding";
   };
 }
