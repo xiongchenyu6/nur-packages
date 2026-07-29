@@ -24,6 +24,7 @@ let
     cp ${./.}/market_collector.py $out/app/market_collector.py
     cp ${./.}/signal_evaluator.py $out/app/signal_evaluator.py
     cp ${./.}/alert_dispatcher.py $out/app/alert_dispatcher.py
+    cp ${./.}/findata.py $out/app/findata.py
   '';
 
   caBundle = "${pkgs.cacert}/etc/ssl/certs/ca-bundle.crt";
@@ -40,6 +41,11 @@ let
       SSL_CERT_FILE = caBundle;
       NIX_SSL_CERT_FILE = caBundle;
       PYTHONUNBUFFERED = "1";
+      # Writable island under ProtectSystem=strict. HOME covers the alert
+      # dispatcher's ~/.config state file; FINDATA_CACHE_DIR the findata
+      # daily-close cache (the store copy of the repo layout is read-only).
+      HOME = "/var/lib/quant-collectors";
+      FINDATA_CACHE_DIR = "/var/lib/quant-collectors/findata-cache";
     };
 
     serviceConfig = {
@@ -48,6 +54,7 @@ let
       EnvironmentFile = cfg.environmentFile;
       User = cfg.user;
       Group = cfg.group;
+      StateDirectory = "quant-collectors";
 
       # Same hardening profile as the nautilus-* services.
       CapabilityBoundingSet = "";
