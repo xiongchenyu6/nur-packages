@@ -11,10 +11,13 @@ let
   cfg = config.services.quant-collectors;
 
   # Plain CPython env — these collectors only need requests + psycopg2 (the DB is
-  # local on this host). No nautilus-trader.
+  # local on this host) plus numpy/pandas for the semi-universe analysis. No
+  # nautilus-trader.
   pythonEnv = pkgs.python313.withPackages (ps: [
     ps.requests
     ps.psycopg2
+    ps.numpy
+    ps.pandas
   ]);
 
   app = pkgs.runCommand "quant-collectors-app" { } ''
@@ -25,11 +28,12 @@ let
     cp ${./.}/signal_evaluator.py $out/app/signal_evaluator.py
     cp ${./.}/alert_dispatcher.py $out/app/alert_dispatcher.py
     cp ${./.}/findata.py $out/app/findata.py
+    cp ${./.}/semi_analysis.py $out/app/semi_analysis.py
   '';
 
   caBundle = "${pkgs.cacert}/etc/ssl/certs/ca-bundle.crt";
 
-  mkCollector = name: script: description: {
+  mkCollectorArgs = name: script: args: description: {
     inherit description;
     after = [
       "network-online.target"
@@ -50,7 +54,9 @@ let
 
     serviceConfig = {
       Type = "oneshot";
-      ExecStart = "${pythonEnv}/bin/python ${app}/app/${script}";
+      ExecStart = "${pythonEnv}/bin/python ${app}/app/${script}${
+        lib.optionalString (args != "") " ${args}"
+      }";
       EnvironmentFile = cfg.environmentFile;
       User = cfg.user;
       Group = cfg.group;
@@ -78,6 +84,8 @@ let
       SystemCallFilter = "@system-service";
     };
   };
+
+  mkCollector = name: script: description: mkCollectorArgs name script "" description;
 
   # Long-running loop variant (signal evaluator / alert dispatcher poll on
   # their own interval env var) — same env + hardening, but restart forever.
@@ -125,6 +133,15 @@ in
       type = types.str;
       default = "*:08/30";
       description = "OnCalendar spec for the market collector (default: every 30 min at :08/:38).";
+    };
+
+    semiInterval = mkOption {
+      type = types.str;
+      default = "*-*-* 22:20:00 UTC";
+      description = ''
+        OnCalendar spec for the semi-universe refresh (default: daily 22:20 UTC,
+        after the US close so the daily bars are final).
+      '';
     };
 
     user = mkOption {
@@ -185,6 +202,23 @@ in
       timerConfig = {
         OnCalendar = cfg.marketInterval;
         Persistent = true;
+      };
+    };
+
+    # Refreshes quant.semi_universe (NVDA supply-chain metrics from Yahoo).
+    # Was a manual script until 2026-07-30 and went a month stale, which cost
+    # the stress index its breadth component and narrowed the equity symbols
+    # users may build signals on.
+    systemd.services.quant-semi-analysis =
+      mkCollectorArgs "quant-semi-analysis" "semi_analysis.py" "--load"
+        "Quant semi-universe refresh — NVDA supply chain metrics → quant.semi_universe";
+    systemd.timers.quant-semi-analysis = {
+      description = "Semi-universe refresh daily after the US close";
+      wantedBy = [ "timers.target" ];
+      timerConfig = {
+        OnCalendar = cfg.semiInterval;
+        Persistent = true;
+        RandomizedDelaySec = "5m";
       };
     };
 
