@@ -67,12 +67,18 @@
 
         perSystem =
           {
-            pkgs,
             lib,
             system,
             ...
           }:
           let
+            # Own nixpkgs instance so unfree packages (unity-cli, feishu-lark,
+            # falcon-sensor, ...) evaluate with plain `nix build .#<name>`.
+            # garnix CI is include-list based, so this does not add CI builds.
+            pkgs = import nixpkgs {
+              inherit system;
+              config.allowUnfree = true;
+            };
             isLinuxSystem = lib.hasSuffix "linux" system;
 
             # Overrides for sdist packages missing build system declarations
