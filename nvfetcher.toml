@@ -161,11 +161,30 @@ src.github_tag = "hashtopolis/server"
 src.include_regex = "v.*-rainbow.*"
 fetch.github = "hashtopolis/server"
 
+# Pinned: v0.7.5 rewrote htpclient/binarydownload.py (retrieve_binary refactor),
+# the 7z/native-hashcat patches in pkgs/hashtopolis-agent no longer apply.
+# Unpin after reworking those patches.
 [hashtopolis-agent]
-src.github = "hashtopolis/agent-python"
+src.manual = "v0.7.4"
 fetch.github = "hashtopolis/agent-python"
 
 
 [supabase-realtime]
 src.github = "supabase/realtime"
 fetch.github = "supabase/realtime"
+
+[unity-cli-linux-x64]
+src.manual = "1.0.0-beta.3"
+fetch.url = "https://public-cdn.cloud.unity3d.com/hub/prod/cli/$ver/unity-linux-x64"
+
+[unity-cli-linux-arm64]
+src.manual = "1.0.0-beta.3"
+fetch.url = "https://public-cdn.cloud.unity3d.com/hub/prod/cli/$ver/unity-linux-arm64"
+
+[unity-cli-darwin-x64]
+src.manual = "1.0.0-beta.3"
+fetch.url = "https://public-cdn.cloud.unity3d.com/hub/prod/cli/$ver/unity-darwin-x64"
+
+[unity-cli-darwin-arm64]
+src.manual = "1.0.0-beta.3"
+fetch.url = "https://public-cdn.cloud.unity3d.com/hub/prod/cli/$ver/unity-darwin-arm64"

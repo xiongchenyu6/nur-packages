@@ -130,6 +130,9 @@ in
   # LarkSuite CLI
   larksuite-cli = pkgs.callPackage ./pkgs/larksuite-cli/package.nix { };
 
+  # Unity CLI (official terminal tool for Unity editors/builds)
+  unity-cli = pkgs.callPackage ./pkgs/unity-cli/package.nix { };
+
   # Supabase Realtime
   supabase-realtime =
     if isLinux then pkgs.callPackage ./pkgs/supabase-realtime/package.nix { } else null;

@@ -61,17 +61,17 @@
   };
   gptel = {
     pname = "gptel";
-    version = "88d0358e6714a07f63a82482b1968c00b7352308";
+    version = "fc6963634af2f76a9909ad674e2c0b3f005e60b5";
     src = fetchgit {
       url = "https://github.com/karthink/gptel.git";
-      rev = "88d0358e6714a07f63a82482b1968c00b7352308";
+      rev = "fc6963634af2f76a9909ad674e2c0b3f005e60b5";
       fetchSubmodules = false;
       deepClone = false;
       leaveDotGit = false;
       sparseCheckout = [ ];
-      sha256 = "sha256-ghMdpfHcFrAGEgjZsje2XpALXt+x86QGZ+LFLIhoai4=";
+      sha256 = "sha256-wAwcYNueadFol8poYhQyChlaqEuUlGrB1Wvq7ERWINk=";
     };
-    date = "2026-07-25";
+    date = "2026-08-04";
   };
   hashtopolis-agent = {
     pname = "hashtopolis-agent";
@@ -119,42 +119,42 @@
   };
   larksuite-cli-darwin-arm64 = {
     pname = "larksuite-cli-darwin-arm64";
-    version = "1.0.77";
+    version = "1.0.85";
     src = fetchurl {
-      url = "https://github.com/larksuite/cli/releases/download/v1.0.77/lark-cli-1.0.77-darwin-arm64.tar.gz";
-      sha256 = "sha256-2CxKhk69HiotlZQa7jnDTXuRB3xHLT+1mEt2gm759pM=";
+      url = "https://github.com/larksuite/cli/releases/download/v1.0.85/lark-cli-1.0.85-darwin-arm64.tar.gz";
+      sha256 = "sha256-HAfyWd5yAfP3yIMRvWPsZ80unFo7H35Je/PJLxoSsPk=";
     };
   };
   larksuite-cli-darwin-x86_64 = {
     pname = "larksuite-cli-darwin-x86_64";
-    version = "1.0.77";
+    version = "1.0.85";
     src = fetchurl {
-      url = "https://github.com/larksuite/cli/releases/download/v1.0.77/lark-cli-1.0.77-darwin-amd64.tar.gz";
-      sha256 = "sha256-EjazowH1Q+bX1DQFlRWVHQrPplN2ownuMcUzwjjwI9E=";
+      url = "https://github.com/larksuite/cli/releases/download/v1.0.85/lark-cli-1.0.85-darwin-amd64.tar.gz";
+      sha256 = "sha256-jJ/gR485iNRf/APscqCcJgHkzPdLllBeAOpNHLeEQlA=";
     };
   };
   larksuite-cli-linux-arm64 = {
     pname = "larksuite-cli-linux-arm64";
-    version = "1.0.77";
+    version = "1.0.85";
     src = fetchurl {
-      url = "https://github.com/larksuite/cli/releases/download/v1.0.77/lark-cli-1.0.77-linux-arm64.tar.gz";
-      sha256 = "sha256-PIP3tx9a7djjCgd58P+NAltKkrPzb6nMnF6p8HV+r8k=";
+      url = "https://github.com/larksuite/cli/releases/download/v1.0.85/lark-cli-1.0.85-linux-arm64.tar.gz";
+      sha256 = "sha256-sFugWQjccRw/sPUM/SNQct+wSj8juznS9uCuKklrjxY=";
     };
   };
   larksuite-cli-linux-riscv64 = {
     pname = "larksuite-cli-linux-riscv64";
-    version = "1.0.77";
+    version = "1.0.85";
     src = fetchurl {
-      url = "https://github.com/larksuite/cli/releases/download/v1.0.77/lark-cli-1.0.77-linux-riscv64.tar.gz";
-      sha256 = "sha256-bmCcUcvSCXo+JV9ve8aIihcweO+h6MKw80B+uCv0xMM=";
+      url = "https://github.com/larksuite/cli/releases/download/v1.0.85/lark-cli-1.0.85-linux-riscv64.tar.gz";
+      sha256 = "sha256-BanaMwEQ6Yww5Roi8bUuVnblSkjt639KtVLfYseg02Y=";
     };
   };
   larksuite-cli-linux-x86_64 = {
     pname = "larksuite-cli-linux-x86_64";
-    version = "1.0.77";
+    version = "1.0.85";
     src = fetchurl {
-      url = "https://github.com/larksuite/cli/releases/download/v1.0.77/lark-cli-1.0.77-linux-amd64.tar.gz";
-      sha256 = "sha256-WqnE/5sUuMVyx5f8rmt9lfhJgbHdHLdSDP0XZXKP9c0=";
+      url = "https://github.com/larksuite/cli/releases/download/v1.0.85/lark-cli-1.0.85-linux-amd64.tar.gz";
+      sha256 = "sha256-eHZ0YObIu5gR2fKOjffNJyGxT9zrW2W6Qr9D5EjEu3g=";
     };
   };
   librime-lua = {
@@ -204,40 +204,40 @@
     version = "69b39554cb116d02fba389ff258ca9736dea7437";
     src = fetchurl {
       url = "https://github.com/liuhr/my2sql/raw/master/releases/centOS_release_7.x/my2sql";
-      sha256 = "sha256-bKJQVZozAp5XDMMumJzHHUxLuh6sSmhSUyDWAeasuMg=";
+      sha256 = "sha256-ggsA5U6AgszBuwAipX8BSuQSA0o67GDnkTZNkHhPpfo=";
     };
     date = "2026-04-23";
   };
   openagent-darwin-arm64 = {
     pname = "openagent-darwin-arm64";
-    version = "v2.85.0";
+    version = "v2.87.1";
     src = fetchurl {
-      url = "https://github.com/the-open-agent/openagent/releases/download/v2.85.0/openagent_darwin_arm64";
-      sha256 = "sha256-8IjnkjCclRkxzEjfesp5M5QPZQ9Gx2HGAdWbBoPO+Js=";
+      url = "https://github.com/the-open-agent/openagent/releases/download/v2.87.1/openagent_darwin_arm64";
+      sha256 = "sha256-RGl4/5HDRuktLJpI3ngjpTmv1tGYMM3g4umsop8X8QQ=";
     };
   };
   openagent-darwin-x86_64 = {
     pname = "openagent-darwin-x86_64";
-    version = "v2.85.0";
+    version = "v2.87.1";
     src = fetchurl {
-      url = "https://github.com/the-open-agent/openagent/releases/download/v2.85.0/openagent_darwin_x86";
-      sha256 = "sha256-FGoQqyzVKAKVC9yjcD3xpYhSFi1GS/hurk9/j8athZU=";
+      url = "https://github.com/the-open-agent/openagent/releases/download/v2.87.1/openagent_darwin_x86";
+      sha256 = "sha256-Ppnc1+l3PiBHm19ZJAfcuzXefaN+zcsgIxw55sGyqTE=";
     };
   };
   openagent-linux-arm64 = {
     pname = "openagent-linux-arm64";
-    version = "v2.85.0";
+    version = "v2.87.1";
     src = fetchurl {
-      url = "https://github.com/the-open-agent/openagent/releases/download/v2.85.0/openagent_linux_arm64";
-      sha256 = "sha256-9pJbaYSqxHbmavLtESQVJFRRqlv1pQElMS/ah4KVhw8=";
+      url = "https://github.com/the-open-agent/openagent/releases/download/v2.87.1/openagent_linux_arm64";
+      sha256 = "sha256-xpfSHVeZOfQbzw7/xm6fRQG1qp8GtrwgPPuEE7K5nY0=";
     };
   };
   openagent-linux-x86_64 = {
     pname = "openagent-linux-x86_64";
-    version = "v2.85.0";
+    version = "v2.87.1";
     src = fetchurl {
-      url = "https://github.com/the-open-agent/openagent/releases/download/v2.85.0/openagent_linux_x86";
-      sha256 = "sha256-1r3jvLrffP11jqLfrrgbrZIvnXy8yaz4LujU/eEE9pI=";
+      url = "https://github.com/the-open-agent/openagent/releases/download/v2.87.1/openagent_linux_x86";
+      sha256 = "sha256-pMJvdOFNT5GOxedC5qgCVj9ndT7lUMCZUN+kR4b7QJY=";
     };
   };
   org-cv = {
@@ -256,43 +256,75 @@
   };
   sub2api = {
     pname = "sub2api";
-    version = "v0.1.165";
+    version = "v0.1.173";
     src = fetchFromGitHub {
       owner = "Wei-Shaw";
       repo = "sub2api";
-      rev = "v0.1.165";
+      rev = "v0.1.173";
       fetchSubmodules = false;
-      sha256 = "sha256-1Y60R3nlee33h8PJrz6ui94tWVG7IEA6hNd0IJXIBwc=";
+      sha256 = "sha256-jIyW5NUPfPp2LOfC8OM11cRwsHY7hW8qqO8ZfnrOmqU=";
     };
   };
   sui = {
     pname = "sui";
-    version = "testnet-v1.76.0";
+    version = "testnet-v1.77.1";
     src = fetchurl {
-      url = "https://github.com/MystenLabs/sui/releases/download/testnet-v1.76.0/sui-testnet-v1.76.0-ubuntu-x86_64.tgz";
-      sha256 = "sha256-SjTvIeVmUHcgZPlGkZ0mLZ4iECA0AH3M7DzDQYuTUF0=";
+      url = "https://github.com/MystenLabs/sui/releases/download/testnet-v1.77.1/sui-testnet-v1.77.1-ubuntu-x86_64.tgz";
+      sha256 = "sha256-EL4vXKIhIiD83yJgcrMv7zRiSKMFUxAweROPOs/KH1o=";
     };
   };
   supabase-realtime = {
     pname = "supabase-realtime";
-    version = "v2.119.3";
+    version = "v2.124.2";
     src = fetchFromGitHub {
       owner = "supabase";
       repo = "realtime";
-      rev = "v2.119.3";
+      rev = "v2.124.2";
       fetchSubmodules = false;
-      sha256 = "sha256-DuFuEKPTySpI3hZ8kA8cqGFxYUipHEJ/f1cHOk84osM=";
+      sha256 = "sha256-R7B7qpdXunLqmWJ2zXWRjxQ0n0KoSHLEbc9fQJNanSk=";
+    };
+  };
+  unity-cli-darwin-arm64 = {
+    pname = "unity-cli-darwin-arm64";
+    version = "1.0.0-beta.3";
+    src = fetchurl {
+      url = "https://public-cdn.cloud.unity3d.com/hub/prod/cli/1.0.0-beta.3/unity-darwin-arm64";
+      sha256 = "sha256-rfttvUvCAVBSpj0gl+xTW1QI9YXi4183VLmV4VQe70g=";
+    };
+  };
+  unity-cli-darwin-x64 = {
+    pname = "unity-cli-darwin-x64";
+    version = "1.0.0-beta.3";
+    src = fetchurl {
+      url = "https://public-cdn.cloud.unity3d.com/hub/prod/cli/1.0.0-beta.3/unity-darwin-x64";
+      sha256 = "sha256-0NOzVtEH8zPoZvcrlv9ED4EJdnFd+T3XnqKmt3fDtQ8=";
+    };
+  };
+  unity-cli-linux-arm64 = {
+    pname = "unity-cli-linux-arm64";
+    version = "1.0.0-beta.3";
+    src = fetchurl {
+      url = "https://public-cdn.cloud.unity3d.com/hub/prod/cli/1.0.0-beta.3/unity-linux-arm64";
+      sha256 = "sha256-Idor+Y0W261V3Tuxh6AQCKz+CDlgdeSRiA2X2Bip7xE=";
+    };
+  };
+  unity-cli-linux-x64 = {
+    pname = "unity-cli-linux-x64";
+    version = "1.0.0-beta.3";
+    src = fetchurl {
+      url = "https://public-cdn.cloud.unity3d.com/hub/prod/cli/1.0.0-beta.3/unity-linux-x64";
+      sha256 = "sha256-m4mqpaZ26OW9ajhEqTmN77ljvTSVGGRFpGSkcFflTqM=";
     };
   };
   xiaohongshu-mcp = {
     pname = "xiaohongshu-mcp";
-    version = "v1.2.8";
+    version = "v2.4.3";
     src = fetchFromGitHub {
       owner = "xpzouying";
       repo = "xiaohongshu-mcp";
-      rev = "v1.2.8";
+      rev = "v2.4.3";
       fetchSubmodules = false;
-      sha256 = "sha256-vVv0Gnbqwg4kEawb4AL46VajdYptb7fBGQ7E9uCR3UM=";
+      sha256 = "sha256-JikkwMiuYsxDxxzMvlMWqyFj/Eyij5Px47imqH1EkTE=";
     };
   };
 }

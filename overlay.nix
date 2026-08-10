@@ -180,6 +180,9 @@ in
   # Sub2API package
   sub2api = prev.callPackage ./pkgs/sub2api/package.nix { };
 
+  # Unity CLI (official terminal tool for Unity editors/builds)
+  unity-cli = prev.callPackage ./pkgs/unity-cli/package.nix { };
+
   # Dify packages (require uv2nix; must be provided via the flake overlay or passed explicitly)
   # These are placeholders — actual packages come from the flake's perSystem using uv2nix
   dify-web =
