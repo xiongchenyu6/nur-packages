@@ -15,18 +15,11 @@ in {
       description = "CC Switch package to use";
     };
 
-    # Deep-link URL scheme handler registration
-    registerUrlScheme = mkOption {
-      type = types.bool;
-      default = true;
-      description = "Register the ccswitch:// URL scheme handler for deep linking";
-    };
-
-    # Desktop integration
+    # Desktop integration (includes URL scheme handler via .desktop MimeType)
     desktopIntegration = mkOption {
       type = types.bool;
       default = true;
-      description = "Install .desktop file and icons for desktop integration";
+      description = "Install .desktop file and icons for desktop integration (includes ccswitch:// URL scheme)";
     };
 
     # Auto-start on login
@@ -47,19 +40,11 @@ in {
   config = mkIf cfg.enable {
     environment.systemPackages = [ cfg.package ];
 
-    # Register URL scheme handler for ccswitch:// deep links
-    systemd.user.services.cc-switch-url-handler = mkIf (cfg.registerUrlScheme && cfg.desktopIntegration) {
-      description = "Register ccswitch:// URL scheme handler";
-      wantedBy = [ "default.target" ];
-      after = [ "graphical-session.target" ];
-      serviceConfig = {
-        Type = "oneshot";
-        ExecStart = "${cfg.package}/bin/cc-switch --register-url-scheme || true";
-        RemainAfterExit = true;
-      };
-    };
+    # The package already includes a .desktop file with MimeType=x-scheme-handler/ccswitch
+    # which registers the ccswitch:// URL scheme automatically
+    # No additional systemd service needed
 
-    # Desktop integration
+    # Desktop integration for autostart
     environment.etc."xdg/autostart/cc-switch.desktop" = mkIf (cfg.autostart && cfg.desktopIntegration) {
       source = pkgs.writeText "cc-switch.desktop" ''
         [Desktop Entry]

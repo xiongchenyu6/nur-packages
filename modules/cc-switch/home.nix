@@ -15,18 +15,11 @@ in {
       description = "CC Switch package to use";
     };
 
-    # Deep-link URL scheme handler registration
-    registerUrlScheme = mkOption {
-      type = types.bool;
-      default = true;
-      description = "Register the ccswitch:// URL scheme handler for deep linking";
-    };
-
-    # Desktop integration
+    # Desktop integration (includes URL scheme handler via .desktop MimeType)
     desktopIntegration = mkOption {
       type = types.bool;
       default = true;
-      description = "Install .desktop file and icons for desktop integration";
+      description = "Install .desktop file and icons for desktop integration (includes ccswitch:// URL scheme)";
     };
 
     # Auto-start on login
@@ -54,28 +47,9 @@ in {
   config = mkIf cfg.enable {
     home.packages = [ cfg.package ];
 
-    # Register URL scheme handler for ccswitch:// deep links
-    xdg.desktopEntries."cc-switch-url-handler" = mkIf (cfg.registerUrlScheme && cfg.desktopIntegration) {
-      Type = "Application";
-      Name = "CC Switch URL Handler";
-      Exec = "${cfg.package}/bin/cc-switch --register-url-scheme %u";
-      MimeType = "x-scheme-handler/ccswitch";
-      NoDisplay = true;
-      Terminal = false;
-    };
-
-    # Main desktop entry
-    xdg.desktopEntries.cc-switch = mkIf cfg.desktopIntegration {
-      Type = "Application";
-      Name = "CC Switch";
-      Comment = "Cross-platform desktop app for managing AI coding tools";
-      Exec = "${cfg.package}/bin/cc-switch";
-      Icon = "cc-switch";
-      Terminal = false;
-      Categories = "Development;Utility;";
-      StartupNotify = true;
-      MimeType = "x-scheme-handler/ccswitch;";
-    };
+    # The package already includes a .desktop file with MimeType=x-scheme-handler/ccswitch
+    # which registers the ccswitch:// URL scheme automatically
+    # No additional xdg.desktopEntries needed
 
     # Auto-start
     systemd.user.services.cc-switch-autostart = mkIf cfg.autostart {
