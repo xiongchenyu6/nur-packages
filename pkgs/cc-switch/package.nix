@@ -113,6 +113,25 @@ stdenv.mkDerivation {
     # Fix up the binary - autoPatchelfHook runs automatically via nativeBuildInputs
     patchShebangs $out
 
+    # Install .desktop file
+    mkdir -p $out/share/applications
+    cat > $out/share/applications/cc-switch.desktop <<EOF
+[Desktop Entry]
+Categories=Development;Utility;
+Comment=All-in-One Assistant for Claude Code, Codex & Gemini CLI
+Exec=$out/bin/cc-switch
+StartupWMClass=cc-switch
+Icon=cc-switch
+Name=CC Switch
+Terminal=false
+Type=Application
+MimeType=x-scheme-handler/ccswitch;
+EOF
+
+    # Install icons
+    mkdir -p $out/share/icons/hicolor
+    cp -r usr/share/icons/hicolor/* $out/share/icons/hicolor/
+
     # Create wrapper script for the AppRun
     makeWrapper $out/AppRun $out/bin/cc-switch \
       --add-flags "--no-sandbox" \
