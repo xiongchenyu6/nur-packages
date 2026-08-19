@@ -242,34 +242,34 @@
   };
   openagent-darwin-arm64 = {
     pname = "openagent-darwin-arm64";
-    version = "v2.87.1";
+    version = "v2.88.0";
     src = fetchurl {
-      url = "https://github.com/the-open-agent/openagent/releases/download/v2.87.1/openagent_darwin_arm64";
-      sha256 = "sha256-RGl4/5HDRuktLJpI3ngjpTmv1tGYMM3g4umsop8X8QQ=";
+      url = "https://github.com/the-open-agent/openagent/releases/download/v2.88.0/openagent_darwin_arm64";
+      sha256 = "sha256-zF2dk2pOIenq7McmgQkaiaDyYuWZAa/zfwer6aVfGu0=";
     };
   };
   openagent-darwin-x86_64 = {
     pname = "openagent-darwin-x86_64";
-    version = "v2.87.1";
+    version = "v2.88.0";
     src = fetchurl {
-      url = "https://github.com/the-open-agent/openagent/releases/download/v2.87.1/openagent_darwin_x86";
-      sha256 = "sha256-Ppnc1+l3PiBHm19ZJAfcuzXefaN+zcsgIxw55sGyqTE=";
+      url = "https://github.com/the-open-agent/openagent/releases/download/v2.88.0/openagent_darwin_x86_64";
+      sha256 = "sha256-Ea9V2SI11QN9CABp9NV2WZUGh/3ju3/fHvWMz+Zshcs=";
     };
   };
   openagent-linux-arm64 = {
     pname = "openagent-linux-arm64";
-    version = "v2.87.1";
+    version = "v2.88.0";
     src = fetchurl {
-      url = "https://github.com/the-open-agent/openagent/releases/download/v2.87.1/openagent_linux_arm64";
-      sha256 = "sha256-xpfSHVeZOfQbzw7/xm6fRQG1qp8GtrwgPPuEE7K5nY0=";
+      url = "https://github.com/the-open-agent/openagent/releases/download/v2.88.0/openagent_linux_arm64";
+      sha256 = "sha256-Qi64RF0dqz+0FlR0iapldmGQRo6CLGmJYENNa9qxwrc=";
     };
   };
   openagent-linux-x86_64 = {
     pname = "openagent-linux-x86_64";
-    version = "v2.87.1";
+    version = "v2.88.0";
     src = fetchurl {
-      url = "https://github.com/the-open-agent/openagent/releases/download/v2.87.1/openagent_linux_x86";
-      sha256 = "sha256-pMJvdOFNT5GOxedC5qgCVj9ndT7lUMCZUN+kR4b7QJY=";
+      url = "https://github.com/the-open-agent/openagent/releases/download/v2.88.0/openagent_linux_x86_64";
+      sha256 = "sha256-SIR2NQMeY3zkDXT2wKJPhj4zOq7BdtFhnUmZxYxyRxs=";
     };
   };
   org-cv = {

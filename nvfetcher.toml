@@ -113,11 +113,11 @@ fetch.git = "https://github.com/motiful/cc-gateway.git"
 src.github = "Wei-Shaw/sub2api"
 fetch.github = "Wei-Shaw/sub2api"
 
-# v2.x ships raw statically-linked Go binaries (not tarballs); asset names are lowercase
-# and use "x86" for x86_64. The frontend, config and skills are embedded in the binary.
+# v2.x ships raw statically-linked Go binaries (not tarballs); asset names are lowercase.
+# The frontend, config and skills are embedded in the binary.
 [openagent-linux-x86_64]
 src.github = "the-open-agent/openagent"
-fetch.url = "https://github.com/the-open-agent/openagent/releases/download/$ver/openagent_linux_x86"
+fetch.url = "https://github.com/the-open-agent/openagent/releases/download/$ver/openagent_linux_x86_64"
 
 [openagent-linux-arm64]
 src.github = "the-open-agent/openagent"
@@ -125,7 +125,7 @@ fetch.url = "https://github.com/the-open-agent/openagent/releases/download/$ver/
 
 [openagent-darwin-x86_64]
 src.github = "the-open-agent/openagent"
-fetch.url = "https://github.com/the-open-agent/openagent/releases/download/$ver/openagent_darwin_x86"
+fetch.url = "https://github.com/the-open-agent/openagent/releases/download/$ver/openagent_darwin_x86_64"
 
 [openagent-darwin-arm64]
 src.github = "the-open-agent/openagent"

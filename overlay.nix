@@ -120,6 +120,7 @@ in
   gotron-sdk = prev.callPackage ./pkgs/gotron-sdk/package.nix { };
   helmify = prev.callPackage ./pkgs/helmify/package.nix { };
   korb = prev.callPackage ./pkgs/korb/package.nix { };
+  larksuite-cli = prev.callPackage ./pkgs/larksuite-cli/package.nix { };
   ldap-extra-schemas = prev.callPackage ./pkgs/ldap-extra-schemas/package.nix { };
   my2sql = prev.callPackage ./pkgs/my2sql/package.nix { };
 
