@@ -64,7 +64,7 @@ beamPackages.mixRelease {
   mixFodDeps = beamPackages.fetchMixDeps {
     pname = "mix-deps-realtime";
     inherit src version elixir;
-    hash = "sha256-dpTes5pNpBdUlLPjMNOY74p1xY8VfQAn4Ur8nzZb850=";
+    hash = "sha256-YlxzbAiR/ePfb5dtxwU7manAKffY8U2YyDFPIvdD55U=";
   };
 
   preConfigure = ''
