@@ -39,7 +39,7 @@ let
       pname = "sub2api-frontend";
       inherit version;
       src = "${sources.sub2api.src}/frontend";
-      hash = "sha256-iHznjXx1dE+JNTNC5UyNsekroNJ9FojzFHW8woSJ+20=";
+      hash = "sha256-Yyn2/2+np0jf/o+i6hl/GD9MxksBLRQSyjr7wplQ7I8=";
       fetcherVersion = 3;
     };
 
@@ -77,7 +77,7 @@ buildGo126Module (
       sed -i -E 's/^go ([0-9]+\.[0-9]+)\.[0-9]+$/go \1/' backend/go.mod
     '';
 
-    vendorHash = "sha256-n2enHZwqmjK5NOdfIYglopI8/qaHjwxSAbbZaiLNkiQ=";
+    vendorHash = "sha256-kmtkj9L1qMupQpc2E0Gbx9a3xPZ9o9bFrtwrbLoAB3w=";
     tags = [ "embed" ];
     ldflags = [
       "-s"
