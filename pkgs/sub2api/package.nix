@@ -70,6 +70,13 @@ buildGo126Module (
   // {
     modRoot = "backend";
     subPackages = [ "cmd/server" ];
+
+    # Upstream pins a go patch release (e.g. `go 1.26.6`) that nixpkgs may not
+    # have yet; only the minor matters, so drop the patch component.
+    postPatch = ''
+      sed -i -E 's/^go ([0-9]+\.[0-9]+)\.[0-9]+$/go \1/' backend/go.mod
+    '';
+
     vendorHash = "sha256-n2enHZwqmjK5NOdfIYglopI8/qaHjwxSAbbZaiLNkiQ=";
     tags = [ "embed" ];
     ldflags = [

@@ -123,6 +123,7 @@ in
   larksuite-cli = prev.callPackage ./pkgs/larksuite-cli/package.nix { };
   ldap-extra-schemas = prev.callPackage ./pkgs/ldap-extra-schemas/package.nix { };
   my2sql = prev.callPackage ./pkgs/my2sql/package.nix { };
+  cc-switch = prev.callPackage ./pkgs/cc-switch/package.nix { };
 
   # Linux-only packages from pkgs/
   falcon-sensor =
@@ -142,6 +143,24 @@ in
       prev.callPackage ./pkgs/haystack-editor/package.nix { }
     else
       throw "haystack-editor is only available on Linux";
+
+  supabase-realtime =
+    if lib.hasSuffix "linux" prev.system then
+      prev.callPackage ./pkgs/supabase-realtime/package.nix { }
+    else
+      throw "supabase-realtime is only available on Linux";
+
+  fitcrack =
+    if lib.hasSuffix "linux" prev.system then
+      prev.callPackage ./pkgs/fitcrack/package.nix { }
+    else
+      throw "fitcrack is only available on Linux";
+
+  roxybrowser =
+    if lib.hasSuffix "linux" prev.system then
+      prev.callPackage ./pkgs/roxybrowser/package.nix { }
+    else
+      throw "roxybrowser is only available on Linux";
 
   record_screen =
     if lib.hasSuffix "linux" prev.system then

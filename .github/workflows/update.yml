@@ -3,7 +3,8 @@ name: Daily dependency update
 on:
   workflow_dispatch:
   schedule:
-    - cron: "17 3 * * *"
+    # 22:00 UTC = 06:00 Beijing time the next morning
+    - cron: "0 22 * * *"
 
 permissions:
   contents: write
