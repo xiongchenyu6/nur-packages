@@ -20,6 +20,38 @@
     };
     date = "2026-04-02";
   };
+  cc-switch-darwin-arm64 = {
+    pname = "cc-switch-darwin-arm64";
+    version = "3.20.0";
+    src = fetchurl {
+      url = "https://github.com/farion1231/cc-switch/releases/download/v3.20.0/CC-Switch-v3.20.0-macOS.tar.gz";
+      sha256 = "sha256-dlmy7WWw8Uxebn+7SukQYbIsrUNzFjsbvtoUELd9IAk=";
+    };
+  };
+  cc-switch-darwin-x86_64 = {
+    pname = "cc-switch-darwin-x86_64";
+    version = "3.20.0";
+    src = fetchurl {
+      url = "https://github.com/farion1231/cc-switch/releases/download/v3.20.0/CC-Switch-v3.20.0-macOS.tar.gz";
+      sha256 = "sha256-dlmy7WWw8Uxebn+7SukQYbIsrUNzFjsbvtoUELd9IAk=";
+    };
+  };
+  cc-switch-linux-arm64 = {
+    pname = "cc-switch-linux-arm64";
+    version = "3.20.0";
+    src = fetchurl {
+      url = "https://github.com/farion1231/cc-switch/releases/download/v3.20.0/CC-Switch-v3.20.0-Linux-arm64.AppImage";
+      sha256 = "sha256-XPPQ8t6ddPfowrDyjpBCIZstDkRspuuJmDXtlKapB+M=";
+    };
+  };
+  cc-switch-linux-x86_64 = {
+    pname = "cc-switch-linux-x86_64";
+    version = "3.20.0";
+    src = fetchurl {
+      url = "https://github.com/farion1231/cc-switch/releases/download/v3.20.0/CC-Switch-v3.20.0-Linux-x86_64.AppImage";
+      sha256 = "sha256-+n1jUljSAPPuQ6nyYWc/JXd7VcPEOinUiNF6Dbxlx7Q=";
+    };
+  };
   combobulate = {
     pname = "combobulate";
     version = "713bf3081f2d80cbd13ed175a808b242d9cc652d";

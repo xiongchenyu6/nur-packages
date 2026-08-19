@@ -10,6 +10,7 @@
 #     either, so point the relevant options at instances run some other way
 {
   casdoor = import ./casdoor/home.nix;
+  cc-switch = import ./cc-switch/home.nix;
   gotrue-supabase = import ./gotrue-supabase/home.nix;
   postgrest = import ./postgrest/home.nix;
   sub2api = import ./sub2api/home.nix;

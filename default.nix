@@ -127,6 +127,12 @@ in
   # codexpro - self-hosted MCP server bridging ChatGPT to a local workspace
   codexpro = pkgs.callPackage ./pkgs/codexpro/package.nix { };
 
+  # cc-switch - Cross-platform desktop app for managing AI coding tools
+  cc-switch = pkgs.callPackage ./pkgs/cc-switch/package.nix { };
+
+  # DeepSeek Harness CLI
+  deepseek-harness = pkgs.callPackage ./pkgs/deepseek-harness/package.nix { };
+
   # LarkSuite CLI
   larksuite-cli = pkgs.callPackage ./pkgs/larksuite-cli/package.nix { };
 

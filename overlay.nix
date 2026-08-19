@@ -177,6 +177,9 @@ in
   # codexpro - self-hosted MCP server bridging ChatGPT to a local workspace
   codexpro = prev.callPackage ./pkgs/codexpro/package.nix { };
 
+  # DeepSeek Harness CLI
+  deepseek-harness = prev.callPackage ./pkgs/deepseek-harness/package.nix { };
+
   # Sub2API package
   sub2api = prev.callPackage ./pkgs/sub2api/package.nix { };
 
