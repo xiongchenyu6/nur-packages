@@ -242,34 +242,34 @@
   };
   openagent-darwin-arm64 = {
     pname = "openagent-darwin-arm64";
-    version = "v2.88.0";
+    version = "v2.89.0";
     src = fetchurl {
-      url = "https://github.com/the-open-agent/openagent/releases/download/v2.88.0/openagent_darwin_arm64";
-      sha256 = "sha256-zF2dk2pOIenq7McmgQkaiaDyYuWZAa/zfwer6aVfGu0=";
+      url = "https://github.com/the-open-agent/openagent/releases/download/v2.89.0/openagent_darwin_arm64";
+      sha256 = "sha256-GSr2cGDwuPjY5uuY1sO8+n9jBv2iixVl1SdwdJ8RyOY=";
     };
   };
   openagent-darwin-x86_64 = {
     pname = "openagent-darwin-x86_64";
-    version = "v2.88.0";
+    version = "v2.89.0";
     src = fetchurl {
-      url = "https://github.com/the-open-agent/openagent/releases/download/v2.88.0/openagent_darwin_x86_64";
-      sha256 = "sha256-Ea9V2SI11QN9CABp9NV2WZUGh/3ju3/fHvWMz+Zshcs=";
+      url = "https://github.com/the-open-agent/openagent/releases/download/v2.89.0/openagent_darwin_x86_64";
+      sha256 = "sha256-GkrRsJMMbJ0Cis40edvR35flnWewdLr3P8IdN64kZII=";
     };
   };
   openagent-linux-arm64 = {
     pname = "openagent-linux-arm64";
-    version = "v2.88.0";
+    version = "v2.89.0";
     src = fetchurl {
-      url = "https://github.com/the-open-agent/openagent/releases/download/v2.88.0/openagent_linux_arm64";
-      sha256 = "sha256-Qi64RF0dqz+0FlR0iapldmGQRo6CLGmJYENNa9qxwrc=";
+      url = "https://github.com/the-open-agent/openagent/releases/download/v2.89.0/openagent_linux_arm64";
+      sha256 = "sha256-4pl3WL0DnkvLFym3kf9JbgVOQJwttnQTkGyIw/GcLW0=";
     };
   };
   openagent-linux-x86_64 = {
     pname = "openagent-linux-x86_64";
-    version = "v2.88.0";
+    version = "v2.89.0";
     src = fetchurl {
-      url = "https://github.com/the-open-agent/openagent/releases/download/v2.88.0/openagent_linux_x86_64";
-      sha256 = "sha256-SIR2NQMeY3zkDXT2wKJPhj4zOq7BdtFhnUmZxYxyRxs=";
+      url = "https://github.com/the-open-agent/openagent/releases/download/v2.89.0/openagent_linux_x86_64";
+      sha256 = "sha256-7SWNzmVTgpfOQDi+Fsx+KY+q3kaP9jMOuvXT2MlG624=";
     };
   };
   org-cv = {
@@ -288,13 +288,13 @@
   };
   sub2api = {
     pname = "sub2api";
-    version = "v0.1.178";
+    version = "v0.1.179";
     src = fetchFromGitHub {
       owner = "Wei-Shaw";
       repo = "sub2api";
-      rev = "v0.1.178";
+      rev = "v0.1.179";
       fetchSubmodules = false;
-      sha256 = "sha256-h0RJZ0/TBC1GZjkZuu+nLYvKrkS58mPUWssGrYC9JSU=";
+      sha256 = "sha256-lh0/x968G5T2sZyWRhJmEQsvx3eyn5QolTH7yelFpWA=";
     };
   };
   sui = {
