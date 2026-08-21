@@ -9,7 +9,12 @@
 }:
 let
   sources = import ../../_sources/generated.nix {
-    inherit (pkgs) fetchurl dockerTools fetchgit fetchFromGitHub;
+    inherit (pkgs)
+      fetchurl
+      dockerTools
+      fetchgit
+      fetchFromGitHub
+      ;
   };
 
   platformSources = {
@@ -19,8 +24,9 @@ let
     "aarch64-darwin" = sources.cc-switch-darwin-arm64;
   };
 
-  platformSource = platformSources.${stdenv.hostPlatform.system}
-    or (throw "Unsupported system: ${stdenv.hostPlatform.system}");
+  platformSource =
+    platformSources.${stdenv.hostPlatform.system}
+      or (throw "Unsupported system: ${stdenv.hostPlatform.system}");
 
   isLinux = stdenv.hostPlatform.isLinux;
   isDarwin = stdenv.hostPlatform.isDarwin;
@@ -80,88 +86,102 @@ stdenv.mkDerivation {
 
   src = platformSource.src;
 
+  # appimage-run and autoPatchelfHook are Linux-only; listing them
+  # unconditionally pulled glibc into the closure and made the derivation
+  # refuse to evaluate on Darwin, even though meta.platforms advertises it
+  # and the phases below handle the macOS tarball.
   nativeBuildInputs = [
+    makeWrapper
+  ]
+  ++ lib.optionals isLinux [
     appimage-run
     autoPatchelfHook
-    makeWrapper
   ];
 
   buildInputs = lib.optionals isLinux linuxDeps;
 
-  unpackPhase = if isLinux then ''
-    # AppImage doesn't need unpacking, we'll extract it in installPhase
-    mkdir -p $TMPDIR/appimage
-  '' else ''
-    # macOS tar.gz - extract
-    runHook preUnpack
-    mkdir -p tmp
-    tar xzf $src -C tmp
-    runHook postUnpack
-  '';
+  unpackPhase =
+    if isLinux then
+      ''
+        # AppImage doesn't need unpacking, we'll extract it in installPhase
+        mkdir -p $TMPDIR/appimage
+      ''
+    else
+      ''
+        # macOS tar.gz - extract
+        runHook preUnpack
+        mkdir -p tmp
+        tar xzf $src -C tmp
+        runHook postUnpack
+      '';
 
-  installPhase = if isLinux then ''
-    runHook preInstall
+  installPhase =
+    if isLinux then
+      ''
+            runHook preInstall
 
-    # Extract AppImage
-    cd $TMPDIR/appimage
-    appimage-run -x . $src
+            # Extract AppImage
+            cd $TMPDIR/appimage
+            appimage-run -x . $src
 
-    # Install the extracted AppImage contents (extracted directly to current dir)
-    mkdir -p $out
-    cp -r ./* $out/
+            # Install the extracted AppImage contents (extracted directly to current dir)
+            mkdir -p $out
+            cp -r ./* $out/
 
-    # Fix up the binary - autoPatchelfHook runs automatically via nativeBuildInputs
-    patchShebangs $out
+            # Fix up the binary - autoPatchelfHook runs automatically via nativeBuildInputs
+            patchShebangs $out
 
-    # Install .desktop file
-    mkdir -p $out/share/applications
-    cat > $out/share/applications/cc-switch.desktop <<EOF
-[Desktop Entry]
-Categories=Development;Utility;
-Comment=All-in-One Assistant for Claude Code, Codex & Gemini CLI
-Exec=$out/bin/cc-switch
-StartupWMClass=cc-switch
-Icon=cc-switch
-Name=CC Switch
-Terminal=false
-Type=Application
-MimeType=x-scheme-handler/ccswitch;
-EOF
+            # Install .desktop file
+            mkdir -p $out/share/applications
+            cat > $out/share/applications/cc-switch.desktop <<EOF
+        [Desktop Entry]
+        Categories=Development;Utility;
+        Comment=All-in-One Assistant for Claude Code, Codex & Gemini CLI
+        Exec=$out/bin/cc-switch
+        StartupWMClass=cc-switch
+        Icon=cc-switch
+        Name=CC Switch
+        Terminal=false
+        Type=Application
+        MimeType=x-scheme-handler/ccswitch;
+        EOF
 
-    # Install icons
-    mkdir -p $out/share/icons/hicolor
-    cp -r usr/share/icons/hicolor/* $out/share/icons/hicolor/
+            # Install icons
+            mkdir -p $out/share/icons/hicolor
+            cp -r usr/share/icons/hicolor/* $out/share/icons/hicolor/
 
-    # Create wrapper script for the AppRun
-    makeWrapper $out/AppRun $out/bin/cc-switch \
-      --add-flags "--no-sandbox" \
-      --set LD_LIBRARY_PATH "${linuxLibPath}" \
-      --set APPIMAGE_EXIT_AFTER_INSTALL "1"
+            # Create wrapper script for the AppRun
+            makeWrapper $out/AppRun $out/bin/cc-switch \
+              --add-flags "--no-sandbox" \
+              --set LD_LIBRARY_PATH "${linuxLibPath}" \
+              --set APPIMAGE_EXIT_AFTER_INSTALL "1"
 
-    runHook postInstall
-  '' else ''
-    runHook preInstall
+            runHook postInstall
+      ''
+    else
+      ''
+        runHook preInstall
 
-    # macOS: install the extracted app bundle
-    mkdir -p $out/bin
-    
-    # Find the .app bundle in the extracted contents
-    app_path=$(find tmp -name "*.app" -type d | head -1)
-    if [ -z "$app_path" ]; then
-      echo "Error: No .app bundle found in extracted archive"
-      exit 1
-    fi
+        # macOS: install the extracted app bundle
+        mkdir -p $out/bin
 
-    # Create a wrapper that launches the app
-    makeWrapper "$app_path/Contents/MacOS/cc-switch" $out/bin/cc-switch \
-      --add-flags "--no-sandbox"
+        # Find the .app bundle in the extracted contents
+        app_path=$(find tmp -name "*.app" -type d | head -1)
+        if [ -z "$app_path" ]; then
+          echo "Error: No .app bundle found in extracted archive"
+          exit 1
+        fi
 
-    # Also copy the app bundle to share for proper integration
-    mkdir -p $out/share/cc-switch
-    cp -r "$app_path" $out/share/cc-switch/
+        # Create a wrapper that launches the app
+        makeWrapper "$app_path/Contents/MacOS/cc-switch" $out/bin/cc-switch \
+          --add-flags "--no-sandbox"
 
-    runHook postInstall
-  '';
+        # Also copy the app bundle to share for proper integration
+        mkdir -p $out/share/cc-switch
+        cp -r "$app_path" $out/share/cc-switch/
+
+        runHook postInstall
+      '';
 
   dontFixup = isLinux; # autoPatchelfHook handles this
 

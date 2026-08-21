@@ -156,12 +156,23 @@ stdenv.mkDerivation rec {
     xdg-utils
   ];
 
-  unpackPhase = ''unzip ${src}'';
+  unpackPhase = "unzip ${src}";
   autoPatchelfIgnoreMissingDeps = true;
   installPhase = ''
     mkdir -p $out/opt
     mv Haystack/* $out/opt
-    install -D -m755 $out/opt/haystack-editor "$out/bin/haystack-editor" 
+    install -D -m755 $out/opt/haystack-editor "$out/bin/haystack-editor"
   '';
 
+  meta = {
+    description = "Canvas-based code editor that lays out code as a graph of connected functions";
+    homepage = "https://haystackeditor.com";
+    # Upstream publishes a prebuilt Linux zip only, and the derivation
+    # autoPatchelfs ELF binaries — without this the package advertised every
+    # platform and failed to evaluate on Darwin.
+    platforms = lib.platforms.linux;
+    license = lib.licenses.unfree;
+    sourceProvenance = with lib.sourceTypes; [ binaryNativeCode ];
+    mainProgram = "haystack-editor";
+  };
 }
