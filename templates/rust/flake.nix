@@ -33,9 +33,11 @@
               RUST_SRC_PATH = "${pkgs.rust.packages.stable.rustPlatform.rustLibSrc}";
               RUST_BACKTRACE = 1;
 
-              buildInputs =
-                [
-                ];
+              # openssl is a library the build links against, so it belongs in
+              # buildInputs; pkg-config finds it there when cross-compiling too.
+              buildInputs = [
+                openssl
+              ];
               nativeBuildInputs = [
                 pkg-config
                 nixfmt
@@ -44,7 +46,6 @@
                 cargo
                 rust-analyzer
                 clippy
-                openssl
                 rustfmt
               ];
             };

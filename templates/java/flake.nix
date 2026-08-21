@@ -31,7 +31,7 @@
             buildInputs = with pkgs; [
               nixfmt
               nixd
-              java
+              jdk
             ];
           };
         };
