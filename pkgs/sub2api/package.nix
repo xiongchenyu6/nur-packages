@@ -41,6 +41,21 @@ let
       src = "${sources.sub2api.src}/frontend";
       hash = "sha256-Yyn2/2+np0jf/o+i6hl/GD9MxksBLRQSyjr7wplQ7I8=";
       fetcherVersion = 3;
+
+      # pnpm only fetches every platform-specific optional dependency when a
+      # supportedArchitectures section exists. Without it, the offline build
+      # can miss the native esbuild package for the host platform.
+      prePnpmInstall = ''
+        printf '%s\n' \
+          'supportedArchitectures:' \
+          '  os:' \
+          '    - current' \
+          '  cpu:' \
+          '    - current' \
+          '  libc:' \
+          '    - current' \
+          > pnpm-workspace.yaml
+      '';
     };
 
     # The frontend imports legal markdown from the repo-root `docs/legal`
