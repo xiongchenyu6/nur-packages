@@ -31,18 +31,21 @@
           packages.default = stdenv.mkDerivation {
             name = "corepack-shims";
             buildInputs = [ nodejs ];
-            phases = [ "installPhase" ];
+            dontUnpack = true;
             installPhase = ''
+              runHook preInstall
               mkdir -p $out/bin
               corepack enable --install-directory=$out/bin
+              runHook postInstall
             '';
           };
           devShells.default =
             let
+              # Only actual shared libraries belong here — listing tools like
+              # nixfmt would add a nonexistent /lib and leave them off PATH.
               lib-path = lib.makeLibraryPath (
                 with pkgs;
-                lib.optionals stdenv.isLinux [
-                  nixfmt
+                lib.optionals stdenv.hostPlatform.isLinux [
                   stdenv.cc.cc
                 ]
               );
@@ -54,7 +57,12 @@
                 nodejs
                 self'.packages.default
               ];
-              LD_LIBRARY_PATH = "$LD_LIBRARY_PATH:${lib-path}";
+              # Set from the hook, not as a derivation attribute: attribute
+              # values are passed through literally, so "$LD_LIBRARY_PATH"
+              # would end up in the variable unexpanded.
+              shellHook = ''
+                export LD_LIBRARY_PATH="''${LD_LIBRARY_PATH:+$LD_LIBRARY_PATH:}${lib-path}"
+              '';
             };
         };
     };
