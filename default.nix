@@ -139,6 +139,9 @@ in
   # Unity CLI (official terminal tool for Unity editors/builds)
   unity-cli = pkgs.callPackage ./pkgs/unity-cli/package.nix { };
 
+  # AgentsServer - self-hosted execution backend for AgentsDock
+  agents-server = pkgs.callPackage ./pkgs/agents-server/package.nix { };
+
   # Supabase Realtime
   supabase-realtime =
     if isLinux then pkgs.callPackage ./pkgs/supabase-realtime/package.nix { } else null;
