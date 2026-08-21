@@ -21,9 +21,11 @@
     };
     pyproject-build-systems = {
       url = "github:pyproject-nix/build-system-pkgs";
-      inputs.pyproject-nix.follows = "pyproject-nix";
-      inputs.uv2nix.follows = "uv2nix";
-      inputs.nixpkgs.follows = "nixpkgs";
+      inputs = {
+        pyproject-nix.follows = "pyproject-nix";
+        uv2nix.follows = "uv2nix";
+        nixpkgs.follows = "nixpkgs";
+      };
     };
     dify-src = {
       url = "github:langgenius/dify/1.13.1";
@@ -120,7 +122,7 @@
                   "tos"
                 ];
               in
-              lib.genAttrs setuptools-packages (name: addSetuptools name)
+              lib.genAttrs setuptools-packages addSetuptools
               // {
                 # mysql-connector-python wheel bundles vendor libs missing system deps
                 mysql-connector-python = prev.mysql-connector-python.overrideAttrs (old: {
@@ -166,54 +168,20 @@
             # pkgsNameSeparator = "-";
             packages =
               let
-                # Import packages from default.nix
+                # default.nix already discovers everything under pkgs/ through
+                # pkgs/manifest.nix and drops what meta.platforms excludes, so
+                # there is no second list to maintain here.
+                #
+                # This used to re-walk pkgs/ itself, wrapping each import in
+                # builtins.tryEval and silently dropping whatever failed. That
+                # hid real breakage: mcporter had been unbuildable since
+                # nixpkgs removed pnpm fetcherVersion 2, and simply vanished
+                # from the flake outputs instead of failing.
                 allPackages = import ./. {
                   inherit self lib pkgs;
                 };
 
-                # Manually import packages from pkgs/ directory with platform filtering
-                pkgsByName =
-                  let
-                    # Platform-specific package mapping
-                    linuxOnlyPackages = [
-                      "falcon-sensor"
-                      "feishu-lark"
-                      "haystack-editor"
-                      "record_screen"
-                      "roxybrowser"
-                      "sui"
-                    ];
-
-                    # Function to safely import a package if it's compatible with the current system
-                    tryImportPackage =
-                      name: path:
-                      let
-                        packageFile = path + "/package.nix";
-                        isLinuxOnly = builtins.elem name linuxOnlyPackages;
-                        isLinuxSystem' = lib.hasSuffix "linux" system;
-                      in
-                      if builtins.pathExists packageFile && (!isLinuxOnly || isLinuxSystem') then
-                        (
-                          let
-                            result = builtins.tryEval (pkgs.callPackage packageFile { });
-                          in
-                          if result.success then { ${name} = result.value; } else { }
-                        )
-                      else
-                        { };
-
-                    # Get all package directories
-                    pkgDirs = builtins.readDir ./pkgs;
-
-                    # Filter only directories
-                    packageNames = builtins.filter (name: pkgDirs.${name} == "directory") (builtins.attrNames pkgDirs);
-
-                    # Try to import each package
-                    packageSets = map (name: tryImportPackage name (./pkgs + "/${name}")) packageNames;
-                  in
-                  builtins.foldl' (acc: set: acc // set) { } packageSets;
-                # Combine all packages and set default
-                combinedPackages = allPackages // pkgsByName // difyPackages;
+                combinedPackages = allPackages // difyPackages;
               in
               combinedPackages
               // {
@@ -223,28 +191,30 @@
             apps = {
               update = {
                 type = "app";
-                program = builtins.toString (
-                  "${
-                    pkgs.writeShellApplication {
-                      name = "update";
-                      runtimeInputs = with pkgs; [
-                        bash
-                        coreutils
-                        git
-                        gnused
-                        jq
-                        nix
-                        nvfetcher
-                        perl
-                        ripgrep
-                      ];
-                      text = ''
-                        repo_root="$(git rev-parse --show-toplevel 2>/dev/null || pwd)"
-                        cd "$repo_root"
-                        bash ./scripts/update.sh
-                      '';
-                    }
-                  }/bin/update"
+                # writeShellApplication records meta.mainProgram, so getExe
+                # gives the binary path directly — the old form interpolated
+                # the store path and then ran builtins.toString over the
+                # resulting string, both of which were no-ops.
+                program = lib.getExe (
+                  pkgs.writeShellApplication {
+                    name = "update";
+                    runtimeInputs = with pkgs; [
+                      bash
+                      coreutils
+                      git
+                      gnused
+                      jq
+                      nix
+                      nvfetcher
+                      perl
+                      ripgrep
+                    ];
+                    text = ''
+                      repo_root="$(git rev-parse --show-toplevel 2>/dev/null || pwd)"
+                      cd "$repo_root"
+                      bash ./scripts/update.sh
+                    '';
+                  }
                 );
               };
             };

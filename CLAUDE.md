@@ -42,11 +42,22 @@ There is no test framework; `nix build .#<package>` is the verification method.
 ### Adding a New Package
 
 1. Create `pkgs/<name>/package.nix`
-2. Add to `default.nix` and/or `overlay.nix`
-3. For Linux-only packages, guard with `if isLinux then ... else null` in default.nix, or `if lib.hasPrefix "linux" prev.system then ... else throw "..."` in overlay.nix
-4. Add to flake.nix `linuxOnlyPackages` list if platform-restricted
-5. Build: `nix build .#<name>`
-6. Format and lint before committing
+2. That is the whole registration step. `pkgs/manifest.nix` discovers every
+   directory under `pkgs/` and `default.nix`, `overlay.nix` and `flake.nix` all
+   derive their package lists from it.
+3. Declare `meta.platforms` honestly. It is the *only* place platform support is
+   recorded — `default.nix` and the flake filter on `lib.meta.availableOn`, so a
+   package that omits `platforms` claims every system and will fail to evaluate
+   on the ones it does not actually support.
+4. Build: `nix build .#<name>`
+5. Format and lint before committing
+
+Only two kinds of entry still need hand-wiring, both documented in
+`pkgs/manifest.nix`: directories holding several package definitions
+(`emacs/`, `dify/`, `pg-extensions/`), and packages needing extra `callPackage`
+arguments (`falcon-sensor`). Rebuilds of *nixpkgs* packages — `librime`,
+`wrangler`, the LDAP-enabled variants — are not under `pkgs/` and stay written
+out in `default.nix` and `overlay.nix`.
 
 ### Adding a New Module
 
