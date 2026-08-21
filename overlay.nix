@@ -206,6 +206,9 @@ in
   # Unity CLI (official terminal tool for Unity editors/builds)
   unity-cli = prev.callPackage ./pkgs/unity-cli/package.nix { };
 
+  # AgentsServer - self-hosted execution backend for AgentsDock
+  agents-server = prev.callPackage ./pkgs/agents-server/package.nix { };
+
   # Dify packages (require uv2nix; must be provided via the flake overlay or passed explicitly)
   # These are placeholders — actual packages come from the flake's perSystem using uv2nix
   dify-web =
