@@ -93,17 +93,17 @@
   };
   gptel = {
     pname = "gptel";
-    version = "cd2cd7367dc0e0b1ba14cf6e5e648c0e488fff99";
+    version = "5d6312fd38959682aacf3972897d06c98aba5089";
     src = fetchgit {
       url = "https://github.com/karthink/gptel.git";
-      rev = "cd2cd7367dc0e0b1ba14cf6e5e648c0e488fff99";
+      rev = "5d6312fd38959682aacf3972897d06c98aba5089";
       fetchSubmodules = false;
       deepClone = false;
       leaveDotGit = false;
       sparseCheckout = [ ];
-      sha256 = "sha256-jKsWAgwpnBcchxWtsNJLTkggOybYzwItbIIvwVP72gw=";
+      sha256 = "sha256-apFHlOEnhTTp0TLpNz0eGzyng4BHyEEdI5mO1xINIu0=";
     };
-    date = "2026-08-21";
+    date = "2026-08-23";
   };
   hashtopolis-agent = {
     pname = "hashtopolis-agent";
@@ -236,7 +236,7 @@
     version = "69b39554cb116d02fba389ff258ca9736dea7437";
     src = fetchurl {
       url = "https://github.com/liuhr/my2sql/raw/master/releases/centOS_release_7.x/my2sql";
-      sha256 = "sha256-bKJQVZozAp5XDMMumJzHHUxLuh6sSmhSUyDWAeasuMg=";
+      sha256 = "sha256-ggsA5U6AgszBuwAipX8BSuQSA0o67GDnkTZNkHhPpfo=";
     };
     date = "2026-04-23";
   };
@@ -288,32 +288,32 @@
   };
   sub2api = {
     pname = "sub2api";
-    version = "v0.1.179";
+    version = "v0.1.181";
     src = fetchFromGitHub {
       owner = "Wei-Shaw";
       repo = "sub2api";
-      rev = "v0.1.179";
+      rev = "v0.1.181";
       fetchSubmodules = false;
-      sha256 = "sha256-lh0/x968G5T2sZyWRhJmEQsvx3eyn5QolTH7yelFpWA=";
+      sha256 = "sha256-OdfiFK1fwPmr//83V/WhBEhlE5R7nwEVw0EyMcf5hfQ=";
     };
   };
   sui = {
     pname = "sui";
-    version = "testnet-v1.78.0";
+    version = "mainnet-v1.77.3";
     src = fetchurl {
-      url = "https://github.com/MystenLabs/sui/releases/download/testnet-v1.78.0/sui-testnet-v1.78.0-ubuntu-x86_64.tgz";
-      sha256 = "sha256-hX17IGK5GL+3uyhx5S7WEsExrHmistQXGrYJCoMEbF8=";
+      url = "https://github.com/MystenLabs/sui/releases/download/mainnet-v1.77.3/sui-mainnet-v1.77.3-ubuntu-x86_64.tgz";
+      sha256 = "sha256-K9aKSiLAq3dYmBtGv5IYPcEfaNlZk76fJrwRSCUUzJU=";
     };
   };
   supabase-realtime = {
     pname = "supabase-realtime";
-    version = "v2.129.8";
+    version = "v2.129.9";
     src = fetchFromGitHub {
       owner = "supabase";
       repo = "realtime";
-      rev = "v2.129.8";
+      rev = "v2.129.9";
       fetchSubmodules = false;
-      sha256 = "sha256-PZpYyG12JBnv+I5m6xhWPvZLz56LdmHfOi5/CAM+qS8=";
+      sha256 = "sha256-J6En1DmfyKpf9Mo+T+L2lLw+QrrSaIRzzKENJSgxlcE=";
     };
   };
   unity-cli-darwin-arm64 = {
