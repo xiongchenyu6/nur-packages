@@ -191,11 +191,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-YkF9ZBoqFf3eybrAxw+TlXDV4vP6FBBwO5PzKE0C0EQ=",
+            "sha256": "sha256-iUxoF2vUAV6EeAlN7W2cetdqv52c1WedNrI9C3TU2wI=",
             "type": "url",
-            "url": "https://github.com/larksuite/cli/releases/download/v1.0.89/lark-cli-1.0.89-darwin-arm64.tar.gz"
+            "url": "https://github.com/larksuite/cli/releases/download/v1.0.90/lark-cli-1.0.90-darwin-arm64.tar.gz"
         },
-        "version": "1.0.89"
+        "version": "1.0.90"
     },
     "larksuite-cli-darwin-x86_64": {
         "cargoLock": null,
@@ -206,11 +206,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-GZFzZjEmai+oUmZFYiYKLCZlvJscvuNfrbT25AlYZW8=",
+            "sha256": "sha256-1frFfYsLZ0FEpf8vH0CNDMqOyaHZI+0TbW4IUiw7AfA=",
             "type": "url",
-            "url": "https://github.com/larksuite/cli/releases/download/v1.0.89/lark-cli-1.0.89-darwin-amd64.tar.gz"
+            "url": "https://github.com/larksuite/cli/releases/download/v1.0.90/lark-cli-1.0.90-darwin-amd64.tar.gz"
         },
-        "version": "1.0.89"
+        "version": "1.0.90"
     },
     "larksuite-cli-linux-arm64": {
         "cargoLock": null,
@@ -221,11 +221,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-m/8dQV52HkMaoS4BsWCcarj4Tx0wgk/lGCwscC6LRWs=",
+            "sha256": "sha256-3VkemulW2M80vtI5AQF6uELSVTT+FXnpubur7SZ4ZNc=",
             "type": "url",
-            "url": "https://github.com/larksuite/cli/releases/download/v1.0.89/lark-cli-1.0.89-linux-arm64.tar.gz"
+            "url": "https://github.com/larksuite/cli/releases/download/v1.0.90/lark-cli-1.0.90-linux-arm64.tar.gz"
         },
-        "version": "1.0.89"
+        "version": "1.0.90"
     },
     "larksuite-cli-linux-riscv64": {
         "cargoLock": null,
@@ -236,11 +236,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-YlHmuKT77OCoHWI0PL2QMiLibxjwQrvllK3EUxunSY4=",
+            "sha256": "sha256-2brWywJFF4WgTlZ27vYywJrtou/835YHs4lTjEULYO4=",
             "type": "url",
-            "url": "https://github.com/larksuite/cli/releases/download/v1.0.89/lark-cli-1.0.89-linux-riscv64.tar.gz"
+            "url": "https://github.com/larksuite/cli/releases/download/v1.0.90/lark-cli-1.0.90-linux-riscv64.tar.gz"
         },
-        "version": "1.0.89"
+        "version": "1.0.90"
     },
     "larksuite-cli-linux-x86_64": {
         "cargoLock": null,
@@ -251,11 +251,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-oHpgPSntWOi1sNc5XK4Q36vtK4YL4xtxNPi/OXBefP8=",
+            "sha256": "sha256-MB21621kspXovTZgNt2DnMZoZHHGjlTCYC0nTeC/Ayo=",
             "type": "url",
-            "url": "https://github.com/larksuite/cli/releases/download/v1.0.89/lark-cli-1.0.89-linux-amd64.tar.gz"
+            "url": "https://github.com/larksuite/cli/releases/download/v1.0.90/lark-cli-1.0.90-linux-amd64.tar.gz"
         },
-        "version": "1.0.89"
+        "version": "1.0.90"
     },
     "librime-lua": {
         "cargoLock": null,
@@ -326,7 +326,7 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-ggsA5U6AgszBuwAipX8BSuQSA0o67GDnkTZNkHhPpfo=",
+            "sha256": "sha256-bKJQVZozAp5XDMMumJzHHUxLuh6sSmhSUyDWAeasuMg=",
             "type": "url",
             "url": "https://github.com/liuhr/my2sql/raw/master/releases/centOS_release_7.x/my2sql"
         },
@@ -366,12 +366,12 @@
             "name": null,
             "owner": "Wei-Shaw",
             "repo": "sub2api",
-            "rev": "v0.1.182",
-            "sha256": "sha256-9TG5WUsQUUT6IMnrdNoEOLSPC4D8VMRpeixhvhu7J6Y=",
+            "rev": "v0.1.183",
+            "sha256": "sha256-7V4yB8PJmtapYdzKWTTyPuGTosvI3KYH2CNxWFIiK28=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "v0.1.182"
+        "version": "v0.1.183"
     },
     "sui": {
         "cargoLock": null,
@@ -382,11 +382,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-K9aKSiLAq3dYmBtGv5IYPcEfaNlZk76fJrwRSCUUzJU=",
+            "sha256": "sha256-h6x01QAJ1pQZ5hegF/HkbrnBHkCSOIMNi2bn8XRWgF4=",
             "type": "url",
-            "url": "https://github.com/MystenLabs/sui/releases/download/mainnet-v1.77.3/sui-mainnet-v1.77.3-ubuntu-x86_64.tgz"
+            "url": "https://github.com/MystenLabs/sui/releases/download/testnet-v1.78.1/sui-testnet-v1.78.1-ubuntu-x86_64.tgz"
         },
-        "version": "mainnet-v1.77.3"
+        "version": "testnet-v1.78.1"
     },
     "supabase-realtime": {
         "cargoLock": null,
