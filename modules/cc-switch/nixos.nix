@@ -1,11 +1,17 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 with lib;
 
 let
   cfg = config.programs.cc-switch;
   package = pkgs.cc-switch;
-in {
+in
+{
   options.programs.cc-switch = {
     enable = mkEnableOption "CC Switch - Cross-platform desktop app for managing AI coding tools";
 
@@ -40,9 +46,11 @@ in {
   config = mkIf cfg.enable {
     environment.systemPackages = [ cfg.package ];
 
-    # The package already includes a .desktop file with MimeType=x-scheme-handler/ccswitch
-    # which registers the ccswitch:// URL scheme automatically
-    # No additional systemd service needed
+    # The package ships a .desktop file declaring
+    # MimeType=x-scheme-handler/ccswitch with an `Exec=... %u` line, so the
+    # ccswitch:// URL is forwarded to the running instance. Nothing else is
+    # needed system-wide; per-user handler preference lives in mimeapps.list,
+    # which the home-manager module can claim.
 
     # Desktop integration for autostart
     environment.etc."xdg/autostart/cc-switch.desktop" = mkIf (cfg.autostart && cfg.desktopIntegration) {

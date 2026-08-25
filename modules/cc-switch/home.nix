@@ -1,11 +1,17 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 with lib;
 
 let
   cfg = config.programs.cc-switch;
   package = pkgs.cc-switch;
-in {
+in
+{
   options.programs.cc-switch = {
     enable = mkEnableOption "CC Switch - Cross-platform desktop app for managing AI coding tools";
 
@@ -47,9 +53,15 @@ in {
   config = mkIf cfg.enable {
     home.packages = [ cfg.package ];
 
-    # The package already includes a .desktop file with MimeType=x-scheme-handler/ccswitch
-    # which registers the ccswitch:// URL scheme automatically
-    # No additional xdg.desktopEntries needed
+    # The package ships a .desktop file declaring
+    # MimeType=x-scheme-handler/ccswitch with an `Exec=... %u` line, so the
+    # ccswitch:// URL is forwarded to the running instance. Claiming the
+    # handler in mimeapps.list makes the association explicit instead of
+    # relying on the mimeinfo.cache fallback order; it only takes effect when
+    # `xdg.mimeApps.enable` is true, since that is what writes mimeapps.list.
+    xdg.mimeApps.defaultApplications = mkIf cfg.desktopIntegration {
+      "x-scheme-handler/ccswitch" = "cc-switch.desktop";
+    };
 
     # Auto-start
     systemd.user.services.cc-switch-autostart = mkIf cfg.autostart {
