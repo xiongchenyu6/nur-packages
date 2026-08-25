@@ -17,8 +17,10 @@ let
   src = sources.supabase-realtime.src;
   version = lib.removePrefix "v" sources.supabase-realtime.version;
 
-  # Upstream requires Elixir ~> 1.19; the default beamPackages still ships 1.18.
-  elixir = pkgs.elixir_1_19;
+  # Upstream requires Elixir ~> 1.19 while the default beam package set still
+  # ships 1.18. mixRelease and fetchMixDeps no longer accept an `elixir`
+  # argument, so build from a package set that already has the right version.
+  beam = beamPackages.overrideScope (_: prev: { elixir = prev.elixir_1_19; });
 
   # The lumis dependency loads a rustler_precompiled NIF, which tries to
   # download its precompiled artifact at compile time. Prefetch the tarballs
@@ -57,13 +59,13 @@ let
     }
   ) lumisNifTargets;
 in
-beamPackages.mixRelease {
+beam.mixRelease {
   pname = "realtime";
-  inherit version src elixir;
+  inherit version src;
 
-  mixFodDeps = beamPackages.fetchMixDeps {
+  mixFodDeps = beam.fetchMixDeps {
     pname = "mix-deps-realtime";
-    inherit src version elixir;
+    inherit src version;
     hash = "sha256-d1kXJcnjvq3Darz3R5MJk2uEOkIbnXKPmUY7Xw+tq2w=";
   };
 
