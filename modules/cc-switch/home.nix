@@ -53,12 +53,28 @@ in
   config = mkIf cfg.enable {
     home.packages = [ cfg.package ];
 
-    # The package ships a .desktop file declaring
-    # MimeType=x-scheme-handler/ccswitch with an `Exec=... %u` line, so the
-    # ccswitch:// URL is forwarded to the running instance. Claiming the
-    # handler in mimeapps.list makes the association explicit instead of
-    # relying on the mimeinfo.cache fallback order; it only takes effect when
-    # `xdg.mimeApps.enable` is true, since that is what writes mimeapps.list.
+    # On every start the Tauri deep-link plugin rewrites this file with
+    # Exec=<current_exe()>. For the extracted AppImage that resolves to the
+    # unwrapped binary, which has no usable RPATH and dies on libfontconfig,
+    # so the handler it installs never launches. Own the file declaratively —
+    # home-manager links it read-only from the store, the plugin's write
+    # fails, and the handler keeps pointing at the wrapper.
+    #
+    # Both this and the package's own cc-switch.desktop claim the scheme, so
+    # either one being picked works; mimeapps.list only decides which is
+    # preferred (the plugin also rewrites that entry to point here).
+    xdg.dataFile."applications/cc-switch-handler.desktop" = mkIf cfg.desktopIntegration {
+      text = ''
+        [Desktop Entry]
+        Type=Application
+        Name=CC Switch
+        Exec=${cfg.package}/bin/cc-switch %u
+        Terminal=false
+        MimeType=x-scheme-handler/ccswitch
+        NoDisplay=true
+      '';
+    };
+
     xdg.mimeApps.defaultApplications = mkIf cfg.desktopIntegration {
       "x-scheme-handler/ccswitch" = "cc-switch.desktop";
     };

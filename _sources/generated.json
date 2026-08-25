@@ -488,12 +488,12 @@
             "name": null,
             "owner": "Wei-Shaw",
             "repo": "sub2api",
-            "rev": "v0.1.181",
-            "sha256": "sha256-OdfiFK1fwPmr//83V/WhBEhlE5R7nwEVw0EyMcf5hfQ=",
+            "rev": "v0.1.182",
+            "sha256": "sha256-9TG5WUsQUUT6IMnrdNoEOLSPC4D8VMRpeixhvhu7J6Y=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "v0.1.181"
+        "version": "v0.1.182"
     },
     "sui": {
         "cargoLock": null,

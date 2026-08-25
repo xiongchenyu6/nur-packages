@@ -1,6 +1,6 @@
 {
   pkgs,
-  buildGo126Module,
+  buildGo127Module,
   stdenvNoCC,
   pnpm_10,
   nodejs,
@@ -39,7 +39,7 @@ let
       pname = "sub2api-frontend";
       inherit version;
       src = "${sources.sub2api.src}/frontend";
-      hash = "sha256-Yyn2/2+np0jf/o+i6hl/GD9MxksBLRQSyjr7wplQ7I8=";
+      hash = "sha256-231sRyDAntTejGhJbxCBnEHUHuVZFM5yYEkztDWKveE=";
       fetcherVersion = 3;
 
       # pnpm only fetches every platform-specific optional dependency when a
@@ -80,7 +80,7 @@ let
     '';
   };
 in
-buildGo126Module (
+buildGo127Module (
   sources.sub2api
   // {
     modRoot = "backend";
@@ -92,7 +92,7 @@ buildGo126Module (
       sed -i -E 's/^go ([0-9]+\.[0-9]+)\.[0-9]+$/go \1/' backend/go.mod
     '';
 
-    vendorHash = "sha256-kmtkj9L1qMupQpc2E0Gbx9a3xPZ9o9bFrtwrbLoAB3w=";
+    vendorHash = "sha256-Bnvqp698BPhBYqSlBZ5p7bw+zkA1B/lo58iDAi2Q0nY=";
     tags = [ "embed" ];
     ldflags = [
       "-s"
