@@ -2,14 +2,24 @@
   lib,
   pkgs,
   stdenv,
-  fetchurl,
+  dpkg,
   autoPatchelfHook,
   makeWrapper,
-  appimage-run,
+  wrapGAppsHook3,
+  glib-networking,
+  webkitgtk_4_1,
+  gtk3,
+  libayatana-appindicator,
+  openssl,
 }:
 let
   sources = import ../../_sources/generated.nix {
-    inherit (pkgs) fetchurl dockerTools fetchgit fetchFromGitHub;
+    inherit (pkgs)
+      fetchurl
+      dockerTools
+      fetchgit
+      fetchFromGitHub
+      ;
   };
 
   platformSources = {
@@ -19,151 +29,100 @@ let
     "aarch64-darwin" = sources.cc-switch-darwin-arm64;
   };
 
-  platformSource = platformSources.${stdenv.hostPlatform.system}
-    or (throw "Unsupported system: ${stdenv.hostPlatform.system}");
+  platformSource =
+    platformSources.${stdenv.hostPlatform.system}
+      or (throw "Unsupported system: ${stdenv.hostPlatform.system}");
 
   isLinux = stdenv.hostPlatform.isLinux;
-  isDarwin = stdenv.hostPlatform.isDarwin;
-
-  linuxDeps = [
-    pkgs.glib
-    pkgs.gtk3
-    pkgs.libnotify
-    pkgs.nss
-    pkgs.libsecret
-    pkgs.at-spi2-core
-    pkgs.libdrm
-    pkgs.mesa
-    pkgs.libgbm
-    pkgs.libxkbfile
-    pkgs.libxcb
-    pkgs.xcbutilwm
-    pkgs.xcbutilimage
-    pkgs.xcbutilkeysyms
-    pkgs.xcbutilrenderutil
-    pkgs.fontconfig
-    pkgs.freetype
-    pkgs.harfbuzz
-    pkgs.fribidi
-    pkgs.expat
-    pkgs.libgpg-error
-    pkgs.e2fsprogs
-    pkgs.gmp
-    pkgs.libx11
-    pkgs.libxext
-    pkgs.libxfixes
-    pkgs.libxi
-    pkgs.libxrandr
-    pkgs.libxrender
-    pkgs.libxtst
-    pkgs.libXScrnSaver
-    pkgs.libxcomposite
-    pkgs.libxdamage
-    pkgs.libxcursor
-    pkgs.libxinerama
-    pkgs.libxshmfence
-    pkgs.libxxf86vm
-    pkgs.alsa-lib
-    pkgs.pulseaudio
-    pkgs.dbus
-    pkgs.atk
-    pkgs.cairo
-    pkgs.pango
-    pkgs.gdk-pixbuf
-  ];
-
-  linuxLibPath = lib.makeLibraryPath (lib.optionals isLinux linuxDeps);
 in
 stdenv.mkDerivation {
   pname = "cc-switch";
   inherit (platformSource) version;
 
-  src = platformSource.src;
+  inherit (platformSource) src;
 
-  nativeBuildInputs = [
-    appimage-run
-    autoPatchelfHook
-    makeWrapper
+  nativeBuildInputs =
+    lib.optionals isLinux [
+      dpkg
+      autoPatchelfHook
+      wrapGAppsHook3
+    ]
+    ++ lib.optionals (!isLinux) [ makeWrapper ];
+
+  # Matches the .deb's own Depends: libwebkit2gtk-4.1-0, libgtk-3-0,
+  # libayatana-appindicator3-1.
+  buildInputs = lib.optionals isLinux [
+    webkitgtk_4_1
+    gtk3
+    libayatana-appindicator
+    openssl
   ];
 
-  buildInputs = lib.optionals isLinux linuxDeps;
+  unpackPhase =
+    if isLinux then
+      ''
+        runHook preUnpack
+        dpkg-deb -x $src .
+        runHook postUnpack
+      ''
+    else
+      ''
+        runHook preUnpack
+        mkdir -p tmp
+        tar xzf $src -C tmp
+        runHook postUnpack
+      '';
 
-  unpackPhase = if isLinux then ''
-    # AppImage doesn't need unpacking, we'll extract it in installPhase
-    mkdir -p $TMPDIR/appimage
-  '' else ''
-    # macOS tar.gz - extract
-    runHook preUnpack
-    mkdir -p tmp
-    tar xzf $src -C tmp
-    runHook postUnpack
+  installPhase =
+    if isLinux then
+      ''
+        runHook preInstall
+
+        mkdir -p $out
+        cp -r usr/bin usr/share $out/
+
+        # Upstream ships the entry as "CC Switch.desktop" — a space in the
+        # desktop file id — and its Exec line has no %u, so xdg-open launches
+        # the app without the ccswitch:// URL and the deep link is dropped.
+        mv "$out/share/applications/CC Switch.desktop" \
+          $out/share/applications/cc-switch.desktop
+        substituteInPlace $out/share/applications/cc-switch.desktop \
+          --replace-fail 'Exec=cc-switch' "Exec=$out/bin/cc-switch %u" \
+          --replace-fail 'Categories=' 'Categories=Development;Utility;'
+
+        runHook postInstall
+      ''
+    else
+      ''
+        runHook preInstall
+
+        mkdir -p $out/bin
+
+        app_path=$(find tmp -name "*.app" -type d | head -1)
+        if [ -z "$app_path" ]; then
+          echo "Error: No .app bundle found in extracted archive"
+          exit 1
+        fi
+
+        makeWrapper "$app_path/Contents/MacOS/cc-switch" $out/bin/cc-switch
+
+        mkdir -p $out/share/cc-switch
+        cp -r "$app_path" $out/share/cc-switch/
+
+        runHook postInstall
+      '';
+
+  # Two runtime lookups autoPatchelfHook cannot see:
+  #   - libappindicator-sys dlopen()s libayatana-appindicator3.so by soname, so
+  #     it is absent from DT_NEEDED and the binary panics on startup without it
+  #   - GIO loads its TLS backend as a module, so every HTTPS request the app
+  #     makes fails unless glib-networking is on the module path
+  preFixup = lib.optionalString isLinux ''
+    gappsWrapperArgs+=(
+      --prefix LD_LIBRARY_PATH : "${lib.makeLibraryPath [ libayatana-appindicator ]}"
+      --prefix GIO_EXTRA_MODULES : "${glib-networking}/lib/gio/modules"
+    )
   '';
-
-  installPhase = if isLinux then ''
-    runHook preInstall
-
-    # Extract AppImage
-    cd $TMPDIR/appimage
-    appimage-run -x . $src
-
-    # Install the extracted AppImage contents (extracted directly to current dir)
-    mkdir -p $out
-    cp -r ./* $out/
-
-    # Fix up the binary - autoPatchelfHook runs automatically via nativeBuildInputs
-    patchShebangs $out
-
-    # Install .desktop file
-    mkdir -p $out/share/applications
-    cat > $out/share/applications/cc-switch.desktop <<EOF
-[Desktop Entry]
-Categories=Development;Utility;
-Comment=All-in-One Assistant for Claude Code, Codex & Gemini CLI
-Exec=$out/bin/cc-switch %u
-StartupWMClass=cc-switch
-Icon=cc-switch
-Name=CC Switch
-Terminal=false
-Type=Application
-MimeType=x-scheme-handler/ccswitch;
-EOF
-
-    # Install icons
-    mkdir -p $out/share/icons/hicolor
-    cp -r usr/share/icons/hicolor/* $out/share/icons/hicolor/
-
-    # Create wrapper script for the AppRun
-    makeWrapper $out/AppRun $out/bin/cc-switch \
-      --add-flags "--no-sandbox" \
-      --set LD_LIBRARY_PATH "${linuxLibPath}" \
-      --set APPIMAGE_EXIT_AFTER_INSTALL "1"
-
-    runHook postInstall
-  '' else ''
-    runHook preInstall
-
-    # macOS: install the extracted app bundle
-    mkdir -p $out/bin
-    
-    # Find the .app bundle in the extracted contents
-    app_path=$(find tmp -name "*.app" -type d | head -1)
-    if [ -z "$app_path" ]; then
-      echo "Error: No .app bundle found in extracted archive"
-      exit 1
-    fi
-
-    # Create a wrapper that launches the app
-    makeWrapper "$app_path/Contents/MacOS/cc-switch" $out/bin/cc-switch \
-      --add-flags "--no-sandbox"
-
-    # Also copy the app bundle to share for proper integration
-    mkdir -p $out/share/cc-switch
-    cp -r "$app_path" $out/share/cc-switch/
-
-    runHook postInstall
-  '';
-
-  dontFixup = isLinux; # autoPatchelfHook handles this
 
   meta = with lib; {
     description = "Cross-platform desktop app for managing AI coding tools (Claude Code, Codex, OpenCode, etc.)";
