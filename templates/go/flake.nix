@@ -32,7 +32,7 @@
               nixfmt
               nixd
               go
-              golsp
+              gopls
             ];
           };
         };
