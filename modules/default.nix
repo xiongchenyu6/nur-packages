@@ -8,7 +8,6 @@
   cc-switch = import ./cc-switch;
   codexpro = import ./codexpro;
   sub2api = import ./sub2api;
-  dify = import ./dify;
   supabase-realtime = import ./supabase-realtime;
   dnf-server = import ./dnf-server;
   freqtrade-ohlc-sync = import ./freqtrade-ohlc-sync;
