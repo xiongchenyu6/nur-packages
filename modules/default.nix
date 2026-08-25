@@ -1,30 +1,13 @@
 {
-  # Add your NixOS modules here
-  #
-  bttc = import ./bttc;
-  unit-status-telegram = import ./unit-status-telegram;
-  tat-agent = import ./tat-agent;
-  oci-arm-host-capacity = import ./oci-arm-host-capacity;
-  ssh-gotify-notify = import ./ssh-gotify-notify;
-  codedeploy-agent = import ./codedeploy-agent;
-  phabricator = import ./phabricator;
-  java-tron = import ./java-tron;
-  chainlink = import ./chainlink;
-  binbash = import ./binbash;
-  netbird = import ./netbird;
   falcon-sensor = import ./falcon-sensor;
   hashtopolis-server = import ./hashtopolis-server;
   hashtopolis-agent = import ./hashtopolis-agent;
   casdoor = import ./casdoor;
-  openagent = import ./openagent;
   fleet = import ./fleet.nix;
   gotrue-supabase = import ./gotrue-supabase;
-  xiaohongshu-mcp = import ./xiaohongshu-mcp;
-  cc-gateway = import ./cc-gateway;
   cc-switch = import ./cc-switch;
   codexpro = import ./codexpro;
   sub2api = import ./sub2api;
-  webhook-upgrade = import ./webhook-upgrade;
   dify = import ./dify;
   supabase-realtime = import ./supabase-realtime;
   dnf-server = import ./dnf-server;

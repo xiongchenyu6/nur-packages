@@ -103,9 +103,6 @@ in
 
   hashtopolis-agent = pkgs.callPackage ./pkgs/hashtopolis-agent/package.nix { };
 
-  # FitCrack package
-  fitcrack = if isLinux then pkgs.callPackage ./pkgs/fitcrack/package.nix { } else null;
-
   # Falcon Sensor package
   falcon-sensor =
     if isLinux then
@@ -115,23 +112,11 @@ in
     else
       null;
 
-  # RoxyBrowser package
-  roxybrowser = if isLinux then pkgs.callPackage ./pkgs/roxybrowser/package.nix { } else null;
-
-  # Xiaohongshu MCP package
-  xiaohongshu-mcp = pkgs.callPackage ./pkgs/xiaohongshu-mcp/package.nix { };
-
-  # cc-gateway package
-  cc-gateway = pkgs.callPackage ./pkgs/cc-gateway/package.nix { };
-
   # codexpro - self-hosted MCP server bridging ChatGPT to a local workspace
   codexpro = pkgs.callPackage ./pkgs/codexpro/package.nix { };
 
   # cc-switch - Cross-platform desktop app for managing AI coding tools
   cc-switch = pkgs.callPackage ./pkgs/cc-switch/package.nix { };
-
-  # DeepSeek Harness CLI
-  deepseek-harness = pkgs.callPackage ./pkgs/deepseek-harness/package.nix { };
 
   # LarkSuite CLI
   larksuite-cli = pkgs.callPackage ./pkgs/larksuite-cli/package.nix { };
