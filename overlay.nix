@@ -118,10 +118,7 @@ in
   # Only include packages that are compatible with the current platform
 
   gotron-sdk = prev.callPackage ./pkgs/gotron-sdk/package.nix { };
-  helmify = prev.callPackage ./pkgs/helmify/package.nix { };
-  korb = prev.callPackage ./pkgs/korb/package.nix { };
   larksuite-cli = prev.callPackage ./pkgs/larksuite-cli/package.nix { };
-  ldap-extra-schemas = prev.callPackage ./pkgs/ldap-extra-schemas/package.nix { };
   my2sql = prev.callPackage ./pkgs/my2sql/package.nix { };
   cc-switch = prev.callPackage ./pkgs/cc-switch/package.nix { };
 
@@ -138,29 +135,11 @@ in
     else
       throw "feishu-lark is only available on Linux";
 
-  haystack-editor =
-    if lib.hasSuffix "linux" prev.system then
-      prev.callPackage ./pkgs/haystack-editor/package.nix { }
-    else
-      throw "haystack-editor is only available on Linux";
-
   supabase-realtime =
     if lib.hasSuffix "linux" prev.system then
       prev.callPackage ./pkgs/supabase-realtime/package.nix { }
     else
       throw "supabase-realtime is only available on Linux";
-
-  fitcrack =
-    if lib.hasSuffix "linux" prev.system then
-      prev.callPackage ./pkgs/fitcrack/package.nix { }
-    else
-      throw "fitcrack is only available on Linux";
-
-  roxybrowser =
-    if lib.hasSuffix "linux" prev.system then
-      prev.callPackage ./pkgs/roxybrowser/package.nix { }
-    else
-      throw "roxybrowser is only available on Linux";
 
   record_screen =
     if lib.hasSuffix "linux" prev.system then
@@ -176,8 +155,6 @@ in
 
   casdoor = prev.callPackage ./pkgs/casdoor/package.nix { };
 
-  openagent = prev.callPackage ./pkgs/openagent/package.nix { };
-
   # Hashtopolis packages
   hashtopolis-server =
     if lib.hasSuffix "linux" prev.system then
@@ -187,18 +164,10 @@ in
 
   hashtopolis-agent = prev.callPackage ./pkgs/hashtopolis-agent/package.nix { };
 
-  # Xiaohongshu MCP package
-  xiaohongshu-mcp = prev.callPackage ./pkgs/xiaohongshu-mcp/package.nix { };
-
   camber = prev.callPackage ./pkgs/camber/package.nix { };
-
-  cc-gateway = prev.callPackage ./pkgs/cc-gateway/package.nix { };
 
   # codexpro - self-hosted MCP server bridging ChatGPT to a local workspace
   codexpro = prev.callPackage ./pkgs/codexpro/package.nix { };
-
-  # DeepSeek Harness CLI
-  deepseek-harness = prev.callPackage ./pkgs/deepseek-harness/package.nix { };
 
   # Sub2API package
   sub2api = prev.callPackage ./pkgs/sub2api/package.nix { };

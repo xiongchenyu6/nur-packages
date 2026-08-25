@@ -178,9 +178,7 @@
                     linuxOnlyPackages = [
                       "falcon-sensor"
                       "feishu-lark"
-                      "haystack-editor"
                       "record_screen"
-                      "roxybrowser"
                       "sui"
                     ];
 

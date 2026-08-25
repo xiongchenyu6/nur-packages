@@ -6,20 +6,6 @@
   dockerTools,
 }:
 {
-  cc-gateway = {
-    pname = "cc-gateway";
-    version = "447fad19b2b98602058951cad53895ed56e5ea84";
-    src = fetchgit {
-      url = "https://github.com/motiful/cc-gateway.git";
-      rev = "447fad19b2b98602058951cad53895ed56e5ea84";
-      fetchSubmodules = false;
-      deepClone = false;
-      leaveDotGit = false;
-      sparseCheckout = [ ];
-      sha256 = "sha256-GUss0AKl/VocbuchGZinaWY/pgsM7B5ZnYlk3j/Wql0=";
-    };
-    date = "2026-04-02";
-  };
   cc-switch-darwin-arm64 = {
     pname = "cc-switch-darwin-arm64";
     version = "3.20.0";
@@ -93,17 +79,17 @@
   };
   gptel = {
     pname = "gptel";
-    version = "5d6312fd38959682aacf3972897d06c98aba5089";
+    version = "41fd18acf10682ddcdaca9affe9aaddffaec21ed";
     src = fetchgit {
       url = "https://github.com/karthink/gptel.git";
-      rev = "5d6312fd38959682aacf3972897d06c98aba5089";
+      rev = "41fd18acf10682ddcdaca9affe9aaddffaec21ed";
       fetchSubmodules = false;
       deepClone = false;
       leaveDotGit = false;
       sparseCheckout = [ ];
-      sha256 = "sha256-apFHlOEnhTTp0TLpNz0eGzyng4BHyEEdI5mO1xINIu0=";
+      sha256 = "sha256-lLkjZKeIJgVW+eixr1Bh883h30mXcEeqntPgUZxe+dc=";
     };
-    date = "2026-08-23";
+    date = "2026-08-24";
   };
   hashtopolis-agent = {
     pname = "hashtopolis-agent";
@@ -125,28 +111,6 @@
       rev = "v1.0.0-rainbow6";
       fetchSubmodules = false;
       sha256 = "sha256-XNdbxKLw3DUNEUkAQMh6ysEnjC2gsvnHgc5L59Ke/y8=";
-    };
-  };
-  helmify = {
-    pname = "helmify";
-    version = "v0.4.20";
-    src = fetchFromGitHub {
-      owner = "arttor";
-      repo = "helmify";
-      rev = "v0.4.20";
-      fetchSubmodules = false;
-      sha256 = "sha256-Az/rNrNwWkQCZ8iy2qkix8xqsWA+eUbFw7YstA9usdw=";
-    };
-  };
-  korb = {
-    pname = "korb";
-    version = "v2.3.4";
-    src = fetchFromGitHub {
-      owner = "BeryJu";
-      repo = "korb";
-      rev = "v2.3.4";
-      fetchSubmodules = false;
-      sha256 = "sha256-jznXK+YlPjglafrTA1jlCuxKkZSetgk9GeY0FWxnHy4=";
     };
   };
   larksuite-cli-darwin-arm64 = {
@@ -240,38 +204,6 @@
     };
     date = "2026-04-23";
   };
-  openagent-darwin-arm64 = {
-    pname = "openagent-darwin-arm64";
-    version = "v2.89.0";
-    src = fetchurl {
-      url = "https://github.com/the-open-agent/openagent/releases/download/v2.89.0/openagent_darwin_arm64";
-      sha256 = "sha256-GSr2cGDwuPjY5uuY1sO8+n9jBv2iixVl1SdwdJ8RyOY=";
-    };
-  };
-  openagent-darwin-x86_64 = {
-    pname = "openagent-darwin-x86_64";
-    version = "v2.89.0";
-    src = fetchurl {
-      url = "https://github.com/the-open-agent/openagent/releases/download/v2.89.0/openagent_darwin_x86_64";
-      sha256 = "sha256-GkrRsJMMbJ0Cis40edvR35flnWewdLr3P8IdN64kZII=";
-    };
-  };
-  openagent-linux-arm64 = {
-    pname = "openagent-linux-arm64";
-    version = "v2.89.0";
-    src = fetchurl {
-      url = "https://github.com/the-open-agent/openagent/releases/download/v2.89.0/openagent_linux_arm64";
-      sha256 = "sha256-4pl3WL0DnkvLFym3kf9JbgVOQJwttnQTkGyIw/GcLW0=";
-    };
-  };
-  openagent-linux-x86_64 = {
-    pname = "openagent-linux-x86_64";
-    version = "v2.89.0";
-    src = fetchurl {
-      url = "https://github.com/the-open-agent/openagent/releases/download/v2.89.0/openagent_linux_x86_64";
-      sha256 = "sha256-7SWNzmVTgpfOQDi+Fsx+KY+q3kaP9jMOuvXT2MlG624=";
-    };
-  };
   org-cv = {
     pname = "org-cv";
     version = "e8de952df7669b38ca475d00fe943ab96d8cfac4";
@@ -346,17 +278,6 @@
     src = fetchurl {
       url = "https://public-cdn.cloud.unity3d.com/hub/prod/cli/1.0.0-beta.3/unity-linux-x64";
       sha256 = "sha256-m4mqpaZ26OW9ajhEqTmN77ljvTSVGGRFpGSkcFflTqM=";
-    };
-  };
-  xiaohongshu-mcp = {
-    pname = "xiaohongshu-mcp";
-    version = "v2.5.0";
-    src = fetchFromGitHub {
-      owner = "xpzouying";
-      repo = "xiaohongshu-mcp";
-      rev = "v2.5.0";
-      fetchSubmodules = false;
-      sha256 = "sha256-8RioVTTY3jTArph5c0JI/FrmZW2/jtm7DcRlLxbfGFs=";
     };
   };
 }

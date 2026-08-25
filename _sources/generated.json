@@ -1,24 +1,4 @@
 {
-    "cc-gateway": {
-        "cargoLock": null,
-        "date": "2026-04-02",
-        "extract": null,
-        "name": "cc-gateway",
-        "passthru": null,
-        "pinned": false,
-        "src": {
-            "deepClone": false,
-            "fetchSubmodules": false,
-            "leaveDotGit": false,
-            "name": null,
-            "rev": "447fad19b2b98602058951cad53895ed56e5ea84",
-            "sha256": "sha256-GUss0AKl/VocbuchGZinaWY/pgsM7B5ZnYlk3j/Wql0=",
-            "sparseCheckout": [],
-            "type": "git",
-            "url": "https://github.com/motiful/cc-gateway.git"
-        },
-        "version": "447fad19b2b98602058951cad53895ed56e5ea84"
-    },
     "cc-switch-darwin-arm64": {
         "cargoLock": null,
         "date": null,
@@ -142,7 +122,7 @@
     },
     "gptel": {
         "cargoLock": null,
-        "date": "2026-08-23",
+        "date": "2026-08-24",
         "extract": null,
         "name": "gptel",
         "passthru": null,
@@ -152,13 +132,13 @@
             "fetchSubmodules": false,
             "leaveDotGit": false,
             "name": null,
-            "rev": "5d6312fd38959682aacf3972897d06c98aba5089",
-            "sha256": "sha256-apFHlOEnhTTp0TLpNz0eGzyng4BHyEEdI5mO1xINIu0=",
+            "rev": "41fd18acf10682ddcdaca9affe9aaddffaec21ed",
+            "sha256": "sha256-lLkjZKeIJgVW+eixr1Bh883h30mXcEeqntPgUZxe+dc=",
             "sparseCheckout": [],
             "type": "git",
             "url": "https://github.com/karthink/gptel.git"
         },
-        "version": "5d6312fd38959682aacf3972897d06c98aba5089"
+        "version": "41fd18acf10682ddcdaca9affe9aaddffaec21ed"
     },
     "hashtopolis-agent": {
         "cargoLock": null,
@@ -201,48 +181,6 @@
             "type": "github"
         },
         "version": "v1.0.0-rainbow6"
-    },
-    "helmify": {
-        "cargoLock": null,
-        "date": null,
-        "extract": null,
-        "name": "helmify",
-        "passthru": null,
-        "pinned": false,
-        "src": {
-            "deepClone": false,
-            "fetchSubmodules": false,
-            "leaveDotGit": false,
-            "name": null,
-            "owner": "arttor",
-            "repo": "helmify",
-            "rev": "v0.4.20",
-            "sha256": "sha256-Az/rNrNwWkQCZ8iy2qkix8xqsWA+eUbFw7YstA9usdw=",
-            "sparseCheckout": [],
-            "type": "github"
-        },
-        "version": "v0.4.20"
-    },
-    "korb": {
-        "cargoLock": null,
-        "date": null,
-        "extract": null,
-        "name": "korb",
-        "passthru": null,
-        "pinned": false,
-        "src": {
-            "deepClone": false,
-            "fetchSubmodules": false,
-            "leaveDotGit": false,
-            "name": null,
-            "owner": "BeryJu",
-            "repo": "korb",
-            "rev": "v2.3.4",
-            "sha256": "sha256-jznXK+YlPjglafrTA1jlCuxKkZSetgk9GeY0FWxnHy4=",
-            "sparseCheckout": [],
-            "type": "github"
-        },
-        "version": "v2.3.4"
     },
     "larksuite-cli-darwin-arm64": {
         "cargoLock": null,
@@ -394,66 +332,6 @@
         },
         "version": "69b39554cb116d02fba389ff258ca9736dea7437"
     },
-    "openagent-darwin-arm64": {
-        "cargoLock": null,
-        "date": null,
-        "extract": null,
-        "name": "openagent-darwin-arm64",
-        "passthru": null,
-        "pinned": false,
-        "src": {
-            "name": null,
-            "sha256": "sha256-GSr2cGDwuPjY5uuY1sO8+n9jBv2iixVl1SdwdJ8RyOY=",
-            "type": "url",
-            "url": "https://github.com/the-open-agent/openagent/releases/download/v2.89.0/openagent_darwin_arm64"
-        },
-        "version": "v2.89.0"
-    },
-    "openagent-darwin-x86_64": {
-        "cargoLock": null,
-        "date": null,
-        "extract": null,
-        "name": "openagent-darwin-x86_64",
-        "passthru": null,
-        "pinned": false,
-        "src": {
-            "name": null,
-            "sha256": "sha256-GkrRsJMMbJ0Cis40edvR35flnWewdLr3P8IdN64kZII=",
-            "type": "url",
-            "url": "https://github.com/the-open-agent/openagent/releases/download/v2.89.0/openagent_darwin_x86_64"
-        },
-        "version": "v2.89.0"
-    },
-    "openagent-linux-arm64": {
-        "cargoLock": null,
-        "date": null,
-        "extract": null,
-        "name": "openagent-linux-arm64",
-        "passthru": null,
-        "pinned": false,
-        "src": {
-            "name": null,
-            "sha256": "sha256-4pl3WL0DnkvLFym3kf9JbgVOQJwttnQTkGyIw/GcLW0=",
-            "type": "url",
-            "url": "https://github.com/the-open-agent/openagent/releases/download/v2.89.0/openagent_linux_arm64"
-        },
-        "version": "v2.89.0"
-    },
-    "openagent-linux-x86_64": {
-        "cargoLock": null,
-        "date": null,
-        "extract": null,
-        "name": "openagent-linux-x86_64",
-        "passthru": null,
-        "pinned": false,
-        "src": {
-            "name": null,
-            "sha256": "sha256-7SWNzmVTgpfOQDi+Fsx+KY+q3kaP9jMOuvXT2MlG624=",
-            "type": "url",
-            "url": "https://github.com/the-open-agent/openagent/releases/download/v2.89.0/openagent_linux_x86_64"
-        },
-        "version": "v2.89.0"
-    },
     "org-cv": {
         "cargoLock": null,
         "date": "2025-01-24",
@@ -590,26 +468,5 @@
             "url": "https://public-cdn.cloud.unity3d.com/hub/prod/cli/1.0.0-beta.3/unity-linux-x64"
         },
         "version": "1.0.0-beta.3"
-    },
-    "xiaohongshu-mcp": {
-        "cargoLock": null,
-        "date": null,
-        "extract": null,
-        "name": "xiaohongshu-mcp",
-        "passthru": null,
-        "pinned": false,
-        "src": {
-            "deepClone": false,
-            "fetchSubmodules": false,
-            "leaveDotGit": false,
-            "name": null,
-            "owner": "xpzouying",
-            "repo": "xiaohongshu-mcp",
-            "rev": "v2.5.0",
-            "sha256": "sha256-8RioVTTY3jTArph5c0JI/FrmZW2/jtm7DcRlLxbfGFs=",
-            "sparseCheckout": [],
-            "type": "github"
-        },
-        "version": "v2.5.0"
     }
 }

@@ -45,24 +45,6 @@ fetch.github = "fbsobreira/gotron-sdk"
 # src.github = "weaveworks/weave-gitops"
 # fetch.github = "weaveworks/weave-gitops"
 
-[helmify]
-src.github = "arttor/helmify"
-fetch.github = "arttor/helmify"
-
-# python
-# [my_cookies]
-# src.pypi="my_cookies"
-# fetch.pypi="my_cookies"
-
-# [epc]
-# src.pypi="epc"
-# fetch.pypi="epc"
-
-# [newsapi-python]
-# src.pypi="newsapi-python"
-# fetch.pypi="newsapi-python"
-
-#emacs
 [gptel]
 src.git = "https://github.com/karthink/gptel.git"
 fetch.git = "https://github.com/karthink/gptel.git"
@@ -92,44 +74,9 @@ src.git = "https://github.com/zerolfx/copilot.el.git"
 src.branch = "main"
 fetch.git = "https://github.com/zerolfx/copilot.el.git"
 
-[korb]
-src.github = "BeryJu/korb"
-fetch.github = "BeryJu/korb"
-
-# [albert]
-# src.github = "albertlauncher/albert"
-# fetch.github = "albertlauncher/albert"
-# git.fetchSubmodules = true
-
-[xiaohongshu-mcp]
-src.github = "xpzouying/xiaohongshu-mcp"
-fetch.github = "xpzouying/xiaohongshu-mcp"
-
-[cc-gateway]
-src.git = "https://github.com/motiful/cc-gateway.git"
-fetch.git = "https://github.com/motiful/cc-gateway.git"
-
 [sub2api]
 src.github = "Wei-Shaw/sub2api"
 fetch.github = "Wei-Shaw/sub2api"
-
-# v2.x ships raw statically-linked Go binaries (not tarballs); asset names are lowercase.
-# The frontend, config and skills are embedded in the binary.
-[openagent-linux-x86_64]
-src.github = "the-open-agent/openagent"
-fetch.url = "https://github.com/the-open-agent/openagent/releases/download/$ver/openagent_linux_x86_64"
-
-[openagent-linux-arm64]
-src.github = "the-open-agent/openagent"
-fetch.url = "https://github.com/the-open-agent/openagent/releases/download/$ver/openagent_linux_arm64"
-
-[openagent-darwin-x86_64]
-src.github = "the-open-agent/openagent"
-fetch.url = "https://github.com/the-open-agent/openagent/releases/download/$ver/openagent_darwin_x86_64"
-
-[openagent-darwin-arm64]
-src.github = "the-open-agent/openagent"
-fetch.url = "https://github.com/the-open-agent/openagent/releases/download/$ver/openagent_darwin_arm64"
 
 [larksuite-cli-linux-x86_64]
 src.github_tag = "larksuite/cli"
