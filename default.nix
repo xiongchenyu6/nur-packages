@@ -127,8 +127,5 @@ in
   # Supabase Realtime
   supabase-realtime =
     if isLinux then pkgs.callPackage ./pkgs/supabase-realtime/package.nix { } else null;
-
-  # Dify packages (built via flake.nix perSystem with uv2nix, not directly callable here)
-  # Use `nix build .#dify-api` and `nix build .#dify-web` instead
 }
 // linuxPackages
