@@ -40,16 +40,16 @@
     pname = "cc-switch-linux-arm64";
     version = "3.20.0";
     src = fetchurl {
-      url = "https://github.com/farion1231/cc-switch/releases/download/v3.20.0/CC-Switch-v3.20.0-Linux-arm64.AppImage";
-      sha256 = "sha256-XPPQ8t6ddPfowrDyjpBCIZstDkRspuuJmDXtlKapB+M=";
+      url = "https://github.com/farion1231/cc-switch/releases/download/v3.20.0/CC-Switch-v3.20.0-Linux-arm64.deb";
+      sha256 = "sha256-KoJApIwGp/WjnsT1Vbtob74hrgsH/Mde/3lhq+3m2mg=";
     };
   };
   cc-switch-linux-x86_64 = {
     pname = "cc-switch-linux-x86_64";
     version = "3.20.0";
     src = fetchurl {
-      url = "https://github.com/farion1231/cc-switch/releases/download/v3.20.0/CC-Switch-v3.20.0-Linux-x86_64.AppImage";
-      sha256 = "sha256-+n1jUljSAPPuQ6nyYWc/JXd7VcPEOinUiNF6Dbxlx7Q=";
+      url = "https://github.com/farion1231/cc-switch/releases/download/v3.20.0/CC-Switch-v3.20.0-Linux-x86_64.deb";
+      sha256 = "sha256-1AruLIblKXgTXBX986fLn5VVrXwEatO+LcrF7c0qUsA=";
     };
   };
   combobulate = {
