@@ -119,7 +119,7 @@ stdenv.mkDerivation {
 [Desktop Entry]
 Categories=Development;Utility;
 Comment=All-in-One Assistant for Claude Code, Codex & Gemini CLI
-Exec=$out/bin/cc-switch
+Exec=$out/bin/cc-switch %u
 StartupWMClass=cc-switch
 Icon=cc-switch
 Name=CC Switch
