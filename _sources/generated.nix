@@ -79,17 +79,17 @@
   };
   gptel = {
     pname = "gptel";
-    version = "41fd18acf10682ddcdaca9affe9aaddffaec21ed";
+    version = "092bbc32fcada63404c572f6c3497c6d68d955f7";
     src = fetchgit {
       url = "https://github.com/karthink/gptel.git";
-      rev = "41fd18acf10682ddcdaca9affe9aaddffaec21ed";
+      rev = "092bbc32fcada63404c572f6c3497c6d68d955f7";
       fetchSubmodules = false;
       deepClone = false;
       leaveDotGit = false;
       sparseCheckout = [ ];
-      sha256 = "sha256-lLkjZKeIJgVW+eixr1Bh883h30mXcEeqntPgUZxe+dc=";
+      sha256 = "sha256-TOnQcyQsKhmPAL0ZiJT18/GHwpLTN2deaJU0dalsq9A=";
     };
-    date = "2026-08-24";
+    date = "2026-08-25";
   };
   hashtopolis-agent = {
     pname = "hashtopolis-agent";
