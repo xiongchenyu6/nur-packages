@@ -1,10 +1,16 @@
-name: Daily dependency update
+name: Dependency update
 
 on:
   workflow_dispatch:
   schedule:
-    # 22:00 UTC = 06:00 Beijing time the next morning
-    - cron: "0 22 * * *"
+    # 每 4 小时一次。nvchecker 逐个查 nvfetcher.toml 里 27 个上游的最新版本
+    # —— 它就是那个"监控上游 GitHub 变化"的东西,GitHub 不允许订阅别人仓库的
+    # webhook,所以只能轮询。跑得勤一点,上游发版从最长 24h 才被发现变成最长 4h。
+    #
+    # 频率提高不会带来额外 churn:下面每一步都是"有变化才动作" —— 没 diff 时
+    # create-pull-request 不建 PR,合并和级联通知随之跳过。真正会变的是
+    # nixos-unstable(几天一次)和某个上游发版(更稀疏),节奏和以前一样。
+    - cron: "0 */4 * * *"
 
 permissions:
   contents: write
@@ -12,7 +18,7 @@ permissions:
   issues: write
 
 concurrency:
-  group: daily-dependency-update
+  group: dependency-update
   cancel-in-progress: false
 
 env:
@@ -40,7 +46,9 @@ jobs:
             experimental-features = nix-command flakes
             access-tokens = github.com=${{ secrets.GITHUB_TOKEN }}
 
-      - name: Run daily update
+      # update.sh 会用 env 里的 GITHUB_TOKEN 现造一个 nvchecker keyfile,
+      # 否则匿名查询会被 GitHub 限流,导致"上游没更新"这个结论不可信。
+      - name: Run the update
         run: nix run .#update
 
       - name: Show working tree
@@ -53,13 +61,13 @@ jobs:
         uses: peter-evans/create-pull-request@v8
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          branch: automation/daily-dependency-update
+          branch: automation/dependency-update
           base: master
           delete-branch: true
           commit-message: "chore: update flake inputs and nvfetcher sources"
-          title: "chore: daily dependency update"
+          title: "chore: dependency update"
           body: |
-            Automated daily update run.
+            Automated dependency update run.
 
             This updates:
             - `flake.lock`
@@ -129,7 +137,7 @@ jobs:
           wrong with the workflow. This issue closes itself on the next green run."
           fi
         env:
-          TITLE: "Daily dependency update is failing"
+          TITLE: "Dependency update is failing"
 
       - name: Close the failure issue
         if: success()
@@ -140,4 +148,4 @@ jobs:
               gh issue close "$n" --comment "Green again: $GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"
             done
         env:
-          TITLE: "Daily dependency update is failing"
+          TITLE: "Dependency update is failing"
