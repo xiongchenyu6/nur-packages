@@ -79,17 +79,17 @@
   };
   gptel = {
     pname = "gptel";
-    version = "092bbc32fcada63404c572f6c3497c6d68d955f7";
+    version = "1f6556d9266c756a142337ccc82acfa5bba713ec";
     src = fetchgit {
       url = "https://github.com/karthink/gptel.git";
-      rev = "092bbc32fcada63404c572f6c3497c6d68d955f7";
+      rev = "1f6556d9266c756a142337ccc82acfa5bba713ec";
       fetchSubmodules = false;
       deepClone = false;
       leaveDotGit = false;
       sparseCheckout = [ ];
-      sha256 = "sha256-TOnQcyQsKhmPAL0ZiJT18/GHwpLTN2deaJU0dalsq9A=";
+      sha256 = "sha256-xZRwURvp96c2peuG66/l/5Oyq1nToVf+8Q+dCZlqmyk=";
     };
-    date = "2026-08-25";
+    date = "2026-08-26";
   };
   hashtopolis-agent = {
     pname = "hashtopolis-agent";
@@ -231,21 +231,21 @@
   };
   sui = {
     pname = "sui";
-    version = "testnet-v1.78.1";
+    version = "mainnet-v1.78.1";
     src = fetchurl {
-      url = "https://github.com/MystenLabs/sui/releases/download/testnet-v1.78.1/sui-testnet-v1.78.1-ubuntu-x86_64.tgz";
+      url = "https://github.com/MystenLabs/sui/releases/download/mainnet-v1.78.1/sui-mainnet-v1.78.1-ubuntu-x86_64.tgz";
       sha256 = "sha256-h6x01QAJ1pQZ5hegF/HkbrnBHkCSOIMNi2bn8XRWgF4=";
     };
   };
   supabase-realtime = {
     pname = "supabase-realtime";
-    version = "v2.129.9";
+    version = "v2.130.0";
     src = fetchFromGitHub {
       owner = "supabase";
       repo = "realtime";
-      rev = "v2.129.9";
+      rev = "v2.130.0";
       fetchSubmodules = false;
-      sha256 = "sha256-J6En1DmfyKpf9Mo+T+L2lLw+QrrSaIRzzKENJSgxlcE=";
+      sha256 = "sha256-7eoZojz2Uyoa5MaTMMne6vCVzZe1X7IeQeeyybx2o+A=";
     };
   };
   unity-cli-darwin-arm64 = {
