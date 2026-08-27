@@ -3,14 +3,16 @@ name: Dependency update
 on:
   workflow_dispatch:
   schedule:
-    # 每 4 小时一次。nvchecker 逐个查 nvfetcher.toml 里 27 个上游的最新版本
-    # —— 它就是那个"监控上游 GitHub 变化"的东西,GitHub 不允许订阅别人仓库的
-    # webhook,所以只能轮询。跑得勤一点,上游发版从最长 24h 才被发现变成最长 4h。
+    # 每小时一次。nvchecker 逐个查 nvfetcher.toml 里 38 个源的最新版本 ——
+    # 它就是那个"监控上游仓库变化"的东西。GitHub 不允许给别人的仓库装
+    # webhook,所以拿不到推送事件,只能轮询;旋钮只有频率一个。
     #
     # 频率提高不会带来额外 churn:下面每一步都是"有变化才动作" —— 没 diff 时
     # create-pull-request 不建 PR,合并和级联通知随之跳过。真正会变的是
-    # nixos-unstable(几天一次)和某个上游发版(更稀疏),节奏和以前一样。
-    - cron: "0 */4 * * *"
+    # nixos-unstable(几天一次)和某个上游发版(更稀疏),只是发现得更早。
+    #
+    # 配额也不是瓶颈:带 token 后是 5000 次/小时,38 个源一次才用 38 个。
+    - cron: "0 * * * *"
 
 permissions:
   contents: write
