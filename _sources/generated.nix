@@ -8,34 +8,34 @@
 {
   cc-switch-darwin-arm64 = {
     pname = "cc-switch-darwin-arm64";
-    version = "3.20.0";
+    version = "3.20.1";
     src = fetchurl {
-      url = "https://github.com/farion1231/cc-switch/releases/download/v3.20.0/CC-Switch-v3.20.0-macOS.tar.gz";
-      sha256 = "sha256-dlmy7WWw8Uxebn+7SukQYbIsrUNzFjsbvtoUELd9IAk=";
+      url = "https://github.com/farion1231/cc-switch/releases/download/v3.20.1/CC-Switch-v3.20.1-macOS.tar.gz";
+      sha256 = "sha256-yGDK3iTxr7jbk/tMTt1rVmJ8Lbe3m4Lk/vTahQUpNYM=";
     };
   };
   cc-switch-darwin-x86_64 = {
     pname = "cc-switch-darwin-x86_64";
-    version = "3.20.0";
+    version = "3.20.1";
     src = fetchurl {
-      url = "https://github.com/farion1231/cc-switch/releases/download/v3.20.0/CC-Switch-v3.20.0-macOS.tar.gz";
-      sha256 = "sha256-dlmy7WWw8Uxebn+7SukQYbIsrUNzFjsbvtoUELd9IAk=";
+      url = "https://github.com/farion1231/cc-switch/releases/download/v3.20.1/CC-Switch-v3.20.1-macOS.tar.gz";
+      sha256 = "sha256-yGDK3iTxr7jbk/tMTt1rVmJ8Lbe3m4Lk/vTahQUpNYM=";
     };
   };
   cc-switch-linux-arm64 = {
     pname = "cc-switch-linux-arm64";
-    version = "3.20.0";
+    version = "3.20.1";
     src = fetchurl {
-      url = "https://github.com/farion1231/cc-switch/releases/download/v3.20.0/CC-Switch-v3.20.0-Linux-arm64.deb";
-      sha256 = "sha256-KoJApIwGp/WjnsT1Vbtob74hrgsH/Mde/3lhq+3m2mg=";
+      url = "https://github.com/farion1231/cc-switch/releases/download/v3.20.1/CC-Switch-v3.20.1-Linux-arm64.deb";
+      sha256 = "sha256-9chx7gooldvXmsrlDZydbGvGS/uN7dEMPwjeiUlLcrY=";
     };
   };
   cc-switch-linux-x86_64 = {
     pname = "cc-switch-linux-x86_64";
-    version = "3.20.0";
+    version = "3.20.1";
     src = fetchurl {
-      url = "https://github.com/farion1231/cc-switch/releases/download/v3.20.0/CC-Switch-v3.20.0-Linux-x86_64.deb";
-      sha256 = "sha256-1AruLIblKXgTXBX986fLn5VVrXwEatO+LcrF7c0qUsA=";
+      url = "https://github.com/farion1231/cc-switch/releases/download/v3.20.1/CC-Switch-v3.20.1-Linux-x86_64.deb";
+      sha256 = "sha256-ruofiDkfAH5lH/Sd25Q+ZTXk52qT6XYC/6Dtx1jRNGM=";
     };
   };
   combobulate = {
