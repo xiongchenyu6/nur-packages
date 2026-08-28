@@ -22,10 +22,10 @@ jobs:
         # https://github.com/nix-community/NUR/blob/master/repos.json
         system:
           - aarch64-linux
-          # - x86_64-linux
+          - x86_64-linux
 
         nurRepo:
-          - <YOUR_REPO_NAME>
+          - xiongchenyu6
         # Set this to cache your build results in cachix for faster builds
         # in CI and for everyone who uses your cache.
         #
@@ -76,8 +76,12 @@ jobs:
           authToken: "${{ secrets.CACHIX_AUTH_TOKEN }}"
       - name: Build nix packages
         run: |
+          # The default NUR template only builds the default package. Build
+          # Sub2API explicitly as well: sg-office is x86_64-linux and consumes
+          # this output directly from xiongchenyu6.cachix.org. Without this
+          # line every Sub2API upgrade falls back to a local frontend + Go
+          # rebuild (about 20 minutes on the office host).
+          nix build .#sub2api
           nix build
       - name: Trigger NUR update
-        # Don't replace <YOUR_REPO_NAME> here!
-        if: ${{ matrix.nurRepo != '<YOUR_REPO_NAME>' }}
         run: curl -XPOST "https://nur-update.herokuapp.com/update?repo=${{ matrix.nurRepo }}"
