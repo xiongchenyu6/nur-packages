@@ -7,6 +7,7 @@
   gotrue-supabase = import ./gotrue-supabase;
   cc-switch = import ./cc-switch;
   codexpro = import ./codexpro;
+  happier = import ./happier;
   sub2api = import ./sub2api;
   supabase-realtime = import ./supabase-realtime;
   dnf-server = import ./dnf-server;
