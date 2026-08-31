@@ -232,7 +232,7 @@
     version = "69b39554cb116d02fba389ff258ca9736dea7437";
     src = fetchurl {
       url = "https://github.com/liuhr/my2sql/raw/master/releases/centOS_release_7.x/my2sql";
-      sha256 = "sha256-ggsA5U6AgszBuwAipX8BSuQSA0o67GDnkTZNkHhPpfo=";
+      sha256 = "sha256-bKJQVZozAp5XDMMumJzHHUxLuh6sSmhSUyDWAeasuMg=";
     };
     date = "2026-04-23";
   };
@@ -252,13 +252,13 @@
   };
   sub2api = {
     pname = "sub2api";
-    version = "v0.1.183";
+    version = "v0.1.184";
     src = fetchFromGitHub {
       owner = "Wei-Shaw";
       repo = "sub2api";
-      rev = "v0.1.183";
+      rev = "v0.1.184";
       fetchSubmodules = false;
-      sha256 = "sha256-7V4yB8PJmtapYdzKWTTyPuGTosvI3KYH2CNxWFIiK28=";
+      sha256 = "sha256-0Hto/LmJKKfWOa3Rq9crK15pOorQkwyFRMc0iyt2TbE=";
     };
   };
   sui = {
@@ -271,13 +271,13 @@
   };
   supabase-realtime = {
     pname = "supabase-realtime";
-    version = "v2.130.0";
+    version = "v2.130.2";
     src = fetchFromGitHub {
       owner = "supabase";
       repo = "realtime";
-      rev = "v2.130.0";
+      rev = "v2.130.2";
       fetchSubmodules = false;
-      sha256 = "sha256-7eoZojz2Uyoa5MaTMMne6vCVzZe1X7IeQeeyybx2o+A=";
+      sha256 = "sha256-HMoJ2QO4xxPGBQpM8Wck4Eby5M4w1Z3maZPejehLqOE=";
     };
   };
   unity-cli-darwin-arm64 = {
