@@ -91,6 +91,38 @@
     };
     date = "2026-08-26";
   };
+  happier-cli-darwin-arm64 = {
+    pname = "happier-cli-darwin-arm64";
+    version = "0.2.10-dev.83";
+    src = fetchurl {
+      url = "https://github.com/happier-dev/happier/releases/download/cli-v0.2.10-dev.83/happier-v0.2.10-dev.83-darwin-arm64.tar.gz";
+      sha256 = "sha256-4QKahh+lJSD2+t8L6hgIgxZWSqdBW5YFVN08/hVVQzw=";
+    };
+  };
+  happier-cli-darwin-x86_64 = {
+    pname = "happier-cli-darwin-x86_64";
+    version = "0.2.10-dev.83";
+    src = fetchurl {
+      url = "https://github.com/happier-dev/happier/releases/download/cli-v0.2.10-dev.83/happier-v0.2.10-dev.83-darwin-x64.tar.gz";
+      sha256 = "sha256-PQpD11iCDRE0Re4gNciMVna0X05j/92lfxRedx8xoRU=";
+    };
+  };
+  happier-cli-linux-arm64 = {
+    pname = "happier-cli-linux-arm64";
+    version = "0.2.10-dev.83";
+    src = fetchurl {
+      url = "https://github.com/happier-dev/happier/releases/download/cli-v0.2.10-dev.83/happier-v0.2.10-dev.83-linux-arm64.tar.gz";
+      sha256 = "sha256-WEuVWzAY3wVIn5H60fJrb8pvIQ7n5fuBXVkVHwRH6sY=";
+    };
+  };
+  happier-cli-linux-x86_64 = {
+    pname = "happier-cli-linux-x86_64";
+    version = "0.2.10-dev.83";
+    src = fetchurl {
+      url = "https://github.com/happier-dev/happier/releases/download/cli-v0.2.10-dev.83/happier-v0.2.10-dev.83-linux-x64.tar.gz";
+      sha256 = "sha256-K1PM9n4Ygb0JZbWwSnTm9ZMMPlVch1uVrfm5f6jG6HM=";
+    };
+  };
   hashtopolis-agent = {
     pname = "hashtopolis-agent";
     version = "v0.7.4";
@@ -200,7 +232,7 @@
     version = "69b39554cb116d02fba389ff258ca9736dea7437";
     src = fetchurl {
       url = "https://github.com/liuhr/my2sql/raw/master/releases/centOS_release_7.x/my2sql";
-      sha256 = "sha256-bKJQVZozAp5XDMMumJzHHUxLuh6sSmhSUyDWAeasuMg=";
+      sha256 = "sha256-ggsA5U6AgszBuwAipX8BSuQSA0o67GDnkTZNkHhPpfo=";
     };
     date = "2026-04-23";
   };

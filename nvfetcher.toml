@@ -162,3 +162,31 @@ fetch.url = "https://github.com/farion1231/cc-switch/releases/download/v$ver/CC-
 src.github = "farion1231/cc-switch"
 src.prefix = "v"
 fetch.url = "https://github.com/farion1231/cc-switch/releases/download/v$ver/CC-Switch-v$ver-macOS.tar.gz"
+
+# Happier CLI —— 手机/Web 接管本地 AI 编码会话的客户端。
+# 上游按组件分别打 tag(cli-* / server-* / ui-web-*),所以要用 include_regex
+# 只跟 cli-*,否则会跟到 ui-web 的版本号上去。
+# 产物是自带 node 运行时的 ELF 单文件 + 完整 node_modules,不需要 npm install。
+[happier-cli-linux-x86_64]
+src.github_tag = "happier-dev/happier"
+src.include_regex = "cli-v.*"
+src.prefix = "cli-v"
+fetch.url = "https://github.com/happier-dev/happier/releases/download/cli-v$ver/happier-v$ver-linux-x64.tar.gz"
+
+[happier-cli-linux-arm64]
+src.github_tag = "happier-dev/happier"
+src.include_regex = "cli-v.*"
+src.prefix = "cli-v"
+fetch.url = "https://github.com/happier-dev/happier/releases/download/cli-v$ver/happier-v$ver-linux-arm64.tar.gz"
+
+[happier-cli-darwin-arm64]
+src.github_tag = "happier-dev/happier"
+src.include_regex = "cli-v.*"
+src.prefix = "cli-v"
+fetch.url = "https://github.com/happier-dev/happier/releases/download/cli-v$ver/happier-v$ver-darwin-arm64.tar.gz"
+
+[happier-cli-darwin-x86_64]
+src.github_tag = "happier-dev/happier"
+src.include_regex = "cli-v.*"
+src.prefix = "cli-v"
+fetch.url = "https://github.com/happier-dev/happier/releases/download/cli-v$ver/happier-v$ver-darwin-x64.tar.gz"
