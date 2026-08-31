@@ -379,7 +379,7 @@
     },
     "librime-lua": {
         "cargoLock": null,
-        "date": "2026-05-02",
+        "date": "2026-08-31",
         "extract": null,
         "name": "librime-lua",
         "passthru": null,
@@ -389,13 +389,13 @@
             "fetchSubmodules": false,
             "leaveDotGit": false,
             "name": null,
-            "rev": "ec52e48ea18f11af37717a01c337f853215cf70b",
-            "sha256": "sha256-ipqsYAqlt29dZlgynziCC4rHFDbXsD64KPkhXQiz8/w=",
+            "rev": "ad1e4a6c98abf634dd34242a747f9b1d5d069fbe",
+            "sha256": "sha256-Zi5VyFyLk4n34+TEDvV2HEYQKL60mEiVVLFKb6hWFdE=",
             "sparseCheckout": [],
             "type": "git",
             "url": "https://github.com/hchunhui/librime-lua.git"
         },
-        "version": "ec52e48ea18f11af37717a01c337f853215cf70b"
+        "version": "ad1e4a6c98abf634dd34242a747f9b1d5d069fbe"
     },
     "magit-gitflow": {
         "cargoLock": null,
@@ -522,12 +522,12 @@
             "name": null,
             "owner": "supabase",
             "repo": "realtime",
-            "rev": "v2.130.2",
-            "sha256": "sha256-HMoJ2QO4xxPGBQpM8Wck4Eby5M4w1Z3maZPejehLqOE=",
+            "rev": "v2.132.0",
+            "sha256": "sha256-sAr6JwN3r1fespuYH2orcAkWqvDpQATqtDjqHPpI+84=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "v2.130.2"
+        "version": "v2.132.0"
     },
     "unity-cli-darwin-arm64": {
         "cargoLock": null,

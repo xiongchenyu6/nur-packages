@@ -219,17 +219,17 @@
   };
   librime-lua = {
     pname = "librime-lua";
-    version = "ec52e48ea18f11af37717a01c337f853215cf70b";
+    version = "ad1e4a6c98abf634dd34242a747f9b1d5d069fbe";
     src = fetchgit {
       url = "https://github.com/hchunhui/librime-lua.git";
-      rev = "ec52e48ea18f11af37717a01c337f853215cf70b";
+      rev = "ad1e4a6c98abf634dd34242a747f9b1d5d069fbe";
       fetchSubmodules = false;
       deepClone = false;
       leaveDotGit = false;
       sparseCheckout = [ ];
-      sha256 = "sha256-ipqsYAqlt29dZlgynziCC4rHFDbXsD64KPkhXQiz8/w=";
+      sha256 = "sha256-Zi5VyFyLk4n34+TEDvV2HEYQKL60mEiVVLFKb6hWFdE=";
     };
-    date = "2026-05-02";
+    date = "2026-08-31";
   };
   magit-gitflow = {
     pname = "magit-gitflow";
@@ -303,13 +303,13 @@
   };
   supabase-realtime = {
     pname = "supabase-realtime";
-    version = "v2.130.2";
+    version = "v2.132.0";
     src = fetchFromGitHub {
       owner = "supabase";
       repo = "realtime";
-      rev = "v2.130.2";
+      rev = "v2.132.0";
       fetchSubmodules = false;
-      sha256 = "sha256-HMoJ2QO4xxPGBQpM8Wck4Eby5M4w1Z3maZPejehLqOE=";
+      sha256 = "sha256-sAr6JwN3r1fespuYH2orcAkWqvDpQATqtDjqHPpI+84=";
     };
   };
   unity-cli-darwin-arm64 = {
