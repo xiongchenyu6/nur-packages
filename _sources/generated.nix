@@ -38,6 +38,38 @@
       sha256 = "sha256-ruofiDkfAH5lH/Sd25Q+ZTXk52qT6XYC/6Dtx1jRNGM=";
     };
   };
+  codex-acp-darwin-arm64 = {
+    pname = "codex-acp-darwin-arm64";
+    version = "0.16.0";
+    src = fetchurl {
+      url = "https://github.com/zed-industries/codex-acp/releases/download/v0.16.0/codex-acp-0.16.0-aarch64-apple-darwin.tar.gz";
+      sha256 = "sha256-N38RN5RbVNjmictgB2f23P5uVI4BwfKQGIYsAJxpLI0=";
+    };
+  };
+  codex-acp-darwin-x86_64 = {
+    pname = "codex-acp-darwin-x86_64";
+    version = "0.16.0";
+    src = fetchurl {
+      url = "https://github.com/zed-industries/codex-acp/releases/download/v0.16.0/codex-acp-0.16.0-x86_64-apple-darwin.tar.gz";
+      sha256 = "sha256-IS+vz5ccdc1PUGC+LVlRvDIvccSQKNvSUxkxSUwzx4Q=";
+    };
+  };
+  codex-acp-linux-arm64 = {
+    pname = "codex-acp-linux-arm64";
+    version = "0.16.0";
+    src = fetchurl {
+      url = "https://github.com/zed-industries/codex-acp/releases/download/v0.16.0/codex-acp-0.16.0-aarch64-unknown-linux-musl.tar.gz";
+      sha256 = "sha256-7YTdStIT1M7bswO+pkjMtVUhdVIjlSF4Nu7gv0+QypI=";
+    };
+  };
+  codex-acp-linux-x86_64 = {
+    pname = "codex-acp-linux-x86_64";
+    version = "0.16.0";
+    src = fetchurl {
+      url = "https://github.com/zed-industries/codex-acp/releases/download/v0.16.0/codex-acp-0.16.0-x86_64-unknown-linux-musl.tar.gz";
+      sha256 = "sha256-LhI7l4cYRvouAeg1qSHw16NzpvyR52pVbcfPfrORBYc=";
+    };
+  };
   combobulate = {
     pname = "combobulate";
     version = "713bf3081f2d80cbd13ed175a808b242d9cc652d";

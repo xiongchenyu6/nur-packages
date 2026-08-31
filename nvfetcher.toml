@@ -190,3 +190,28 @@ src.github_tag = "happier-dev/happier"
 src.include_regex = "cli-v.*"
 src.prefix = "cli-v"
 fetch.url = "https://github.com/happier-dev/happier/releases/download/cli-v$ver/happier-v$ver-darwin-x64.tar.gz"
+
+# codex-acp —— happier 的 acp 后端依赖它。happier 会自己从 GitHub 下载到
+# ~/.happier/tools,但那份是 gnu 动态链接版(靠 nix-ld 才跑得起来),而且不在
+# PATH 上 —— happier 的 validateCodexAcpSpawnAvailability 只认 PATH,找不到
+# 就**静默降级**回 mcp 并把 local control 一起关掉。所以自己打包放进 PATH。
+# 取 musl 版:静态链接,不需要 patchelf。
+[codex-acp-linux-x86_64]
+src.github_tag = "zed-industries/codex-acp"
+src.prefix = "v"
+fetch.url = "https://github.com/zed-industries/codex-acp/releases/download/v$ver/codex-acp-$ver-x86_64-unknown-linux-musl.tar.gz"
+
+[codex-acp-linux-arm64]
+src.github_tag = "zed-industries/codex-acp"
+src.prefix = "v"
+fetch.url = "https://github.com/zed-industries/codex-acp/releases/download/v$ver/codex-acp-$ver-aarch64-unknown-linux-musl.tar.gz"
+
+[codex-acp-darwin-arm64]
+src.github_tag = "zed-industries/codex-acp"
+src.prefix = "v"
+fetch.url = "https://github.com/zed-industries/codex-acp/releases/download/v$ver/codex-acp-$ver-aarch64-apple-darwin.tar.gz"
+
+[codex-acp-darwin-x86_64]
+src.github_tag = "zed-industries/codex-acp"
+src.prefix = "v"
+fetch.url = "https://github.com/zed-industries/codex-acp/releases/download/v$ver/codex-acp-$ver-x86_64-apple-darwin.tar.gz"

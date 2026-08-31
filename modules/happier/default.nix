@@ -11,6 +11,7 @@ let
   cfg = config.services.happier;
 
   happierPkg = pkgs.callPackage ../../pkgs/happier-cli/package.nix { };
+  codexAcpPkg = pkgs.callPackage ../../pkgs/codex-acp/package.nix { };
 in
 {
   options.services.happier = {
@@ -52,6 +53,27 @@ in
       '';
     };
 
+    codexAcpPackage = mkOption {
+      type = types.nullOr types.package;
+      default = codexAcpPkg;
+      defaultText = literalExpression "pkgs.codex-acp";
+      description = ''
+        acp 后端要用的 codex-acp,会被放进 daemon 和用户 shell 的 PATH。
+
+        **必须在 PATH 上**,不是"有就更好":happier 的
+        `validateCodexAcpSpawnAvailability` 只认 PATH,找不到就把
+        `useCodexAcp` 置 false 并**连带关掉 local control**,而且除了 resume
+        场景之外**不报错也不提示** —— 表现是 App 上切换控制模式报
+        "Failed to switch control mode",看日志什么线索都没有。
+
+        happier 自己也会按需下载一份到 ~/.happier/tools,但那是 gnu 动态链接
+        版(在 NixOS 上靠 nix-ld 才跑得起来),而且那个目录不在 PATH 上,
+        等于白下。这里打包的是 musl 静态版。
+
+        设成 null 可以不装(那样 acp 后端不可用)。
+      '';
+    };
+
     extraEnvironment = mkOption {
       type = types.attrsOf types.str;
       default = { };
@@ -66,7 +88,9 @@ in
   };
 
   config = mkIf cfg.enable {
-    environment.systemPackages = [ cfg.package ];
+    # codex-acp 也装进系统 PATH:终端里手动起的会话同样要它,
+    # 否则 acp 会静默降级成 mcp。
+    environment.systemPackages = [ cfg.package ] ++ optional (cfg.codexAcpPackage != null) cfg.codexAcpPackage;
 
     systemd.user.services.happier-daemon = {
       description = "Happier daemon";
@@ -102,7 +126,8 @@ in
       path = [
         pkgs.git
         pkgs.openssh
-      ];
+      ]
+      ++ optional (cfg.codexAcpPackage != null) cfg.codexAcpPackage;
     };
   };
 }

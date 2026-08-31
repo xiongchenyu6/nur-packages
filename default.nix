@@ -124,6 +124,9 @@ in
   # happier-cli - 手机/Web 接管本地 AI 编码会话(Claude Code / Codex / OpenCode)
   happier-cli = pkgs.callPackage ./pkgs/happier-cli/package.nix { };
 
+  # codex-acp - happier 的 acp 后端依赖,必须在 PATH 上否则 happier 静默降级
+  codex-acp = pkgs.callPackage ./pkgs/codex-acp/package.nix { };
+
   # Unity CLI (official terminal tool for Unity editors/builds)
   unity-cli = pkgs.callPackage ./pkgs/unity-cli/package.nix { };
 
