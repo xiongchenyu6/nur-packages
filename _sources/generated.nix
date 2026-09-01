@@ -284,13 +284,13 @@
   };
   sub2api = {
     pname = "sub2api";
-    version = "v0.1.184";
+    version = "v0.1.185";
     src = fetchFromGitHub {
       owner = "Wei-Shaw";
       repo = "sub2api";
-      rev = "v0.1.184";
+      rev = "v0.1.185";
       fetchSubmodules = false;
-      sha256 = "sha256-0Hto/LmJKKfWOa3Rq9crK15pOorQkwyFRMc0iyt2TbE=";
+      sha256 = "sha256-6603gIrlClgBI/3Yu1fOmNKLyaHISsomCLGIJ0FoTeI=";
     };
   };
   sui = {
