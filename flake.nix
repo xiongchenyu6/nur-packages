@@ -10,6 +10,11 @@
     };
     pkgs-by-name-for-flake-parts.url = "github:drupol/pkgs-by-name-for-flake-parts";
 
+    # sub2api is packaged upstream here; we only re-export it.
+    llm-agents = {
+      url = "github:numtide/llm-agents.nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
   outputs =
     {
@@ -52,6 +57,12 @@
               config.allowUnfree = true;
             };
             isLinuxSystem = lib.hasSuffix "linux" system;
+
+            # Packages taken verbatim from other flakes instead of being
+            # maintained here. Absent on systems the upstream does not build.
+            upstreamPackages = lib.filterAttrs (n: _: n == "sub2api") (
+              inputs.llm-agents.packages.${system} or { }
+            );
 
           in
           {
@@ -104,7 +115,7 @@
                   in
                   builtins.foldl' (acc: set: acc // set) { } packageSets;
                 # Combine all packages and set default
-                combinedPackages = allPackages // pkgsByName;
+                combinedPackages = allPackages // pkgsByName // upstreamPackages;
               in
               combinedPackages
               // {
@@ -148,15 +159,43 @@
             };
           };
 
-        flake = {
-          # Overlay that provides all NUR packages
-          # Uses lazy evaluation and super (prev) to avoid infinite recursion
-          overlays.default = import ./overlay.nix;
+        flake =
+          let
+            inherit (nixpkgs) lib;
+            sub2apiFor = system: inputs.llm-agents.packages.${system}.sub2api;
 
-          nixosModules = import ./modules;
-          homeModules = import ./modules/home.nix;
-          templates = import ./templates;
-        };
+            # The sub2api service modules take their package from llm-agents.nix
+            # rather than from a local pkgs/ entry, so the default is wired in
+            # here where the flake inputs are in scope.
+            sub2apiPackageModule =
+              { pkgs, ... }:
+              {
+                services.sub2api.package = lib.mkDefault (sub2apiFor pkgs.stdenv.hostPlatform.system);
+              };
+          in
+          {
+            # Overlay that provides all NUR packages
+            # Uses lazy evaluation and super (prev) to avoid infinite recursion
+            overlays.default = lib.composeExtensions (import ./overlay.nix) (
+              _final: prev: {
+                sub2api = sub2apiFor prev.stdenv.hostPlatform.system;
+              }
+            );
+
+            nixosModules = import ./modules // {
+              sub2api.imports = [
+                ./modules/sub2api
+                sub2apiPackageModule
+              ];
+            };
+            homeModules = import ./modules/home.nix // {
+              sub2api.imports = [
+                ./modules/sub2api/home.nix
+                sub2apiPackageModule
+              ];
+            };
+            templates = import ./templates;
+          };
       }
     );
 }

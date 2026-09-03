@@ -74,10 +74,6 @@ src.git = "https://github.com/zerolfx/copilot.el.git"
 src.branch = "main"
 fetch.git = "https://github.com/zerolfx/copilot.el.git"
 
-[sub2api]
-src.github = "Wei-Shaw/sub2api"
-fetch.github = "Wei-Shaw/sub2api"
-
 [larksuite-cli-linux-x86_64]
 src.github_tag = "larksuite/cli"
 src.prefix = "v"

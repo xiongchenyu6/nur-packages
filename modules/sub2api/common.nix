@@ -10,8 +10,6 @@ with lib;
 let
   cfg = config.services.sub2api;
 
-  sub2apiPkg = pkgs.callPackage ../../pkgs/sub2api/package.nix { };
-
   configFile = pkgs.writeText "config.yaml" (
     builtins.toJSON {
       server = {
@@ -50,8 +48,14 @@ in
 
     package = mkOption {
       type = types.package;
-      default = sub2apiPkg;
-      description = "Sub2API package to use";
+      default = pkgs.sub2api;
+      defaultText = literalExpression "pkgs.sub2api";
+      description = ''
+        Sub2API package to use. Packaged upstream in numtide/llm-agents.nix;
+        the flake's nixosModules/homeModules export defaults this to that
+        package, so `pkgs.sub2api` only matters when the module is imported
+        by path (in which case the NUR overlay supplies it).
+      '';
     };
 
     host = mkOption {

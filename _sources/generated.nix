@@ -282,17 +282,6 @@
     };
     date = "2025-01-24";
   };
-  sub2api = {
-    pname = "sub2api";
-    version = "v0.1.185";
-    src = fetchFromGitHub {
-      owner = "Wei-Shaw";
-      repo = "sub2api";
-      rev = "v0.1.185";
-      fetchSubmodules = false;
-      sha256 = "sha256-6603gIrlClgBI/3Yu1fOmNKLyaHISsomCLGIJ0FoTeI=";
-    };
-  };
   sui = {
     pname = "sui";
     version = "mainnet-v1.78.1";

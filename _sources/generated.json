@@ -472,27 +472,6 @@
         },
         "version": "e8de952df7669b38ca475d00fe943ab96d8cfac4"
     },
-    "sub2api": {
-        "cargoLock": null,
-        "date": null,
-        "extract": null,
-        "name": "sub2api",
-        "passthru": null,
-        "pinned": false,
-        "src": {
-            "deepClone": false,
-            "fetchSubmodules": false,
-            "leaveDotGit": false,
-            "name": null,
-            "owner": "Wei-Shaw",
-            "repo": "sub2api",
-            "rev": "v0.1.185",
-            "sha256": "sha256-6603gIrlClgBI/3Yu1fOmNKLyaHISsomCLGIJ0FoTeI=",
-            "sparseCheckout": [],
-            "type": "github"
-        },
-        "version": "v0.1.185"
-    },
     "sui": {
         "cargoLock": null,
         "date": null,

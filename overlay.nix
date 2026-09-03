@@ -169,9 +169,6 @@ in
   # codexpro - self-hosted MCP server bridging ChatGPT to a local workspace
   codexpro = prev.callPackage ./pkgs/codexpro/package.nix { };
 
-  # Sub2API package
-  sub2api = prev.callPackage ./pkgs/sub2api/package.nix { };
-
   # Unity CLI (official terminal tool for Unity editors/builds)
   unity-cli = prev.callPackage ./pkgs/unity-cli/package.nix { };
 
