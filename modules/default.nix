@@ -6,6 +6,7 @@
   fleet = import ./fleet.nix;
   gotrue-supabase = import ./gotrue-supabase;
   cc-switch = import ./cc-switch;
+  lan-mouse = import ./lan-mouse/nixos.nix;
   codexpro = import ./codexpro;
   happier = import ./happier;
   sub2api = import ./sub2api;
