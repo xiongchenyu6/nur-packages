@@ -12,6 +12,7 @@
   casdoor = import ./casdoor/home.nix;
   cc-switch = import ./cc-switch/home.nix;
   gotrue-supabase = import ./gotrue-supabase/home.nix;
+  lan-mouse = import ./lan-mouse/home.nix;
   sub2api = import ./sub2api/home.nix;
   supabase-realtime = import ./supabase-realtime/home.nix;
 }
