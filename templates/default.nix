@@ -1,58 +1,65 @@
-{
-  default = {
+let
+  # Every template is a flake-parts flake exposing a devShell (plus a NixOS
+  # configuration in the `nixos` one), with a matching .envrc for direnv.
+  praise = what: "A grossly incandescent and minimal ${what}";
+in
+rec {
+  default = empty;
+
+  empty = {
     path = ./empty;
-    description = "A grossly incandescent and minimal nixos empty config";
+    description = praise "flake with a bare dev shell";
   };
   java = {
     path = ./java;
-    description = "A grossly incandescent and minimal nixos java config";
+    description = praise "Java dev shell";
   };
   nodejs = {
     path = ./nodejs;
-    description = "A grossly incandescent and minimal nixos javascrpit config";
+    description = praise "Node.js dev shell, with corepack shims";
   };
   bun = {
     path = ./bun;
-    description = "A grossly incandescent and minimal nixos bun config";
+    description = praise "Bun dev shell";
   };
   python = {
     path = ./python;
-    description = "A grossly incandescent and minimal nixos python config";
+    description = praise "Python dev shell, with a virtualenv bootstrap";
   };
   rust = {
     path = ./rust;
-    description = "A grossly incandescent and minimal nixos rust config";
+    description = praise "Rust dev shell";
   };
   cc = {
     path = ./cc;
-    description = "A grossly incandescent and minimal nixos cpp config";
+    description = praise "C/C++ dev shell, on clang with cmake and bear";
   };
   go = {
     path = ./go;
-    description = "A grossly incandescent and minimal nixos go config";
+    description = praise "Go dev shell";
   };
   shell = {
     path = ./shell;
-    description = "A grossly incandescent and minimal nixos shell config";
+    description = praise "shell-scripting dev shell";
   };
   cuda = {
     path = ./cuda;
-    description = "A grossly incandescent and minimal nixos cuda config";
+    description = praise "CUDA dev shell";
   };
   terraform = {
     path = ./terraform;
-    description = "A grossly incandescent and minimal nixos terraform config";
+    description = praise "Terraform dev shell";
   };
   tenv = {
     path = ./tenv;
-    description = "A grossly incandescent and minimal nixos tenv config";
+    description = praise "tenv dev shell, for multi-version Terraform";
   };
   nixos = {
     path = ./nixos;
-    description = "A grossly incandescent and minimal nixos nixos config";
+    description = praise "NixOS host flake, with home-manager wired in";
   };
   zig = {
     path = ./zig;
-    description = "A grossly incandescent and minimal nixos zig config";
+    description = praise "Zig dev shell";
   };
 }

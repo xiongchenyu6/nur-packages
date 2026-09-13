@@ -13,7 +13,13 @@
     };
   };
 
-  outputs = { nixpkgs, flake-parts, home-manager, ... }@inputs:
+  outputs =
+    {
+      nixpkgs,
+      flake-parts,
+      home-manager,
+      ...
+    }@inputs:
     let
       sharedOverlays = [
       ];
@@ -24,7 +30,9 @@
 
         (_: {
           nixpkgs = {
-            system = "x86_64-linux";
+            # `nixpkgs.system` is deprecated; hostPlatform is the supported way
+            # to pick the platform from inside a module.
+            hostPlatform = "x86_64-linux";
             config = {
               allowUnfree = true;
               allowBroken = true;
@@ -39,21 +47,28 @@
           };
         })
       ];
-     in
+    in
     flake-parts.lib.mkFlake { inherit inputs; } {
-      systems = [ "x86_64-linux" "aarch64-linux" ];
-      perSystem = { config, self', inputs', pkgs, system, lib, ... }: {
-        devShells.default = pkgs.mkShell { buildInputs = with pkgs; [ ]; };
-      };
-      flake = {
-          withSystem,
-          inputs,
-          lib,
-          ...
-        }: {
-          nixosConfigurations = {
-            default = nixpkgs.lib.nixosSystem { modules = [ ./hosts/default ] ++ nixos-modules;  };
+      systems = [
+        "x86_64-linux"
+        "aarch64-linux"
+      ];
+      perSystem =
+        { pkgs, ... }:
+        {
+          devShells.default = pkgs.mkShell {
+            nativeBuildInputs = with pkgs; [
+              nixfmt
+              nixd
+            ];
           };
+        };
+      flake = {
+        nixosConfigurations = {
+          default = nixpkgs.lib.nixosSystem {
+            modules = [ ./hosts/default ] ++ nixos-modules;
+          };
+        };
       };
     };
 }

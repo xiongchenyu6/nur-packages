@@ -29,6 +29,8 @@
         {
           devShells.default = pkgs.mkShell {
             buildInputs = with pkgs; [
+              nixfmt
+              nixd
               (python3.withPackages (python-pkgs: [
                 python-pkgs.virtualenvwrapper
                 python-pkgs.pip
@@ -36,11 +38,11 @@
             ];
             shellHook =
               let
+                # Only actual shared libraries belong here — listing tools like
+                # nixfmt would add a nonexistent /lib and leave them off PATH.
                 lib-path = lib.makeLibraryPath (
                   with pkgs;
-                  lib.optionals stdenv.isLinux [
-                    nixfmt
-                    nixd
+                  lib.optionals stdenv.hostPlatform.isLinux [
                     stdenv.cc.cc
                   ]
                 );
