@@ -83,5 +83,15 @@ jobs:
           # rebuild (about 20 minutes on the office host).
           nix build .#sub2api
           nix build
+      # One notification per run is enough; both matrix jobs posting at once
+      # gets the second one rate limited. A 429 means NUR was poked recently,
+      # which is fine; anything else non-2xx means the endpoint is broken again.
       - name: Trigger NUR update
-        run: curl -fsS -XPOST "https://nur-update.nix-community.org/update?repo=${{ matrix.nurRepo }}"
+        if: ${{ matrix.system == 'x86_64-linux' && github.event_name != 'pull_request' }}
+        run: |
+          code=$(curl -sS -o /dev/null -w '%{http_code}' -XPOST "https://nur-update.nix-community.org/update?repo=${{ matrix.nurRepo }}")
+          echo "NUR update endpoint returned $code"
+          case "$code" in
+            2??|429) ;;
+            *) exit 1 ;;
+          esac
