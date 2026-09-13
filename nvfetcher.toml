@@ -45,34 +45,9 @@ fetch.github = "fbsobreira/gotron-sdk"
 # src.github = "weaveworks/weave-gitops"
 # fetch.github = "weaveworks/weave-gitops"
 
-[gptel]
-src.git = "https://github.com/karthink/gptel.git"
-fetch.git = "https://github.com/karthink/gptel.git"
-
-[org-cv]
-src.git = "https://gitlab.com/Titan-C/org-cv.git"
-fetch.git = "https://gitlab.com/Titan-C/org-cv.git"
-
-[magit-gitflow]
-src.git = "https://github.com/jtatarik/magit-gitflow.git"
-fetch.git = "https://github.com/jtatarik/magit-gitflow.git"
-
-[magit-town]
-src.git = "https://github.com/natecox/magit-town.git"
-fetch.git = "https://github.com/natecox/magit-town.git"
-
-[combobulate]
-src.git = "https://github.com/mickeynp/combobulate.git"
-fetch.git = "https://github.com/mickeynp/combobulate.git"
-
 [librime-lua]
 src.git = "https://github.com/hchunhui/librime-lua.git"
 fetch.git = "https://github.com/hchunhui/librime-lua.git"
-
-[copilot-el]
-src.git = "https://github.com/zerolfx/copilot.el.git"
-src.branch = "main"
-fetch.git = "https://github.com/zerolfx/copilot.el.git"
 
 [larksuite-cli-linux-x86_64]
 src.github_tag = "larksuite/cli"

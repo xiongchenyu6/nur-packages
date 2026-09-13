@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## What This Is
 
-A NUR (Nix User Repository) containing Nix packages and NixOS modules not available in nixpkgs. Packages span security tools, blockchain nodes, developer utilities, enterprise apps, Emacs extensions, and system services.
+A NUR (Nix User Repository) containing Nix packages and NixOS modules not available in nixpkgs. Packages span security tools, blockchain nodes, developer utilities, enterprise apps, and system services.
 
 ## Build & Development Commands
 

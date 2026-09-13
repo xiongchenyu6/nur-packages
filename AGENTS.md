@@ -220,7 +220,7 @@ meta = with lib; {
 
 ## Repository Structure Notes
 
-- `pkgs/` - Package definitions (language-specific subdirectories for Emacs, Python, etc.)
+- `pkgs/` - Package definitions (one directory per package)
 - `modules/` - NixOS modules (services, system configurations)
 - `overlays/` - Package overrides
 - `templates/` - Project templates

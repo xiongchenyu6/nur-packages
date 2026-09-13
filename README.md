@@ -194,7 +194,6 @@ in {
 ## 📋 Complete Package List
 
 ### Packages (`pkgs/`)
-- `emacs` - Custom Emacs configuration
 - `falcon-sensor` - CrowdStrike Falcon sensor
 - `feishu-lark` - Feishu/Lark collaboration platform
 - `fitcrack` - Distributed password cracking (BOINC)
@@ -209,7 +208,6 @@ in {
 - `my2sql` - MySQL binlog parser
 - `record_screen` - Screen recording tool
 - `sui` - Sui blockchain tools
-- `emacs-copilot-el`, `emacs-combobulate`, `emacs-gptel`, `emacs-magit-gitflow`, `emacs-magit-town`, `emacs-org-cv` - curated Emacs extensions
 - `cyrus_sasl_with_ldap`, `openldap_with_cyrus_sasl`, `postfix_with_ldap`, `sssd_with_sude`, `sudo_with_sssd` - LDAP-enabled variants
 - `librime` (with lua plugin) and `wrangler` override sets
 

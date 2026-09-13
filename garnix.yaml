@@ -19,7 +19,6 @@ builds:
     - "*.record_screen.*"
     - "*.sui.*"
     - "*.haystack-editor.*"
-    - "*.emacs-*.*"
     # Explicitly exclude unfree packages from CI builds
   exclude:
     - "*.falcon-sensor.*"

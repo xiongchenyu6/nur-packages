@@ -29,14 +29,6 @@ in
     dontCheckForBrokenSymlinks = true;
   });
 
-  # Emacs packages
-  emacs-copilot-el = prev.callPackage ./pkgs/emacs/copilot-el/package.nix { };
-  emacs-combobulate = prev.callPackage ./pkgs/emacs/combobulate/package.nix { };
-  emacs-gptel = prev.callPackage ./pkgs/emacs/gptel/package.nix { };
-  emacs-magit-gitflow = prev.callPackage ./pkgs/emacs/magit-gitflow/package.nix { };
-  emacs-magit-town = prev.callPackage ./pkgs/emacs/magit-town/package.nix { };
-  emacs-org-cv = prev.callPackage ./pkgs/emacs/org-cv/package.nix { };
-
   # Linux-only packages (conditionally included)
   cyrus_sasl_with_ldap =
     if lib.hasSuffix "linux" prev.system then
@@ -121,6 +113,8 @@ in
   larksuite-cli = prev.callPackage ./pkgs/larksuite-cli/package.nix { };
   my2sql = prev.callPackage ./pkgs/my2sql/package.nix { };
   cc-switch = prev.callPackage ./pkgs/cc-switch/package.nix { };
+  happier-cli = prev.callPackage ./pkgs/happier-cli/package.nix { };
+  codex-acp = prev.callPackage ./pkgs/codex-acp/package.nix { };
 
   # Linux-only packages from pkgs/
   falcon-sensor =

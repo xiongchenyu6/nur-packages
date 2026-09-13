@@ -15,11 +15,6 @@ resolve_attr_from_file() {
   local package_file="$1"
 
   case "$package_file" in
-    pkgs/emacs/*/package.nix)
-      local package_name="${package_file#pkgs/emacs/}"
-      package_name="${package_name%/package.nix}"
-      printf 'emacs-%s\n' "$package_name"
-      ;;
     pkgs/*/package.nix)
       local package_name="${package_file#pkgs/}"
       package_name="${package_name%/package.nix}"
