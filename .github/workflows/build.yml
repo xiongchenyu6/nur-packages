@@ -84,4 +84,4 @@ jobs:
           nix build .#sub2api
           nix build
       - name: Trigger NUR update
-        run: curl -XPOST "https://nur-update.herokuapp.com/update?repo=${{ matrix.nurRepo }}"
+        run: curl -fsS -XPOST "https://nur-update.nix-community.org/update?repo=${{ matrix.nurRepo }}"
