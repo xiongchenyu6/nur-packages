@@ -8,34 +8,34 @@
 {
   cc-switch-darwin-arm64 = {
     pname = "cc-switch-darwin-arm64";
-    version = "3.20.1";
+    version = "3.20.3";
     src = fetchurl {
-      url = "https://github.com/farion1231/cc-switch/releases/download/v3.20.1/CC-Switch-v3.20.1-macOS.tar.gz";
-      sha256 = "sha256-yGDK3iTxr7jbk/tMTt1rVmJ8Lbe3m4Lk/vTahQUpNYM=";
+      url = "https://github.com/farion1231/cc-switch/releases/download/v3.20.3/CC-Switch-v3.20.3-macOS.tar.gz";
+      sha256 = "sha256-jwBVTP3fWF+mcuXn0h2w6ErkEOAtEnuWzgIRATc0Vo8=";
     };
   };
   cc-switch-darwin-x86_64 = {
     pname = "cc-switch-darwin-x86_64";
-    version = "3.20.1";
+    version = "3.20.3";
     src = fetchurl {
-      url = "https://github.com/farion1231/cc-switch/releases/download/v3.20.1/CC-Switch-v3.20.1-macOS.tar.gz";
-      sha256 = "sha256-yGDK3iTxr7jbk/tMTt1rVmJ8Lbe3m4Lk/vTahQUpNYM=";
+      url = "https://github.com/farion1231/cc-switch/releases/download/v3.20.3/CC-Switch-v3.20.3-macOS.tar.gz";
+      sha256 = "sha256-jwBVTP3fWF+mcuXn0h2w6ErkEOAtEnuWzgIRATc0Vo8=";
     };
   };
   cc-switch-linux-arm64 = {
     pname = "cc-switch-linux-arm64";
-    version = "3.20.1";
+    version = "3.20.3";
     src = fetchurl {
-      url = "https://github.com/farion1231/cc-switch/releases/download/v3.20.1/CC-Switch-v3.20.1-Linux-arm64.deb";
-      sha256 = "sha256-9chx7gooldvXmsrlDZydbGvGS/uN7dEMPwjeiUlLcrY=";
+      url = "https://github.com/farion1231/cc-switch/releases/download/v3.20.3/CC-Switch-v3.20.3-Linux-arm64.deb";
+      sha256 = "sha256-x/Df6BCEOGYiMes0Pn4pytoc2orvPc0QxkC9AocZDRg=";
     };
   };
   cc-switch-linux-x86_64 = {
     pname = "cc-switch-linux-x86_64";
-    version = "3.20.1";
+    version = "3.20.3";
     src = fetchurl {
-      url = "https://github.com/farion1231/cc-switch/releases/download/v3.20.1/CC-Switch-v3.20.1-Linux-x86_64.deb";
-      sha256 = "sha256-ruofiDkfAH5lH/Sd25Q+ZTXk52qT6XYC/6Dtx1jRNGM=";
+      url = "https://github.com/farion1231/cc-switch/releases/download/v3.20.3/CC-Switch-v3.20.3-Linux-x86_64.deb";
+      sha256 = "sha256-Is/nXxIFVwVFtmxIK1Z+VPhZk8yLEEXAXGCXScQd1sU=";
     };
   };
   codex-acp-darwin-arm64 = {
@@ -70,34 +70,6 @@
       sha256 = "sha256-LhI7l4cYRvouAeg1qSHw16NzpvyR52pVbcfPfrORBYc=";
     };
   };
-  combobulate = {
-    pname = "combobulate";
-    version = "713bf3081f2d80cbd13ed175a808b242d9cc652d";
-    src = fetchgit {
-      url = "https://github.com/mickeynp/combobulate.git";
-      rev = "713bf3081f2d80cbd13ed175a808b242d9cc652d";
-      fetchSubmodules = false;
-      deepClone = false;
-      leaveDotGit = false;
-      sparseCheckout = [ ];
-      sha256 = "sha256-RbEd52oz0TqbqZDYjlClQFsXFRDqGnTdYoXSgdrk2Do=";
-    };
-    date = "2026-07-23";
-  };
-  copilot-el = {
-    pname = "copilot-el";
-    version = "277ca357422ba34bcf7fe650cb720580994eea84";
-    src = fetchgit {
-      url = "https://github.com/zerolfx/copilot.el.git";
-      rev = "277ca357422ba34bcf7fe650cb720580994eea84";
-      fetchSubmodules = false;
-      deepClone = false;
-      leaveDotGit = false;
-      sparseCheckout = [ ];
-      sha256 = "sha256-LYjZeBpQ8UOGoiFETyDF85fOFhKH1aQ/YwCOPfaARjo=";
-    };
-    date = "2026-07-07";
-  };
   gotron-sdk = {
     pname = "gotron-sdk";
     version = "v0.26.0";
@@ -109,50 +81,36 @@
       sha256 = "sha256-GqMXqUnvOt92xVcURFQa+uqTqU7LZd8vFEh78ZlTp+k=";
     };
   };
-  gptel = {
-    pname = "gptel";
-    version = "1f6556d9266c756a142337ccc82acfa5bba713ec";
-    src = fetchgit {
-      url = "https://github.com/karthink/gptel.git";
-      rev = "1f6556d9266c756a142337ccc82acfa5bba713ec";
-      fetchSubmodules = false;
-      deepClone = false;
-      leaveDotGit = false;
-      sparseCheckout = [ ];
-      sha256 = "sha256-xZRwURvp96c2peuG66/l/5Oyq1nToVf+8Q+dCZlqmyk=";
-    };
-    date = "2026-08-26";
-  };
   happier-cli-darwin-arm64 = {
     pname = "happier-cli-darwin-arm64";
-    version = "0.2.10-dev.83";
+    version = "0.2.12";
     src = fetchurl {
-      url = "https://github.com/happier-dev/happier/releases/download/cli-v0.2.10-dev.83/happier-v0.2.10-dev.83-darwin-arm64.tar.gz";
-      sha256 = "sha256-4QKahh+lJSD2+t8L6hgIgxZWSqdBW5YFVN08/hVVQzw=";
+      url = "https://github.com/happier-dev/happier/releases/download/cli-v0.2.12/happier-v0.2.12-darwin-arm64.tar.gz";
+      sha256 = "sha256-5ofTLYSvlfaxminPFVn069VrlJs+oM52NAI1A5BHpXY=";
     };
   };
   happier-cli-darwin-x86_64 = {
     pname = "happier-cli-darwin-x86_64";
-    version = "0.2.10-dev.83";
+    version = "0.2.12";
     src = fetchurl {
-      url = "https://github.com/happier-dev/happier/releases/download/cli-v0.2.10-dev.83/happier-v0.2.10-dev.83-darwin-x64.tar.gz";
-      sha256 = "sha256-PQpD11iCDRE0Re4gNciMVna0X05j/92lfxRedx8xoRU=";
+      url = "https://github.com/happier-dev/happier/releases/download/cli-v0.2.12/happier-v0.2.12-darwin-x64.tar.gz";
+      sha256 = "sha256-zOQbvPMUtnRk3GZ72HHtT5WZ2mb6PGtCkkefntCu/XY=";
     };
   };
   happier-cli-linux-arm64 = {
     pname = "happier-cli-linux-arm64";
-    version = "0.2.10-dev.83";
+    version = "0.2.12";
     src = fetchurl {
-      url = "https://github.com/happier-dev/happier/releases/download/cli-v0.2.10-dev.83/happier-v0.2.10-dev.83-linux-arm64.tar.gz";
-      sha256 = "sha256-WEuVWzAY3wVIn5H60fJrb8pvIQ7n5fuBXVkVHwRH6sY=";
+      url = "https://github.com/happier-dev/happier/releases/download/cli-v0.2.12/happier-v0.2.12-linux-arm64.tar.gz";
+      sha256 = "sha256-v6FeKqeabb0KcUx+Cm1RvgEaQ93eL09FPWRYsVtDDoI=";
     };
   };
   happier-cli-linux-x86_64 = {
     pname = "happier-cli-linux-x86_64";
-    version = "0.2.10-dev.83";
+    version = "0.2.12";
     src = fetchurl {
-      url = "https://github.com/happier-dev/happier/releases/download/cli-v0.2.10-dev.83/happier-v0.2.10-dev.83-linux-x64.tar.gz";
-      sha256 = "sha256-K1PM9n4Ygb0JZbWwSnTm9ZMMPlVch1uVrfm5f6jG6HM=";
+      url = "https://github.com/happier-dev/happier/releases/download/cli-v0.2.12/happier-v0.2.12-linux-x64.tar.gz";
+      sha256 = "sha256-iXgmXOdne9PwoPL3NDBLtVFFLJYrfUb480QgiSoB+n4=";
     };
   };
   hashtopolis-agent = {
@@ -179,42 +137,42 @@
   };
   larksuite-cli-darwin-arm64 = {
     pname = "larksuite-cli-darwin-arm64";
-    version = "1.0.92";
+    version = "1.0.95";
     src = fetchurl {
-      url = "https://github.com/larksuite/cli/releases/download/v1.0.92/lark-cli-1.0.92-darwin-arm64.tar.gz";
-      sha256 = "sha256-q7G5bu5a0y2k4S9DTkTUip4B67DoF3JBmsA0f5HDQmU=";
+      url = "https://github.com/larksuite/cli/releases/download/v1.0.95/lark-cli-1.0.95-darwin-arm64.tar.gz";
+      sha256 = "sha256-euckG33l6/6GqmsrJK82AL1QGexbYgbqO/3AiU9v2SU=";
     };
   };
   larksuite-cli-darwin-x86_64 = {
     pname = "larksuite-cli-darwin-x86_64";
-    version = "1.0.92";
+    version = "1.0.95";
     src = fetchurl {
-      url = "https://github.com/larksuite/cli/releases/download/v1.0.92/lark-cli-1.0.92-darwin-amd64.tar.gz";
-      sha256 = "sha256-Qhs2+VlmAo+wRyMctjUcQiSg/csHbSvENNSu0bttGJE=";
+      url = "https://github.com/larksuite/cli/releases/download/v1.0.95/lark-cli-1.0.95-darwin-amd64.tar.gz";
+      sha256 = "sha256-uLgX5//nk8m+JXngs/kWVhCwHKPUJae47m+01SjcbO8=";
     };
   };
   larksuite-cli-linux-arm64 = {
     pname = "larksuite-cli-linux-arm64";
-    version = "1.0.92";
+    version = "1.0.95";
     src = fetchurl {
-      url = "https://github.com/larksuite/cli/releases/download/v1.0.92/lark-cli-1.0.92-linux-arm64.tar.gz";
-      sha256 = "sha256-aDVGtnVMeA4Pgo6HywDM98BxB5ip8d24xrlWr7+1cK4=";
+      url = "https://github.com/larksuite/cli/releases/download/v1.0.95/lark-cli-1.0.95-linux-arm64.tar.gz";
+      sha256 = "sha256-BjASpjuyJHmFXjNdkizFiLiD4A0RXeUdp2qP/iLbmHo=";
     };
   };
   larksuite-cli-linux-riscv64 = {
     pname = "larksuite-cli-linux-riscv64";
-    version = "1.0.92";
+    version = "1.0.95";
     src = fetchurl {
-      url = "https://github.com/larksuite/cli/releases/download/v1.0.92/lark-cli-1.0.92-linux-riscv64.tar.gz";
-      sha256 = "sha256-8V8yAya+puzqrQdfw8iXsYyX3hctNTcb/R1wxLAU2K4=";
+      url = "https://github.com/larksuite/cli/releases/download/v1.0.95/lark-cli-1.0.95-linux-riscv64.tar.gz";
+      sha256 = "sha256-iNrOvCPxmidJ5k7mMEnNlujmtVPEIl7V1Mvx5j4wU/8=";
     };
   };
   larksuite-cli-linux-x86_64 = {
     pname = "larksuite-cli-linux-x86_64";
-    version = "1.0.92";
+    version = "1.0.95";
     src = fetchurl {
-      url = "https://github.com/larksuite/cli/releases/download/v1.0.92/lark-cli-1.0.92-linux-amd64.tar.gz";
-      sha256 = "sha256-7w4ZeZwe3ZTrUtO7XVh+ANCiiY4KS0B6G43GbVYYHvE=";
+      url = "https://github.com/larksuite/cli/releases/download/v1.0.95/lark-cli-1.0.95-linux-amd64.tar.gz";
+      sha256 = "sha256-faktQmt9AAkIx2o2uHp9A1fCcN6/THFJu8YBCyDSVB4=";
     };
   };
   librime-lua = {
@@ -231,34 +189,6 @@
     };
     date = "2026-08-31";
   };
-  magit-gitflow = {
-    pname = "magit-gitflow";
-    version = "cc41b561ec6eea947fe9a176349fb4f771ed865b";
-    src = fetchgit {
-      url = "https://github.com/jtatarik/magit-gitflow.git";
-      rev = "cc41b561ec6eea947fe9a176349fb4f771ed865b";
-      fetchSubmodules = false;
-      deepClone = false;
-      leaveDotGit = false;
-      sparseCheckout = [ ];
-      sha256 = "sha256-LqBvn+Ev8GsZG6zmQ5eGt+5vDQk5ywqvagrvnzNP5ks=";
-    };
-    date = "2017-09-29";
-  };
-  magit-town = {
-    pname = "magit-town";
-    version = "4ce962e6e2d8249d3a5aa4c40e9924a424b50ebf";
-    src = fetchgit {
-      url = "https://github.com/natecox/magit-town.git";
-      rev = "4ce962e6e2d8249d3a5aa4c40e9924a424b50ebf";
-      fetchSubmodules = false;
-      deepClone = false;
-      leaveDotGit = false;
-      sparseCheckout = [ ];
-      sha256 = "sha256-dcLarzN9miAxzW9IP3IECxjRuShR/D3m5eU7vV6YE+A=";
-    };
-    date = "2019-04-02";
-  };
   my2sql = {
     pname = "my2sql";
     version = "69b39554cb116d02fba389ff258ca9736dea7437";
@@ -268,37 +198,23 @@
     };
     date = "2026-04-23";
   };
-  org-cv = {
-    pname = "org-cv";
-    version = "e8de952df7669b38ca475d00fe943ab96d8cfac4";
-    src = fetchgit {
-      url = "https://gitlab.com/Titan-C/org-cv.git";
-      rev = "e8de952df7669b38ca475d00fe943ab96d8cfac4";
-      fetchSubmodules = false;
-      deepClone = false;
-      leaveDotGit = false;
-      sparseCheckout = [ ];
-      sha256 = "sha256-qwJTtyfNZpA4YCOxh90hXW89aYThE9K6GnJIxeUI7No=";
-    };
-    date = "2025-01-24";
-  };
   sui = {
     pname = "sui";
-    version = "mainnet-v1.78.1";
+    version = "mainnet-v1.79.1";
     src = fetchurl {
-      url = "https://github.com/MystenLabs/sui/releases/download/mainnet-v1.78.1/sui-mainnet-v1.78.1-ubuntu-x86_64.tgz";
-      sha256 = "sha256-h6x01QAJ1pQZ5hegF/HkbrnBHkCSOIMNi2bn8XRWgF4=";
+      url = "https://github.com/MystenLabs/sui/releases/download/mainnet-v1.79.1/sui-mainnet-v1.79.1-ubuntu-x86_64.tgz";
+      sha256 = "sha256-VHswkel1uKa0B4Rzo4aNhumFFWtnFajEr7f9cxOjar8=";
     };
   };
   supabase-realtime = {
     pname = "supabase-realtime";
-    version = "v2.133.0";
+    version = "v2.135.0";
     src = fetchFromGitHub {
       owner = "supabase";
       repo = "realtime";
-      rev = "v2.133.0";
+      rev = "v2.135.0";
       fetchSubmodules = false;
-      sha256 = "sha256-V3/HgNgL5c4xrgT5Z4g8Ekhs7mevcsvSix3KgKNOuws=";
+      sha256 = "sha256-5BS2Q5UXhr7g2SC8JRX1+DrrYv5h9/2O8t5zL1p3A38=";
     };
   };
   unity-cli-darwin-arm64 = {
