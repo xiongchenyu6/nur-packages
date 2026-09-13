@@ -6,9 +6,10 @@
 # commands such as:
 #     nix-build -A mypackage
 {
-  self,
   pkgs ? import <nixpkgs> { },
   lib ? pkgs.lib,
+  # flake.nix passes `self`; it is not required, so plain `nix-build -A <pkg>`
+  # and NUR's `import ./. { inherit pkgs; }` keep working.
   ...
 }:
 let
@@ -16,31 +17,27 @@ let
     inherit (pkgs) fetchFromGitHub fetchurl fetchgit;
   };
 
-  # Check if we're on Linux
-  isLinux = pkgs.stdenv.isLinux;
+  # Everything under pkgs/ comes from one manifest shared with overlay.nix and
+  # flake.nix, so the lists cannot drift. Packages whose meta.platforms excludes
+  # the current system are dropped rather than set to null.
+  manifest = import ./pkgs/manifest.nix { inherit lib; };
+  discoveredPackages = manifest.callAvailable pkgs.stdenv.hostPlatform pkgs.callPackage;
 
-  # Build ldap-passthrough-conf directly from the package definition (only needed on Linux)
-  ldap-passthrough-conf =
-    if isLinux then pkgs.callPackage ./pkgs/ldap-passthrough-conf/package.nix { } else null;
+  isLinux = pkgs.stdenv.hostPlatform.isLinux;
 
-  # Linux-only packages
+  # Shared by the LDAP-enabled rebuilds below.
+  cyrusSaslWithLdap = (pkgs.cyrus_sasl.override { enableLdap = true; }).overrideAttrs (_: {
+    postInstall = ''
+      ln -sf ${discoveredPackages.ldap-passthrough-conf}/slapd.conf $out/lib/sasl2/
+      ln -sf ${discoveredPackages.ldap-passthrough-conf}/smtpd.conf $out/lib/sasl2/
+    '';
+  });
+
+  # Linux-only rebuilds of nixpkgs packages (not definitions under pkgs/).
   linuxPackages = lib.optionalAttrs isLinux {
-    cyrus_sasl_with_ldap = (pkgs.cyrus_sasl.override { enableLdap = true; }).overrideAttrs (_: {
-      postInstall = ''
-        ln -sf ${ldap-passthrough-conf}/slapd.conf $out/lib/sasl2/
-        ln -sf ${ldap-passthrough-conf}/smtpd.conf $out/lib/sasl2/
-      '';
-    });
+    cyrus_sasl_with_ldap = cyrusSaslWithLdap;
 
     openldap_with_cyrus_sasl =
-      let
-        cyrus_sasl_with_ldap_pkg = (pkgs.cyrus_sasl.override { enableLdap = true; }).overrideAttrs (_: {
-          postInstall = ''
-            ln -sf ${ldap-passthrough-conf}/slapd.conf $out/lib/sasl2/
-            ln -sf ${ldap-passthrough-conf}/smtpd.conf $out/lib/sasl2/
-          '';
-        });
-      in
       (pkgs.openldap.overrideAttrs (old: {
         configureFlags = old.configureFlags ++ [
           "--enable-spasswd"
@@ -48,30 +45,17 @@ let
         ];
         doCheck = false;
       })).override
-        { cyrus_sasl = cyrus_sasl_with_ldap_pkg; };
+        { cyrus_sasl = cyrusSaslWithLdap; };
 
-    postfix_with_ldap =
-      let
-        cyrus_sasl_with_ldap_pkg = (pkgs.cyrus_sasl.override { enableLdap = true; }).overrideAttrs (_: {
-          postInstall = ''
-            ln -sf ${ldap-passthrough-conf}/slapd.conf $out/lib/sasl2/
-            ln -sf ${ldap-passthrough-conf}/smtpd.conf $out/lib/sasl2/
-          '';
-        });
-      in
-      pkgs.postfix.override { cyrus_sasl = cyrus_sasl_with_ldap_pkg; };
+    postfix_with_ldap = pkgs.postfix.override { cyrus_sasl = cyrusSaslWithLdap; };
 
     sssd_with_sude = pkgs.sssd.override { withSudo = true; };
 
-    sudo_with_sssd =
-      let
-        sssd_pkg = pkgs.sssd.override { withSudo = true; };
-      in
-      pkgs.sudo.override {
-        sssd = sssd_pkg;
-        withInsults = true;
-        withSssd = true;
-      };
+    sudo_with_sssd = pkgs.sudo.override {
+      sssd = pkgs.sssd.override { withSudo = true; };
+      withInsults = true;
+      withSssd = true;
+    };
   };
 
   # Define librime with lua5_2 support
@@ -86,55 +70,15 @@ let
           pkgs.pkg-config
         ];
       });
-
 in
-{
+discoveredPackages
+// linuxPackages
+// {
   inherit librime;
 
   default = librime;
 
-  wrangler = pkgs.wrangler.overrideAttrs (old: {
+  wrangler = pkgs.wrangler.overrideAttrs (_: {
     dontCheckForBrokenSymlinks = true;
   });
-
-  # Hashtopolis packages
-  hashtopolis-server =
-    if isLinux then pkgs.callPackage ./pkgs/hashtopolis-server/package.nix { } else null;
-
-  hashtopolis-agent = pkgs.callPackage ./pkgs/hashtopolis-agent/package.nix { };
-
-  # Falcon Sensor package
-  falcon-sensor =
-    if isLinux then
-      pkgs.callPackage ./pkgs/falcon-sensor {
-        inherit builtins;
-      }
-    else
-      null;
-
-  # codexpro - self-hosted MCP server bridging ChatGPT to a local workspace
-  codexpro = pkgs.callPackage ./pkgs/codexpro/package.nix { };
-
-  # cc-switch - Cross-platform desktop app for managing AI coding tools
-  cc-switch = pkgs.callPackage ./pkgs/cc-switch/package.nix { };
-
-  # LarkSuite CLI
-  larksuite-cli = pkgs.callPackage ./pkgs/larksuite-cli/package.nix { };
-
-  # happier-cli - 手机/Web 接管本地 AI 编码会话(Claude Code / Codex / OpenCode)
-  happier-cli = pkgs.callPackage ./pkgs/happier-cli/package.nix { };
-
-  # codex-acp - happier 的 acp 后端依赖,必须在 PATH 上否则 happier 静默降级
-  codex-acp = pkgs.callPackage ./pkgs/codex-acp/package.nix { };
-
-  # Unity CLI (official terminal tool for Unity editors/builds)
-  unity-cli = pkgs.callPackage ./pkgs/unity-cli/package.nix { };
-
-  # AgentsServer - self-hosted execution backend for AgentsDock
-  agents-server = pkgs.callPackage ./pkgs/agents-server/package.nix { };
-
-  # Supabase Realtime
-  supabase-realtime =
-    if isLinux then pkgs.callPackage ./pkgs/supabase-realtime/package.nix { } else null;
 }
-// linuxPackages

@@ -27,8 +27,6 @@
     }@inputs:
     flake-parts.lib.mkFlake { inherit inputs; } (
       { inputs, ... }:
-      let
-      in
       {
 
         # Note: Not importing pkgs-by-name-for-flake-parts to avoid automatic discovery of incompatible packages
@@ -56,8 +54,6 @@
               inherit system;
               config.allowUnfree = true;
             };
-            isLinuxSystem = lib.hasSuffix "linux" system;
-
             # Packages taken verbatim from other flakes instead of being
             # maintained here. Absent on systems the upstream does not build.
             upstreamPackages = lib.filterAttrs (n: _: n == "sub2api") (
@@ -70,52 +66,16 @@
             # pkgsNameSeparator = "-";
             packages =
               let
-                # Import packages from default.nix
+                # default.nix already discovers everything under pkgs/ through
+                # pkgs/manifest.nix and drops what meta.platforms excludes, so
+                # there is no second list to maintain here. (This used to
+                # re-walk pkgs/ behind builtins.tryEval, which silently hid
+                # packages that failed to evaluate.)
                 allPackages = import ./. {
                   inherit self lib pkgs;
                 };
 
-                # Manually import packages from pkgs/ directory with platform filtering
-                pkgsByName =
-                  let
-                    # Platform-specific package mapping
-                    linuxOnlyPackages = [
-                      "falcon-sensor"
-                      "feishu-lark"
-                      "record_screen"
-                      "sui"
-                    ];
-
-                    # Function to safely import a package if it's compatible with the current system
-                    tryImportPackage =
-                      name: path:
-                      let
-                        packageFile = path + "/package.nix";
-                        isLinuxOnly = builtins.elem name linuxOnlyPackages;
-                        isLinuxSystem' = lib.hasSuffix "linux" system;
-                      in
-                      if builtins.pathExists packageFile && (!isLinuxOnly || isLinuxSystem') then
-                        (
-                          let
-                            result = builtins.tryEval (pkgs.callPackage packageFile { });
-                          in
-                          if result.success then { ${name} = result.value; } else { }
-                        )
-                      else
-                        { };
-
-                    # Get all package directories
-                    pkgDirs = builtins.readDir ./pkgs;
-
-                    # Filter only directories
-                    packageNames = builtins.filter (name: pkgDirs.${name} == "directory") (builtins.attrNames pkgDirs);
-
-                    # Try to import each package
-                    packageSets = map (name: tryImportPackage name (./pkgs + "/${name}")) packageNames;
-                  in
-                  builtins.foldl' (acc: set: acc // set) { } packageSets;
-                # Combine all packages and set default
-                combinedPackages = allPackages // pkgsByName // upstreamPackages;
+                combinedPackages = allPackages // upstreamPackages;
               in
               combinedPackages
               // {
@@ -125,28 +85,26 @@
             apps = {
               update = {
                 type = "app";
-                program = builtins.toString (
-                  "${
-                    pkgs.writeShellApplication {
-                      name = "update";
-                      runtimeInputs = with pkgs; [
-                        bash
-                        coreutils
-                        git
-                        gnused
-                        jq
-                        nix
-                        nvfetcher
-                        perl
-                        ripgrep
-                      ];
-                      text = ''
-                        repo_root="$(git rev-parse --show-toplevel 2>/dev/null || pwd)"
-                        cd "$repo_root"
-                        bash ./scripts/update.sh
-                      '';
-                    }
-                  }/bin/update"
+                program = lib.getExe (
+                  pkgs.writeShellApplication {
+                    name = "update";
+                    runtimeInputs = with pkgs; [
+                      bash
+                      coreutils
+                      git
+                      gnused
+                      jq
+                      nix
+                      nvfetcher
+                      perl
+                      ripgrep
+                    ];
+                    text = ''
+                      repo_root="$(git rev-parse --show-toplevel 2>/dev/null || pwd)"
+                      cd "$repo_root"
+                      bash ./scripts/update.sh
+                    '';
+                  }
                 );
               };
             };

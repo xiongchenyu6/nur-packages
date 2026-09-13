@@ -141,19 +141,16 @@ No changes needed! The overlay still works the same way:
 ### For maintainers adding new packages
 
 1. Add package definition to `pkgs/your-package/package.nix`
-2. Add entry to `overlay.nix`:
-   ```nix
-   your-package = prev.callPackage ./pkgs/your-package/package.nix { };
-   ```
-3. For Linux-only packages:
-   ```nix
-   your-package = 
-     if lib.hasPrefix "linux" prev.system then
-       prev.callPackage ./pkgs/your-package/package.nix { }
-     else
-       throw "your-package is only available on Linux";
-   ```
-4. The package will automatically be available in `self.packages.${system}`
+2. Declare `meta.platforms` on it
+
+That is all. `pkgs/manifest.nix` walks `pkgs/` and hands the same set to
+`overlay.nix`, `default.nix` and `flake.nix`, so no list needs updating and the
+three cannot drift apart. The overlay deliberately uses the manifest's lazy
+`callAll` rather than the meta-filtered `callAvailable`, because filtering
+would force every package's `meta` while the overlay is being applied — the
+same eager evaluation this document was written about. On a system the package
+does not support, nixpkgs' own platform check throws when the attribute is
+finally accessed.
 
 ## Technical Details
 

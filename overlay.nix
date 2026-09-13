@@ -4,8 +4,28 @@
 final: prev:
 let
   inherit (prev) lib;
+
+  # Everything under pkgs/ is discovered from one manifest shared with
+  # default.nix and flake.nix, so the three cannot drift apart.
+  #
+  # `callAll` — not `callAvailable` — on purpose: filtering by meta.platforms
+  # would force every package's meta while the overlay is being applied, which
+  # is exactly the eager evaluation that caused the infinite recursion
+  # described in OVERLAY_FIX.md. Left lazy, a package unsupported on this
+  # system throws nixpkgs' own platform error when someone accesses it.
+  discoveredPackages = (import ./pkgs/manifest.nix { inherit lib; }).callAll prev.callPackage;
+
+  # Shared by the LDAP-enabled rebuilds below. Lazy: nothing forces it unless
+  # one of those attributes is accessed.
+  cyrusSaslWithLdap = (prev.cyrus_sasl.override { enableLdap = true; }).overrideAttrs (_: {
+    postInstall = ''
+      ln -sf ${discoveredPackages.ldap-passthrough-conf}/slapd.conf $out/lib/sasl2/
+      ln -sf ${discoveredPackages.ldap-passthrough-conf}/smtpd.conf $out/lib/sasl2/
+    '';
+  });
 in
-{
+discoveredPackages
+// {
   # Core packages (available on all platforms)
   # Each package is defined as a lazy thunk
 
@@ -25,36 +45,21 @@ in
         ];
       });
 
-  wrangler = prev.wrangler.overrideAttrs (old: {
+  wrangler = prev.wrangler.overrideAttrs (_: {
     dontCheckForBrokenSymlinks = true;
   });
 
-  # Linux-only packages (conditionally included)
+  # Linux-only rebuilds of nixpkgs packages (not definitions under pkgs/).
+  # The platform check stays inside the attribute so it is evaluated at access
+  # time, never while the overlay is applied.
   cyrus_sasl_with_ldap =
     if lib.hasSuffix "linux" prev.system then
-      let
-        ldap-passthrough-conf = prev.callPackage ./pkgs/ldap-passthrough-conf/package.nix { };
-      in
-      (prev.cyrus_sasl.override { enableLdap = true; }).overrideAttrs (_: {
-        postInstall = ''
-          ln -sf ${ldap-passthrough-conf}/slapd.conf $out/lib/sasl2/
-          ln -sf ${ldap-passthrough-conf}/smtpd.conf $out/lib/sasl2/
-        '';
-      })
+      cyrusSaslWithLdap
     else
       throw "cyrus_sasl_with_ldap is only available on Linux";
 
   openldap_with_cyrus_sasl =
     if lib.hasSuffix "linux" prev.system then
-      let
-        ldap-passthrough-conf = prev.callPackage ./pkgs/ldap-passthrough-conf/package.nix { };
-        cyrus_sasl_with_ldap_pkg = (prev.cyrus_sasl.override { enableLdap = true; }).overrideAttrs (_: {
-          postInstall = ''
-            ln -sf ${ldap-passthrough-conf}/slapd.conf $out/lib/sasl2/
-            ln -sf ${ldap-passthrough-conf}/smtpd.conf $out/lib/sasl2/
-          '';
-        });
-      in
       (prev.openldap.overrideAttrs (old: {
         configureFlags = old.configureFlags ++ [
           "--enable-spasswd"
@@ -62,22 +67,13 @@ in
         ];
         doCheck = false;
       })).override
-        { cyrus_sasl = cyrus_sasl_with_ldap_pkg; }
+        { cyrus_sasl = cyrusSaslWithLdap; }
     else
       throw "openldap_with_cyrus_sasl is only available on Linux";
 
   postfix_with_ldap =
     if lib.hasSuffix "linux" prev.system then
-      let
-        ldap-passthrough-conf = prev.callPackage ./pkgs/ldap-passthrough-conf/package.nix { };
-        cyrus_sasl_with_ldap_pkg = (prev.cyrus_sasl.override { enableLdap = true; }).overrideAttrs (_: {
-          postInstall = ''
-            ln -sf ${ldap-passthrough-conf}/slapd.conf $out/lib/sasl2/
-            ln -sf ${ldap-passthrough-conf}/smtpd.conf $out/lib/sasl2/
-          '';
-        });
-      in
-      prev.postfix.override { cyrus_sasl = cyrus_sasl_with_ldap_pkg; }
+      prev.postfix.override { cyrus_sasl = cyrusSaslWithLdap; }
     else
       throw "postfix_with_ldap is only available on Linux";
 
@@ -89,88 +85,13 @@ in
 
   sudo_with_sssd =
     if lib.hasSuffix "linux" prev.system then
-      let
-        sssd_pkg = prev.sssd.override { withSudo = true; };
-      in
       prev.sudo.override {
-        sssd = sssd_pkg;
+        sssd = prev.sssd.override { withSudo = true; };
         withInsults = true;
         withSssd = true;
       }
     else
       throw "sudo_with_sssd is only available on Linux";
-
-  ldap-passthrough-conf =
-    if lib.hasSuffix "linux" prev.system then
-      prev.callPackage ./pkgs/ldap-passthrough-conf/package.nix { }
-    else
-      throw "ldap-passthrough-conf is only available on Linux";
-
-  # Packages from pkgs/ directory (automatically discovered)
-  # Only include packages that are compatible with the current platform
-
-  gotron-sdk = prev.callPackage ./pkgs/gotron-sdk/package.nix { };
-  larksuite-cli = prev.callPackage ./pkgs/larksuite-cli/package.nix { };
-  my2sql = prev.callPackage ./pkgs/my2sql/package.nix { };
-  cc-switch = prev.callPackage ./pkgs/cc-switch/package.nix { };
-  happier-cli = prev.callPackage ./pkgs/happier-cli/package.nix { };
-  codex-acp = prev.callPackage ./pkgs/codex-acp/package.nix { };
-
-  # Linux-only packages from pkgs/
-  falcon-sensor =
-    if lib.hasSuffix "linux" prev.system then
-      prev.callPackage ./pkgs/falcon-sensor/package.nix { }
-    else
-      throw "falcon-sensor is only available on Linux";
-
-  feishu-lark =
-    if lib.hasSuffix "linux" prev.system then
-      prev.callPackage ./pkgs/feishu-lark/package.nix { }
-    else
-      throw "feishu-lark is only available on Linux";
-
-  supabase-realtime =
-    if lib.hasSuffix "linux" prev.system then
-      prev.callPackage ./pkgs/supabase-realtime/package.nix { }
-    else
-      throw "supabase-realtime is only available on Linux";
-
-  record_screen =
-    if lib.hasSuffix "linux" prev.system then
-      prev.callPackage ./pkgs/record_screen/package.nix { }
-    else
-      throw "record_screen is only available on Linux";
-
-  sui =
-    if lib.hasSuffix "linux" prev.system then
-      prev.callPackage ./pkgs/sui/package.nix { }
-    else
-      throw "sui is only available on Linux";
-
-  casdoor = prev.callPackage ./pkgs/casdoor/package.nix { };
-
-  # Hashtopolis packages
-  hashtopolis-server =
-    if lib.hasSuffix "linux" prev.system then
-      prev.callPackage ./pkgs/hashtopolis-server/package.nix { }
-    else
-      throw "hashtopolis-server is only available on Linux";
-
-  hashtopolis-agent = prev.callPackage ./pkgs/hashtopolis-agent/package.nix { };
-
-  camber = prev.callPackage ./pkgs/camber/package.nix { };
-
-  # codexpro - self-hosted MCP server bridging ChatGPT to a local workspace
-  codexpro = prev.callPackage ./pkgs/codexpro/package.nix { };
-
-  # Unity CLI (official terminal tool for Unity editors/builds)
-  unity-cli = prev.callPackage ./pkgs/unity-cli/package.nix { };
-
-  # AgentsServer - self-hosted execution backend for AgentsDock
-  agents-server = prev.callPackage ./pkgs/agents-server/package.nix { };
-
-  # Dify packages (require uv2nix; must be provided via the flake overlay or passed explicitly)
-  # These are placeholders — actual packages come from the flake's perSystem using uv2nix
 
   # FCITX5 fix
   fcitx5-configtool = prev.fcitx5-configtool.overrideAttrs (oldAttrs: {

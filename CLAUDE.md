@@ -41,12 +41,23 @@ There is no test framework; `nix build .#<package>` is the verification method.
 
 ### Adding a New Package
 
-1. Create `pkgs/<name>/package.nix`
-2. Add to `default.nix` and/or `overlay.nix`
-3. For Linux-only packages, guard with `if isLinux then ... else null` in default.nix, or `if lib.hasPrefix "linux" prev.system then ... else throw "..."` in overlay.nix
-4. Add to flake.nix `linuxOnlyPackages` list if platform-restricted
-5. Build: `nix build .#<name>`
-6. Format and lint before committing
+1. Create `pkgs/<name>/package.nix`. That is the whole registration step:
+   `pkgs/manifest.nix` discovers every directory under `pkgs/`, and
+   `default.nix`, `overlay.nix` and `flake.nix` all derive their package lists
+   from it — never add a package to those files by hand.
+2. Declare `meta.platforms` honestly. It is the only place platform support is
+   recorded: `default.nix` (and so the flake) filters on `lib.meta.availableOn`,
+   so a package without `platforms` claims every system.
+3. Build: `nix build .#<name>`
+4. Format and lint before committing
+
+Only two kinds of entry need hand-wiring, both documented in
+`pkgs/manifest.nix`: directories holding several package definitions
+(`pg-extensions/`, wired in `overlay.nix`), and packages needing extra
+`callPackage` arguments (`falcon-sensor`). Rebuilds of *nixpkgs* packages —
+`librime`, `wrangler`, the LDAP variants — are not under `pkgs/` and stay
+written out in `default.nix` and `overlay.nix`. `sub2api` is re-exported from
+the `llm-agents` flake input in `flake.nix`.
 
 ### Adding a New Module
 
@@ -74,7 +85,7 @@ sources = import ../../_sources/generated.nix {
 Then merge: `stdenv.mkDerivation (sources.<pkg-name> // { ... })`
 
 ### Platform Filtering
-Unfree/Linux-only packages excluded from CI: `falcon-sensor`, `feishu-lark`, and others listed in `flake.nix`.
+Platform restrictions come solely from each package's `meta.platforms`; packages unavailable on a system are dropped from `default.nix`/flake outputs there. The overlay stays unfiltered (lazy) and nixpkgs raises its own platform error on access.
 
 ## CI/CD
 
