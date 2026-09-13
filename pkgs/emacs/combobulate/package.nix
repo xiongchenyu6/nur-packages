@@ -5,7 +5,7 @@
   fetchurl,
   dockerTools,
   emacsPackagesFor,
-  emacs30,
+  emacs,
   ...
 }:
 let
@@ -17,7 +17,7 @@ let
       dockerTools
       ;
   };
-  epkgs = emacsPackagesFor emacs30;
+  epkgs = emacsPackagesFor emacs;
 in
 epkgs.trivialBuild (
   sources.combobulate
