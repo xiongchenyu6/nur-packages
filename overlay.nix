@@ -111,6 +111,7 @@ discoveredPackages
           pg_plan_filter = pg.pkgs.callPackage ./pkgs/pg-extensions/pg_plan_filter/package.nix { };
           pg_hashids = pg.pkgs.callPackage ./pkgs/pg-extensions/pg_hashids/package.nix { };
           index_advisor = pg.pkgs.callPackage ./pkgs/pg-extensions/index_advisor/package.nix { };
+          pg_ecdsa_verify = pg.pkgs.callPackage ./pkgs/pg-extensions/pg_ecdsa_verify/package.nix { };
         };
         # NixOS's services.postgresql module calls
         # `cfg.package.withJIT.withPackages cfg.extensions`. Inside
