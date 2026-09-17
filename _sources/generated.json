@@ -381,12 +381,12 @@
             "name": null,
             "owner": "supabase",
             "repo": "realtime",
-            "rev": "v2.136.0",
-            "sha256": "sha256-q2WEUK8XeMDZRr1TVksCeev6keHelBAVQmbQ0JRh3UA=",
+            "rev": "v2.137.1",
+            "sha256": "sha256-jnekq2fVEMiPzuf6MFfocAKgYdPUen2SOPiFA7qWDkc=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "v2.136.0"
+        "version": "v2.137.1"
     },
     "unity-cli-darwin-arm64": {
         "cargoLock": null,
