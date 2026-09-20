@@ -57,6 +57,25 @@ jobs:
         if: always()
         run: git status --short
 
+      # Sub2API comes from the llm-agents flake input, not from nvfetcher, so
+      # the rebuild above never touches it. build.yml cannot cover it either:
+      # the merge below is authored by GITHUB_TOKEN, which does not trigger
+      # push workflows, so the cache was only filled by the nightly cron —
+      # hours after the cascade had already told sg-office to upgrade, which
+      # then compiled the frontend and Go locally. Build and push it here,
+      # before the merge, so the binary is cached before anyone is notified.
+      - name: Setup cachix
+        uses: cachix/cachix-action@v17
+        with:
+          name: xiongchenyu6
+          authToken: "${{ secrets.CACHIX_AUTH_TOKEN }}"
+          skipPush: true
+
+      - name: Build and cache Sub2API
+        run: |
+          set -Eeuo pipefail
+          nix build .#sub2api --print-out-paths | cachix push xiongchenyu6
+
       - name: Create pull request
         id: cpr
         if: success()
