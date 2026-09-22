@@ -8,34 +8,34 @@
 {
   cc-switch-darwin-arm64 = {
     pname = "cc-switch-darwin-arm64";
-    version = "3.20.3";
+    version = "3.20.4";
     src = fetchurl {
-      url = "https://github.com/farion1231/cc-switch/releases/download/v3.20.3/CC-Switch-v3.20.3-macOS.tar.gz";
-      sha256 = "sha256-jwBVTP3fWF+mcuXn0h2w6ErkEOAtEnuWzgIRATc0Vo8=";
+      url = "https://github.com/farion1231/cc-switch/releases/download/v3.20.4/CC-Switch-v3.20.4-macOS.tar.gz";
+      sha256 = "sha256-pykFjtH4Sc26QQ+iOO6lEYBxVbVMDv+I1f5IZcUb3Fk=";
     };
   };
   cc-switch-darwin-x86_64 = {
     pname = "cc-switch-darwin-x86_64";
-    version = "3.20.3";
+    version = "3.20.4";
     src = fetchurl {
-      url = "https://github.com/farion1231/cc-switch/releases/download/v3.20.3/CC-Switch-v3.20.3-macOS.tar.gz";
-      sha256 = "sha256-jwBVTP3fWF+mcuXn0h2w6ErkEOAtEnuWzgIRATc0Vo8=";
+      url = "https://github.com/farion1231/cc-switch/releases/download/v3.20.4/CC-Switch-v3.20.4-macOS.tar.gz";
+      sha256 = "sha256-pykFjtH4Sc26QQ+iOO6lEYBxVbVMDv+I1f5IZcUb3Fk=";
     };
   };
   cc-switch-linux-arm64 = {
     pname = "cc-switch-linux-arm64";
-    version = "3.20.3";
+    version = "3.20.4";
     src = fetchurl {
-      url = "https://github.com/farion1231/cc-switch/releases/download/v3.20.3/CC-Switch-v3.20.3-Linux-arm64.deb";
-      sha256 = "sha256-x/Df6BCEOGYiMes0Pn4pytoc2orvPc0QxkC9AocZDRg=";
+      url = "https://github.com/farion1231/cc-switch/releases/download/v3.20.4/CC-Switch-v3.20.4-Linux-arm64.deb";
+      sha256 = "sha256-UVz899wTUzdRAjm+YQlkmb4Sqe06Z82T9rRJ9JnPxKM=";
     };
   };
   cc-switch-linux-x86_64 = {
     pname = "cc-switch-linux-x86_64";
-    version = "3.20.3";
+    version = "3.20.4";
     src = fetchurl {
-      url = "https://github.com/farion1231/cc-switch/releases/download/v3.20.3/CC-Switch-v3.20.3-Linux-x86_64.deb";
-      sha256 = "sha256-Is/nXxIFVwVFtmxIK1Z+VPhZk8yLEEXAXGCXScQd1sU=";
+      url = "https://github.com/farion1231/cc-switch/releases/download/v3.20.4/CC-Switch-v3.20.4-Linux-x86_64.deb";
+      sha256 = "sha256-Q0VX064It5LIE4xVCPEE55nzbSztVj+5SzqG/7slCAE=";
     };
   };
   codex-acp-darwin-arm64 = {
@@ -200,10 +200,10 @@
   };
   sui = {
     pname = "sui";
-    version = "testnet-v1.80.0";
+    version = "testnet-v1.80.1";
     src = fetchurl {
-      url = "https://github.com/MystenLabs/sui/releases/download/testnet-v1.80.0/sui-testnet-v1.80.0-ubuntu-x86_64.tgz";
-      sha256 = "sha256-p9pqS/Wjhg2gbhUzAfIo93Gwowscy2Hi15EPzeQjBgw=";
+      url = "https://github.com/MystenLabs/sui/releases/download/testnet-v1.80.1/sui-testnet-v1.80.1-ubuntu-x86_64.tgz";
+      sha256 = "sha256-l/mu0Q4ML+MgTORjmsmS4USbF8FPIvMOn5A+rVSsczY=";
     };
   };
   supabase-realtime = {
