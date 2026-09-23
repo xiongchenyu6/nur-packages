@@ -363,9 +363,9 @@
             "name": null,
             "sha256": "sha256-l/mu0Q4ML+MgTORjmsmS4USbF8FPIvMOn5A+rVSsczY=",
             "type": "url",
-            "url": "https://github.com/MystenLabs/sui/releases/download/testnet-v1.80.1/sui-testnet-v1.80.1-ubuntu-x86_64.tgz"
+            "url": "https://github.com/MystenLabs/sui/releases/download/mainnet-v1.80.1/sui-mainnet-v1.80.1-ubuntu-x86_64.tgz"
         },
-        "version": "testnet-v1.80.1"
+        "version": "mainnet-v1.80.1"
     },
     "supabase-realtime": {
         "cargoLock": null,
@@ -381,12 +381,12 @@
             "name": null,
             "owner": "supabase",
             "repo": "realtime",
-            "rev": "v2.138.0",
-            "sha256": "sha256-fRodhLdPck4veVXvX8xgZbiXoCRxmf8cwsPetgKyJxs=",
+            "rev": "v2.138.1",
+            "sha256": "sha256-tpneB9eBBm+B2rMOC+HCGQzCn9l2cMhXICyhhF78jp8=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "v2.138.0"
+        "version": "v2.138.1"
     },
     "unity-cli-darwin-arm64": {
         "cargoLock": null,
