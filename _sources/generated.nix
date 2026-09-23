@@ -83,34 +83,34 @@
   };
   happier-cli-darwin-arm64 = {
     pname = "happier-cli-darwin-arm64";
-    version = "0.2.13-dev.5";
+    version = "0.2.13-dev.6";
     src = fetchurl {
-      url = "https://github.com/happier-dev/happier/releases/download/cli-v0.2.13-dev.5/happier-v0.2.13-dev.5-darwin-arm64.tar.gz";
-      sha256 = "sha256-XZtMZJIEuwd7YCsdiD02FUIyeNWIDr621EATR2GsttY=";
+      url = "https://github.com/happier-dev/happier/releases/download/cli-v0.2.13-dev.6/happier-v0.2.13-dev.6-darwin-arm64.tar.gz";
+      sha256 = "sha256-xBKYq8k11XKfw90Fyp9brG+cNGvN7E4N9Vht8pMNxU0=";
     };
   };
   happier-cli-darwin-x86_64 = {
     pname = "happier-cli-darwin-x86_64";
-    version = "0.2.13-dev.5";
+    version = "0.2.13-dev.6";
     src = fetchurl {
-      url = "https://github.com/happier-dev/happier/releases/download/cli-v0.2.13-dev.5/happier-v0.2.13-dev.5-darwin-x64.tar.gz";
-      sha256 = "sha256-PZvUOCSZuWFfcsh/pn1qfWBFK/vkxXA2edSDo5o9alw=";
+      url = "https://github.com/happier-dev/happier/releases/download/cli-v0.2.13-dev.6/happier-v0.2.13-dev.6-darwin-x64.tar.gz";
+      sha256 = "sha256-b8XavyBW4EPiuhxdgbzODoEmkZdpc5Q5N5UkMmQH/KI=";
     };
   };
   happier-cli-linux-arm64 = {
     pname = "happier-cli-linux-arm64";
-    version = "0.2.13-dev.5";
+    version = "0.2.13-dev.6";
     src = fetchurl {
-      url = "https://github.com/happier-dev/happier/releases/download/cli-v0.2.13-dev.5/happier-v0.2.13-dev.5-linux-arm64.tar.gz";
-      sha256 = "sha256-SjDdHK5QZFLNts6DvZch/mWl1IUMyzCo++s3+FvnaS4=";
+      url = "https://github.com/happier-dev/happier/releases/download/cli-v0.2.13-dev.6/happier-v0.2.13-dev.6-linux-arm64.tar.gz";
+      sha256 = "sha256-D+fTxVMRDF+AH6iDjnfj8fU/MpMndZWuH5kyVapLt5o=";
     };
   };
   happier-cli-linux-x86_64 = {
     pname = "happier-cli-linux-x86_64";
-    version = "0.2.13-dev.5";
+    version = "0.2.13-dev.6";
     src = fetchurl {
-      url = "https://github.com/happier-dev/happier/releases/download/cli-v0.2.13-dev.5/happier-v0.2.13-dev.5-linux-x64.tar.gz";
-      sha256 = "sha256-0nkdnNl9jrGIFOgf5tjZxsSbqbA7t6uoHLIrYnlAlPw=";
+      url = "https://github.com/happier-dev/happier/releases/download/cli-v0.2.13-dev.6/happier-v0.2.13-dev.6-linux-x64.tar.gz";
+      sha256 = "sha256-JMwfqhxD8gFi3E9/rQ24FhwT5kvfQ6bowC6/7RBNa94=";
     };
   };
   hashtopolis-agent = {
@@ -208,13 +208,13 @@
   };
   supabase-realtime = {
     pname = "supabase-realtime";
-    version = "v2.137.14";
+    version = "v2.137.17";
     src = fetchFromGitHub {
       owner = "supabase";
       repo = "realtime";
-      rev = "v2.137.14";
+      rev = "v2.137.17";
       fetchSubmodules = false;
-      sha256 = "sha256-kmDuUiJB+BDAe7zjRlansDS1PbRenlrdp8SoGL/uVwA=";
+      sha256 = "sha256-0yQ7/8dx9caa1OSaqXEGmAH9biugC2BGRMV5UKqXXdA=";
     };
   };
   unity-cli-darwin-arm64 = {
