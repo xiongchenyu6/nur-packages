@@ -20,7 +20,7 @@ let
 
   app = pkgs.runCommand "nautilus-signal-app" { } ''
     mkdir -p $out/app
-    for f in run_signal_alerter.py signal_alerter.py signal_detect.py telegram_notifier.py; do
+    for f in run_signal_alerter.py signal_alerter.py signal_detect.py signal_context.py telegram_notifier.py; do
       cp ${./.}/$f $out/app/$f
     done
   '';
