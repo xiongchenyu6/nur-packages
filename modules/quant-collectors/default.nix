@@ -26,6 +26,7 @@ let
     cp ${./.}/stress_index.py $out/app/stress_index.py
     cp ${./.}/market_collector.py $out/app/market_collector.py
     cp ${./.}/signal_evaluator.py $out/app/signal_evaluator.py
+    cp ${./.}/strategy_record.py $out/app/strategy_record.py
     cp ${./.}/alert_dispatcher.py $out/app/alert_dispatcher.py
     cp ${./.}/findata.py $out/app/findata.py
     cp ${./.}/semi_analysis.py $out/app/semi_analysis.py
