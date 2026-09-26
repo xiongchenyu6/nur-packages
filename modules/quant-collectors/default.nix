@@ -30,6 +30,7 @@ let
     cp ${./.}/alert_dispatcher.py $out/app/alert_dispatcher.py
     cp ${./.}/findata.py $out/app/findata.py
     cp ${./.}/semi_analysis.py $out/app/semi_analysis.py
+    cp ${./.}/health_check.py $out/app/health_check.py
   '';
 
   caBundle = "${pkgs.cacert}/etc/ssl/certs/ca-bundle.crt";
@@ -220,6 +221,24 @@ in
         OnCalendar = cfg.semiInterval;
         Persistent = true;
         RandomizedDelaySec = "5m";
+      };
+    };
+
+    # Operator alerts when something silently stops (failed/stopped units, stale
+    # tables, public API down, the game box's heartbeat). Its peer runs on the game
+    # box (--role desk); they watch each other via quant.health_heartbeats.
+    systemd.services.quant-health-check =
+      mkCollectorArgs "quant-health-check" "health_check.py" "--role server"
+        "Quant health check (server role) — alerts the operator chat when something silently stops"
+      // {
+        path = [ pkgs.systemd ];
+      };
+    systemd.timers.quant-health-check = {
+      description = "Quant health check every 10 minutes";
+      wantedBy = [ "timers.target" ];
+      timerConfig = {
+        OnCalendar = "*:02/10";
+        Persistent = false;
       };
     };
 
