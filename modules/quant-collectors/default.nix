@@ -18,6 +18,7 @@ let
     ps.psycopg2
     ps.numpy
     ps.pandas
+    ps.pillow
   ]);
 
   app = pkgs.runCommand "quant-collectors-app" { } ''
@@ -31,6 +32,8 @@ let
     cp ${./.}/findata.py $out/app/findata.py
     cp ${./.}/semi_analysis.py $out/app/semi_analysis.py
     cp ${./.}/health_check.py $out/app/health_check.py
+    cp ${./.}/dca_boost.py $out/app/dca_boost.py
+    cp ${./.}/share_card.py $out/app/share_card.py
   '';
 
   caBundle = "${pkgs.cacert}/etc/ssl/certs/ca-bundle.crt";
@@ -52,6 +55,8 @@ let
       # daily-close cache (the store copy of the repo layout is read-only).
       HOME = "/var/lib/quant-collectors";
       FINDATA_CACHE_DIR = "/var/lib/quant-collectors/findata-cache";
+      # CJK font for the dispatcher's PNG share cards (share_card.py).
+      SHARE_CARD_FONT = "${pkgs.noto-fonts-cjk-sans}/share/fonts/opentype/noto-cjk/NotoSansCJK-VF.otf.ttc";
     };
 
     serviceConfig = {
