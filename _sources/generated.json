@@ -149,11 +149,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-hG8PbrOiVSLGkhzHm3yKaVH78uiJ01iSzYLLe4Q4Jcw=",
+            "sha256": "sha256-AWzxIRv3zWKVXxHPJbEMIS7grCQ4G54mt5umwsLa6bM=",
             "type": "url",
-            "url": "https://github.com/happier-dev/happier/releases/download/cli-v0.2.13-dev.7/happier-v0.2.13-dev.7-darwin-arm64.tar.gz"
+            "url": "https://github.com/happier-dev/happier/releases/download/cli-v0.2.13-dev.8/happier-v0.2.13-dev.8-darwin-arm64.tar.gz"
         },
-        "version": "0.2.13-dev.7"
+        "version": "0.2.13-dev.8"
     },
     "happier-cli-darwin-x86_64": {
         "cargoLock": null,
@@ -164,11 +164,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-kqulTs893DB731eSZNlHezvWkC/KSMloWRGxTPC6vWo=",
+            "sha256": "sha256-xo7si/fPqieRQS3CowkdSq+19KUzcGa6usTdJYfm+20=",
             "type": "url",
-            "url": "https://github.com/happier-dev/happier/releases/download/cli-v0.2.13-dev.7/happier-v0.2.13-dev.7-darwin-x64.tar.gz"
+            "url": "https://github.com/happier-dev/happier/releases/download/cli-v0.2.13-dev.8/happier-v0.2.13-dev.8-darwin-x64.tar.gz"
         },
-        "version": "0.2.13-dev.7"
+        "version": "0.2.13-dev.8"
     },
     "happier-cli-linux-arm64": {
         "cargoLock": null,
@@ -179,11 +179,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-py7WI5u/BBRh6nY4NnZG3/Tma8VGzVXNxjFTLprii7E=",
+            "sha256": "sha256-KxFltG4DDV0mOUyJ7JjnombaBLMiAjGonVCFezWILTg=",
             "type": "url",
-            "url": "https://github.com/happier-dev/happier/releases/download/cli-v0.2.13-dev.7/happier-v0.2.13-dev.7-linux-arm64.tar.gz"
+            "url": "https://github.com/happier-dev/happier/releases/download/cli-v0.2.13-dev.8/happier-v0.2.13-dev.8-linux-arm64.tar.gz"
         },
-        "version": "0.2.13-dev.7"
+        "version": "0.2.13-dev.8"
     },
     "happier-cli-linux-x86_64": {
         "cargoLock": null,
@@ -194,11 +194,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-LtllohMRwiLnJiPklNRANCQAH44o0S2OyZA9I+MzVVk=",
+            "sha256": "sha256-/0WiUgINdNmlSdrYOFHp/vDFiewDx8zZSn2MEbY3SI4=",
             "type": "url",
-            "url": "https://github.com/happier-dev/happier/releases/download/cli-v0.2.13-dev.7/happier-v0.2.13-dev.7-linux-x64.tar.gz"
+            "url": "https://github.com/happier-dev/happier/releases/download/cli-v0.2.13-dev.8/happier-v0.2.13-dev.8-linux-x64.tar.gz"
         },
-        "version": "0.2.13-dev.7"
+        "version": "0.2.13-dev.8"
     },
     "hashtopolis-agent": {
         "cargoLock": null,
