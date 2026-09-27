@@ -34,6 +34,7 @@ let
     cp ${./.}/health_check.py $out/app/health_check.py
     cp ${./.}/dca_boost.py $out/app/dca_boost.py
     cp ${./.}/share_card.py $out/app/share_card.py
+    cp ${./.}/market_scan.py $out/app/market_scan.py
   '';
 
   caBundle = "${pkgs.cacert}/etc/ssl/certs/ca-bundle.crt";
