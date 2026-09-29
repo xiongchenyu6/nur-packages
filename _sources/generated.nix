@@ -83,34 +83,34 @@
   };
   happier-cli-darwin-arm64 = {
     pname = "happier-cli-darwin-arm64";
-    version = "0.2.13-dev.10";
+    version = "0.2.13-dev.12";
     src = fetchurl {
-      url = "https://github.com/happier-dev/happier/releases/download/cli-v0.2.13-dev.10/happier-v0.2.13-dev.10-darwin-arm64.tar.gz";
-      sha256 = "sha256-Bj6M40bQu1yWG8e6boSclAENrJFH25RbRRSQtlPCxtU=";
+      url = "https://github.com/happier-dev/happier/releases/download/cli-v0.2.13-dev.12/happier-v0.2.13-dev.12-darwin-arm64.tar.gz";
+      sha256 = "sha256-ZXb3dwMUI8viz6TrfbuAO4xjQus/iBcXjmSPAfar2ho=";
     };
   };
   happier-cli-darwin-x86_64 = {
     pname = "happier-cli-darwin-x86_64";
-    version = "0.2.13-dev.10";
+    version = "0.2.13-dev.12";
     src = fetchurl {
-      url = "https://github.com/happier-dev/happier/releases/download/cli-v0.2.13-dev.10/happier-v0.2.13-dev.10-darwin-x64.tar.gz";
-      sha256 = "sha256-K/1BAiu2esDMYsau0Dnx6rstcKXloe0j5RwgAzo8RZk=";
+      url = "https://github.com/happier-dev/happier/releases/download/cli-v0.2.13-dev.12/happier-v0.2.13-dev.12-darwin-x64.tar.gz";
+      sha256 = "sha256-3FIJVT4AoF9oZd0DZscUT1VZdwTFkz1MEW1FGrUigIU=";
     };
   };
   happier-cli-linux-arm64 = {
     pname = "happier-cli-linux-arm64";
-    version = "0.2.13-dev.10";
+    version = "0.2.13-dev.12";
     src = fetchurl {
-      url = "https://github.com/happier-dev/happier/releases/download/cli-v0.2.13-dev.10/happier-v0.2.13-dev.10-linux-arm64.tar.gz";
-      sha256 = "sha256-p6gddimZa1u6JncoEK+A1atG1EHDlXxvqAQIpBojYY4=";
+      url = "https://github.com/happier-dev/happier/releases/download/cli-v0.2.13-dev.12/happier-v0.2.13-dev.12-linux-arm64.tar.gz";
+      sha256 = "sha256-9gJkRYhPrzwaIZXmIYokqzHXKDXmkVItjJp3OiZDhZI=";
     };
   };
   happier-cli-linux-x86_64 = {
     pname = "happier-cli-linux-x86_64";
-    version = "0.2.13-dev.10";
+    version = "0.2.13-dev.12";
     src = fetchurl {
-      url = "https://github.com/happier-dev/happier/releases/download/cli-v0.2.13-dev.10/happier-v0.2.13-dev.10-linux-x64.tar.gz";
-      sha256 = "sha256-AXsu8JZ5X05avUeJp5GSXKhg9JbD4gDlzvRGz+a2JHk=";
+      url = "https://github.com/happier-dev/happier/releases/download/cli-v0.2.13-dev.12/happier-v0.2.13-dev.12-linux-x64.tar.gz";
+      sha256 = "sha256-ROcqtJ2zsSBTghmWZOeziFvYJ1sBvym5euYSHjUWk38=";
     };
   };
   hashtopolis-agent = {
