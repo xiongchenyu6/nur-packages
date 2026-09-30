@@ -319,7 +319,7 @@
     },
     "librime-lua": {
         "cargoLock": null,
-        "date": "2026-08-31",
+        "date": "2026-09-30",
         "extract": null,
         "name": "librime-lua",
         "passthru": null,
@@ -329,13 +329,13 @@
             "fetchSubmodules": false,
             "leaveDotGit": false,
             "name": null,
-            "rev": "ad1e4a6c98abf634dd34242a747f9b1d5d069fbe",
-            "sha256": "sha256-Zi5VyFyLk4n34+TEDvV2HEYQKL60mEiVVLFKb6hWFdE=",
+            "rev": "6f30968058a3ca83c47949308ef0ddc51a11a264",
+            "sha256": "sha256-drq6xHgcXXyEAUdR3p+5OvJememQGOrI1a5WfJ0+oLU=",
             "sparseCheckout": [],
             "type": "git",
             "url": "https://github.com/hchunhui/librime-lua.git"
         },
-        "version": "ad1e4a6c98abf634dd34242a747f9b1d5d069fbe"
+        "version": "6f30968058a3ca83c47949308ef0ddc51a11a264"
     },
     "my2sql": {
         "cargoLock": null,
