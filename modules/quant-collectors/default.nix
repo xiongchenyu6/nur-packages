@@ -19,6 +19,7 @@ let
     ps.numpy
     ps.pandas
     ps.pillow
+    cfg.ccxtPackage
   ]);
 
   app = pkgs.runCommand "quant-collectors-app" { } ''
@@ -35,6 +36,7 @@ let
     cp ${./.}/dca_boost.py $out/app/dca_boost.py
     cp ${./.}/share_card.py $out/app/share_card.py
     cp ${./.}/market_scan.py $out/app/market_scan.py
+    cp ${./.}/ccxt_executor.py $out/app/ccxt_executor.py
   '';
 
   caBundle = "${pkgs.cacert}/etc/ssl/certs/ca-bundle.crt";
@@ -115,6 +117,26 @@ in
 {
   options.services.quant-collectors = {
     enable = mkEnableOption "quant data collectors (news RSS + market stress index) writing to the local TimescaleDB";
+
+    ccxtPackage = mkOption {
+      type = types.package;
+      default = pkgs.ccxt;
+      defaultText = literalExpression "pkgs.ccxt";
+      description = ''
+        The ccxt python package (nur pkgs/ccxt; not in nixpkgs) used by the executor that
+        runs the house strategies on exchanges NautilusTrader has no adapter for.
+      '';
+    };
+
+    executorVenues = mkOption {
+      type = types.str;
+      default = "gate:dry_run,htx:dry_run";
+      description = ''
+        EXEC_VENUES for ccxt_executor.py: comma list of <ccxt id>:<dry_run|testnet|live>.
+        testnet/live need <VENUE>_API_KEY / _API_SECRET in the environment file; live is
+        refused unless EXEC_ALLOW_LIVE=1 is also set there (crypto stays testnet).
+      '';
+    };
 
     environmentFile = mkOption {
       type = types.path;
@@ -247,6 +269,14 @@ in
         Persistent = false;
       };
     };
+
+    # Runs the house strategies (trend signal follower + smart DCA) on Gate / HTX via ccxt.
+    systemd.services.quant-executor =
+      let
+        unit = mkDaemon "quant-executor" "ccxt_executor.py"
+          "Quant ccxt executor — house strategies on Gate/HTX (dry-run/testnet by default)";
+      in
+      unit // { environment = unit.environment // { EXEC_VENUES = cfg.executorVenues; }; };
 
     systemd.services.quant-signal-evaluator =
       mkDaemon "quant-signal-evaluator" "signal_evaluator.py"
