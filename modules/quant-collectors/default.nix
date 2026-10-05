@@ -40,6 +40,7 @@ let
     cp ${./.}/htx_live.py $out/app/htx_live.py
     cp ${./.}/htx_order_store.py $out/app/htx_order_store.py
     cp ${./.}/htx_notifications.py $out/app/htx_notifications.py
+    cp ${./.}/htx_account.py $out/app/htx_account.py
     cp ${./.}/htx_funding.py $out/app/htx_funding.py
     cp ${./.}/htx_preflight.py $out/app/htx_preflight.py
   '';
