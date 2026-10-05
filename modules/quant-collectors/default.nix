@@ -41,6 +41,10 @@ let
     cp ${./.}/htx_order_store.py $out/app/htx_order_store.py
     cp ${./.}/htx_notifications.py $out/app/htx_notifications.py
     cp ${./.}/htx_account.py $out/app/htx_account.py
+    cp ${./.}/htx_fill_costs.py $out/app/htx_fill_costs.py
+    cp ${./.}/trend_fee_analysis.py $out/app/trend_fee_analysis.py
+    cp ${./.}/analyze_trend_fees.py $out/app/analyze_trend_fees.py
+    cp ${./.}/htx_backfill_costs.py $out/app/htx_backfill_costs.py
     cp ${./.}/htx_funding.py $out/app/htx_funding.py
     cp ${./.}/htx_preflight.py $out/app/htx_preflight.py
   '';
