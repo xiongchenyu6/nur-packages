@@ -37,6 +37,8 @@ let
     cp ${./.}/share_card.py $out/app/share_card.py
     cp ${./.}/market_scan.py $out/app/market_scan.py
     cp ${./.}/ccxt_executor.py $out/app/ccxt_executor.py
+    cp ${./.}/htx_live.py $out/app/htx_live.py
+    cp ${./.}/htx_order_store.py $out/app/htx_order_store.py
   '';
 
   caBundle = "${pkgs.cacert}/etc/ssl/certs/ca-bundle.crt";
@@ -95,7 +97,9 @@ let
     };
   };
 
-  mkCollector = name: script: description: mkCollectorArgs name script "" description;
+  mkCollector =
+    name: script: description:
+    mkCollectorArgs name script "" description;
 
   # Long-running loop variant (signal evaluator / alert dispatcher poll on
   # their own interval env var) — same env + hardening, but restart forever.
@@ -273,10 +277,16 @@ in
     # Runs the house strategies (trend signal follower + smart DCA) on Gate / HTX via ccxt.
     systemd.services.quant-executor =
       let
-        unit = mkDaemon "quant-executor" "ccxt_executor.py"
-          "Quant ccxt executor — house strategies on Gate/HTX (dry-run/testnet by default)";
+        unit =
+          mkDaemon "quant-executor" "ccxt_executor.py"
+            "Quant ccxt executor — house strategies on Gate/HTX (dry-run/testnet by default)";
       in
-      unit // { environment = unit.environment // { EXEC_VENUES = cfg.executorVenues; }; };
+      unit
+      // {
+        environment = unit.environment // {
+          EXEC_VENUES = cfg.executorVenues;
+        };
+      };
 
     systemd.services.quant-signal-evaluator =
       mkDaemon "quant-signal-evaluator" "signal_evaluator.py"
