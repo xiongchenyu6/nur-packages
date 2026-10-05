@@ -37,16 +37,10 @@ let
     cp ${./.}/share_card.py $out/app/share_card.py
     cp ${./.}/market_scan.py $out/app/market_scan.py
     cp ${./.}/ccxt_executor.py $out/app/ccxt_executor.py
-    cp ${./.}/htx_live.py $out/app/htx_live.py
-    cp ${./.}/htx_order_store.py $out/app/htx_order_store.py
     cp ${./.}/htx_notifications.py $out/app/htx_notifications.py
     cp ${./.}/htx_account.py $out/app/htx_account.py
-    cp ${./.}/htx_fill_costs.py $out/app/htx_fill_costs.py
     cp ${./.}/trend_fee_analysis.py $out/app/trend_fee_analysis.py
     cp ${./.}/analyze_trend_fees.py $out/app/analyze_trend_fees.py
-    cp ${./.}/htx_backfill_costs.py $out/app/htx_backfill_costs.py
-    cp ${./.}/htx_funding.py $out/app/htx_funding.py
-    cp ${./.}/htx_preflight.py $out/app/htx_preflight.py
   '';
 
   caBundle = "${pkgs.cacert}/etc/ssl/certs/ca-bundle.crt";
@@ -144,7 +138,7 @@ in
       type = types.str;
       default = "gate:dry_run,htx:dry_run";
       description = ''
-        EXEC_VENUES for ccxt_executor.py: comma list of <ccxt id>:<dry_run|testnet|live>.
+        EXEC_VENUES for ccxt_executor.py: comma list of <ccxt id>:<dry_run|testnet>.
         testnet/live need <VENUE>_API_KEY / _API_SECRET in the environment file; live is
         refused unless EXEC_ALLOW_LIVE=1 is also set there (crypto stays testnet).
       '';
