@@ -200,9 +200,9 @@
   };
   sui = {
     pname = "sui";
-    version = "testnet-v1.81.1";
+    version = "mainnet-v1.81.1";
     src = fetchurl {
-      url = "https://github.com/MystenLabs/sui/releases/download/testnet-v1.81.1/sui-testnet-v1.81.1-ubuntu-x86_64.tgz";
+      url = "https://github.com/MystenLabs/sui/releases/download/mainnet-v1.81.1/sui-mainnet-v1.81.1-ubuntu-x86_64.tgz";
       sha256 = "sha256-2SGRD97fWuK8PwinI2xXgZpFfOU6jMYMhfNlPHgxtdQ=";
     };
   };
