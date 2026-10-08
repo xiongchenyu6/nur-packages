@@ -8,11 +8,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-HciCVLFaR1xBx0sefWI9ssVFT5rsVxGnyUTUK5nujZg=",
+            "sha256": "sha256-Yim4A72w9LolpOYkKr5UPb7JiJHO+75hFr4gGYFUnV0=",
             "type": "url",
-            "url": "https://github.com/farion1231/cc-switch/releases/download/v4.0.4/CC-Switch-v4.0.4-macOS.tar.gz"
+            "url": "https://github.com/farion1231/cc-switch/releases/download/v4.0.5/CC-Switch-v4.0.5-macOS.tar.gz"
         },
-        "version": "4.0.4"
+        "version": "4.0.5"
     },
     "cc-switch-darwin-x86_64": {
         "cargoLock": null,
@@ -23,11 +23,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-HciCVLFaR1xBx0sefWI9ssVFT5rsVxGnyUTUK5nujZg=",
+            "sha256": "sha256-Yim4A72w9LolpOYkKr5UPb7JiJHO+75hFr4gGYFUnV0=",
             "type": "url",
-            "url": "https://github.com/farion1231/cc-switch/releases/download/v4.0.4/CC-Switch-v4.0.4-macOS.tar.gz"
+            "url": "https://github.com/farion1231/cc-switch/releases/download/v4.0.5/CC-Switch-v4.0.5-macOS.tar.gz"
         },
-        "version": "4.0.4"
+        "version": "4.0.5"
     },
     "cc-switch-linux-arm64": {
         "cargoLock": null,
@@ -38,11 +38,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-dJlHIqUcpiaIxoLrF8taZOiywZ1i8Wwsu3c87bjZ+8k=",
+            "sha256": "sha256-01XN/clCllQuLOrOyVc3cMQCVkgpH/+y9TAEzCbH+S0=",
             "type": "url",
-            "url": "https://github.com/farion1231/cc-switch/releases/download/v4.0.4/CC-Switch-v4.0.4-Linux-arm64.deb"
+            "url": "https://github.com/farion1231/cc-switch/releases/download/v4.0.5/CC-Switch-v4.0.5-Linux-arm64.deb"
         },
-        "version": "4.0.4"
+        "version": "4.0.5"
     },
     "cc-switch-linux-x86_64": {
         "cargoLock": null,
@@ -53,11 +53,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-QZMHITPrHBCNdfmAXvupEUDxjqz4MbSEnTg34qcNubo=",
+            "sha256": "sha256-eIuUYuRJa77FQso0RueK4P0Cn9Q6IKfnP7FxqPN47Aw=",
             "type": "url",
-            "url": "https://github.com/farion1231/cc-switch/releases/download/v4.0.4/CC-Switch-v4.0.4-Linux-x86_64.deb"
+            "url": "https://github.com/farion1231/cc-switch/releases/download/v4.0.5/CC-Switch-v4.0.5-Linux-x86_64.deb"
         },
-        "version": "4.0.4"
+        "version": "4.0.5"
     },
     "codex-acp-darwin-arm64": {
         "cargoLock": null,
@@ -149,11 +149,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-AE4+aF9hT28KTv2rY9yVX7WhQDggcqJevcb1mWKqtPE=",
+            "sha256": "sha256-zCfcEGwHutAQSQxDG6TvGWqLJVPZsGnNaVdVJF0/V6w=",
             "type": "url",
-            "url": "https://github.com/happier-dev/happier/releases/download/cli-v0.2.14/happier-v0.2.14-darwin-arm64.tar.gz"
+            "url": "https://github.com/happier-dev/happier/releases/download/cli-v0.2.15/happier-v0.2.15-darwin-arm64.tar.gz"
         },
-        "version": "0.2.14"
+        "version": "0.2.15"
     },
     "happier-cli-darwin-x86_64": {
         "cargoLock": null,
@@ -164,11 +164,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-IpOzfBuVqWBMcRKa8/In/SiNkZ9K6JA1FRS7zqP4kds=",
+            "sha256": "sha256-PyEehFN4Cm7q1jOkjO5Wrz0VkThBmX9qDWIwp6iPygU=",
             "type": "url",
-            "url": "https://github.com/happier-dev/happier/releases/download/cli-v0.2.14/happier-v0.2.14-darwin-x64.tar.gz"
+            "url": "https://github.com/happier-dev/happier/releases/download/cli-v0.2.15/happier-v0.2.15-darwin-x64.tar.gz"
         },
-        "version": "0.2.14"
+        "version": "0.2.15"
     },
     "happier-cli-linux-arm64": {
         "cargoLock": null,
@@ -179,11 +179,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-scOc/pZHSwat/SjK+R9YMbgCwJfGhI662A0VdUk6vI8=",
+            "sha256": "sha256-G3aDHrwBou2TeEpJbeOx5JE0YwSaeorECDmzTr5Hlcc=",
             "type": "url",
-            "url": "https://github.com/happier-dev/happier/releases/download/cli-v0.2.14/happier-v0.2.14-linux-arm64.tar.gz"
+            "url": "https://github.com/happier-dev/happier/releases/download/cli-v0.2.15/happier-v0.2.15-linux-arm64.tar.gz"
         },
-        "version": "0.2.14"
+        "version": "0.2.15"
     },
     "happier-cli-linux-x86_64": {
         "cargoLock": null,
@@ -194,11 +194,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-uLKQq8gIA2Kz9RhZCt+5YSRoFeVYUIEci2pGoEGszkU=",
+            "sha256": "sha256-OduRYzzaiDOyYiEak2MaSwwE871cRjhMvo3YhsnY13I=",
             "type": "url",
-            "url": "https://github.com/happier-dev/happier/releases/download/cli-v0.2.14/happier-v0.2.14-linux-x64.tar.gz"
+            "url": "https://github.com/happier-dev/happier/releases/download/cli-v0.2.15/happier-v0.2.15-linux-x64.tar.gz"
         },
-        "version": "0.2.14"
+        "version": "0.2.15"
     },
     "hashtopolis-agent": {
         "cargoLock": null,
