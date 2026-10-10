@@ -177,17 +177,17 @@
   };
   librime-lua = {
     pname = "librime-lua";
-    version = "6f30968058a3ca83c47949308ef0ddc51a11a264";
+    version = "6da5d6cedb853380ed1b5b9b6979cb1a9c028353";
     src = fetchgit {
       url = "https://github.com/hchunhui/librime-lua.git";
-      rev = "6f30968058a3ca83c47949308ef0ddc51a11a264";
+      rev = "6da5d6cedb853380ed1b5b9b6979cb1a9c028353";
       fetchSubmodules = false;
       deepClone = false;
       leaveDotGit = false;
       sparseCheckout = [ ];
-      sha256 = "sha256-drq6xHgcXXyEAUdR3p+5OvJememQGOrI1a5WfJ0+oLU=";
+      sha256 = "sha256-zEgTdBf8Qjd++kaWkPY+2FEOgPYufspNQPFG52QZkUo=";
     };
-    date = "2026-09-30";
+    date = "2026-10-10";
   };
   my2sql = {
     pname = "my2sql";
