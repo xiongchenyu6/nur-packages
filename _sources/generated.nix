@@ -8,34 +8,34 @@
 {
   cc-switch-darwin-arm64 = {
     pname = "cc-switch-darwin-arm64";
-    version = "4.0.8";
+    version = "4.0.9";
     src = fetchurl {
-      url = "https://github.com/farion1231/cc-switch/releases/download/v4.0.8/CC-Switch-v4.0.8-macOS.tar.gz";
-      sha256 = "sha256-NIVQg3eOw8ERlmo+96HGXVVB+UQeYlg2AWibAYMx+ms=";
+      url = "https://github.com/farion1231/cc-switch/releases/download/v4.0.9/CC-Switch-v4.0.9-macOS.tar.gz";
+      sha256 = "sha256-XCtBMigHTtRcAD1klCoBwGQAemMjbFCig9v7gX99Kfw=";
     };
   };
   cc-switch-darwin-x86_64 = {
     pname = "cc-switch-darwin-x86_64";
-    version = "4.0.8";
+    version = "4.0.9";
     src = fetchurl {
-      url = "https://github.com/farion1231/cc-switch/releases/download/v4.0.8/CC-Switch-v4.0.8-macOS.tar.gz";
-      sha256 = "sha256-NIVQg3eOw8ERlmo+96HGXVVB+UQeYlg2AWibAYMx+ms=";
+      url = "https://github.com/farion1231/cc-switch/releases/download/v4.0.9/CC-Switch-v4.0.9-macOS.tar.gz";
+      sha256 = "sha256-XCtBMigHTtRcAD1klCoBwGQAemMjbFCig9v7gX99Kfw=";
     };
   };
   cc-switch-linux-arm64 = {
     pname = "cc-switch-linux-arm64";
-    version = "4.0.8";
+    version = "4.0.9";
     src = fetchurl {
-      url = "https://github.com/farion1231/cc-switch/releases/download/v4.0.8/CC-Switch-v4.0.8-Linux-arm64.deb";
-      sha256 = "sha256-6yDVDCFGGpRnZ9xgC405M1+BlaDSddLYFF1ncgQ4gSg=";
+      url = "https://github.com/farion1231/cc-switch/releases/download/v4.0.9/CC-Switch-v4.0.9-Linux-arm64.deb";
+      sha256 = "sha256-KIgJCEvKMwhMfTAWbPkkXo/667SJkbtYSSMuxrCmBHc=";
     };
   };
   cc-switch-linux-x86_64 = {
     pname = "cc-switch-linux-x86_64";
-    version = "4.0.8";
+    version = "4.0.9";
     src = fetchurl {
-      url = "https://github.com/farion1231/cc-switch/releases/download/v4.0.8/CC-Switch-v4.0.8-Linux-x86_64.deb";
-      sha256 = "sha256-JLCYMKu4vBlzpPK/CkMgOn+4/cqb4Ju8Xdz1duK7PbU=";
+      url = "https://github.com/farion1231/cc-switch/releases/download/v4.0.9/CC-Switch-v4.0.9-Linux-x86_64.deb";
+      sha256 = "sha256-V7cW0zb5ooA0xuszKa1fEeflFV6MoR+8/d6fR6mrqRs=";
     };
   };
   codex-acp-darwin-arm64 = {
