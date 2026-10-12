@@ -27,7 +27,6 @@
             in  pkgs.mkShell {
             buildInputs = with pkgs; [ nodejs self'.packages.default ];
             LD_LIBRARY_PATH="$LD_LIBRARY_PATH:${lib-path}";
-
           };
         };
     };
