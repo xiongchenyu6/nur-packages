@@ -8,34 +8,34 @@
 {
   cc-switch-darwin-arm64 = {
     pname = "cc-switch-darwin-arm64";
-    version = "4.0.10";
+    version = "4.0.11";
     src = fetchurl {
-      url = "https://github.com/farion1231/cc-switch/releases/download/v4.0.10/CC-Switch-v4.0.10-macOS.tar.gz";
-      sha256 = "sha256-4doDS8Kv3KWvFhZZBYdd34oTLJL1EO3x4fruRalY+aQ=";
+      url = "https://github.com/farion1231/cc-switch/releases/download/v4.0.11/CC-Switch-v4.0.11-macOS.tar.gz";
+      sha256 = "sha256-kycl6jJKLUz36yDKMBx5CKrItznG69w/LbV1oUWYW9c=";
     };
   };
   cc-switch-darwin-x86_64 = {
     pname = "cc-switch-darwin-x86_64";
-    version = "4.0.10";
+    version = "4.0.11";
     src = fetchurl {
-      url = "https://github.com/farion1231/cc-switch/releases/download/v4.0.10/CC-Switch-v4.0.10-macOS.tar.gz";
-      sha256 = "sha256-4doDS8Kv3KWvFhZZBYdd34oTLJL1EO3x4fruRalY+aQ=";
+      url = "https://github.com/farion1231/cc-switch/releases/download/v4.0.11/CC-Switch-v4.0.11-macOS.tar.gz";
+      sha256 = "sha256-kycl6jJKLUz36yDKMBx5CKrItznG69w/LbV1oUWYW9c=";
     };
   };
   cc-switch-linux-arm64 = {
     pname = "cc-switch-linux-arm64";
-    version = "4.0.10";
+    version = "4.0.11";
     src = fetchurl {
-      url = "https://github.com/farion1231/cc-switch/releases/download/v4.0.10/CC-Switch-v4.0.10-Linux-arm64.deb";
-      sha256 = "sha256-7vKWZzuuIa3PEHInfrPjONfRBBohix3C10kjEE47f6c=";
+      url = "https://github.com/farion1231/cc-switch/releases/download/v4.0.11/CC-Switch-v4.0.11-Linux-arm64.deb";
+      sha256 = "sha256-cxf7dV5yA0+1LJsSoDgpKJLTye0/icrqdEx8Qn3pS7w=";
     };
   };
   cc-switch-linux-x86_64 = {
     pname = "cc-switch-linux-x86_64";
-    version = "4.0.10";
+    version = "4.0.11";
     src = fetchurl {
-      url = "https://github.com/farion1231/cc-switch/releases/download/v4.0.10/CC-Switch-v4.0.10-Linux-x86_64.deb";
-      sha256 = "sha256-H3za4eE9fbLynq5eD5d9yLqjIK4G9UlZtwE8mVGfWwE=";
+      url = "https://github.com/farion1231/cc-switch/releases/download/v4.0.11/CC-Switch-v4.0.11-Linux-x86_64.deb";
+      sha256 = "sha256-SwAo4C53XndureT4Yb53IdlcJeR2LIyRvlUspnT8ziM=";
     };
   };
   codex-acp-darwin-arm64 = {
@@ -72,13 +72,13 @@
   };
   gotron-sdk = {
     pname = "gotron-sdk";
-    version = "v0.26.0";
+    version = "v0.27.1";
     src = fetchFromGitHub {
       owner = "fbsobreira";
       repo = "gotron-sdk";
-      rev = "v0.26.0";
+      rev = "v0.27.1";
       fetchSubmodules = false;
-      sha256 = "sha256-GqMXqUnvOt92xVcURFQa+uqTqU7LZd8vFEh78ZlTp+k=";
+      sha256 = "sha256-Qe5hJkoiCgCdaDQgtEEKYecchqRkWzmvrlXMLSh9Vsw=";
     };
   };
   happier-cli-darwin-arm64 = {
@@ -137,42 +137,42 @@
   };
   larksuite-cli-darwin-arm64 = {
     pname = "larksuite-cli-darwin-arm64";
-    version = "1.0.97";
+    version = "1.0.98";
     src = fetchurl {
-      url = "https://github.com/larksuite/cli/releases/download/v1.0.97/lark-cli-1.0.97-darwin-arm64.tar.gz";
-      sha256 = "sha256-ZOhWoFyN/axdvs0xZ2bksFKZ8jD1SDO2dKYj3zrBPxw=";
+      url = "https://github.com/larksuite/cli/releases/download/v1.0.98/lark-cli-1.0.98-darwin-arm64.tar.gz";
+      sha256 = "sha256-7koyCbv4t06lwAoH0NqJt59ef2q/1RiosteKek9+P0A=";
     };
   };
   larksuite-cli-darwin-x86_64 = {
     pname = "larksuite-cli-darwin-x86_64";
-    version = "1.0.97";
+    version = "1.0.98";
     src = fetchurl {
-      url = "https://github.com/larksuite/cli/releases/download/v1.0.97/lark-cli-1.0.97-darwin-amd64.tar.gz";
-      sha256 = "sha256-H104mROLwFhmKgJ9ADTtadISh9gzIpk6/AH+5Vm3jeA=";
+      url = "https://github.com/larksuite/cli/releases/download/v1.0.98/lark-cli-1.0.98-darwin-amd64.tar.gz";
+      sha256 = "sha256-RKT/mOlpOF/Eu01wFzW6MZMH5QVg+mxMlWF41wzMNSU=";
     };
   };
   larksuite-cli-linux-arm64 = {
     pname = "larksuite-cli-linux-arm64";
-    version = "1.0.97";
+    version = "1.0.98";
     src = fetchurl {
-      url = "https://github.com/larksuite/cli/releases/download/v1.0.97/lark-cli-1.0.97-linux-arm64.tar.gz";
-      sha256 = "sha256-Lew+Ni7M4FtTWFSgIFA1u0zNty277ZoyGJDCCJ2ha8U=";
+      url = "https://github.com/larksuite/cli/releases/download/v1.0.98/lark-cli-1.0.98-linux-arm64.tar.gz";
+      sha256 = "sha256-95iybOSzadcEEZRef2a75DgsQRvEfYGVCmYt57abQe0=";
     };
   };
   larksuite-cli-linux-riscv64 = {
     pname = "larksuite-cli-linux-riscv64";
-    version = "1.0.97";
+    version = "1.0.98";
     src = fetchurl {
-      url = "https://github.com/larksuite/cli/releases/download/v1.0.97/lark-cli-1.0.97-linux-riscv64.tar.gz";
-      sha256 = "sha256-SXZB8KS9U5UqNryptFIBjfIlm98ykC0fPeeAM4VRaRM=";
+      url = "https://github.com/larksuite/cli/releases/download/v1.0.98/lark-cli-1.0.98-linux-riscv64.tar.gz";
+      sha256 = "sha256-Bo1WGLqNQsEpvTgqc3TlUCJj81gGY5EVXRr0UIwjhXk=";
     };
   };
   larksuite-cli-linux-x86_64 = {
     pname = "larksuite-cli-linux-x86_64";
-    version = "1.0.97";
+    version = "1.0.98";
     src = fetchurl {
-      url = "https://github.com/larksuite/cli/releases/download/v1.0.97/lark-cli-1.0.97-linux-amd64.tar.gz";
-      sha256 = "sha256-fOEYSHJPCwvIIEASFArb92/nwfyKvUHBh4vJe3IoEms=";
+      url = "https://github.com/larksuite/cli/releases/download/v1.0.98/lark-cli-1.0.98-linux-amd64.tar.gz";
+      sha256 = "sha256-ShLct6CqslmG2LzQRstFsIJ4UxqarDoStTzz2Uc4/oA=";
     };
   };
   librime-lua = {
@@ -200,21 +200,21 @@
   };
   sui = {
     pname = "sui";
-    version = "mainnet-v1.81.1";
+    version = "testnet-v1.82.1";
     src = fetchurl {
-      url = "https://github.com/MystenLabs/sui/releases/download/mainnet-v1.81.1/sui-mainnet-v1.81.1-ubuntu-x86_64.tgz";
-      sha256 = "sha256-2SGRD97fWuK8PwinI2xXgZpFfOU6jMYMhfNlPHgxtdQ=";
+      url = "https://github.com/MystenLabs/sui/releases/download/testnet-v1.82.1/sui-testnet-v1.82.1-ubuntu-x86_64.tgz";
+      sha256 = "sha256-ESvyBPq2knsTXt+zFs3awHvbp1RDS18S0CHKfopyhYw=";
     };
   };
   supabase-realtime = {
     pname = "supabase-realtime";
-    version = "v2.143.3";
+    version = "v2.143.4";
     src = fetchFromGitHub {
       owner = "supabase";
       repo = "realtime";
-      rev = "v2.143.3";
+      rev = "v2.143.4";
       fetchSubmodules = false;
-      sha256 = "sha256-0o/p4BuTKCAx6e2Y4e1cOqRC5VdTrlv1Y5KvRrxAYtQ=";
+      sha256 = "sha256-y8gSwVkvr0JlrOocnaVEAFDJa5O56xC7G4j+kcgYr5Q=";
     };
   };
   unity-cli-darwin-arm64 = {
