@@ -8,11 +8,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-kycl6jJKLUz36yDKMBx5CKrItznG69w/LbV1oUWYW9c=",
+            "sha256": "sha256-AXb4d4NeuUAzvuDhMTg4BfnMjlXqVShRB5TxQ9eG4aA=",
             "type": "url",
-            "url": "https://github.com/farion1231/cc-switch/releases/download/v4.0.11/CC-Switch-v4.0.11-macOS.tar.gz"
+            "url": "https://github.com/farion1231/cc-switch/releases/download/v4.0.12/CC-Switch-v4.0.12-macOS.tar.gz"
         },
-        "version": "4.0.11"
+        "version": "4.0.12"
     },
     "cc-switch-darwin-x86_64": {
         "cargoLock": null,
@@ -23,11 +23,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-kycl6jJKLUz36yDKMBx5CKrItznG69w/LbV1oUWYW9c=",
+            "sha256": "sha256-AXb4d4NeuUAzvuDhMTg4BfnMjlXqVShRB5TxQ9eG4aA=",
             "type": "url",
-            "url": "https://github.com/farion1231/cc-switch/releases/download/v4.0.11/CC-Switch-v4.0.11-macOS.tar.gz"
+            "url": "https://github.com/farion1231/cc-switch/releases/download/v4.0.12/CC-Switch-v4.0.12-macOS.tar.gz"
         },
-        "version": "4.0.11"
+        "version": "4.0.12"
     },
     "cc-switch-linux-arm64": {
         "cargoLock": null,
@@ -38,11 +38,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-cxf7dV5yA0+1LJsSoDgpKJLTye0/icrqdEx8Qn3pS7w=",
+            "sha256": "sha256-ieQ+dEAXR+nUzbh+gFe4fmZFDAg/0zdfFow4VyLtBTA=",
             "type": "url",
-            "url": "https://github.com/farion1231/cc-switch/releases/download/v4.0.11/CC-Switch-v4.0.11-Linux-arm64.deb"
+            "url": "https://github.com/farion1231/cc-switch/releases/download/v4.0.12/CC-Switch-v4.0.12-Linux-arm64.deb"
         },
-        "version": "4.0.11"
+        "version": "4.0.12"
     },
     "cc-switch-linux-x86_64": {
         "cargoLock": null,
@@ -53,11 +53,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-SwAo4C53XndureT4Yb53IdlcJeR2LIyRvlUspnT8ziM=",
+            "sha256": "sha256-y0EtpEPH8u/y+pWrmzGJ3lcKCqkUgTTxjF+hSpIUv1Y=",
             "type": "url",
-            "url": "https://github.com/farion1231/cc-switch/releases/download/v4.0.11/CC-Switch-v4.0.11-Linux-x86_64.deb"
+            "url": "https://github.com/farion1231/cc-switch/releases/download/v4.0.12/CC-Switch-v4.0.12-Linux-x86_64.deb"
         },
-        "version": "4.0.11"
+        "version": "4.0.12"
     },
     "codex-acp-darwin-arm64": {
         "cargoLock": null,
