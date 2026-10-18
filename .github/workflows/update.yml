@@ -16,7 +16,6 @@ on:
 
 permissions:
   contents: write
-  pull-requests: write
   issues: write
 
 concurrency:
@@ -76,52 +75,34 @@ jobs:
           set -Eeuo pipefail
           nix build .#sub2api --print-out-paths | cachix push xiongchenyu6
 
-      - name: Create pull request
-        id: cpr
-        if: success()
-        uses: peter-evans/create-pull-request@v8
-        with:
-          token: ${{ secrets.GITHUB_TOKEN }}
-          branch: automation/dependency-update
-          base: master
-          delete-branch: true
-          commit-message: "chore: update flake inputs and nvfetcher sources"
-          title: "chore: dependency update"
-          body: |
-            Automated dependency update run.
-
-            This updates:
-            - `flake.lock`
-            - `_sources/generated.nix`
-            - `_sources/generated.json`
-            - fixed-output dependency hashes reported by package builds
-
-            Merged automatically: the update step above rebuilds every package
-            whose source changed, so reaching this point means they all built.
-          labels: |
-            dependencies
-            automated
-
-      # Merged from here rather than with `gh pr merge --auto`. Auto-merge waits
-      # on required status checks, master has none, and a PR opened with
-      # GITHUB_TOKEN cannot trigger build.yml anyway — GitHub suppresses
-      # workflow runs for token-authored events to avoid recursion. The gate is
-      # therefore the update step itself: scripts/update.sh ends by rebuilding
-      # every package whose source moved, and a failure there fails this job
-      # before it ever gets here.
-      - name: Merge the update
-        if: steps.cpr.outputs.pull-request-number != ''
+      # Commit straight to master. The update step above is the gate: it
+      # rebuilds every package whose source moved, so reaching this point means
+      # they all built. The PR-and-self-merge this replaced bought nothing and
+      # cost a red run per update: GitHub started build.yml for the PR, the
+      # merge deleted the branch three seconds later, and the run died with
+      # "workflow file issue" before any job ran.
+      - name: Commit and push the update
+        id: push
         run: |
-          gh pr merge "$PR" --squash --delete-branch
-          echo "Merged #$PR ($(gh pr view "$PR" --json title --jq .title))"
-        env:
-          PR: ${{ steps.cpr.outputs.pull-request-number }}
+          set -Eeuo pipefail
+          if git diff --quiet && [ -z "$(git ls-files --others --exclude-standard)" ]; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            echo "Nothing changed."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "chore: update flake inputs and nvfetcher sources"
+          git push origin HEAD:master
+          echo "changed=true" >> "$GITHUB_OUTPUT"
+          git --no-pager show --stat --oneline HEAD | head -20
 
       # 级联下一跳:通知 dotfiles 只 bump 它的 xiongchenyu6 input。
       # GITHUB_TOKEN 按设计无法触发别的仓库,所以这里必须用 PAT。没配
       # CASCADE_TOKEN 时跳过而不是失败 —— 下游 cron 兜底会捡起来。
       - name: Notify dotfiles
-        if: steps.cpr.outputs.pull-request-number != ''
+        if: steps.push.outputs.changed == 'true'
         run: |
           set -Eeuo pipefail
           if [ -z "${GH_TOKEN:-}" ]; then
