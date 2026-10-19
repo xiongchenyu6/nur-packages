@@ -208,13 +208,13 @@
   };
   supabase-realtime = {
     pname = "supabase-realtime";
-    version = "v2.145.0";
+    version = "v2.145.3";
     src = fetchFromGitHub {
       owner = "supabase";
       repo = "realtime";
-      rev = "v2.145.0";
+      rev = "v2.145.3";
       fetchSubmodules = false;
-      sha256 = "sha256-JRlglLui7Pz79bxXMlx6dVho1YS+Y7PM88RCs1g/Otg=";
+      sha256 = "sha256-PKMDawsq8SyxY5vOj9zNRI1miFjU9iS+cepujL1SIy8=";
     };
   };
   unity-cli-darwin-arm64 = {
