@@ -8,34 +8,34 @@
 {
   cc-switch-darwin-arm64 = {
     pname = "cc-switch-darwin-arm64";
-    version = "4.0.16";
+    version = "4.0.17";
     src = fetchurl {
-      url = "https://github.com/farion1231/cc-switch/releases/download/v4.0.16/CC-Switch-v4.0.16-macOS.tar.gz";
-      sha256 = "sha256-mJ+bCgPk9qvvxXxeIX2JQo65THPT9CAz+3DvnpYwPMg=";
+      url = "https://github.com/farion1231/cc-switch/releases/download/v4.0.17/CC-Switch-v4.0.17-macOS.tar.gz";
+      sha256 = "sha256-kfkGc5d/6uc0vLiJuf/Xrp/1q6U7onq489nvvBWuxj0=";
     };
   };
   cc-switch-darwin-x86_64 = {
     pname = "cc-switch-darwin-x86_64";
-    version = "4.0.16";
+    version = "4.0.17";
     src = fetchurl {
-      url = "https://github.com/farion1231/cc-switch/releases/download/v4.0.16/CC-Switch-v4.0.16-macOS.tar.gz";
-      sha256 = "sha256-mJ+bCgPk9qvvxXxeIX2JQo65THPT9CAz+3DvnpYwPMg=";
+      url = "https://github.com/farion1231/cc-switch/releases/download/v4.0.17/CC-Switch-v4.0.17-macOS.tar.gz";
+      sha256 = "sha256-kfkGc5d/6uc0vLiJuf/Xrp/1q6U7onq489nvvBWuxj0=";
     };
   };
   cc-switch-linux-arm64 = {
     pname = "cc-switch-linux-arm64";
-    version = "4.0.16";
+    version = "4.0.17";
     src = fetchurl {
-      url = "https://github.com/farion1231/cc-switch/releases/download/v4.0.16/CC-Switch-v4.0.16-Linux-arm64.deb";
-      sha256 = "sha256-Me2+mdwTvfn6Yr+tU8ZF+J2xrAsMaqTAYw+/pO5dlTY=";
+      url = "https://github.com/farion1231/cc-switch/releases/download/v4.0.17/CC-Switch-v4.0.17-Linux-arm64.deb";
+      sha256 = "sha256-ifkHU2dhPEHWQKFgHNpG+ReazWjXrdWpZUzEELonmoM=";
     };
   };
   cc-switch-linux-x86_64 = {
     pname = "cc-switch-linux-x86_64";
-    version = "4.0.16";
+    version = "4.0.17";
     src = fetchurl {
-      url = "https://github.com/farion1231/cc-switch/releases/download/v4.0.16/CC-Switch-v4.0.16-Linux-x86_64.deb";
-      sha256 = "sha256-2GuaiJ57ge1+NDCifTHwVWl6KTMMmTIZJzx+P5VPY5s=";
+      url = "https://github.com/farion1231/cc-switch/releases/download/v4.0.17/CC-Switch-v4.0.17-Linux-x86_64.deb";
+      sha256 = "sha256-8itYIye4R8OFFTSM/i4HaO+kR0MZEt+aO4rAiGipLLs=";
     };
   };
   codex-acp-darwin-arm64 = {
@@ -208,13 +208,13 @@
   };
   supabase-realtime = {
     pname = "supabase-realtime";
-    version = "v2.145.5";
+    version = "v2.146.0";
     src = fetchFromGitHub {
       owner = "supabase";
       repo = "realtime";
-      rev = "v2.145.5";
+      rev = "v2.146.0";
       fetchSubmodules = false;
-      sha256 = "sha256-dbdnh2e6/u5pUutbteDpzXyYjNzotgl+A0XoZVjAqe8=";
+      sha256 = "sha256-eHyg7M5D8aZRL9+NhyptIl5SwCJQEpVsq6UIteX5VQ4=";
     };
   };
   unity-cli-darwin-arm64 = {
