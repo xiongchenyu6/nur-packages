@@ -200,10 +200,10 @@
   };
   sui = {
     pname = "sui";
-    version = "testnet-v1.82.1";
+    version = "testnet-v1.82.2";
     src = fetchurl {
-      url = "https://github.com/MystenLabs/sui/releases/download/testnet-v1.82.1/sui-testnet-v1.82.1-ubuntu-x86_64.tgz";
-      sha256 = "sha256-ESvyBPq2knsTXt+zFs3awHvbp1RDS18S0CHKfopyhYw=";
+      url = "https://github.com/MystenLabs/sui/releases/download/testnet-v1.82.2/sui-testnet-v1.82.2-ubuntu-x86_64.tgz";
+      sha256 = "sha256-IBQn1RIUIuh4qifdb2ZkKvK1EqmzeyTOSzkBwp1LJ1A=";
     };
   };
   supabase-realtime = {

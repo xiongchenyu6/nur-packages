@@ -361,11 +361,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-ESvyBPq2knsTXt+zFs3awHvbp1RDS18S0CHKfopyhYw=",
+            "sha256": "sha256-IBQn1RIUIuh4qifdb2ZkKvK1EqmzeyTOSzkBwp1LJ1A=",
             "type": "url",
-            "url": "https://github.com/MystenLabs/sui/releases/download/testnet-v1.82.1/sui-testnet-v1.82.1-ubuntu-x86_64.tgz"
+            "url": "https://github.com/MystenLabs/sui/releases/download/testnet-v1.82.2/sui-testnet-v1.82.2-ubuntu-x86_64.tgz"
         },
-        "version": "testnet-v1.82.1"
+        "version": "testnet-v1.82.2"
     },
     "supabase-realtime": {
         "cargoLock": null,
