@@ -200,21 +200,21 @@
   };
   sui = {
     pname = "sui";
-    version = "testnet-v1.82.2";
+    version = "mainnet-v1.82.3";
     src = fetchurl {
-      url = "https://github.com/MystenLabs/sui/releases/download/testnet-v1.82.2/sui-testnet-v1.82.2-ubuntu-x86_64.tgz";
-      sha256 = "sha256-IBQn1RIUIuh4qifdb2ZkKvK1EqmzeyTOSzkBwp1LJ1A=";
+      url = "https://github.com/MystenLabs/sui/releases/download/mainnet-v1.82.3/sui-mainnet-v1.82.3-ubuntu-x86_64.tgz";
+      sha256 = "sha256-1hbWPZAwmSbPf1RGM8jdQTL3Yv27pVWjXEhCz6QSk3k=";
     };
   };
   supabase-realtime = {
     pname = "supabase-realtime";
-    version = "v2.146.1";
+    version = "v2.147.0";
     src = fetchFromGitHub {
       owner = "supabase";
       repo = "realtime";
-      rev = "v2.146.1";
+      rev = "v2.147.0";
       fetchSubmodules = false;
-      sha256 = "sha256-n/DFTiqVHsCZCzxp+YzD8IpyVj0/iHfwD0Gh/pqy0yA=";
+      sha256 = "sha256-A0A7sg4vWK6V3fgAM22AXaNtBeBqpYg3JDxz1bUaipc=";
     };
   };
   unity-cli-darwin-arm64 = {
