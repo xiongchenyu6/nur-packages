@@ -8,34 +8,34 @@
 {
   cc-switch-darwin-arm64 = {
     pname = "cc-switch-darwin-arm64";
-    version = "4.0.19";
+    version = "4.0.20";
     src = fetchurl {
-      url = "https://github.com/farion1231/cc-switch/releases/download/v4.0.19/CC-Switch-v4.0.19-macOS.tar.gz";
-      sha256 = "sha256-pns8rvrl6/91dPQcPx77+hg84XKjI2HWybU4MqEctd8=";
+      url = "https://github.com/farion1231/cc-switch/releases/download/v4.0.20/CC-Switch-v4.0.20-macOS.tar.gz";
+      sha256 = "sha256-3WwROc/8f+qCDgHpNkWg2xUJ+2SEEQhqztM0r/z2sLY=";
     };
   };
   cc-switch-darwin-x86_64 = {
     pname = "cc-switch-darwin-x86_64";
-    version = "4.0.19";
+    version = "4.0.20";
     src = fetchurl {
-      url = "https://github.com/farion1231/cc-switch/releases/download/v4.0.19/CC-Switch-v4.0.19-macOS.tar.gz";
-      sha256 = "sha256-pns8rvrl6/91dPQcPx77+hg84XKjI2HWybU4MqEctd8=";
+      url = "https://github.com/farion1231/cc-switch/releases/download/v4.0.20/CC-Switch-v4.0.20-macOS.tar.gz";
+      sha256 = "sha256-3WwROc/8f+qCDgHpNkWg2xUJ+2SEEQhqztM0r/z2sLY=";
     };
   };
   cc-switch-linux-arm64 = {
     pname = "cc-switch-linux-arm64";
-    version = "4.0.19";
+    version = "4.0.20";
     src = fetchurl {
-      url = "https://github.com/farion1231/cc-switch/releases/download/v4.0.19/CC-Switch-v4.0.19-Linux-arm64.deb";
-      sha256 = "sha256-LeePsdPBzQahcxDDwhyASokAeXoo6+08uVWKzVAjIHY=";
+      url = "https://github.com/farion1231/cc-switch/releases/download/v4.0.20/CC-Switch-v4.0.20-Linux-arm64.deb";
+      sha256 = "sha256-rnqMfUj5itI3kBBIMSdLlmyZ2iYH3hyo42PmVd+MwJs=";
     };
   };
   cc-switch-linux-x86_64 = {
     pname = "cc-switch-linux-x86_64";
-    version = "4.0.19";
+    version = "4.0.20";
     src = fetchurl {
-      url = "https://github.com/farion1231/cc-switch/releases/download/v4.0.19/CC-Switch-v4.0.19-Linux-x86_64.deb";
-      sha256 = "sha256-Gg4i2twTWLiJ6UzDRPPCrTGaQhNFiSr0zvyDeQFiZSU=";
+      url = "https://github.com/farion1231/cc-switch/releases/download/v4.0.20/CC-Switch-v4.0.20-Linux-x86_64.deb";
+      sha256 = "sha256-E488jXwiLaFdTk5q2gIGuYR7O7XSNlnqbaD68hV9iOg=";
     };
   };
   codex-acp-darwin-arm64 = {
