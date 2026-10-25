@@ -1,0 +1,509 @@
+From a0793260a9cd668f536e09812cf671e58420973d Mon Sep 17 00:00:00 2001
+From: xiongchenyu <xiongchenyu6@gmail.com>
+Date: Sun, 25 Oct 2026 16:31:56 +0800
+Subject: [PATCH] guest: allocate managed-memory backing under a GPU the
+ process registered
+
+cuMemAllocManaged returned CUDA_ERROR_UNKNOWN (999) on every GPU except
+the host's first one.  Measured on 615.78.08, 2x RTX 4090, both GPUs
+exposed to an Ubuntu 24.04 guest (tests/repro/uvm_managed_repro.c):
+
+  CUDA_VISIBLE_DEVICES=0    ALL OK
+  CUDA_VISIBLE_DEVICES=1    FAIL rc=999
+      nvkvm: uvm fallback: MAP_EXTERNAL_ALLOCATION ... nvstatus=0x26
+  CUDA_VISIBLE_DEVICES=0,1  FAIL rc=999, same nvstatus
+
+and with only the host's second GPU given to the VM (cgroup denies
+/dev/nvidia0) the fallback failed one step earlier, at "build RM object
+tree", because it opens /dev/nvidia0 unconditionally.
+
+Two causes, both in the managed-memory fallback (nvkvm_uvm_ext.c):
+
+1. The private RM tree used deviceId 0 unconditionally, on the stated
+   assumption that the device is "an allocation context, not a
+   placement".  It is a placement for UVM: set_ext_gpu_map_location()
+   (uvm_map_external.c) looks up the OWNING GPU of the memory, and for an
+   RM sysmem object that is the GPU of the device it was allocated under;
+   if that GPU is not registered on the va_space the map fails with
+   NV_ERR_INVALID_DEVICE ("This is a local or peer allocation, so the
+   owning GPU must have been registered").  A process whose only context
+   is on GPU 1 never registers GPU 0.
+
+   Now the tree is built under a GPU the fd registered: its UUID is
+   resolved to RM's deviceInstance with three NV0000 controls that are
+   already in the allowlist (GET_ATTACHED_IDS 0x201,
+   GET_UUID_FROM_GPU_ID 0x275, GET_ID_INFO_V2 0x205), and to the
+   /dev/nvidiaN to open from the host `information` file's "GPU UUID:" /
+   "Device Minor:" lines, which discovery now records next to the BDF.
+   The node matters: deviceConstruct() refuses NV01_DEVICE_0 with
+   NV_ERR_INSUFFICIENT_PERMISSIONS unless osIsGpuAccessible(), i.e. unless
+   the calling process holds an fd for THAT GPU's device file.
+
+2. The per-GPU mapping list came from UVM_REGISTER_GPU.  Every entry is
+   resolved with uvm_va_space_get_gpu_by_uuid_with_gpu_va_space(), and a
+   GPU that is registered but has no GPU VA space fails the whole call
+   with NV_ERR_INVALID_DEVICE.  libcuda registers every visible GPU but
+   creates a VA space per context, so CUDA_VISIBLE_DEVICES=0,1 with one
+   context hit it.  The list now comes from UVM_REGISTER_GPU_VASPACE, and
+   the owner is preferably taken from that list too.
+
+Known limit, unchanged in kind: the range is mapped on the GPUs that have
+a VA space when it is created; a context created later on another GPU
+does not see earlier managed allocations.
+
+After (same host, same guest):
+
+  CUDA_VISIBLE_DEVICES=0 / 1 / 0,1 / 1,0   ALL OK (1048576/1048576)
+  tests/validate.sh: cuda_managed_alloc PASS, cuda_managed_coherence PASS
+  (3 CPU<->GPU cycles verified); 30/37 PASS vs 29/37 before.  The
+  remaining failures are graphics=off (nvidia-modeset absent, Vulkan
+  device, GL draw).
+
+No QEMU change and no allowlist change.  The control commands DENYed
+during these runs were audited against open-gpu-kernel-modules 615.78.08
+and none is on the managed-memory path; all stay denied:
+
+  0x2080019f NV2080_CTRL_CMD_GPU_GET_SKYLINE_INFO
+             OUT-only fixed table (9 x skyline + validEntries), handler
+             zeroes params and bounds validEntries by the array size;
+             NON_PRIVILEGED.  Benign MIG topology query; nothing needs it.
+  0x2080220b NV2080_CTRL_CMD_RC_ENABLE_WATCHDOG
+             no params, but MUTATES per-GPU state (krcWatchdogChangeState
+             RMAPI_ENABLE_REQUEST) shared with every host client on that
+             GPU; flags NON_PRIVILEGED|GPU_LOCK_DEVICE_ONLY.  Deny.
+  0x20802a0c NV2080_CTRL_CMD_CE_GET_LCE_SHIM_INFO
+             { in ceEngineType; out shimInstance, shimLocalLceIdx },
+             ROUTE_TO_PHYSICAL (flat GSP RPC), NON_PRIVILEGED.  Benign;
+             not needed.
+  0x00003d0e NV0000_CTRL_OS_UNIX_CMD_MEMACCT_GET_LIMITS
+             { NvS32 cgroupFd; out count, limits[32] }.  cgroupFd != -1
+             is resolved with cgroup_get_from_fd() in the CALLING
+             process's fd table -- a guest-chosen fd number interpreted
+             on the host -- and the reply enumerates every attached host
+             GPU's id and memory-accounting limits, including GPUs not
+             given to the guest.  If ever needed, gate it with a bounded
+             check (cgroupFd == -1 only) in nvkvm_isolate_handlers.c, not
+             a bare row.
+  0x00003d0f NV0000_CTRL_OS_UNIX_CMD_MEMACCT_GET_IMPL
+             OUT-only NvU32; harmless, but libcuda treats NOT_SUPPORTED as
+             "no accounting" and works, so no row without a consumer.
+  0x00730102 NV0073_CTRL_CMD_SYSTEM_GET_NUM_HEADS
+             display class; graphics-only, out of scope for compute.
+---
+ src/guest/nvkvm.h          |   9 +-
+ src/guest/nvkvm_hostfile.c |  40 ++++++
+ src/guest/nvkvm_uvm_ext.c  | 247 +++++++++++++++++++++++++++++++------
+ 3 files changed, 258 insertions(+), 38 deletions(-)
+
+diff --git a/src/guest/nvkvm.h b/src/guest/nvkvm.h
+index 686864f..78954ad 100644
+--- a/src/guest/nvkvm.h
++++ b/src/guest/nvkvm.h
+@@ -282,7 +282,7 @@ struct nvkvm_uvm_fd_state {
+ 	 */
+ 	struct mutex     ext_lock;
+ 	struct nvkvm_fd_ctx *ext_ctl;   /* private /dev/nvidiactl handle     */
+-	struct nvkvm_fd_ctx *ext_dev;   /* private /dev/nvidia0, REGISTER_FD */
++	struct nvkvm_fd_ctx *ext_dev;   /* private /dev/nvidiaN, REGISTER_FD */
+ 	__u32            ext_h_client;
+ 	__u32            ext_h_device;
+ 	__u32            ext_h_subdev;
+@@ -367,6 +367,7 @@ struct nvkvm_inflight {
+ /* "DDDD:BB:DD.F" — a PCI BDF string as it appears under
+  * /proc/driver/nvidia/gpus/.  Matches NVKVM_BDF_LEN on the QEMU side. */
+ #define NVKVM_BDF_STRLEN  12
++#define NVKVM_UUID_STRLEN 40   /* "GPU-xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx" */
+ 
+ struct nvkvm_state {
+ 	/* Device registration */
+@@ -383,6 +384,12 @@ struct nvkvm_state {
+ 	 * BDF, not the guest slot — so the synthetic proc tree has to be named
+ 	 * with these.  Filled by nvkvm_hostfile_discover_gpus(). */
+ 	char           gpu_bdf[NVKVM_MAX_GPUS][NVKVM_BDF_STRLEN + 1];
++	/* The same `information` body's "GPU UUID:" ("GPU-" + 36) and
++	 * "Device Minor:" lines.  The minor is the host's, and QEMU maps guest
++	 * /dev/nvidiaN to host /dev/nvidiaN, so it is also the guest node that
++	 * reaches this GPU.  -1 / "" when the line was absent. */
++	char           gpu_uuid[NVKVM_MAX_GPUS][NVKVM_UUID_STRLEN + 1];
++	int            gpu_minor[NVKVM_MAX_GPUS];
+ 	unsigned int   uvm_major;
+ 	dev_t          uvm_devno;
+ 	struct cdev    uvm_cdev;
+diff --git a/src/guest/nvkvm_hostfile.c b/src/guest/nvkvm_hostfile.c
+index 5caa3e7..cae9b96 100644
+--- a/src/guest/nvkvm_hostfile.c
++++ b/src/guest/nvkvm_hostfile.c
+@@ -285,6 +285,45 @@ static bool nvkvm_parse_bus_location(const char *buf, size_t len, char *out)
+ 	return false;
+ }
+ 
++/* Copy the value after `key` (leading blanks skipped, up to end of line) into
++ * out[0..cap-1], NUL-terminated.  Returns its length, or -1 if absent. */
++static int nvkvm_parse_field(const char *buf, size_t len, const char *key,
++			     char *out, size_t cap)
++{
++	const size_t klen = strlen(key);
++	size_t i, n = 0;
++
++	for (i = 0; i + klen <= len; i++) {
++		if (memcmp(buf + i, key, klen))
++			continue;
++		i += klen;
++		while (i < len && (buf[i] == ' ' || buf[i] == '\t'))
++			i++;
++		while (i < len && buf[i] != '\n' && buf[i] != '\0' && n + 1 < cap)
++			out[n++] = buf[i++];
++		out[n] = '\0';
++		return (int)n;
++	}
++	return -1;
++}
++
++/* "GPU UUID:" and "Device Minor:" of one `information` body.  Absence is not
++ * fatal -- only the managed-memory fallback uses them, and it fails cleanly
++ * without them (nvkvm_uvm_ext.c, ext_owner_gpu). */
++static void nvkvm_parse_identity(const char *buf, size_t len, int idx)
++{
++	char minor[12];
++	unsigned int m;
++
++	nvkvm.gpu_minor[idx] = -1;
++	if (nvkvm_parse_field(buf, len, "GPU UUID:", nvkvm.gpu_uuid[idx],
++			      sizeof(nvkvm.gpu_uuid[idx])) != NVKVM_UUID_STRLEN)
++		nvkvm.gpu_uuid[idx][0] = '\0';
++	if (nvkvm_parse_field(buf, len, "Device Minor:", minor, sizeof(minor)) > 0 &&
++	    !kstrtouint(minor, 10, &m) && m < NVKVM_MAX_GPUS)
++		nvkvm.gpu_minor[idx] = (int)m;
++}
++
+ int nvkvm_hostfile_discover_gpus(void)
+ {
+ 	int i, shm_slot, count = 0;
+@@ -325,6 +364,7 @@ int nvkvm_hostfile_discover_gpus(void)
+ 				i);
+ 			break;
+ 		}
++		nvkvm_parse_identity(tmp, nbytes, count);
+ 		count++;
+ 	}
+ 
+diff --git a/src/guest/nvkvm_uvm_ext.c b/src/guest/nvkvm_uvm_ext.c
+index 79c757e..10b2ab2 100644
+--- a/src/guest/nvkvm_uvm_ext.c
++++ b/src/guest/nvkvm_uvm_ext.c
+@@ -205,24 +205,186 @@ static int uvm_call(struct ext_target t, unsigned int cmd,
+ 	return 0;
+ }
+ 
++/*
++ * NV_ESC_RM_CONTROL.  Like rm_alloc(), `params` travels in the aux slot and the
++ * stub re-points NVOS54.params at its own copy (nvkvm_stub.c, ptr_off 16 for
++ * nr 0x2a), and the isolate gates `cmd` against the control allowlist exactly
++ * as it does for libcuda's own controls.
++ */
++static int rm_control(struct ext_target t, __u32 h_client, __u32 h_object,
++		      __u32 cmd, void *params, __u32 size, __u32 *nvstatus)
++{
++	struct nvos54_parameters *p;
++	long ret;
++
++	p = kzalloc(sizeof(*p), GFP_KERNEL);
++	if (!p)
++		return -ENOMEM;
++	p->h_client    = h_client;
++	p->h_object    = h_object;
++	p->cmd         = cmd;
++	p->params      = 0;
++	p->params_size = size;
++	ret = nvkvm_virtio_ioctl_on_isolate_nomm(
++			t.isolate_id, t.handle_id, t.session_id,
++			FE_CMD(NV_ESC_RM_CONTROL, struct nvos54_parameters),
++			p, sizeof(*p), params, size);
++	if (ret >= 0)
++		*nvstatus = p->status;
++	kfree(p);
++	return ret < 0 ? (int)ret : 0;
++}
++
++/* The three NV0000 controls ext_owner_gpu() needs, all already in the control
++ * allowlist (0x201, 0x275, 0x205).  Layouts from ctrl0000gpu.h; none has
++ * changed since 515. */
++#define NV0000_CTRL_CMD_GPU_GET_ATTACHED_IDS          0x00000201u
++#define NV0000_CTRL_CMD_GPU_GET_UUID_FROM_GPU_ID      0x00000275u
++#define NV0000_CTRL_CMD_GPU_GET_ID_INFO_V2            0x00000205u
++#define NV0000_CTRL_GPU_MAX_ATTACHED_GPUS             32u
++#define NV0000_CTRL_GPU_INVALID_ID                    0xffffffffu
++#define NV0000_GPU_UUID_FROM_GPU_ID_FORMAT_BINARY     0x2u
++
++struct nv0000_attached_ids { __u32 gpu_ids[NV0000_CTRL_GPU_MAX_ATTACHED_GPUS]; };
++struct nv0000_uuid_from_gpu_id {
++	__u32 gpu_id;
++	__u32 flags;
++	__u8  gpu_uuid[256];
++	__u32 uuid_str_len;
++};
++struct nv0000_id_info_v2 {
++	__u32 gpu_id, gpu_flags, device_instance, sub_device_instance;
++	__u32 sli_status, board_id, gpu_instance;
++	__s32 numa_id;
++};
++
++/*
++ * Which GPU the backing has to be allocated under.
++ *
++ * UVM_MAP_EXTERNAL_ALLOCATION requires the OWNING GPU of the memory to be
++ * registered on the va_space, even for sysmem (uvm_map_external.c,
++ * set_ext_gpu_map_location(): "the owning GPU must have been registered" ->
++ * NV_ERR_INVALID_DEVICE), and the owning GPU of an RM sysmem object is the GPU
++ * of the device it was allocated under.  Mapping it on further registered GPUs
++ * is fine: the peer check there is skipped for sysmem.  So the device is the
++ * GPU of a GPU registered on this fd, never a fixed deviceId 0 --
++ * with that, a process whose only context is on GPU 1 (CUDA_VISIBLE_DEVICES=1,
++ * or a VM given only the host's second GPU) got rc=999 on every
++ * cuMemAllocManaged.
++ *
++ * Yields RM's deviceInstance for NV01_DEVICE_0 and the /dev/nvidiaN minor
++ * whose fd satisfies the osIsGpuAccessible() check in deviceConstruct.
++ */
++static int ext_owner_gpu(struct nvkvm_uvm_fd_state *st, struct ext_target tctl,
++			 __u32 h_client, __u32 *device_instance, int *minor)
++{
++	struct nv0000_attached_ids *ids = NULL;
++	struct nv0000_uuid_from_gpu_id *u = NULL;
++	struct nv0000_id_info_v2 *info = NULL;
++	struct nvkvm_uvm_gpu_reg *g;
++	struct nvkvm_uvm_vas_reg *v;
++	char want[NVKVM_UUID_STRLEN + 1];
++	__u8 uuid[16];
++	bool have = false;
++	__u32 nvstatus = 0, i;
++	int ret, k;
++
++	/* Prefer a GPU with a VA space: the range is mapped on exactly those
++	 * (ext_collect_uuids), so the owner is then one the process uses. */
++	mutex_lock(&st->lock);
++	list_for_each_entry(v, &st->registered_va_spaces, list) {
++		memcpy(uuid, v->gpu_uuid, sizeof(uuid));
++		have = true;
++		break;
++	}
++	if (!have) {
++		list_for_each_entry(g, &st->registered_gpus, list) {
++			memcpy(uuid, g->gpu_uuid, sizeof(uuid));
++			have = true;
++			break;
++		}
++	}
++	mutex_unlock(&st->lock);
++	if (!have)
++		return -ENODEV;
++
++	ids  = kzalloc(sizeof(*ids), GFP_KERNEL);
++	u    = kzalloc(sizeof(*u), GFP_KERNEL);
++	info = kzalloc(sizeof(*info), GFP_KERNEL);
++	if (!ids || !u || !info) { ret = -ENOMEM; goto out; }
++
++	ret = rm_control(tctl, h_client, h_client, NV0000_CTRL_CMD_GPU_GET_ATTACHED_IDS,
++			 ids, sizeof(*ids), &nvstatus);
++	if (ret || nvstatus)
++		goto fail;
++	ret = -ENODEV;
++	for (i = 0; i < NV0000_CTRL_GPU_MAX_ATTACHED_GPUS; i++) {
++		if (ids->gpu_ids[i] == NV0000_CTRL_GPU_INVALID_ID)
++			break;
++		memset(u, 0, sizeof(*u));
++		u->gpu_id = ids->gpu_ids[i];
++		u->flags  = NV0000_GPU_UUID_FROM_GPU_ID_FORMAT_BINARY;
++		if (rm_control(tctl, h_client, h_client,
++			       NV0000_CTRL_CMD_GPU_GET_UUID_FROM_GPU_ID,
++			       u, sizeof(*u), &nvstatus) || nvstatus)
++			continue;
++		if (memcmp(u->gpu_uuid, uuid, sizeof(uuid)))
++			continue;
++		info->gpu_id = ids->gpu_ids[i];
++		ret = rm_control(tctl, h_client, h_client, NV0000_CTRL_CMD_GPU_GET_ID_INFO_V2,
++				 info, sizeof(*info), &nvstatus);
++		if (ret || nvstatus)
++			goto fail;
++		*device_instance = info->device_instance;
++		break;
++	}
++	if (ret)
++		goto fail;
++
++	/* The node: match the UUID against the host `information` bodies. */
++	snprintf(want, sizeof(want),
++		 "GPU-%02x%02x%02x%02x-%02x%02x-%02x%02x-%02x%02x-%02x%02x%02x%02x%02x%02x",
++		 uuid[0], uuid[1], uuid[2], uuid[3], uuid[4], uuid[5], uuid[6], uuid[7],
++		 uuid[8], uuid[9], uuid[10], uuid[11], uuid[12], uuid[13], uuid[14],
++		 uuid[15]);
++	ret = -ENODEV;
++	for (k = 0; k < nvkvm.num_gpus && k < NVKVM_MAX_GPUS; k++) {
++		if (!strcasecmp(nvkvm.gpu_uuid[k], want) && nvkvm.gpu_minor[k] >= 0) {
++			*minor = nvkvm.gpu_minor[k];
++			ret = 0;
++			break;
++		}
++	}
++	if (ret)
++		goto fail;
++	goto out;
++
++fail:
++	pr_warn("nvkvm: uvm fallback: cannot resolve the registered GPU's device (ret=%d nvstatus=0x%x)\n",
++		ret, nvstatus);
++	ret = ret ? ret : -EIO;
++out:
++	kfree(ids); kfree(u); kfree(info);
++	return ret;
++}
++
+ /* ── the private RM object tree ──────────────────────────────────────────── */
+ 
+ /*
+  * Build the client/device/subdevice tree this UVM fd allocates its backing
+- * under.  Called once per UVM fd, under st->ext_lock.
++ * under.  Called once per UVM fd, under st->ext_lock, after libcuda has
++ * registered at least one GPU (the managed mmap that triggers this follows
++ * UVM_REGISTER_GPU).
+  *
+- * Two things here are load-bearing and were established by measurement
+- * (tools/uvm_sysmem_probe.c on 575.51.03 / RTX 3060), not from the SDK:
++ * Load-bearing, established by measurement (tools/uvm_sysmem_probe.c on
++ * 575.51.03 / RTX 3060) and by reading deviceConstruct():
+  *
+  *  - NV01_DEVICE_0 is refused with NV_ERR_INSUFFICIENT_PERMISSIONS (0x1b)
+- *    unless a /dev/nvidiaN fd has been bound to the client's control fd with
+- *    NV_ESC_REGISTER_FD first.  That is the only reason a device handle is
+- *    opened at all; nothing else is ever issued on it.
+- *  - deviceId 0 is used unconditionally.  The object is *system* memory, so it
+- *    is not tied to the GPU whose device it is allocated under — UVM dups it
+- *    into whichever GPU MAP_EXTERNAL_ALLOCATION names, and cross-device dup of
+- *    a sysmem object is exactly what nvUvmInterfaceDupMemory does for
+- *    cudaMalloc today.  The device is an allocation context, not a placement.
++ *    unless the calling process holds an fd for THAT GPU's /dev/nvidiaN
++ *    (osIsGpuAccessible -> nv_is_gpu_accessible iterates the caller's files).
++ *    That is the only reason a device handle is opened at all; it is also
++ *    bound with NV_ESC_REGISTER_FD as before.  Nothing else is issued on it.
++ *  - the device is a registered GPU's (ext_owner_gpu() says why).
+  */
+ static int ext_tree_build(struct nvkvm_uvm_fd_state *st)
+ {
+@@ -230,8 +392,9 @@ static int ext_tree_build(struct nvkvm_uvm_fd_state *st)
+ 	struct nv2080_alloc_parameters *sp = NULL;
+ 	struct nv_ioctl_register_fd *rp = NULL;
+ 	struct ext_target tctl, tdev;
+-	__u32 nvstatus = 0;
++	__u32 nvstatus = 0, device_instance = 0;
+ 	__u32 h;
++	int minor = -1;
+ 	int ret;
+ 
+ 	if (st->ext_ready)
+@@ -243,20 +406,35 @@ static int ext_tree_build(struct nvkvm_uvm_fd_state *st)
+ 		st->ext_ctl = NULL;
+ 		return ret;
+ 	}
+-	st->ext_dev = nvkvm_fd_ctx_open_dev(NVKVM_DEV_GPU(0), O_RDWR);
+-	if (IS_ERR(st->ext_dev)) {
+-		ret = PTR_ERR(st->ext_dev);
+-		st->ext_dev = NULL;
+-		goto err;
+-	}
+ 	tctl = ext_target_of(st->ext_ctl);
+-	tdev = ext_target_of(st->ext_dev);
+ 
+ 	rp = kzalloc(sizeof(*rp), GFP_KERNEL);
+ 	dp = kzalloc(sizeof(*dp), GFP_KERNEL);
+ 	sp = kzalloc(sizeof(*sp), GFP_KERNEL);
+ 	if (!rp || !dp || !sp) { ret = -ENOMEM; goto err; }
+ 
++	h = RM_HANDLE_LET_RM_CHOOSE;
++	ret = rm_alloc(tctl, 0, 0, &h, NV01_ROOT, NULL, 0, &nvstatus);
++	if (ret || nvstatus) {
++		pr_warn("nvkvm: uvm fallback: NV01_ROOT ret=%d nvstatus=0x%x\n",
++			ret, nvstatus);
++		ret = ret ? ret : -EIO;
++		goto err;
++	}
++	st->ext_h_client = h;
++
++	ret = ext_owner_gpu(st, tctl, st->ext_h_client, &device_instance, &minor);
++	if (ret)
++		goto err;
++
++	st->ext_dev = nvkvm_fd_ctx_open_dev(NVKVM_DEV_GPU(minor), O_RDWR);
++	if (IS_ERR(st->ext_dev)) {
++		ret = PTR_ERR(st->ext_dev);
++		st->ext_dev = NULL;
++		goto err;
++	}
++	tdev = ext_target_of(st->ext_dev);
++
+ 	/* Bind the device fd to the control fd.  The field carries a QEMU
+ 	 * handle_id, not an fd — the stub resolves it (nvkvm_stub.c, nr 0xc9). */
+ 	rp->ctl_fd = (__s32)st->ext_ctl->handle_id;
+@@ -269,17 +447,7 @@ static int ext_tree_build(struct nvkvm_uvm_fd_state *st)
+ 		goto err;
+ 	}
+ 
+-	h = RM_HANDLE_LET_RM_CHOOSE;
+-	ret = rm_alloc(tctl, 0, 0, &h, NV01_ROOT, NULL, 0, &nvstatus);
+-	if (ret || nvstatus) {
+-		pr_warn("nvkvm: uvm fallback: NV01_ROOT ret=%d nvstatus=0x%x\n",
+-			ret, nvstatus);
+-		ret = ret ? ret : -EIO;
+-		goto err;
+-	}
+-	st->ext_h_client = h;
+-
+-	dp->device_id      = 0;
++	dp->device_id      = device_instance;
+ 	dp->h_client_share = st->ext_h_client;
+ 	h = RM_HANDLE_LET_RM_CHOOSE;
+ 	ret = rm_alloc(tctl, st->ext_h_client, st->ext_h_client, &h,
+@@ -430,21 +598,26 @@ void nvkvm_uvm_ext_release(struct nvkvm_mmap_region *region)
+ /* ── the synthesis ───────────────────────────────────────────────────────── */
+ 
+ /*
+- * The GPUs this va_space has registered.  gpuAttributesCount == 0 does NOT mean
+- * "all GPUs" — UVM refuses it outright (uvm_map_external.c:993-994) — so the
+- * set has to come from what UVM_REGISTER_GPU told us.
++ * The GPUs to map the range on.  gpuAttributesCount == 0 does NOT mean "all
++ * GPUs" — UVM refuses it outright (uvm_map_external.c:993-994) — and a GPU
++ * that is merely REGISTERED is not enough either: every entry is looked up with
++ * uvm_va_space_get_gpu_by_uuid_with_gpu_va_space() and one without a GPU VA
++ * space fails the whole call with NV_ERR_INVALID_DEVICE.  libcuda registers
++ * every visible GPU but creates a GPU VA space only per context, so with two
++ * GPUs visible and one context the registered set was wrong.  Use what
++ * UVM_REGISTER_GPU_VASPACE told us.
+  */
+ static __u32 ext_collect_uuids(struct nvkvm_uvm_fd_state *st, void *mp,
+ 			       size_t mp_size)
+ {
+-	struct nvkvm_uvm_gpu_reg *g;
++	struct nvkvm_uvm_vas_reg *g;
+ 	__u32 n = 0;
+ 
+ 	/* The writer uses st->lock.  We arrive with ext_lock held, establishing
+ 	 * the documented ext_lock -> lock order and snapshotting a fully linked
+-	 * list rather than racing UVM_REGISTER_GPU on the same fd. */
++	 * list rather than racing UVM_REGISTER_GPU_VASPACE on the same fd. */
+ 	mutex_lock(&st->lock);
+-	list_for_each_entry(g, &st->registered_gpus, list) {
++	list_for_each_entry(g, &st->registered_va_spaces, list) {
+ 		unsigned off = UVM_MAP_EXT_PERGPU_OFF + n * UVM_MAP_EXT_PERGPU_STRIDE;
+ 
+ 		if (n >= NVKVM_UVM_MAX_REG_GPUS)
+@@ -665,7 +838,7 @@ int nvkvm_uvm_ext_mmap(struct nvkvm_fd_ctx *ctx, struct vm_area_struct *vma)
+ 	stage = "collect registered GPUs";
+ 	n_gpus = ext_collect_uuids(st, mp, mp_size);
+ 	if (!n_gpus) {
+-		pr_warn_ratelimited("nvkvm: uvm fallback: no GPU registered on this UVM fd\n");
++		pr_warn_ratelimited("nvkvm: uvm fallback: no GPU VA space registered on this UVM fd\n");
+ 		ret = -ENODEV;
+ 		goto out_locked;
+ 	}
+-- 
+2.56.0
+

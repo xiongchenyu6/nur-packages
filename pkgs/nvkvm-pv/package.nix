@@ -10,17 +10,25 @@
 # guest module must come from the same revision as this QEMU.
 {
   lib,
+  applyPatches,
   fetchFromGitHub,
   qemu_kvm,
   xxd,
 }:
 let
   version = "0.2.5-unstable-2026-09-28";
-  src = fetchFromGitHub {
-    owner = "reindertpelsma";
-    repo = "nvkvm-pv";
-    rev = "39972874d22f5ba19e39827488b089e80a0c17f4";
-    hash = "sha256-M4hHu60LqvzcAT9xIUPpx2YXQLED7jGz6mwGskNhup8=";
+  src = applyPatches {
+    name = "nvkvm-pv-${version}-src";
+    src = fetchFromGitHub {
+      owner = "reindertpelsma";
+      repo = "nvkvm-pv";
+      rev = "39972874d22f5ba19e39827488b089e80a0c17f4";
+      hash = "sha256-M4hHu60LqvzcAT9xIUPpx2YXQLED7jGz6mwGskNhup8=";
+    };
+    # Guest-module fix, written for upstream (commit message carries the
+    # analysis and the control-allowlist audit); not yet submitted.
+    # cuMemAllocManaged failed on every GPU but the host's first.
+    patches = [ ./0001-guest-managed-memory-owner-gpu.patch ];
   };
 in
 qemu_kvm.overrideAttrs (old: {
