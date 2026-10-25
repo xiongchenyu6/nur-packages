@@ -9,6 +9,49 @@ with lib;
 
 let
   cfg = config.services.dnf-server-native;
+  cli =
+    if cfg.backend == "podman" then
+      config.virtualisation.podman.package
+    else
+      config.virtualisation.docker.package;
+  cliName = cfg.backend;
+  backendUnits = optional (cfg.backend == "docker") "docker.service";
+  bind = port: "${cfg.bindAddress}:${port}";
+  unit =
+    {
+      description,
+      name,
+      image,
+      args,
+      after ? [ ],
+    }:
+    {
+      inherit description;
+      after =
+        backendUnits
+        ++ [
+          "create-dnf-network.service"
+          "create-dnf-env.service"
+        ]
+        ++ after;
+      requires =
+        backendUnits
+        ++ [
+          "create-dnf-network.service"
+          "create-dnf-env.service"
+        ]
+        ++ after;
+      wantedBy = optional cfg.autoStart "multi-user.target";
+      path = [ cli ];
+      preStart = "${cliName} rm -f ${name} >/dev/null 2>&1 || true";
+      script = "exec ${cliName} run --rm --name=${name} ${escapeShellArgs args} ${image}";
+      preStop = "${cliName} stop -t 30 ${name}";
+      serviceConfig = {
+        Restart = "always";
+        RestartSec = "10s";
+        TimeoutStartSec = "15min";
+      };
+    };
 in
 {
   options.services.dnf-server-native = {
@@ -122,6 +165,24 @@ in
       description = "Data directory for DNF server";
     };
 
+    bindAddress = mkOption {
+      type = types.str;
+      default = "0.0.0.0";
+      description = "Host address the container ports are published on. Docker-published ports bypass the host firewall, so set this to a private address on internet-facing hosts.";
+    };
+
+    openFirewall = mkOption {
+      type = types.bool;
+      default = true;
+      description = "Open the game ports in the host firewall on every interface.";
+    };
+
+    autoStart = mkOption {
+      type = types.bool;
+      default = true;
+      description = "Start the database and game server at boot. When false, start them with `systemctl start dnf-server`.";
+    };
+
     backend = mkOption {
       type = types.enum [
         "docker"
@@ -149,10 +210,9 @@ in
       description = "Generate DNF server environment file from secrets";
       after = [ "sops-nix.service" ];
       before = [
-        "${cfg.backend}-mysql.service"
-        "${cfg.backend}-dnf-1.service"
+        "dnf-mysql.service"
+        "dnf-server.service"
       ];
-      wantedBy = [ "multi-user.target" ];
       serviceConfig = {
         Type = "oneshot";
         RemainAfterExit = true;
@@ -185,52 +245,47 @@ in
     # Create network for containers (run as root to match container runtime)
     systemd.services."create-dnf-network" = {
       description = "Create DNF container network";
-      after = [ "network.target" ];
+      after = [ "network.target" ] ++ backendUnits;
+      requires = backendUnits;
       before = [
-        "${cfg.backend}-mysql.service"
-        "${cfg.backend}-dnf-1.service"
+        "dnf-mysql.service"
+        "dnf-server.service"
       ];
-      wantedBy = [ "multi-user.target" ];
       serviceConfig = {
         Type = "oneshot";
         RemainAfterExit = true;
         User = "root";
-        ExecStart =
-          let
-            cmd = if cfg.backend == "podman" then "${pkgs.podman}/bin/podman" else "${pkgs.docker}/bin/docker";
-          in
-          "${pkgs.bash}/bin/bash -c '${pkgs.util-linux}/bin/nsenter -t 1 -m -u -i -n -p -- ${cmd} network create --subnet=10.90.0.0/24 dnf-net 2>/dev/null || true'";
+        ExecStart = "${pkgs.bash}/bin/bash -c '${cli}/bin/${cliName} network inspect dnf-net >/dev/null 2>&1 || ${cli}/bin/${cliName} network create --subnet=10.90.0.0/24 dnf-net'";
       };
     };
 
-    # OCI Containers configuration
-    virtualisation.oci-containers = {
-      backend = cfg.backend;
-      containers = {
-        mysql = {
-          image = "docker.io/1995chen/mysql:7-5.0.95";
-          environment = {
-            TZ = "Asia/Shanghai";
-          };
-          ports = [
-            "${toString cfg.mysqlPort}:4000"
-          ];
-          volumes = [
-            "${cfg.dataDir}/mysql:/var/lib/mysql"
-          ];
-          extraOptions = [
-            "--memory=1g"
-            "--network=dnf-net"
-            "--hostname=mysql"
-            "--ip=10.90.0.10"
-            "--env-file=/run/dnf-server/env"
-          ];
-        };
-        dnf-1 = {
-          image = "docker.io/1995chen/dnf:centos7-latest";
-          hostname = "dnf-1";
-          dependsOn = [ "mysql" ];
-          environment = {
+    # Plain systemd units instead of virtualisation.oci-containers: that option
+    # has one global backend, and hosts that already run podman containers
+    # still need docker here (podman's signal proxying makes the old
+    # libmysqlclient in dnf-1 hit EINTR and crash-loop tongyi_gate).
+    systemd.services = {
+      dnf-mysql = unit {
+        description = "DNF MySQL container";
+        name = "mysql";
+        image = "docker.io/1995chen/mysql:7-5.0.95";
+        args = [
+          "--env=TZ=Asia/Shanghai"
+          "--publish=${bind (toString cfg.mysqlPort)}:4000"
+          "--volume=${cfg.dataDir}/mysql:/var/lib/mysql"
+          "--memory=1g"
+          "--network=dnf-net"
+          "--hostname=mysql"
+          "--ip=10.90.0.10"
+          "--env-file=/run/dnf-server/env"
+        ];
+      };
+      dnf-server = unit {
+        description = "DNF game server container";
+        name = "dnf-1";
+        image = "docker.io/1995chen/dnf:centos7-latest";
+        after = [ "dnf-mysql.service" ];
+        args =
+          (mapAttrsToList (k: v: "--env=${k}=${v}") {
             TZ = "Asia/Shanghai";
             SERVER_GROUP = toString cfg.serverGroup;
             SERVER_GROUP_DB = cfg.serverGroupDB;
@@ -248,8 +303,8 @@ in
             GM_LANDER_VERSION = cfg.gmLanderVersion;
             WEB_USER = "root";
             WEB_PASS = "123456";
-          };
-          ports = [
+          })
+          ++ map (p: "--publish=${bind p}") [
             "2000:180/tcp" # supervisor web
             "7600:7600/tcp" # 统一登陆器
             "881:881/tcp" # 统一网关
@@ -262,12 +317,11 @@ in
             "30052:30052/tcp" # df_game_r[ch.52]
             "31052:31052/udp" # df_game_r[ch.52]
             "2311-2313:2311-2313/udp" # df_stun_r
-          ];
-          volumes = [
-            "${cfg.dataDir}/data:/data"
-            "${cfg.dataDir}/log:/home/neople/game/log"
-          ];
-          extraOptions = [
+          ]
+          ++ [
+            "--hostname=dnf-1"
+            "--volume=${cfg.dataDir}/data:/data"
+            "--volume=${cfg.dataDir}/log:/home/neople/game/log"
             "--shm-size=8g"
             "--memory=4g"
             "--memory-swap=-1"
@@ -286,46 +340,10 @@ in
             "--ulimit=nofile=65536:65536"
             "--ulimit=nproc=32768:32768"
           ];
-        };
       };
     };
 
-    # Ensure dnf-1 starts after mysql container
-    systemd.services."${cfg.backend}-dnf-1" = {
-      after = [
-        "${cfg.backend}-mysql.service"
-        "create-dnf-network.service"
-        "create-dnf-env.service"
-      ];
-      requires = [
-        "${cfg.backend}-mysql.service"
-        "create-dnf-network.service"
-        "create-dnf-env.service"
-      ];
-      serviceConfig = {
-        Restart = lib.mkForce "always";
-        RestartSec = "10s";
-      };
-    };
-
-    # Ensure mysql container restarts on failure
-    systemd.services."${cfg.backend}-mysql" = {
-      after = [
-        "create-dnf-network.service"
-        "create-dnf-env.service"
-      ];
-      requires = [
-        "create-dnf-network.service"
-        "create-dnf-env.service"
-      ];
-      serviceConfig = {
-        Restart = lib.mkForce "always";
-        RestartSec = "10s";
-      };
-    };
-
-    # Open firewall ports
-    networking.firewall = {
+    networking.firewall = mkIf cfg.openFirewall {
       allowedTCPPorts = [
         2000 # supervisor web
         cfg.mysqlPort # MySQL

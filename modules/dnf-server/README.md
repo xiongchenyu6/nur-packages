@@ -2,7 +2,7 @@
 
 This module deploys a private [Dungeon & Fighter](https://en.wikipedia.org/wiki/Dungeon_Fighter_Online) (DNF / 地下城与勇士) game server using the [`1995chen/dnf`](https://github.com/1995chen/dnf) and `1995chen/mysql` container images.
 
-It exposes the option `services.dnf-server-native` and orchestrates two OCI containers (`mysql` and `dnf-1`) under either Docker or Podman.
+It exposes the option `services.dnf-server-native` and runs two containers (`mysql` and `dnf-1`) under either Docker or Podman as the systemd units `dnf-mysql` and `dnf-server`. It does not use `virtualisation.oci-containers`, so it works on hosts whose other containers use a different backend.
 
 ## Basic Usage
 
@@ -85,25 +85,25 @@ The MySQL container's entrypoint calls `service mysql start`. The sysvinit `serv
 If it really bothers you, drop a journald log filter into the unit:
 
 ```nix
-systemd.services.podman-mysql.serviceConfig.LogFilterPatterns =
+systemd.services.dnf-mysql.serviceConfig.LogFilterPatterns =
   [ "~Failed to get D-Bus connection" ];
 ```
 
-(Use `docker-mysql` if your backend is docker.)
-
 ### Restart command
 
-Restart both containers in the right order:
+Restart both containers in the right order (`dnf-server` requires `dnf-mysql`):
 
 ```
-systemctl restart podman-mysql && systemctl restart podman-dnf-1
+systemctl restart dnf-mysql dnf-server
 ```
+
+With `autoStart = false` nothing starts at boot; `systemctl start dnf-server` brings up both.
 
 The systemd dependencies (`requires = create-dnf-network create-dnf-env mysql`) handle ordering automatically on boot.
 
 ## Open Ports
 
-The module opens the firewall for:
+Ports are published on `bindAddress` (default `0.0.0.0`). Docker-published ports bypass the host firewall, so on an internet-facing host set `bindAddress` (and `publicIP`) to a private address such as a VPN IP, and `openFirewall = false`. With `openFirewall = true` (default) the module opens the firewall for:
 
 | Port            | Proto    | Purpose                |
 |-----------------|----------|------------------------|
