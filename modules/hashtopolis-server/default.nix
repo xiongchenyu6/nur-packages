@@ -264,7 +264,7 @@ in
           "${cfg.phpPackage}/bin/php ${phpFlags} ${cfg.package}/share/hashtopolis/src/inc/startup/setup.php"
         ];
         EnvironmentFile = "-${cfg.dataDir}/.env";
-        ExecStart = "${cfg.phpPackage}/bin/php ${phpFlags} -S ${cfg.listenAddress}:${toString cfg.port} -t ${cfg.package}/share/hashtopolis/src";
+        ExecStart = "${cfg.phpPackage}/bin/php ${phpFlags} -S ${cfg.listenAddress}:${toString cfg.port} -t ${cfg.package}/share/hashtopolis/src ${cfg.package}/share/hashtopolis/router.php";
         Restart = "always";
         RestartSec = "10s";
 

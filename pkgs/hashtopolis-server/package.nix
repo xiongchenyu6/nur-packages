@@ -33,8 +33,12 @@ php83.buildComposerProject2 (
       runHook preInstall
       mkdir -p $out/share/hashtopolis $out/bin
       cp -r src vendor doc composer.json composer.lock $out/share/hashtopolis/
+      cp ${./router.php} $out/share/hashtopolis/router.php
+      # init.php loads every model PHP file; the development generator must not
+      # run at startup and attempt to rewrite the immutable release models.
+      rm $out/share/hashtopolis/src/dba/models/generator.php
       makeWrapper ${php83}/bin/php $out/bin/hashtopolis-server \
-        --add-flags "-S 127.0.0.1:8080 -t $out/share/hashtopolis/src"
+        --add-flags "-S 127.0.0.1:8080 -t $out/share/hashtopolis/src $out/share/hashtopolis/router.php"
       runHook postInstall
     '';
 
