@@ -10,7 +10,6 @@ let
     {
       x86_64-linux = sources.casdoor-linux-x86_64;
       aarch64-linux = sources.casdoor-linux-arm64;
-      x86_64-darwin = sources.casdoor-darwin-x86_64;
       aarch64-darwin = sources.casdoor-darwin-arm64;
     }
     .${stdenv.hostPlatform.system};
@@ -54,7 +53,6 @@ stdenv.mkDerivation {
     platforms = [
       "x86_64-linux"
       "aarch64-linux"
-      "x86_64-darwin"
       "aarch64-darwin"
     ];
     maintainers = [ "freeman" ];

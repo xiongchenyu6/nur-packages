@@ -25,7 +25,6 @@ let
   platformSources = {
     "x86_64-linux" = sources.cc-switch-linux-x86_64;
     "aarch64-linux" = sources.cc-switch-linux-arm64;
-    "x86_64-darwin" = sources.cc-switch-darwin-x86_64;
     "aarch64-darwin" = sources.cc-switch-darwin-arm64;
   };
 

@@ -297,7 +297,8 @@ Available templates:
 - ✅ `x86_64-linux`
 - ✅ `aarch64-linux`
 - ✅ `aarch64-darwin`
-- ✅ `x86_64-darwin`
+
+Intel macOS is no longer a flake target because the current nixpkgs branch has dropped support.
 
 ## 🤝 Contributing
 

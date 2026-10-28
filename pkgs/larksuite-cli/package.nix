@@ -18,7 +18,6 @@ let
     "x86_64-linux" = sources.larksuite-cli-linux-x86_64;
     "aarch64-linux" = sources.larksuite-cli-linux-arm64;
     "riscv64-linux" = sources.larksuite-cli-linux-riscv64;
-    "x86_64-darwin" = sources.larksuite-cli-darwin-x86_64;
     "aarch64-darwin" = sources.larksuite-cli-darwin-arm64;
   };
 

@@ -64,11 +64,6 @@ src.github_tag = "larksuite/cli"
 src.prefix = "v"
 fetch.url = "https://github.com/larksuite/cli/releases/download/v$ver/lark-cli-$ver-linux-riscv64.tar.gz"
 
-[larksuite-cli-darwin-x86_64]
-src.github_tag = "larksuite/cli"
-src.prefix = "v"
-fetch.url = "https://github.com/larksuite/cli/releases/download/v$ver/lark-cli-$ver-darwin-amd64.tar.gz"
-
 [larksuite-cli-darwin-arm64]
 src.github_tag = "larksuite/cli"
 src.prefix = "v"
@@ -99,11 +94,6 @@ src.webpage = "https://public-cdn.cloud.unity3d.com/hub/prod/cli/latest-beta.jso
 src.regex = '"version":\s*"([^"]+)"'
 fetch.url = "https://public-cdn.cloud.unity3d.com/hub/prod/cli/$ver/unity-linux-arm64"
 
-[unity-cli-darwin-x64]
-src.webpage = "https://public-cdn.cloud.unity3d.com/hub/prod/cli/latest-beta.json"
-src.regex = '"version":\s*"([^"]+)"'
-fetch.url = "https://public-cdn.cloud.unity3d.com/hub/prod/cli/$ver/unity-darwin-x64"
-
 [unity-cli-darwin-arm64]
 src.webpage = "https://public-cdn.cloud.unity3d.com/hub/prod/cli/latest-beta.json"
 src.regex = '"version":\s*"([^"]+)"'
@@ -125,12 +115,6 @@ src.prefix = "v"
 fetch.url = "https://github.com/farion1231/cc-switch/releases/download/v$ver/CC-Switch-v$ver-Linux-arm64.deb"
 
 # macOS x86_64 tar.gz
-[cc-switch-darwin-x86_64]
-src.github = "farion1231/cc-switch"
-src.prefix = "v"
-fetch.url = "https://github.com/farion1231/cc-switch/releases/download/v$ver/CC-Switch-v$ver-macOS.tar.gz"
-
-# macOS arm64 tar.gz (same file, universal)
 [cc-switch-darwin-arm64]
 src.github = "farion1231/cc-switch"
 src.prefix = "v"
@@ -158,17 +142,6 @@ src.include_regex = "cli-v.*"
 src.prefix = "cli-v"
 fetch.url = "https://github.com/happier-dev/happier/releases/download/cli-v$ver/happier-v$ver-darwin-arm64.tar.gz"
 
-[happier-cli-darwin-x86_64]
-src.github_tag = "happier-dev/happier"
-src.include_regex = "cli-v.*"
-src.prefix = "cli-v"
-fetch.url = "https://github.com/happier-dev/happier/releases/download/cli-v$ver/happier-v$ver-darwin-x64.tar.gz"
-
-# codex-acp —— happier 的 acp 后端依赖它。happier 会自己从 GitHub 下载到
-# ~/.happier/tools,但那份是 gnu 动态链接版(靠 nix-ld 才跑得起来),而且不在
-# PATH 上 —— happier 的 validateCodexAcpSpawnAvailability 只认 PATH,找不到
-# 就**静默降级**回 mcp 并把 local control 一起关掉。所以自己打包放进 PATH。
-# 取 musl 版:静态链接,不需要 patchelf。
 [codex-acp-linux-x86_64]
 src.github_tag = "zed-industries/codex-acp"
 src.prefix = "v"
@@ -183,13 +156,6 @@ fetch.url = "https://github.com/zed-industries/codex-acp/releases/download/v$ver
 src.github_tag = "zed-industries/codex-acp"
 src.prefix = "v"
 fetch.url = "https://github.com/zed-industries/codex-acp/releases/download/v$ver/codex-acp-$ver-aarch64-apple-darwin.tar.gz"
-
-[codex-acp-darwin-x86_64]
-src.github_tag = "zed-industries/codex-acp"
-src.prefix = "v"
-fetch.url = "https://github.com/zed-industries/codex-acp/releases/download/v$ver/codex-acp-$ver-x86_64-apple-darwin.tar.gz"
-
-# Packages maintained through the same version-discovery and build gate.
 
 [agents-server]
 src.github = "ZhengyiLuo/AgentsServer"
@@ -216,11 +182,6 @@ fetch.url = "https://github.com/casdoor/casdoor/releases/download/v$ver/casdoor_
 src.github = "casdoor/casdoor"
 src.prefix = "v"
 fetch.url = "https://github.com/casdoor/casdoor/releases/download/v$ver/casdoor_Linux_arm64.tar.gz"
-
-[casdoor-darwin-x86_64]
-src.github = "casdoor/casdoor"
-src.prefix = "v"
-fetch.url = "https://github.com/casdoor/casdoor/releases/download/v$ver/casdoor_Darwin_x86_64.tar.gz"
 
 [casdoor-darwin-arm64]
 src.github = "casdoor/casdoor"
@@ -257,11 +218,6 @@ fetch.url = "https://cli.cambercloud.com/releases/$ver/cambercli_$ver_Linux_x86_
 src.webpage = "https://cli.cambercloud.com/latest.txt"
 src.regex = '([0-9]+\.[0-9]+\.[0-9]+)'
 fetch.url = "https://cli.cambercloud.com/releases/$ver/cambercli_$ver_Linux_arm64.tar.gz"
-
-[camber-darwin-x86_64]
-src.webpage = "https://cli.cambercloud.com/latest.txt"
-src.regex = '([0-9]+\.[0-9]+\.[0-9]+)'
-fetch.url = "https://cli.cambercloud.com/releases/$ver/cambercli_$ver_Darwin_x86_64.tar.gz"
 
 [camber-darwin-arm64]
 src.webpage = "https://cli.cambercloud.com/latest.txt"

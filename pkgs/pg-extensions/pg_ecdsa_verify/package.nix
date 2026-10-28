@@ -33,6 +33,8 @@ buildPgrxExtension {
     homepage = "https://github.com/joelonsql/pg_ecdsa_verify";
     license = lib.licenses.mit;
     maintainers = [ ];
-    platforms = postgresql.meta.platforms;
+    # buildPgrxExtension initializes PostgreSQL during the build and marks all
+    # Darwin builds broken because of Nix/PostgreSQL IPC allocation failures.
+    platforms = lib.intersectLists postgresql.meta.platforms lib.platforms.linux;
   };
 }

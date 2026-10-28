@@ -20,7 +20,6 @@ let
   platformSources = {
     "x86_64-linux" = sources.happier-cli-linux-x86_64;
     "aarch64-linux" = sources.happier-cli-linux-arm64;
-    "x86_64-darwin" = sources.happier-cli-darwin-x86_64;
     "aarch64-darwin" = sources.happier-cli-darwin-arm64;
   };
 
@@ -35,7 +34,10 @@ stdenv.mkDerivation {
   # 上游 tarball 顶层是 happier-<version>-<platform>/,解开后直接用那一层。
   sourceRoot = ".";
 
-  nativeBuildInputs = [ makeWrapper ] ++ lib.optionals stdenv.hostPlatform.isLinux [ autoPatchelfHook ];
+  nativeBuildInputs = [
+    makeWrapper
+  ]
+  ++ lib.optionals stdenv.hostPlatform.isLinux [ autoPatchelfHook ];
 
   # `happier` 本身是自带 node 运行时的 ELF 单文件,node_modules 里还有一批
   # 原生模块(node-pty / sharp / onnxruntime 之类)的 .node。autoPatchelfHook
@@ -76,7 +78,6 @@ stdenv.mkDerivation {
     platforms = [
       "x86_64-linux"
       "aarch64-linux"
-      "x86_64-darwin"
       "aarch64-darwin"
     ];
     mainProgram = "happier";

@@ -266,7 +266,7 @@ There is no test framework; `nix build .#<package>` is the verification method.
 
 ### Key Files
 
-- `flake.nix` — Flake entry point using `flake-parts` and `dream2nix`. Exposes packages, modules, templates, overlays, and dev shells for 4 systems (x86_64-linux, aarch64-linux, aarch64-darwin, x86_64-darwin).
+- `flake.nix` — Flake entry point using `flake-parts` and `dream2nix`. Exposes packages, modules, templates, overlays, and dev shells for 3 systems (x86_64-linux, aarch64-linux, aarch64-darwin).
 - `default.nix` — Package definitions used by flake outputs.
 - `overlay.nix` — Standalone overlay using lazy evaluation. **Critical**: uses `prev` exclusively, no `rec`, no `with pkgs;`, no eager evaluation. See `OVERLAY_FIX.md` for why.
 - `nvfetcher.toml` — Source fetching config; generates `_sources/generated.nix`.

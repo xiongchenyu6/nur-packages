@@ -18,7 +18,6 @@ let
   platformSources = {
     "x86_64-linux" = sources.unity-cli-linux-x64;
     "aarch64-linux" = sources.unity-cli-linux-arm64;
-    "x86_64-darwin" = sources.unity-cli-darwin-x64;
     "aarch64-darwin" = sources.unity-cli-darwin-arm64;
   };
 

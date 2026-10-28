@@ -16,7 +16,6 @@ let
   platformSources = {
     x86_64-linux = sources.camber-linux-x86_64;
     aarch64-linux = sources.camber-linux-arm64;
-    x86_64-darwin = sources.camber-darwin-x86_64;
     aarch64-darwin = sources.camber-darwin-arm64;
   };
   source = platformSources.${stdenv.hostPlatform.system};
@@ -51,7 +50,6 @@ stdenv.mkDerivation {
     platforms = [
       "x86_64-linux"
       "aarch64-linux"
-      "x86_64-darwin"
       "aarch64-darwin"
     ];
   };

@@ -17,7 +17,6 @@ let
   platformSources = {
     "x86_64-linux" = sources.codex-acp-linux-x86_64;
     "aarch64-linux" = sources.codex-acp-linux-arm64;
-    "x86_64-darwin" = sources.codex-acp-darwin-x86_64;
     "aarch64-darwin" = sources.codex-acp-darwin-arm64;
   };
 
@@ -65,7 +64,6 @@ stdenv.mkDerivation {
     platforms = [
       "x86_64-linux"
       "aarch64-linux"
-      "x86_64-darwin"
       "aarch64-darwin"
     ];
     mainProgram = "codex-acp";

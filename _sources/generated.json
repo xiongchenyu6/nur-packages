@@ -35,21 +35,6 @@
         },
         "version": "1.0.43"
     },
-    "camber-darwin-x86_64": {
-        "cargoLock": null,
-        "date": null,
-        "extract": null,
-        "name": "camber-darwin-x86_64",
-        "passthru": null,
-        "pinned": false,
-        "src": {
-            "name": null,
-            "sha256": "sha256-EyzDsG7i0ugRljuZum8+yFRtMBj4l/D6rQ6WF4s0Itw=",
-            "type": "url",
-            "url": "https://cli.cambercloud.com/releases/1.0.43/cambercli_1.0.43_Darwin_x86_64.tar.gz"
-        },
-        "version": "1.0.43"
-    },
     "camber-linux-arm64": {
         "cargoLock": null,
         "date": null,
@@ -92,21 +77,6 @@
             "sha256": "sha256-AdHeh2QRpkYyFW9KlyDX7WEHlO+vRtLZRV7//n5VxIU=",
             "type": "url",
             "url": "https://github.com/casdoor/casdoor/releases/download/v4.24.0/casdoor_Darwin_arm64.tar.gz"
-        },
-        "version": "4.24.0"
-    },
-    "casdoor-darwin-x86_64": {
-        "cargoLock": null,
-        "date": null,
-        "extract": null,
-        "name": "casdoor-darwin-x86_64",
-        "passthru": null,
-        "pinned": false,
-        "src": {
-            "name": null,
-            "sha256": "sha256-kpzBi2HLbhB5XsOTgNMsZvzpPoh+UN5NkK5eCRO5wxM=",
-            "type": "url",
-            "url": "https://github.com/casdoor/casdoor/releases/download/v4.24.0/casdoor_Darwin_x86_64.tar.gz"
         },
         "version": "4.24.0"
     },
@@ -175,21 +145,6 @@
         },
         "version": "4.0.21"
     },
-    "cc-switch-darwin-x86_64": {
-        "cargoLock": null,
-        "date": null,
-        "extract": null,
-        "name": "cc-switch-darwin-x86_64",
-        "passthru": null,
-        "pinned": false,
-        "src": {
-            "name": null,
-            "sha256": "sha256-Lsugm+66LZw6lStKU4ewc9JIOK1cH0MmlZqyW1u7MZI=",
-            "type": "url",
-            "url": "https://github.com/farion1231/cc-switch/releases/download/v4.0.21/CC-Switch-v4.0.21-macOS.tar.gz"
-        },
-        "version": "4.0.21"
-    },
     "cc-switch-linux-arm64": {
         "cargoLock": null,
         "date": null,
@@ -247,21 +202,6 @@
             "sha256": "sha256-N38RN5RbVNjmictgB2f23P5uVI4BwfKQGIYsAJxpLI0=",
             "type": "url",
             "url": "https://github.com/zed-industries/codex-acp/releases/download/v0.16.0/codex-acp-0.16.0-aarch64-apple-darwin.tar.gz"
-        },
-        "version": "0.16.0"
-    },
-    "codex-acp-darwin-x86_64": {
-        "cargoLock": null,
-        "date": null,
-        "extract": null,
-        "name": "codex-acp-darwin-x86_64",
-        "passthru": null,
-        "pinned": false,
-        "src": {
-            "name": null,
-            "sha256": "sha256-IS+vz5ccdc1PUGC+LVlRvDIvccSQKNvSUxkxSUwzx4Q=",
-            "type": "url",
-            "url": "https://github.com/zed-industries/codex-acp/releases/download/v0.16.0/codex-acp-0.16.0-x86_64-apple-darwin.tar.gz"
         },
         "version": "0.16.0"
     },
@@ -382,21 +322,6 @@
         },
         "version": "0.2.17"
     },
-    "happier-cli-darwin-x86_64": {
-        "cargoLock": null,
-        "date": null,
-        "extract": null,
-        "name": "happier-cli-darwin-x86_64",
-        "passthru": null,
-        "pinned": false,
-        "src": {
-            "name": null,
-            "sha256": "sha256-fFu0IleahSHwHri2sk8T169hA9MxAnZ4vHOeOnl+DAw=",
-            "type": "url",
-            "url": "https://github.com/happier-dev/happier/releases/download/cli-v0.2.17/happier-v0.2.17-darwin-x64.tar.gz"
-        },
-        "version": "0.2.17"
-    },
     "happier-cli-linux-arm64": {
         "cargoLock": null,
         "date": null,
@@ -502,21 +427,6 @@
             "sha256": "sha256-7koyCbv4t06lwAoH0NqJt59ef2q/1RiosteKek9+P0A=",
             "type": "url",
             "url": "https://github.com/larksuite/cli/releases/download/v1.0.98/lark-cli-1.0.98-darwin-arm64.tar.gz"
-        },
-        "version": "1.0.98"
-    },
-    "larksuite-cli-darwin-x86_64": {
-        "cargoLock": null,
-        "date": null,
-        "extract": null,
-        "name": "larksuite-cli-darwin-x86_64",
-        "passthru": null,
-        "pinned": false,
-        "src": {
-            "name": null,
-            "sha256": "sha256-RKT/mOlpOF/Eu01wFzW6MZMH5QVg+mxMlWF41wzMNSU=",
-            "type": "url",
-            "url": "https://github.com/larksuite/cli/releases/download/v1.0.98/lark-cli-1.0.98-darwin-amd64.tar.gz"
         },
         "version": "1.0.98"
     },
@@ -777,21 +687,6 @@
             "sha256": "sha256-Nn6hJMYekdwiQJaZy0DS5l0jlS8yIOkRzOofbYof838=",
             "type": "url",
             "url": "https://public-cdn.cloud.unity3d.com/hub/prod/cli/1.0.0-beta.14/unity-darwin-arm64"
-        },
-        "version": "1.0.0-beta.14"
-    },
-    "unity-cli-darwin-x64": {
-        "cargoLock": null,
-        "date": null,
-        "extract": null,
-        "name": "unity-cli-darwin-x64",
-        "passthru": null,
-        "pinned": false,
-        "src": {
-            "name": null,
-            "sha256": "sha256-V4xZI638ueHHicF+o0SgpxypS2loFVCnkyYLqJDuIvw=",
-            "type": "url",
-            "url": "https://public-cdn.cloud.unity3d.com/hub/prod/cli/1.0.0-beta.14/unity-darwin-x64"
         },
         "version": "1.0.0-beta.14"
     },

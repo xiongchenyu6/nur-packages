@@ -25,14 +25,6 @@
       sha256 = "sha256-sp2TBfSMDdzKP7ASt4Wtpka4fEIYlPKELOov27uw1QA=";
     };
   };
-  camber-darwin-x86_64 = {
-    pname = "camber-darwin-x86_64";
-    version = "1.0.43";
-    src = fetchurl {
-      url = "https://cli.cambercloud.com/releases/1.0.43/cambercli_1.0.43_Darwin_x86_64.tar.gz";
-      sha256 = "sha256-EyzDsG7i0ugRljuZum8+yFRtMBj4l/D6rQ6WF4s0Itw=";
-    };
-  };
   camber-linux-arm64 = {
     pname = "camber-linux-arm64";
     version = "1.0.43";
@@ -55,14 +47,6 @@
     src = fetchurl {
       url = "https://github.com/casdoor/casdoor/releases/download/v4.24.0/casdoor_Darwin_arm64.tar.gz";
       sha256 = "sha256-AdHeh2QRpkYyFW9KlyDX7WEHlO+vRtLZRV7//n5VxIU=";
-    };
-  };
-  casdoor-darwin-x86_64 = {
-    pname = "casdoor-darwin-x86_64";
-    version = "4.24.0";
-    src = fetchurl {
-      url = "https://github.com/casdoor/casdoor/releases/download/v4.24.0/casdoor_Darwin_x86_64.tar.gz";
-      sha256 = "sha256-kpzBi2HLbhB5XsOTgNMsZvzpPoh+UN5NkK5eCRO5wxM=";
     };
   };
   casdoor-linux-arm64 = {
@@ -103,14 +87,6 @@
       sha256 = "sha256-Lsugm+66LZw6lStKU4ewc9JIOK1cH0MmlZqyW1u7MZI=";
     };
   };
-  cc-switch-darwin-x86_64 = {
-    pname = "cc-switch-darwin-x86_64";
-    version = "4.0.21";
-    src = fetchurl {
-      url = "https://github.com/farion1231/cc-switch/releases/download/v4.0.21/CC-Switch-v4.0.21-macOS.tar.gz";
-      sha256 = "sha256-Lsugm+66LZw6lStKU4ewc9JIOK1cH0MmlZqyW1u7MZI=";
-    };
-  };
   cc-switch-linux-arm64 = {
     pname = "cc-switch-linux-arm64";
     version = "4.0.21";
@@ -141,14 +117,6 @@
     src = fetchurl {
       url = "https://github.com/zed-industries/codex-acp/releases/download/v0.16.0/codex-acp-0.16.0-aarch64-apple-darwin.tar.gz";
       sha256 = "sha256-N38RN5RbVNjmictgB2f23P5uVI4BwfKQGIYsAJxpLI0=";
-    };
-  };
-  codex-acp-darwin-x86_64 = {
-    pname = "codex-acp-darwin-x86_64";
-    version = "0.16.0";
-    src = fetchurl {
-      url = "https://github.com/zed-industries/codex-acp/releases/download/v0.16.0/codex-acp-0.16.0-x86_64-apple-darwin.tar.gz";
-      sha256 = "sha256-IS+vz5ccdc1PUGC+LVlRvDIvccSQKNvSUxkxSUwzx4Q=";
     };
   };
   codex-acp-linux-arm64 = {
@@ -213,14 +181,6 @@
       sha256 = "sha256-E+EkNhYdy3P8knqH3gLVZdAvW+ab7VQM9vcH6+4K4cE=";
     };
   };
-  happier-cli-darwin-x86_64 = {
-    pname = "happier-cli-darwin-x86_64";
-    version = "0.2.17";
-    src = fetchurl {
-      url = "https://github.com/happier-dev/happier/releases/download/cli-v0.2.17/happier-v0.2.17-darwin-x64.tar.gz";
-      sha256 = "sha256-fFu0IleahSHwHri2sk8T169hA9MxAnZ4vHOeOnl+DAw=";
-    };
-  };
   happier-cli-linux-arm64 = {
     pname = "happier-cli-linux-arm64";
     version = "0.2.17";
@@ -276,14 +236,6 @@
     src = fetchurl {
       url = "https://github.com/larksuite/cli/releases/download/v1.0.98/lark-cli-1.0.98-darwin-arm64.tar.gz";
       sha256 = "sha256-7koyCbv4t06lwAoH0NqJt59ef2q/1RiosteKek9+P0A=";
-    };
-  };
-  larksuite-cli-darwin-x86_64 = {
-    pname = "larksuite-cli-darwin-x86_64";
-    version = "1.0.98";
-    src = fetchurl {
-      url = "https://github.com/larksuite/cli/releases/download/v1.0.98/lark-cli-1.0.98-darwin-amd64.tar.gz";
-      sha256 = "sha256-RKT/mOlpOF/Eu01wFzW6MZMH5QVg+mxMlWF41wzMNSU=";
     };
   };
   larksuite-cli-linux-arm64 = {
@@ -429,14 +381,6 @@
     src = fetchurl {
       url = "https://public-cdn.cloud.unity3d.com/hub/prod/cli/1.0.0-beta.14/unity-darwin-arm64";
       sha256 = "sha256-Nn6hJMYekdwiQJaZy0DS5l0jlS8yIOkRzOofbYof838=";
-    };
-  };
-  unity-cli-darwin-x64 = {
-    pname = "unity-cli-darwin-x64";
-    version = "1.0.0-beta.14";
-    src = fetchurl {
-      url = "https://public-cdn.cloud.unity3d.com/hub/prod/cli/1.0.0-beta.14/unity-darwin-x64";
-      sha256 = "sha256-V4xZI638ueHHicF+o0SgpxypS2loFVCnkyYLqJDuIvw=";
     };
   };
   unity-cli-linux-arm64 = {
