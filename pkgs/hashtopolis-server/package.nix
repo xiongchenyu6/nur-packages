@@ -3,7 +3,7 @@
   lib,
   php83,
   makeWrapper,
-  stdenv,
+  sqlx-cli,
 }:
 let
   sources = import ../../_sources/generated.nix {
@@ -18,60 +18,31 @@ in
 php83.buildComposerProject2 (
   sources.hashtopolis-server
   // {
-  version = builtins.replaceStrings [ "-rainbow" ] [ "-rc" ] sources.hashtopolis-server.version;
+    vendorHash = "sha256-/kqEBEGn/VfrDDBtVGGMO53IPh6W8YTRAkC3pybLm8c=";
+    composerNoDev = true;
+    nativeBuildInputs = [ makeWrapper ];
 
-  vendorHash = "sha256-KobiZlzJjL6nOsxmbndnNxE5a9ElLvU+ehdnvcRqtxo=";
+    postPatch = ''
+      substituteInPlace src/inc/utils/Lock.php src/inc/utils/LockUtils.php \
+        --replace-fail 'dirname(__FILE__) . "/locks/"' '(getenv("HASHTOPOLIS_LOCKS_PATH") ?: dirname(__FILE__) . "/locks/") . "/"'
+      substituteInPlace src/inc/utils/MigrationUtils.php \
+        --replace-fail '/usr/bin/sqlx' '${sqlx-cli}/bin/sqlx'
+    '';
 
-  composerNoDev = true;
+    installPhase = ''
+      runHook preInstall
+      mkdir -p $out/share/hashtopolis $out/bin
+      cp -r src vendor doc composer.json composer.lock $out/share/hashtopolis/
+      makeWrapper ${php83}/bin/php $out/bin/hashtopolis-server \
+        --add-flags "-S 127.0.0.1:8080 -t $out/share/hashtopolis/src"
+      runHook postInstall
+    '';
 
-  composerStrictValidation = false;
-
-  nativeBuildInputs = [ makeWrapper ];
-
-  postPatch = ''
-    # Patch Lock.php to use environment variable for locks directory
-    substituteInPlace src/inc/utils/Lock.php \
-      --replace 'dirname(__FILE__) . "/locks/"' '(getenv("HASHTOPOLIS_LOCKS_PATH") ?: dirname(__FILE__) . "/locks/") . "/"'
-
-    # Patch LockUtils.php deleteLockFile method
-    substituteInPlace src/inc/utils/LockUtils.php \
-      --replace 'dirname(__FILE__) . "/locks/"' '(getenv("HASHTOPOLIS_LOCKS_PATH") ?: dirname(__FILE__) . "/locks/") . "/"'
-
-    # Ensure update.php loads the Composer autoloader (needed for Composer\Semver\Comparator)
-    sed -i '2a require_once(dirname(__FILE__) . "/../../vendor/autoload.php");' src/install/updates/update.php
-  '';
-
-  installPhase = ''
-    runHook preInstall
-
-    # Create output directory structure
-    mkdir -p $out/share/hashtopolis/src
-    mkdir -p $out/share/hashtopolis/vendor
-    mkdir -p $out/bin
-
-    # Copy server files to src subdirectory (as expected by the PHP server)
-    cp -r src/* $out/share/hashtopolis/src/
-
-    # Copy vendor directory with Composer dependencies
-    cp -r vendor/* $out/share/hashtopolis/vendor/
-
-    # Copy additional files
-    cp -r doc $out/share/hashtopolis/
-    cp env.mysql.example $out/share/hashtopolis/.env.mysql.example
-    cp env.postgres.example $out/share/hashtopolis/.env.postgres.example
-
-    # Create wrapper script for running the server
-    makeWrapper ${php83}/bin/php $out/bin/hashtopolis-server \
-      --add-flags "-S 0.0.0.0:8080 -t $out/share/hashtopolis/src"
-
-    runHook postInstall
-  '';
-
-  meta = with lib; {
-    description = "A multi-platform client-server tool for distributing hashcat tasks";
-    homepage = "https://hashtopolis.org";
-    license = licenses.gpl3Only;
-    maintainers = [ ];
-    platforms = platforms.linux;
-  };
-})
+    meta = {
+      description = "A multi-platform client-server tool for distributing hashcat tasks";
+      homepage = "https://hashtopolis.org";
+      license = lib.licenses.gpl3Only;
+      platforms = lib.platforms.linux;
+    };
+  }
+)

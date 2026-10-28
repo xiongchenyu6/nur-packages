@@ -235,12 +235,12 @@
             "name": null,
             "owner": "hashtopolis",
             "repo": "server",
-            "rev": "v1.0.0-rainbow6",
-            "sha256": "sha256-XNdbxKLw3DUNEUkAQMh6ysEnjC2gsvnHgc5L59Ke/y8=",
+            "rev": "v1.0.1",
+            "sha256": "sha256-zrk8w9Qs1ZgSQ9wmOh4sK+6DSJTdglJeH5gpUB3hhfg=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "v1.0.0-rainbow6"
+        "version": "v1.0.1"
     },
     "larksuite-cli-darwin-arm64": {
         "cargoLock": null,

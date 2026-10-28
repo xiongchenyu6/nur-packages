@@ -126,13 +126,13 @@
   };
   hashtopolis-server = {
     pname = "hashtopolis-server";
-    version = "v1.0.0-rainbow6";
+    version = "v1.0.1";
     src = fetchFromGitHub {
       owner = "hashtopolis";
       repo = "server";
-      rev = "v1.0.0-rainbow6";
+      rev = "v1.0.1";
       fetchSubmodules = false;
-      sha256 = "sha256-XNdbxKLw3DUNEUkAQMh6ysEnjC2gsvnHgc5L59Ke/y8=";
+      sha256 = "sha256-zrk8w9Qs1ZgSQ9wmOh4sK+6DSJTdglJeH5gpUB3hhfg=";
     };
   };
   larksuite-cli-darwin-arm64 = {

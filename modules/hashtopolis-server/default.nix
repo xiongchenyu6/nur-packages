@@ -1,4 +1,9 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 
 with lib;
 
@@ -8,61 +13,67 @@ let
   hashtopolisServerPkg = pkgs.callPackage ../../pkgs/hashtopolis-server/package.nix { };
 
   # PHP with required extensions
-  php = pkgs.php83.withExtensions ({ enabled, all }: enabled ++ (with all; [
-    mysqli
-    pdo_mysql
-    curl
-    gd
-    mbstring
-    zip
-    openssl
-    session
-  ]));
+  php = pkgs.php83.withExtensions (
+    { enabled, all }:
+    enabled
+    ++ (with all; [
+      mysqli
+      pdo_mysql
+      curl
+      gd
+      mbstring
+      zip
+      openssl
+      session
+    ])
+  );
 
   # Build PHP -d flags from phpOptions
   phpFlags = concatStringsSep " " (mapAttrsToList (k: v: "-d ${k}=${v}") cfg.phpOptions);
 
   # preStart script that generates .env at runtime from non-secret options + secret files
   preStartScript = pkgs.writeShellScript "hashtopolis-pre-start" ''
-    set -euo pipefail
+        set -euo pipefail
 
-    ENV_FILE="${cfg.dataDir}/.env"
+        ENV_FILE="${cfg.dataDir}/.env"
 
-    # Write non-secret values
-    cat > "$ENV_FILE" <<'ENVEOF'
-HASHTOPOLIS_ADMIN_USER=${cfg.adminUser}
-HASHTOPOLIS_DB_HOST=${cfg.database.host}
-HASHTOPOLIS_DB_USER=${cfg.database.user}
-HASHTOPOLIS_DB_DATABASE=${cfg.database.name}
-MYSQL_HOST=${cfg.database.host}
-MYSQL_PORT=${toString cfg.database.port}
-MYSQL_DATABASE=${cfg.database.name}
-MYSQL_USER=${cfg.database.user}
-${cfg.extraEnvVars}
-ENVEOF
+        # Write non-secret values
+        cat > "$ENV_FILE" <<'ENVEOF'
+    HASHTOPOLIS_ADMIN_USER=${cfg.adminUser}
+    HASHTOPOLIS_DB_HOST=${cfg.database.host}
+    HASHTOPOLIS_DB_PORT=${toString cfg.database.port}
+    HASHTOPOLIS_DB_USER=${cfg.database.user}
+    HASHTOPOLIS_DB_DATABASE=${cfg.database.name}
+    MYSQL_HOST=${cfg.database.host}
+    MYSQL_PORT=${toString cfg.database.port}
+    MYSQL_DATABASE=${cfg.database.name}
+    MYSQL_USER=${cfg.database.user}
+    ${cfg.extraEnvVars}
+    ENVEOF
 
-    # Append secrets read from files
-    ${optionalString (cfg.adminPasswordFile != null) ''
-      printf 'HASHTOPOLIS_ADMIN_PASSWORD=%s\n' "$(cat ${cfg.adminPasswordFile})" >> "$ENV_FILE"
-    ''}
-    ${optionalString (cfg.database.passwordFile != null) ''
-      DB_PASS="$(cat ${cfg.database.passwordFile})"
-      printf 'HASHTOPOLIS_DB_PASS=%s\n' "$DB_PASS" >> "$ENV_FILE"
-      printf 'MYSQL_PASSWORD=%s\n' "$DB_PASS" >> "$ENV_FILE"
-    ''}
+        # Append secrets read from files
+        ${optionalString (cfg.adminPasswordFile != null) ''
+          printf 'HASHTOPOLIS_ADMIN_PASSWORD=%s\n' "$(cat ${cfg.adminPasswordFile})" >> "$ENV_FILE"
+        ''}
+        ${optionalString (cfg.database.passwordFile != null) ''
+          DB_PASS="$(cat ${cfg.database.passwordFile})"
+          printf 'HASHTOPOLIS_DB_PASS=%s\n' "$DB_PASS" >> "$ENV_FILE"
+          printf 'MYSQL_PASSWORD=%s\n' "$DB_PASS" >> "$ENV_FILE"
+        ''}
 
-    # If an environmentFile is provided, append its contents (overrides above)
-    ${optionalString (cfg.environmentFile != null) ''
-      if [ -f "${cfg.environmentFile}" ]; then
-        cat "${cfg.environmentFile}" >> "$ENV_FILE"
-      fi
-    ''}
+        # If an environmentFile is provided, append its contents (overrides above)
+        ${optionalString (cfg.environmentFile != null) ''
+          if [ -f "${cfg.environmentFile}" ]; then
+            cat "${cfg.environmentFile}" >> "$ENV_FILE"
+          fi
+        ''}
 
-    chown hashtopolis:hashtopolis "$ENV_FILE"
-    chmod 600 "$ENV_FILE"
+        chown hashtopolis:hashtopolis "$ENV_FILE"
+        chmod 600 "$ENV_FILE"
   '';
 
-in {
+in
+{
   options.services.hashtopolis-server = {
     enable = mkEnableOption "Hashtopolis server - distributed hashcat task management";
 
@@ -150,8 +161,10 @@ in {
 
     phpOptions = mkOption {
       type = types.attrsOf types.str;
-      default = {};
-      example = { memory_limit = "1024M"; };
+      default = { };
+      example = {
+        memory_limit = "1024M";
+      };
       description = "PHP ini directives passed via -d flags to the PHP built-in server";
     };
 
@@ -192,7 +205,7 @@ in {
       createHome = true;
     };
 
-    users.groups.hashtopolis = {};
+    users.groups.hashtopolis = { };
 
     # Create required subdirectories via tmpfiles
     systemd.tmpfiles.rules = [
@@ -202,6 +215,7 @@ in {
       "d ${cfg.dataDir}/tmp 0755 hashtopolis hashtopolis -"
       "d ${cfg.dataDir}/config 0755 hashtopolis hashtopolis -"
       "d ${cfg.dataDir}/locks 0755 hashtopolis hashtopolis -"
+      "d ${cfg.dataDir}/tus 0755 hashtopolis hashtopolis -"
     ];
 
     # Create database if requested
@@ -223,8 +237,11 @@ in {
     systemd.services.hashtopolis-server = {
       description = "Hashtopolis Server";
       wantedBy = [ "multi-user.target" ];
-      after = [ "network.target" "systemd-tmpfiles-setup.service" ]
-        ++ optional cfg.database.createLocally "mysql.service";
+      after = [
+        "network.target"
+        "systemd-tmpfiles-setup.service"
+      ]
+      ++ optional cfg.database.createLocally "mysql.service";
       requires = optional cfg.database.createLocally "mysql.service";
 
       environment = {
@@ -234,6 +251,7 @@ in {
         HASHTOPOLIS_LOG_PATH = "${cfg.dataDir}/log";
         HASHTOPOLIS_CONFIG_PATH = "${cfg.dataDir}/config";
         HASHTOPOLIS_LOCKS_PATH = "${cfg.dataDir}/locks";
+        HASHTOPOLIS_TUS_PATH = "${cfg.dataDir}/tus";
       };
 
       serviceConfig = {
@@ -241,8 +259,11 @@ in {
         User = "hashtopolis";
         Group = "hashtopolis";
         WorkingDirectory = cfg.dataDir;
-        ExecStartPre = "+${preStartScript}";
-        EnvironmentFile = "${cfg.dataDir}/.env";
+        ExecStartPre = [
+          "+${preStartScript}"
+          "${cfg.phpPackage}/bin/php ${phpFlags} ${cfg.package}/share/hashtopolis/src/inc/startup/setup.php"
+        ];
+        EnvironmentFile = "-${cfg.dataDir}/.env";
         ExecStart = "${cfg.phpPackage}/bin/php ${phpFlags} -S ${cfg.listenAddress}:${toString cfg.port} -t ${cfg.package}/share/hashtopolis/src";
         Restart = "always";
         RestartSec = "10s";
