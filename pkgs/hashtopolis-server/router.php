@@ -1,5 +1,8 @@
 <?php
 
+// PHP's built-in server omits QUERY_STRING for requests without a query.
+$_SERVER['QUERY_STRING'] ??= '';
+
 // PHP's development server treats URLs containing dots as static files instead
 // of falling back to the API entry point.
 $path = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
