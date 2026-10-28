@@ -1,7 +1,7 @@
 {
   pkgs,
   lib,
-  php83,
+  php85,
   makeWrapper,
   sqlx-cli,
 }:
@@ -15,7 +15,7 @@ let
       ;
   };
 in
-php83.buildComposerProject2 (
+php85.buildComposerProject2 (
   sources.hashtopolis-server
   // {
     vendorHash = "sha256-/kqEBEGn/VfrDDBtVGGMO53IPh6W8YTRAkC3pybLm8c=";
@@ -37,7 +37,7 @@ php83.buildComposerProject2 (
       # init.php loads every model PHP file; the development generator must not
       # run at startup and attempt to rewrite the immutable release models.
       rm $out/share/hashtopolis/src/dba/models/generator.php
-      makeWrapper ${php83}/bin/php $out/bin/hashtopolis-server \
+      makeWrapper ${php85}/bin/php $out/bin/hashtopolis-server \
         --add-flags "-S 127.0.0.1:8080 -t $out/share/hashtopolis/src $out/share/hashtopolis/router.php"
       runHook postInstall
     '';

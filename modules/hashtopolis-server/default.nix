@@ -13,7 +13,7 @@ let
   hashtopolisServerPkg = pkgs.callPackage ../../pkgs/hashtopolis-server/package.nix { };
 
   # PHP with required extensions
-  php = pkgs.php83.withExtensions (
+  php = pkgs.php85.withExtensions (
     { enabled, all }:
     enabled
     ++ (with all; [
