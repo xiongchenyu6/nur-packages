@@ -1,7 +1,7 @@
 {
   lib,
   stdenvNoCC,
-  fetchFromGitHub,
+  pkgs,
   python3,
   makeWrapper,
   bash,
@@ -22,11 +22,13 @@
 # top-level scripts, not an installable distribution. Hence mkDerivation +
 # python3.withPackages rather than buildPythonPackage.
 let
+  sources = pkgs.callPackage ../../_sources/generated.nix { };
   pythonEnv = python3.withPackages (ps: [
     ps.claude-agent-sdk
     ps.croniter
     ps.cryptography
     ps.fastapi
+    ps.httpx
     ps.pydantic
     ps.python-dateutil
     ps.python-multipart
@@ -50,16 +52,10 @@ let
     which
   ];
 in
-stdenvNoCC.mkDerivation (finalAttrs: {
+stdenvNoCC.mkDerivation {
   pname = "agents-server";
-  version = "0.1.24";
-
-  src = fetchFromGitHub {
-    owner = "ZhengyiLuo";
-    repo = "AgentsServer";
-    tag = "v${finalAttrs.version}";
-    hash = "sha256-sL0HUg79MjkN2s3OufPQ5jOC/wKlIy/rEf1r1h4k4PU=";
-  };
+  version = lib.removePrefix "v" sources.agents-server.version;
+  inherit (sources.agents-server) src;
 
   nativeBuildInputs = [ makeWrapper ];
 
@@ -79,7 +75,8 @@ stdenvNoCC.mkDerivation (finalAttrs: {
       esac
       cp "$f" "$libdir/"
     done
-    cp VERSION "$libdir/"
+    cp VERSION LICENSE NOTICE release-public-key.pem package.json "$libdir/"
+    cp -r agentsdock_team_hub assets scripts "$libdir/"
 
     makeWrapper ${pythonEnv}/bin/python $out/bin/agents-server \
       --add-flags "$libdir/agent_server.py" \
@@ -91,6 +88,8 @@ stdenvNoCC.mkDerivation (finalAttrs: {
   doInstallCheck = true;
   installCheckPhase = ''
     runHook preInstallCheck
+    export HOME="$TMPDIR/agents-server-test-home"
+    mkdir -p "$HOME"
     # Exercises the full import graph: agent_server.py pulls in the sibling
     # modules and every pyproject dependency before argparse runs.
     $out/bin/agents-server --help > /dev/null
@@ -100,11 +99,9 @@ stdenvNoCC.mkDerivation (finalAttrs: {
   meta = {
     description = "Self-hosted execution backend for AgentsDock, exposing Claude Code and Codex CLI over an authenticated HTTP/WebSocket API";
     homepage = "https://github.com/ZhengyiLuo/AgentsServer";
-    # Upstream ships no LICENSE file and states no terms in the README, so the
-    # default "all rights reserved" applies. Reclassify once upstream declares.
-    license = lib.licenses.unfree;
+    license = lib.licenses.asl20;
     sourceProvenance = with lib.sourceTypes; [ fromSource ];
     platforms = lib.platforms.unix;
     mainProgram = "agents-server";
   };
-})
+}

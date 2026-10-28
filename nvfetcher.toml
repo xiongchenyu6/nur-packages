@@ -35,7 +35,7 @@ fetch.url = "https://github.com/MystenLabs/sui/releases/download/$ver/sui-$ver-u
 
 [my2sql]
 src.git = "https://github.com/liuhr/my2sql.git"
-fetch.url = "https://github.com/liuhr/my2sql/raw/master/releases/centOS_release_7.x/my2sql"
+fetch.url = "https://raw.githubusercontent.com/liuhr/my2sql/$ver/releases/centOS_release_7.x/my2sql"
 
 [gotron-sdk]
 src.github = "fbsobreira/gotron-sdk"
@@ -79,11 +79,9 @@ src.github_tag = "hashtopolis/server"
 src.include_regex = "^v[0-9]+\\.[0-9]+\\.[0-9]+$"
 fetch.github = "hashtopolis/server"
 
-# Pinned: v0.7.5 rewrote htpclient/binarydownload.py (retrieve_binary refactor),
-# the 7z/native-hashcat patches in pkgs/hashtopolis-agent no longer apply.
-# Unpin after reworking those patches.
 [hashtopolis-agent]
-src.manual = "v0.7.4"
+src.github_tag = "hashtopolis/agent-python"
+src.include_regex = "^v[0-9]+\\.[0-9]+\\.[0-9]+$"
 fetch.github = "hashtopolis/agent-python"
 
 
@@ -92,19 +90,23 @@ src.github = "supabase/realtime"
 fetch.github = "supabase/realtime"
 
 [unity-cli-linux-x64]
-src.manual = "1.0.0-beta.3"
+src.webpage = "https://public-cdn.cloud.unity3d.com/hub/prod/cli/latest-beta.json"
+src.regex = '"version":\s*"([^"]+)"'
 fetch.url = "https://public-cdn.cloud.unity3d.com/hub/prod/cli/$ver/unity-linux-x64"
 
 [unity-cli-linux-arm64]
-src.manual = "1.0.0-beta.3"
+src.webpage = "https://public-cdn.cloud.unity3d.com/hub/prod/cli/latest-beta.json"
+src.regex = '"version":\s*"([^"]+)"'
 fetch.url = "https://public-cdn.cloud.unity3d.com/hub/prod/cli/$ver/unity-linux-arm64"
 
 [unity-cli-darwin-x64]
-src.manual = "1.0.0-beta.3"
+src.webpage = "https://public-cdn.cloud.unity3d.com/hub/prod/cli/latest-beta.json"
+src.regex = '"version":\s*"([^"]+)"'
 fetch.url = "https://public-cdn.cloud.unity3d.com/hub/prod/cli/$ver/unity-darwin-x64"
 
 [unity-cli-darwin-arm64]
-src.manual = "1.0.0-beta.3"
+src.webpage = "https://public-cdn.cloud.unity3d.com/hub/prod/cli/latest-beta.json"
+src.regex = '"version":\s*"([^"]+)"'
 fetch.url = "https://public-cdn.cloud.unity3d.com/hub/prod/cli/$ver/unity-darwin-arm64"
 
 # cc-switch - Cross-platform desktop app for managing AI coding tools
@@ -186,3 +188,104 @@ fetch.url = "https://github.com/zed-industries/codex-acp/releases/download/v$ver
 src.github_tag = "zed-industries/codex-acp"
 src.prefix = "v"
 fetch.url = "https://github.com/zed-industries/codex-acp/releases/download/v$ver/codex-acp-$ver-x86_64-apple-darwin.tar.gz"
+
+# Packages maintained through the same version-discovery and build gate.
+
+[agents-server]
+src.github = "ZhengyiLuo/AgentsServer"
+fetch.github = "ZhengyiLuo/AgentsServer"
+
+[codexpro]
+src.github = "rebel0789/codexpro"
+fetch.github = "rebel0789/codexpro"
+
+[pg-plan-filter]
+src.github = "pgexperts/pg_plan_filter"
+fetch.github = "pgexperts/pg_plan_filter"
+
+[index-advisor]
+src.github = "supabase/index_advisor"
+fetch.github = "supabase/index_advisor"
+
+[casdoor-linux-x86_64]
+src.github = "casdoor/casdoor"
+src.prefix = "v"
+fetch.url = "https://github.com/casdoor/casdoor/releases/download/v$ver/casdoor_Linux_x86_64.tar.gz"
+
+[casdoor-linux-arm64]
+src.github = "casdoor/casdoor"
+src.prefix = "v"
+fetch.url = "https://github.com/casdoor/casdoor/releases/download/v$ver/casdoor_Linux_arm64.tar.gz"
+
+[casdoor-darwin-x86_64]
+src.github = "casdoor/casdoor"
+src.prefix = "v"
+fetch.url = "https://github.com/casdoor/casdoor/releases/download/v$ver/casdoor_Darwin_x86_64.tar.gz"
+
+[casdoor-darwin-arm64]
+src.github = "casdoor/casdoor"
+src.prefix = "v"
+fetch.url = "https://github.com/casdoor/casdoor/releases/download/v$ver/casdoor_Darwin_arm64.tar.gz"
+
+[casdoor-static]
+src.git = "https://github.com/casdoor/static.git"
+fetch.git = "https://github.com/casdoor/static.git"
+
+[ccxt]
+src.pypi = "ccxt"
+fetch.url = "https://files.pythonhosted.org/packages/py3/c/ccxt/ccxt-$ver-py3-none-any.whl"
+
+[nautilus-ibapi]
+src.webpage = "https://pypi.org/pypi/nautilus_trader/json"
+src.regex = 'nautilus-ibapi==([0-9]+\.[0-9]+\.[0-9]+)'
+fetch.url = "https://files.pythonhosted.org/packages/py3/n/nautilus-ibapi/nautilus_ibapi-$ver-py3-none-any.whl"
+
+[nautilus-trader-linux-x86_64]
+src.pypi = "nautilus_trader"
+fetch.url = "https://files.pythonhosted.org/packages/cp313/n/nautilus-trader/nautilus_trader-$ver-cp313-cp313-manylinux_2_35_x86_64.whl"
+
+[nautilus-trader-linux-arm64]
+src.pypi = "nautilus_trader"
+fetch.url = "https://files.pythonhosted.org/packages/cp313/n/nautilus-trader/nautilus_trader-$ver-cp313-cp313-manylinux_2_35_aarch64.whl"
+
+[camber-linux-x86_64]
+src.webpage = "https://cli.cambercloud.com/latest.txt"
+src.regex = '([0-9]+\.[0-9]+\.[0-9]+)'
+fetch.url = "https://cli.cambercloud.com/releases/$ver/cambercli_$ver_Linux_x86_64.tar.gz"
+
+[camber-linux-arm64]
+src.webpage = "https://cli.cambercloud.com/latest.txt"
+src.regex = '([0-9]+\.[0-9]+\.[0-9]+)'
+fetch.url = "https://cli.cambercloud.com/releases/$ver/cambercli_$ver_Linux_arm64.tar.gz"
+
+[camber-darwin-x86_64]
+src.webpage = "https://cli.cambercloud.com/latest.txt"
+src.regex = '([0-9]+\.[0-9]+\.[0-9]+)'
+fetch.url = "https://cli.cambercloud.com/releases/$ver/cambercli_$ver_Darwin_x86_64.tar.gz"
+
+[camber-darwin-arm64]
+src.webpage = "https://cli.cambercloud.com/latest.txt"
+src.regex = '([0-9]+\.[0-9]+\.[0-9]+)'
+fetch.url = "https://cli.cambercloud.com/releases/$ver/cambercli_$ver_Darwin_arm64.tar.gz"
+
+[feishu-lark-linux-x64]
+src.webpage = "https://www.larksuite.com/api/downloads"
+src.regex = '"Linux_deb_x64":\{[^}]*"download_link":"([^"]+)"'
+fetch.url = "$ver"
+
+[feishu-lark-linux-arm64]
+src.webpage = "https://www.larksuite.com/api/downloads"
+src.regex = '"Linux_deb_arm":\{[^}]*"download_link":"([^"]+)"'
+fetch.url = "$ver"
+
+[nvkvm-pv]
+src.git = "https://github.com/reindertpelsma/nvkvm-pv.git"
+fetch.github = "reindertpelsma/nvkvm-pv"
+
+[pg-hashids]
+src.git = "https://github.com/iCyberon/pg_hashids.git"
+fetch.github = "iCyberon/pg_hashids"
+
+[pg-ecdsa-verify]
+src.git = "https://github.com/joelonsql/pg_ecdsa_verify.git"
+fetch.github = "joelonsql/pg_ecdsa_verify"

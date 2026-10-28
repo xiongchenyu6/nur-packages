@@ -1,97 +1,95 @@
-name: "Build and populate cache"
+name: Build and populate cache
+
 on:
+  workflow_call:
+    inputs:
+      update-patch:
+        type: boolean
+        default: false
+      base-revision:
+        type: string
+        default: ""
+  workflow_dispatch:
   pull_request:
   push:
-    branches:
-      - main
-      - master
+    branches: [main, master]
   schedule:
-    # rebuild everyday at 2:51
-    # TIP: Choose a random time here so not all repositories are build at once:
-    # https://www.random.org/clock-times/?num=1&earliest=01%3A00&latest=08%3A00&interval=5&format=html&rnd=new
     - cron: "51 2 * * *"
+
+permissions:
+  contents: read
+
 jobs:
-  tests:
+  build:
     strategy:
       fail-fast: false
       matrix:
-        # Set this to notify the global nur package registry that changes are
-        # available.
-        #
-        # The repo name as used in
-        # https://github.com/nix-community/NUR/blob/master/repos.json
-        system:
-          - aarch64-linux
-          - x86_64-linux
-
-        nurRepo:
-          - xiongchenyu6
-        # Set this to cache your build results in cachix for faster builds
-        # in CI and for everyone who uses your cache.
-        #
-        # Format: Your cachix cache host name without the ".cachix.org" suffix.
-        # Example: mycache (for mycache.cachix.org)
-        #
-        # For this to work, you also need to set the CACHIX_SIGNING_KEY or
-        # CACHIX_AUTH_TOKEN secret in your repository secrets settings in
-        # Github found at
-        # https://github.com/<your_githubname>/nur-packages/settings/secrets
-        cachixName:
-          - xiongchenyu6
-        nixPath:
-          - nixpkgs=channel:nixpkgs-unstable
-          # - nixpkgs=channel:nixos-21.11
-    runs-on: ubuntu-latest
-    env:
-      GIT_SSL_NO_VERIFY: "true"
+        include:
+          - system: x86_64-linux
+            runner: ubuntu-24.04
+          - system: aarch64-linux
+            runner: ubuntu-24.04-arm
+          - system: x86_64-darwin
+            runner: macos-15-intel
+          - system: aarch64-darwin
+            runner: macos-15
+    runs-on: ${{ matrix.runner }}
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v7
-      - name: Set up QEMU
-        id: qemu
-        uses: docker/setup-qemu-action@v4
+      - name: Free Linux runner space for native builds
+        if: runner.os == 'Linux'
+        run: |
+          df -h /
+          # These SDKs are not used by Nix or any package built here. Keep
+          # system compilers, Git, Node and the Actions tool cache intact.
+          sudo rm -rf /usr/local/lib/android /usr/share/dotnet /opt/ghc
+          df -h /
+      - uses: actions/checkout@v7
         with:
-          image: tonistiigi/binfmt:latest
-          platforms: all
-      - name: Install nix
-        uses: cachix/install-nix-action@v31
+          fetch-depth: 0
+      - uses: actions/download-artifact@v4
+        if: inputs.update-patch
         with:
-          nix_path: "${{ matrix.nixPath }}"
-          # nix 2.6 breaks restrict-eval, when using the NIX_PATH
-          # see https://github.com/NixOS/nix/issues/5980
+          name: dependency-update-patch
+          path: ${{ runner.temp }}/dependency-update
+      - name: Apply the exact proposed update
+        if: inputs.update-patch
+        run: git apply --index "$RUNNER_TEMP/dependency-update/update.patch"
+      - uses: cachix/install-nix-action@v31
+        with:
           extra_nix_config: |
             experimental-features = nix-command flakes
             access-tokens = github.com=${{ secrets.GITHUB_TOKEN }}
-            system-features = nixos-test benchmark big-parallel kvm
-            extra-platforms = i686-linux aarch64-linux arm-linux
-      # - name: Show nixpkgs version
-      #   run: nix-instantiate --eval -E '(import <nixpkgs> {}).lib.version'
-      - name: Setup cachix
-        uses: cachix/cachix-action@v17
-        # Don't replace <YOUR_CACHIX_NAME> here!
-        if: ${{ matrix.cachixName != '<YOUR_CACHIX_NAME>' }}
+      - uses: cachix/cachix-action@v17
         with:
-          name: ${{ matrix.cachixName }}
-          signingKey: "${{ secrets.CACHIX_SIGNING_KEY }}"
-          authToken: "${{ secrets.CACHIX_AUTH_TOKEN }}"
-      - name: Build nix packages
+          name: xiongchenyu6
+          authToken: ${{ secrets.CACHIX_AUTH_TOKEN }}
+      - name: Build changed packages on the actual target architecture
+        env:
+          EXPECTED_SYSTEM: ${{ matrix.system }}
+          UPDATE_BASE_REV: ${{ inputs.base-revision || github.event.pull_request.base.sha || github.event.before }}
+          UPDATE_FIX_HASHES: "0"
         run: |
-          # The default NUR template only builds the default package. Build
-          # Sub2API explicitly as well: sg-office is x86_64-linux and consumes
-          # this output directly from xiongchenyu6.cachix.org. Without this
-          # line every Sub2API upgrade falls back to a local frontend + Go
-          # rebuild (about 20 minutes on the office host).
-          nix build .#sub2api
-          nix build
-      # One notification per run is enough; both matrix jobs posting at once
-      # gets the second one rate limited. A 429 means NUR was poked recently,
-      # which is fine; anything else non-2xx means the endpoint is broken again.
-      - name: Trigger NUR update
-        if: ${{ matrix.system == 'x86_64-linux' && github.event_name != 'pull_request' }}
+          set -Eeuo pipefail
+          actual=$(nix eval --impure --raw --expr builtins.currentSystem)
+          test "$actual" = "$EXPECTED_SYSTEM"
+          # Scheduled/manual runs keep the existing librime/Sub2API cache warm.
+          # Updates and PRs additionally build every changed package, not the
+          # entire repository on every hourly update.
+          export UPDATE_EXTRA_TARGETS=librime
+          case "$actual" in *-linux) export UPDATE_EXTRA_TARGETS="librime sub2api";; esac
+          if [ -z "$UPDATE_BASE_REV" ] || ! git cat-file -e "$UPDATE_BASE_REV^{commit}" 2>/dev/null; then
+            export UPDATE_BASE_REV=HEAD
+          fi
+          nix shell --inputs-from . nixpkgs#bash nixpkgs#jq nixpkgs#ripgrep nixpkgs#perl \
+            --command bash scripts/update-changed-packages.sh
+
+  notify:
+    needs: build
+    if: github.event_name != 'pull_request' && !inputs.update-patch
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Trigger NUR update after every architecture passes
         run: |
-          code=$(curl -sS -o /dev/null -w '%{http_code}' -XPOST "https://nur-update.nix-community.org/update?repo=${{ matrix.nurRepo }}")
+          code=$(curl -sS -o /dev/null -w '%{http_code}' -XPOST "https://nur-update.nix-community.org/update?repo=xiongchenyu6")
           echo "NUR update endpoint returned $code"
-          case "$code" in
-            2??|429) ;;
-            *) exit 1 ;;
-          esac
+          case "$code" in 2??|429) ;; *) exit 1;; esac

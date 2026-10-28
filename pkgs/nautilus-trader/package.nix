@@ -1,7 +1,7 @@
 {
   lib,
   stdenv,
-  fetchurl,
+  pkgs,
   python313,
   python313Packages,
   autoPatchelfHook,
@@ -9,27 +9,20 @@
 
 let
   py = python313Packages;
-  version = "1.227.0";
+  sources = pkgs.callPackage ../../_sources/generated.nix { };
+  platformSource =
+    {
+      x86_64-linux = sources.nautilus-trader-linux-x86_64;
+      aarch64-linux = sources.nautilus-trader-linux-arm64;
+    }
+    .${stdenv.hostPlatform.system}
+      or (throw "nautilus-trader: unsupported system ${stdenv.hostPlatform.system}");
 
-  # Platform-specific manylinux wheels (Rust-native; no sdist build).
-  wheels = {
-    "x86_64-linux" = {
-      url = "https://files.pythonhosted.org/packages/8c/12/2b6487c5ce2c84eaf6b25cf7386583d77c20ebdf0155627f112530c33529/nautilus_trader-${version}-cp313-cp313-manylinux_2_35_x86_64.whl";
-      hash = "sha256:4d1f16442744696919e6351ce6a720a47b944d392568d9f528694f35ed63e159";
-    };
-    "aarch64-linux" = {
-      url = "https://files.pythonhosted.org/packages/1e/e0/90f0d000a14b5e8b6e9906d33ac6d925a150d163c32376589918d35f5f4e/nautilus_trader-${version}-cp313-cp313-manylinux_2_35_aarch64.whl";
-      hash = "sha256:c3e83dcb8bdb27b5b7f33da21c5ab82784ff6ff95abf01b03a1cd1dbb3703d22";
-    };
-  };
-  wheel = wheels.${stdenv.hostPlatform.system} or (throw "nautilus-trader: unsupported system ${stdenv.hostPlatform.system}");
 in
 py.buildPythonPackage {
   pname = "nautilus-trader";
-  inherit version;
+  inherit (platformSource) version src;
   format = "wheel";
-
-  src = fetchurl wheel;
 
   nativeBuildInputs = [
     autoPatchelfHook

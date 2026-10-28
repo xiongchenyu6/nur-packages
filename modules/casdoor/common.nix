@@ -71,7 +71,7 @@ let
     initDataNewOnly = ${boolToYesNo cfg.initDataNewOnly}
     initDataFile = "${cfg.initDataFile}"
     frontendBaseDir = "${
-      if cfg.frontendBaseDir != null then cfg.frontendBaseDir else "${cfg.dataDir}/web/build"
+      if cfg.frontendBaseDir != null then cfg.frontendBaseDir else "${cfg.package}/web/build"
     }"
   '';
 
@@ -427,15 +427,11 @@ in
           mkdir -p ${confDir}
           mkdir -p ${cfg.dataDir}/logs
           mkdir -p ${cfg.dataDir}/object
-          mkdir -p ${cfg.dataDir}/web/build
 
           # Write the configuration file
           cat > ${confDir}/app.conf <<'EOF'
           ${appConfContent}
           EOF
-
-          # Copy web/build from package (includes bundled static assets)
-          cp -rn ${cfg.package}/web/build/* ${cfg.dataDir}/web/build/ 2>/dev/null || true
         '';
 
       # Keys valid in a [Service] section under either module system.

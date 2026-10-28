@@ -1,20 +1,17 @@
 {
   lib,
-  fetchFromGitHub,
+  pkgs,
   postgresql,
   postgresqlBuildExtension,
 }:
 
+let
+  sources = pkgs.callPackage ../../../_sources/generated.nix { };
+in
 postgresqlBuildExtension {
   pname = "pg_plan_filter";
-  version = "unstable-2021-09-23";
-
-  src = fetchFromGitHub {
-    owner = "pgexperts";
-    repo = "pg_plan_filter";
-    rev = "5081a7b5cb890876e67d8e7486b6a64c38c9a492";
-    hash = "sha256-YNeIfmccT/DtOrwDmpYFCuV2/P6k3Zj23VWBDkOh6sw=";
-  };
+  version = lib.removePrefix "v" sources.pg-plan-filter.version;
+  inherit (sources.pg-plan-filter) src;
 
   makeFlags = [ "USE_PGXS=1" ];
 

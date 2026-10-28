@@ -63,7 +63,6 @@ let
     "preprocessors-path" = cfg.preprocessorsPath;
     "use-native-hashcat" = cfg.useNativeHashcat;
     "allow-piping" = cfg.allowPiping;
-    "disable-update" = true;
   };
 
 in {
@@ -335,8 +334,7 @@ in {
               "preprocessors-path": "${cfg.preprocessorsPath}",
               "use-native-hashcat": ${if cfg.useNativeHashcat then "true" else "false"},${optionalString (cfg.useNativeHashcat && hashcatBinary != null) ''
               "native-hashcat-path": "${hashcatBinary}",''}
-              "allow-piping": ${if cfg.allowPiping then "true" else "false"},
-              "disable-update": true
+              "allow-piping": ${if cfg.allowPiping then "true" else "false"}
             }
             EOF
 

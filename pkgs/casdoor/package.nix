@@ -1,46 +1,25 @@
 {
   lib,
   stdenv,
-  fetchurl,
-  fetchFromGitHub,
+  pkgs,
   autoPatchelfHook,
 }:
 let
-  version = "2.253.0";
+  sources = pkgs.callPackage ../../_sources/generated.nix { };
+  platformSource =
+    {
+      x86_64-linux = sources.casdoor-linux-x86_64;
+      aarch64-linux = sources.casdoor-linux-arm64;
+      x86_64-darwin = sources.casdoor-darwin-x86_64;
+      aarch64-darwin = sources.casdoor-darwin-arm64;
+    }
+    .${stdenv.hostPlatform.system};
+  staticAssets = sources.casdoor-static.src;
 
-  # Static assets (logos, flags, icons) from casdoor/static GitHub repo
-  # These are normally served from cdn.casbin.org which may be blocked in some networks
-  staticAssets = fetchFromGitHub {
-    owner = "casdoor";
-    repo = "static";
-    rev = "576df3db5344e7357fcbf33a463b8f9647cb97b7";
-    hash = "sha256-k9p8/3RXC6uKsm7+ALa1pWKq5HdSOfoZP1nKV4H4MPg=";
-  };
-
-  sources = {
-    "x86_64-linux" = {
-      url = "https://github.com/casdoor/casdoor/releases/download/v${version}/casdoor_Linux_x86_64.tar.gz";
-      hash = "sha256-quPcr7Ff9D077fp9gUz50/D1+Ejz0AO4cSwQzDW3bEA=";
-    };
-    "aarch64-linux" = {
-      url = "https://github.com/casdoor/casdoor/releases/download/v${version}/casdoor_Linux_arm64.tar.gz";
-      hash = "sha256-/EMRJUK4R9ZeWUGRsY7+cxclEo+/nSzn+Q8WsUE9Ydk=";
-    };
-    "x86_64-darwin" = {
-      url = "https://github.com/casdoor/casdoor/releases/download/v${version}/casdoor_Darwin_x86_64.tar.gz";
-      hash = "sha256-KBJ037k3/w084PZ3P1Ous5lO/ABmEVOscn5N4BDpVe8=";
-    };
-    "aarch64-darwin" = {
-      url = "https://github.com/casdoor/casdoor/releases/download/v${version}/casdoor_Darwin_arm64.tar.gz";
-      hash = "sha256-V1Anymw638S1YocuLSXZVNOpJgiueIoi8Q/b7hmbh2s=";
-    };
-  };
 in
 stdenv.mkDerivation {
   pname = "casdoor";
-  inherit version;
-
-  src = fetchurl sources.${stdenv.hostPlatform.system};
+  inherit (platformSource) version src;
 
   sourceRoot = ".";
 
@@ -72,7 +51,12 @@ stdenv.mkDerivation {
     description = "A Django-like Go/React login web UI that supports OAuth, OIDC, SAML, CAS, LDAP, etc.";
     homepage = "https://casdoor.org";
     license = licenses.asl20;
-    platforms = builtins.attrNames sources;
+    platforms = [
+      "x86_64-linux"
+      "aarch64-linux"
+      "x86_64-darwin"
+      "aarch64-darwin"
+    ];
     maintainers = [ "freeman" ];
   };
 }

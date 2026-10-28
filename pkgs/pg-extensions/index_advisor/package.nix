@@ -1,6 +1,6 @@
 {
   lib,
-  fetchFromGitHub,
+  pkgs,
   postgresql,
   postgresqlBuildExtension,
 }:
@@ -9,16 +9,13 @@
 # installs the .control and .sql files. No C compiler is invoked, but we still
 # use postgresqlBuildExtension so the DESTDIR dance and install locations match
 # every other PG extension on the system.
+let
+  sources = pkgs.callPackage ../../../_sources/generated.nix { };
+in
 postgresqlBuildExtension {
   pname = "index_advisor";
-  version = "0.2.0";
-
-  src = fetchFromGitHub {
-    owner = "supabase";
-    repo = "index_advisor";
-    rev = "ddb9b4ed17692ef8dbf049fad806426a851a3079";
-    hash = "sha256-z7XiqfmUjBPNWNMowzUk/dfT5cLbQUQ3Uoir+xBgPjc=";
-  };
+  version = lib.removePrefix "v" sources.index-advisor.version;
+  inherit (sources.index-advisor) src;
 
   makeFlags = [ "USE_PGXS=1" ];
 

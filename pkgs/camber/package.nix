@@ -1,37 +1,29 @@
 {
   lib,
   stdenv,
-  fetchurl,
+  pkgs,
 }:
 
 let
-  version = "1.0.26";
-
-  srcs = {
-    x86_64-linux = fetchurl {
-      url = "https://cli.cambercloud.com/releases/${version}/cambercli_${version}_Linux_x86_64.tar.gz";
-      hash = "sha256-vYbIOW/cj1ULb6ERbio3ux85AGhJGT0WAXZ8EV+wC9I=";
-    };
-    aarch64-linux = fetchurl {
-      url = "https://cli.cambercloud.com/releases/${version}/cambercli_${version}_Linux_arm64.tar.gz";
-      hash = "sha256-TbBb9ESCbOjhBgDEHarv3qNMzMMldvMCUg4B8GhxJ24=";
-    };
-    x86_64-darwin = fetchurl {
-      url = "https://cli.cambercloud.com/releases/${version}/cambercli_${version}_Darwin_x86_64.tar.gz";
-      hash = "sha256-IRwU4eMTOMxa7kY66Yg3jlKdbrCRQIKDtaGsGOc/CNQ=";
-    };
-    aarch64-darwin = fetchurl {
-      url = "https://cli.cambercloud.com/releases/${version}/cambercli_${version}_Darwin_arm64.tar.gz";
-      hash = "sha256-TWQN3gBKkNUZdq9Rwxf3Oe2ZCovYRSRU0L+wcep3+J8=";
-    };
+  sources = import ../../_sources/generated.nix {
+    inherit (pkgs)
+      fetchgit
+      fetchFromGitHub
+      fetchurl
+      dockerTools
+      ;
   };
+  platformSources = {
+    x86_64-linux = sources.camber-linux-x86_64;
+    aarch64-linux = sources.camber-linux-arm64;
+    x86_64-darwin = sources.camber-darwin-x86_64;
+    aarch64-darwin = sources.camber-darwin-arm64;
+  };
+  source = platformSources.${stdenv.hostPlatform.system};
 in
 stdenv.mkDerivation {
   pname = "camber";
-  inherit version;
-
-  src =
-    srcs.${stdenv.hostPlatform.system} or (throw "Unsupported system: ${stdenv.hostPlatform.system}");
+  inherit (source) version src;
 
   sourceRoot = ".";
 

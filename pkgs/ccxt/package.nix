@@ -1,7 +1,7 @@
 {
   lib,
   python313Packages,
-  fetchurl,
+  pkgs,
 }:
 
 # ccxt — unified REST client for 100+ crypto exchanges. Not in nixpkgs. The quant
@@ -11,17 +11,13 @@
 # synchronous client is used, so the pins are not enforced against nixpkgs.
 let
   py = python313Packages;
-  version = "4.5.82";
+  sources = pkgs.callPackage ../../_sources/generated.nix { };
+  inherit (sources.ccxt) version src;
 in
 py.buildPythonPackage {
   pname = "ccxt";
-  inherit version;
+  inherit version src;
   format = "wheel";
-
-  src = fetchurl {
-    url = "https://files.pythonhosted.org/packages/b8/87/f03c7407b84354ee2dfab6380b38c2b73fe8df0097f8d50d1ad0e0439d65/ccxt-${version}-py3-none-any.whl";
-    hash = "sha256-RZJhYrWHgZlnbYGt50Ja7wlysayLCdXXCAioXSefaDg=";
-  };
 
   dependencies = with py; [
     aiohttp

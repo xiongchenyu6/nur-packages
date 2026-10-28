@@ -10,7 +10,7 @@
   dbus,
   dpkg,
   expat,
-  fetchurl,
+  pkgs,
   fontconfig,
   freetype,
   gdk-pixbuf,
@@ -54,18 +54,29 @@
 ################################################################################
 
 let
-  version = "7.50.13";
-
+  sources = import ../../_sources/generated.nix {
+    inherit (pkgs)
+      fetchgit
+      fetchFromGitHub
+      fetchurl
+      dockerTools
+      ;
+  };
+  platformSources = {
+    x86_64-linux = sources.feishu-lark-linux-x64;
+    aarch64-linux = sources.feishu-lark-linux-arm64;
+  };
+  source = platformSources.${stdenv.hostPlatform.system};
+  # The release API supplies a CDN URL with an opaque path, so nvfetcher tracks
+  # that URL. Expose the application version rather than the URL as our version.
+  version = builtins.head (
+    builtins.match "Lark-linux_[^-]+-(.*)\\.deb" (builtins.baseNameOf source.version)
+  );
 in
 stdenv.mkDerivation rec {
   pname = "feishu-lark";
-  packageHash = "f80dd338"; # A hash value used in the download url
-
   inherit version;
-  src = fetchurl {
-    url = "https://sf3-cn.feishucdn.com/obj/ee-appcenter/${packageHash}/Lark-linux_x64-${version}.deb";
-    sha256 = "sha256-dAoiyUUw6lTThLqVEEBqS+KoZf1EC07tv/U9BkE9IH8=";
-  };
+  inherit (source) src;
   nativeBuildInputs = [
     autoPatchelfHook
     makeShellWrapper
@@ -142,6 +153,8 @@ stdenv.mkDerivation rec {
   ];
 
   dontUnpack = true;
+  # Preserve vendor resource payloads in the prebuilt binaries.
+  dontStrip = true;
   installPhase = ''
     # This deb file contains a setuid binary,
     # so 'dpkg -x' doesn't work here.
@@ -153,12 +166,12 @@ stdenv.mkDerivation rec {
     substituteInPlace $out/share/applications/bytedance-lark.desktop \
       --replace /usr/bin/bytedance-lark-stable $out/opt/bytedance/lark/bytedance-lark
 
-    # Wrap feishu and vulcan
-    # Feishu is the main executable, vulcan is the builtin browser
-    for executable in $out/opt/bytedance/lark/{lark,vulcan/vulcan}; do
+    # Keep the ELF filename intact: the client resolves resources from its own
+    # executable path. Wrap the vendor launcher instead.
+    for executable in $out/opt/bytedance/lark/bytedance-lark; do
       wrapProgram $executable \
         --prefix XDG_DATA_DIRS    :  "$XDG_ICON_DIRS:$GSETTINGS_SCHEMAS_PATH" \
-        --prefix LD_LIBRARY_PATH  :  ${rpath}:$out/opt/bytedance/lark:${addDriverRunpath.driverLink}/share \
+        --prefix LD_LIBRARY_PATH  :  ${rpath}:$out/opt/bytedance/lark:${addDriverRunpath.driverLink}/lib \
         --add-flags "\''${NIXOS_OZONE_WL:+\''${WAYLAND_DISPLAY:+ --enable-features=WaylandWindowDecorations}}" \
         ${lib.optionalString (
           commandLineArgs != ""
@@ -177,10 +190,10 @@ stdenv.mkDerivation rec {
   '';
 
   meta = with lib; {
-    description = "ByteDance Lark/Feishu desktop client";
+    description = "Lark desktop client";
     homepage = "https://www.larksuite.com/";
     license = licenses.unfree;
-    platforms = platforms.linux; # Linux-only package (uses .deb)
+    platforms = builtins.attrNames platformSources;
     maintainers = [ ];
   };
 }

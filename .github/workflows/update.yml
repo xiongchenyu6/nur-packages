@@ -3,15 +3,6 @@ name: Dependency update
 on:
   workflow_dispatch:
   schedule:
-    # 每小时一次。nvchecker 逐个查 nvfetcher.toml 里 38 个源的最新版本 ——
-    # 它就是那个"监控上游仓库变化"的东西。GitHub 不允许给别人的仓库装
-    # webhook,所以拿不到推送事件,只能轮询;旋钮只有频率一个。
-    #
-    # 频率提高不会带来额外 churn:下面每一步都是"有变化才动作" —— 没 diff 时
-    # create-pull-request 不建 PR,合并和级联通知随之跳过。真正会变的是
-    # nixos-unstable(几天一次)和某个上游发版(更稀疏),只是发现得更早。
-    #
-    # 配额也不是瓶颈:带 token 后是 5000 次/小时,38 个源一次才用 38 个。
     - cron: "0 * * * *"
 
 permissions:
@@ -29,99 +20,111 @@ env:
 
 jobs:
   update:
-    runs-on: ubuntu-latest
-    env:
-      GIT_SSL_NO_VERIFY: "true"
-      NIXPKGS_ALLOW_UNFREE: "1"
+    runs-on: ubuntu-24.04
+    outputs:
+      changed: ${{ steps.patch.outputs.changed }}
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v7
+      - name: Free Linux runner space for dependency builds
+        run: |
+          df -h /
+          sudo rm -rf /usr/local/lib/android /usr/share/dotnet /opt/ghc
+          df -h /
+      - uses: actions/checkout@v7
         with:
           fetch-depth: 0
-          token: ${{ secrets.GITHUB_TOKEN }}
-
-      - name: Install nix
-        uses: cachix/install-nix-action@v31
+      - uses: cachix/install-nix-action@v31
         with:
           extra_nix_config: |
             experimental-features = nix-command flakes
             access-tokens = github.com=${{ secrets.GITHUB_TOKEN }}
-
-      # update.sh 会用 env 里的 GITHUB_TOKEN 现造一个 nvchecker keyfile,
-      # 否则匿名查询会被 GitHub 限流,导致"上游没更新"这个结论不可信。
-      - name: Run the update
-        run: nix run .#update
-
-      - name: Show working tree
-        if: always()
-        run: git status --short
-
-      # Sub2API comes from the llm-agents flake input, not from nvfetcher, so
-      # the rebuild above never touches it. build.yml cannot cover it either:
-      # the merge below is authored by GITHUB_TOKEN, which does not trigger
-      # push workflows, so the cache was only filled by the nightly cron —
-      # hours after the cascade had already told sg-office to upgrade, which
-      # then compiled the frontend and Go locally. Build and push it here,
-      # before the merge, so the binary is cached before anyone is notified.
-      - name: Setup cachix
-        uses: cachix/cachix-action@v17
+      - uses: cachix/cachix-action@v17
         with:
           name: xiongchenyu6
-          authToken: "${{ secrets.CACHIX_AUTH_TOKEN }}"
-          skipPush: true
-
-      - name: Build and cache Sub2API
+          authToken: ${{ secrets.CACHIX_AUTH_TOKEN }}
+      - name: Test update handling
+        run: |
+          nix shell --inputs-from . nixpkgs#python3 nixpkgs#bash nixpkgs#jq nixpkgs#ripgrep nixpkgs#perl nixpkgs#shellcheck \
+            --command bash -c 'shellcheck scripts/update*.sh && python3 scripts/test-update-changed-packages.py'
+      - name: Discover versions and refresh dependency hashes
+        run: nix run .#update
+      - name: Prepare the proposed update
+        id: patch
         run: |
           set -Eeuo pipefail
-          nix build .#sub2api --print-out-paths | cachix push xiongchenyu6
-
-      # Commit straight to master. The update step above is the gate: it
-      # rebuilds every package whose source moved, so reaching this point means
-      # they all built. The PR-and-self-merge this replaced bought nothing and
-      # cost a red run per update: GitHub started build.yml for the PR, the
-      # merge deleted the branch three seconds later, and the run died with
-      # "workflow file issue" before any job ran.
-      - name: Commit and push the update
-        id: push
-        run: |
-          set -Eeuo pipefail
-          if git diff --quiet && [ -z "$(git ls-files --others --exclude-standard)" ]; then
+          git add -A
+          if git diff --cached --quiet; then
             echo "changed=false" >> "$GITHUB_OUTPUT"
-            echo "Nothing changed."
             exit 0
           fi
+          git diff --cached --binary > "$RUNNER_TEMP/update.patch"
+          git diff --cached --stat
+          echo "changed=true" >> "$GITHUB_OUTPUT"
+      - uses: actions/upload-artifact@v4
+        if: steps.patch.outputs.changed == 'true'
+        with:
+          name: dependency-update-patch
+          path: ${{ runner.temp }}/update.patch
+          retention-days: 1
+
+  verify:
+    needs: update
+    if: needs.update.outputs.changed == 'true'
+    uses: ./.github/workflows/build.yml
+    with:
+      update-patch: true
+      base-revision: ${{ github.sha }}
+    secrets: inherit
+
+  publish:
+    needs: [update, verify]
+    if: needs.update.outputs.changed == 'true'
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+      - uses: actions/download-artifact@v4
+        with:
+          name: dependency-update-patch
+          path: ${{ runner.temp }}/dependency-update
+      - name: Publish the update after every architecture passes
+        run: |
+          set -Eeuo pipefail
+          git apply --index "$RUNNER_TEMP/dependency-update/update.patch"
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -A
           git commit -m "chore: update flake inputs and nvfetcher sources"
+          # A concurrent human push must fail, never overwrite or publish a
+          # rebased configuration that the architecture gate did not check.
           git push origin HEAD:master
-          echo "changed=true" >> "$GITHUB_OUTPUT"
-          git --no-pager show --stat --oneline HEAD | head -20
-
-      # 级联下一跳:通知 dotfiles 只 bump 它的 xiongchenyu6 input。
-      # GITHUB_TOKEN 按设计无法触发别的仓库,所以这里必须用 PAT。没配
-      # CASCADE_TOKEN 时跳过而不是失败 —— 下游 cron 兜底会捡起来。
       - name: Notify dotfiles
-        if: steps.push.outputs.changed == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.CASCADE_TOKEN }}
         run: |
           set -Eeuo pipefail
           if [ -z "${GH_TOKEN:-}" ]; then
-            echo "::warning::未配置 CASCADE_TOKEN,跳过级联通知,下游靠 cron 兜底。"
+            echo "::warning::CASCADE_TOKEN is not configured; dotfiles will catch up on its schedule."
             exit 0
           fi
-          gh api repos/xiongchenyu6/dotfiles/dispatches \
-            -f event_type=nur-packages-updated
-          echo "已通知 xiongchenyu6/dotfiles"
-        env:
-          GH_TOKEN: ${{ secrets.CASCADE_TOKEN }}
+          gh api repos/xiongchenyu6/dotfiles/dispatches -f event_type=nur-packages-updated
+      - name: Notify NUR
+        run: |
+          code=$(curl -sS -o /dev/null -w '%{http_code}' -XPOST "https://nur-update.nix-community.org/update?repo=xiongchenyu6")
+          case "$code" in 2??|429) ;; *) exit 1;; esac
 
+  report:
+    needs: [update, verify, publish]
+    if: always() && needs.update.result != 'cancelled'
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v7
       # This job merges its own work, so a failure is only visible if something
       # says so. GitHub's failure email is easy to filter into oblivion, and the
       # run was broken for four nights before anyone noticed. One issue is kept
       # open while it is failing and closed again on the next success, so a
       # month of failures does not become thirty issues.
       - name: Report failure
-        if: failure()
+        if: contains(needs.*.result, 'failure')
         run: |
           run_url="$GITHUB_SERVER_URL/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID"
           existing=$(gh issue list --label automation --state open \
@@ -142,7 +145,10 @@ jobs:
           TITLE: "Dependency update is failing"
 
       - name: Close the failure issue
-        if: success()
+        if: >-
+          needs.update.result == 'success' &&
+          (needs.update.outputs.changed != 'true' ||
+          (needs.verify.result == 'success' && needs.publish.result == 'success'))
         run: |
           gh issue list --label automation --state open \
             --search "in:title $TITLE" --json number --jq '.[].number' \

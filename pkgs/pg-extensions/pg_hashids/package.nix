@@ -1,20 +1,17 @@
 {
   lib,
-  fetchFromGitHub,
+  pkgs,
   postgresql,
   postgresqlBuildExtension,
 }:
 
+let
+  sources = pkgs.callPackage ../../../_sources/generated.nix { };
+in
 postgresqlBuildExtension {
   pname = "pg_hashids";
-  version = "1.3-unstable-2023-06-14";
-
-  src = fetchFromGitHub {
-    owner = "iCyberon";
-    repo = "pg_hashids";
-    rev = "8c404dd86408f3a987a3ff6825ac7e42bd618b98";
-    hash = "sha256-mlS3YDE0VvF9zuLgz+EWSNLBZR1ptrU5A8ndY72194E=";
-  };
+  version = "1.3-unstable-${sources.pg-hashids.date}";
+  inherit (sources.pg-hashids) src;
 
   makeFlags = [ "USE_PGXS=1" ];
 

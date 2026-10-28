@@ -1,4 +1,165 @@
 {
+    "agents-server": {
+        "cargoLock": null,
+        "date": null,
+        "extract": null,
+        "name": "agents-server",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "ZhengyiLuo",
+            "repo": "AgentsServer",
+            "rev": "v1.0.11",
+            "sha256": "sha256-4Y3kdaQv/wVbjFrgFOtSJ2eN9My8cUgIpvtljU9bYxo=",
+            "sparseCheckout": [],
+            "type": "github"
+        },
+        "version": "v1.0.11"
+    },
+    "camber-darwin-arm64": {
+        "cargoLock": null,
+        "date": null,
+        "extract": null,
+        "name": "camber-darwin-arm64",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-sp2TBfSMDdzKP7ASt4Wtpka4fEIYlPKELOov27uw1QA=",
+            "type": "url",
+            "url": "https://cli.cambercloud.com/releases/1.0.43/cambercli_1.0.43_Darwin_arm64.tar.gz"
+        },
+        "version": "1.0.43"
+    },
+    "camber-darwin-x86_64": {
+        "cargoLock": null,
+        "date": null,
+        "extract": null,
+        "name": "camber-darwin-x86_64",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-EyzDsG7i0ugRljuZum8+yFRtMBj4l/D6rQ6WF4s0Itw=",
+            "type": "url",
+            "url": "https://cli.cambercloud.com/releases/1.0.43/cambercli_1.0.43_Darwin_x86_64.tar.gz"
+        },
+        "version": "1.0.43"
+    },
+    "camber-linux-arm64": {
+        "cargoLock": null,
+        "date": null,
+        "extract": null,
+        "name": "camber-linux-arm64",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-J0iTyRrtf2Ekbs3zCNwpeScWNhSGj2XrLNrZ9ulcJ48=",
+            "type": "url",
+            "url": "https://cli.cambercloud.com/releases/1.0.43/cambercli_1.0.43_Linux_arm64.tar.gz"
+        },
+        "version": "1.0.43"
+    },
+    "camber-linux-x86_64": {
+        "cargoLock": null,
+        "date": null,
+        "extract": null,
+        "name": "camber-linux-x86_64",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-ssNv8xkWR2qgV1k7A+dO9DOCdwGzMIW58Z2eAaEnnBI=",
+            "type": "url",
+            "url": "https://cli.cambercloud.com/releases/1.0.43/cambercli_1.0.43_Linux_x86_64.tar.gz"
+        },
+        "version": "1.0.43"
+    },
+    "casdoor-darwin-arm64": {
+        "cargoLock": null,
+        "date": null,
+        "extract": null,
+        "name": "casdoor-darwin-arm64",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-AdHeh2QRpkYyFW9KlyDX7WEHlO+vRtLZRV7//n5VxIU=",
+            "type": "url",
+            "url": "https://github.com/casdoor/casdoor/releases/download/v4.24.0/casdoor_Darwin_arm64.tar.gz"
+        },
+        "version": "4.24.0"
+    },
+    "casdoor-darwin-x86_64": {
+        "cargoLock": null,
+        "date": null,
+        "extract": null,
+        "name": "casdoor-darwin-x86_64",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-kpzBi2HLbhB5XsOTgNMsZvzpPoh+UN5NkK5eCRO5wxM=",
+            "type": "url",
+            "url": "https://github.com/casdoor/casdoor/releases/download/v4.24.0/casdoor_Darwin_x86_64.tar.gz"
+        },
+        "version": "4.24.0"
+    },
+    "casdoor-linux-arm64": {
+        "cargoLock": null,
+        "date": null,
+        "extract": null,
+        "name": "casdoor-linux-arm64",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-YNtVsLUEVv8kAe5fY0voSf/d7V2djc34HlZgLsdR8sY=",
+            "type": "url",
+            "url": "https://github.com/casdoor/casdoor/releases/download/v4.24.0/casdoor_Linux_arm64.tar.gz"
+        },
+        "version": "4.24.0"
+    },
+    "casdoor-linux-x86_64": {
+        "cargoLock": null,
+        "date": null,
+        "extract": null,
+        "name": "casdoor-linux-x86_64",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-3UTCloP/tZ79v4vEopKCgJANFCg7yz4gr78Zn6LVcDk=",
+            "type": "url",
+            "url": "https://github.com/casdoor/casdoor/releases/download/v4.24.0/casdoor_Linux_x86_64.tar.gz"
+        },
+        "version": "4.24.0"
+    },
+    "casdoor-static": {
+        "cargoLock": null,
+        "date": "2026-09-25",
+        "extract": null,
+        "name": "casdoor-static",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "rev": "5fbd6804646af3ff922c12c26a69af2a9f585177",
+            "sha256": "sha256-JVv3MB89yWSVdQJ6PPhzN8fwNAPxpnVVvQAFjwfyQN0=",
+            "sparseCheckout": [],
+            "type": "git",
+            "url": "https://github.com/casdoor/static.git"
+        },
+        "version": "5fbd6804646af3ff922c12c26a69af2a9f585177"
+    },
     "cc-switch-darwin-arm64": {
         "cargoLock": null,
         "date": null,
@@ -59,6 +220,21 @@
         },
         "version": "4.0.21"
     },
+    "ccxt": {
+        "cargoLock": null,
+        "date": null,
+        "extract": null,
+        "name": "ccxt",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-9aN16IRChR8/3f2Fup0WXPoQB67qJZrR1v1iI6Buan4=",
+            "type": "url",
+            "url": "https://files.pythonhosted.org/packages/py3/c/ccxt/ccxt-4.5.90-py3-none-any.whl"
+        },
+        "version": "4.5.90"
+    },
     "codex-acp-darwin-arm64": {
         "cargoLock": null,
         "date": null,
@@ -118,6 +294,57 @@
             "url": "https://github.com/zed-industries/codex-acp/releases/download/v0.16.0/codex-acp-0.16.0-x86_64-unknown-linux-musl.tar.gz"
         },
         "version": "0.16.0"
+    },
+    "codexpro": {
+        "cargoLock": null,
+        "date": null,
+        "extract": null,
+        "name": "codexpro",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "rebel0789",
+            "repo": "codexpro",
+            "rev": "v0.30.2",
+            "sha256": "sha256-coyu5vWeIWRSGEZ21tUOJbUTY4E+9PN4fUk/2hAD2ag=",
+            "sparseCheckout": [],
+            "type": "github"
+        },
+        "version": "v0.30.2"
+    },
+    "feishu-lark-linux-arm64": {
+        "cargoLock": null,
+        "date": null,
+        "extract": null,
+        "name": "feishu-lark-linux-arm64",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-LT3UrFsNMPCg0/Ylf6aiggMDBle98ReqV5iAZbj6buw=",
+            "type": "url",
+            "url": "https://lf16-larkversion.larksuitecdn.com/obj/lark-version-sg/25ef09d6/Lark-linux_arm64-8.0.18.deb"
+        },
+        "version": "https://lf16-larkversion.larksuitecdn.com/obj/lark-version-sg/25ef09d6/Lark-linux_arm64-8.0.18.deb"
+    },
+    "feishu-lark-linux-x64": {
+        "cargoLock": null,
+        "date": null,
+        "extract": null,
+        "name": "feishu-lark-linux-x64",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-0WFobFrlLWmaFI12QxCGn1XTyoZtV6fiSWOq+oC2ejw=",
+            "type": "url",
+            "url": "https://lf16-larkversion.larksuitecdn.com/obj/lark-version-sg/4c647c08/Lark-linux_x64-8.0.18.deb"
+        },
+        "version": "https://lf16-larkversion.larksuitecdn.com/obj/lark-version-sg/4c647c08/Lark-linux_x64-8.0.18.deb"
     },
     "gotron-sdk": {
         "cargoLock": null,
@@ -214,12 +441,12 @@
             "name": null,
             "owner": "hashtopolis",
             "repo": "agent-python",
-            "rev": "v0.7.4",
-            "sha256": "sha256-KyuDXE+B/Rq4N1noJvgNBif9po7b6p6SXco1yBoZWXw=",
+            "rev": "v0.7.6",
+            "sha256": "sha256-wHeJLYFt8eiguj64T/8iiH6Z0zrb3o3lsDinw1cb2fs=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "v0.7.4"
+        "version": "v0.7.6"
     },
     "hashtopolis-server": {
         "cargoLock": null,
@@ -241,6 +468,27 @@
             "type": "github"
         },
         "version": "v1.0.1"
+    },
+    "index-advisor": {
+        "cargoLock": null,
+        "date": null,
+        "extract": null,
+        "name": "index-advisor",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "supabase",
+            "repo": "index_advisor",
+            "rev": "v0.2.1",
+            "sha256": "sha256-l/Og7R63Boh6W8GmyR6l6yzE2Sn6zEhI6boUmPCQDDo=",
+            "sparseCheckout": [],
+            "type": "github"
+        },
+        "version": "v0.2.1"
     },
     "larksuite-cli-darwin-arm64": {
         "cargoLock": null,
@@ -348,9 +596,138 @@
             "name": null,
             "sha256": "sha256-bKJQVZozAp5XDMMumJzHHUxLuh6sSmhSUyDWAeasuMg=",
             "type": "url",
-            "url": "https://github.com/liuhr/my2sql/raw/master/releases/centOS_release_7.x/my2sql"
+            "url": "https://raw.githubusercontent.com/liuhr/my2sql/69b39554cb116d02fba389ff258ca9736dea7437/releases/centOS_release_7.x/my2sql"
         },
         "version": "69b39554cb116d02fba389ff258ca9736dea7437"
+    },
+    "nautilus-ibapi": {
+        "cargoLock": null,
+        "date": null,
+        "extract": null,
+        "name": "nautilus-ibapi",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-NOqN+PUg3Vh2Z6q3qZFmGNezchA8LCwbaOw7bhnGnFI=",
+            "type": "url",
+            "url": "https://files.pythonhosted.org/packages/py3/n/nautilus-ibapi/nautilus_ibapi-10.45.1-py3-none-any.whl"
+        },
+        "version": "10.45.1"
+    },
+    "nautilus-trader-linux-arm64": {
+        "cargoLock": null,
+        "date": null,
+        "extract": null,
+        "name": "nautilus-trader-linux-arm64",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-5TbXySWzxHW+9PP451GWlE9rh1hxDkHaEQm4uDcAFpA=",
+            "type": "url",
+            "url": "https://files.pythonhosted.org/packages/cp313/n/nautilus-trader/nautilus_trader-1.231.0-cp313-cp313-manylinux_2_35_aarch64.whl"
+        },
+        "version": "1.231.0"
+    },
+    "nautilus-trader-linux-x86_64": {
+        "cargoLock": null,
+        "date": null,
+        "extract": null,
+        "name": "nautilus-trader-linux-x86_64",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-Qp6mHDOjLNhJjTng6pXrqhK42/wlxx+6uoRfKwXoq5E=",
+            "type": "url",
+            "url": "https://files.pythonhosted.org/packages/cp313/n/nautilus-trader/nautilus_trader-1.231.0-cp313-cp313-manylinux_2_35_x86_64.whl"
+        },
+        "version": "1.231.0"
+    },
+    "nvkvm-pv": {
+        "cargoLock": null,
+        "date": "2026-09-28",
+        "extract": null,
+        "name": "nvkvm-pv",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "reindertpelsma",
+            "repo": "nvkvm-pv",
+            "rev": "39972874d22f5ba19e39827488b089e80a0c17f4",
+            "sha256": "sha256-M4hHu60LqvzcAT9xIUPpx2YXQLED7jGz6mwGskNhup8=",
+            "sparseCheckout": [],
+            "type": "github"
+        },
+        "version": "39972874d22f5ba19e39827488b089e80a0c17f4"
+    },
+    "pg-ecdsa-verify": {
+        "cargoLock": null,
+        "date": "2025-10-14",
+        "extract": null,
+        "name": "pg-ecdsa-verify",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "joelonsql",
+            "repo": "pg_ecdsa_verify",
+            "rev": "6cca981b2019192945613096eebd89f62c0c5b23",
+            "sha256": "sha256-kRSwsJsuz7aBKdxUq5wqzkoh14OBKEpJEkdn6TJcW6A=",
+            "sparseCheckout": [],
+            "type": "github"
+        },
+        "version": "6cca981b2019192945613096eebd89f62c0c5b23"
+    },
+    "pg-hashids": {
+        "cargoLock": null,
+        "date": "2025-05-22",
+        "extract": null,
+        "name": "pg-hashids",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "iCyberon",
+            "repo": "pg_hashids",
+            "rev": "8c404dd86408f3a987a3ff6825ac7e42bd618b98",
+            "sha256": "sha256-mlS3YDE0VvF9zuLgz+EWSNLBZR1ptrU5A8ndY72194E=",
+            "sparseCheckout": [],
+            "type": "github"
+        },
+        "version": "8c404dd86408f3a987a3ff6825ac7e42bd618b98"
+    },
+    "pg-plan-filter": {
+        "cargoLock": null,
+        "date": null,
+        "extract": null,
+        "name": "pg-plan-filter",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "deepClone": false,
+            "fetchSubmodules": false,
+            "leaveDotGit": false,
+            "name": null,
+            "owner": "pgexperts",
+            "repo": "pg_plan_filter",
+            "rev": "v1.0.0",
+            "sha256": "sha256-/0BV4qFvK/CxCuY2iKtMsdn5JubEzG7IHixvOSZVfw4=",
+            "sparseCheckout": [],
+            "type": "github"
+        },
+        "version": "v1.0.0"
     },
     "sui": {
         "cargoLock": null,
@@ -397,11 +774,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-rfttvUvCAVBSpj0gl+xTW1QI9YXi4183VLmV4VQe70g=",
+            "sha256": "sha256-Nn6hJMYekdwiQJaZy0DS5l0jlS8yIOkRzOofbYof838=",
             "type": "url",
-            "url": "https://public-cdn.cloud.unity3d.com/hub/prod/cli/1.0.0-beta.3/unity-darwin-arm64"
+            "url": "https://public-cdn.cloud.unity3d.com/hub/prod/cli/1.0.0-beta.14/unity-darwin-arm64"
         },
-        "version": "1.0.0-beta.3"
+        "version": "1.0.0-beta.14"
     },
     "unity-cli-darwin-x64": {
         "cargoLock": null,
@@ -412,11 +789,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-0NOzVtEH8zPoZvcrlv9ED4EJdnFd+T3XnqKmt3fDtQ8=",
+            "sha256": "sha256-V4xZI638ueHHicF+o0SgpxypS2loFVCnkyYLqJDuIvw=",
             "type": "url",
-            "url": "https://public-cdn.cloud.unity3d.com/hub/prod/cli/1.0.0-beta.3/unity-darwin-x64"
+            "url": "https://public-cdn.cloud.unity3d.com/hub/prod/cli/1.0.0-beta.14/unity-darwin-x64"
         },
-        "version": "1.0.0-beta.3"
+        "version": "1.0.0-beta.14"
     },
     "unity-cli-linux-arm64": {
         "cargoLock": null,
@@ -427,11 +804,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-Idor+Y0W261V3Tuxh6AQCKz+CDlgdeSRiA2X2Bip7xE=",
+            "sha256": "sha256-SFQE3KG2oh29w4JJrO1pv6ncLLJtyZW8Hyn+m4YMUdU=",
             "type": "url",
-            "url": "https://public-cdn.cloud.unity3d.com/hub/prod/cli/1.0.0-beta.3/unity-linux-arm64"
+            "url": "https://public-cdn.cloud.unity3d.com/hub/prod/cli/1.0.0-beta.14/unity-linux-arm64"
         },
-        "version": "1.0.0-beta.3"
+        "version": "1.0.0-beta.14"
     },
     "unity-cli-linux-x64": {
         "cargoLock": null,
@@ -442,10 +819,10 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-m4mqpaZ26OW9ajhEqTmN77ljvTSVGGRFpGSkcFflTqM=",
+            "sha256": "sha256-2aLBcWznI7lwiY9/QK3AnM7uBOhM4vHxY48HrD6YmKo=",
             "type": "url",
-            "url": "https://public-cdn.cloud.unity3d.com/hub/prod/cli/1.0.0-beta.3/unity-linux-x64"
+            "url": "https://public-cdn.cloud.unity3d.com/hub/prod/cli/1.0.0-beta.14/unity-linux-x64"
         },
-        "version": "1.0.0-beta.3"
+        "version": "1.0.0-beta.14"
     }
 }

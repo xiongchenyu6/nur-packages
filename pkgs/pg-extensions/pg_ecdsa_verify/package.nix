@@ -2,20 +2,17 @@
   lib,
   buildPgrxExtension,
   cargo-pgrx_0_16_1,
-  fetchFromGitHub,
+  pkgs,
   postgresql,
 }:
 
+let
+  sources = pkgs.callPackage ../../../_sources/generated.nix { };
+in
 buildPgrxExtension {
   pname = "pg_ecdsa_verify";
-  version = "1.2.4-unstable-2025-10-14";
-
-  src = fetchFromGitHub {
-    owner = "joelonsql";
-    repo = "pg_ecdsa_verify";
-    rev = "6cca981b2019192945613096eebd89f62c0c5b23";
-    hash = "sha256-kRSwsJsuz7aBKdxUq5wqzkoh14OBKEpJEkdn6TJcW6A=";
-  };
+  version = "1.2.4-unstable-${sources.pg-ecdsa-verify.date}";
+  inherit (sources.pg-ecdsa-verify) src;
 
   # Upstream does not commit a Cargo.lock; this one resolves pgrx to 0.16.1,
   # which must match the pinned cargo-pgrx below.

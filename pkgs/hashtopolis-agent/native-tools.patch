@@ -1,0 +1,55 @@
+--- a/htpclient/helpers.py
++++ b/htpclient/helpers.py
+@@ -139,6 +139,8 @@
+ 
+ # function to retrieve a system or local binary.
+ def retrieve_binary(binary):
++    if binary in ("7zr", "7zr.exe"):
++        return shutil.which("7z")
+     cwd = Path.cwd()
+     # use full path so that it works on Windows and Linux
+     local_binary = cwd / binary
+--- a/htpclient/binarydownload.py
++++ b/htpclient/binarydownload.py
+@@ -1,5 +1,6 @@
+ import logging
+ import os.path
++import shutil
+ from pathlib import Path
+ import stat
+ import sys
+@@ -169,7 +170,7 @@
+             os.system(f"{zr_bin} x -otemp temp.7z")
+             for name in os.listdir("temp"):  # this part needs to be done because it is compressed with the main subfolder of prince
+                 if os.path.isdir(Path('temp', name)):
+-                    os.rename(Path('temp', name), path)
++                    shutil.move(Path('temp', name), path)
+                     break
+             os.unlink("temp.7z")
+             os.rmdir("temp")
+@@ -187,12 +188,24 @@
+             logging.error("Failed to load cracker!")
+             sleep(5)
+             return False
+-        elif ans['response'] != 'SUCCESS' or not ans['url']:
++        elif ans['response'] != 'SUCCESS' or (not ans['url'] and not self.config.get_value('use-native-hashcat')):
+             logging.error("Getting cracker failed: " + str(ans))
+             sleep(5)
+             return False
+         else:
+             self.last_version = ans
++            if self.config.get_value('use-native-hashcat'):
++                native = self.config.get_value('native-hashcat-path') or shutil.which('hashcat')
++                if not native or not os.path.isfile(native) or not os.access(native, os.X_OK):
++                    logging.error("Native hashcat not executable: %s", native)
++                    return False
++                path.mkdir(parents=True, exist_ok=True)
++                executable = path / 'hashcat.bin'
++                if executable.is_symlink() or executable.exists():
++                    executable.unlink()
++                executable.symlink_to(os.path.abspath(native))
++                self.last_version = dict(ans, executable='hashcat.bin')
++                return True
+             if not os.path.isdir(path):
+                 # we need to download the 7zip
+                 if not Download.download(ans['url'], self.config.get_value('crackers-path') + "/" + str(cracker_id) + ".7z"):

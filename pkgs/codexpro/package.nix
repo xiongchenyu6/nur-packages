@@ -1,24 +1,19 @@
 {
   lib,
   buildNpmPackage,
-  fetchFromGitHub,
+  pkgs,
   nodejs,
 }:
 
-buildNpmPackage (finalAttrs: {
+let
+  sources = pkgs.callPackage ../../_sources/generated.nix { };
+in
+buildNpmPackage {
   pname = "codexpro";
-  version = "0.28.5";
+  version = lib.removePrefix "v" sources.codexpro.version;
+  inherit (sources.codexpro) src;
 
-  # Upstream publishes no git tags/releases; pin the commit that carries the
-  # 0.28.5 package.json.
-  src = fetchFromGitHub {
-    owner = "rebel0789";
-    repo = "codexpro";
-    rev = "7d971fcb2b7ee2afc990d1e65984d408191dd46e";
-    hash = "sha256-vavPYnMXvhgAqcmM2PPBnww5WR9Q/WxcA9YQAe6tspI=";
-  };
-
-  npmDepsHash = "sha256-7fX/tLUvKJTdXxYs+OOQ8hLXyXXnsClZrgmjQ3mEI8Q=";
+  npmDepsHash = "sha256-JCDEax05rgJ/cj+AOT5HRawzkvIwG2A/OcIMO5EFPYQ=";
 
   npmBuildScript = "build";
 
@@ -40,4 +35,4 @@ buildNpmPackage (finalAttrs: {
     test -e "$out/bin/codexpro-mcp-http"
     runHook postInstallCheck
   '';
-})
+}

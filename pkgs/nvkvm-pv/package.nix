@@ -11,20 +11,16 @@
 {
   lib,
   applyPatches,
-  fetchFromGitHub,
+  pkgs,
   qemu_kvm,
   xxd,
 }:
 let
-  version = "0.2.5-unstable-2026-09-28";
+  sources = pkgs.callPackage ../../_sources/generated.nix { };
+  version = "0.2.5-unstable-${sources.nvkvm-pv.date}";
   src = applyPatches {
     name = "nvkvm-pv-${version}-src";
-    src = fetchFromGitHub {
-      owner = "reindertpelsma";
-      repo = "nvkvm-pv";
-      rev = "39972874d22f5ba19e39827488b089e80a0c17f4";
-      hash = "sha256-M4hHu60LqvzcAT9xIUPpx2YXQLED7jGz6mwGskNhup8=";
-    };
+    src = sources.nvkvm-pv.src;
     # Guest-module fix, written for upstream (commit message carries the
     # analysis and the control-allowlist audit); not yet submitted.
     # cuMemAllocManaged failed on every GPU but the host's first.

@@ -6,6 +6,95 @@
   dockerTools,
 }:
 {
+  agents-server = {
+    pname = "agents-server";
+    version = "v1.0.11";
+    src = fetchFromGitHub {
+      owner = "ZhengyiLuo";
+      repo = "AgentsServer";
+      rev = "v1.0.11";
+      fetchSubmodules = false;
+      sha256 = "sha256-4Y3kdaQv/wVbjFrgFOtSJ2eN9My8cUgIpvtljU9bYxo=";
+    };
+  };
+  camber-darwin-arm64 = {
+    pname = "camber-darwin-arm64";
+    version = "1.0.43";
+    src = fetchurl {
+      url = "https://cli.cambercloud.com/releases/1.0.43/cambercli_1.0.43_Darwin_arm64.tar.gz";
+      sha256 = "sha256-sp2TBfSMDdzKP7ASt4Wtpka4fEIYlPKELOov27uw1QA=";
+    };
+  };
+  camber-darwin-x86_64 = {
+    pname = "camber-darwin-x86_64";
+    version = "1.0.43";
+    src = fetchurl {
+      url = "https://cli.cambercloud.com/releases/1.0.43/cambercli_1.0.43_Darwin_x86_64.tar.gz";
+      sha256 = "sha256-EyzDsG7i0ugRljuZum8+yFRtMBj4l/D6rQ6WF4s0Itw=";
+    };
+  };
+  camber-linux-arm64 = {
+    pname = "camber-linux-arm64";
+    version = "1.0.43";
+    src = fetchurl {
+      url = "https://cli.cambercloud.com/releases/1.0.43/cambercli_1.0.43_Linux_arm64.tar.gz";
+      sha256 = "sha256-J0iTyRrtf2Ekbs3zCNwpeScWNhSGj2XrLNrZ9ulcJ48=";
+    };
+  };
+  camber-linux-x86_64 = {
+    pname = "camber-linux-x86_64";
+    version = "1.0.43";
+    src = fetchurl {
+      url = "https://cli.cambercloud.com/releases/1.0.43/cambercli_1.0.43_Linux_x86_64.tar.gz";
+      sha256 = "sha256-ssNv8xkWR2qgV1k7A+dO9DOCdwGzMIW58Z2eAaEnnBI=";
+    };
+  };
+  casdoor-darwin-arm64 = {
+    pname = "casdoor-darwin-arm64";
+    version = "4.24.0";
+    src = fetchurl {
+      url = "https://github.com/casdoor/casdoor/releases/download/v4.24.0/casdoor_Darwin_arm64.tar.gz";
+      sha256 = "sha256-AdHeh2QRpkYyFW9KlyDX7WEHlO+vRtLZRV7//n5VxIU=";
+    };
+  };
+  casdoor-darwin-x86_64 = {
+    pname = "casdoor-darwin-x86_64";
+    version = "4.24.0";
+    src = fetchurl {
+      url = "https://github.com/casdoor/casdoor/releases/download/v4.24.0/casdoor_Darwin_x86_64.tar.gz";
+      sha256 = "sha256-kpzBi2HLbhB5XsOTgNMsZvzpPoh+UN5NkK5eCRO5wxM=";
+    };
+  };
+  casdoor-linux-arm64 = {
+    pname = "casdoor-linux-arm64";
+    version = "4.24.0";
+    src = fetchurl {
+      url = "https://github.com/casdoor/casdoor/releases/download/v4.24.0/casdoor_Linux_arm64.tar.gz";
+      sha256 = "sha256-YNtVsLUEVv8kAe5fY0voSf/d7V2djc34HlZgLsdR8sY=";
+    };
+  };
+  casdoor-linux-x86_64 = {
+    pname = "casdoor-linux-x86_64";
+    version = "4.24.0";
+    src = fetchurl {
+      url = "https://github.com/casdoor/casdoor/releases/download/v4.24.0/casdoor_Linux_x86_64.tar.gz";
+      sha256 = "sha256-3UTCloP/tZ79v4vEopKCgJANFCg7yz4gr78Zn6LVcDk=";
+    };
+  };
+  casdoor-static = {
+    pname = "casdoor-static";
+    version = "5fbd6804646af3ff922c12c26a69af2a9f585177";
+    src = fetchgit {
+      url = "https://github.com/casdoor/static.git";
+      rev = "5fbd6804646af3ff922c12c26a69af2a9f585177";
+      fetchSubmodules = false;
+      deepClone = false;
+      leaveDotGit = false;
+      sparseCheckout = [ ];
+      sha256 = "sha256-JVv3MB89yWSVdQJ6PPhzN8fwNAPxpnVVvQAFjwfyQN0=";
+    };
+    date = "2026-09-25";
+  };
   cc-switch-darwin-arm64 = {
     pname = "cc-switch-darwin-arm64";
     version = "4.0.21";
@@ -38,6 +127,14 @@
       sha256 = "sha256-6i9sqC2gBIIOCeDEc8pyVL+SkSgvACcunirfjxFOPmE=";
     };
   };
+  ccxt = {
+    pname = "ccxt";
+    version = "4.5.90";
+    src = fetchurl {
+      url = "https://files.pythonhosted.org/packages/py3/c/ccxt/ccxt-4.5.90-py3-none-any.whl";
+      sha256 = "sha256-9aN16IRChR8/3f2Fup0WXPoQB67qJZrR1v1iI6Buan4=";
+    };
+  };
   codex-acp-darwin-arm64 = {
     pname = "codex-acp-darwin-arm64";
     version = "0.16.0";
@@ -68,6 +165,33 @@
     src = fetchurl {
       url = "https://github.com/zed-industries/codex-acp/releases/download/v0.16.0/codex-acp-0.16.0-x86_64-unknown-linux-musl.tar.gz";
       sha256 = "sha256-LhI7l4cYRvouAeg1qSHw16NzpvyR52pVbcfPfrORBYc=";
+    };
+  };
+  codexpro = {
+    pname = "codexpro";
+    version = "v0.30.2";
+    src = fetchFromGitHub {
+      owner = "rebel0789";
+      repo = "codexpro";
+      rev = "v0.30.2";
+      fetchSubmodules = false;
+      sha256 = "sha256-coyu5vWeIWRSGEZ21tUOJbUTY4E+9PN4fUk/2hAD2ag=";
+    };
+  };
+  feishu-lark-linux-arm64 = {
+    pname = "feishu-lark-linux-arm64";
+    version = "https://lf16-larkversion.larksuitecdn.com/obj/lark-version-sg/25ef09d6/Lark-linux_arm64-8.0.18.deb";
+    src = fetchurl {
+      url = "https://lf16-larkversion.larksuitecdn.com/obj/lark-version-sg/25ef09d6/Lark-linux_arm64-8.0.18.deb";
+      sha256 = "sha256-LT3UrFsNMPCg0/Ylf6aiggMDBle98ReqV5iAZbj6buw=";
+    };
+  };
+  feishu-lark-linux-x64 = {
+    pname = "feishu-lark-linux-x64";
+    version = "https://lf16-larkversion.larksuitecdn.com/obj/lark-version-sg/4c647c08/Lark-linux_x64-8.0.18.deb";
+    src = fetchurl {
+      url = "https://lf16-larkversion.larksuitecdn.com/obj/lark-version-sg/4c647c08/Lark-linux_x64-8.0.18.deb";
+      sha256 = "sha256-0WFobFrlLWmaFI12QxCGn1XTyoZtV6fiSWOq+oC2ejw=";
     };
   };
   gotron-sdk = {
@@ -115,13 +239,13 @@
   };
   hashtopolis-agent = {
     pname = "hashtopolis-agent";
-    version = "v0.7.4";
+    version = "v0.7.6";
     src = fetchFromGitHub {
       owner = "hashtopolis";
       repo = "agent-python";
-      rev = "v0.7.4";
+      rev = "v0.7.6";
       fetchSubmodules = false;
-      sha256 = "sha256-KyuDXE+B/Rq4N1noJvgNBif9po7b6p6SXco1yBoZWXw=";
+      sha256 = "sha256-wHeJLYFt8eiguj64T/8iiH6Z0zrb3o3lsDinw1cb2fs=";
     };
   };
   hashtopolis-server = {
@@ -133,6 +257,17 @@
       rev = "v1.0.1";
       fetchSubmodules = false;
       sha256 = "sha256-zrk8w9Qs1ZgSQ9wmOh4sK+6DSJTdglJeH5gpUB3hhfg=";
+    };
+  };
+  index-advisor = {
+    pname = "index-advisor";
+    version = "v0.2.1";
+    src = fetchFromGitHub {
+      owner = "supabase";
+      repo = "index_advisor";
+      rev = "v0.2.1";
+      fetchSubmodules = false;
+      sha256 = "sha256-l/Og7R63Boh6W8GmyR6l6yzE2Sn6zEhI6boUmPCQDDo=";
     };
   };
   larksuite-cli-darwin-arm64 = {
@@ -193,10 +328,81 @@
     pname = "my2sql";
     version = "69b39554cb116d02fba389ff258ca9736dea7437";
     src = fetchurl {
-      url = "https://github.com/liuhr/my2sql/raw/master/releases/centOS_release_7.x/my2sql";
+      url = "https://raw.githubusercontent.com/liuhr/my2sql/69b39554cb116d02fba389ff258ca9736dea7437/releases/centOS_release_7.x/my2sql";
       sha256 = "sha256-bKJQVZozAp5XDMMumJzHHUxLuh6sSmhSUyDWAeasuMg=";
     };
     date = "2026-04-23";
+  };
+  nautilus-ibapi = {
+    pname = "nautilus-ibapi";
+    version = "10.45.1";
+    src = fetchurl {
+      url = "https://files.pythonhosted.org/packages/py3/n/nautilus-ibapi/nautilus_ibapi-10.45.1-py3-none-any.whl";
+      sha256 = "sha256-NOqN+PUg3Vh2Z6q3qZFmGNezchA8LCwbaOw7bhnGnFI=";
+    };
+  };
+  nautilus-trader-linux-arm64 = {
+    pname = "nautilus-trader-linux-arm64";
+    version = "1.231.0";
+    src = fetchurl {
+      url = "https://files.pythonhosted.org/packages/cp313/n/nautilus-trader/nautilus_trader-1.231.0-cp313-cp313-manylinux_2_35_aarch64.whl";
+      sha256 = "sha256-5TbXySWzxHW+9PP451GWlE9rh1hxDkHaEQm4uDcAFpA=";
+    };
+  };
+  nautilus-trader-linux-x86_64 = {
+    pname = "nautilus-trader-linux-x86_64";
+    version = "1.231.0";
+    src = fetchurl {
+      url = "https://files.pythonhosted.org/packages/cp313/n/nautilus-trader/nautilus_trader-1.231.0-cp313-cp313-manylinux_2_35_x86_64.whl";
+      sha256 = "sha256-Qp6mHDOjLNhJjTng6pXrqhK42/wlxx+6uoRfKwXoq5E=";
+    };
+  };
+  nvkvm-pv = {
+    pname = "nvkvm-pv";
+    version = "39972874d22f5ba19e39827488b089e80a0c17f4";
+    src = fetchFromGitHub {
+      owner = "reindertpelsma";
+      repo = "nvkvm-pv";
+      rev = "39972874d22f5ba19e39827488b089e80a0c17f4";
+      fetchSubmodules = false;
+      sha256 = "sha256-M4hHu60LqvzcAT9xIUPpx2YXQLED7jGz6mwGskNhup8=";
+    };
+    date = "2026-09-28";
+  };
+  pg-ecdsa-verify = {
+    pname = "pg-ecdsa-verify";
+    version = "6cca981b2019192945613096eebd89f62c0c5b23";
+    src = fetchFromGitHub {
+      owner = "joelonsql";
+      repo = "pg_ecdsa_verify";
+      rev = "6cca981b2019192945613096eebd89f62c0c5b23";
+      fetchSubmodules = false;
+      sha256 = "sha256-kRSwsJsuz7aBKdxUq5wqzkoh14OBKEpJEkdn6TJcW6A=";
+    };
+    date = "2025-10-14";
+  };
+  pg-hashids = {
+    pname = "pg-hashids";
+    version = "8c404dd86408f3a987a3ff6825ac7e42bd618b98";
+    src = fetchFromGitHub {
+      owner = "iCyberon";
+      repo = "pg_hashids";
+      rev = "8c404dd86408f3a987a3ff6825ac7e42bd618b98";
+      fetchSubmodules = false;
+      sha256 = "sha256-mlS3YDE0VvF9zuLgz+EWSNLBZR1ptrU5A8ndY72194E=";
+    };
+    date = "2025-05-22";
+  };
+  pg-plan-filter = {
+    pname = "pg-plan-filter";
+    version = "v1.0.0";
+    src = fetchFromGitHub {
+      owner = "pgexperts";
+      repo = "pg_plan_filter";
+      rev = "v1.0.0";
+      fetchSubmodules = false;
+      sha256 = "sha256-/0BV4qFvK/CxCuY2iKtMsdn5JubEzG7IHixvOSZVfw4=";
+    };
   };
   sui = {
     pname = "sui";
@@ -219,34 +425,34 @@
   };
   unity-cli-darwin-arm64 = {
     pname = "unity-cli-darwin-arm64";
-    version = "1.0.0-beta.3";
+    version = "1.0.0-beta.14";
     src = fetchurl {
-      url = "https://public-cdn.cloud.unity3d.com/hub/prod/cli/1.0.0-beta.3/unity-darwin-arm64";
-      sha256 = "sha256-rfttvUvCAVBSpj0gl+xTW1QI9YXi4183VLmV4VQe70g=";
+      url = "https://public-cdn.cloud.unity3d.com/hub/prod/cli/1.0.0-beta.14/unity-darwin-arm64";
+      sha256 = "sha256-Nn6hJMYekdwiQJaZy0DS5l0jlS8yIOkRzOofbYof838=";
     };
   };
   unity-cli-darwin-x64 = {
     pname = "unity-cli-darwin-x64";
-    version = "1.0.0-beta.3";
+    version = "1.0.0-beta.14";
     src = fetchurl {
-      url = "https://public-cdn.cloud.unity3d.com/hub/prod/cli/1.0.0-beta.3/unity-darwin-x64";
-      sha256 = "sha256-0NOzVtEH8zPoZvcrlv9ED4EJdnFd+T3XnqKmt3fDtQ8=";
+      url = "https://public-cdn.cloud.unity3d.com/hub/prod/cli/1.0.0-beta.14/unity-darwin-x64";
+      sha256 = "sha256-V4xZI638ueHHicF+o0SgpxypS2loFVCnkyYLqJDuIvw=";
     };
   };
   unity-cli-linux-arm64 = {
     pname = "unity-cli-linux-arm64";
-    version = "1.0.0-beta.3";
+    version = "1.0.0-beta.14";
     src = fetchurl {
-      url = "https://public-cdn.cloud.unity3d.com/hub/prod/cli/1.0.0-beta.3/unity-linux-arm64";
-      sha256 = "sha256-Idor+Y0W261V3Tuxh6AQCKz+CDlgdeSRiA2X2Bip7xE=";
+      url = "https://public-cdn.cloud.unity3d.com/hub/prod/cli/1.0.0-beta.14/unity-linux-arm64";
+      sha256 = "sha256-SFQE3KG2oh29w4JJrO1pv6ncLLJtyZW8Hyn+m4YMUdU=";
     };
   };
   unity-cli-linux-x64 = {
     pname = "unity-cli-linux-x64";
-    version = "1.0.0-beta.3";
+    version = "1.0.0-beta.14";
     src = fetchurl {
-      url = "https://public-cdn.cloud.unity3d.com/hub/prod/cli/1.0.0-beta.3/unity-linux-x64";
-      sha256 = "sha256-m4mqpaZ26OW9ajhEqTmN77ljvTSVGGRFpGSkcFflTqM=";
+      url = "https://public-cdn.cloud.unity3d.com/hub/prod/cli/1.0.0-beta.14/unity-linux-x64";
+      sha256 = "sha256-2aLBcWznI7lwiY9/QK3AnM7uBOhM4vHxY48HrD6YmKo=";
     };
   };
 }
