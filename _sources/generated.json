@@ -74,11 +74,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-AdHeh2QRpkYyFW9KlyDX7WEHlO+vRtLZRV7//n5VxIU=",
+            "sha256": "sha256-MrzmmYKANklk65Wv+8mqTz9UdyHl/fjobqlTUpnayxc=",
             "type": "url",
-            "url": "https://github.com/casdoor/casdoor/releases/download/v4.24.0/casdoor_Darwin_arm64.tar.gz"
+            "url": "https://github.com/casdoor/casdoor/releases/download/v4.25.0/casdoor_Darwin_arm64.tar.gz"
         },
-        "version": "4.24.0"
+        "version": "4.25.0"
     },
     "casdoor-linux-arm64": {
         "cargoLock": null,
@@ -89,11 +89,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-YNtVsLUEVv8kAe5fY0voSf/d7V2djc34HlZgLsdR8sY=",
+            "sha256": "sha256-Zgzmf50BievHEHK+cKRVGhzfyqq9B/foLTqSnb1UNjc=",
             "type": "url",
-            "url": "https://github.com/casdoor/casdoor/releases/download/v4.24.0/casdoor_Linux_arm64.tar.gz"
+            "url": "https://github.com/casdoor/casdoor/releases/download/v4.25.0/casdoor_Linux_arm64.tar.gz"
         },
-        "version": "4.24.0"
+        "version": "4.25.0"
     },
     "casdoor-linux-x86_64": {
         "cargoLock": null,
@@ -104,11 +104,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-3UTCloP/tZ79v4vEopKCgJANFCg7yz4gr78Zn6LVcDk=",
+            "sha256": "sha256-Z1LgeilQNryDWmMNb/KFTJqSETtxifL5cQLAJu5RapA=",
             "type": "url",
-            "url": "https://github.com/casdoor/casdoor/releases/download/v4.24.0/casdoor_Linux_x86_64.tar.gz"
+            "url": "https://github.com/casdoor/casdoor/releases/download/v4.25.0/casdoor_Linux_x86_64.tar.gz"
         },
-        "version": "4.24.0"
+        "version": "4.25.0"
     },
     "casdoor-static": {
         "cargoLock": null,
@@ -139,11 +139,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-Lsugm+66LZw6lStKU4ewc9JIOK1cH0MmlZqyW1u7MZI=",
+            "sha256": "sha256-+4zZRogf4NDE10NKAoHO1xqTG1nk8y2c3vD1oSnBN4I=",
             "type": "url",
-            "url": "https://github.com/farion1231/cc-switch/releases/download/v4.0.21/CC-Switch-v4.0.21-macOS.tar.gz"
+            "url": "https://github.com/farion1231/cc-switch/releases/download/v4.0.22/CC-Switch-v4.0.22-macOS.tar.gz"
         },
-        "version": "4.0.21"
+        "version": "4.0.22"
     },
     "cc-switch-linux-arm64": {
         "cargoLock": null,
@@ -154,11 +154,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-Xc5TZi2H3yKngYrrlsIp/idSJItH9/f6wWb/cPs9BcE=",
+            "sha256": "sha256-sruGZQO/wsl0zi1ka7bnztojPm8ot51wJTUEwMHhdV0=",
             "type": "url",
-            "url": "https://github.com/farion1231/cc-switch/releases/download/v4.0.21/CC-Switch-v4.0.21-Linux-arm64.deb"
+            "url": "https://github.com/farion1231/cc-switch/releases/download/v4.0.22/CC-Switch-v4.0.22-Linux-arm64.deb"
         },
-        "version": "4.0.21"
+        "version": "4.0.22"
     },
     "cc-switch-linux-x86_64": {
         "cargoLock": null,
@@ -169,11 +169,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-6i9sqC2gBIIOCeDEc8pyVL+SkSgvACcunirfjxFOPmE=",
+            "sha256": "sha256-bmpD4PSL+hEghn5LopWapFtVMzLZ/sQhOh9eXbrcs8U=",
             "type": "url",
-            "url": "https://github.com/farion1231/cc-switch/releases/download/v4.0.21/CC-Switch-v4.0.21-Linux-x86_64.deb"
+            "url": "https://github.com/farion1231/cc-switch/releases/download/v4.0.22/CC-Switch-v4.0.22-Linux-x86_64.deb"
         },
-        "version": "4.0.21"
+        "version": "4.0.22"
     },
     "ccxt": {
         "cargoLock": null,
@@ -668,12 +668,12 @@
             "name": null,
             "owner": "supabase",
             "repo": "realtime",
-            "rev": "v2.150.1",
-            "sha256": "sha256-rPQzJ6HCDRPfjcCo6R4A5r9z+0nfxDDH04hO/AEDfbo=",
+            "rev": "v2.150.2",
+            "sha256": "sha256-oqClkITNTPLf1ihqfjs50G4y73Hbg52kSNasw5Nn/vg=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "v2.150.1"
+        "version": "v2.150.2"
     },
     "unity-cli-darwin-arm64": {
         "cargoLock": null,

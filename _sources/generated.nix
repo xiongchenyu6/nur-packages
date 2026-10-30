@@ -43,26 +43,26 @@
   };
   casdoor-darwin-arm64 = {
     pname = "casdoor-darwin-arm64";
-    version = "4.24.0";
+    version = "4.25.0";
     src = fetchurl {
-      url = "https://github.com/casdoor/casdoor/releases/download/v4.24.0/casdoor_Darwin_arm64.tar.gz";
-      sha256 = "sha256-AdHeh2QRpkYyFW9KlyDX7WEHlO+vRtLZRV7//n5VxIU=";
+      url = "https://github.com/casdoor/casdoor/releases/download/v4.25.0/casdoor_Darwin_arm64.tar.gz";
+      sha256 = "sha256-MrzmmYKANklk65Wv+8mqTz9UdyHl/fjobqlTUpnayxc=";
     };
   };
   casdoor-linux-arm64 = {
     pname = "casdoor-linux-arm64";
-    version = "4.24.0";
+    version = "4.25.0";
     src = fetchurl {
-      url = "https://github.com/casdoor/casdoor/releases/download/v4.24.0/casdoor_Linux_arm64.tar.gz";
-      sha256 = "sha256-YNtVsLUEVv8kAe5fY0voSf/d7V2djc34HlZgLsdR8sY=";
+      url = "https://github.com/casdoor/casdoor/releases/download/v4.25.0/casdoor_Linux_arm64.tar.gz";
+      sha256 = "sha256-Zgzmf50BievHEHK+cKRVGhzfyqq9B/foLTqSnb1UNjc=";
     };
   };
   casdoor-linux-x86_64 = {
     pname = "casdoor-linux-x86_64";
-    version = "4.24.0";
+    version = "4.25.0";
     src = fetchurl {
-      url = "https://github.com/casdoor/casdoor/releases/download/v4.24.0/casdoor_Linux_x86_64.tar.gz";
-      sha256 = "sha256-3UTCloP/tZ79v4vEopKCgJANFCg7yz4gr78Zn6LVcDk=";
+      url = "https://github.com/casdoor/casdoor/releases/download/v4.25.0/casdoor_Linux_x86_64.tar.gz";
+      sha256 = "sha256-Z1LgeilQNryDWmMNb/KFTJqSETtxifL5cQLAJu5RapA=";
     };
   };
   casdoor-static = {
@@ -81,26 +81,26 @@
   };
   cc-switch-darwin-arm64 = {
     pname = "cc-switch-darwin-arm64";
-    version = "4.0.21";
+    version = "4.0.22";
     src = fetchurl {
-      url = "https://github.com/farion1231/cc-switch/releases/download/v4.0.21/CC-Switch-v4.0.21-macOS.tar.gz";
-      sha256 = "sha256-Lsugm+66LZw6lStKU4ewc9JIOK1cH0MmlZqyW1u7MZI=";
+      url = "https://github.com/farion1231/cc-switch/releases/download/v4.0.22/CC-Switch-v4.0.22-macOS.tar.gz";
+      sha256 = "sha256-+4zZRogf4NDE10NKAoHO1xqTG1nk8y2c3vD1oSnBN4I=";
     };
   };
   cc-switch-linux-arm64 = {
     pname = "cc-switch-linux-arm64";
-    version = "4.0.21";
+    version = "4.0.22";
     src = fetchurl {
-      url = "https://github.com/farion1231/cc-switch/releases/download/v4.0.21/CC-Switch-v4.0.21-Linux-arm64.deb";
-      sha256 = "sha256-Xc5TZi2H3yKngYrrlsIp/idSJItH9/f6wWb/cPs9BcE=";
+      url = "https://github.com/farion1231/cc-switch/releases/download/v4.0.22/CC-Switch-v4.0.22-Linux-arm64.deb";
+      sha256 = "sha256-sruGZQO/wsl0zi1ka7bnztojPm8ot51wJTUEwMHhdV0=";
     };
   };
   cc-switch-linux-x86_64 = {
     pname = "cc-switch-linux-x86_64";
-    version = "4.0.21";
+    version = "4.0.22";
     src = fetchurl {
-      url = "https://github.com/farion1231/cc-switch/releases/download/v4.0.21/CC-Switch-v4.0.21-Linux-x86_64.deb";
-      sha256 = "sha256-6i9sqC2gBIIOCeDEc8pyVL+SkSgvACcunirfjxFOPmE=";
+      url = "https://github.com/farion1231/cc-switch/releases/download/v4.0.22/CC-Switch-v4.0.22-Linux-x86_64.deb";
+      sha256 = "sha256-bmpD4PSL+hEghn5LopWapFtVMzLZ/sQhOh9eXbrcs8U=";
     };
   };
   ccxt = {
@@ -366,13 +366,13 @@
   };
   supabase-realtime = {
     pname = "supabase-realtime";
-    version = "v2.150.1";
+    version = "v2.150.2";
     src = fetchFromGitHub {
       owner = "supabase";
       repo = "realtime";
-      rev = "v2.150.1";
+      rev = "v2.150.2";
       fetchSubmodules = false;
-      sha256 = "sha256-rPQzJ6HCDRPfjcCo6R4A5r9z+0nfxDDH04hO/AEDfbo=";
+      sha256 = "sha256-oqClkITNTPLf1ihqfjs50G4y73Hbg52kSNasw5Nn/vg=";
     };
   };
   unity-cli-darwin-arm64 = {
