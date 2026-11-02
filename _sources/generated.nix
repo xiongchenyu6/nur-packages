@@ -81,26 +81,26 @@
   };
   cc-switch-darwin-arm64 = {
     pname = "cc-switch-darwin-arm64";
-    version = "4.0.24";
+    version = "4.0.25";
     src = fetchurl {
-      url = "https://github.com/farion1231/cc-switch/releases/download/v4.0.24/CC-Switch-v4.0.24-macOS.tar.gz";
-      sha256 = "sha256-aQUkMfnMcEnizsQK2fCoytL2ZdXOI2bKVeLPvfnlahM=";
+      url = "https://github.com/farion1231/cc-switch/releases/download/v4.0.25/CC-Switch-v4.0.25-macOS.tar.gz";
+      sha256 = "sha256-+GQGzDLi6c84cQlcvTVnBkEcYmIKS5f2wA3+NxZ9d+M=";
     };
   };
   cc-switch-linux-arm64 = {
     pname = "cc-switch-linux-arm64";
-    version = "4.0.24";
+    version = "4.0.25";
     src = fetchurl {
-      url = "https://github.com/farion1231/cc-switch/releases/download/v4.0.24/CC-Switch-v4.0.24-Linux-arm64.deb";
-      sha256 = "sha256-KzPbHJt0uRtQK7Br3T5DeoV+Bj6rEsF89W2cvBVa4qA=";
+      url = "https://github.com/farion1231/cc-switch/releases/download/v4.0.25/CC-Switch-v4.0.25-Linux-arm64.deb";
+      sha256 = "sha256-KHPKw1ozBTeNqHI/w9l/0lNA5Cv61IkpxF7PZgwTxqM=";
     };
   };
   cc-switch-linux-x86_64 = {
     pname = "cc-switch-linux-x86_64";
-    version = "4.0.24";
+    version = "4.0.25";
     src = fetchurl {
-      url = "https://github.com/farion1231/cc-switch/releases/download/v4.0.24/CC-Switch-v4.0.24-Linux-x86_64.deb";
-      sha256 = "sha256-dNnTexx7DKY/n6yYcpcCDJkfbOHbGzjZLEbpmq+rnYs=";
+      url = "https://github.com/farion1231/cc-switch/releases/download/v4.0.25/CC-Switch-v4.0.25-Linux-x86_64.deb";
+      sha256 = "sha256-E7N3xQXOjyURphS7HgG8VWbsq60Rm7Cwh6w3gcbYgQg=";
     };
   };
   ccxt = {
@@ -175,26 +175,26 @@
   };
   happier-cli-darwin-arm64 = {
     pname = "happier-cli-darwin-arm64";
-    version = "0.2.17";
+    version = "0.2.19-dev.1";
     src = fetchurl {
-      url = "https://github.com/happier-dev/happier/releases/download/cli-v0.2.17/happier-v0.2.17-darwin-arm64.tar.gz";
-      sha256 = "sha256-E+EkNhYdy3P8knqH3gLVZdAvW+ab7VQM9vcH6+4K4cE=";
+      url = "https://github.com/happier-dev/happier/releases/download/cli-v0.2.19-dev.1/happier-v0.2.19-dev.1-darwin-arm64.tar.gz";
+      sha256 = "sha256-QEQSdUkNQALbmsnKYb7fsrHyKEc2bOhmR/Makbv9RqM=";
     };
   };
   happier-cli-linux-arm64 = {
     pname = "happier-cli-linux-arm64";
-    version = "0.2.17";
+    version = "0.2.19-dev.1";
     src = fetchurl {
-      url = "https://github.com/happier-dev/happier/releases/download/cli-v0.2.17/happier-v0.2.17-linux-arm64.tar.gz";
-      sha256 = "sha256-gOMRDcVaKiLwzKbSaQNxW2dYHrVQm+TkpAO1iYIUu0Q=";
+      url = "https://github.com/happier-dev/happier/releases/download/cli-v0.2.19-dev.1/happier-v0.2.19-dev.1-linux-arm64.tar.gz";
+      sha256 = "sha256-39GxJh6dVWuSBiYKVNp/jcYlUO6ZIV55Q8dGMluDavE=";
     };
   };
   happier-cli-linux-x86_64 = {
     pname = "happier-cli-linux-x86_64";
-    version = "0.2.17";
+    version = "0.2.19-dev.1";
     src = fetchurl {
-      url = "https://github.com/happier-dev/happier/releases/download/cli-v0.2.17/happier-v0.2.17-linux-x64.tar.gz";
-      sha256 = "sha256-lpMo7VKWEZ0Y48pIg54LqvtdBdHtcEevrPusBk/Yy8Q=";
+      url = "https://github.com/happier-dev/happier/releases/download/cli-v0.2.19-dev.1/happier-v0.2.19-dev.1-linux-x64.tar.gz";
+      sha256 = "sha256-blvh7XCZ/G2WSjDLO92/5lpscjEBnpmmkOMtknX5vKg=";
     };
   };
   hashtopolis-agent = {
