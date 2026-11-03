@@ -175,26 +175,26 @@
   };
   happier-cli-darwin-arm64 = {
     pname = "happier-cli-darwin-arm64";
-    version = "0.2.19-dev.1";
+    version = "0.2.20";
     src = fetchurl {
-      url = "https://github.com/happier-dev/happier/releases/download/cli-v0.2.19-dev.1/happier-v0.2.19-dev.1-darwin-arm64.tar.gz";
-      sha256 = "sha256-QEQSdUkNQALbmsnKYb7fsrHyKEc2bOhmR/Makbv9RqM=";
+      url = "https://github.com/happier-dev/happier/releases/download/cli-v0.2.20/happier-v0.2.20-darwin-arm64.tar.gz";
+      sha256 = "sha256-dVsQnL+ZJjLSizk5R4tYrpSal2bEu5Dtn22LdUXD7+4=";
     };
   };
   happier-cli-linux-arm64 = {
     pname = "happier-cli-linux-arm64";
-    version = "0.2.19-dev.1";
+    version = "0.2.20";
     src = fetchurl {
-      url = "https://github.com/happier-dev/happier/releases/download/cli-v0.2.19-dev.1/happier-v0.2.19-dev.1-linux-arm64.tar.gz";
-      sha256 = "sha256-39GxJh6dVWuSBiYKVNp/jcYlUO6ZIV55Q8dGMluDavE=";
+      url = "https://github.com/happier-dev/happier/releases/download/cli-v0.2.20/happier-v0.2.20-linux-arm64.tar.gz";
+      sha256 = "sha256-sPiv47aUHw4RokC1n8FXIdpyasFqrY8SLJpkUVmC8Yg=";
     };
   };
   happier-cli-linux-x86_64 = {
     pname = "happier-cli-linux-x86_64";
-    version = "0.2.19-dev.1";
+    version = "0.2.20";
     src = fetchurl {
-      url = "https://github.com/happier-dev/happier/releases/download/cli-v0.2.19-dev.1/happier-v0.2.19-dev.1-linux-x64.tar.gz";
-      sha256 = "sha256-blvh7XCZ/G2WSjDLO92/5lpscjEBnpmmkOMtknX5vKg=";
+      url = "https://github.com/happier-dev/happier/releases/download/cli-v0.2.20/happier-v0.2.20-linux-x64.tar.gz";
+      sha256 = "sha256-ysiQuQ5TMJr9UXgzIBexlQcc8ePdNzrF2FJMK7LHS2A=";
     };
   };
   hashtopolis-agent = {
@@ -366,13 +366,13 @@
   };
   supabase-realtime = {
     pname = "supabase-realtime";
-    version = "v2.151.5";
+    version = "v2.151.6";
     src = fetchFromGitHub {
       owner = "supabase";
       repo = "realtime";
-      rev = "v2.151.5";
+      rev = "v2.151.6";
       fetchSubmodules = false;
-      sha256 = "sha256-2Z8Kky1xqKXthUtonGssMjGVUzAoYVBERVWP1hkfK8g=";
+      sha256 = "sha256-oemfLTfroVZEP74YRL/jlP8cuueC3Tv4pQ7DtcpVvvU=";
     };
   };
   unity-cli-darwin-arm64 = {
