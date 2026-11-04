@@ -81,6 +81,26 @@ jobs:
           nix shell --inputs-from . nixpkgs#bash nixpkgs#jq nixpkgs#ripgrep nixpkgs#perl \
             --command bash scripts/update-changed-packages.sh
 
+  dependabot-merge:
+    # Dependabot here only bumps Actions, so every one of its PRs edits
+    # .github/workflows, which GITHUB_TOKEN is never allowed to merge. The token
+    # is a PAT with the Workflows permission, stored as a *Dependabot* secret:
+    # Dependabot-triggered runs cannot read ordinary Actions secrets.
+    needs: build
+    if: github.event_name == 'pull_request' && github.event.pull_request.user.login == 'dependabot[bot]'
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Merge the Dependabot PR after every architecture passes
+        env:
+          GH_TOKEN: ${{ secrets.DEPENDABOT_MERGE_TOKEN }}
+          PR_URL: ${{ github.event.pull_request.html_url }}
+        run: |
+          if [ -z "${GH_TOKEN:-}" ]; then
+            echo "::error::Dependabot secret DEPENDABOT_MERGE_TOKEN is not set"
+            exit 1
+          fi
+          gh pr merge "$PR_URL" --squash
+
   notify:
     needs: build
     if: github.event_name != 'pull_request' && !inputs.update-patch
