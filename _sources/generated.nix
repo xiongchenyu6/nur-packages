@@ -199,13 +199,13 @@
   };
   hashtopolis-agent = {
     pname = "hashtopolis-agent";
-    version = "v0.7.6";
+    version = "v0.7.7";
     src = fetchFromGitHub {
       owner = "hashtopolis";
       repo = "agent-python";
-      rev = "v0.7.6";
+      rev = "v0.7.7";
       fetchSubmodules = false;
-      sha256 = "sha256-wHeJLYFt8eiguj64T/8iiH6Z0zrb3o3lsDinw1cb2fs=";
+      sha256 = "sha256-1VfOexOrYXJVlET5hoUC1mBETNiNc7/FqPModnOGOtI=";
     };
   };
   hashtopolis-server = {
@@ -366,13 +366,13 @@
   };
   supabase-realtime = {
     pname = "supabase-realtime";
-    version = "v2.152.0";
+    version = "v2.153.0";
     src = fetchFromGitHub {
       owner = "supabase";
       repo = "realtime";
-      rev = "v2.152.0";
+      rev = "v2.153.0";
       fetchSubmodules = false;
-      sha256 = "sha256-a1vECc9t8YuKpETF1kQ/ylim8Io+ECDHb8wnPOqdko0=";
+      sha256 = "sha256-s/2UHJ8DgL9xXuN7jYlqsu/NnG7MhOC6+Vr8A4mYllk=";
     };
   };
   unity-cli-darwin-arm64 = {
