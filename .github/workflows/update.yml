@@ -59,7 +59,7 @@ jobs:
           git diff --cached --binary > "$RUNNER_TEMP/update.patch"
           git diff --cached --stat
           echo "changed=true" >> "$GITHUB_OUTPUT"
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         if: steps.patch.outputs.changed == 'true'
         with:
           name: dependency-update-patch
