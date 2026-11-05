@@ -43,26 +43,26 @@
   };
   casdoor-darwin-arm64 = {
     pname = "casdoor-darwin-arm64";
-    version = "4.25.0";
+    version = "4.26.0";
     src = fetchurl {
-      url = "https://github.com/casdoor/casdoor/releases/download/v4.25.0/casdoor_Darwin_arm64.tar.gz";
-      sha256 = "sha256-MrzmmYKANklk65Wv+8mqTz9UdyHl/fjobqlTUpnayxc=";
+      url = "https://github.com/casdoor/casdoor/releases/download/v4.26.0/casdoor_Darwin_arm64.tar.gz";
+      sha256 = "sha256-zhJv8yY8/GHOO5nyw/4NsdKgH2CjvVXgEdDxia5kYP8=";
     };
   };
   casdoor-linux-arm64 = {
     pname = "casdoor-linux-arm64";
-    version = "4.25.0";
+    version = "4.26.0";
     src = fetchurl {
-      url = "https://github.com/casdoor/casdoor/releases/download/v4.25.0/casdoor_Linux_arm64.tar.gz";
-      sha256 = "sha256-Zgzmf50BievHEHK+cKRVGhzfyqq9B/foLTqSnb1UNjc=";
+      url = "https://github.com/casdoor/casdoor/releases/download/v4.26.0/casdoor_Linux_arm64.tar.gz";
+      sha256 = "sha256-ZeNcF2qP7kxInu3j6Wf/WRViI/CALUPt/DRhc0h9fnE=";
     };
   };
   casdoor-linux-x86_64 = {
     pname = "casdoor-linux-x86_64";
-    version = "4.25.0";
+    version = "4.26.0";
     src = fetchurl {
-      url = "https://github.com/casdoor/casdoor/releases/download/v4.25.0/casdoor_Linux_x86_64.tar.gz";
-      sha256 = "sha256-Z1LgeilQNryDWmMNb/KFTJqSETtxifL5cQLAJu5RapA=";
+      url = "https://github.com/casdoor/casdoor/releases/download/v4.26.0/casdoor_Linux_x86_64.tar.gz";
+      sha256 = "sha256-FFZfNGvz714ZQhCIHbPnj84OydcuACza9FwfIx8A1EM=";
     };
   };
   casdoor-static = {
@@ -81,26 +81,26 @@
   };
   cc-switch-darwin-arm64 = {
     pname = "cc-switch-darwin-arm64";
-    version = "4.0.25";
+    version = "4.0.26";
     src = fetchurl {
-      url = "https://github.com/farion1231/cc-switch/releases/download/v4.0.25/CC-Switch-v4.0.25-macOS.tar.gz";
-      sha256 = "sha256-+GQGzDLi6c84cQlcvTVnBkEcYmIKS5f2wA3+NxZ9d+M=";
+      url = "https://github.com/farion1231/cc-switch/releases/download/v4.0.26/CC-Switch-v4.0.26-macOS.tar.gz";
+      sha256 = "sha256-bG1DuZsQF0TO6GT6MXUc92/QrUwcIIShBd/KxoU5Nu4=";
     };
   };
   cc-switch-linux-arm64 = {
     pname = "cc-switch-linux-arm64";
-    version = "4.0.25";
+    version = "4.0.26";
     src = fetchurl {
-      url = "https://github.com/farion1231/cc-switch/releases/download/v4.0.25/CC-Switch-v4.0.25-Linux-arm64.deb";
-      sha256 = "sha256-KHPKw1ozBTeNqHI/w9l/0lNA5Cv61IkpxF7PZgwTxqM=";
+      url = "https://github.com/farion1231/cc-switch/releases/download/v4.0.26/CC-Switch-v4.0.26-Linux-arm64.deb";
+      sha256 = "sha256-rk5c3yQuDcGwwKDjaw2WfQjPxkY16PQ/5wxAmoYIO0E=";
     };
   };
   cc-switch-linux-x86_64 = {
     pname = "cc-switch-linux-x86_64";
-    version = "4.0.25";
+    version = "4.0.26";
     src = fetchurl {
-      url = "https://github.com/farion1231/cc-switch/releases/download/v4.0.25/CC-Switch-v4.0.25-Linux-x86_64.deb";
-      sha256 = "sha256-E7N3xQXOjyURphS7HgG8VWbsq60Rm7Cwh6w3gcbYgQg=";
+      url = "https://github.com/farion1231/cc-switch/releases/download/v4.0.26/CC-Switch-v4.0.26-Linux-x86_64.deb";
+      sha256 = "sha256-bTDh8IMV21n195KIaa1/NEJiTUVYDPt8h35UE0tVrjo=";
     };
   };
   ccxt = {
@@ -210,13 +210,13 @@
   };
   hashtopolis-server = {
     pname = "hashtopolis-server";
-    version = "v1.0.1";
+    version = "v1.1.0";
     src = fetchFromGitHub {
       owner = "hashtopolis";
       repo = "server";
-      rev = "v1.0.1";
+      rev = "v1.1.0";
       fetchSubmodules = false;
-      sha256 = "sha256-zrk8w9Qs1ZgSQ9wmOh4sK+6DSJTdglJeH5gpUB3hhfg=";
+      sha256 = "sha256-SkaxV+yIYvLaFdduD/zHH0XCV45Q1F3PJ7tb7SvMVzU=";
     };
   };
   index-advisor = {
@@ -361,18 +361,18 @@
     version = "mainnet-v1.83.1";
     src = fetchurl {
       url = "https://github.com/MystenLabs/sui/releases/download/mainnet-v1.83.1/sui-mainnet-v1.83.1-ubuntu-x86_64.tgz";
-      sha256 = "sha256-Glk0T34Xw/aUwvF/SiPCnlUpPV1espTQ3K//MEsYg0c=";
+      sha256 = "sha256-pUsk2jyP1LiFIvAchxiCauVjdRLuCVNGmldZQI4fcBs=";
     };
   };
   supabase-realtime = {
     pname = "supabase-realtime";
-    version = "v2.153.3";
+    version = "v2.153.4";
     src = fetchFromGitHub {
       owner = "supabase";
       repo = "realtime";
-      rev = "v2.153.3";
+      rev = "v2.153.4";
       fetchSubmodules = false;
-      sha256 = "sha256-DzA46MQ43rUgF0HEjAFQFrD507dGrDZaGWVsbDHjvvQ=";
+      sha256 = "sha256-d6Z3Ox1Xxz0I2RUMu6VClPa0Eh1rJs9ZoCfPtf4Dsz8=";
     };
   };
   unity-cli-darwin-arm64 = {
