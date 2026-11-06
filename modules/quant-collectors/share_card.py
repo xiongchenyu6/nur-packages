@@ -169,8 +169,8 @@ def render_personal(rows: list[dict], summary: dict, as_of: datetime) -> bytes:
            font=_font(26), fill=MUTED)
     n_closed = summary["n_closed"]
     if n_closed:
-        ret = summary["closed_compound"]
-        d.text((60, 92), "已平仓的信号依次复利", font=_font(40, "Bold"), fill=TEXT)
+        ret = summary["avg_closed_ret"]
+        d.text((60, 92), "已平仓信号平均每笔", font=_font(40, "Bold"), fill=TEXT)
         d.text((60, 150), _pct(ret), font=_font(130, "Black"), fill=GREEN if ret >= 0 else RED)
         stats = (f"记录 {summary['n_followed']} 笔 · 已平仓 {n_closed} 笔 · "
                  f"胜率 {summary['n_wins'] / n_closed * 100:.0f}% · 持有中 {summary['n_open']} 笔")

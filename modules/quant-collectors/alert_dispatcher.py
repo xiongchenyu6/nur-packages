@@ -656,7 +656,7 @@ def format_personal(rows: list[dict], summary: dict | None) -> str:
     lines = ["📒 <b>我的跟单记录</b>",
              f"记录了 {summary['n_followed']} 笔:已平仓 {n_closed} 笔,持有中 {n_open} 笔"]
     if n_closed:
-        lines.append(f"已平仓的依次复利 {_pct(summary['closed_compound'])},"
+        lines.append(f"已平仓平均每笔 {_pct(summary['avg_closed_ret'])},"
                      f"胜率 {summary['n_wins'] / n_closed * 100:.0f}%({summary['n_wins']}/{n_closed})")
     lines.append("")
     for r in rows[:PERSONAL_RECENT]:
@@ -670,7 +670,7 @@ def format_personal(rows: list[dict], summary: dict | None) -> str:
     if len(rows) > PERSONAL_RECENT:
         lines.append(f"…共 {len(rows)} 笔")
     lines.append("\n按信号价格计算、已扣买卖各 0.1% 手续费,不是你的真实成交;"
-                 "每笔按相同资金依次复利。")
+                 "收益按已平仓各笔平均计算。")
     lines.append(f"👉 在网页上查看或修改:{mine}")
     return "\n".join(lines) + SIM_DISCLAIMER
 
