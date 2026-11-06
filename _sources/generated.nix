@@ -366,37 +366,37 @@
   };
   supabase-realtime = {
     pname = "supabase-realtime";
-    version = "v2.153.4";
+    version = "v2.153.5";
     src = fetchFromGitHub {
       owner = "supabase";
       repo = "realtime";
-      rev = "v2.153.4";
+      rev = "v2.153.5";
       fetchSubmodules = false;
-      sha256 = "sha256-d6Z3Ox1Xxz0I2RUMu6VClPa0Eh1rJs9ZoCfPtf4Dsz8=";
+      sha256 = "sha256-F4fe5TVrqLP2X4aSjrkIWdAn36wvLi65Yet1RRRShzw=";
     };
   };
   unity-cli-darwin-arm64 = {
     pname = "unity-cli-darwin-arm64";
-    version = "1.0.0-beta.16";
+    version = "1.0.0-beta.17";
     src = fetchurl {
-      url = "https://public-cdn.cloud.unity3d.com/hub/prod/cli/1.0.0-beta.16/unity-darwin-arm64";
-      sha256 = "sha256-hI8ZyR3WkmleAa4wjguyMGDFR7EAjlhmOkc9OM1Wh3I=";
+      url = "https://public-cdn.cloud.unity3d.com/hub/prod/cli/1.0.0-beta.17/unity-darwin-arm64";
+      sha256 = "sha256-sUzlHi+HLzCuHontnvD/0HqgYWD5GKrewJRxsvgoRus=";
     };
   };
   unity-cli-linux-arm64 = {
     pname = "unity-cli-linux-arm64";
-    version = "1.0.0-beta.16";
+    version = "1.0.0-beta.17";
     src = fetchurl {
-      url = "https://public-cdn.cloud.unity3d.com/hub/prod/cli/1.0.0-beta.16/unity-linux-arm64";
-      sha256 = "sha256-ICNoX1RPixBaxIIMyY0eV+b8d70p9x/jqyCVzUczxrI=";
+      url = "https://public-cdn.cloud.unity3d.com/hub/prod/cli/1.0.0-beta.17/unity-linux-arm64";
+      sha256 = "sha256-T9iAoOdAbemGdH5fSEcxqYOOCXqeDnD09sTaqUY+L8E=";
     };
   };
   unity-cli-linux-x64 = {
     pname = "unity-cli-linux-x64";
-    version = "1.0.0-beta.16";
+    version = "1.0.0-beta.17";
     src = fetchurl {
-      url = "https://public-cdn.cloud.unity3d.com/hub/prod/cli/1.0.0-beta.16/unity-linux-x64";
-      sha256 = "sha256-pfTS7Y99/EpcsoHclt/L9V0+robg5CTzfuyYUH4mR08=";
+      url = "https://public-cdn.cloud.unity3d.com/hub/prod/cli/1.0.0-beta.17/unity-linux-x64";
+      sha256 = "sha256-L1JG7lvqUDLaKRf18BJdPP6APIXcNPeL11pCfbE6Czw=";
     };
   };
 }

@@ -668,12 +668,12 @@
             "name": null,
             "owner": "supabase",
             "repo": "realtime",
-            "rev": "v2.153.4",
-            "sha256": "sha256-d6Z3Ox1Xxz0I2RUMu6VClPa0Eh1rJs9ZoCfPtf4Dsz8=",
+            "rev": "v2.153.5",
+            "sha256": "sha256-F4fe5TVrqLP2X4aSjrkIWdAn36wvLi65Yet1RRRShzw=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "v2.153.4"
+        "version": "v2.153.5"
     },
     "unity-cli-darwin-arm64": {
         "cargoLock": null,
@@ -684,11 +684,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-hI8ZyR3WkmleAa4wjguyMGDFR7EAjlhmOkc9OM1Wh3I=",
+            "sha256": "sha256-sUzlHi+HLzCuHontnvD/0HqgYWD5GKrewJRxsvgoRus=",
             "type": "url",
-            "url": "https://public-cdn.cloud.unity3d.com/hub/prod/cli/1.0.0-beta.16/unity-darwin-arm64"
+            "url": "https://public-cdn.cloud.unity3d.com/hub/prod/cli/1.0.0-beta.17/unity-darwin-arm64"
         },
-        "version": "1.0.0-beta.16"
+        "version": "1.0.0-beta.17"
     },
     "unity-cli-linux-arm64": {
         "cargoLock": null,
@@ -699,11 +699,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-ICNoX1RPixBaxIIMyY0eV+b8d70p9x/jqyCVzUczxrI=",
+            "sha256": "sha256-T9iAoOdAbemGdH5fSEcxqYOOCXqeDnD09sTaqUY+L8E=",
             "type": "url",
-            "url": "https://public-cdn.cloud.unity3d.com/hub/prod/cli/1.0.0-beta.16/unity-linux-arm64"
+            "url": "https://public-cdn.cloud.unity3d.com/hub/prod/cli/1.0.0-beta.17/unity-linux-arm64"
         },
-        "version": "1.0.0-beta.16"
+        "version": "1.0.0-beta.17"
     },
     "unity-cli-linux-x64": {
         "cargoLock": null,
@@ -714,10 +714,10 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-pfTS7Y99/EpcsoHclt/L9V0+robg5CTzfuyYUH4mR08=",
+            "sha256": "sha256-L1JG7lvqUDLaKRf18BJdPP6APIXcNPeL11pCfbE6Czw=",
             "type": "url",
-            "url": "https://public-cdn.cloud.unity3d.com/hub/prod/cli/1.0.0-beta.16/unity-linux-x64"
+            "url": "https://public-cdn.cloud.unity3d.com/hub/prod/cli/1.0.0-beta.17/unity-linux-x64"
         },
-        "version": "1.0.0-beta.16"
+        "version": "1.0.0-beta.17"
     }
 }
