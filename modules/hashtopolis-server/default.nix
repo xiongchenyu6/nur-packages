@@ -216,6 +216,7 @@ in
       "d ${cfg.dataDir}/config 0755 hashtopolis hashtopolis -"
       "d ${cfg.dataDir}/locks 0755 hashtopolis hashtopolis -"
       "d ${cfg.dataDir}/tus 0755 hashtopolis hashtopolis -"
+      "d ${cfg.dataDir}/crackers 0755 hashtopolis hashtopolis -"
     ];
 
     # Create database if requested
@@ -252,6 +253,7 @@ in
         HASHTOPOLIS_CONFIG_PATH = "${cfg.dataDir}/config";
         HASHTOPOLIS_LOCKS_PATH = "${cfg.dataDir}/locks";
         HASHTOPOLIS_TUS_PATH = "${cfg.dataDir}/tus";
+        HASHTOPOLIS_CRACKERS_PATH = "${cfg.dataDir}/crackers";
       };
 
       serviceConfig = {
