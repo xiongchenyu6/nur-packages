@@ -67,40 +67,40 @@
   };
   casdoor-static = {
     pname = "casdoor-static";
-    version = "5fbd6804646af3ff922c12c26a69af2a9f585177";
+    version = "a1cfa2511063dff490b29c74fe95c72046518c9c";
     src = fetchgit {
       url = "https://github.com/casdoor/static.git";
-      rev = "5fbd6804646af3ff922c12c26a69af2a9f585177";
+      rev = "a1cfa2511063dff490b29c74fe95c72046518c9c";
       fetchSubmodules = false;
       deepClone = false;
       leaveDotGit = false;
       sparseCheckout = [ ];
-      sha256 = "sha256-JVv3MB89yWSVdQJ6PPhzN8fwNAPxpnVVvQAFjwfyQN0=";
+      sha256 = "sha256-WaIZ2XVu/goSH4+OlBliaXhtWwuBIqcz52yjN1/sXmg=";
     };
-    date = "2026-09-25";
+    date = "2026-11-10";
   };
   cc-switch-darwin-arm64 = {
     pname = "cc-switch-darwin-arm64";
-    version = "4.0.28";
+    version = "4.0.29";
     src = fetchurl {
-      url = "https://github.com/farion1231/cc-switch/releases/download/v4.0.28/CC-Switch-v4.0.28-macOS.tar.gz";
-      sha256 = "sha256-SI/xixTLY2Oy3lYNli0kvHW4J8SkHoQZY/TmFlV5QNs=";
+      url = "https://github.com/farion1231/cc-switch/releases/download/v4.0.29/CC-Switch-v4.0.29-macOS.tar.gz";
+      sha256 = "sha256-vDLbojCPIw7COMZVX05EMeYA3BsrxRcnx5mqZBrdHaM=";
     };
   };
   cc-switch-linux-arm64 = {
     pname = "cc-switch-linux-arm64";
-    version = "4.0.28";
+    version = "4.0.29";
     src = fetchurl {
-      url = "https://github.com/farion1231/cc-switch/releases/download/v4.0.28/CC-Switch-v4.0.28-Linux-arm64.deb";
-      sha256 = "sha256-mGxvqUBQnsnGdsB8C5aYFS1dq51vIYUhhPaOPiRl4Vo=";
+      url = "https://github.com/farion1231/cc-switch/releases/download/v4.0.29/CC-Switch-v4.0.29-Linux-arm64.deb";
+      sha256 = "sha256-Bn8CFQptkSBzjgpKEzLoa/uT/NqczRiOK9I/OYBz+qg=";
     };
   };
   cc-switch-linux-x86_64 = {
     pname = "cc-switch-linux-x86_64";
-    version = "4.0.28";
+    version = "4.0.29";
     src = fetchurl {
-      url = "https://github.com/farion1231/cc-switch/releases/download/v4.0.28/CC-Switch-v4.0.28-Linux-x86_64.deb";
-      sha256 = "sha256-Qd9othcf6MymIdcQbTXNB1N6hUwgv0KvKl5eGJ0V+T4=";
+      url = "https://github.com/farion1231/cc-switch/releases/download/v4.0.29/CC-Switch-v4.0.29-Linux-x86_64.deb";
+      sha256 = "sha256-8O7snD6JIJnEV97nl0avAQI9Pqu0HjV+bKS7vGF444o=";
     };
   };
   ccxt = {
@@ -232,34 +232,34 @@
   };
   larksuite-cli-darwin-arm64 = {
     pname = "larksuite-cli-darwin-arm64";
-    version = "1.0.99";
+    version = "1.0.100";
     src = fetchurl {
-      url = "https://github.com/larksuite/cli/releases/download/v1.0.99/lark-cli-1.0.99-darwin-arm64.tar.gz";
-      sha256 = "sha256-8k9BBtGwsaTumiTsCVPe5uUYR2u+PZdY94pzJHdSWyE=";
+      url = "https://github.com/larksuite/cli/releases/download/v1.0.100/lark-cli-1.0.100-darwin-arm64.tar.gz";
+      sha256 = "sha256-0Giif2CDNQFqin+xs80fzPuWvakgdaAn4r8cTCMTTjA=";
     };
   };
   larksuite-cli-linux-arm64 = {
     pname = "larksuite-cli-linux-arm64";
-    version = "1.0.99";
+    version = "1.0.100";
     src = fetchurl {
-      url = "https://github.com/larksuite/cli/releases/download/v1.0.99/lark-cli-1.0.99-linux-arm64.tar.gz";
-      sha256 = "sha256-KDcUXnKSLVWFOElNDaMKxsUJaB/AeR+IGPTduH9RJbQ=";
+      url = "https://github.com/larksuite/cli/releases/download/v1.0.100/lark-cli-1.0.100-linux-arm64.tar.gz";
+      sha256 = "sha256-Fm6V/67DT4ISP1AxZIAlAymITAnnGm+SMTBH4sXD+l0=";
     };
   };
   larksuite-cli-linux-riscv64 = {
     pname = "larksuite-cli-linux-riscv64";
-    version = "1.0.99";
+    version = "1.0.100";
     src = fetchurl {
-      url = "https://github.com/larksuite/cli/releases/download/v1.0.99/lark-cli-1.0.99-linux-riscv64.tar.gz";
-      sha256 = "sha256-Mb7W6BezRGYJ23z6bYKlAUlP9gZEqMc23tkY/EB8k3w=";
+      url = "https://github.com/larksuite/cli/releases/download/v1.0.100/lark-cli-1.0.100-linux-riscv64.tar.gz";
+      sha256 = "sha256-RKyHwk2rMchAq/DH/nzXrVuItbcrh2xfrIZlJ7DUgCI=";
     };
   };
   larksuite-cli-linux-x86_64 = {
     pname = "larksuite-cli-linux-x86_64";
-    version = "1.0.99";
+    version = "1.0.100";
     src = fetchurl {
-      url = "https://github.com/larksuite/cli/releases/download/v1.0.99/lark-cli-1.0.99-linux-amd64.tar.gz";
-      sha256 = "sha256-/Sn1EDDd5pGbbKkXO8h4UtOEbyU9GYAi6i2e5jUnuUU=";
+      url = "https://github.com/larksuite/cli/releases/download/v1.0.100/lark-cli-1.0.100-linux-amd64.tar.gz";
+      sha256 = "sha256-zXNj9zHJ5d0r7NkJg3kiz/6oqtIp1YGoTrE8aqDOaAg=";
     };
   };
   librime-lua = {

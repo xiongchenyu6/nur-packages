@@ -112,7 +112,7 @@
     },
     "casdoor-static": {
         "cargoLock": null,
-        "date": "2026-09-25",
+        "date": "2026-11-10",
         "extract": null,
         "name": "casdoor-static",
         "passthru": null,
@@ -122,13 +122,13 @@
             "fetchSubmodules": false,
             "leaveDotGit": false,
             "name": null,
-            "rev": "5fbd6804646af3ff922c12c26a69af2a9f585177",
-            "sha256": "sha256-JVv3MB89yWSVdQJ6PPhzN8fwNAPxpnVVvQAFjwfyQN0=",
+            "rev": "a1cfa2511063dff490b29c74fe95c72046518c9c",
+            "sha256": "sha256-WaIZ2XVu/goSH4+OlBliaXhtWwuBIqcz52yjN1/sXmg=",
             "sparseCheckout": [],
             "type": "git",
             "url": "https://github.com/casdoor/static.git"
         },
-        "version": "5fbd6804646af3ff922c12c26a69af2a9f585177"
+        "version": "a1cfa2511063dff490b29c74fe95c72046518c9c"
     },
     "cc-switch-darwin-arm64": {
         "cargoLock": null,
@@ -139,11 +139,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-SI/xixTLY2Oy3lYNli0kvHW4J8SkHoQZY/TmFlV5QNs=",
+            "sha256": "sha256-vDLbojCPIw7COMZVX05EMeYA3BsrxRcnx5mqZBrdHaM=",
             "type": "url",
-            "url": "https://github.com/farion1231/cc-switch/releases/download/v4.0.28/CC-Switch-v4.0.28-macOS.tar.gz"
+            "url": "https://github.com/farion1231/cc-switch/releases/download/v4.0.29/CC-Switch-v4.0.29-macOS.tar.gz"
         },
-        "version": "4.0.28"
+        "version": "4.0.29"
     },
     "cc-switch-linux-arm64": {
         "cargoLock": null,
@@ -154,11 +154,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-mGxvqUBQnsnGdsB8C5aYFS1dq51vIYUhhPaOPiRl4Vo=",
+            "sha256": "sha256-Bn8CFQptkSBzjgpKEzLoa/uT/NqczRiOK9I/OYBz+qg=",
             "type": "url",
-            "url": "https://github.com/farion1231/cc-switch/releases/download/v4.0.28/CC-Switch-v4.0.28-Linux-arm64.deb"
+            "url": "https://github.com/farion1231/cc-switch/releases/download/v4.0.29/CC-Switch-v4.0.29-Linux-arm64.deb"
         },
-        "version": "4.0.28"
+        "version": "4.0.29"
     },
     "cc-switch-linux-x86_64": {
         "cargoLock": null,
@@ -169,11 +169,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-Qd9othcf6MymIdcQbTXNB1N6hUwgv0KvKl5eGJ0V+T4=",
+            "sha256": "sha256-8O7snD6JIJnEV97nl0avAQI9Pqu0HjV+bKS7vGF444o=",
             "type": "url",
-            "url": "https://github.com/farion1231/cc-switch/releases/download/v4.0.28/CC-Switch-v4.0.28-Linux-x86_64.deb"
+            "url": "https://github.com/farion1231/cc-switch/releases/download/v4.0.29/CC-Switch-v4.0.29-Linux-x86_64.deb"
         },
-        "version": "4.0.28"
+        "version": "4.0.29"
     },
     "ccxt": {
         "cargoLock": null,
@@ -424,11 +424,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-8k9BBtGwsaTumiTsCVPe5uUYR2u+PZdY94pzJHdSWyE=",
+            "sha256": "sha256-0Giif2CDNQFqin+xs80fzPuWvakgdaAn4r8cTCMTTjA=",
             "type": "url",
-            "url": "https://github.com/larksuite/cli/releases/download/v1.0.99/lark-cli-1.0.99-darwin-arm64.tar.gz"
+            "url": "https://github.com/larksuite/cli/releases/download/v1.0.100/lark-cli-1.0.100-darwin-arm64.tar.gz"
         },
-        "version": "1.0.99"
+        "version": "1.0.100"
     },
     "larksuite-cli-linux-arm64": {
         "cargoLock": null,
@@ -439,11 +439,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-KDcUXnKSLVWFOElNDaMKxsUJaB/AeR+IGPTduH9RJbQ=",
+            "sha256": "sha256-Fm6V/67DT4ISP1AxZIAlAymITAnnGm+SMTBH4sXD+l0=",
             "type": "url",
-            "url": "https://github.com/larksuite/cli/releases/download/v1.0.99/lark-cli-1.0.99-linux-arm64.tar.gz"
+            "url": "https://github.com/larksuite/cli/releases/download/v1.0.100/lark-cli-1.0.100-linux-arm64.tar.gz"
         },
-        "version": "1.0.99"
+        "version": "1.0.100"
     },
     "larksuite-cli-linux-riscv64": {
         "cargoLock": null,
@@ -454,11 +454,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-Mb7W6BezRGYJ23z6bYKlAUlP9gZEqMc23tkY/EB8k3w=",
+            "sha256": "sha256-RKyHwk2rMchAq/DH/nzXrVuItbcrh2xfrIZlJ7DUgCI=",
             "type": "url",
-            "url": "https://github.com/larksuite/cli/releases/download/v1.0.99/lark-cli-1.0.99-linux-riscv64.tar.gz"
+            "url": "https://github.com/larksuite/cli/releases/download/v1.0.100/lark-cli-1.0.100-linux-riscv64.tar.gz"
         },
-        "version": "1.0.99"
+        "version": "1.0.100"
     },
     "larksuite-cli-linux-x86_64": {
         "cargoLock": null,
@@ -469,11 +469,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-/Sn1EDDd5pGbbKkXO8h4UtOEbyU9GYAi6i2e5jUnuUU=",
+            "sha256": "sha256-zXNj9zHJ5d0r7NkJg3kiz/6oqtIp1YGoTrE8aqDOaAg=",
             "type": "url",
-            "url": "https://github.com/larksuite/cli/releases/download/v1.0.99/lark-cli-1.0.99-linux-amd64.tar.gz"
+            "url": "https://github.com/larksuite/cli/releases/download/v1.0.100/lark-cli-1.0.100-linux-amd64.tar.gz"
         },
-        "version": "1.0.99"
+        "version": "1.0.100"
     },
     "librime-lua": {
         "cargoLock": null,
