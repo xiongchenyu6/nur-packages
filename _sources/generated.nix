@@ -43,26 +43,26 @@
   };
   casdoor-darwin-arm64 = {
     pname = "casdoor-darwin-arm64";
-    version = "4.26.0";
+    version = "4.27.1";
     src = fetchurl {
-      url = "https://github.com/casdoor/casdoor/releases/download/v4.26.0/casdoor_Darwin_arm64.tar.gz";
-      sha256 = "sha256-zhJv8yY8/GHOO5nyw/4NsdKgH2CjvVXgEdDxia5kYP8=";
+      url = "https://github.com/casdoor/casdoor/releases/download/v4.27.1/casdoor_Darwin_arm64.tar.gz";
+      sha256 = "sha256-4oWIIm2hyOfGGJLCD5EzuJgYM+Hqmay/SaaqxF2VMSY=";
     };
   };
   casdoor-linux-arm64 = {
     pname = "casdoor-linux-arm64";
-    version = "4.26.0";
+    version = "4.27.1";
     src = fetchurl {
-      url = "https://github.com/casdoor/casdoor/releases/download/v4.26.0/casdoor_Linux_arm64.tar.gz";
-      sha256 = "sha256-ZeNcF2qP7kxInu3j6Wf/WRViI/CALUPt/DRhc0h9fnE=";
+      url = "https://github.com/casdoor/casdoor/releases/download/v4.27.1/casdoor_Linux_arm64.tar.gz";
+      sha256 = "sha256-XK5w6srUETXndyNER2cxEfXyTCXOtGHxfjn6Qsu0usQ=";
     };
   };
   casdoor-linux-x86_64 = {
     pname = "casdoor-linux-x86_64";
-    version = "4.26.0";
+    version = "4.27.1";
     src = fetchurl {
-      url = "https://github.com/casdoor/casdoor/releases/download/v4.26.0/casdoor_Linux_x86_64.tar.gz";
-      sha256 = "sha256-FFZfNGvz714ZQhCIHbPnj84OydcuACza9FwfIx8A1EM=";
+      url = "https://github.com/casdoor/casdoor/releases/download/v4.27.1/casdoor_Linux_x86_64.tar.gz";
+      sha256 = "sha256-pskAamVy2KhXSggdke0pSSweN/fP1y7fxhK9edllxAI=";
     };
   };
   casdoor-static = {
@@ -358,21 +358,21 @@
   };
   sui = {
     pname = "sui";
-    version = "mainnet-v1.83.1";
+    version = "testnet-v1.84.0";
     src = fetchurl {
-      url = "https://github.com/MystenLabs/sui/releases/download/mainnet-v1.83.1/sui-mainnet-v1.83.1-ubuntu-x86_64.tgz";
-      sha256 = "sha256-pUsk2jyP1LiFIvAchxiCauVjdRLuCVNGmldZQI4fcBs=";
+      url = "https://github.com/MystenLabs/sui/releases/download/testnet-v1.84.0/sui-testnet-v1.84.0-ubuntu-x86_64.tgz";
+      sha256 = "sha256-DwBvtECLsvhnaYoZPV8i8WasubieDrAnweG0RbO2ISc=";
     };
   };
   supabase-realtime = {
     pname = "supabase-realtime";
-    version = "v2.156.0";
+    version = "v2.156.1";
     src = fetchFromGitHub {
       owner = "supabase";
       repo = "realtime";
-      rev = "v2.156.0";
+      rev = "v2.156.1";
       fetchSubmodules = false;
-      sha256 = "sha256-+d6lDyclnPmNvof2jngDlNn5JxRUbApkWnR0Rb80OYc=";
+      sha256 = "sha256-+iiVwpzo1HY3d2TbxCZB1FA8d4lib/0U1rrFmvHYKfM=";
     };
   };
   unity-cli-darwin-arm64 = {
