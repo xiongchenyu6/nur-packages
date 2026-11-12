@@ -81,26 +81,26 @@
   };
   cc-switch-darwin-arm64 = {
     pname = "cc-switch-darwin-arm64";
-    version = "4.0.29";
+    version = "4.0.30";
     src = fetchurl {
-      url = "https://github.com/farion1231/cc-switch/releases/download/v4.0.29/CC-Switch-v4.0.29-macOS.tar.gz";
-      sha256 = "sha256-vDLbojCPIw7COMZVX05EMeYA3BsrxRcnx5mqZBrdHaM=";
+      url = "https://github.com/farion1231/cc-switch/releases/download/v4.0.30/CC-Switch-v4.0.30-macOS.tar.gz";
+      sha256 = "sha256-qHA0ZYn+BDMdxu4dAeCpP8+VvNvMdfuWqtM069H7x44=";
     };
   };
   cc-switch-linux-arm64 = {
     pname = "cc-switch-linux-arm64";
-    version = "4.0.29";
+    version = "4.0.30";
     src = fetchurl {
-      url = "https://github.com/farion1231/cc-switch/releases/download/v4.0.29/CC-Switch-v4.0.29-Linux-arm64.deb";
-      sha256 = "sha256-Bn8CFQptkSBzjgpKEzLoa/uT/NqczRiOK9I/OYBz+qg=";
+      url = "https://github.com/farion1231/cc-switch/releases/download/v4.0.30/CC-Switch-v4.0.30-Linux-arm64.deb";
+      sha256 = "sha256-Etrav4NCUZXbq0ee3iEEcujI98yBQOFkIkpLOHnFomc=";
     };
   };
   cc-switch-linux-x86_64 = {
     pname = "cc-switch-linux-x86_64";
-    version = "4.0.29";
+    version = "4.0.30";
     src = fetchurl {
-      url = "https://github.com/farion1231/cc-switch/releases/download/v4.0.29/CC-Switch-v4.0.29-Linux-x86_64.deb";
-      sha256 = "sha256-8O7snD6JIJnEV97nl0avAQI9Pqu0HjV+bKS7vGF444o=";
+      url = "https://github.com/farion1231/cc-switch/releases/download/v4.0.30/CC-Switch-v4.0.30-Linux-x86_64.deb";
+      sha256 = "sha256-QQlEKhAveXzZtTG7S9hWqe8M7S15Uk0idXU3y70Vf+4=";
     };
   };
   ccxt = {
@@ -366,13 +366,13 @@
   };
   supabase-realtime = {
     pname = "supabase-realtime";
-    version = "v2.158.1";
+    version = "v2.160.0";
     src = fetchFromGitHub {
       owner = "supabase";
       repo = "realtime";
-      rev = "v2.158.1";
+      rev = "v2.160.0";
       fetchSubmodules = false;
-      sha256 = "sha256-43vvmctRY920xW9fpg1daO3WBeEHf0vmPeyYQdXsDXs=";
+      sha256 = "sha256-exFyJZOXx6Le0V37BR8af+1jZF1e/i/2U7HNVQBonyc=";
     };
   };
   unity-cli-darwin-arm64 = {
