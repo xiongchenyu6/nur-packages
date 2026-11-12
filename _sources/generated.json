@@ -139,11 +139,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-qHA0ZYn+BDMdxu4dAeCpP8+VvNvMdfuWqtM069H7x44=",
+            "sha256": "sha256-PUW54LrNJLaUr1n7kTKqJdQds/U+W/kCwbG8lH/SDGI=",
             "type": "url",
-            "url": "https://github.com/farion1231/cc-switch/releases/download/v4.0.30/CC-Switch-v4.0.30-macOS.tar.gz"
+            "url": "https://github.com/farion1231/cc-switch/releases/download/v4.0.31/CC-Switch-v4.0.31-macOS.tar.gz"
         },
-        "version": "4.0.30"
+        "version": "4.0.31"
     },
     "cc-switch-linux-arm64": {
         "cargoLock": null,
@@ -154,11 +154,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-Etrav4NCUZXbq0ee3iEEcujI98yBQOFkIkpLOHnFomc=",
+            "sha256": "sha256-DkZnBnk0Qo/w+k0UO6aZs09mQl5QrNT6lLk4xm3qukw=",
             "type": "url",
-            "url": "https://github.com/farion1231/cc-switch/releases/download/v4.0.30/CC-Switch-v4.0.30-Linux-arm64.deb"
+            "url": "https://github.com/farion1231/cc-switch/releases/download/v4.0.31/CC-Switch-v4.0.31-Linux-arm64.deb"
         },
-        "version": "4.0.30"
+        "version": "4.0.31"
     },
     "cc-switch-linux-x86_64": {
         "cargoLock": null,
@@ -169,11 +169,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-QQlEKhAveXzZtTG7S9hWqe8M7S15Uk0idXU3y70Vf+4=",
+            "sha256": "sha256-dJzM7Q+0GFFI95FwhLteIwsa3vQzE7bnYh1gK9hAp7M=",
             "type": "url",
-            "url": "https://github.com/farion1231/cc-switch/releases/download/v4.0.30/CC-Switch-v4.0.30-Linux-x86_64.deb"
+            "url": "https://github.com/farion1231/cc-switch/releases/download/v4.0.31/CC-Switch-v4.0.31-Linux-x86_64.deb"
         },
-        "version": "4.0.30"
+        "version": "4.0.31"
     },
     "ccxt": {
         "cargoLock": null,
@@ -366,12 +366,12 @@
             "name": null,
             "owner": "hashtopolis",
             "repo": "agent-python",
-            "rev": "v0.7.7",
-            "sha256": "sha256-1VfOexOrYXJVlET5hoUC1mBETNiNc7/FqPModnOGOtI=",
+            "rev": "v0.8.0",
+            "sha256": "sha256-zufoaRGwiIMX7iDnKsz52UYYfFD/17BJbkZqug320CQ=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "v0.7.7"
+        "version": "v0.8.0"
     },
     "hashtopolis-server": {
         "cargoLock": null,
@@ -387,12 +387,12 @@
             "name": null,
             "owner": "hashtopolis",
             "repo": "server",
-            "rev": "v1.1.0",
-            "sha256": "sha256-SkaxV+yIYvLaFdduD/zHH0XCV45Q1F3PJ7tb7SvMVzU=",
+            "rev": "v1.1.1",
+            "sha256": "sha256-THvnlnFI5Ev1ZpFt1Qc05RHVMLXR3CXcTMiOH9mujic=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "v1.1.0"
+        "version": "v1.1.1"
     },
     "index-advisor": {
         "cargoLock": null,

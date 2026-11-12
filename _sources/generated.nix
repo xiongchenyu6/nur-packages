@@ -81,26 +81,26 @@
   };
   cc-switch-darwin-arm64 = {
     pname = "cc-switch-darwin-arm64";
-    version = "4.0.30";
+    version = "4.0.31";
     src = fetchurl {
-      url = "https://github.com/farion1231/cc-switch/releases/download/v4.0.30/CC-Switch-v4.0.30-macOS.tar.gz";
-      sha256 = "sha256-qHA0ZYn+BDMdxu4dAeCpP8+VvNvMdfuWqtM069H7x44=";
+      url = "https://github.com/farion1231/cc-switch/releases/download/v4.0.31/CC-Switch-v4.0.31-macOS.tar.gz";
+      sha256 = "sha256-PUW54LrNJLaUr1n7kTKqJdQds/U+W/kCwbG8lH/SDGI=";
     };
   };
   cc-switch-linux-arm64 = {
     pname = "cc-switch-linux-arm64";
-    version = "4.0.30";
+    version = "4.0.31";
     src = fetchurl {
-      url = "https://github.com/farion1231/cc-switch/releases/download/v4.0.30/CC-Switch-v4.0.30-Linux-arm64.deb";
-      sha256 = "sha256-Etrav4NCUZXbq0ee3iEEcujI98yBQOFkIkpLOHnFomc=";
+      url = "https://github.com/farion1231/cc-switch/releases/download/v4.0.31/CC-Switch-v4.0.31-Linux-arm64.deb";
+      sha256 = "sha256-DkZnBnk0Qo/w+k0UO6aZs09mQl5QrNT6lLk4xm3qukw=";
     };
   };
   cc-switch-linux-x86_64 = {
     pname = "cc-switch-linux-x86_64";
-    version = "4.0.30";
+    version = "4.0.31";
     src = fetchurl {
-      url = "https://github.com/farion1231/cc-switch/releases/download/v4.0.30/CC-Switch-v4.0.30-Linux-x86_64.deb";
-      sha256 = "sha256-QQlEKhAveXzZtTG7S9hWqe8M7S15Uk0idXU3y70Vf+4=";
+      url = "https://github.com/farion1231/cc-switch/releases/download/v4.0.31/CC-Switch-v4.0.31-Linux-x86_64.deb";
+      sha256 = "sha256-dJzM7Q+0GFFI95FwhLteIwsa3vQzE7bnYh1gK9hAp7M=";
     };
   };
   ccxt = {
@@ -199,24 +199,24 @@
   };
   hashtopolis-agent = {
     pname = "hashtopolis-agent";
-    version = "v0.7.7";
+    version = "v0.8.0";
     src = fetchFromGitHub {
       owner = "hashtopolis";
       repo = "agent-python";
-      rev = "v0.7.7";
+      rev = "v0.8.0";
       fetchSubmodules = false;
-      sha256 = "sha256-1VfOexOrYXJVlET5hoUC1mBETNiNc7/FqPModnOGOtI=";
+      sha256 = "sha256-zufoaRGwiIMX7iDnKsz52UYYfFD/17BJbkZqug320CQ=";
     };
   };
   hashtopolis-server = {
     pname = "hashtopolis-server";
-    version = "v1.1.0";
+    version = "v1.1.1";
     src = fetchFromGitHub {
       owner = "hashtopolis";
       repo = "server";
-      rev = "v1.1.0";
+      rev = "v1.1.1";
       fetchSubmodules = false;
-      sha256 = "sha256-SkaxV+yIYvLaFdduD/zHH0XCV45Q1F3PJ7tb7SvMVzU=";
+      sha256 = "sha256-THvnlnFI5Ev1ZpFt1Qc05RHVMLXR3CXcTMiOH9mujic=";
     };
   };
   index-advisor = {

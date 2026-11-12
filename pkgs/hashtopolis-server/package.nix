@@ -18,7 +18,7 @@ in
 php85.buildComposerProject2 (
   sources.hashtopolis-server
   // {
-    vendorHash = "sha256-2fxA1tdCuY9qum3zDoMXNqAba8t4NbnWjVHm+1ZH9vI=";
+    vendorHash = "sha256-8k3Ko3ITcGnF7GZG1hw+Cih1AULmxqKmBk3ZZbu4eKU=";
     composerNoDev = true;
     nativeBuildInputs = [ makeWrapper ];
 
