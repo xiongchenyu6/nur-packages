@@ -684,11 +684,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-sUzlHi+HLzCuHontnvD/0HqgYWD5GKrewJRxsvgoRus=",
+            "sha256": "sha256-3my0bBrBhx1SSWXtLtXxTh6xO0/CUhCiCaVcCxFUAU8=",
             "type": "url",
-            "url": "https://public-cdn.cloud.unity3d.com/hub/prod/cli/1.0.0-beta.17/unity-darwin-arm64"
+            "url": "https://public-cdn.cloud.unity3d.com/hub/prod/cli/1.0.0/unity-darwin-arm64"
         },
-        "version": "1.0.0-beta.17"
+        "version": "1.0.0"
     },
     "unity-cli-linux-arm64": {
         "cargoLock": null,
@@ -699,11 +699,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-T9iAoOdAbemGdH5fSEcxqYOOCXqeDnD09sTaqUY+L8E=",
+            "sha256": "sha256-lTTTqYySF49Kv8jn1Qpi35HaGQ24OLxlduiYJVImmjc=",
             "type": "url",
-            "url": "https://public-cdn.cloud.unity3d.com/hub/prod/cli/1.0.0-beta.17/unity-linux-arm64"
+            "url": "https://public-cdn.cloud.unity3d.com/hub/prod/cli/1.0.0/unity-linux-arm64"
         },
-        "version": "1.0.0-beta.17"
+        "version": "1.0.0"
     },
     "unity-cli-linux-x64": {
         "cargoLock": null,
@@ -714,10 +714,10 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-L1JG7lvqUDLaKRf18BJdPP6APIXcNPeL11pCfbE6Czw=",
+            "sha256": "sha256-vWgAVctKjZ0kTHDXnu+lgo9maAdQl1WVR+HKSuzgeys=",
             "type": "url",
-            "url": "https://public-cdn.cloud.unity3d.com/hub/prod/cli/1.0.0-beta.17/unity-linux-x64"
+            "url": "https://public-cdn.cloud.unity3d.com/hub/prod/cli/1.0.0/unity-linux-x64"
         },
-        "version": "1.0.0-beta.17"
+        "version": "1.0.0"
     }
 }

@@ -377,26 +377,26 @@
   };
   unity-cli-darwin-arm64 = {
     pname = "unity-cli-darwin-arm64";
-    version = "1.0.0-beta.17";
+    version = "1.0.0";
     src = fetchurl {
-      url = "https://public-cdn.cloud.unity3d.com/hub/prod/cli/1.0.0-beta.17/unity-darwin-arm64";
-      sha256 = "sha256-sUzlHi+HLzCuHontnvD/0HqgYWD5GKrewJRxsvgoRus=";
+      url = "https://public-cdn.cloud.unity3d.com/hub/prod/cli/1.0.0/unity-darwin-arm64";
+      sha256 = "sha256-3my0bBrBhx1SSWXtLtXxTh6xO0/CUhCiCaVcCxFUAU8=";
     };
   };
   unity-cli-linux-arm64 = {
     pname = "unity-cli-linux-arm64";
-    version = "1.0.0-beta.17";
+    version = "1.0.0";
     src = fetchurl {
-      url = "https://public-cdn.cloud.unity3d.com/hub/prod/cli/1.0.0-beta.17/unity-linux-arm64";
-      sha256 = "sha256-T9iAoOdAbemGdH5fSEcxqYOOCXqeDnD09sTaqUY+L8E=";
+      url = "https://public-cdn.cloud.unity3d.com/hub/prod/cli/1.0.0/unity-linux-arm64";
+      sha256 = "sha256-lTTTqYySF49Kv8jn1Qpi35HaGQ24OLxlduiYJVImmjc=";
     };
   };
   unity-cli-linux-x64 = {
     pname = "unity-cli-linux-x64";
-    version = "1.0.0-beta.17";
+    version = "1.0.0";
     src = fetchurl {
-      url = "https://public-cdn.cloud.unity3d.com/hub/prod/cli/1.0.0-beta.17/unity-linux-x64";
-      sha256 = "sha256-L1JG7lvqUDLaKRf18BJdPP6APIXcNPeL11pCfbE6Czw=";
+      url = "https://public-cdn.cloud.unity3d.com/hub/prod/cli/1.0.0/unity-linux-x64";
+      sha256 = "sha256-vWgAVctKjZ0kTHDXnu+lgo9maAdQl1WVR+HKSuzgeys=";
     };
   };
 }
