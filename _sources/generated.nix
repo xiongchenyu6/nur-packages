@@ -43,26 +43,26 @@
   };
   casdoor-darwin-arm64 = {
     pname = "casdoor-darwin-arm64";
-    version = "4.27.1";
+    version = "4.28.0";
     src = fetchurl {
-      url = "https://github.com/casdoor/casdoor/releases/download/v4.27.1/casdoor_Darwin_arm64.tar.gz";
-      sha256 = "sha256-4oWIIm2hyOfGGJLCD5EzuJgYM+Hqmay/SaaqxF2VMSY=";
+      url = "https://github.com/casdoor/casdoor/releases/download/v4.28.0/casdoor_Darwin_arm64.tar.gz";
+      sha256 = "sha256-IT/E4Rk6N/IG4pXgefwqI3BCVMAaOg+Q1ImdxA40+bg=";
     };
   };
   casdoor-linux-arm64 = {
     pname = "casdoor-linux-arm64";
-    version = "4.27.1";
+    version = "4.28.0";
     src = fetchurl {
-      url = "https://github.com/casdoor/casdoor/releases/download/v4.27.1/casdoor_Linux_arm64.tar.gz";
-      sha256 = "sha256-XK5w6srUETXndyNER2cxEfXyTCXOtGHxfjn6Qsu0usQ=";
+      url = "https://github.com/casdoor/casdoor/releases/download/v4.28.0/casdoor_Linux_arm64.tar.gz";
+      sha256 = "sha256-BOIYeZTQA9TlQrueAeMGsOIGrUnxIG5/vRAui3gtDZM=";
     };
   };
   casdoor-linux-x86_64 = {
     pname = "casdoor-linux-x86_64";
-    version = "4.27.1";
+    version = "4.28.0";
     src = fetchurl {
-      url = "https://github.com/casdoor/casdoor/releases/download/v4.27.1/casdoor_Linux_x86_64.tar.gz";
-      sha256 = "sha256-pskAamVy2KhXSggdke0pSSweN/fP1y7fxhK9edllxAI=";
+      url = "https://github.com/casdoor/casdoor/releases/download/v4.28.0/casdoor_Linux_x86_64.tar.gz";
+      sha256 = "sha256-9tObfDU1JgygvvBTEpURi65RNNHGgF/hREF/i/UjbL0=";
     };
   };
   casdoor-static = {

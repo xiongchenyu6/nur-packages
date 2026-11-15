@@ -74,11 +74,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-4oWIIm2hyOfGGJLCD5EzuJgYM+Hqmay/SaaqxF2VMSY=",
+            "sha256": "sha256-IT/E4Rk6N/IG4pXgefwqI3BCVMAaOg+Q1ImdxA40+bg=",
             "type": "url",
-            "url": "https://github.com/casdoor/casdoor/releases/download/v4.27.1/casdoor_Darwin_arm64.tar.gz"
+            "url": "https://github.com/casdoor/casdoor/releases/download/v4.28.0/casdoor_Darwin_arm64.tar.gz"
         },
-        "version": "4.27.1"
+        "version": "4.28.0"
     },
     "casdoor-linux-arm64": {
         "cargoLock": null,
@@ -89,11 +89,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-XK5w6srUETXndyNER2cxEfXyTCXOtGHxfjn6Qsu0usQ=",
+            "sha256": "sha256-BOIYeZTQA9TlQrueAeMGsOIGrUnxIG5/vRAui3gtDZM=",
             "type": "url",
-            "url": "https://github.com/casdoor/casdoor/releases/download/v4.27.1/casdoor_Linux_arm64.tar.gz"
+            "url": "https://github.com/casdoor/casdoor/releases/download/v4.28.0/casdoor_Linux_arm64.tar.gz"
         },
-        "version": "4.27.1"
+        "version": "4.28.0"
     },
     "casdoor-linux-x86_64": {
         "cargoLock": null,
@@ -104,11 +104,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-pskAamVy2KhXSggdke0pSSweN/fP1y7fxhK9edllxAI=",
+            "sha256": "sha256-9tObfDU1JgygvvBTEpURi65RNNHGgF/hREF/i/UjbL0=",
             "type": "url",
-            "url": "https://github.com/casdoor/casdoor/releases/download/v4.27.1/casdoor_Linux_x86_64.tar.gz"
+            "url": "https://github.com/casdoor/casdoor/releases/download/v4.28.0/casdoor_Linux_x86_64.tar.gz"
         },
-        "version": "4.27.1"
+        "version": "4.28.0"
     },
     "casdoor-static": {
         "cargoLock": null,
