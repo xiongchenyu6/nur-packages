@@ -139,11 +139,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-eNhNrVg2NU6wied2nWtjuzIh3340oMOYfX/CcZNq2ik=",
+            "sha256": "sha256-EnoUebnWck53Hekxx0YsjJKdBE5Zf84eWgqeywqO37w=",
             "type": "url",
-            "url": "https://github.com/farion1231/cc-switch/releases/download/v4.0.32/CC-Switch-v4.0.32-macOS.tar.gz"
+            "url": "https://github.com/farion1231/cc-switch/releases/download/v4.0.33/CC-Switch-v4.0.33-macOS.tar.gz"
         },
-        "version": "4.0.32"
+        "version": "4.0.33"
     },
     "cc-switch-linux-arm64": {
         "cargoLock": null,
@@ -154,11 +154,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-kvVDPko3+Q+ns7GkJ6HTwMnBVgSRQvNlWqJ2CDVyvZE=",
+            "sha256": "sha256-VTnpRkU0sJgGNlRoxB28YgulJ6IL/ueQ/ug9ilQAirk=",
             "type": "url",
-            "url": "https://github.com/farion1231/cc-switch/releases/download/v4.0.32/CC-Switch-v4.0.32-Linux-arm64.deb"
+            "url": "https://github.com/farion1231/cc-switch/releases/download/v4.0.33/CC-Switch-v4.0.33-Linux-arm64.deb"
         },
-        "version": "4.0.32"
+        "version": "4.0.33"
     },
     "cc-switch-linux-x86_64": {
         "cargoLock": null,
@@ -169,11 +169,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-iCek5cg8SMfyFDHlulQqxLjQmVjyEuUYS4ebJhbSw08=",
+            "sha256": "sha256-R5uUQ17B9i7hxz8wHJ7rqE9s5i6lbcHuFufCNwVrE+w=",
             "type": "url",
-            "url": "https://github.com/farion1231/cc-switch/releases/download/v4.0.32/CC-Switch-v4.0.32-Linux-x86_64.deb"
+            "url": "https://github.com/farion1231/cc-switch/releases/download/v4.0.33/CC-Switch-v4.0.33-Linux-x86_64.deb"
         },
-        "version": "4.0.32"
+        "version": "4.0.33"
     },
     "ccxt": {
         "cargoLock": null,
@@ -668,12 +668,12 @@
             "name": null,
             "owner": "supabase",
             "repo": "realtime",
-            "rev": "v2.164.0",
-            "sha256": "sha256-Bp2+jOOll64uXNJcUFBymViYIZDj1CqBeOk4uMUf9wg=",
+            "rev": "v2.165.0",
+            "sha256": "sha256-X5h/JQ0klCltWcKFSiCQsppL9YV9L7U2zYFVzc0tS5o=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "v2.164.0"
+        "version": "v2.165.0"
     },
     "unity-cli-darwin-arm64": {
         "cargoLock": null,
