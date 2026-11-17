@@ -316,11 +316,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-dVsQnL+ZJjLSizk5R4tYrpSal2bEu5Dtn22LdUXD7+4=",
+            "sha256": "sha256-Bd0zKMXpOimNkwdpZkrYMIEghMzbbUsAhgv/cQfQif0=",
             "type": "url",
-            "url": "https://github.com/happier-dev/happier/releases/download/cli-v0.2.20/happier-v0.2.20-darwin-arm64.tar.gz"
+            "url": "https://github.com/happier-dev/happier/releases/download/cli-v0.2.21/happier-v0.2.21-darwin-arm64.tar.gz"
         },
-        "version": "0.2.20"
+        "version": "0.2.21"
     },
     "happier-cli-linux-arm64": {
         "cargoLock": null,
@@ -331,11 +331,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-sPiv47aUHw4RokC1n8FXIdpyasFqrY8SLJpkUVmC8Yg=",
+            "sha256": "sha256-dXzhAWRTCXtK01H/FB6aHoImtPb7AJf8ZR8NVI9nkrM=",
             "type": "url",
-            "url": "https://github.com/happier-dev/happier/releases/download/cli-v0.2.20/happier-v0.2.20-linux-arm64.tar.gz"
+            "url": "https://github.com/happier-dev/happier/releases/download/cli-v0.2.21/happier-v0.2.21-linux-arm64.tar.gz"
         },
-        "version": "0.2.20"
+        "version": "0.2.21"
     },
     "happier-cli-linux-x86_64": {
         "cargoLock": null,
@@ -346,11 +346,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-ysiQuQ5TMJr9UXgzIBexlQcc8ePdNzrF2FJMK7LHS2A=",
+            "sha256": "sha256-ngc4V8yA+CCqAEN9HsDGHsdfXpbUWG1ILEDf41gG+Sc=",
             "type": "url",
-            "url": "https://github.com/happier-dev/happier/releases/download/cli-v0.2.20/happier-v0.2.20-linux-x64.tar.gz"
+            "url": "https://github.com/happier-dev/happier/releases/download/cli-v0.2.21/happier-v0.2.21-linux-x64.tar.gz"
         },
-        "version": "0.2.20"
+        "version": "0.2.21"
     },
     "hashtopolis-agent": {
         "cargoLock": null,
@@ -668,12 +668,12 @@
             "name": null,
             "owner": "supabase",
             "repo": "realtime",
-            "rev": "v2.167.0",
-            "sha256": "sha256-EoCyziZeoRWSfk/1T/7iCW7hbIXwhfg0MdlCNXCkcjM=",
+            "rev": "v2.168.0",
+            "sha256": "sha256-6JVZmC9UJY0uX6A7qtVzH0F3vdYZEfQf5a3ecOu7Q3A=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "v2.167.0"
+        "version": "v2.168.0"
     },
     "unity-cli-darwin-arm64": {
         "cargoLock": null,
