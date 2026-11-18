@@ -66,7 +66,7 @@ beam.mixRelease {
   mixFodDeps = beam.fetchMixDeps {
     pname = "mix-deps-realtime";
     inherit src version;
-    hash = "sha256-WbcXuWpjeSx5sM6FTV47YKMMS5FKLECm6JQ1rnqPjgk=";
+    hash = "sha256-1dZvj28HTELTzOp/tHLPdScGOeu4MVsHnzsnrr7hFsY=";
   };
 
   preConfigure = ''
