@@ -81,26 +81,26 @@
   };
   cc-switch-darwin-arm64 = {
     pname = "cc-switch-darwin-arm64";
-    version = "4.0.35";
+    version = "4.0.36";
     src = fetchurl {
-      url = "https://github.com/farion1231/cc-switch/releases/download/v4.0.35/CC-Switch-v4.0.35-macOS.tar.gz";
-      sha256 = "sha256-vIzrzFPWrrV6O1x8fM35Of6Qow7wcWMjLaic3mvxXhk=";
+      url = "https://github.com/farion1231/cc-switch/releases/download/v4.0.36/CC-Switch-v4.0.36-macOS.tar.gz";
+      sha256 = "sha256-hY1PnTlMYWuDSk0jeLJbEgY3x1MD7sEWM89qBgIHw70=";
     };
   };
   cc-switch-linux-arm64 = {
     pname = "cc-switch-linux-arm64";
-    version = "4.0.35";
+    version = "4.0.36";
     src = fetchurl {
-      url = "https://github.com/farion1231/cc-switch/releases/download/v4.0.35/CC-Switch-v4.0.35-Linux-arm64.deb";
-      sha256 = "sha256-kaP2BP7aexa+wn7wp8AD8ZpRASZiXSq8czjH+Vzznmg=";
+      url = "https://github.com/farion1231/cc-switch/releases/download/v4.0.36/CC-Switch-v4.0.36-Linux-arm64.deb";
+      sha256 = "sha256-6mjjLtAcSYpPFaPEy4ym2SN/LfM0O2SxDfAc9KHK4/M=";
     };
   };
   cc-switch-linux-x86_64 = {
     pname = "cc-switch-linux-x86_64";
-    version = "4.0.35";
+    version = "4.0.36";
     src = fetchurl {
-      url = "https://github.com/farion1231/cc-switch/releases/download/v4.0.35/CC-Switch-v4.0.35-Linux-x86_64.deb";
-      sha256 = "sha256-K2LN9IuSF1Ws6XHm5eXX/lxNObuxIN2sp4qZsZuMxa0=";
+      url = "https://github.com/farion1231/cc-switch/releases/download/v4.0.36/CC-Switch-v4.0.36-Linux-x86_64.deb";
+      sha256 = "sha256-4XiAHC4z3+EhZoaLWugE+IS0lcX87GbCpNv9kVYEcdo=";
     };
   };
   ccxt = {
