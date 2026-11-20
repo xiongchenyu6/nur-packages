@@ -19,26 +19,26 @@
   };
   camber-darwin-arm64 = {
     pname = "camber-darwin-arm64";
-    version = "1.0.43";
+    version = "1.0.44";
     src = fetchurl {
-      url = "https://cli.cambercloud.com/releases/1.0.43/cambercli_1.0.43_Darwin_arm64.tar.gz";
-      sha256 = "sha256-sp2TBfSMDdzKP7ASt4Wtpka4fEIYlPKELOov27uw1QA=";
+      url = "https://cli.cambercloud.com/releases/1.0.44/cambercli_1.0.44_Darwin_arm64.tar.gz";
+      sha256 = "sha256-7Q6ubf/6PuwBqKkk9PHqvV+75JS9UPF9ilhVlaWOBZI=";
     };
   };
   camber-linux-arm64 = {
     pname = "camber-linux-arm64";
-    version = "1.0.43";
+    version = "1.0.44";
     src = fetchurl {
-      url = "https://cli.cambercloud.com/releases/1.0.43/cambercli_1.0.43_Linux_arm64.tar.gz";
-      sha256 = "sha256-J0iTyRrtf2Ekbs3zCNwpeScWNhSGj2XrLNrZ9ulcJ48=";
+      url = "https://cli.cambercloud.com/releases/1.0.44/cambercli_1.0.44_Linux_arm64.tar.gz";
+      sha256 = "sha256-q3nDFW9SIrYpJUv/PG+JIdHuB54towX6EvpcVetz2Qk=";
     };
   };
   camber-linux-x86_64 = {
     pname = "camber-linux-x86_64";
-    version = "1.0.43";
+    version = "1.0.44";
     src = fetchurl {
-      url = "https://cli.cambercloud.com/releases/1.0.43/cambercli_1.0.43_Linux_x86_64.tar.gz";
-      sha256 = "sha256-ssNv8xkWR2qgV1k7A+dO9DOCdwGzMIW58Z2eAaEnnBI=";
+      url = "https://cli.cambercloud.com/releases/1.0.44/cambercli_1.0.44_Linux_x86_64.tar.gz";
+      sha256 = "sha256-5attRC7wJKl7aqLYuwfJc8dyWGhjfwGXln96CCbbJHs=";
     };
   };
   casdoor-darwin-arm64 = {
