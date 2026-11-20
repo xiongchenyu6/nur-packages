@@ -112,7 +112,7 @@
     },
     "casdoor-static": {
         "cargoLock": null,
-        "date": "2026-11-10",
+        "date": "2026-11-20",
         "extract": null,
         "name": "casdoor-static",
         "passthru": null,
@@ -122,13 +122,13 @@
             "fetchSubmodules": false,
             "leaveDotGit": false,
             "name": null,
-            "rev": "a1cfa2511063dff490b29c74fe95c72046518c9c",
-            "sha256": "sha256-WaIZ2XVu/goSH4+OlBliaXhtWwuBIqcz52yjN1/sXmg=",
+            "rev": "090e1f009eab93aba4068ee1de989199d8269665",
+            "sha256": "sha256-mmsCXEYHqFrd29EVPkdpw6hHO0HKLouc+QvYTPGgZq4=",
             "sparseCheckout": [],
             "type": "git",
             "url": "https://github.com/casdoor/static.git"
         },
-        "version": "a1cfa2511063dff490b29c74fe95c72046518c9c"
+        "version": "090e1f009eab93aba4068ee1de989199d8269665"
     },
     "cc-switch-darwin-arm64": {
         "cargoLock": null,
@@ -139,11 +139,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-hY1PnTlMYWuDSk0jeLJbEgY3x1MD7sEWM89qBgIHw70=",
+            "sha256": "sha256-inqwmzv1WZFkfxaMrMr9/cgqTJetM/SKC4VP4oTLrv8=",
             "type": "url",
-            "url": "https://github.com/farion1231/cc-switch/releases/download/v4.0.36/CC-Switch-v4.0.36-macOS.tar.gz"
+            "url": "https://github.com/farion1231/cc-switch/releases/download/v4.0.37/CC-Switch-v4.0.37-macOS.tar.gz"
         },
-        "version": "4.0.36"
+        "version": "4.0.37"
     },
     "cc-switch-linux-arm64": {
         "cargoLock": null,
@@ -154,11 +154,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-6mjjLtAcSYpPFaPEy4ym2SN/LfM0O2SxDfAc9KHK4/M=",
+            "sha256": "sha256-cllkJhHFnpttKiwF9D3JdjTXRLm6+U7uImRG9jBVzoE=",
             "type": "url",
-            "url": "https://github.com/farion1231/cc-switch/releases/download/v4.0.36/CC-Switch-v4.0.36-Linux-arm64.deb"
+            "url": "https://github.com/farion1231/cc-switch/releases/download/v4.0.37/CC-Switch-v4.0.37-Linux-arm64.deb"
         },
-        "version": "4.0.36"
+        "version": "4.0.37"
     },
     "cc-switch-linux-x86_64": {
         "cargoLock": null,
@@ -169,11 +169,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-4XiAHC4z3+EhZoaLWugE+IS0lcX87GbCpNv9kVYEcdo=",
+            "sha256": "sha256-kc8E3/G4/qXTOdXD+YQYU7LnoE9KF0fPhpsZHnTMcQk=",
             "type": "url",
-            "url": "https://github.com/farion1231/cc-switch/releases/download/v4.0.36/CC-Switch-v4.0.36-Linux-x86_64.deb"
+            "url": "https://github.com/farion1231/cc-switch/releases/download/v4.0.37/CC-Switch-v4.0.37-Linux-x86_64.deb"
         },
-        "version": "4.0.36"
+        "version": "4.0.37"
     },
     "ccxt": {
         "cargoLock": null,
