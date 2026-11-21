@@ -648,11 +648,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-NfcUqBMPYmErsOxNFaWkPNBAFbUsLMCjfZLo5xgd8Gw=",
+            "sha256": "sha256-sUi3N0CtHFOckVYpO6GOZFYOK+ayfDo9lcu57d2HzcI=",
             "type": "url",
-            "url": "https://github.com/MystenLabs/sui/releases/download/mainnet-v1.84.1/sui-mainnet-v1.84.1-ubuntu-x86_64.tgz"
+            "url": "https://github.com/MystenLabs/sui/releases/download/mainnet-v1.84.2/sui-mainnet-v1.84.2-ubuntu-x86_64.tgz"
         },
-        "version": "mainnet-v1.84.1"
+        "version": "mainnet-v1.84.2"
     },
     "supabase-realtime": {
         "cargoLock": null,
