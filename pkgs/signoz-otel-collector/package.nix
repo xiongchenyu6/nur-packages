@@ -2,6 +2,7 @@
   lib,
   pkgs,
   stdenv,
+  autoPatchelfHook,
 }:
 
 let
@@ -29,9 +30,10 @@ stdenv.mkDerivation {
   pname = "signoz-otel-collector";
   inherit (platformSource) version src;
 
+  nativeBuildInputs = lib.optionals stdenv.hostPlatform.isLinux [ autoPatchelfHook ];
+
   dontBuild = true;
   dontStrip = true;
-  dontPatchELF = true;
 
   installPhase = ''
     runHook preInstall

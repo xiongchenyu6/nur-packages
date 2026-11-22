@@ -2,6 +2,7 @@
   lib,
   pkgs,
   stdenv,
+  autoPatchelfHook,
   makeWrapper,
 }:
 
@@ -30,11 +31,13 @@ stdenv.mkDerivation {
   pname = "signoz";
   inherit (platformSource) version src;
 
-  nativeBuildInputs = [ makeWrapper ];
+  nativeBuildInputs = [
+    makeWrapper
+  ]
+  ++ lib.optionals stdenv.hostPlatform.isLinux [ autoPatchelfHook ];
 
   dontBuild = true;
   dontStrip = true;
-  dontPatchELF = true;
 
   installPhase = ''
     runHook preInstall
