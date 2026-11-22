@@ -19,4 +19,5 @@
   nautilus-equity-trend = import ./nautilus-equity-trend;
   quant-collectors = import ./quant-collectors;
   agents-server = import ./agents-server;
+  signoz = import ./signoz;
 }

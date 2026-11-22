@@ -245,3 +245,79 @@ fetch.github = "iCyberon/pg_hashids"
 [pg-ecdsa-verify]
 src.git = "https://github.com/joelonsql/pg_ecdsa_verify.git"
 fetch.github = "joelonsql/pg_ecdsa_verify"
+
+# SigNoz Community Edition — single-binary observability platform (API + UI + Alertmanager).
+# Filter tags strictly to vX.Y.Z because SigNoz/signoz also tags sub-components like histogram-quantile/v*.
+[signoz-linux-x86_64]
+src.github_tag = "SigNoz/signoz"
+src.include_regex = "^v[0-9]+\\.[0-9]+\\.[0-9]+$"
+src.prefix = "v"
+fetch.url = "https://github.com/SigNoz/signoz/releases/download/v$ver/signoz-community_linux_amd64.tar.gz"
+
+[signoz-linux-arm64]
+src.github_tag = "SigNoz/signoz"
+src.include_regex = "^v[0-9]+\\.[0-9]+\\.[0-9]+$"
+src.prefix = "v"
+fetch.url = "https://github.com/SigNoz/signoz/releases/download/v$ver/signoz-community_linux_arm64.tar.gz"
+
+[signoz-darwin-x86_64]
+src.github_tag = "SigNoz/signoz"
+src.include_regex = "^v[0-9]+\\.[0-9]+\\.[0-9]+$"
+src.prefix = "v"
+fetch.url = "https://github.com/SigNoz/signoz/releases/download/v$ver/signoz-community_darwin_amd64.tar.gz"
+
+[signoz-darwin-arm64]
+src.github_tag = "SigNoz/signoz"
+src.include_regex = "^v[0-9]+\\.[0-9]+\\.[0-9]+$"
+src.prefix = "v"
+fetch.url = "https://github.com/SigNoz/signoz/releases/download/v$ver/signoz-community_darwin_arm64.tar.gz"
+
+# SigNoz OpenTelemetry Collector (also includes ClickHouse schema migrator subcommands).
+[signoz-otel-collector-linux-x86_64]
+src.github_tag = "SigNoz/signoz-otel-collector"
+src.include_regex = "^v[0-9]+\\.[0-9]+\\.[0-9]+$"
+src.prefix = "v"
+fetch.url = "https://github.com/SigNoz/signoz-otel-collector/releases/download/v$ver/signoz-otel-collector_linux_amd64.tar.gz"
+
+[signoz-otel-collector-linux-arm64]
+src.github_tag = "SigNoz/signoz-otel-collector"
+src.include_regex = "^v[0-9]+\\.[0-9]+\\.[0-9]+$"
+src.prefix = "v"
+fetch.url = "https://github.com/SigNoz/signoz-otel-collector/releases/download/v$ver/signoz-otel-collector_linux_arm64.tar.gz"
+
+[signoz-otel-collector-darwin-x86_64]
+src.github_tag = "SigNoz/signoz-otel-collector"
+src.include_regex = "^v[0-9]+\\.[0-9]+\\.[0-9]+$"
+src.prefix = "v"
+fetch.url = "https://github.com/SigNoz/signoz-otel-collector/releases/download/v$ver/signoz-otel-collector_darwin_amd64.tar.gz"
+
+[signoz-otel-collector-darwin-arm64]
+src.github_tag = "SigNoz/signoz-otel-collector"
+src.include_regex = "^v[0-9]+\\.[0-9]+\\.[0-9]+$"
+src.prefix = "v"
+fetch.url = "https://github.com/SigNoz/signoz-otel-collector/releases/download/v$ver/signoz-otel-collector_darwin_arm64.tar.gz"
+
+# SigNoz ClickHouse executable UDF for histogram quantile queries.
+[signoz-histogram-quantile-linux-x86_64]
+src.github_tag = "SigNoz/signoz"
+src.include_regex = "^histogram-quantile/v[0-9]+\\.[0-9]+\\.[0-9]+$"
+src.prefix = "histogram-quantile/v"
+fetch.url = "https://github.com/SigNoz/signoz/releases/download/histogram-quantile%2Fv$ver/histogram-quantile_linux_amd64.tar.gz"
+
+[signoz-histogram-quantile-linux-arm64]
+src.github_tag = "SigNoz/signoz"
+src.include_regex = "^histogram-quantile/v[0-9]+\\.[0-9]+\\.[0-9]+$"
+src.prefix = "histogram-quantile/v"
+fetch.url = "https://github.com/SigNoz/signoz/releases/download/histogram-quantile%2Fv$ver/histogram-quantile_linux_arm64.tar.gz"
+
+[signoz-histogram-quantile-darwin-x86_64]
+src.github_tag = "SigNoz/signoz"
+src.include_regex = "^histogram-quantile/v[0-9]+\\.[0-9]+\\.[0-9]+$"
+src.prefix = "histogram-quantile/v"
+fetch.url = "https://github.com/SigNoz/signoz/releases/download/histogram-quantile%2Fv$ver/histogram-quantile_darwin_amd64.tar.gz"
+
+[signoz-histogram-quantile-darwin-arm64]
+src.github_tag = "SigNoz/signoz"
+src.include_regex = "^histogram-quantile/v[0-9]+\\.[0-9]+\\.[0-9]+$"
+src.prefix = "histogram-quantile/v"
+fetch.url = "https://github.com/SigNoz/signoz/releases/download/histogram-quantile%2Fv$ver/histogram-quantile_darwin_arm64.tar.gz"

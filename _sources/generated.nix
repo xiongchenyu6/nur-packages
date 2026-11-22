@@ -356,6 +356,102 @@
       sha256 = "sha256-/0BV4qFvK/CxCuY2iKtMsdn5JubEzG7IHixvOSZVfw4=";
     };
   };
+  signoz-darwin-arm64 = {
+    pname = "signoz-darwin-arm64";
+    version = "0.151.0";
+    src = fetchurl {
+      url = "https://github.com/SigNoz/signoz/releases/download/v0.151.0/signoz-community_darwin_arm64.tar.gz";
+      sha256 = "sha256-VBNGYjHcFZwkY+LsPlMrfPCp/9n1U8XbCXgFumsKzYU=";
+    };
+  };
+  signoz-darwin-x86_64 = {
+    pname = "signoz-darwin-x86_64";
+    version = "0.151.0";
+    src = fetchurl {
+      url = "https://github.com/SigNoz/signoz/releases/download/v0.151.0/signoz-community_darwin_amd64.tar.gz";
+      sha256 = "sha256-MmJosf2rVfntbf8uhmTDmSfCLwXVR7XQWcKeXDdsLaE=";
+    };
+  };
+  signoz-histogram-quantile-darwin-arm64 = {
+    pname = "signoz-histogram-quantile-darwin-arm64";
+    version = "0.0.1";
+    src = fetchurl {
+      url = "https://github.com/SigNoz/signoz/releases/download/histogram-quantile%2Fv0.0.1/histogram-quantile_darwin_arm64.tar.gz";
+      sha256 = "sha256-Tm2H9yOhQUclgvbvBKk1xhhwsF7ZTVGNx8KfPV6dsDg=";
+    };
+  };
+  signoz-histogram-quantile-darwin-x86_64 = {
+    pname = "signoz-histogram-quantile-darwin-x86_64";
+    version = "0.0.1";
+    src = fetchurl {
+      url = "https://github.com/SigNoz/signoz/releases/download/histogram-quantile%2Fv0.0.1/histogram-quantile_darwin_amd64.tar.gz";
+      sha256 = "sha256-XsEEPlegiTgNX6xf724HgSTWuCVzeDHvBfOCoXaHpiY=";
+    };
+  };
+  signoz-histogram-quantile-linux-arm64 = {
+    pname = "signoz-histogram-quantile-linux-arm64";
+    version = "0.0.1";
+    src = fetchurl {
+      url = "https://github.com/SigNoz/signoz/releases/download/histogram-quantile%2Fv0.0.1/histogram-quantile_linux_arm64.tar.gz";
+      sha256 = "sha256-5WBev/qCpFDrvN9s8Z2tVG4eQNUtvz4Dz9LS1bc5QhE=";
+    };
+  };
+  signoz-histogram-quantile-linux-x86_64 = {
+    pname = "signoz-histogram-quantile-linux-x86_64";
+    version = "0.0.1";
+    src = fetchurl {
+      url = "https://github.com/SigNoz/signoz/releases/download/histogram-quantile%2Fv0.0.1/histogram-quantile_linux_amd64.tar.gz";
+      sha256 = "sha256-M5lwc+ttgre+Tyf5/I7J4oo5Xg8gZ01dVLsvoop1SI0=";
+    };
+  };
+  signoz-linux-arm64 = {
+    pname = "signoz-linux-arm64";
+    version = "0.151.0";
+    src = fetchurl {
+      url = "https://github.com/SigNoz/signoz/releases/download/v0.151.0/signoz-community_linux_arm64.tar.gz";
+      sha256 = "sha256-h+QaVpHLYZ98KfMkw5fCUrDPADs8LTloSU28JXe/9TM=";
+    };
+  };
+  signoz-linux-x86_64 = {
+    pname = "signoz-linux-x86_64";
+    version = "0.151.0";
+    src = fetchurl {
+      url = "https://github.com/SigNoz/signoz/releases/download/v0.151.0/signoz-community_linux_amd64.tar.gz";
+      sha256 = "sha256-t7xO/AnrD+rhbUqXwfL6qBIvRvkry99XgxVJplzcDAk=";
+    };
+  };
+  signoz-otel-collector-darwin-arm64 = {
+    pname = "signoz-otel-collector-darwin-arm64";
+    version = "0.144.18";
+    src = fetchurl {
+      url = "https://github.com/SigNoz/signoz-otel-collector/releases/download/v0.144.18/signoz-otel-collector_darwin_arm64.tar.gz";
+      sha256 = "sha256-WmU3fvYD2QnqOqlmZL6fJondVz59NZoeCLY+yUV8JEw=";
+    };
+  };
+  signoz-otel-collector-darwin-x86_64 = {
+    pname = "signoz-otel-collector-darwin-x86_64";
+    version = "0.144.18";
+    src = fetchurl {
+      url = "https://github.com/SigNoz/signoz-otel-collector/releases/download/v0.144.18/signoz-otel-collector_darwin_amd64.tar.gz";
+      sha256 = "sha256-f5pSBYWvJHRCR5MhnCklr+6Nwctjav3+eWI8oJM18QU=";
+    };
+  };
+  signoz-otel-collector-linux-arm64 = {
+    pname = "signoz-otel-collector-linux-arm64";
+    version = "0.144.18";
+    src = fetchurl {
+      url = "https://github.com/SigNoz/signoz-otel-collector/releases/download/v0.144.18/signoz-otel-collector_linux_arm64.tar.gz";
+      sha256 = "sha256-f3b+66M8yIV9SoJIdAk2rygxjpCYYmx8E1RmT35dCY4=";
+    };
+  };
+  signoz-otel-collector-linux-x86_64 = {
+    pname = "signoz-otel-collector-linux-x86_64";
+    version = "0.144.18";
+    src = fetchurl {
+      url = "https://github.com/SigNoz/signoz-otel-collector/releases/download/v0.144.18/signoz-otel-collector_linux_amd64.tar.gz";
+      sha256 = "sha256-3joD1r2HrEffYxfpmsG5bNnB8+rtwYaG5LmDpmcPbFs=";
+    };
+  };
   sui = {
     pname = "sui";
     version = "mainnet-v1.84.2";
