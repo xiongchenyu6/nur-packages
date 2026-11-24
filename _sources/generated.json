@@ -286,6 +286,21 @@
         },
         "version": "https://lf16-larkversion.larksuitecdn.com/obj/lark-version-sg/4c647c08/Lark-linux_x64-8.0.18.deb"
     },
+    "google-colab-cli": {
+        "cargoLock": null,
+        "date": null,
+        "extract": null,
+        "name": "google-colab-cli",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-XmI9CzTm76hOqBVx0M7GAJngauvn6jRexi9T6BDaLsE=",
+            "type": "url",
+            "url": "https://files.pythonhosted.org/packages/py3/g/google-colab-cli/google_colab_cli-0.8.0-py3-none-any.whl"
+        },
+        "version": "0.8.0"
+    },
     "gotron-sdk": {
         "cargoLock": null,
         "date": null,
@@ -414,6 +429,36 @@
             "type": "github"
         },
         "version": "v0.2.1"
+    },
+    "jupyter-kernel-client": {
+        "cargoLock": null,
+        "date": null,
+        "extract": null,
+        "name": "jupyter-kernel-client",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-d6y48vc42XYl1r0B7ozyHE1ZeQt7pGQQhxLbOHBBbyA=",
+            "type": "url",
+            "url": "https://files.pythonhosted.org/packages/py3/j/jupyter-kernel-client/jupyter_kernel_client-0.9.0-py3-none-any.whl"
+        },
+        "version": "0.9.0"
+    },
+    "jupyter-mimetypes": {
+        "cargoLock": null,
+        "date": null,
+        "extract": null,
+        "name": "jupyter-mimetypes",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-5tzZiSWOP8lENltlbZFzGRUX4OOTvYeOl85QDls4hSc=",
+            "type": "url",
+            "url": "https://files.pythonhosted.org/packages/py3/j/jupyter-mimetypes/jupyter_mimetypes-0.2.0-py3-none-any.whl"
+        },
+        "version": "0.2.0"
     },
     "larksuite-cli-darwin-arm64": {
         "cargoLock": null,

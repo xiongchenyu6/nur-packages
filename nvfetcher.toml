@@ -321,3 +321,16 @@ src.github_tag = "SigNoz/signoz"
 src.include_regex = "^histogram-quantile/v[0-9]+\\.[0-9]+\\.[0-9]+$"
 src.prefix = "histogram-quantile/v"
 fetch.url = "https://github.com/SigNoz/signoz/releases/download/histogram-quantile%2Fv$ver/histogram-quantile_darwin_arm64.tar.gz"
+
+[google-colab-cli]
+src.pypi = "google-colab-cli"
+fetch.url = "https://files.pythonhosted.org/packages/py3/g/google-colab-cli/google_colab_cli-$ver-py3-none-any.whl"
+
+[jupyter-kernel-client]
+src.webpage = "https://pypi.org/pypi/google-colab-cli/json"
+src.regex = 'jupyter-kernel-client==([0-9]+\.[0-9]+\.[0-9]+)'
+fetch.url = "https://files.pythonhosted.org/packages/py3/j/jupyter-kernel-client/jupyter_kernel_client-$ver-py3-none-any.whl"
+
+[jupyter-mimetypes]
+src.pypi = "jupyter-mimetypes"
+fetch.url = "https://files.pythonhosted.org/packages/py3/j/jupyter-mimetypes/jupyter_mimetypes-$ver-py3-none-any.whl"

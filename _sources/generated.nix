@@ -162,6 +162,14 @@
       sha256 = "sha256-0WFobFrlLWmaFI12QxCGn1XTyoZtV6fiSWOq+oC2ejw=";
     };
   };
+  google-colab-cli = {
+    pname = "google-colab-cli";
+    version = "0.8.0";
+    src = fetchurl {
+      url = "https://files.pythonhosted.org/packages/py3/g/google-colab-cli/google_colab_cli-0.8.0-py3-none-any.whl";
+      sha256 = "sha256-XmI9CzTm76hOqBVx0M7GAJngauvn6jRexi9T6BDaLsE=";
+    };
+  };
   gotron-sdk = {
     pname = "gotron-sdk";
     version = "v0.27.1";
@@ -228,6 +236,22 @@
       rev = "v0.2.1";
       fetchSubmodules = false;
       sha256 = "sha256-l/Og7R63Boh6W8GmyR6l6yzE2Sn6zEhI6boUmPCQDDo=";
+    };
+  };
+  jupyter-kernel-client = {
+    pname = "jupyter-kernel-client";
+    version = "0.9.0";
+    src = fetchurl {
+      url = "https://files.pythonhosted.org/packages/py3/j/jupyter-kernel-client/jupyter_kernel_client-0.9.0-py3-none-any.whl";
+      sha256 = "sha256-d6y48vc42XYl1r0B7ozyHE1ZeQt7pGQQhxLbOHBBbyA=";
+    };
+  };
+  jupyter-mimetypes = {
+    pname = "jupyter-mimetypes";
+    version = "0.2.0";
+    src = fetchurl {
+      url = "https://files.pythonhosted.org/packages/py3/j/jupyter-mimetypes/jupyter_mimetypes-0.2.0-py3-none-any.whl";
+      sha256 = "sha256-5tzZiSWOP8lENltlbZFzGRUX4OOTvYeOl85QDls4hSc=";
     };
   };
   larksuite-cli-darwin-arm64 = {
