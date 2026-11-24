@@ -139,11 +139,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-ykm9ss5TrKk+uUnLF5OEn6N1mtmwu+vuhzwwl7GzI/I=",
+            "sha256": "sha256-WQJU174MuKFkMHXLBX/id88jzpfRE9Ss6Zv5P3V3C20=",
             "type": "url",
-            "url": "https://github.com/farion1231/cc-switch/releases/download/v4.0.39/CC-Switch-v4.0.39-macOS.tar.gz"
+            "url": "https://github.com/farion1231/cc-switch/releases/download/v4.0.40/CC-Switch-v4.0.40-macOS.tar.gz"
         },
-        "version": "4.0.39"
+        "version": "4.0.40"
     },
     "cc-switch-linux-arm64": {
         "cargoLock": null,
@@ -154,11 +154,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-jWv34mcAbgX6cF+7R5gYTBdyFAjxxISEIEbQBJ93zwM=",
+            "sha256": "sha256-4Ofbkvquw/3H5wkd9Yg2nmAGqOxtcZpUT/P4sZ3yiM0=",
             "type": "url",
-            "url": "https://github.com/farion1231/cc-switch/releases/download/v4.0.39/CC-Switch-v4.0.39-Linux-arm64.deb"
+            "url": "https://github.com/farion1231/cc-switch/releases/download/v4.0.40/CC-Switch-v4.0.40-Linux-arm64.deb"
         },
-        "version": "4.0.39"
+        "version": "4.0.40"
     },
     "cc-switch-linux-x86_64": {
         "cargoLock": null,
@@ -169,11 +169,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-k4YTXVlZLB00yaHvDWzqSUp9S79ptinQtDWOxCvtRxc=",
+            "sha256": "sha256-5epZXUKi9lq0dcAO9w3gpCZ9iljf1sm6j/UTx2NTpsk=",
             "type": "url",
-            "url": "https://github.com/farion1231/cc-switch/releases/download/v4.0.39/CC-Switch-v4.0.39-Linux-x86_64.deb"
+            "url": "https://github.com/farion1231/cc-switch/releases/download/v4.0.40/CC-Switch-v4.0.40-Linux-x86_64.deb"
         },
-        "version": "4.0.39"
+        "version": "4.0.40"
     },
     "ccxt": {
         "cargoLock": null,
@@ -184,11 +184,11 @@
         "pinned": false,
         "src": {
             "name": null,
-            "sha256": "sha256-IU0aA3m1U5+imTbgPL4S14xVpY348iXVn5/DrXKAW1M=",
+            "sha256": "sha256-c+1hjh+B1cM46YXU8Uue318zIUjtnUXmGBl42sZqHhc=",
             "type": "url",
-            "url": "https://files.pythonhosted.org/packages/py3/c/ccxt/ccxt-4.5.93-py3-none-any.whl"
+            "url": "https://files.pythonhosted.org/packages/py3/c/ccxt/ccxt-4.5.94-py3-none-any.whl"
         },
-        "version": "4.5.93"
+        "version": "4.5.94"
     },
     "codex-acp-darwin-arm64": {
         "cargoLock": null,
@@ -848,12 +848,12 @@
             "name": null,
             "owner": "supabase",
             "repo": "realtime",
-            "rev": "v2.174.5",
-            "sha256": "sha256-SnXjloCJSsIr8CU+NgdTqASFYta27Vyud1lgYjc/15Y=",
+            "rev": "v2.177.1",
+            "sha256": "sha256-6LK1GHE3r6zzeJAq2DT6+vfoZOUDiSeCkOumNlYZjLA=",
             "sparseCheckout": [],
             "type": "github"
         },
-        "version": "v2.174.5"
+        "version": "v2.177.1"
     },
     "unity-cli-darwin-arm64": {
         "cargoLock": null,
