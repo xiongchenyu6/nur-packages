@@ -334,3 +334,76 @@ fetch.url = "https://files.pythonhosted.org/packages/py3/j/jupyter-kernel-client
 [jupyter-mimetypes]
 src.pypi = "jupyter-mimetypes"
 fetch.url = "https://files.pythonhosted.org/packages/py3/j/jupyter-mimetypes/jupyter_mimetypes-$ver-py3-none-any.whl"
+
+# SigNoz official Model Context Protocol (MCP) server.
+[signoz-mcp-server-linux-x86_64]
+src.github_tag = "SigNoz/signoz-mcp-server"
+src.include_regex = "^v[0-9]+\\.[0-9]+\\.[0-9]+$"
+src.prefix = "v"
+fetch.url = "https://github.com/SigNoz/signoz-mcp-server/releases/download/v$ver/signoz-mcp-server_linux_amd64.tar.gz"
+
+[signoz-mcp-server-linux-arm64]
+src.github_tag = "SigNoz/signoz-mcp-server"
+src.include_regex = "^v[0-9]+\\.[0-9]+\\.[0-9]+$"
+src.prefix = "v"
+fetch.url = "https://github.com/SigNoz/signoz-mcp-server/releases/download/v$ver/signoz-mcp-server_linux_arm64.tar.gz"
+
+[signoz-mcp-server-darwin-x86_64]
+src.github_tag = "SigNoz/signoz-mcp-server"
+src.include_regex = "^v[0-9]+\\.[0-9]+\\.[0-9]+$"
+src.prefix = "v"
+fetch.url = "https://github.com/SigNoz/signoz-mcp-server/releases/download/v$ver/signoz-mcp-server_darwin_amd64.tar.gz"
+
+[signoz-mcp-server-darwin-arm64]
+src.github_tag = "SigNoz/signoz-mcp-server"
+src.include_regex = "^v[0-9]+\\.[0-9]+\\.[0-9]+$"
+src.prefix = "v"
+fetch.url = "https://github.com/SigNoz/signoz-mcp-server/releases/download/v$ver/signoz-mcp-server_darwin_arm64.tar.gz"
+
+# New API — unified LLM API gateway (tracks both vX.Y.Z-rc.N and stable vX.Y.Z releases).
+[new-api-linux-x86_64]
+src.github = "QuantumNous/new-api"
+src.prefix = "v"
+fetch.url = "https://github.com/QuantumNous/new-api/releases/download/v$ver/new-api-v$ver"
+
+[new-api-linux-arm64]
+src.github = "QuantumNous/new-api"
+src.prefix = "v"
+fetch.url = "https://github.com/QuantumNous/new-api/releases/download/v$ver/new-api-arm64-v$ver"
+
+[new-api-darwin-arm64]
+src.github = "QuantumNous/new-api"
+src.prefix = "v"
+fetch.url = "https://github.com/QuantumNous/new-api/releases/download/v$ver/new-api-macos-v$ver"
+
+# Mathesar — official release frontend + Python application bundle.
+[mathesar]
+src.github = "mathesar-foundation/mathesar"
+fetch.url = "https://github.com/mathesar-foundation/mathesar/releases/download/$ver/mathesar.tar.gz"
+
+# OpenTelemetry Java automatic instrumentation agent JAR.
+[opentelemetry-javaagent]
+src.github = "open-telemetry/opentelemetry-java-instrumentation"
+src.prefix = "v"
+fetch.url = "https://github.com/open-telemetry/opentelemetry-java-instrumentation/releases/download/v$ver/opentelemetry-javaagent.jar"
+
+# RustDesk API server (lejianwen/rustdesk-api) and JWT-enabled rendezvous/relay fork.
+[rustdesk-api-linux-x86_64]
+src.github = "lejianwen/rustdesk-api"
+src.prefix = "v"
+fetch.url = "https://github.com/lejianwen/rustdesk-api/releases/download/v$ver/linux-amd64.tar.gz"
+
+[rustdesk-api-linux-arm64]
+src.github = "lejianwen/rustdesk-api"
+src.prefix = "v"
+fetch.url = "https://github.com/lejianwen/rustdesk-api/releases/download/v$ver/linux-arm64.tar.gz"
+
+[rustdesk-server-api-linux-x86_64]
+src.github = "lejianwen/rustdesk-server"
+src.prefix = "v"
+fetch.url = "https://github.com/lejianwen/rustdesk-server/releases/download/v$ver/rustdesk-server-linux-amd64.zip"
+
+[rustdesk-server-api-linux-arm64]
+src.github = "lejianwen/rustdesk-server"
+src.prefix = "v"
+fetch.url = "https://github.com/lejianwen/rustdesk-server/releases/download/v$ver/rustdesk-server-linux-arm64v8.zip"

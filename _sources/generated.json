@@ -540,6 +540,21 @@
         },
         "version": "6da5d6cedb853380ed1b5b9b6979cb1a9c028353"
     },
+    "mathesar": {
+        "cargoLock": null,
+        "date": null,
+        "extract": null,
+        "name": "mathesar",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-Sthh6wKinlh/xVsrLqPgMG34pNJ7RL6yRNEEXIkTqTY=",
+            "type": "url",
+            "url": "https://github.com/mathesar-foundation/mathesar/releases/download/0.12.0/mathesar.tar.gz"
+        },
+        "version": "0.12.0"
+    },
     "my2sql": {
         "cargoLock": null,
         "date": "2026-04-23",
@@ -600,6 +615,51 @@
         },
         "version": "1.231.0"
     },
+    "new-api-darwin-arm64": {
+        "cargoLock": null,
+        "date": null,
+        "extract": null,
+        "name": "new-api-darwin-arm64",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-VtQ07iREltB4glVYVih4pj+MSvh5jDoSOMkH5ZFcFQo=",
+            "type": "url",
+            "url": "https://github.com/QuantumNous/new-api/releases/download/v1.0.0-rc.51/new-api-macos-v1.0.0-rc.51"
+        },
+        "version": "1.0.0-rc.51"
+    },
+    "new-api-linux-arm64": {
+        "cargoLock": null,
+        "date": null,
+        "extract": null,
+        "name": "new-api-linux-arm64",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-4CuGQ+ZZEKARVFLl96Q+4v0wZy681sfUlCjgZ0YmDIE=",
+            "type": "url",
+            "url": "https://github.com/QuantumNous/new-api/releases/download/v1.0.0-rc.51/new-api-arm64-v1.0.0-rc.51"
+        },
+        "version": "1.0.0-rc.51"
+    },
+    "new-api-linux-x86_64": {
+        "cargoLock": null,
+        "date": null,
+        "extract": null,
+        "name": "new-api-linux-x86_64",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-pC9FWXkAIf/simCRgs8UK0MPgiz0ICcBBUIsgAxRkVc=",
+            "type": "url",
+            "url": "https://github.com/QuantumNous/new-api/releases/download/v1.0.0-rc.51/new-api-v1.0.0-rc.51"
+        },
+        "version": "1.0.0-rc.51"
+    },
     "nvkvm-pv": {
         "cargoLock": null,
         "date": "2026-09-28",
@@ -620,6 +680,21 @@
             "type": "github"
         },
         "version": "39972874d22f5ba19e39827488b089e80a0c17f4"
+    },
+    "opentelemetry-javaagent": {
+        "cargoLock": null,
+        "date": null,
+        "extract": null,
+        "name": "opentelemetry-javaagent",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-2kQVTOoSgld3nIp4K5ZR/XwMaqF3zTgQ+ahnrIUJVV0=",
+            "type": "url",
+            "url": "https://github.com/open-telemetry/opentelemetry-java-instrumentation/releases/download/v2.34.0/opentelemetry-javaagent.jar"
+        },
+        "version": "2.34.0"
     },
     "pg-ecdsa-verify": {
         "cargoLock": null,
@@ -683,6 +758,66 @@
             "type": "github"
         },
         "version": "v1.0.0"
+    },
+    "rustdesk-api-linux-arm64": {
+        "cargoLock": null,
+        "date": null,
+        "extract": null,
+        "name": "rustdesk-api-linux-arm64",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-gwu6tYjDnH05Ew4o/kqgHwAVDrqgOFpI0fxmTLozzPw=",
+            "type": "url",
+            "url": "https://github.com/lejianwen/rustdesk-api/releases/download/v2.7/linux-arm64.tar.gz"
+        },
+        "version": "2.7"
+    },
+    "rustdesk-api-linux-x86_64": {
+        "cargoLock": null,
+        "date": null,
+        "extract": null,
+        "name": "rustdesk-api-linux-x86_64",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-0GiaNT/XVoFc/lYM58uY92RgLeYNBAO1HbTlqb2E0io=",
+            "type": "url",
+            "url": "https://github.com/lejianwen/rustdesk-api/releases/download/v2.7/linux-amd64.tar.gz"
+        },
+        "version": "2.7"
+    },
+    "rustdesk-server-api-linux-arm64": {
+        "cargoLock": null,
+        "date": null,
+        "extract": null,
+        "name": "rustdesk-server-api-linux-arm64",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-xywwP0SomcD5ptK+J+alawjvLLH72ktwl/HH8lQjvqs=",
+            "type": "url",
+            "url": "https://github.com/lejianwen/rustdesk-server/releases/download/v0.1.2/rustdesk-server-linux-arm64v8.zip"
+        },
+        "version": "0.1.2"
+    },
+    "rustdesk-server-api-linux-x86_64": {
+        "cargoLock": null,
+        "date": null,
+        "extract": null,
+        "name": "rustdesk-server-api-linux-x86_64",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-v5aKxvdOY7APYIBHy76sSgFqtVLa60xi25ptBRjHsgk=",
+            "type": "url",
+            "url": "https://github.com/lejianwen/rustdesk-server/releases/download/v0.1.2/rustdesk-server-linux-amd64.zip"
+        },
+        "version": "0.1.2"
     },
     "signoz-darwin-arm64": {
         "cargoLock": null,
@@ -803,6 +938,66 @@
             "url": "https://github.com/SigNoz/signoz/releases/download/v0.151.0/signoz-community_linux_amd64.tar.gz"
         },
         "version": "0.151.0"
+    },
+    "signoz-mcp-server-darwin-arm64": {
+        "cargoLock": null,
+        "date": null,
+        "extract": null,
+        "name": "signoz-mcp-server-darwin-arm64",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-zMLFYQsBOHQ7ZCubzqFTC6EQTVoAZny1u4Z6OSH92Wc=",
+            "type": "url",
+            "url": "https://github.com/SigNoz/signoz-mcp-server/releases/download/v1.0.0/signoz-mcp-server_darwin_arm64.tar.gz"
+        },
+        "version": "1.0.0"
+    },
+    "signoz-mcp-server-darwin-x86_64": {
+        "cargoLock": null,
+        "date": null,
+        "extract": null,
+        "name": "signoz-mcp-server-darwin-x86_64",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-qVlnJO97/8V8Hy3PiN5J2Xj4bNa/u50rw2kEzgvx5QE=",
+            "type": "url",
+            "url": "https://github.com/SigNoz/signoz-mcp-server/releases/download/v1.0.0/signoz-mcp-server_darwin_amd64.tar.gz"
+        },
+        "version": "1.0.0"
+    },
+    "signoz-mcp-server-linux-arm64": {
+        "cargoLock": null,
+        "date": null,
+        "extract": null,
+        "name": "signoz-mcp-server-linux-arm64",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-2AS78iZcDHAJddDtluIGKRPNtUd2YnLcaVS/rLT48Rg=",
+            "type": "url",
+            "url": "https://github.com/SigNoz/signoz-mcp-server/releases/download/v1.0.0/signoz-mcp-server_linux_arm64.tar.gz"
+        },
+        "version": "1.0.0"
+    },
+    "signoz-mcp-server-linux-x86_64": {
+        "cargoLock": null,
+        "date": null,
+        "extract": null,
+        "name": "signoz-mcp-server-linux-x86_64",
+        "passthru": null,
+        "pinned": false,
+        "src": {
+            "name": null,
+            "sha256": "sha256-mIZ+vuBBttVBWW6EokKIclrXP6G+0SREJc8uiVSySz0=",
+            "type": "url",
+            "url": "https://github.com/SigNoz/signoz-mcp-server/releases/download/v1.0.0/signoz-mcp-server_linux_amd64.tar.gz"
+        },
+        "version": "1.0.0"
     },
     "signoz-otel-collector-darwin-arm64": {
         "cargoLock": null,

@@ -300,6 +300,14 @@
     };
     date = "2026-10-10";
   };
+  mathesar = {
+    pname = "mathesar";
+    version = "0.12.0";
+    src = fetchurl {
+      url = "https://github.com/mathesar-foundation/mathesar/releases/download/0.12.0/mathesar.tar.gz";
+      sha256 = "sha256-Sthh6wKinlh/xVsrLqPgMG34pNJ7RL6yRNEEXIkTqTY=";
+    };
+  };
   my2sql = {
     pname = "my2sql";
     version = "69b39554cb116d02fba389ff258ca9736dea7437";
@@ -333,6 +341,30 @@
       sha256 = "sha256-Qp6mHDOjLNhJjTng6pXrqhK42/wlxx+6uoRfKwXoq5E=";
     };
   };
+  new-api-darwin-arm64 = {
+    pname = "new-api-darwin-arm64";
+    version = "1.0.0-rc.51";
+    src = fetchurl {
+      url = "https://github.com/QuantumNous/new-api/releases/download/v1.0.0-rc.51/new-api-macos-v1.0.0-rc.51";
+      sha256 = "sha256-VtQ07iREltB4glVYVih4pj+MSvh5jDoSOMkH5ZFcFQo=";
+    };
+  };
+  new-api-linux-arm64 = {
+    pname = "new-api-linux-arm64";
+    version = "1.0.0-rc.51";
+    src = fetchurl {
+      url = "https://github.com/QuantumNous/new-api/releases/download/v1.0.0-rc.51/new-api-arm64-v1.0.0-rc.51";
+      sha256 = "sha256-4CuGQ+ZZEKARVFLl96Q+4v0wZy681sfUlCjgZ0YmDIE=";
+    };
+  };
+  new-api-linux-x86_64 = {
+    pname = "new-api-linux-x86_64";
+    version = "1.0.0-rc.51";
+    src = fetchurl {
+      url = "https://github.com/QuantumNous/new-api/releases/download/v1.0.0-rc.51/new-api-v1.0.0-rc.51";
+      sha256 = "sha256-pC9FWXkAIf/simCRgs8UK0MPgiz0ICcBBUIsgAxRkVc=";
+    };
+  };
   nvkvm-pv = {
     pname = "nvkvm-pv";
     version = "39972874d22f5ba19e39827488b089e80a0c17f4";
@@ -344,6 +376,14 @@
       sha256 = "sha256-M4hHu60LqvzcAT9xIUPpx2YXQLED7jGz6mwGskNhup8=";
     };
     date = "2026-09-28";
+  };
+  opentelemetry-javaagent = {
+    pname = "opentelemetry-javaagent";
+    version = "2.34.0";
+    src = fetchurl {
+      url = "https://github.com/open-telemetry/opentelemetry-java-instrumentation/releases/download/v2.34.0/opentelemetry-javaagent.jar";
+      sha256 = "sha256-2kQVTOoSgld3nIp4K5ZR/XwMaqF3zTgQ+ahnrIUJVV0=";
+    };
   };
   pg-ecdsa-verify = {
     pname = "pg-ecdsa-verify";
@@ -378,6 +418,38 @@
       rev = "v1.0.0";
       fetchSubmodules = false;
       sha256 = "sha256-/0BV4qFvK/CxCuY2iKtMsdn5JubEzG7IHixvOSZVfw4=";
+    };
+  };
+  rustdesk-api-linux-arm64 = {
+    pname = "rustdesk-api-linux-arm64";
+    version = "2.7";
+    src = fetchurl {
+      url = "https://github.com/lejianwen/rustdesk-api/releases/download/v2.7/linux-arm64.tar.gz";
+      sha256 = "sha256-gwu6tYjDnH05Ew4o/kqgHwAVDrqgOFpI0fxmTLozzPw=";
+    };
+  };
+  rustdesk-api-linux-x86_64 = {
+    pname = "rustdesk-api-linux-x86_64";
+    version = "2.7";
+    src = fetchurl {
+      url = "https://github.com/lejianwen/rustdesk-api/releases/download/v2.7/linux-amd64.tar.gz";
+      sha256 = "sha256-0GiaNT/XVoFc/lYM58uY92RgLeYNBAO1HbTlqb2E0io=";
+    };
+  };
+  rustdesk-server-api-linux-arm64 = {
+    pname = "rustdesk-server-api-linux-arm64";
+    version = "0.1.2";
+    src = fetchurl {
+      url = "https://github.com/lejianwen/rustdesk-server/releases/download/v0.1.2/rustdesk-server-linux-arm64v8.zip";
+      sha256 = "sha256-xywwP0SomcD5ptK+J+alawjvLLH72ktwl/HH8lQjvqs=";
+    };
+  };
+  rustdesk-server-api-linux-x86_64 = {
+    pname = "rustdesk-server-api-linux-x86_64";
+    version = "0.1.2";
+    src = fetchurl {
+      url = "https://github.com/lejianwen/rustdesk-server/releases/download/v0.1.2/rustdesk-server-linux-amd64.zip";
+      sha256 = "sha256-v5aKxvdOY7APYIBHy76sSgFqtVLa60xi25ptBRjHsgk=";
     };
   };
   signoz-darwin-arm64 = {
@@ -442,6 +514,38 @@
     src = fetchurl {
       url = "https://github.com/SigNoz/signoz/releases/download/v0.151.0/signoz-community_linux_amd64.tar.gz";
       sha256 = "sha256-t7xO/AnrD+rhbUqXwfL6qBIvRvkry99XgxVJplzcDAk=";
+    };
+  };
+  signoz-mcp-server-darwin-arm64 = {
+    pname = "signoz-mcp-server-darwin-arm64";
+    version = "1.0.0";
+    src = fetchurl {
+      url = "https://github.com/SigNoz/signoz-mcp-server/releases/download/v1.0.0/signoz-mcp-server_darwin_arm64.tar.gz";
+      sha256 = "sha256-zMLFYQsBOHQ7ZCubzqFTC6EQTVoAZny1u4Z6OSH92Wc=";
+    };
+  };
+  signoz-mcp-server-darwin-x86_64 = {
+    pname = "signoz-mcp-server-darwin-x86_64";
+    version = "1.0.0";
+    src = fetchurl {
+      url = "https://github.com/SigNoz/signoz-mcp-server/releases/download/v1.0.0/signoz-mcp-server_darwin_amd64.tar.gz";
+      sha256 = "sha256-qVlnJO97/8V8Hy3PiN5J2Xj4bNa/u50rw2kEzgvx5QE=";
+    };
+  };
+  signoz-mcp-server-linux-arm64 = {
+    pname = "signoz-mcp-server-linux-arm64";
+    version = "1.0.0";
+    src = fetchurl {
+      url = "https://github.com/SigNoz/signoz-mcp-server/releases/download/v1.0.0/signoz-mcp-server_linux_arm64.tar.gz";
+      sha256 = "sha256-2AS78iZcDHAJddDtluIGKRPNtUd2YnLcaVS/rLT48Rg=";
+    };
+  };
+  signoz-mcp-server-linux-x86_64 = {
+    pname = "signoz-mcp-server-linux-x86_64";
+    version = "1.0.0";
+    src = fetchurl {
+      url = "https://github.com/SigNoz/signoz-mcp-server/releases/download/v1.0.0/signoz-mcp-server_linux_amd64.tar.gz";
+      sha256 = "sha256-mIZ+vuBBttVBWW6EokKIclrXP6G+0SREJc8uiVSySz0=";
     };
   };
   signoz-otel-collector-darwin-arm64 = {
